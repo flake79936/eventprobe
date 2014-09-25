@@ -40,6 +40,15 @@
         <script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 		<script src="scripts/pwdwidget.js" type="text/javascript"></script>
 		
+		<!--(Start) Tooltip Scripts-->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="/resources/demos/styleEdit.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script type="text/javascript">
+		$(function(){$(document).tooltip();});
+		</script>
+		
 	</head>
 	
 	<body lang="en">
@@ -64,7 +73,7 @@
 							<span id="register_UFname_errorloc" class="error"></span>
 
 							<h5>Last Name</h5>
-							<input type="text" name="ULname" title="Enter your First Name" id="ULname"  value="<?php echo $fgmembersite->SafeDisplay('ULname') ?>" maxlength="50" /><br/>
+							<input type="text" name="ULname" title="Enter your Last Name" id="ULname"  value="<?php echo $fgmembersite->SafeDisplay('ULname') ?>" maxlength="50" /><br/>
 							<span id="register_UFname_errorloc" class="error"></span>
 							
 							<h5>Username</h5>
