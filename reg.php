@@ -60,7 +60,7 @@
 		<div class="main">
 			<div class="content">
 				<!--Keep this below-->
-				<form>
+				<form action="" method="">
 					<div class="form-wrap">
 					<!--New inputs-->
 
