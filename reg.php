@@ -60,7 +60,9 @@
 		<div class="main">
 			<div class="content">
 				<!--Keep this below-->
+
 				<form id="register" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+
 					<div class="form-wrap">
 					<!--New inputs-->
 					
