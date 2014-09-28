@@ -60,10 +60,15 @@
 		<div class="main">
 			<div class="content">
 				<!--Keep this below-->
-				<form>
+				<form id="register" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 					<div class="form-wrap">
 					<!--New inputs-->
+					
+						<input type="hidden" name="submitted" id="submitted" value="1"/>
+						
+<!-- 						<input type="text" class="spmhidip" name="<?php echo $fgmembersite->GetSpamTrapInputName(); ?>" /> -->
 
+						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					
 						<div class="box">
 
