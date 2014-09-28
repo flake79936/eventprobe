@@ -24,7 +24,8 @@ require_once("formvalidator.php");
 class FGMembersite{
 	var $admin_email;
 	var $from_address;
-
+	
+	var $db_host;     /*host*/
 	var $username;   /*From DB*/
 	var $pwd;        /*From DB*/
 	var $database;   /*EventAdvisor*/

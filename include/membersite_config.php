@@ -16,9 +16,7 @@ $fgmembersite->SetAdminEmail('no.reply@ujetdevllc.com');
 
 $fgmembersite->InitDB(/*hostname*/'localhost',
                       /*username*/'admindev',
-                      /*password*/'17s_9Eyr',                      
-//                       /*username*/'JetDevSQL',
-//                       /*password*/'DevTeamSQL!!12',
+                      /*password*/'17s_9Eyr',
                       /*database name*/'EventAdvisor',
                       /*table name 1*/'Registration',
                       /*table name 2*/'Events');
