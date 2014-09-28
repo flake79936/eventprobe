@@ -60,9 +60,13 @@
 		<div class="main">
 			<div class="content">
 				<!--Keep this below-->
+<<<<<<< HEAD
 
 				<form id="register" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 
+=======
+				<form action="" method="">
+>>>>>>> FETCH_HEAD
 					<div class="form-wrap">
 					<!--New inputs-->
 					
