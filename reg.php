@@ -88,10 +88,10 @@
 							<span id="register_UuserName_errorloc" class="error"></span>							
 							
 							<h5>Password</h5>							
-							<div class='pwdwidgetdiv' id='thepwddiv' ></div>
-							<noscript>
+
+
 							<input type='password' name='UPswd' title="Enter your Password" id='UPswd' value="<?php echo $fgmembersite->SafeDisplay("UPswd") ?>" maxlength="50" />
-							</noscript>
+
 							<br/><span id='register_UPswd_errorloc' class='error' style='clear:both'></span>
 							
 							<h5>Confirm Password</h5>
