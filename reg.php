@@ -52,9 +52,11 @@
 	
 	<body lang="en">
     
+<!--  commented to remove the top, needs to be modified to adapt the whole desing.
 		<div class="top">
 			<div class="logo"><img src="images/logo.png" alt="Logo" /></div>
 		</div>
+ -->
 		
 		<div class="main">
 			<div class="content">
