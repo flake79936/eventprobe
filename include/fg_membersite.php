@@ -28,7 +28,7 @@ class FGMembersite{
 	var $db_host;     /*host*/
 	var $username;   /*From DB*/
 	var $pwd;        /*From DB*/
-	var $database;   /*EventAdvisor*/
+	var $database;   /*EventAdvisors*/
 	var $tablename1; /*Registration*/
 	var $tablename2; /*Events*/
 	var $connection; /**/
