@@ -91,10 +91,12 @@
 						<div class="clear"></div>
 					</div>
 					<input id="submitButton" type="submit" name="Submit" value="submit" />
+					<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
+					<img src="./images/login-button.png" alt="Sign in with Facebook"></a>
 				</form>
 			</div>
 			<div class="clear"></div>
-		</div>
+		</div>t
 		<div class="footer"></div>
 	</body>
 		<!--This script needs to wihtin the file. 
