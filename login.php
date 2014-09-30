@@ -127,6 +127,7 @@
 
 						<div class='container'>
 							<input type='submit' name='Submit' value='Submit' />
+							<img src="./images/login-button.png" alt="Sign in with Facebook">
 						</div>
 				</form>
 			</fieldset>
