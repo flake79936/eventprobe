@@ -1,2 +1,5 @@
 app ID: 861882643830735
 secret: c7d8579a97d35848e7231a0291e476f6
+
+email: support@eventprobe.com
+password: 83B&i7wd
