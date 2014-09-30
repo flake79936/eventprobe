@@ -1,7 +1,5 @@
 <?php  
-class facebookSearcher 
-{ 
-     
+class facebookSearcher{
     protected    $_access_token; 
     protected    $_query; 
     protected    $_type; 
@@ -23,8 +21,7 @@ class facebookSearcher
     } 
      
     // Build Graph Qurey 
-    protected function buildQueryUrl() 
-    { 
+    protected function buildQueryUrl(){ 
         //Validate 
         if(empty($this->_query)) throw new Exception("Query Not Set"); 
          
@@ -41,20 +38,17 @@ class facebookSearcher
      * Fetch Query Results 
      * @return Object 
      */ 
-    public function fetchResults() 
-    { 
+    public function fetchResults(){
         $result = json_decode(file_get_contents_curl( $this->buildQueryUrl() )); 
         //Load Previous and Next Pages 
          
         return $result; 
-    }  
-         
-     
+    }    
 }
 
 function file_get_contents_curl($url) {
     $ch = curl_init();
-
+	
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //Set curl to return the data instead of printing it to the browser.
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -64,5 +58,4 @@ function file_get_contents_curl($url) {
 
     return $data;
 }
-
 ?>

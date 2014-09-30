@@ -1,5 +1,5 @@
 <?php
-$config['callback_url']         =   'http://www.evenprobe.com/?fbTrue=true'; //   /?fbTrue=true is required.
+$config['callback_url']         =   'http://www.eventprobe.com/?fbTrue=true'; //   /?fbTrue=true is required.
 
 //Facebook configuration
 $config['App_ID']      =   '861882643830735';
