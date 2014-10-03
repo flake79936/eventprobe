@@ -1,9 +1,8 @@
 <?PHP
 	require_once("./include/membersite_config.php");
-	
-	if(isset($_POST["submitted"])){
-		if($fgmembersite->RegisterUser()){
-			$fgmembersite->RedirectToURL("reg_thank_you.php");
+	if(isset($_POST['submitted'])){
+		if($fgmembersite->Login()){
+			$fgmembersite->RedirectToURL("index.html");
 		}
 	}
 ?>
@@ -30,17 +29,19 @@
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
+<!-- 
         
-        <!--GOOGLE MAPS-->
+        <!~~GOOGLE MAPS~~>
         <script type="text/javascript" src="js/googleapis.js"></script>
         <script type="text/javascript" src="js/map.js"></script>
 		
+ -->
 		<!--Other Scripts-->
         <script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 		<script src="scripts/pwdwidget.js" type="text/javascript"></script>
 		
-		<!--(Start) Tooltip Scripts-->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<!-- 
+		(Start) Tooltip Scripts		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="/resources/demos/styleEdit.css">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
@@ -48,6 +49,7 @@
 			$(function(){$(document).tooltip();});
 		</script>
 		
+ -->
 	</head>
 	
 	<body lang="en">
@@ -63,7 +65,7 @@
 				<!--Keep this below-->
 
 
-				<form id="register" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+				<form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 
 					<div class="form-wrap">
 					<!--New inputs-->
@@ -99,29 +101,22 @@
 		</div>t
 		<div class="footer"></div>
 	</body>
-		<!--This script needs to wihtin the file. 
-		It is validating the form.-->
-	<script type="text/javascript">
-		// <![CDATA[
-		//'PasswordWidget()'
-		// @param1: The IDname of the <div> that it is going to be used in.
-		// @param2: The name of the <input> field.
-		var pwdwidget = new PasswordWidget('thepwddiv', 'UPswd');
-		pwdwidget.MakePWDWidget();
 
-		var frmvalidator = new Validator("register");
+	
+	<!--This script needs to wihtin the file. 
+		It is validating the form.-->
+	<script type='text/javascript'>
+		// <![CDATA[
+
+		var frmvalidator  = new Validator("login");
 		frmvalidator.EnableOnPageErrorDisplay();
 		frmvalidator.EnableMsgsTogether();
-		
-		frmvalidator.addValidation("UFname",    "req", "Please Input Your First Name");
-		frmvalidator.addValidation("ULname",    "req", "Please Input Your Last Name");
-		frmvalidator.addValidation("UuserName", "req", "Please Provide a User Name");
-		frmvalidator.addValidation("UPswd",     "req", "Please Provide a Password");
-		frmvalidator.addValidation("ConPswd",   "req", "Please Confirm Your Password");
-		frmvalidator.addValidation("Uemail",    "req", "Please Please fill in Name");
-		frmvalidator.addValidation("Uphone",    "req", "Please Provide a Phone Number");
-		//frmvalidator.addValidation("Uadmin",    "req", "Please fill in Name");
-		
+
+		frmvalidator.addValidation("UuserName", "req", "provide your username");
+
+		frmvalidator.addValidation("UPswd", "req", "Please provide the password");
+
 		// ]]>
 	</script>
+
 </html>
