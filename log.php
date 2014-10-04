@@ -18,7 +18,7 @@
 <div class="arrow" style="border-bottom-color: #131313;"></div>
 
 	<!-- <form action="login.php" class="loginform" method="post"  accept-charset="UTF-8" enctype="multipart/form-data"> -->
-				<form id='login' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
+				<form id='login' class="logbox" action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
 				<input type='hidden' name='submitted' id='submitted' value='1'/>
 		<input type="hidden" name="action" value="do_login" />
 		<input type="hidden" name="url" value="{$url}" />
