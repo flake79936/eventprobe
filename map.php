@@ -26,9 +26,11 @@
 
 ?>
 
+<!-- 
 		<div id="main_container">
 			<div id='middle_box'>
 				<div id="inner-mid-box">
+ -->
 					<?PHP
 						$i = 0;
 						while($row = mysqli_fetch_array($result)){ 
@@ -36,17 +38,37 @@
 						//if the street name contains two or more words, the map will not recognize the street.
 						$address = $row['Eaddress'] . ", " . $row['Ecity'] . ", " . $row['Estate'] . " " . $row['Ezip'];
 						$expression = "/\s/";
-						$replace = " ";
+						$replace = "+";
 
 						$street = preg_replace($expression, $replace, $address);
+						
+						
+						$prepAddr = str_replace(' ','+',$street);
+ 
+						$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+ 
+						$output= json_decode($geocode);
+ 
+						$lat = $output->results[0]->geometry->location->lat;
+						$long = $output->results[0]->geometry->location->lng;
+ 
+							echo $address.'<br>Lat: '.$lat.'<br>Long: '.$long;
+							 $zlat=$lat;
+							 $zlong=$long;	
+// 								 echo "lat".$zlat;
+// 								 echo "long".$zlong;
+						?><br> <?
 					?>
 					
 					
+<!-- 
 						<div class="accordion vertical">
 							<ul>
+ -->
 <!-- 							<?= $street?> -->
 
 
+<!-- 
 <?php
 // $address = '201 S. Division St., Ann Arbor, MI 48104'; // Google HQ
 $prepAddr = str_replace(' ','+',$street);
@@ -61,17 +83,21 @@ $long = $output->results[0]->geometry->location->lng;
 echo $address.'<br>Lat: '.$lat.'<br>Long: '.$long;
  $zlat=$lat;
  $zlong=$long;
+ echo "lat".$zlat;
+ echo "long".$zlong;
 ?>
-
-
-
+ -->
+<!-- 
 
 							</ul>
 						</div>
+ -->
 					<?PHP $i++; } ?>
+<!-- 
 				<div>
 			</div>
 		</div>
+ -->
 
 <!-- end of accordion -->
 
@@ -89,12 +115,11 @@ echo $address.'<br>Lat: '.$lat.'<br>Long: '.$long;
 
   <script type="text/javascript" language= "php">
     // Define your locations: HTML content for the info window, latitude, longitude
+    
     var locations = [
-      ['<h4>Bondi Beach</h4>', -33.890542, 151.274856],
-      ['<h4>Coogee Beach</h4>', -33.923036, 151.259052],
-      ['<h4>Cronulla Beach</h4>', -34.028249, 151.157507],
-      ['<h4>Manly Beach</h4>', -33.80010128657071, 151.28747820854187],
-      ['<h4>Maroubra Beach</h4>', -33.950198, 151.259302]
+      ['<h4>Bondi Beach</h4>',<?php echo json_encode($zlat); ?>, <?php echo json_encode($zlong); ?>],
+      ['<h4>Coogee Beach</h4>', 31.7702128, -106.504186],
+      ['<h4>Cronulla Beach</h4>', 31.7698611, -106.2285468]
     ];
     
     // Setup the different icons and shadows
@@ -112,8 +137,8 @@ echo $address.'<br>Lat: '.$lat.'<br>Long: '.$long;
     };
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: new google.maps.LatLng(-37.92, 151.25),
+      zoom: 12,
+      center: new google.maps.LatLng(-50.92, 120.25),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       streetViewControl: false,
