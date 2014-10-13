@@ -25,46 +25,23 @@
 	$result = mysqli_query($con, $sql);
 
 ?>
+<!-- retrieve info from DB -->
 
-<!-- 
-		<div id="main_container">
-			<div id='middle_box'>
-				<div id="inner-mid-box">
- -->
 					<?PHP
 						$i = 0;
 						while($row = mysqli_fetch_array($result)){ 
 						
-						//if the street name contains two or more words, the map will not recognize the street.
-						$address = $row['Eaddress'] . ", " . $row['Ecity'] . ", " . $row['Estate'] . " " . $row['Ezip'];
-						$expression = "/\s/";
-						$replace = "+";
-
-						$street = preg_replace($expression, $replace, $address);
+						$event = $row['Evename'];
+						$Elat  = $row['Elat'];
+						$Elong = $row['Elong'];
 						
+						$eventArray[$i]=[$event,$Elat,$Elong];
 						
-						$prepAddr = str_replace(' ','+',$street);
- 
-						$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
- 
-						$output= json_decode($geocode);
- 
-						$lat = $output->results[0]->geometry->location->lat;
-						$long = $output->results[0]->geometry->location->lng;
- 
-							echo $address.'<br>Lat: '.$lat.'<br>Long: '.$long;
-							 $zlat=$lat;
-							 $zlong=$long;	
-
+// 						echo $event.'<br>'.$Elat. '<br>'.$Elong;
+						print_r ($eventArray[$i]);
 						?><br> <?
-					?>
-					
-
-					<?PHP $i++; } ?>
-
-
-<!-- end of accordion -->
-
+						 $i++; } ?>
+<!--  end retrieval-->
 
 <!DOCTYPE html>
 <html> 
@@ -80,11 +57,12 @@
   <script type="text/javascript" language= "php">
     // Define your locations: HTML content for the info window, latitude, longitude
     
-    var locations = [
-      ['<h4>Bondi Beach</h4>',<?php echo json_encode($zlat); ?>, <?php echo json_encode($zlong); ?>],
-      ['<h4>Coogee Beach</h4>', 31.7702128, -106.504186],
-      ['<h4>Cronulla Beach</h4>', 31.7698611, -106.2285468]
-    ];
+    var locations = <?php echo json_encode($eventArray); ?>;
+// [
+//     
+//       [<?php echo json_encode($event); ?>,<?php echo json_encode($Elat); ?>, <?php echo json_encode($Elong); ?>]
+//     
+//     ];
     
     // Setup the different icons and shadows
     var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
