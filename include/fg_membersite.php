@@ -490,7 +490,23 @@ class FGMembersite{
 			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
 			$formvars['Eother']       = strtolower (  $formvars['Eother']        );
 
-			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Edescription, Etype, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother)
+						$address = $formvars['Eaddress'] . ", " . $formvars['Ecity'] . ", " . $formvars['Estate'] . " " . $formvars['Ezip'];
+						$expression = "/\s/";
+						$replace = "+";
+
+						$street = preg_replace($expression, $replace, $address);
+						
+						
+						$prepAddr = str_replace(' ','+',$street);
+ 
+						$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+ 
+						$output= json_decode($geocode);
+ 
+						$lat = $output->results[0]->geometry->location->lat;
+						$long = $output->results[0]->geometry->location->lng;
+						
+			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Edescription, Etype, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, Elat, Elong)
 				VALUES(
 					"' . $this->SanitizeForSQL($uName) . '",
 					"' . $this->SanitizeForSQL($formvars['Evename']) . '",
@@ -509,7 +525,9 @@ class FGMembersite{
 					"' . $this->SanitizeForSQL($formvars['Etwitter']) . '",
 					"' . $this->SanitizeForSQL($formvars['Egoogle']) . '",
 					"' . $this->SanitizeForSQL($formvars['Eflyer']) . '",
-					"' . $this->SanitizeForSQL($formvars['Eother']) . '"
+					"' . $this->SanitizeForSQL($formvars['Eother']) . '",
+					"' . $this->SanitizeForSQL($lat)                . '",
+					"' . $this->SanitizeForSQL($long)               . '"
 				);';
 		} else {
 			//
@@ -524,8 +542,24 @@ class FGMembersite{
 			$formvars['Etwitter']     = strtolower (  $formvars['Etwitter']      );
 			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
 			$formvars['Eother']       = strtolower (  $formvars['Eother']        );
-			
-			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Eflyer, Egoogle)
+
+						$address = $formvars['Eaddress'] . ", " . $formvars['Ecity'] . ", " . $formvars['Estate'] . " " . $formvars['Ezip'];
+						$expression = "/\s/";
+						$replace = "+";
+
+						$street = preg_replace($expression, $replace, $address);
+						
+						
+						$prepAddr = str_replace(' ','+',$street);
+ 
+						$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+ 
+						$output= json_decode($geocode);
+ 
+						$lat = $output->results[0]->geometry->location->lat;
+						$long = $output->results[0]->geometry->location->lng;
+
+			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Eflyer, Egoogle, Elat, Elong)
 				VALUES(
 					"' . $this->SanitizeForSQL($uName) . '",
 					"' . $this->SanitizeForSQL($formvars['Evename']) . '",
@@ -543,7 +577,9 @@ class FGMembersite{
 					"' . $this->SanitizeForSQL($formvars['Efacebook']) . '",
 					"' . $this->SanitizeForSQL($formvars['Etwitter']) . '",
 					"' . $this->SanitizeForSQL($formvars['Eflyer']) . '",
-					"' . $this->SanitizeForSQL($formvars['Egoogle']) . '"
+					"' . $this->SanitizeForSQL($formvars['Egoogle']) . '",
+					"' . $this->SanitizeForSQL($lat)                . '",
+					"' . $this->SanitizeForSQL($long)               . '"
 				);';
 		}
 		

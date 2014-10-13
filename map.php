@@ -55,49 +55,13 @@
 							echo $address.'<br>Lat: '.$lat.'<br>Long: '.$long;
 							 $zlat=$lat;
 							 $zlong=$long;	
-// 								 echo "lat".$zlat;
-// 								 echo "long".$zlong;
+
 						?><br> <?
 					?>
 					
-					
-<!-- 
-						<div class="accordion vertical">
-							<ul>
- -->
-<!-- 							<?= $street?> -->
 
-
-<!-- 
-<?php
-// $address = '201 S. Division St., Ann Arbor, MI 48104'; // Google HQ
-$prepAddr = str_replace(' ','+',$street);
- 
-$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
- 
-$output= json_decode($geocode);
- 
-$lat = $output->results[0]->geometry->location->lat;
-$long = $output->results[0]->geometry->location->lng;
- 
-echo $address.'<br>Lat: '.$lat.'<br>Long: '.$long;
- $zlat=$lat;
- $zlong=$long;
- echo "lat".$zlat;
- echo "long".$zlong;
-?>
- -->
-<!-- 
-
-							</ul>
-						</div>
- -->
 					<?PHP $i++; } ?>
-<!-- 
-				<div>
-			</div>
-		</div>
- -->
+
 
 <!-- end of accordion -->
 
