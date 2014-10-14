@@ -78,9 +78,9 @@
       zoom: 12,
       center: new google.maps.LatLng(-50.92, 120.25),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapTypeControl: false,
-      streetViewControl: false,
-      panControl: false,
+      mapTypeControl: true,
+      streetViewControl: true,
+      panControl: true,
       zoomControlOptions: {
          position: google.maps.ControlPosition.LEFT_BOTTOM
       }
