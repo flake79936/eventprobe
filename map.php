@@ -25,6 +25,7 @@
 	$result = mysqli_query($con, $sql);
 
 ?>
+
 <!-- retrieve info from DB -->
 
 					<?PHP
@@ -37,10 +38,9 @@
 						
 						$eventArray[$i]=[$event,$Elat,$Elong];
 						
-// 						echo $event.'<br>'.$Elat. '<br>'.$Elong;
-						print_r ($eventArray[$i]);
-						?><br> <?
 						 $i++; } ?>
+						 
+						 
 <!--  end retrieval-->
 
 <!DOCTYPE html>
@@ -58,11 +58,7 @@
     // Define your locations: HTML content for the info window, latitude, longitude
     
     var locations = <?php echo json_encode($eventArray); ?>;
-// [
-//     
-//       [<?php echo json_encode($event); ?>,<?php echo json_encode($Elat); ?>, <?php echo json_encode($Elong); ?>]
-//     
-//     ];
+
     
     // Setup the different icons and shadows
     var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
