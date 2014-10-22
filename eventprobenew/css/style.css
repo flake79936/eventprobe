@@ -1,0 +1,307 @@
+/*	Less Framework 4
+	http://lessframework.com
+	by Joni Korpi
+	License: http://opensource.org/licenses/mit-license.php	*/
+
+
+/*	Resets
+	------	*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}
+
+a img {border: 0;}
+
+
+
+/* FONTS */
+
+
+/* TYPOGRAPHY */
+h1{ font-size: 31px; font-weight: normal; }
+h2{ font-size: 24px; font-weight: normal; }
+h3{ font-size: 18px; font-weight: normal; }
+h4{ font-size: 14px; font-weight: normal; }
+h5{ font-size: 12px; font-weight: normal; }
+h6{ font-size: 11px; font-weight: normal; }
+
+p{ line-height: normal; }
+
+
+/* Selection colours (easy to forget) */
+
+::selection 	 	{background: rgb(255,255,158);}
+::-moz-selection 	{background: rgb(255,255,158);}
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+body {-webkit-tap-highlight-color: rgb(255,255,158);}
+
+
+
+/*		Default Layout: 992px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8      9      10
+px      68    160    252    344    436    528    620    712    804    896    */
+
+body{
+	background: #e9e4d5;
+	font-family: Arial, Helvetica, sans-serif;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+.top{ background: url(../images/bg_top.png) repeat-x bottom; }
+.top .logo{ float: left; width: 30%; text-align: center; }
+
+.top .date{ float: left; width: 40%; padding-top: 35px; }
+.top .date .box{ width: 450px; margin: 0 auto; }
+.top .date h1{ float: left; color: #2e3135; padding: 10px 30px 0 0; }
+.top .date .temp{ background: url(../images/bg_temperature.png) no-repeat right; float: left; width: 60px; height: 50px; padding: 10px 0 0 60px; font-size: 31px; color: #2e3135; }
+
+.top .profile{ float: left; width: 25%; padding: 20px 30px; }
+.top .profile .user{ float: left; }
+.top .profile h2{ float: left; color: #554e45; padding: 30px 0 0 40px; }
+.top .profile a{ float: right; margin-top: 20px; }
+
+.my-events{ border-top: 1px solid #f3eddd; }
+.my-events .box{ float: left; width: 25%; padding: 30px 0; color: #2e3135; }
+.my-events .box h1{ text-align: center; margin-top: 50px; }
+.my-events .box h3{ margin: 10px 0; }
+.my-events .box .profile{ float: left; margin-right: 30px; }
+.my-events .box ul{ padding: 10px 0; }
+.my-events .box ul li{ display: inline-block; list-style: none; margin-right: 50px; font-weight: bold; }
+.my-events .event{ width: 40% !important; padding: 40px 0 0 0 !important; }
+.my-events .arrow{ float: right !important; width: 5% !important; padding: 65px 0 0 0 !important; }
+
+.banner img{ width: 100%; }
+
+.this-week{ padding: 10px 0; }
+.this-week .box{ float: left; width: 10%; text-align: center; }
+.this-week .title{ width: 80% !important; }
+.this-week .title h2{ text-transform: capitalize; color: #2e3135; padding-top: 10px; }
+
+.schedule .map{ float: left; width: 29.8%; }
+.schedule .map img{ width: 100%; }
+.schedule .today{ float: right; width: 70%; }
+.schedule .today ul li{ list-style: none; display: inline-block; margin: 0; width: 24.6%; }
+.schedule .today ul li img{ width: 100%; }
+.schedule .today ul li .info{ position: absolute; z-index: 9; background: url(../images/bg_black.png) repeat; color: #fff; width: 17.2%; padding: 20px 0; }
+.schedule .today ul li .info .btn-cross{ width: 40px; float: right; }
+.schedule .today ul li .info .box{ padding: 0 20px; }
+
+
+.chart .box{ float: left; width: 70%; }
+.chart .box .title{ padding: 15px 30px; }
+.chart .box .title h1{ float: left; color: #323438; }
+.chart .box .title a{ float: right; }
+
+.chart .box .row{ background: #f4f1ea; }
+.chart .box .row .cell{ width: 9%; float: left; text-align: center; padding: 12px 0 11px 0; }
+.chart .box .row .cell h4{ color: #315fa9; }
+.chart .box .row .cell img{ width: 100%; }
+.chart .box .row .circle{ background: #f05a28; color: #fff; width: 25px; padding: 5px 2px; margin: 0 auto; margin-bottom: 5px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -khtml-border-radius: 20px; border-radius: 20px; }
+.chart .box .row .active{ background: #f05a28; }
+.chart .box .row .active h4{ color: #fff; }
+.chart .box .row .active .circle{ background: #fff; color: #f05a28; }
+.chart .box .row .blank{ width: 25px; height: 25px; margin: 0 auto; margin-bottom: 5px; }
+
+.chart .box .row .profile{ width: 9%; height: 95px; float: left; padding: 0; }
+.chart .box .row .profile img{ width: 100%; height: 95px; }
+.chart .box .row .info{ background: #e9e4d6; width: 91%; height: 95px; float: left; }
+.chart .box .row .info.active{ background: #f05a28; }
+.chart .box .row .info.active .box{ color: #fff; }
+.chart .box .row .info .box{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
+.chart .box .row .info .box ul{ text-align: center; }
+.chart .box .row .info .box ul li{ display: inline-block; list-style: none; }
+
+.chart .advertisement{ width: 29.8%; float: left; }
+.chart .advertisement img{ width: 100%; }
+
+
+.app{ background: #e4dfcd; padding: 3% 5%; }
+.app .left{ float: left; width: 45%; }
+.app .right{ float: right; width: 45%; padding-top: 50px; }
+.app .user{ margin: 20px 0; }
+.app .user .box{ float: left; width: 30%; text-align: center; padding: 10px 0; }
+.app .user .box h3{ font-weight: normal; color: #4e473f; }
+.app .user p{ float: left; width: 60%; padding: 30px 20px; color: #22252b; font-size: 21px; font-weight: normal; font-style: italic; }
+.app .image{ float: left; width: 25%; }
+.app .mobile{ float: left; width: 70%; }
+.app .mobile h1{ color: #4e473f; margin-bottom: 10px; }
+.app .mobile p{ color: #4e473f; line-height: 24px; }
+
+
+.links{ background: #f4f1ea; padding: 50px 0; }
+.links ul{ float: left; width: 20%; padding-left: 5%; }
+.links ul li{ list-style: none; line-height: 21px; }
+.links ul li h3{ color: #282826; }
+.links ul li a{ font-size: 14px; color: #282826; text-decoration: none; }
+.links ul li a:hover{ text-decoration: underline; }
+
+
+.footer{ background: #f4f1ea; padding: 20px 4% 40px 4%; }
+.footer .social{ float: left; padding-top: 30px; }
+.footer .social li{ list-style: none; display: inline-block; }
+.footer .footer-logo{ float: right; }
+
+
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+body{ margin: 0; padding: 0; }
+
+.top .logo{ width: 300px; height: 120px; text-align: left; }
+.top .date{ float: left; width: 450px; height: 85px; padding-top: 35px; }
+.top .profile{ float: none; width: auto; padding: 20px; }
+
+.my-events{ padding: 10px 0; }
+.my-events .box{ width: 370px; height: auto; padding: 20px 0; margin: 0 auto;     }
+.my-events .box h1{ text-align: center; }
+.my-events .box .profile{ margin: 0 30px; }
+.my-events .box ul{ text-align: center; }
+.my-events .box ul li{ margin-right: 0; }
+.my-events .event{ width: 375px !important; padding: 0 0 20px 0 !important; margin: 0 auto; }
+.my-events .arrow{ width: 355px !important; padding: 30px 20px 0 0 !important; text-align: right; }
+
+.this-week{ padding: 10px 0; }
+.this-week .box{ float: left; width: 10%; text-align: center; }
+.this-week .title{ width: 80% !important; }
+.this-week .title h2{ text-transform: capitalize; color: #2e3135; padding-top: 10px; }
+
+.schedule .map{ float: none; width: auto; margin: 0 auto; }
+.schedule .today{ float: none; width: auto; }
+.schedule .today ul li{ width: 24.5%; }
+.schedule .today ul li .info{ width: 24.5%; padding: 10px 0; }
+.schedule .today ul li .info .box{ padding: 0 15px; }
+
+.chart .box{ float: none; width: auto; }
+.chart .box .row .info .box{ font-size: 13px; }
+.chart .advertisement{ width: auto; float: none; }
+.chart .advertisement img{ width: 50%; float: left; }
+
+.app{ padding: 20px 0; }
+.app .left{ float: none; width: auto; padding: 10px 0; }
+.app .right{ float: none; width: auto; padding: 30px 0; }
+.app .image{ text-align: center; }
+
+
+
+}
+
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+	
+body{ margin: 0; padding: 0; }
+
+
+.top .logo{ float: none; width: auto; text-align: center; }
+.top .date{ float: none; width: auto; height: auto; padding-top: 0; text-align: center; }
+.top .date .box{ width: auto; margin: 0 auto; }
+.top .date h1{ font-size: 24px; float: none; color: #2e3135; padding: 10px 0 20px 0; }
+.top .date .temp{ float: none; margin: 0 auto; width: 80px; height: 50px; padding: 10px 0 0 40px; }
+.top .profile{ float: none; width: auto; padding: 20px; }
+.top .profile h2{ padding: 30px 0 0 20px; }
+
+.my-events{ padding: 20px 0; }
+.my-events .box{ float: none; width: auto; padding: 10px 20px; text-align: center; }
+.my-events .box h1{ margin-top: 0; }
+.my-events .box .profile{ float: none; margin-right: 0; text-align: center; }
+.my-events .box ul{ padding: 10px 0; text-align: center;  }
+.my-events .box ul li{ margin-right: 0; font-size: 14px; }
+.my-events .event{ width: auto !important; padding: 0 !important; }
+.my-events .arrow{ float: none !important; width: auto !important; padding: 10px 0 0 0 !important; text-align: center; }
+
+.this-week .title{ width: 75% !important; }
+.this-week .title h2{ font-size: 21px; }
+
+.schedule .map{ float: none; width: auto; margin: 0 auto; }
+.schedule .today{ float: none; width: auto; }
+.schedule .today ul li{ width: 49.2%; }
+.schedule .today ul li .info{ width: 49.2%; padding: 10px 0; font-size: 14px; }
+.schedule .today ul li .info .box{ padding: 0 10px; }
+.schedule .today ul li .info .box h1{ font-size: 16px; padding: 5px 0; }
+
+.chart .box{ float: none; width: auto; }
+.chart .box .title{ padding: 15px; }
+.chart .box .title h1{ font-size: 24px; }
+.chart .box .row .cell h4{ font-size: 11px; }
+.chart .box .row .info .box{ font-size: 12px; padding: 10px 0; }
+.chart .advertisement{ width: auto; float: none; }
+.chart .advertisement img{ width: 50%; float: left; }
+
+.app{ padding: 20px 0; }
+.app .left{ float: none; width: auto; }
+.app .right{ float: none; width: auto; padding-top: 20px; }
+.app .user{ margin: 0; }
+.app .user .box{ float: none; width: auto; text-align: center; padding: 10px 0; }
+.app .user .box h3{ font-weight: normal; color: #4e473f; }
+.app .user p{ float: none; width: auto; padding: 10px; text-align: center; }
+.app .image{ float: none; width: auto; text-align: center; }
+.app .mobile{ float: none; width: auto; padding: 15px; }
+.app .mobile h1{ font-size: 24px; text-align: center; }
+.app .mobile p{ font-size: 14px; line-height: 24px; text-align: center; }
+
+.links{ padding: 30px 0; }
+.links ul{ float: none; width: auto; padding: 10px 0; text-align: center; }
+
+.footer{ padding: 0 0 20px 0; }
+.footer .social{ float: none; padding: 0; text-align: center; }
+.footer .social li{ list-style: none; display: inline-block; }
+.footer .footer-logo{ float: none; text-align: center; }
+
+	
+}
+
+
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+body{ margin: 0; padding: 0; }
+
+	
+}
+
+
+/* http://sonspring.com/journal/clearing-floats */
+.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
