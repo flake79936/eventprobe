@@ -44,7 +44,7 @@
 <!--  end retrieval-->
 
 <!DOCTYPE html>
-<html> 
+
 <head> 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
   <title>Google Maps Multiple Markers</title> 
@@ -64,7 +64,7 @@
     var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
     
     var icons = [
-    'images/favicon.ico'
+    'images/favicon.png'
     ]
     var icons_length = icons.length;
     
@@ -132,5 +132,3 @@
     }
     AutoCenter();
   </script> 
-</body>
-</html>
