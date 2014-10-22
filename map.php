@@ -21,20 +21,18 @@
 ?>
 
 <!-- retrieve info from DB -->
+<?PHP
+	$i = 0;
+	while($row = mysqli_fetch_array($result)){ 
 
-					<?PHP
-						$i = 0;
-						while($row = mysqli_fetch_array($result)){ 
-						
-						$event = $row['Evename'];
-						$Elat  = $row['Elat'];
-						$Elong = $row['Elong'];
-						
-						$eventArray[$i]=[$event,$Elat,$Elong];
-						
-						$i++; } ?>
-						 
-						 
+	$event = $row['Evename'];
+	$Elat  = $row['Elat'];
+	$Elong = $row['Elong'];
+
+	$eventArray[$i]=[$event,$Elat,$Elong];
+
+	$i++; }
+?>
 <!--  end retrieval-->
 
 <!DOCTYPE html>
@@ -46,7 +44,7 @@
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 </head> 
 <body>
-  <div id="map" style="width: 500px; height: 400px;"></div>
+  <div id="map" style="width: 100%; height: 100%;"></div>
 
   <script type="text/javascript" language= "php">
     // Define your locations: HTML content for the info window, latitude, longitude

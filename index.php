@@ -70,7 +70,6 @@
         </div>
         
         <div class="banner">
-                <?PHP include('./map.php'); ?>
                 <img src="images/banner.jpg" alt="Banner" /></div>
         
         <div class="this-week">
@@ -82,7 +81,8 @@
         
         <div class="schedule">
         	<div class="map">
-				<img src="images/map.jpg" alt="Map" />
+				<?PHP include('./map.php'); ?>
+				<!--<img src="images/map.jpg" alt="Map" />-->
         	        </div>
             <div class="today">
             	<ul>
