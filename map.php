@@ -1,13 +1,6 @@
-
 <?PHP
-class map{
 	require_once("./include/membersite_config.php");
-	if(!$fgmembersite->CheckLogin()){
-		$fgmembersite->RedirectToURL("login.php");
-		exit;
-	}
-	
-		if(isset($_POST["submitted"])){
+	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
 	}
 	
@@ -25,8 +18,11 @@ class map{
 	
 	$result = mysqli_query($con, $sql);
 
-// <!-- retrieve info from DB -->
+?>
 
+<!-- retrieve info from DB -->
+
+					<?PHP
 						$i = 0;
 						while($row = mysqli_fetch_array($result)){ 
 						
@@ -36,26 +32,23 @@ class map{
 						
 						$eventArray[$i]=[$event,$Elat,$Elong];
 						
-						 $i++; } ?>
-						 					 
+						$i++; } ?>
+						 
+						 
 <!--  end retrieval-->
-<?php
-	function drawMap(){
-		
-	
-?>	
-		
-// 
+
+<!DOCTYPE html>
+
 <head> 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
-
+  <title>Google Maps Multiple Markers</title> 
   <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 </head> 
 <body>
   <div id="map" style="width: 500px; height: 400px;"></div>
 
-  <script type="text/javascript" >
+  <script type="text/javascript" language= "php">
     // Define your locations: HTML content for the info window, latitude, longitude
     
     var locations = <?php echo json_encode($eventArray); ?>;
@@ -132,10 +125,5 @@ class map{
       map.fitBounds(bounds);
     }
     AutoCenter();
-  </script> 
-  
-</body>
-		
-// 
-	}
-}
+  </script>
+  </body>
