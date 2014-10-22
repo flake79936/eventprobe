@@ -44,10 +44,11 @@
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 </head> 
 <body>
-  <div id="map" style="width: 100%; height: 100%;"></div>
+  <div id="map" style="width: 500px; height: 500px;"></div>
 
   <script type="text/javascript" language= "php">
     // Define your locations: HTML content for the info window, latitude, longitude
+    
     
     var locations = <?php echo json_encode($eventArray); ?>;
 
