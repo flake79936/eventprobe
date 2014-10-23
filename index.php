@@ -129,7 +129,7 @@
                                 <h1><?= $row['Evename'] ?></h1>
                             </div>
                         </div>
-                    	<img src="images/sample_today.jpg" alt="Image" />
+                    	<img src="<?= $row['Eflyer'] ?>" alt="Image" />
                     </li>
                     
                     
@@ -138,6 +138,7 @@
                     
                     
 <!--        TESTING EVENTS              -->
+<!-- 
                     
                     <li>
                     	<div class="info">
@@ -217,9 +218,17 @@
                         </div>
                     	<img src="images/sample_today.jpg" alt="Image" />
                     </li>
+ -->
+                    
+                    
                     <div class="clear"></div>
                 </ul>
+                
+                
             </div>
+            
+            
+            
             <div class="clear"></div>
         </div>
         
