@@ -12,9 +12,7 @@
   <?PHP 
   
    $city = "<script>document.write(city)</script>";
- 
   echo $city;
-
   ?>
   
  </body>
