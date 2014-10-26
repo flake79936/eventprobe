@@ -21,7 +21,9 @@
 			var city = geoplugin_city();
 			</script>
 			
-			  <?PHP $city = "<script>document.write(city)</script>";?>
+			  <?PHP $city = "<script>document.write(city)</script>";
+// 			  echo $city;
+			  ?>
         
 	</head>
 	
@@ -92,146 +94,7 @@
 				<!--<img src="images/map.jpg" alt="Map" />-->
         	        </div>
             <div class="today">
-            	<ul>
-            	
-<!--        TESTING EVENTS              -->
-            	
-<!--       Connection      	 -->
-   <?PHP
-	require_once("./include/membersite_config.php");
-	if(isset($_POST["submitted"])){
-		$result = $fgmembersite->searchEvent();
-	}
-	
-	
-	$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'EventAdvisors');
-	
-	if (!$con) {
-		die('Could not connect: ' . mysqli_error($con));
-	}
-
-	mysqli_select_db($con, "EventAdvisors");
-	
-	$sql = "SELECT * FROM Events WHERE Ecity = 'el paso' ORDER BY EstartDate";
-	
-	$result = mysqli_query($con, $sql);
-
-?>         	
-            	
-<!--       End Connection      	 -->
-            	
-							<?PHP
-						$i = 0;
-						while($row = mysqli_fetch_array($result)){ 
-
-					?>            	
-            	
-            	
-                	<li>
-                    	<div class="info">
-                        	<div class="box">
-                                <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>Today</h1>
-                                <p><?= $row['EstartDate'] ?></p>
-                                <h1><?= $row['Evename'] ?></h1>
-                            </div>
-                        </div>
-                    	<img src="<?= $row['Eflyer'] ?>" alt="Image" />
-                    </li>
-                    
-                    
-                    
-                  <?PHP $i++; } ?>  
-                    
-                    
-<!--        TESTING EVENTS              -->
-<!-- 
-                    
-                    <li>
-                    	<div class="info">
-                        	<div class="box">
-                                <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>Today</h1>
-                                <p>Sep 6th, 9PM</p>
-                                <h1>DJ Maxwell</h1>
-
-                            </div>
-                        </div>
-                    	<img src="images/sample_today.jpg" alt="Image" />
-                    </li>
-                    <li>
-                    	<div class="info">
-                        	<div class="box">
-                                <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>Today</h1>
-                                <p>Sep 6th, 9PM</p>
-                                <h1>DJ Maxwell</h1>
-                            </div>
-                        </div>
-                    	<img src="images/sample_today.jpg" alt="Image" />
-                    </li>
-                    <li>
-                    	<div class="info">
-                        	<div class="box">
-                                <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>Today</h1>
-                                <p>Sep 6th, 9PM</p>
-                                <h1>DJ Maxwell</h1>
-                            </div>
-                        </div>
-                    	<img src="images/sample_today.jpg" alt="Image" />
-                    </li>
-                    <li>
-                    	<div class="info">
-                        	<div class="box">
-                                <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>Today</h1>
-                                <p>Sep 6th, 9PM</p>
-                                <h1>DJ Maxwell</h1>
-                            </div>
-                        </div>
-                    	<img src="images/sample_today.jpg" alt="Image" />
-                    </li>
-                    <li>
-                    	<div class="info">
-                        	<div class="box">
-                                <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>Today</h1>
-                                <p>Sep 6th, 9PM</p>
-                                <h1>DJ Maxwell</h1>
-                            </div>
-                        </div>
-                    	<img src="images/sample_today.jpg" alt="Image" />
-                    </li>
-                    <li>
-                    	<div class="info">
-                        	<div class="box">
-                                <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>Today</h1>
-                                <p>Sep 6th, 9PM</p>
-                                <h1>DJ Maxwell</h1>
-                            </div>
-                        </div>
-                    	<img src="images/sample_today.jpg" alt="Image" />
-                    </li>
-                    <li>
-                    	<div class="info">
-                        	<div class="box">
-                                <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>Today</h1>
-                                <p>Sep 6th, 9PM</p>
-                                <h1>DJ Maxwell</h1>
-                            </div>
-                        </div>
-                    	<img src="images/sample_today.jpg" alt="Image" />
-                    </li>
- -->
-                    
-                    
-                    <div class="clear"></div>
-                </ul>
-                
-                
+				<?PHP include('./events.php'); ?>
             </div>
             
             

@@ -1,4 +1,11 @@
-
+         <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+			<script language="Javascript"> 
+			var city = geoplugin_city();
+			</script>
+			
+			  <?PHP $city = "<script>document.write(city)</script>";
+// 			  echo $city;
+			  ?>
 <?PHP
 
 	require_once("./include/membersite_config.php");
@@ -16,7 +23,11 @@
 
 	mysqli_select_db($con, "EventAdvisors");
 
-	$sql = "SELECT * FROM Events WHERE Ecity = 'el paso' ORDER BY EstartDate";
+$sql = "SELECT * FROM Events WHERE Ecity = 'el paso' ORDER BY EstartDate";
+// 	$sql = "SELECT * FROM Events WHERE Ecity = '";
+// 	$sql .=$city;
+// 	$sql .="' ORDER BY EstartDate";
+// 	echo $sql;
 	
 	$result = mysqli_query($con, $sql);
 
