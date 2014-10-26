@@ -1,8 +1,5 @@
 <ul>
-            	
-<!--        TESTING EVENTS              -->
-            	
-<!--       Connection      	 -->
+
    <?PHP
 	require_once("./include/membersite_config.php");
 	if(isset($_POST["submitted"])){
@@ -24,13 +21,8 @@
 // 	echo $sql;
 	
 $sql = "SELECT * FROM Events WHERE Ecity = 'el paso' ORDER BY EstartDate";
-	$result = mysqli_query($con, $sql);
+$result = mysqli_query($con, $sql);
 
-?>         	
-            	
-<!--       End Connection      	 -->
-            	
-							<?PHP
 						$i = 0;
 						while($row = mysqli_fetch_array($result)){ 
 
@@ -49,15 +41,7 @@ $sql = "SELECT * FROM Events WHERE Ecity = 'el paso' ORDER BY EstartDate";
                     	<img src="<?= $row['Eflyer'] ?>" alt="Image" />
                     </li>
                     
-                    
-                    
                   <?PHP $i++; } ?>  
-                    
-                    
-<!--        TESTING EVENTS              -->
-           
-                    
+                                        
                     <div class="clear"></div>
                 </ul>
-                
-                
