@@ -407,6 +407,7 @@ class FGMembersite{
 		$validator->addValidation("EphoneNumber", "req", "Please fill in Phone Number");
 		//$validator->addValidation("Etype",        "req", "Please fill in Type of Event");
 		$validator->addValidation("EstartDate",   "req", "Please Select a Start Date");
+				$validator->addValidation("Etime",   "req", "Please fill in the Time");
 		//$validator->addValidation("EendDate",     "req", "Please Select an End Date");
 		//$validator->addValidation("Edescription", "req", "Please fill in Description");
 
@@ -441,7 +442,7 @@ class FGMembersite{
 		$formvars['Efacebook']    = $this->Sanitize($_POST['Efacebook']);
 		$formvars['Etwitter']     = $this->Sanitize($_POST['Etwitter']);
 		$formvars['Egoogle']      = $this->Sanitize($_POST['Egoogle']);
-
+		$formvars['Etime']      = $this->Sanitize($_POST['Etime']);
 		$formvars['Eother']       = $this->Sanitize($_POST['Eother']);
 	}
 	
@@ -489,6 +490,7 @@ class FGMembersite{
 			$formvars['Etwitter']     = strtolower (  $formvars['Etwitter']      );
 			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
 			$formvars['Eother']       = strtolower (  $formvars['Eother']        );
+			$formvars['Etime']       = strtolower (  $formvars['Etime']        );
 
 						$address = $formvars['Eaddress'] . ", " . $formvars['Ecity'] . ", " . $formvars['Estate'] . " " . $formvars['Ezip'];
 						$expression = "/\s/";
@@ -506,7 +508,7 @@ class FGMembersite{
 						$lat = $output->results[0]->geometry->location->lat;
 						$long = $output->results[0]->geometry->location->lng;
 						
-			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Edescription, Etype, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, Elat, Elong)
+			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Edescription, Etype, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, Etime, Elat, Elong)
 				VALUES(
 					"' . $this->SanitizeForSQL($uName) . '",
 					"' . $this->SanitizeForSQL($formvars['Evename']) . '",
@@ -526,6 +528,7 @@ class FGMembersite{
 					"' . $this->SanitizeForSQL($formvars['Egoogle']) . '",
 					"' . $this->SanitizeForSQL($formvars['Eflyer']) . '",
 					"' . $this->SanitizeForSQL($formvars['Eother']) . '",
+					"' . $this->SanitizeForSQL($formvars['Etime']) . '",
 					"' . $this->SanitizeForSQL($lat)                . '",
 					"' . $this->SanitizeForSQL($long)               . '"
 				);';
@@ -542,6 +545,7 @@ class FGMembersite{
 			$formvars['Etwitter']     = strtolower (  $formvars['Etwitter']      );
 			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
 			$formvars['Eother']       = strtolower (  $formvars['Eother']        );
+			$formvars['Etime']       = strtolower (  $formvars['Etime']        );
 
 						$address = $formvars['Eaddress'] . ", " . $formvars['Ecity'] . ", " . $formvars['Estate'] . " " . $formvars['Ezip'];
 						$expression = "/\s/";
@@ -559,7 +563,7 @@ class FGMembersite{
 						$lat = $output->results[0]->geometry->location->lat;
 						$long = $output->results[0]->geometry->location->lng;
 
-			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Eflyer, Egoogle, Elat, Elong)
+			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Eflyer, Egoogle,Etime, Elat, Elong)
 				VALUES(
 					"' . $this->SanitizeForSQL($uName) . '",
 					"' . $this->SanitizeForSQL($formvars['Evename']) . '",
@@ -578,6 +582,7 @@ class FGMembersite{
 					"' . $this->SanitizeForSQL($formvars['Etwitter']) . '",
 					"' . $this->SanitizeForSQL($formvars['Eflyer']) . '",
 					"' . $this->SanitizeForSQL($formvars['Egoogle']) . '",
+					"' . $this->SanitizeForSQL($formvars['Etime']) . '",
 					"' . $this->SanitizeForSQL($lat)                . '",
 					"' . $this->SanitizeForSQL($long)               . '"
 				);';

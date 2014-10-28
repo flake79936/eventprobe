@@ -33,8 +33,8 @@ $result = mysqli_query($con, $sql);
                     	<div class="info">
                         	<div class="box">
                                 <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>Today</h1>
-                                <p><?= $row['EstartDate'] ?></p>
+                                <h1><?= $row['EstartDate'] ?></h1>
+                                <p> <?= $row['Etime'] ?></p>
                                 <h1><?= $row['Evename'] ?></h1>
                             </div>
                         </div>
