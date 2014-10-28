@@ -27,21 +27,21 @@ $result = mysqli_query($con, $sql);
 						while($row = mysqli_fetch_array($result)){
 						
 						//day name of the date	
+						$today= date("m/d/Y");
 						$dt = strtotime($row['EstartDate']);
 						$day = date("l", $dt);
-						
+						if ($today===$row['EstartDate']){
+							$day="Today";}
+							
+							
 					?>            	
-            	
-            	
-            	
-
             	
                 	<li>
                     	<div class="info">
                         	<div class="box">
                                 <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
                                 <h1><?=$day?></h1>
-                                <p> <?=substr($row['EstartDate'], 0, 5);?> <?= $row['Etime'] ?></p>
+                                <p> <?=substr($row['EstartDate'], 0, 5);?>, <?= $row['Etime'] ?></p>
                                 <h1><?= $row['Evename'] ?></h1>
                             </div>
                         </div>
