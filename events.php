@@ -24,16 +24,23 @@ $sql = "SELECT * FROM Events WHERE Ecity = 'el paso' ORDER BY EstartDate";
 $result = mysqli_query($con, $sql);
 
 						$i = 0;
-						while($row = mysqli_fetch_array($result)){ 
-
+						while($row = mysqli_fetch_array($result)){
+						
+						//day name of the date	
+						$dt = strtotime($row['EstartDate']);
+						$day = date("l", $dt);
+						
 					?>            	
             	
+            	
+            	
+
             	
                 	<li>
                     	<div class="info">
                         	<div class="box">
                                 <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-                                <h1>TODAY</h1>
+                                <h1><?=$day?></h1>
                                 <p> <?=substr($row['EstartDate'], 0, 5);?> <?= $row['Etime'] ?></p>
                                 <h1><?= $row['Evename'] ?></h1>
                             </div>
