@@ -13,11 +13,5 @@
 			window.location.href = "./map.php?city=" + city;
 		</script>
 
-		<?PHP
-			$newcity = "";
-			$city = $newcity;
-			echo $city;
-			//$fgmembersite->RedirectToURL("./map.php?city=" . $newcity);
-		?>
 	</body>
 </html>

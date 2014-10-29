@@ -2,13 +2,11 @@
 	$city = $_GET['city'];
 	echo $city . " -> 1<br>";
 ?>
-<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
-<script language="Javascript"> 
-	var city = geoplugin_city();
-</script>
-<?PHP
-	$city = "<script>document.write(city)</script>";
 
+<?PHP
+
+	$city = (string)$city;
+	
 	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
 	}
