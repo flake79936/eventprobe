@@ -3,6 +3,14 @@
 	echo $city . " -> 1<br>";
 ?>
 
+<script language="Javascript"> 
+	document.write("Welcome to our visitors from "+geoplugin_city()+", "+geoplugin_countryName()); 
+	var city = geoplugin_city();
+	document.write("\n" + city);
+	
+	window.location.href = "./map.php?city=" + city;
+</script>
+
 <?PHP
 
 	$city = (string)$city;
@@ -27,9 +35,6 @@
 	echo $city . " -> 2<br>";
 	
 	$result = mysqli_query($con, $sql);
-	
-	foreach($result as $wha)
-		print($wha . " -> 2<br>");
 ?>
 
 <!-- retrieve info from DB -->
