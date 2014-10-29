@@ -27,6 +27,9 @@
 	echo $city . " -> 2<br>";
 	
 	$result = mysqli_query($con, $sql);
+	
+	foreach($result as $wha)
+		print($wha . " -> 2<br>");
 ?>
 
 <!-- retrieve info from DB -->
