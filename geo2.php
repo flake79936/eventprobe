@@ -7,7 +7,7 @@
 	<body>
 		<script language="Javascript"> 
 			var city = geoplugin_city();
-			window.location.href = "./map.php?city=" + city;
+			window.location.href = "./events.php?city=" + city;
 		</script>
 
 	</body>

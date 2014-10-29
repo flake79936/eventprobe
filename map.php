@@ -1,11 +1,6 @@
+
 <?PHP require_once("./include/membersite_config.php");
 	$city = $_GET['city'];
-	echo $city . " -> 1<br>";
-?>
-
-<?PHP
-
-	$city = (string)$city;
 	
 	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
@@ -22,9 +17,9 @@
 	mysqli_select_db($con, "EventAdvisors");
 
 	$sql = "SELECT * FROM Events WHERE Ecity = '". $city ."' ORDER BY EstartDate;";
-	echo $sql;
+
 	
-	echo $city . " -> 2<br>";
+
 	
 	$result = mysqli_query($con, $sql);
 	
@@ -45,7 +40,7 @@
 		$i++;
 	}
 	
-	echo $city . " -> 3<br>";
+// 	echo $city . " -> 3<br>";
 ?>
 <!--  end retrieval-->
 
@@ -140,6 +135,8 @@ map.fitBounds(bounds);
 AutoCenter();
 </script>
 
+<!-- 
 <?PHP echo $city . " -> 4<br>";
 ?>
+ -->
 </body>
