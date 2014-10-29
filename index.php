@@ -90,11 +90,13 @@
         
         <div class="schedule">
         	<div class="map">
-				<?PHP include('./map.php'); ?>
+        	<iframe src="./geo.php" height="380px" width="380px"></iframe>
+<!-- 				<?PHP include('./geo.php'); ?> -->
 				<!--<img src="images/map.jpg" alt="Map" />-->
         	        </div>
             <div class="today">
-				<?PHP include('./events.php'); ?>
+            <iframe src="./geo2.php" height="380px" width="700px"></iframe>
+<!-- 				<?PHP include('./events.php'); ?> -->
             </div>
             
             

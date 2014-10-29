@@ -2,6 +2,8 @@
 
    <?PHP
 	require_once("./include/membersite_config.php");
+		$city = $_GET['city'];
+		
 	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
 	}
@@ -15,12 +17,8 @@
 
 	mysqli_select_db($con, "EventAdvisors");
 
-// 	$sql = "SELECT * FROM Events WHERE Ecity = '";
-// 	$sql .=$city;
-// 	$sql .="' ORDER BY EstartDate";
-// 	echo $sql;
 	
-$sql = "SELECT * FROM Events WHERE Ecity = 'el paso' ORDER BY EstartDate";
+$sql = "SELECT * FROM Events WHERE Ecity = ' " . $city . " ' ORDER BY EstartDate";
 $result = mysqli_query($con, $sql);
 
 						$i = 0;
