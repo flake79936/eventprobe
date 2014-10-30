@@ -1,16 +1,6 @@
 <?PHP require_once("./include/membersite_config.php");
 	$city = $_GET['city'];
-?>
 
-<script language="Javascript"> 
-	document.write("Welcome to our visitors from "+geoplugin_city()+", "+geoplugin_countryName()); 
-	var city = geoplugin_city();
-	document.write("\n" + city);
-	
-	window.location.href = "./map.php?city=" + city;
-</script>
-
-<?PHP
 	$city = (string)$city;
 	
 	if(isset($_POST["submitted"])){
