@@ -1,8 +1,5 @@
-
 <?PHP require_once("./include/membersite_config.php");
 	$city = $_GET['city'];
-<<<<<<< HEAD
-	echo $city . " -> 1<br>";
 ?>
 
 <script language="Javascript"> 
@@ -14,10 +11,7 @@
 </script>
 
 <?PHP
-
 	$city = (string)$city;
-=======
->>>>>>> origin/master
 	
 	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
@@ -34,16 +28,8 @@
 	mysqli_select_db($con, "EventAdvisors");
 
 	$sql = "SELECT * FROM Events WHERE Ecity = '". $city ."' ORDER BY EstartDate;";
-
-	
-
 	
 	$result = mysqli_query($con, $sql);
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/master
 ?>
 
 <!-- retrieve info from DB -->
@@ -77,9 +63,7 @@
 <script type="text/javascript" language= "php">
 // Define your locations: HTML content for the info window, latitude, longitude
 
-
 var locations = <?php echo json_encode($eventArray); ?>;
-
 
 // Setup the different icons and shadows
 var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
@@ -153,9 +137,4 @@ map.fitBounds(bounds);
 }
 AutoCenter();
 </script>
-
-<!-- 
-<?PHP echo $city . " -> 4<br>";
-?>
- -->
 </body>
