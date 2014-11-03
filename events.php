@@ -42,7 +42,7 @@ $result = mysqli_query($con, $sql);
                         	<div class="box">
                                 <a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
                                 <h1><?=$day?></h1>
-                                <p> <?=substr($row['EstartDate'], 0, 5);?>, <?= $row['Etime'] ?></p>
+                                <p> <?=substr($row['EstartDate'], 0, 5);?>, <?= $row['EtimeStart'] ?></p>
                                 <h1><?= $row['Evename'] ?></h1>
                             </div>
                         </div>
