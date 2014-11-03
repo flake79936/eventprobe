@@ -187,11 +187,79 @@
 						<span id="event_EendDate_errorloc" class="error"></span>
 					</div>
 				
-					<!--Time-->
+					<!--Start Time-->
 					<div class="container" id="">
-						<label for="Etime">* Time: </label><br/>
-						<select name="Etime" size="1">
-						<option>Please Select The Time</option>
+						<label for="EtimeStart">* StartTime: </label><br/>
+						<select name="EtimeStart" size="1">
+						<option>Please Select The Start Time</option>
+						<option value="12:00 am">12:00 am</option>
+
+						<option value="12:30 am">12:30 am</option>
+						<option value="1:00 am">1:00 am</option>
+						<option value="1:30 am">1:30 am</option>
+						<option value="2:00 am">2:00 am</option>
+
+						<option value="2:30 am">2:30 am</option>
+						<option value="3:00 am">3:00 am</option>
+						<option value="3:30 am">3:30 am</option>
+						<option value="4:00 am">4:00 am</option>
+
+						<option value="4:30 am">4:30 am</option>
+						<option value="5:00 am">5:00 am</option>
+						<option value="5:30 am">5:30 am</option>
+						<option value="6:00 am">6:00 am</option>
+
+						<option value="6:30 am">6:30 am</option>
+						<option value="7:00 am">7:00 am</option>
+						<option value="7:30 am">7:30 am</option>
+						<option value="8:00 am">8:00 am</option>
+
+						<option value="8:30 am">8:30 am</option>
+						<option value="9:00 am">9:00 am</option>
+						<option value="9:30 am">9:30 am</option>
+						<option value="10:00 am">10:00 am</option>
+
+						<option value="11:00 am">11:00 am</option>
+						<option value="11:30 am">11:30 am</option>
+						<option value="12:00 pm">12:00 pm</option>
+						<option value="12:30 pm">12:30 pm</option>
+
+						<option value="1:00 pm">1:00 pm</option>
+						<option value="1:30 pm">1:30 pm</option>
+						<option value="2:00 pm">2:00 pm</option>
+
+						<option value="2:30 pm">2:30 pm</option>
+						<option value="3:00 pm">3:00 pm</option>
+						<option value="3:30 pm">3:30 pm</option>
+						<option value="4:00 pm">4:00 pm</option>
+
+						<option value="4:30 pm">4:30 pm</option>
+						<option value="5:00 pm">5:00 pm</option>
+						<option value="5:30 pm">5:30 pm</option>
+						<option value="6:00 pm">6:00 pm</option>
+
+						<option value="6:30 pm">6:30 pm</option>
+						<option value="7:00 pm">7:00 pm</option>
+						<option value="7:30 pm">7:30 pm</option>
+						<option value="8:00 pm">8:00 pm</option>
+
+						<option value="8:30 pm">8:30 pm</option>
+						<option value="9:00 pm">9:00 pm</option>
+						<option value="9:30 pm">9:30 pm</option>
+						<option value="10:00 pm">10:00 pm</option>
+
+						<option value="11:00 pm">11:00 pm</option>
+						<option value="11:30 pm">11:30 pm</option>
+
+											</select>
+					</div>
+					
+					<!--End Time  -->
+					
+					<div class="container" id="">
+						<label for="EtimeEnd">* End Time: </label><br/>
+						<select name="EtimeEnd" size="1">
+						<option>Please Select The End Time</option>
 						<option value="12:00 am">12:00 am</option>
 
 						<option value="12:30 am">12:30 am</option>
@@ -457,7 +525,8 @@
 			frmvalidator.addValidation("Edescription", "req", "Please fill in Description");
 			frmvalidator.addValidation("Ewebsite",     "req", "Please fill in Your Website");
 			frmvalidator.addValidation("Eflyer",       "req", "Please Insert Picture");
-			frmvalidator.addValidation("Etime",       "req", "Please fill in the Time");
+			frmvalidator.addValidation("EtimeStart",   "req", "Please fill in the Start Time");
+			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
 			
 			
 			// ]]>

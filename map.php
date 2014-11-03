@@ -17,7 +17,7 @@
 
 	mysqli_select_db($con, "EventAdvisors");
 
-	$sql = "SELECT * FROM Events WHERE Ecity = '". $city ."' ORDER BY EstartDate;";
+	$sql = "SELECT * FROM Events WHERE Ecity = '". $city ."'  ORDER BY EstartDate;";
 	
 	$result = mysqli_query($con, $sql);
 ?>

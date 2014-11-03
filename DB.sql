@@ -32,7 +32,8 @@ CREATE TABLE Events(
 	Egoogle CHAR(255),
 	Eflyer CHAR(255),
 	Eother CHAR(255),
-	Etime CHAR(255),
+	EtimeStart CHAR(255),
+	EtimeEnd CHAR(255),
 	Elat DECIMAL(10,6),
 	Elong DECIMAL(10,6),
 	PRIMARY KEY(Eid, UuserName)

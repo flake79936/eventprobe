@@ -9,7 +9,7 @@
 // 			document.write("Welcome to our visitors from "+geoplugin_city()+", "+geoplugin_countryName()); 
 			var city = geoplugin_city();
 			
-			window.location.href = "./events.php?city=" + city;
+			window.location.href = "./events.php?city=" + city,  "_self";
 		</script>
 
 	</body>
