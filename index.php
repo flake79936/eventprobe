@@ -46,6 +46,8 @@
             </div>
             <div class="clear"></div>
         </div>
+        
+        
 <?PHP        if($fgmembersite->CheckLogin()){?>
 <?PHP include './myevents.php'; ?>
 <?PHP }?>
