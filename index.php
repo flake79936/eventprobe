@@ -72,7 +72,7 @@
         
         <div class="schedule">
         	<div class="map">
-        	<iframe src="./geo.php" height="380px" width="380px"></iframe>
+        	<iframe src="./geo.php" height="390px" width="390px"></iframe>
 <!-- 				<?PHP include('./geo.php'); ?> -->
 				<!--<img src="images/map.jpg" alt="Map" />-->
         	        </div>

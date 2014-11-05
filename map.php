@@ -46,7 +46,7 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 </head> 
 <body>
-<div id="map" style="width: 380px; height: 380px;"></div>
+<div id="map" style="width: 370px; height: 370px;"></div>
 
 <script type="text/javascript" language= "php">
 // Define your locations: HTML content for the info window, latitude, longitude
