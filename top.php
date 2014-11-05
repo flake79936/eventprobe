@@ -22,9 +22,9 @@
 </div>
 
 <div class="profile">
-<?	if($fgmembersite->CheckLogin()){ ?>
+<?PHP	if($fgmembersite->CheckLogin()){ ?>
 <div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
-	<? } ?>
+	<?PHP } ?>
 
 
 	

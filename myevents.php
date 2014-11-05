@@ -67,7 +67,7 @@ $result2 = mysqli_query($con, $sql);
                 <h3><strong><?= $day ?></strong></h3>
                 <h3><?= $row['Evename'] ?></h3>
                 <h3><strong><?= $row['EtimeStart'] ?></strong></h3>
-                         <?   }?>
+                         <?PHP   }?>
               <?PHP $i++; } ?>
                 <div class="clear"></div>
             </div>
