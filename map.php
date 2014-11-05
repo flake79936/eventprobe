@@ -7,8 +7,6 @@
 		$result = $fgmembersite->searchEvent();
 	}
 
-	$usrname = $fgmembersite->UsrName();
-
 	$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'EventAdvisors');
 
 	if (!$con) {

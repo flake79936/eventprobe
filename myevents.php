@@ -49,8 +49,25 @@ $result = mysqli_query($con, $sql);
             	<h1>My Events</h1>
             </div>
             <div class="box">
+            
+            
+                 <?PHP  			
+     					$i = 0;
+						while($row = mysqli_fetch_array($result)){
+						
+						//day name of the date	
+						$today= date("m/d/Y");
+						$dt = strtotime($row['EstartDate']);
+						$day = date("D", $dt);
+						if ($today===$row['EstartDate']){
+							$day2="Today";}
+	?>
+    
+                              <?PHP $i++; } ?> 
+            
+            
             	<div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div>
-                <h3><strong>Today</strong></h3>
+                <h3><strong><?= $day2 ?></strong></h3>
                 <h3>DJ Maxwell</h3>
                 <h3><strong>9:00 PM</strong></h3>
                 <div class="clear"></div>

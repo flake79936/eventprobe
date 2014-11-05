@@ -103,8 +103,8 @@
 				<!--<img src="images/map.jpg" alt="Map" />-->
         	        </div>
             <div class="today">
-            <iframe src="./geo2.php" height="380px" width="700px"></iframe>
-<!-- 				<?PHP include('./events.php'); ?> -->
+<!--             <iframe src="./geo2.php" height="380px" width="700px"></iframe> -->
+				<?PHP include './events.php'; ?>
             </div>
             
             
