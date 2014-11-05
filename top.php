@@ -28,8 +28,8 @@
 		<ul>
 			<li class='active has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
 				<ul>
-					<li><a href='#'><span>Login</span></a></li>
-					<li class='last'><a href='#'><span>logout</span></a></li>
+					<li><a href='./login.php'><span>Login</span></a></li>
+					<li class='last'><a href='./logout.php'><span>logout</span></a></li>
 				</ul>
 			</li>
 		</ul>

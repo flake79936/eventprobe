@@ -98,7 +98,7 @@
 				</form>
 			</div>
 			<div class="clear"></div>
-		</div>t
+		</div>
 		<div class="footer"></div>
 	</body>
 
