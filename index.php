@@ -30,6 +30,11 @@
 	
 	<body lang="en">
     	<div class="top">
+    	
+    	<?PHP 
+    	include './top.php'; 
+    	?>
+<!-- 
             <div class="logo"><img src="images/logo.jpg" alt="Logo" /></div>
             <div class="date">
             	<div class="box">
@@ -45,46 +50,15 @@
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>
+ -->
         </div>
         
-        
+<!-- start My events      -->
 <?PHP        if($fgmembersite->CheckLogin()){?>
 <?PHP include './myevents.php'; ?>
 <?PHP }?>
-<!-- 
-        <div class="my-events">
-        	<div class="box">
-            	<h1>My Events</h1>
-            </div>
-            <div class="box">
-            	<div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div>
-                <h3><strong>Today</strong></h3>
-                <h3>DJ Maxwell</h3>
-                <h3><strong>9:00 PM</strong></h3>
-                <div class="clear"></div>
-            </div>
-            <div class="box event">
-            	<ul>
-                	<li>Tue 9/19</li>
-                    <li>Book Signing</li>
-                    <li>7:30 PM - 8:30 PM</li>
-                </ul>
-                <ul>
-                	<li>Tue 9/19</li>
-                    <li>Book Signing</li>
-                    <li>7:30 PM - 8:30 PM</li>
-                </ul>
-                <ul>
-                	<li>Tue 9/19</li>
-                    <li>Book Signing</li>
-                    <li>7:30 PM - 8:30 PM</li>
-                </ul>
-            </div>
-            <div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>
-            <div class="clear"></div>
-        </div>
- -->
 
+<!-- end My events -->
         
         <div class="banner">
                 <img src="images/banner.jpg" alt="Banner" /></div>
