@@ -20,13 +20,19 @@
 		<div class="clear"></div>
 	</div>
 </div>
+
 <div class="profile">
-	<div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
+<?	if($fgmembersite->CheckLogin()){ ?>
+<div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
+	<? } ?>
+
+
+	
 	<h2><?= $usrname?> </h2>
 	<!--Creating the drop down menu with Jquery-->
 	<div id='cssmenu'>
 		<ul>
-			<li class='active has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
+			<li class='has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
 				<ul>
 					<li><a href='./login.php'><span>Login</span></a></li>
 					<li class='last'><a href='./logout.php'><span>logout</span></a></li>
