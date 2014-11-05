@@ -1,3 +1,4 @@
+<?PHP	require_once("./include/membersite_config.php"); ?>
 <!doctype html>
 <html>
 	<head>
@@ -45,7 +46,10 @@
             </div>
             <div class="clear"></div>
         </div>
-        
+<?PHP        if($fgmembersite->CheckLogin()){?>
+<?PHP include './myevents.php'; ?>
+<?PHP }?>
+<!-- 
         <div class="my-events">
         	<div class="box">
             	<h1>My Events</h1>
@@ -77,6 +81,8 @@
             <div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>
             <div class="clear"></div>
         </div>
+ -->
+
         
         <div class="banner">
                 <img src="images/banner.jpg" alt="Banner" /></div>

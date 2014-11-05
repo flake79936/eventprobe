@@ -22,20 +22,13 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 
         <!--FAVICON-->
-        <link rel="shortcut icon" href="favicon.ico"  />
-        
-
-        
+        <link rel="shortcut icon" href="favicon.ico"  />    
 	</head>
 	
-
-
-
-<!-- Connection	 -->
 <?PHP
 
 	require_once("./include/membersite_config.php");
-	
+		$usrname = $fgmembersite->UsrName();
 	$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'EventAdvisors');
 	
 	if (!$con) {
@@ -45,13 +38,11 @@
 	mysqli_select_db($con, "EventAdvisors");
 
 	
-$sql = "SELECT * FROM Events WHERE Ecity = 'el paso' ORDER BY EstartDate";
+$sql = "SELECT * FROM Events WHERE UuserName = '" . $usrname . "' ORDER BY EstartDate";
 $result = mysqli_query($con, $sql);
 
 
 ?> 
-<!-- End Connection	 -->
-
 
 	<div class="my-events">
         	<div class="box">
@@ -89,4 +80,5 @@ $result = mysqli_query($con, $sql);
             </div>
             <div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>
             <div class="clear"></div>
+            
 </div>            
