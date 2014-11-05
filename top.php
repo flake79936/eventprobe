@@ -28,7 +28,9 @@
 
 
 	
-	<h2><?= $usrname?> </h2>
+	<?PHP if(isset($usrname)){ ?>
+		<h2> <?= $usrname;?> </h2>
+	<?PHP } ?>
 	<!--Creating the drop down menu with Jquery-->
 	<div id='cssmenu'>
 		<ul>
