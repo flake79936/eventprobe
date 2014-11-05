@@ -40,41 +40,43 @@
 	
 $sql = "SELECT * FROM Events WHERE UuserName = '" . $usrname . "' ORDER BY EstartDate";
 $result = mysqli_query($con, $sql);
+$result2 = mysqli_query($con, $sql);
 
 
 ?> 
 
 	<div class="my-events">
         	<div class="box">
+
             	<h1>My Events</h1>
             </div>
             <div class="box">
-            
-            
-                 <?PHP  			
+            	<div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div>
+            	        	
+        	     <?PHP  			
      					$i = 0;
-						while($row = mysqli_fetch_array($result)){
+						while($row = mysqli_fetch_array($result2)){
 						
 						//day name of the date	
 						$today= date("m/d/Y");
 						$dt = strtotime($row['EstartDate']);
 						$day = date("D", $dt);
 						if ($today===$row['EstartDate']){
-							$day2="Today";}
-	?>
-    
-                              <?PHP $i++; } ?> 
-            
-            
-            	<div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div>
-                <h3><strong><?= $day2 ?></strong></h3>
-                <h3>DJ Maxwell</h3>
-                <h3><strong>9:00 PM</strong></h3>
+							$day="Today";?>
+							
+                <h3><strong><?= $day ?></strong></h3>
+                <h3><?= $row['Evename'] ?></h3>
+                <h3><strong><?= $row['EtimeStart'] ?></strong></h3>
+                         <?   }?>
+              <?PHP $i++; } ?>
                 <div class="clear"></div>
             </div>
+
+            
+            
              <div class="box event">
              
-     <?PHP  			
+     <?PHP  		
      					$i = 0;
 						while($row = mysqli_fetch_array($result)){
 						
