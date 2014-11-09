@@ -11,11 +11,39 @@
 	<link rel="stylesheet" href="./css/styleMenu.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="./scripts/dropDown.js"></script>
+	
+	
+	
+	
+	
+	
+	
 </head>
 <div class="logo"><img src="images/logo.jpg" alt="Logo" /></div>
 <div class="date">
 	<div class="box">
-		<h1><?= date("D")?> <?= date("M") ?> <?= date("d") ?></h1>
+		<h1>
+		<script type="text/javascript">
+<!--
+	var currentTime = new Date()
+	var hours = currentTime.getHours()
+	var minutes = currentTime.getMinutes()
+
+	if (minutes < 10)
+	minutes = "0" + minutes
+
+	var suffix = "AM";
+	if (hours >= 12) {
+	suffix = "PM";
+	hours = hours - 12;
+	}
+	if (hours == 0) {
+	hours = 12;
+	}
+
+	document.write("<b>" + hours + ":" + minutes + " " + suffix + "</b>")
+//-->
+</script> <?= date("D")?> <?= date("M") ?> <?= date("d") ?></h1>
 		<div class="temp">75</div>
 		<div class="clear"></div>
 	</div>
