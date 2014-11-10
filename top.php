@@ -91,7 +91,7 @@
 				<ul>
 					<?PHP include ("./login.php"); ?>
 				</ul>
-				<?PHP } else {?>
+				<?PHP } elseif($fgmembersite->CheckLogin()){?>
 				<ul>
 					<li><a href='./logout.php'><span>logout</span></a>
 				</ul>
