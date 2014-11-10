@@ -56,7 +56,7 @@
 					
 						<input type="hidden" name="submitted" id="submitted" value="1"/>
 						
-						<input type="hidden" class="spmhidip" name="<?php echo $fgmembersite->GetSpamTrapInputName(); ?>" />
+						<!--<input type="hidden" class="spmhidip" name="<?php echo $fgmembersite->GetSpamTrapInputName(); ?>" />-->
 
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					

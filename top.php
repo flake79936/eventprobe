@@ -75,19 +75,18 @@
 </div>
 
 <div class="profile">
-<?PHP	if($fgmembersite->CheckLogin()){ ?>
-<div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
+	<?PHP	if($fgmembersite->CheckLogin()){ ?>
+		<div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
 	<?PHP } ?>
-
-
 	
 	<?PHP if(isset($usrname)){ ?>
 		<h2> <?= $usrname;?> </h2>
 	<?PHP } ?>
+	
 	<!--Creating the drop down menu with Jquery-->
 	<div id='cssmenu'>
 		<ul>
-			<li class='active has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
+			<li class='has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
 				<?PHP if(!$fgmembersite->CheckLogin()){ ?>
 				<ul>
 					<?PHP include ("./login.php"); ?>
@@ -100,8 +99,6 @@
 			</li>
 		</ul>
 	</div>
-	
-
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>
