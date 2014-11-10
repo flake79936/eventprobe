@@ -86,7 +86,8 @@
 	<!--Creating the drop down menu with Jquery-->
 	<div id='cssmenu'>
 		<ul>
-			<li class='has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
+			<li class='has-sub'>
+				<img onmouseout="this.src='./images/btn_arrow_right.png';" onmouseover="this.src='./images/btn_arrow_down_black.png';" src="./images/btn_arrow_right.png" alt="Dropdown" />
 				<?PHP if(!$fgmembersite->CheckLogin()){ ?>
 				<ul>
 					<?PHP include ("./login.php"); ?>
