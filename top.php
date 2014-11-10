@@ -87,6 +87,7 @@
 				</ul>
 				<?PHP } elseif($fgmembersite->CheckLogin()){?>
 				<ul>
+					<li><a href='./EventCreation.php'><span>Create Event</span></a>
 					<li><a href='./logout.php'><span>logout</span></a>
 				</ul>
 				<?PHP }?>
