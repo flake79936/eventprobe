@@ -30,8 +30,8 @@
 			
 			<!--(Start) Provided by JetDevLLC-->
 				<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-				<link href="css/styleEdit.css"        rel="stylesheet" type="text/css" />
-				<link href="css/responsiveEdit.css"   rel="stylesheet" type="text/css" />	
+				<link href="css/style2.css"        rel="stylesheet" type="text/css" />
+
 				<!--[if IE 6]>
 				<style type="text/css">img, div, { behavior: url("js/iepngfix.htc") }
 				</style>
@@ -191,7 +191,6 @@
 					<div class="container" id="">
 						<label for="EtimeStart">* StartTime: </label><br/>
 						<select name="EtimeStart" size="1">
-						<option>Please Select The Start Time</option>
 						<option value="12:00 am">12:00 am</option>
 
 						<option value="12:30 am">12:30 am</option>
@@ -259,7 +258,6 @@
 					<div class="container" id="">
 						<label for="EtimeEnd">* End Time: </label><br/>
 						<select name="EtimeEnd" size="1">
-						<option>Please Select The End Time</option>
 						<option value="12:00 am">12:00 am</option>
 
 						<option value="12:30 am">12:30 am</option>

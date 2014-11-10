@@ -21,7 +21,7 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/style2.css" />
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -120,7 +120,7 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-		<div class="footer"></div>
+<!-- 		<div class="footer"></div> -->
 	</body>
 		<!--This script needs to wihtin the file. 
 		It is validating the form.-->
