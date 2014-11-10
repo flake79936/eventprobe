@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 // The Weather class
 require_once 'WeatherForecast.class.php';
@@ -70,7 +66,6 @@ $weather->setUSMetric(true);
                 <?php
             }
             ?>
-
         <?php } ?>
     </body>
 </html>

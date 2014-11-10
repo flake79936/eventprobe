@@ -2,7 +2,7 @@
 	require_once("./include/membersite_config.php");
 	if(isset($_POST['submitted'])){
 		if($fgmembersite->Login()){
-			$fgmembersite->RedirectToURL("./index2.php");
+			$fgmembersite->RedirectToURL("./index.php");
 		}
 	}
 ?>
