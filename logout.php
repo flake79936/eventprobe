@@ -1,4 +1,4 @@
-<meta http-equiv="refresh" content="2; index.php">
+<meta http-equiv="refresh" content="2; index2.php">
 
 <?PHP
 	require_once("./include/membersite_config.php");

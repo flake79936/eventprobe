@@ -2,7 +2,7 @@
 	require_once("./include/membersite_config.php");
 	if(isset($_POST['submitted'])){
 		if($fgmembersite->Login()){
-			$fgmembersite->RedirectToURL("./index.php");
+			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
 ?>
@@ -33,22 +33,15 @@
 		<!--Other Scripts-->
         <script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 		<script src="scripts/pwdwidget.js" type="text/javascript"></script>
-		
 	</head>
 	
 	<body lang="en">
     
-<!--  commented to remove the top, needs to be modified to adapt the whole desing.
-		<div class="top">
-			<div class="logo"><img src="images/logo.png" alt="Logo" /></div>
-		</div>
- -->
+<!--  commented to remove the top, needs to be modified to adapt the whole desing.-->
 		
 		<div class="main">
 			<div class="content">
 				<!--Keep this below-->
-
-
 				<form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 
 					<div class="form-wrap">
@@ -86,7 +79,6 @@
 		</div>
 	</body>
 
-	
 	<!--This script needs to wihtin the file. 
 		It is validating the form.-->
 	<script type='text/javascript'>
