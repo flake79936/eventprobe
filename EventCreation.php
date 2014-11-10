@@ -1,10 +1,10 @@
 <?PHP
 	require_once("./include/membersite_config.php");
 	/*This part ckecks whether there is a session or not.*/
-// 	if(!$fgmembersite->CheckLogin()){
-// 		$fgmembersite->RedirectToURL("index.php");
-// 		exit;
-// 	}
+		if(!$fgmembersite->CheckLogin()){
+			$fgmembersite->RedirectToURL("index.php");
+			exit;
+	}
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->CreateEvent()){
