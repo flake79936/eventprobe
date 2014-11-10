@@ -11,13 +11,6 @@
 	<link rel="stylesheet" href="./css/styleMenu.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	<script src="./scripts/dropDown.js"></script>
-	
-	
-	
-	
-	
-	
-	
 </head>
 <div class="logo"><img src="images/logo.jpg" alt="Logo" /></div>
 <div class="date">
@@ -50,27 +43,30 @@
 </div>
 
 <div class="profile">
-<?PHP	if($fgmembersite->CheckLogin()){ ?>
-<div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
+	<?PHP	if($fgmembersite->CheckLogin()){ ?>
+		<div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
 	<?PHP } ?>
-
-
 	
 	<?PHP if(isset($usrname)){ ?>
 		<h2> <?= $usrname;?> </h2>
 	<?PHP } ?>
 	<!--Creating the drop down menu with Jquery-->
+
 	<div id='cssmenu'>
 		<ul>
-			<li class='has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
+			<li class='active has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
+				<?PHP if(!$fgmembersite->CheckLogin()){ ?>
 				<ul>
-					<li><a href='./login.php'><span>Login</span></a></li>
-					<li class='last'><a href='./logout.php'><span>logout</span></a></li>
+					<?PHP include ("./login.php"); ?>
 				</ul>
+				<?PHP } else {?>
+				<ul>
+					<li><a href='./logout.php'><span>logout</span></a>
+				</ul>
+				<?PHP }?>
 			</li>
 		</ul>
 	</div>
-	
 
 	<div class="clear"></div>
 </div>
