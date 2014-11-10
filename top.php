@@ -87,11 +87,16 @@
 	<!--Creating the drop down menu with Jquery-->
 	<div id='cssmenu'>
 		<ul>
-			<li class='has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
+			<li class='active has-sub'><a href="#"><img src="images/btn_arrow_down_black.png" alt="Dropdown" /></a>
+				<?PHP if(!$fgmembersite->CheckLogin()){ ?>
 				<ul>
-					<li><a href='./login.php'><span>Login</span></a></li>
-					<li class='last'><a href='./logout.php'><span>logout</span></a></li>
+					<?PHP include ("./login.php"); ?>
 				</ul>
+				<?PHP } else {?>
+				<ul>
+					<li><a href='./logout.php'><span>logout</span></a>
+				</ul>
+				<?PHP }?>
 			</li>
 		</ul>
 	</div>
