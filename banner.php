@@ -5,7 +5,7 @@
 
 
 
-<div  style="height: 338px;" class="bbslider-wrapper" id="auto">>
+<div  style="height: 338px;" class="bbslider-wrapper" id="auto">
     <div><img src="./banner/96502411.jpg" alt="first image" /></div>
     <div><img src="./banner/131645522.jpg" alt="second image" /></div>
     <div><img src="./banner/138071106.jpg" alt="third image" /></div>
@@ -22,7 +22,3 @@ $(document).ready(function() {
     });
 });
 </script>
-<!-- 
-
-<img src="images/banner.jpg" alt="Banner" />
- -->
