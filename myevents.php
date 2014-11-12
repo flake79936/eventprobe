@@ -37,6 +37,9 @@
 
 	mysqli_select_db($con, "EventAdvisors");
 
+$today = Date("m/d/Y");
+echo $today;
+
 	
 $sql = "SELECT * FROM Events WHERE UuserName = '" . $usrname . "' ORDER BY EstartDate";
 $result = mysqli_query($con, $sql);
