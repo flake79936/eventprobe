@@ -15,7 +15,8 @@
 
 	mysqli_select_db($con, "EventAdvisors");
 
-	$sql = "SELECT * FROM Events WHERE Ecity = '". $city ."'  ORDER BY EstartDate;";
+	$today = Date("m/d/Y");
+	$sql = "SELECT * FROM Events WHERE  EstartDate >= '".$today."'  AND Ecity = '". $city ."'  ORDER BY EstartDate;";
 	
 	$result = mysqli_query($con, $sql);
 ?>
