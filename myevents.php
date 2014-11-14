@@ -30,15 +30,15 @@
 	require_once("./include/membersite_config.php");
 		$usrname = $fgmembersite->UsrName();
 		
-include 'dbconnect.php';
+	include 'dbconnect.php';
 
-$today = Date("m/d/Y");
+	$today = Date("m/d/Y");
 
 
 	
-$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' ORDER BY EstartDate";
-$result = mysqli_query($con, $sql);
-$result2 = mysqli_query($con, $sql);
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' ORDER BY EstartDate";
+	$result = mysqli_query($con, $sql);
+	$result2 = mysqli_query($con, $sql);
 
 
 ?> 

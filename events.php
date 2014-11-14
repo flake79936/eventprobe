@@ -8,6 +8,7 @@
 		}
 
 include 'dbconnect.php';
+
 		$today = Date("m/d/Y");
 		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = 'el paso' ORDER BY EstartDate";
 		$result = mysqli_query($con, $sql);
