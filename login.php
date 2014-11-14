@@ -20,19 +20,13 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
-        
-        <!--JQUERY-->
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
 		
 		<!--Other Scripts-->
-        <script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
-		<script src="scripts/pwdwidget.js" type="text/javascript"></script>
+        <script type="text/javascript" src="./scripts/gen_validatorv31.js"></script>
 	</head>
 	
 	<body lang="en">

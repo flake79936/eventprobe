@@ -8,9 +8,6 @@
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="./css/styleMenu.css">
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-	<script src="./scripts/dropDown.js"></script>
 </head>
 <div class="logo"><img src="images/logo.jpg" alt="Logo" /></div>
 <div class="date">
@@ -76,24 +73,11 @@
 		<h2> <?= $usrname;?> </h2>
 	<?PHP } ?>
 	
-	<!--Creating the drop down menu with Jquery-->
-	<div id='cssmenu'>
-		<ul>
-			<li class='has-sub'>
-				<img onmouseout="this.src='./images/btn_arrow_right.png';" onmouseover="this.src='./images/btn_arrow_down_black.png';" src="./images/btn_arrow_right.png" alt="Dropdown" />
-				<?PHP if(!$fgmembersite->CheckLogin()){ ?>
-				<ul>
-					<?PHP include './login.php'; ?>
-				</ul>
-				<?PHP } elseif($fgmembersite->CheckLogin()){?>
-				<ul>
-					<li><a href='./EventCreation.php'><span>Create Event</span></a>
-					<li><a href='./logout.php'><span>logout</span></a>
-				</ul>
-				<?PHP }?>
-			</li>
-		</ul>
+	<!--clickable dropdown menu-->
+	<div>
+		<?PHP include './menu.php'; ?>
 	</div>
+	
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>

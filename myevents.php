@@ -29,19 +29,14 @@
 
 	require_once("./include/membersite_config.php");
 		$usrname = $fgmembersite->UsrName();
-	$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'EventAdvisors');
-	
-	if (!$con) {
-		die('Could not connect: ' . mysqli_error($con));
-	}
-
-	mysqli_select_db($con, "EventAdvisors");
+		
+include 'dbconnect.php';
 
 $today = Date("m/d/Y");
-echo $today;
+
 
 	
-$sql = "SELECT * FROM Events WHERE UuserName = '" . $usrname . "' ORDER BY EstartDate";
+$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' ORDER BY EstartDate";
 $result = mysqli_query($con, $sql);
 $result2 = mysqli_query($con, $sql);
 

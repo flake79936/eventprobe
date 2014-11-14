@@ -6,16 +6,9 @@
 	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
 	}
-
-	$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'EventAdvisors');
-
-	if (!$con) {
-		die('Could not connect: ' . mysqli_error($con));
-	}
-
-	mysqli_select_db($con, "EventAdvisors");
-
-	$sql = "SELECT * FROM Events WHERE Ecity = '". $city ."'  ORDER BY EstartDate;";
+include 'dbconnect.php';
+	$today = Date("m/d/Y");
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '". $city ."'  ORDER BY EstartDate;";
 	
 	$result = mysqli_query($con, $sql);
 ?>
