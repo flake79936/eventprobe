@@ -1,0 +1,15 @@
+body{
+	background: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+.main{ background: #fafaf7; }
+.main .content{ float: left; width: 198px; padding: 20px; }
+.main .content .form-wrap{ border-bottom: 1px solid #999; padding: 0px 0; }
+.main .content .form-wrap .box{ float: left; width: 500px; }
+.main .content .form-wrap h5{ font-weight: bold; text-transform: uppercase; margin-bottom: 3px; }
+.main .content .form-wrap .box input{ width: 100px; border: 1px solid #999; padding: 5px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+
+.main .content a { float: right; margin-top: 0px; }

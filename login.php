@@ -20,7 +20,7 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <link rel="stylesheet" type="text/css" href="./css/login.css" />
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -50,11 +50,11 @@
 						<div class="box">
 
 							<h5>UserName *</h5>
-							<input type="text" name="UuserName" title="Enter your Username" id="UuserName" value="<?php echo $fgmembersite->SafeDisplay('UuserName') ?>" maxlength="50" /><br/>
+							<input type="text" name="UuserName" title="Enter your Username" id="UuserName" value="<?php echo $fgmembersite->SafeDisplay('UuserName') ?>" maxlength="50" />
 							<span id="register_UuserName_errorloc" class="error"></span>
-
+							
 							<h5>Password *</h5>
-							<input type='password' title="Enter your Password" name='UPswd' id='UPswd' maxlength="50" /><br/>
+							<input type='password' title="Enter your Password" name='UPswd' id='UPswd' maxlength="50" />
 							<span id='login_UPswd_errorloc' class='error'></span>
 							
 					<!--End of new inputs-->
@@ -64,12 +64,12 @@
 						<div class="clear"></div>
 					</div>
 					<input id="submitButton" type="submit" name="Submit" value="submit" />
+					<a  href="./reg.php"><button type="button">Register</button></a>
 					<!--Facebook plugin-->
 					<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
 					<img src="./images/login-button.png" alt="Sign in with Facebook"></a>
 				</form>
 			</div>
-			<div class="clear"></div>
 		</div>
 	</body>
 

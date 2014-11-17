@@ -30,7 +30,7 @@
 			
 			<!--(Start) Provided by JetDevLLC-->
 				<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-				<link href="css/style2.css"        rel="stylesheet" type="text/css" />
+				<link href="css/style2 - Copy.css"    rel="stylesheet" type="text/css" />
 
 				<!--[if IE 6]>
 				<style type="text/css">img, div, { behavior: url("js/iepngfix.htc") }
