@@ -7,10 +7,15 @@
 			$result = $fgmembersite->searchEvent();
 		}
 
+		
+		//On page 2
+$city2 = $_SESSION['city2'];
+		
+		
 include 'dbconnect.php';
 
 		$today = Date("m/d/Y");
-		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = 'el paso' ORDER BY EstartDate";
+		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '".$city2."' ORDER BY EstartDate";
 		$result = mysqli_query($con, $sql);
 
 		$i = 0;

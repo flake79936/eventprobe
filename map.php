@@ -3,6 +3,14 @@
 
 	$city = (string)$city;
 	
+
+// Start the session
+session_start();
+
+	
+	$_SESSION['city2'] = $city;
+
+
 	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
 	}
