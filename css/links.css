@@ -1,3 +1,10 @@
+body{
+	background: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
 .links{ background: #f4f1ea; padding: 50px 0; }
 .links ul{ float: left; width: 20%; padding-left: 5%; }
 .links ul li{ list-style: none; line-height: 21px; }

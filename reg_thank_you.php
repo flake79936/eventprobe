@@ -24,18 +24,6 @@
 				<![endif]-->
 			<!--(End) Provided by JetDevLLC-->
 		<!--(End) Style Sheets-->
-		
-		<!--(Start) Scripts-->
-			<script src="js/jsMethods.js"            type="text/javascript"></script>
-			
-			<!--(Start) Provided by JetDevLLC-->
-				<script src="js/jquery-1.9.0.min.js" type="text/javascript"></script>
-				<script src="js/iepngfix_tilebg.js"  type="text/javascript"></script>
-				<script src="js/scrollTo.js"         type="text/javascript"></script>
-				<script src="js/global.js"           type="text/javascript"></script>
-			<!--(End) Provided by JetDevLLC-->
-		<!--(End) Scripts-->
-		
 	</head>
 	
 	<body>

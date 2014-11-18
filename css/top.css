@@ -1,3 +1,10 @@
+body{
+	background: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
 .top{ background: url(../images/bg_top.png) repeat-x bottom; }
 .top .logo{ float: left; width: 30%; text-align: center; }
 
@@ -30,15 +37,13 @@ cols    1     2      3
 px      68    160    252    */
 
 @media only screen and (max-width: 767px) {	
-body{ margin: 0; padding: 0; }
+	body{ margin: 0; padding: 0; }
 
-.top .logo{ float: none; width: auto; text-align: center; }
-.top .date{ float: none; width: auto; height: auto; padding-top: 0; text-align: center; }
-.top .date .box{ width: auto; margin: 0 auto; }
-.top .date h1{ font-size: 24px; float: none; color: #2e3135; padding: 10px 0 20px 0; }
-.top .date .temp{ float: none; margin: 0 auto; width: 80px; height: 50px; padding: 10px 0 0 40px; }
-.top .profile{ float: none; width: auto; padding: 20px; }
-.top .profile h2{ padding: 30px 0 0 20px; }
-
+	.top .logo{ float: none; width: auto; text-align: center; }
+	.top .date{ float: none; width: auto; height: auto; padding-top: 0; text-align: center; }
+	.top .date .box{ width: auto; margin: 0 auto; }
+	.top .date h1{ font-size: 24px; float: none; color: #2e3135; padding: 10px 0 20px 0; }
+	.top .date .temp{ float: none; margin: 0 auto; width: 80px; height: 50px; padding: 10px 0 0 40px; }
+	.top .profile{ float: none; width: auto; padding: 20px; }
+	.top .profile h2{ padding: 30px 0 0 20px; }
 }
-

@@ -82,14 +82,9 @@ a:hover, a:active {
     text-indent:-9999px;
 }
 
-.slider-wrapper { 
-	width: 80%; 
-	margin: 100px auto;
-}
+.slider-wrapper { width: 80%; margin: 100px auto; }
 
 /*====================*/
 /*=== Other Styles ===*/
 /*====================*/
-.clear {
-	clear:both;
-}
+.clear { clear:both; }

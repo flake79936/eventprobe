@@ -1,3 +1,10 @@
+body{
+	background: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
 .schedule .map{ float: left; width: 29.8%; }
 .schedule .map img{ width: 100%; }
 .schedule .today{ float: right; width: 70%; }

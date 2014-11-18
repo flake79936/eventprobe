@@ -21,7 +21,7 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/style2.css" />
+        <link rel="stylesheet" type="text/css" href="./css/registration.css" />
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -51,18 +51,10 @@
 	</head>
 	
 	<body lang="en">
-    
-<!--  commented to remove the top, needs to be modified to adapt the whole desing.
-		<div class="top">
-			<div class="logo"><img src="images/logo.png" alt="Logo" /></div>
-		</div>
- -->
-		
 		<div class="main">
 			<div class="content">
 				<!--Keep this below-->
-
-
+				
 				<form id="register" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 
 					<div class="form-wrap">

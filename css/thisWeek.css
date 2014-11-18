@@ -1,3 +1,10 @@
+body{
+	background: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
 .this-week{ padding: 10px 0; }
 .this-week .box{ float: left; width: 10%; text-align: center; }
 .this-week .title{ width: 80% !important; }
