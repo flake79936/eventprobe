@@ -743,7 +743,7 @@ class FGMembersite{
     }
 	
 	/*----(End) User Management----*/
-	
+		//nothing in here yet
 	/*----(Start) User Management----*/
 	
 	/*----(Start) Login information/Methods----*/
@@ -786,9 +786,7 @@ class FGMembersite{
         $retvar = 'usr_'.substr($retvar,0,10);
         return $retvar;
     }
-	
 	/*----(End) Login information/Methods----*/
-	
 	
 	/*----(Start) Database Management----*/
 	//if the table 'Registration' is not in the database,
@@ -865,7 +863,6 @@ class FGMembersite{
 
 		return true;
 	}
-	
 	/*----(End) Database Management----*/
 	
 	/*----(Start) Search Event----*/
@@ -1127,7 +1124,6 @@ class FGMembersite{
 	function GetResetPasswordCode($email){
 		return substr(md5($email.$this->sitename.$this->rand_key),0,10);
 	}
-
 	/*----(End) Password Management----*/
 	
     /*----(Start) Other Management----*/
