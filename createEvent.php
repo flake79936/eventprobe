@@ -195,6 +195,16 @@
             <div class="dashboard">
                 <div class="user-profile">
                     <div class="update-image">
+					
+										<!--Upload Picture-->
+					<div class="container" id="eventPic">
+						<label for="Eflyer" >* Picture of Event:</label><br/>
+						<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" /><br/>
+						<span id="event_Eflyer_errorloc" class="error"></span>
+					</div>
+					
+					
+					
                         <h5>Update Image</h5>
                         <a href="#"><img src="images/icon_cam.png" alt="Image" /></a>
                         <div class="clear"></div>
@@ -228,7 +238,7 @@
                 <div class="clear"></div>
             </div>
             
-            <form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+           			<form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 					<input type="hidden" name="submitted" id="submitted" value="1"/>
             <div class="form-wrap">
 			
@@ -239,7 +249,10 @@
 					<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeft" value="500"> 500 Characters Max</div>
 						<span id="event_Edescription_errorloc" class="error"></span>
 					
+					
 
+						
+					
 					
                     <h5 for="Eaddress">Address</h5>
                     <div class="location">
@@ -247,6 +260,7 @@
                         <input  type="text" name="Eaddress" title="Enter the Address of the Event"id="Eaddress" value="<?php echo $fgmembersite->SafeDisplay("Eaddress") ?>" maxlength="50" />
                         <div class="clear"></div>
                     </div>
+					
 					<div class="wrap">
 						<div class="type">
 							<h5 for="Ecity">City</h5>
@@ -342,6 +356,26 @@
 					</div>
 					
 					
+						<h5 for="Etype">Type of Event<h5>
+						<select name="Etype">
+						 <option>Please Select One</option>
+						 <option value="Concert">Concert</option>
+						 <option value="Fair">Fair</option>
+						 <option value="Art">Art</option>
+						 <option value="Social">Social</option>
+						 <option value="Other">Other</option>
+						</select>
+
+											<!--Description-->
+					<div class="container" id="other">
+						<label for="Eother">Other: </label><br/>
+						<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay("Eother") ?>" maxlength="50" /><br/>
+						<span id="event_Eother_errorloc" class="error"></span>
+					</div>
+					
+					
+					
+					
 					</div>
                     <div class="wrap">
                         <div class="type">
@@ -349,13 +383,165 @@
                             <input type="text" />
                         </div>
                         <div class="type">
-                            <h5>Time</h5>
-                            <input type="text" />
+                            					<!--Start Time-->
+					<div class="container" id="">
+						<h5 for="EtimeStart">StartTime </h5><br/>
+						<select name="EtimeStart" size="1">
+						<option value="12:00 am">12:00 am</option>
+
+						<option value="12:30 am">12:30 am</option>
+						<option value="1:00 am">1:00 am</option>
+						<option value="1:30 am">1:30 am</option>
+						<option value="2:00 am">2:00 am</option>
+
+						<option value="2:30 am">2:30 am</option>
+						<option value="3:00 am">3:00 am</option>
+						<option value="3:30 am">3:30 am</option>
+						<option value="4:00 am">4:00 am</option>
+
+						<option value="4:30 am">4:30 am</option>
+						<option value="5:00 am">5:00 am</option>
+						<option value="5:30 am">5:30 am</option>
+						<option value="6:00 am">6:00 am</option>
+
+						<option value="6:30 am">6:30 am</option>
+						<option value="7:00 am">7:00 am</option>
+						<option value="7:30 am">7:30 am</option>
+						<option value="8:00 am">8:00 am</option>
+
+						<option value="8:30 am">8:30 am</option>
+						<option value="9:00 am">9:00 am</option>
+						<option value="9:30 am">9:30 am</option>
+						<option value="10:00 am">10:00 am</option>
+
+						<option value="11:00 am">11:00 am</option>
+						<option value="11:30 am">11:30 am</option>
+						<option value="12:00 pm">12:00 pm</option>
+						<option value="12:30 pm">12:30 pm</option>
+
+						<option value="1:00 pm">1:00 pm</option>
+						<option value="1:30 pm">1:30 pm</option>
+						<option value="2:00 pm">2:00 pm</option>
+
+						<option value="2:30 pm">2:30 pm</option>
+						<option value="3:00 pm">3:00 pm</option>
+						<option value="3:30 pm">3:30 pm</option>
+						<option value="4:00 pm">4:00 pm</option>
+
+						<option value="4:30 pm">4:30 pm</option>
+						<option value="5:00 pm">5:00 pm</option>
+						<option value="5:30 pm">5:30 pm</option>
+						<option value="6:00 pm">6:00 pm</option>
+
+						<option value="6:30 pm">6:30 pm</option>
+						<option value="7:00 pm">7:00 pm</option>
+						<option value="7:30 pm">7:30 pm</option>
+						<option value="8:00 pm">8:00 pm</option>
+
+						<option value="8:30 pm">8:30 pm</option>
+						<option value="9:00 pm">9:00 pm</option>
+						<option value="9:30 pm">9:30 pm</option>
+						<option value="10:00 pm">10:00 pm</option>
+
+						<option value="11:00 pm">11:00 pm</option>
+						<option value="11:30 pm">11:30 pm</option>
+
+											</select>
+					</div>
+					
+					<!--End Time  -->
+					
+					<div class="container" id="">
+						<h5 for="EtimeEnd">End Time </h5><br/>
+						<select name="EtimeEnd" size="1">
+						<option value="12:00 am">12:00 am</option>
+
+						<option value="12:30 am">12:30 am</option>
+						<option value="1:00 am">1:00 am</option>
+						<option value="1:30 am">1:30 am</option>
+						<option value="2:00 am">2:00 am</option>
+
+						<option value="2:30 am">2:30 am</option>
+						<option value="3:00 am">3:00 am</option>
+						<option value="3:30 am">3:30 am</option>
+						<option value="4:00 am">4:00 am</option>
+
+						<option value="4:30 am">4:30 am</option>
+						<option value="5:00 am">5:00 am</option>
+						<option value="5:30 am">5:30 am</option>
+						<option value="6:00 am">6:00 am</option>
+
+						<option value="6:30 am">6:30 am</option>
+						<option value="7:00 am">7:00 am</option>
+						<option value="7:30 am">7:30 am</option>
+						<option value="8:00 am">8:00 am</option>
+
+						<option value="8:30 am">8:30 am</option>
+						<option value="9:00 am">9:00 am</option>
+						<option value="9:30 am">9:30 am</option>
+						<option value="10:00 am">10:00 am</option>
+
+						<option value="11:00 am">11:00 am</option>
+						<option value="11:30 am">11:30 am</option>
+						<option value="12:00 pm">12:00 pm</option>
+						<option value="12:30 pm">12:30 pm</option>
+
+						<option value="1:00 pm">1:00 pm</option>
+						<option value="1:30 pm">1:30 pm</option>
+						<option value="2:00 pm">2:00 pm</option>
+
+						<option value="2:30 pm">2:30 pm</option>
+						<option value="3:00 pm">3:00 pm</option>
+						<option value="3:30 pm">3:30 pm</option>
+						<option value="4:00 pm">4:00 pm</option>
+
+						<option value="4:30 pm">4:30 pm</option>
+						<option value="5:00 pm">5:00 pm</option>
+						<option value="5:30 pm">5:30 pm</option>
+						<option value="6:00 pm">6:00 pm</option>
+
+						<option value="6:30 pm">6:30 pm</option>
+						<option value="7:00 pm">7:00 pm</option>
+						<option value="7:30 pm">7:30 pm</option>
+						<option value="8:00 pm">8:00 pm</option>
+
+						<option value="8:30 pm">8:30 pm</option>
+						<option value="9:00 pm">9:00 pm</option>
+						<option value="9:30 pm">9:30 pm</option>
+						<option value="10:00 pm">10:00 pm</option>
+
+						<option value="11:00 pm">11:00 pm</option>
+						<option value="11:30 pm">11:30 pm</option>
+
+											</select>
+					</div>
+					
+					
                         </div>
+						
+						
+						
+						
+										<!--Start Date picker-->
+					<div class="container" id="">
+						<h5 for="EstartDate">Start date: </h5><br/>
+						<input type="text" name="EstartDate" title="Pick Start Date" id="EstartDate" value="<?php echo $fgmembersite->SafeDisplay("EstartDate") ?>" maxlength="50" /><br/>
+						<span id="event_EstartDate_errorloc" class="error"></span>
+					</div>
+					
+					<!--End Date picker-->
+					<div class="container" id="">
+						<h5 for="EendDate">End date: </h5><br/>
+						<input type="text" name="EendDate" title="Pick Start Date" id="EendDate" value="<?php echo $fgmembersite->SafeDisplay("EendDate") ?>" maxlength="50" /><br/>
+						<span id="event_EendDate_errorloc" class="error"></span>
+					</div>	
                         <div class="type">
-                            <h5>Price</h5>
-                            <input type="text" />
+                            <h5 for="Ewebsite">Website</h5>
+                            <input type="text" name="Ewebsite" title="correct format: http://www.website.com" id="Ewebsite" value="<?php echo $fgmembersite->SafeDisplay("Ewebsite") ?>" maxlength="50" /><br/>
+						<span id="event_Ewebsite_errorloc" class="error"></span>
                         </div>
+						
+						
                         <div class="clear"></div>
                     </div>
                     <h5>Hashtag</h5>
@@ -402,6 +588,10 @@
                 </div>
                 <div class="clear"></div>
             </div>
+			<!--Submit Button-->
+					<div>
+						<input  id="submitButton" type="submit" name="Submit" value="Create Event" />
+					</div>
             </form>
             
             <div class="dashboard none">
