@@ -2,6 +2,14 @@
 	if($fgmembersite->CheckLogin()){
 		$usrname = $fgmembersite->UsrName();  
 	}
+	
+	include 'dbconnect.php';
+
+		$today = Date("m/d/Y");
+		$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
+		$past = mysqli_query($con, $sql);
+		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
+		$upcoming = mysqli_query($con, $sql);
 ?>
 <!doctype html>
 <html>
@@ -63,6 +71,7 @@
                 <li>
                     <h2>Dashboard</h2>
                     <ul>
+					
                         <li><img src="images/music.png" alt="Music" /><a href="#">DJ Maxwell, Aug 30</a></li>
                         <li><img src="images/speaker.png" alt="Speaker" /><a href="#">Speaker Event, Sep 30</a></li>
                         <li><img src="images/dollar.png" alt="Dollar" /><a href="#">Sales Events, Oct 30</a></li>
@@ -74,17 +83,53 @@
                         <li>
                             <h3>Upcoming</h3>
                             <ul>
-                                <li><img src="images/music.png" alt="Music" /><a href="#">DJ Maxwell, Aug 30</a></li>
-                                <li><img src="images/speaker.png" alt="Speaker" /><a href="#">Speaker Event, Sep 30</a></li>
-                                <li><img src="images/dollar.png" alt="Dollar" /><a href="#">Sales Events, Oct 30</a></li>
+                                <?PHP $i = 0;
+									while($row = mysqli_fetch_array($upcoming)){ ?>
+									<?=  $month='';
+								if    (substr($row['EstartDate'], 0, 2) ==='01')$month=  'Jan';
+								elseif(substr($row['EstartDate'], 0, 2) ==='02') $month= 'Feb';
+								elseif(substr($row['EstartDate'], 0, 2) ==='03')$month= 'Mar';
+								elseif(substr($row['EstartDate'], 0, 2) ==='04')$month= 'Apr';
+								elseif(substr($row['EstartDate'], 0, 2) ==='05')$month= 'May';
+								elseif(substr($row['EstartDate'], 0, 2) ==='06')$month= 'Jun';
+								elseif(substr($row['EstartDate'], 0, 2) ==='07')$month= 'Jul';
+								elseif(substr($row['EstartDate'], 0, 2) ==='08')$month= 'Aug';
+								elseif(substr($row['EstartDate'], 0, 2) ==='09')$month= 'Sep';
+								elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
+								elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
+								else $month= 'Dec';?>
+                                <li><img src="images/music.png" alt="Music" /><a href="#"><?= $row['Evename'] ?>, 
+								<?=  $month
+								?> 
+								<?=substr($row['EstartDate'], 3, 2);?></a></li>
+								<?PHP $i++; } ?>
                             </ul>
                         </li>
+						
                         <li>
                             <h3>Past</h3>
                             <ul>
-                                <li><img src="images/music.png" alt="Music" /><a href="#">DJ Maxwell, Aug 30</a></li>
-                                <li><img src="images/speaker.png" alt="Speaker" /><a href="#">Speaker Event, Sep 30</a></li>
-                                <li><img src="images/dollar.png" alt="Dollar" /><a href="#">Sales Events, Oct 30</a></li>
+								 <?PHP $i = 0;
+									while($row = mysqli_fetch_array($past)){ ?>
+									<?=  $month='';
+								if    (substr($row['EstartDate'], 0, 2) ==='01')$month=  'Jan';
+								elseif(substr($row['EstartDate'], 0, 2) ==='02') $month= 'Feb';
+								elseif(substr($row['EstartDate'], 0, 2) ==='03')$month= 'Mar';
+								elseif(substr($row['EstartDate'], 0, 2) ==='04')$month= 'Apr';
+								elseif(substr($row['EstartDate'], 0, 2) ==='05')$month= 'May';
+								elseif(substr($row['EstartDate'], 0, 2) ==='06')$month= 'Jun';
+								elseif(substr($row['EstartDate'], 0, 2) ==='07')$month= 'Jul';
+								elseif(substr($row['EstartDate'], 0, 2) ==='08')$month= 'Aug';
+								elseif(substr($row['EstartDate'], 0, 2) ==='09')$month= 'Sep';
+								elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
+								elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
+								else $month= 'Dec';?>
+                                <li><img src="images/music.png" alt="Music" /><a href="#"><?= $row['Evename'] ?>, 
+								<?=  $month
+								?> 
+								<?=substr($row['EstartDate'], 3, 2);?></a></li>
+								<?PHP $i++; } ?>
+
                             </ul>
                         </li>
                     </ul>
