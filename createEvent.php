@@ -2,6 +2,19 @@
 	if($fgmembersite->CheckLogin()){
 		$usrname = $fgmembersite->UsrName();  
 	}
+
+	/*This part ckecks whether there is a session or not.*/
+		if(!$fgmembersite->CheckLogin()){
+			$fgmembersite->RedirectToURL("index.php");
+			exit;
+	}
+	
+	if(isset($_POST["submitted"])){
+		if($fgmembersite->CreateEvent()){
+			$fgmembersite->RedirectToURL("event_thank_you.php");
+		}
+	}
+	
 	
 	include 'dbconnect.php';
 
@@ -34,6 +47,46 @@
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
+					
+			<!--(Start) Script to show whether the event is 'Other'-->
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$("#other").hide();
+						$("select").change(function(){
+							$("select option:selected").each(function(){
+								if($(this).attr("value") === "Other"){
+									$("#other").show();
+								} else {
+									$("#other").hide();
+								}
+							});
+						}).change();
+					});
+				</script>
+			<!--(End) Script to show whether the event is 'Other'-->
+			
+			<!--(Start) Counts the number of characters-->
+				<script type="text/javascript">
+					function textCounter(field, cnt, maxlimit) {         
+						var cntfield = document.getElementById(cnt)
+						if (field.value.length > maxlimit) // if too long...trim it!
+							field.value = field.value.substring(0, maxlimit);
+						 // otherwise, update 'characters left' counter
+						else
+							//cntfield.value = maxlimit - field.value.length;
+							document.getElementById('charsLeft').innerHTML = maxlimit - field.value.length;
+					}
+				</script>
+			<!--(End) Counts the number of characters-->
+			
+			<!--(Start) Date Pickers-->
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$("#EstartDate").datepicker({minDate: 0});
+						$("#EendDate").datepicker({minDate: 0});
+					});
+				</script>
+			<!--(End) Date Pickers-->
         
         <!--GOOGLE MAPS-->
         <script type="text/javascript" src="js/googleapis.js"></script>
@@ -175,17 +228,121 @@
                 <div class="clear"></div>
             </div>
             
-            <form>
+            <form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+					<input type="hidden" name="submitted" id="submitted" value="1"/>
             <div class="form-wrap">
+			
                 <div class="box">
-                    <h5>description</h5>
-                    <textarea></textarea>
-                    <h5>Location</h5>
+								
+                    <h5 for="Edescription">description</h5>
+                    <textarea onKeyUp="textCounter(this,'charsLeft', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value="<?php echo $fgmembersite->SafeDisplay("Edescription") ?>"></textarea>
+					<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeft" value="500"> 500 Characters Max</div>
+						<span id="event_Edescription_errorloc" class="error"></span>
+					
+
+					
+                    <h5 for="Eaddress">Address</h5>
                     <div class="location">
-                        <div class="image"><img src="images/icon_location.png" /></div>
-                        <input type="text" />
+                       <!-- <div class="image"><img src="images/icon_location.png" /></div> -->
+                        <input  type="text" name="Eaddress" title="Enter the Address of the Event"id="Eaddress" value="<?php echo $fgmembersite->SafeDisplay("Eaddress") ?>" maxlength="50" />
                         <div class="clear"></div>
                     </div>
+					<div class="wrap">
+						<div class="type">
+							<h5 for="Ecity">City</h5>
+								<input type="text" name="Ecity" title="Enter the City of the Event"id="Ecity" value="<?php echo $fgmembersite->SafeDisplay("Ecity") ?>" maxlength="50" /><br/>
+							<span id="event_Ecity_errorloc" class="error"></span>
+						</div>
+						
+						<div class="type">
+							<div class="container" id="">
+							<h5 for="Estate">State: </h5><br/>
+							<select name="Estate" size="1">
+							<option>Select The State</option>
+							<option value="AK">AK</option>
+
+							<option value="AL">AL</option>
+							<option value="AR">AR</option>
+							<option value="AZ">AZ</option>
+							<option value="CA">CA</option>
+
+							<option value="CO">CO</option>
+							<option value="CT">CT</option>
+							<option value="DC">DC</option>
+							<option value="DE">DE</option>
+
+							<option value="FL">FL</option>
+							<option value="GA">GA</option>
+							<option value="HI">HI</option>
+							<option value="IA">IA</option>
+
+							<option value="ID">ID</option>
+							<option value="IL">IL</option>
+							<option value="IN">IN</option>
+							<option value="KS">KS</option>
+
+							<option value="KY">KY</option>
+							<option value="LA">LA</option>
+							<option value="MA">MA</option>
+							<option value="MD">MD</option>
+
+							<option value="ME">ME</option>
+							<option value="MI">MI</option>
+							<option value="MN">MN</option>
+							<option value="MO">MO</option>
+
+							<option value="MS">MS</option>
+							<option value="MT">MT</option>
+							<option value="NC">NC</option>
+							<option value="ND">ND</option>
+	
+							<option value="NE">NE</option>
+							<option value="NH">NH</option>
+							<option value="NJ">NJ</option>
+							<option value="NM">NM</option>
+
+							<option value="NV">NV</option>
+							<option value="NY">NY</option>
+							<option value="OH">OH</option>
+							<option value="OK">OK</option>
+
+							<option value="OR">OR</option>
+							<option value="PA">PA</option>
+							<option value="RI">RI</option>
+							<option value="SC">SC</option>
+	
+							<option value="SD">SD</option>
+							<option value="TN">TN</option>
+							<option value="TX">TX</option>
+							<option value="UT">UT</option>
+	
+							<option value="VA">VA</option>
+							<option value="VT">VT</option>
+							<option value="WA">WA</option>
+							<option value="WI">WI</option>
+
+							<option value="WV">WV</option>
+							<option value="WY">WY</option>
+							</select>
+							</div>
+					</div>
+					
+					
+						
+					<div class="type">
+						<h5 for="Ezip">ZIP</h5>
+							<input type="text" name="Ezip" title="Enter the Zip code of the Event" id="Ezip" value="<?php echo $fgmembersite->SafeDisplay("Ezip") ?>" maxlength="50" /><br/>
+						<span id="event_Ezip_errorloc" class="error"></span>
+					</div>
+						
+					<div class="type">
+						<h5 for="EphoneNumber">Phone Number</h5>
+							<input type="text" name="EphoneNumber" title="(e.g., " id="EphoneNumber" value="<?php echo $fgmembersite->SafeDisplay("EphoneNumber") ?>" maxlength="50" /><br/>
+						<span id="event_EphoneNumber_errorloc" class="error"></span>
+					</div>
+					
+					
+					</div>
                     <div class="wrap">
                         <div class="type">
                             <h5>Date</h5>
@@ -265,5 +422,31 @@
     <div class="footer"></div>
 		
 	</body>
+		<!--This script needs to wihtin the file. 
+		It is validating the form.-->
+		<script type="text/javascript">
+			// <![CDATA[
+			var frmvalidator = new Validator("event");
+			frmvalidator.EnableOnPageErrorDisplay();
+			frmvalidator.EnableMsgsTogether();
+			
+			frmvalidator.addValidation("Evename",      "req", "Please fill in Event Name");
+			frmvalidator.addValidation("Eaddress",     "req", "Please fill in address");
+			frmvalidator.addValidation("Ecity",        "req", "Please fill in City");
+			frmvalidator.addValidation("Estate",       "req", "Please fill in State");
+			frmvalidator.addValidation("Ezip",         "req", "Please fill in Zip code");
+			frmvalidator.addValidation("EphoneNumber", "req", "Please fill in Phone Number");
+			frmvalidator.addValidation("EstartDate",   "req", "Please Select a Start Date");
+			frmvalidator.addValidation("EendDate",     "req", "Please Select an End Date");
+			frmvalidator.addValidation("Etype",        "req", "Please fill in Type of Event");
+			frmvalidator.addValidation("Edescription", "req", "Please fill in Description");
+			frmvalidator.addValidation("Ewebsite",     "req", "Please fill in Your Website");
+			frmvalidator.addValidation("Eflyer",       "req", "Please Insert Picture");
+			frmvalidator.addValidation("EtimeStart",   "req", "Please fill in the Start Time");
+			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
+			
+			
+			// ]]>
+		</script>
 	
 </html>
