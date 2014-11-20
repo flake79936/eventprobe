@@ -194,6 +194,10 @@
         
             <div class="dashboard">
                 <div class="user-profile">
+				            
+           			<form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+					<input type="hidden" name="submitted" id="submitted" value="1"/>
+					
                     <div class="update-image">
 					
 										<!--Upload Picture-->
@@ -202,11 +206,9 @@
 						<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" /><br/>
 						<span id="event_Eflyer_errorloc" class="error"></span>
 					</div>
-					
-					
-					
+					<!--
                         <h5>Update Image</h5>
-                        <a href="#"><img src="images/icon_cam.png" alt="Image" /></a>
+                        <a href="#"><img src="images/icon_cam.png" alt="Image" /></a> -->
                         <div class="clear"></div>
                     </div>
                     <img src="images/profile-img.jpg" alt="Profiles" />
@@ -237,9 +239,7 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            
-           			<form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-					<input type="hidden" name="submitted" id="submitted" value="1"/>
+
             <div class="form-wrap">
 			
                 <div class="box">
@@ -268,6 +268,11 @@
 							<span id="event_Ecity_errorloc" class="error"></span>
 						</div>
 						
+						
+						<div class="type">
+						<h5>test</h5>
+						<input type="text"/>
+						</div>
 						<div class="type">
 							<div class="container" id="">
 							<h5 for="Estate">State: </h5><br/>
