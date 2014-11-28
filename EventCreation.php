@@ -1,5 +1,9 @@
-<?PHP
-	require_once("./include/membersite_config.php");
+
+<?PHP	require_once("./include/membersite_config.php");
+	if($fgmembersite->CheckLogin()){
+		$usrname = $fgmembersite->UsrName();  
+	}
+
 	/*This part ckecks whether there is a session or not.*/
 		if(!$fgmembersite->CheckLogin()){
 			$fgmembersite->RedirectToURL("index.php");
@@ -11,26 +15,117 @@
 			$fgmembersite->RedirectToURL("event_thank_you.php");
 		}
 	}
-?>
+	
+	
+	include 'dbconnect.php';
 
+		$today = Date("m/d/Y");
+		$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
+		$past = mysqli_query($con, $sql);
+		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
+		$upcoming = mysqli_query($con, $sql);
+?>
 <html lang="en">
 	<head>
+	
+<!-- 	 -->
+		<head>
+		<meta charset="utf-8"/>
+		<title>Eventprobe</title>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" media="all" href=""/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+        
+        <!--STYLE-->
+        <link rel="stylesheet" type="text/css" href="css/styleUserPage.css" />
+
+        <!--FAVICON-->
+        <link rel="shortcut icon" href="favicon.ico"  />
+        
+        <!--JQUERY-->
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+					
+			<!--(Start) Script to show whether the event is 'Other'-->
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$("#other").hide();
+						$("select").change(function(){
+							$("select option:selected").each(function(){
+								if($(this).attr("value") === "Other"){
+									$("#other").show();
+								} else {
+									$("#other").hide();
+								}
+							});
+						}).change();
+					});
+				</script>
+			<!--(End) Script to show whether the event is 'Other'-->
+			
+			<!--(Start) Counts the number of characters-->
+				<script type="text/javascript">
+					function textCounter(field, cnt, maxlimit) {         
+						var cntfield = document.getElementById(cnt)
+						if (field.value.length > maxlimit) // if too long...trim it!
+							field.value = field.value.substring(0, maxlimit);
+						 // otherwise, update 'characters left' counter
+						else
+							//cntfield.value = maxlimit - field.value.length;
+							document.getElementById('charsLeft').innerHTML = maxlimit - field.value.length;
+					}
+				</script>
+			<!--(End) Counts the number of characters-->
+			
+			<!--(Start) Date Pickers-->
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$("#EstartDate").datepicker({minDate: 0});
+						$("#EendDate").datepicker({minDate: 0});
+					});
+				</script>
+			<!--(End) Date Pickers-->
+        
+        <!--GOOGLE MAPS-->
+        <script type="text/javascript" src="js/googleapis.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
+        
+	</head>
+	
+<!-- 	 -->
+<!-- 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="favicon.ico" rel="shortcut icon"  />
 		<title>Creat Event</title>
+ -->
+<!-- 
 		
 		<meta name="viewport" content="width = device-width, initial-scale=1, maximum-scale=1" />
 		<meta name="format-detection" content="telephone = no" />
 		<meta name="format-detection" content="email = no" />
 		
-		<!--(Start) Style Sheets-->
-			<link rel="STYLESHEET" type="text/css" href="css/fg_membersiteResponsive.css" />
+		(Start) Style Sheets			<link rel="STYLESHEET" type="text/css" href="css/fg_membersiteResponsive.css" />
 			<link rel="STYLESHEET" type="text/css" href="css/pwdwidget.css" />
 			<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 			
-			<!--(Start) Provided by JetDevLLC-->
-				<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+			(Start) Provided by JetDevLLC				<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 				<link href="css/style2 - Copy.css"    rel="stylesheet" type="text/css" />
+ -->
 
 				<!--[if IE 6]>
 				<style type="text/css">img, div, { behavior: url("js/iepngfix.htc") }
@@ -63,8 +158,11 @@
 			<!--(End) Provided by JetDevLLC-->
 			
 			<!--(Start) Tooltip Scripts-->
+<!-- 
 				<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 				<link rel="stylesheet" href="/resources/demos/styleEdit.css">
+ -->
+<!-- 
 				<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 				<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 				<script type="text/javascript">
@@ -72,6 +170,7 @@
 						$(document).tooltip();
 					});
 				</script>
+ -->
 			<!--(End) Tooltip Scripts-->
 			
 			<!--(Start) Script to show whether the event is 'Other'-->
@@ -117,38 +216,32 @@
 	</head>
 	
 	<body>
-		<div class="header-wrap">
-			<div class="header">
-				<a class="logout-btn" href='logout.php'>Log Out</a>
-				<ul class="head-social-icons">
-					<!---<li><a class="facebook"   href="#"></a></li>
-					<li><a class="twitter"    href="#"></a></li>
-					<li><a class="googleplus" href="#"></a></li>-->
-					<li>Welcome <?= $fgmembersite->UserFullName() ?>!</li>
-				</ul><!--//head-social-icons-->
+	
+	
+	<div class="top">
+        <div class="logo"><img src="images/logo.png" alt="Logo" /></div>
+        <div class="profile">
+            <div class="user">
+                <img src="images/profile.jpg" />
+                <h2><?= $usrname?></h2>
+                <a href="#"><img src="images/btn_dropdown.png" alt="Dropdown" /></a>
+                <div class="clear"></div>
+            </div>
+            <div class="search">
+                <form>
+                    <input type="text" value="search for events" />
+                    <input type="image" src="images/btn_search.png" class="btn-search" />
+                    <div class="clear"></div>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
 
-				<ul class="nav">
-					<li><a href="./userPage.php">User Page</a></li>
-					<li><span class="shadow">|</span></li>
-					<li><a href="./searchForm.php">Search Events</a></li>
-					<li><span class="shadow">|</span></li>
-					<li><a href="./eventAccor.php">Your Events</a></li>
-				</ul>
-				<div class="mobile-menu-btn"><span class="icon-reorder"></span></div>
-			</div><!--//header-->
-		</div><!--//header-wrap-->
-		
-		<div class="mobile-menu-list">
-			<ul>
-				<li><a href="./userPage.php">User Page</a></li>
-				<li><a href="./searchForm.php">Search Events</a></li>
-				<li><a href="./eventAccor.php">Your Events</a></li>
-			</ul>   
-		</div><!--//mobile-menu-list-->
 		
 		<div id='fg_membersite' align="center">
-			<fieldset align="left">
-				<legend>Event Info</legend>
+
 				<form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 					<input type="hidden" name="submitted" id="submitted" value="1"/>
 
@@ -407,15 +500,7 @@
 											</select>
 					</div>
 					
-<!-- 
-					
-					
-					<div class="container" id="">
-						<label for="Estate">* State: </label><br/>
-						<input type="text" name="Estate" title="Enter the State of the Event"id="Estate" value="<?php echo $fgmembersite->SafeDisplay("Estate") ?>" maxlength="50" /><br/>
-						<span id="event_Estate_errorloc" class="error"></span>
-					</div>
- -->
+
 					
 					<!--Zip-->
 					<div class="container" id="">
@@ -500,7 +585,7 @@
 						<input id="submitButton" type="submit" name="Submit" value="Create Event" />
 					</div>
 				</form>
-			</fieldset>
+		
 		</div>
 		
 		<!--This script needs to wihtin the file. 
