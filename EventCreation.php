@@ -360,12 +360,12 @@
 					
         		</div> <!-- User Profle -->
         
-        
+        <form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+					
         		<div class="form-wrap" id='fg_membersite' >
         			<div class="box">
 
-				<form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-					<input type="hidden" name="submitted" id="submitted" value="1"/>
+				<input type="hidden" name="submitted" id="submitted" value="1"/>
 
 <!-- 
 					<div class="short_explanation">* required fields</div>
@@ -706,13 +706,13 @@
 					<div>
 						<input id="submitButton" type="submit" name="Submit" value="Create Event" />
 					</div>
-				</form>
+				
 		
-		</div>
+				</div>
+        	
+       		 </div>
         
-        </div>
-        
-        
+       		</form> 
         
         
         

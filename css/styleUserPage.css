@@ -91,7 +91,7 @@ body{
 .main .menu li ul li a{ font-size: 16px; color: #000; padding: 20px 50px; display: block; text-decoration: none; }
 .main .menu li ul li a:hover{ background: #f2efe6; }
 
-.main .content{ float: left; width: auto; background: url(../images/bg_shadow.png) repeat-y left #fff; padding: 50px;  }
+.main .content{ float: none; width: auto; background: url(../images/bg_shadow.png) repeat-y left #fff; padding: 50px;  }
 .main .content .dashboard{ background: #fff; border-bottom: 1px solid #999; padding-bottom: 50px; }
 
 .main .content .dashboard .user-profile{ float: left; margin-right: 20px; margin-top: -60px; }
