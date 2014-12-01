@@ -491,7 +491,7 @@ class FGMembersite{
 			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
 			$formvars['Eother']       = strtolower (  $formvars['Eother']        );
 			$formvars['EtimeStart']   = strtolower (  $formvars['EtimeStart']    );
-			$formvars['EtimeEnd']   = strtolower (  $formvars['EtimeEnd']    );
+			$formvars['EtimeEnd']     = strtolower (  $formvars['EtimeEnd']    );
 
 						$address = $formvars['Eaddress'] . ", " . $formvars['Ecity'] . ", " . $formvars['Estate'] . " " . $formvars['Ezip'];
 						$expression = "/\s/";
@@ -608,6 +608,11 @@ class FGMembersite{
 			$_FILES["Eflyer"]["tmp_name"] - the name of the temporary copy of the file stored on the server
 			$_FILES["Eflyer"]["error"] - the error code resulting from the file upload
 		*/
+		
+		$timeStamp = time();
+		$fileName = $timeStamp . $_FILES["Eflyer"]["name"];
+		$tempName = $timeStamp . $_FILES["Eflyer"]["tmp_name"];
+		
 		$allowedExts = array("gif", "jpeg", "jpg", "png", "PNG", "JPG", "JPEG", "GIF");
 		$explode = explode(".", $_FILES["Eflyer"]["name"]);
 		$extension = end($explode);
@@ -621,25 +626,25 @@ class FGMembersite{
  				//echo "Type: "   . $_FILES["Eflyer"]["type"] . "<br>";
  				//echo "Size: "   . ($_FILES["Eflyer"]["size"] / 1024) . " KiB<br>";
 				//echo "Stored in: " . $_FILES["Eflyer"]["tmp_name"];
-				if(!file_exists("./eventFlyers/")){
-					mkdir("./eventFlyers/", 0700);
-					if(file_exists("./eventFlyers/" . $_FILES["Eflyer"]["name"])){
-						$this->HandleError($_FILES["Eflyer"]["name"] . " already exists. ");
+				if(!file_exists("./eventFlyers/".$this->UsrName())){
+					mkdir("./eventFlyers/".$this->UsrName(), 0700);
+					if(file_exists("./eventFlyers/" . $fileName)){
+						$this->HandleError($fileName . " already exists. ");
 						//echo $_FILES["Eflyer"]["name"] . " already exists. ";
 					} else {
-						move_uploaded_file($_FILES["Eflyer"]["tmp_name"], "./eventFlyers/" . $_FILES["Eflyer"]["name"]);
+						move_uploaded_file($tempName, "./eventFlyers/" . $fileName);
 						//echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
-						$itemPicture = $this->Sanitize("./eventFlyers/" . $_FILES["Eflyer"]["name"]);
+						$itemPicture = $this->Sanitize("./eventFlyers/" . $fileName);
 						return $itemPicture;
 					}
 				} else {
-					if(file_exists("./eventFlyers/" . $_FILES["Eflyer"]["name"])){
-						$this->HandleError($_FILES["Eflyer"]["name"] . " already exists. ");
+					if(file_exists("./eventFlyers/" . $fileName)){
+						$this->HandleError($fileName . " already exists. ");
 						//echo $_FILES["Eflyer"]["name"] . " already exists. ";
 					} else {
-						move_uploaded_file($_FILES["Eflyer"]["tmp_name"], "./eventFlyers/" . $_FILES["Eflyer"]["name"]);
+						move_uploaded_file($tempName, "./eventFlyers/" . $fileName);
 						//echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
-						$itemPicture = $this->Sanitize("./eventFlyers/" . $_FILES["Eflyer"]["name"]);
+						$itemPicture = $this->Sanitize("./eventFlyers/" . $fileName);
 						return $itemPicture;
 					}
 				}

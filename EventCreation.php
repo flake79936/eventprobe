@@ -217,7 +217,7 @@
 							<div class="update-image">
 								<!--image upload-->
 								<h5>Update Image</h5>
-								<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" img src="images/icon_cam.png" alt="Image-upload"/>
+								<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" alt="Image-upload"/>
 								<div class="clear"></div>
 							</div>
 							<img src="images/profile-img.jpg" alt="Profiles">
