@@ -614,31 +614,31 @@ class FGMembersite{
 		if (($_FILES["Eflyer"]["size"] < 524288) && in_array($extension, $allowedExts)){
 			if ($_FILES["Eflyer"]["error"] > 0) {
 				$this->HandleError("Error: " . $_FILES["Eflyer"]["error"] . "<br> File too big!");
-				echo "Error: " . $_FILES["file"]["error"] . "<br>";
-				echo "File too big.";
+				//echo "Error: " . $_FILES["file"]["error"] . "<br>";
+				//echo "File too big.";
 			} else {
- 				echo "Upload: " . $_FILES["Eflyer"]["name"] . "<br>";
- 				echo "Type: "   . $_FILES["Eflyer"]["type"] . "<br>";
- 				echo "Size: "   . ($_FILES["Eflyer"]["size"] / 1024) . " KiB<br>";
-				echo "Stored in: " . $_FILES["Eflyer"]["tmp_name"];
+ 				//echo "Upload: " . $_FILES["Eflyer"]["name"] . "<br>";
+ 				//echo "Type: "   . $_FILES["Eflyer"]["type"] . "<br>";
+ 				//echo "Size: "   . ($_FILES["Eflyer"]["size"] / 1024) . " KiB<br>";
+				//echo "Stored in: " . $_FILES["Eflyer"]["tmp_name"];
 				if(!file_exists("./eventFlyers/")){
 					mkdir("./eventFlyers/", 0700);
 					if(file_exists("./eventFlyers/" . $_FILES["Eflyer"]["name"])){
 						$this->HandleError($_FILES["Eflyer"]["name"] . " already exists. ");
-						echo $_FILES["Eflyer"]["name"] . " already exists. ";
+						//echo $_FILES["Eflyer"]["name"] . " already exists. ";
 					} else {
 						move_uploaded_file($_FILES["Eflyer"]["tmp_name"], "./eventFlyers/" . $_FILES["Eflyer"]["name"]);
-						echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
+						//echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
 						$itemPicture = $this->Sanitize("./eventFlyers/" . $_FILES["Eflyer"]["name"]);
 						return $itemPicture;
 					}
 				} else {
 					if(file_exists("./eventFlyers/" . $_FILES["Eflyer"]["name"])){
 						$this->HandleError($_FILES["Eflyer"]["name"] . " already exists. ");
-						echo $_FILES["Eflyer"]["name"] . " already exists. ";
+						//echo $_FILES["Eflyer"]["name"] . " already exists. ";
 					} else {
 						move_uploaded_file($_FILES["Eflyer"]["tmp_name"], "./eventFlyers/" . $_FILES["Eflyer"]["name"]);
-						echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
+						//echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
 						$itemPicture = $this->Sanitize("./eventFlyers/" . $_FILES["Eflyer"]["name"]);
 						return $itemPicture;
 					}
