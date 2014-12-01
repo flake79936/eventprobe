@@ -17,7 +17,6 @@
 		}
 	}
 	
-	
 	include 'dbconnect.php';
 
 		$today = Date("m/d/Y");
@@ -28,9 +27,6 @@
 ?>
 <html lang="en">
 	<head>
-	
-<!-- 	 -->
-		<head>
 		<meta charset="utf-8"/>
 		<title>Eventprobe</title>
 		<!--[if lt IE 9]>
@@ -96,12 +92,7 @@
         <!--GOOGLE MAPS-->
         <script type="text/javascript" src="js/googleapis.js"></script>
         <script type="text/javascript" src="js/map.js"></script>
-        
-	</head>
-	
-<!-- 	 -->
 
-		
 		<!--(Start) Scripts-->
 			<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 			
@@ -110,10 +101,10 @@
 			<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 			
 			<!--(Start) Provided by JetDevLLC-->
-				<script src="js/jquery-1.9.0.min.js" type="text/javascript"></script>
-				<script src="js/iepngfix_tilebg.js"  type="text/javascript"></script>
-				<script src="js/scrollTo.js"         type="text/javascript"></script>
-				<script src="js/global.js"           type="text/javascript"></script>
+				<!--<script src="js/jquery-1.9.0.min.js" type="text/javascript"></script>-->
+				<!--<script src="js/iepngfix_tilebg.js"  type="text/javascript"></script>-->
+				<!--<script src="js/scrollTo.js"         type="text/javascript"></script>-->
+				<!--<script src="js/global.js"           type="text/javascript"></script>-->
 				<script type="text/javascript">
 					$(document).ready(function(){
 						$(".mobile-menu-list").hide();
@@ -141,22 +132,7 @@
  -->
 			<!--(End) Tooltip Scripts-->
 			
-			<!--(Start) Script to show whether the event is 'Other'-->
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$("#other").hide();
-						$("select").change(function(){
-							$("select option:selected").each(function(){
-								if($(this).attr("value") === "Other"){
-									$("#other").show();
-								} else {
-									$("#other").hide();
-								}
-							});
-						}).change();
-					});
-				</script>
-			<!--(End) Script to show whether the event is 'Other'-->
+			
 			
 			<!--(Start) Counts the number of characters-->
 				<script type="text/javascript">
@@ -661,7 +637,7 @@
 							</div>
 						</div>
 						
-						<div id="googleMap" class="gmap" style="position: relative; overflow: hidden; -webkit-transform: translateZ(0px); background-color: rgb(229, 227, 223);">
+						<!--<div id="googleMap" class="gmap" style="position: relative; overflow: hidden; -webkit-transform: translateZ(0px); background-color: rgb(229, 227, 223);">
 						<div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default;">
 						<div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
 						<div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;">
@@ -726,7 +702,7 @@
 						</div>
 						</div>
 						</div>
-						</div>
+						</div>-->
 						<div class="clear"></div>
 						
 						<!--Submit Button-->
@@ -765,5 +741,22 @@
 			
 			// ]]>
 		</script>
+		
+		<!--(Start) Script to show whether the event is 'Other'-->
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$("#other").hide();
+						$("select").change(function(){
+							$("select option:selected").each(function(){
+								if($(this).attr("value") === "Other"){
+									$("#other").show();
+								} else {
+									$("#other").hide();
+								}
+							});
+						}).change();
+					});
+				</script>
+			<!--(End) Script to show whether the event is 'Other'-->
 	</body>
 </html>
