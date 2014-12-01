@@ -42,69 +42,20 @@
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
         
-        <!--JQUERY-->
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
-					
-		
-		
-			<!--(Start) Script to show whether the event is 'Other'-->
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$("#other").hide();
-						$("select").change(function(){
-							$("select option:selected").each(function(){
-								if($(this).attr("value") === "Other"){
-									$("#other").show();
-								} else {
-									$("#other").hide();
-								}
-							});
-						}).change();
-					});
-				</script>
-			<!--(End) Script to show whether the event is 'Other'-->
-			
-			<!--(Start) Counts the number of characters-->
-				<script type="text/javascript">
-					function textCounter(field, cnt, maxlimit) {         
-						var cntfield = document.getElementById(cnt)
-						if (field.value.length > maxlimit) // if too long...trim it!
-							field.value = field.value.substring(0, maxlimit);
-						 // otherwise, update 'characters left' counter
-						else
-							//cntfield.value = maxlimit - field.value.length;
-							document.getElementById('charsLeft').innerHTML = maxlimit - field.value.length;
-					}
-				</script>
-			<!--(End) Counts the number of characters-->
-			
-			<!--(Start) Date Pickers-->
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$("#EstartDate").datepicker({minDate: 0});
-						$("#EendDate").datepicker({minDate: 0});
-					});
-				</script>
-			<!--(End) Date Pickers-->
-        
-        <!--GOOGLE MAPS-->
+        <!--GOOGLE MAPS
         <script type="text/javascript" src="js/googleapis.js"></script>
-        <script type="text/javascript" src="js/map.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>-->
 
 		<!--(Start) Scripts-->
 			<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 			
-			<script src="scripts/pwdwidget.js" type="text/javascript"></script>
-			<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-			<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+			<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+			
+			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+			<script type="text/javascript" src="js/jquery-ui.js"></script>
+			<script type="text/javascript" src="js/scripts.js"></script>
 			
 			<!--(Start) Provided by JetDevLLC-->
-				<!--<script src="js/jquery-1.9.0.min.js" type="text/javascript"></script>-->
-				<!--<script src="js/iepngfix_tilebg.js"  type="text/javascript"></script>-->
-				<!--<script src="js/scrollTo.js"         type="text/javascript"></script>-->
-				<!--<script src="js/global.js"           type="text/javascript"></script>-->
 				<script type="text/javascript">
 					$(document).ready(function(){
 						$(".mobile-menu-list").hide();
@@ -116,23 +67,22 @@
 				</script>
 			<!--(End) Provided by JetDevLLC-->
 			
-			<!--(Start) Tooltip Scripts-->
-<!-- 
-				<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-				<link rel="stylesheet" href="/resources/demos/styleEdit.css">
- -->
-<!-- 
-				<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-				<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+			<!--(Start) Script to show whether the event is 'Other'-->
 				<script type="text/javascript">
-					$(function(){
-						$(document).tooltip();
+					$(document).ready(function(){
+						$("#other").hide();
+						$("select").change(function(){
+							$("select option:selected").each(function(){
+								if($(this).attr("value") == "Other"){
+									$("#other").show();
+								} else {
+									$("#other").hide();
+								}
+							});
+						}).change();
 					});
 				</script>
- -->
-			<!--(End) Tooltip Scripts-->
-			
-			
+			<!--(End) Script to show whether the event is 'Other'-->
 			
 			<!--(Start) Counts the number of characters-->
 				<script type="text/javascript">
@@ -270,7 +220,7 @@
 								<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" img src="images/icon_cam.png" alt="Image-upload"/>
 								<div class="clear"></div>
 							</div>
-							<!--<img src="images/profile-img.jpg" alt="Profiles">-->
+							<img src="images/profile-img.jpg" alt="Profiles">
 						</div>
 						
 						<div class="user-menu">
@@ -292,22 +242,23 @@
 										<div class="clear"></div>
 									</div>-->
 									 <div class="type">
-										<div class="container" id="Etype">
-											<h5 for="Etype">Type of Event</h5><h5>
-											<select name="Etype">
-											 <option>Please Select One</option>
-											 <option value="Concert"><img src="images/icon_music.png" alt="Icon" /> Concert</option>
-											<option value="Fair">Fair</option>
-											<option value="Art">Art</option>
-											<option value="Social">Social</option>
-											<option value="Other">Other</option>
-											</select>
+										<div class="container" id="">
+											<h5 for="Etype">Type of Event</h5>
+											<h5>
+												<select name="Etype">
+													<option>Please Select One</option>
+													<option value="Concert">Concert</option>
+													<option value="Fair">Fair</option>
+													<option value="Art">Art</option>
+													<option value="Social">Social</option>
+													<option value="Other">Other</option>
+												</select>
 											</h5>
 										</div>
 										<div class="type">					
-											<div class="container" id="Eother">
+											<div class="container" id="other">
 												<label for="Eother">Other: </label><br>
-												<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="" maxlength="50"><br>
+												<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
 												<span id="event_Eother_errorloc" class="error"></span>
 											</div>
 										</div>
@@ -330,8 +281,7 @@
 						<div class="clear"></div>
 					</div>
 					<!--Dashboard-->
-	 
-	 
+					
 					<div class="form-wrap">
 						<div class="box">
 							<h5 for="Edescription">description</h5>
@@ -586,21 +536,19 @@
 							<div class="wrap">
 								<div class="type">	
 								<!--Start Date picker-->
-								<div class="container hasDatepicker" id="EstartDate">
+								<div class="container" id="">
 								<h5 for="EstartDate">Start date: </h5><br>
 								<input type="text" name="EstartDate" title="Pick Start Date" id="EstartDate" value="" maxlength="50"><br>
-								<span id="event_EstartDate_errorloc" class="error"></span>
-								<div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">December</span>&nbsp;<span class="ui-datepicker-year">2014</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th><th scope="col"><span title="Monday">Mo</span></th><th scope="col"><span title="Tuesday">Tu</span></th><th scope="col"><span title="Wednesday">We</span></th><th scope="col"><span title="Thursday">Th</span></th><th scope="col"><span title="Friday">Fr</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="#">1</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">2</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">3</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">4</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">5</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">6</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">7</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">10</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">11</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">12</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">13</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">17</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">18</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">19</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">20</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">21</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">24</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">25</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">26</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">27</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">31</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div></div>
+								<!--<span id="event_EstartDate_errorloc" class="error"></span>-->
 								</div>	
 
 
 								<div class="type">
 								<!--End Date picker-->
-								<div class="container hasDatepicker" id="EendDate">
+								<div class="container" id="">
 								<h5 for="EendDate">End date: </h5><br>
 								<input type="text" name="EendDate" title="Pick Start Date" id="EendDate" value="" maxlength="50"><br>
 								<span id="event_EendDate_errorloc" class="error"></span>
-								<div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">December</span>&nbsp;<span class="ui-datepicker-year">2014</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th><th scope="col"><span title="Monday">Mo</span></th><th scope="col"><span title="Tuesday">Tu</span></th><th scope="col"><span title="Wednesday">We</span></th><th scope="col"><span title="Thursday">Th</span></th><th scope="col"><span title="Friday">Fr</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default ui-state-highlight ui-state-active" href="#">1</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">2</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">3</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">4</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">5</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">6</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">7</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">10</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">11</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">12</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">13</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">17</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">18</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">19</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">20</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">21</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">24</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">25</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">26</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">27</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">31</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div></div>	
 								</div>	
 								
 								<div class="clear"></div>
@@ -636,81 +584,12 @@
 								</div>
 							</div>
 						</div>
-						
-						<!--<div id="googleMap" class="gmap" style="position: relative; overflow: hidden; -webkit-transform: translateZ(0px); background-color: rgb(229, 227, 223);">
-						<div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default;">
-						<div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
-						<div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;">
-							<div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
-								<div style="position: absolute; left: 0px; top: 0px; z-index: 1;">
-									<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 127px; top: 17px;"></div>
-									<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -129px; top: 17px;"></div>
-									<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 127px; top: -239px;"></div>
-									<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 127px; top: 273px;"></div>
-									<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 383px; top: 17px;"></div>
-									<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -129px; top: -239px;"></div>
-									<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -129px; top: 273px;"></div>
-									<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 383px; top: -239px;"></div>
-									<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 383px; top: 273px;"></div>
-								</div>
-							</div>
-						</div>
-						
-						<div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div>
-						<div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div>
-						<div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"></div>
-						<div style="position: absolute; z-index: 0; left: 0px; top: 0px;">
-							<div style="overflow: hidden; width: 338px; height: 338px;"></div>
-						</div>
-						
-						<div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
-						<div style="position: absolute; left: 0px; top: 0px; z-index: 1;">
-						<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 383px; top: -239px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;">
-						<img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i13!2i1298!3i2802!2m3!1e0!2sm!3i274000000!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0!20m1!1b1" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div>
-						<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 127px; top: 17px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;">
-						<img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i13!2i1297!3i2803!2m3!1e0!2sm!3i274000000!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0!20m1!1b1" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div>
-						<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -129px; top: 17px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;">
-						<img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i13!2i1296!3i2803!2m3!1e0!2sm!3i274000000!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0!20m1!1b1" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div>
-						<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 127px; top: -239px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;">
-						<img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i13!2i1297!3i2802!2m3!1e0!2sm!3i274000000!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0!20m1!1b1" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div>
-						<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 127px; top: 273px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;">
-						<img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i13!2i1297!3i2804!2m3!1e0!2sm!3i274000000!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0!20m1!1b1" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div>
-						<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -129px; top: 273px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;">
-						<img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i13!2i1296!3i2804!2m3!1e0!2sm!3i274000000!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0!20m1!1b1" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div>
-						<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -129px; top: -239px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;">
-						<img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i13!2i1296!3i2802!2m3!1e0!2sm!3i274000000!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0!20m1!1b1" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div>
-						<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 383px; top: 17px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;">
-						<img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i13!2i1298!3i2803!2m3!1e0!2sm!3i274000000!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0!20m1!1b1" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div>
-						<div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 383px; top: 273px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;">
-						<img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i13!2i1298!3i2804!2m3!1e0!2sm!3i274000000!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0!20m1!1b1" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div>
-						</div>
-						</div>
-						</div>
-						<div style="position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%;"></div>
-						<div style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
-						<div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div>
-						<div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div>
-						<div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div>
-						<div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div>
-						</div>
-						</div>
-						<div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;">
-						<a target="_blank" href="http://maps.google.com/maps?ll=49.280418,-122.997181&amp;z=13&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3" title="Click to see this area on Google Maps" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 62px; height: 26px; cursor: pointer;">
-						<img src="https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 62px; height: 26px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 155px; bottom: 0px; width: 12px;"><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Map Data</a><span style="display: none;"></span></div></div></div><div style="padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 10px; top: 70px; background-color: white;"><div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div><div style="font-size: 13px;"></div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt3.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);"></div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; position: absolute; -webkit-user-select: none; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a href="http://www.google.com/intl/en-US_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms of Use</a></div></div><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none; display: none; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a target="_new" title="Report errors in the road map or imagery to Google" href="http://maps.google.com/maps?ll=49.280418,-122.997181&amp;z=13&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3&amp;skstate=action:mps_dialog$apiref:1&amp;output=classic" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Report a map error</a></div></div><div class="gmnoprint" draggable="false" controlwidth="20" controlheight="39" style="margin: 5px; -webkit-user-select: none; position: absolute; left: 0px; top: 0px;"><div class="gmnoprint" controlwidth="20" controlheight="39" style="position: absolute; left: 0px; top: 0px;"><div style="width: 20px; height: 39px; overflow: hidden; position: absolute;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt3.png" draggable="false" style="position: absolute; left: -39px; top: -401px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div title="Zoom in" style="position: absolute; left: 0px; top: 2px; width: 20px; height: 17px; cursor: pointer;"></div><div title="Zoom out" style="position: absolute; left: 0px; top: 19px; width: 20px; height: 17px; cursor: pointer;"></div></div></div><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none; position: absolute; right: 72px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><span>500 m&nbsp;</span><div style="position: relative; display: inline-block; height: 8px; bottom: -1px; width: 40px;"><div style="width: 100%; height: 4px; position: absolute; bottom: 0px; left: 0px; background-color: rgb(255, 255, 255);"></div><div style="position: absolute; left: 0px; top: 0px; width: 4px; height: 8px; background-color: rgb(255, 255, 255);"></div><div style="width: 4px; height: 8px; position: absolute; bottom: 0px; right: 0px; background-color: rgb(255, 255, 255);"></div><div style="position: absolute; height: 2px; bottom: 1px; right: 1px; left: 1px; background-color: rgb(102, 102, 102);"></div><div style="position: absolute; left: 1px; top: 1px; width: 2px; height: 6px; background-color: rgb(102, 102, 102);"></div>
-						<div style="width: 2px; height: 6px; position: absolute; bottom: 1px; right: 1px; background-color: rgb(102, 102, 102);"></div>
-						</div>
-						</div>
-						</div>
-						</div>
-						</div>-->
 						<div class="clear"></div>
-						
+					</div><!--End of Form-wrap-->
 						<!--Submit Button-->
 						<div>
 							<input id="submitButton" type="submit" name="Submit" value="Create Event" />
 						</div>
-					</div><!--End of Form-wrap-->
-						
 				</form>
 			</div> <!-- End of content -->
 			
@@ -741,22 +620,5 @@
 			
 			// ]]>
 		</script>
-		
-		<!--(Start) Script to show whether the event is 'Other'-->
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$("#other").hide();
-						$("select").change(function(){
-							$("select option:selected").each(function(){
-								if($(this).attr("value") === "Other"){
-									$("#other").show();
-								} else {
-									$("#other").hide();
-								}
-							});
-						}).change();
-					});
-				</script>
-			<!--(End) Script to show whether the event is 'Other'-->
 	</body>
 </html>
