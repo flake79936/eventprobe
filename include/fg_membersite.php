@@ -361,7 +361,8 @@ class FGMembersite{
 		if(!isset($_POST['submitted'])){
 			return false;
 		}
-
+		
+		echo "in create method\n";
 		$formvars = array();
 
 		if(!$this->ValidateEventSubmission()){
@@ -397,20 +398,18 @@ class FGMembersite{
 		}
 
 		$validator = new FormValidator();
-		//$validator->addValidation("Efname",       "req", "Please fill in First Name");
-		//$validator->addValidation("Elname",       "req", "Please fill in Last Name");
 		$validator->addValidation("Evename",      "req", "Please fill in Event Name");
 		$validator->addValidation("Eaddress",     "req", "Please fill in address");
 		$validator->addValidation("Ecity",        "req", "Please fill in City");
 		$validator->addValidation("Estate",       "req", "Please fill in State");
 		$validator->addValidation("Ezip",         "req", "Please fill in Zip code");
 		$validator->addValidation("EphoneNumber", "req", "Please fill in Phone Number");
-		//$validator->addValidation("Etype",        "req", "Please fill in Type of Event");
+		$validator->addValidation("Etype",        "req", "Please fill in Type of Event");
 		$validator->addValidation("EstartDate",   "req", "Please Select a Start Date");
 		$validator->addValidation("EtimeStart",   "req", "Please fill in the Start Time");
-		$validator->addValidation("EtimeEnd",   "req", "Please fill in the End Time");
-		//$validator->addValidation("EendDate",     "req", "Please Select an End Date");
-		//$validator->addValidation("Edescription", "req", "Please fill in Description");
+		$validator->addValidation("EtimeEnd",     "req", "Please fill in the End Time");
+		$validator->addValidation("EendDate",     "req", "Please Select an End Date");
+		$validator->addValidation("Edescription", "req", "Please fill in Description");
 
 		if(!$validator->ValidateForm()){
 			$error='';
@@ -426,9 +425,8 @@ class FGMembersite{
 	
 	function CollectEventSubmission(&$formvars){
 
-
 		$formvars['Evename']      = $this->Sanitize($_POST['Evename']);
-		$formvars['file']         = $this->Sanitize($_POST['file']);		
+		//$formvars['file']         = $this->Sanitize($_POST['file']);		
 		$formvars['EstartDate']   = $this->Sanitize($_POST['EstartDate']);
 		$formvars['EendDate']     = $this->Sanitize($_POST['EendDate']);
 		$formvars['Eaddress']     = $this->Sanitize($_POST['Eaddress']);
@@ -443,8 +441,8 @@ class FGMembersite{
 		$formvars['Efacebook']    = $this->Sanitize($_POST['Efacebook']);
 		$formvars['Etwitter']     = $this->Sanitize($_POST['Etwitter']);
 		$formvars['Egoogle']      = $this->Sanitize($_POST['Egoogle']);
-		$formvars['EtimeStart']      = $this->Sanitize($_POST['EtimeStart']);
-		$formvars['EtimeEnd']      = $this->Sanitize($_POST['EtimeEnd']);
+		$formvars['EtimeStart']   = $this->Sanitize($_POST['EtimeStart']);
+		$formvars['EtimeEnd']     = $this->Sanitize($_POST['EtimeEnd']);
 		$formvars['Eother']       = $this->Sanitize($_POST['Eother']);
 	}
 	
@@ -616,31 +614,31 @@ class FGMembersite{
 		if (($_FILES["Eflyer"]["size"] < 524288) && in_array($extension, $allowedExts)){
 			if ($_FILES["Eflyer"]["error"] > 0) {
 				$this->HandleError("Error: " . $_FILES["Eflyer"]["error"] . "<br> File too big!");
-				//echo "Error: " . $_FILES["file"]["error"] . "<br>";
-				//echo "File too big.";
+				echo "Error: " . $_FILES["file"]["error"] . "<br>";
+				echo "File too big.";
 			} else {
-// 				echo "Upload: " . $_FILES["Eflyer"]["name"] . "<br>";
-// 				echo "Type: "   . $_FILES["Eflyer"]["type"] . "<br>";
-// 				echo "Size: "   . ($_FILES["Eflyer"]["size"] / 1024) . " KiB<br>";
-				//echo "Stored in: " . $_FILES["Eflyer"]["tmp_name"];
+ 				echo "Upload: " . $_FILES["Eflyer"]["name"] . "<br>";
+ 				echo "Type: "   . $_FILES["Eflyer"]["type"] . "<br>";
+ 				echo "Size: "   . ($_FILES["Eflyer"]["size"] / 1024) . " KiB<br>";
+				echo "Stored in: " . $_FILES["Eflyer"]["tmp_name"];
 				if(!file_exists("./eventFlyers/")){
 					mkdir("./eventFlyers/", 0700);
 					if(file_exists("./eventFlyers/" . $_FILES["Eflyer"]["name"])){
 						$this->HandleError($_FILES["Eflyer"]["name"] . " already exists. ");
-						//echo $_FILES["Eflyer"]["name"] . " already exists. ";
+						echo $_FILES["Eflyer"]["name"] . " already exists. ";
 					} else {
 						move_uploaded_file($_FILES["Eflyer"]["tmp_name"], "./eventFlyers/" . $_FILES["Eflyer"]["name"]);
-						//echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
+						echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
 						$itemPicture = $this->Sanitize("./eventFlyers/" . $_FILES["Eflyer"]["name"]);
 						return $itemPicture;
 					}
 				} else {
 					if(file_exists("./eventFlyers/" . $_FILES["Eflyer"]["name"])){
 						$this->HandleError($_FILES["Eflyer"]["name"] . " already exists. ");
-						//echo $_FILES["Eflyer"]["name"] . " already exists. ";
+						echo $_FILES["Eflyer"]["name"] . " already exists. ";
 					} else {
 						move_uploaded_file($_FILES["Eflyer"]["tmp_name"], "./eventFlyers/" . $_FILES["Eflyer"]["name"]);
-						//echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
+						echo "Stored in: " . "./eventFlyers/" . $_FILES["Eflyer"]["name"];
 						$itemPicture = $this->Sanitize("./eventFlyers/" . $_FILES["Eflyer"]["name"]);
 						return $itemPicture;
 					}
@@ -648,7 +646,7 @@ class FGMembersite{
 			}
 		} else {
 			$this->HandleError("Invalid File!");
-			//echo "Invalid file";
+			echo "Invalid file";
 		}
 		return false;
 	}
@@ -811,6 +809,7 @@ class FGMembersite{
 		return true;
 	}
 	
+	//needs to be updated to the newest table
 	function CreateTableEvent(){
 		$qry = "Create Table $this->tablename2 (".
 				"Eid INT AUTO_INCREMENT NOT NULL,".  
