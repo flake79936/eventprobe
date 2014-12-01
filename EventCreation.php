@@ -52,18 +52,6 @@
 					
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 			<!--(Start) Script to show whether the event is 'Other'-->
 				<script type="text/javascript">
 					$(document).ready(function(){
@@ -293,25 +281,88 @@
         </div>
         	<div class="content">
         	
+        	<div class="dashboard">
+        	
+        	    
+        	    
+        	    <div class="user-profile">
+                    <div class="update-image">
+                        <h5>Update Image</h5>
+                        <input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" img src="images/icon_cam.png" alt="Image"/>
+                        <div class="clear"></div>
+                    </div>
+                    <img src="images/profile-img.jpg" alt="Profiles">
+                </div>
+                
+                <div class="user-menu">
+                    <div>
+                        <div class="name">
+                            <h1>DJ Maxwell</h1>
+                            <div class="info">
+                                <div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
+                                <div class="box"><h3>Music Event</h3></div>
+                                <div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="reach">
+                            <h3>Increase your reach!</h3>
+                            <a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="saved">
+                        <div class="box"><h3>Saved</h3></div>
+                        <div class="box"><a href="#"><img src="images/btn_draft.png" alt="Draft" /></a></div>
+                        <div class="box"><a href="#"><img src="images/btn_publish.png" alt="Draft" /></a></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                
+                
+        	</div> <!--Dashboard-->
+        	
+        	
+        	
+        	
+        	
+       
+        		
+<!-- 
+        		
         		<div class="user-profile">
+                    <div class="update-image">
+                        <h5>Update Image</h5>
+                        <input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" img src="images/icon_cam.png" alt="Image"/>
+                        <div class="clear"></div>
+                    </div>
+                    <img src="images/profile-img.jpg" alt="Profiles">
+                </div>
+        		
+ -->
+        		
+<!-- 
         		
         			<div class="update-image">
         				<div class="container" id="eventPic">
-						<label for="Eflyer" >* Picture of Event:</label><br/>
+						<label for="Eflyer" >Event Image <img src="images/icon_cam.png" alt="Image"></label><br/>
 						<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" /><br/>
 						<span id="event_Eflyer_errorloc" class="error"></span>
 						</div>
 						
 					<div class="clear"></div>
 						
-					</div> <!-- Update image -->	
+					</div> <!~~ Update image ~~>	
+ -->
 						
-				<img src="images/profile-img.jpg" alt="Profiles" />
+
 					
         		</div> <!-- User Profle -->
         
         
-        		<div id='fg_membersite' >
+        		<div class="form-wrap" id='fg_membersite' >
+        			<div class="box">
 
 				<form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 					<input type="hidden" name="submitted" id="submitted" value="1"/>
@@ -659,7 +710,7 @@
 		
 		</div>
         
-        
+        </div>
         
         
         
