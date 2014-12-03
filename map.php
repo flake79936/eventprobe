@@ -21,7 +21,7 @@ include 'dbconnect.php';
 	$result = mysqli_query($con, $sql);
 ?>
 
-<!-- retrieve info from DB -->
+
 <?PHP
 	$i = 0;
 	while($row = mysqli_fetch_array($result)){
@@ -34,9 +34,9 @@ include 'dbconnect.php';
 		$i++;
 	}
 	
-// 	echo $city . " -> 3<br>";
+
 ?>
-<!--  end retrieval-->
+
 
 <!DOCTYPE html>
 

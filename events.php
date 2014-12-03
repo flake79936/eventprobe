@@ -8,8 +8,11 @@
 		}
 
 		
-		//On page 2
-$city2 = $_SESSION['city2'];
+		if(!isset($_SESSION['city2'])){
+			echo"not set";
+			}
+			else{
+		$city2 = $_SESSION['city2'];}
 		
 		
 include 'dbconnect.php';
