@@ -107,6 +107,31 @@
 				</script>
 			<!--(End) Date Pickers-->
 		<!--(End) Scripts-->
+		
+		<script>
+		function updatePic(str){
+			var xmlhttp;
+			if (str == ""){
+				document.getElementById("txtHint").innerHTML = "";
+				return;
+			}
+			
+			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange=function(){
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+					document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+				}
+			}
+			
+			xmlhttp.open("POST", "update.php", true);
+			xmlhttp.send();
+		}
+		</script>
 	</head>
 	
 	<body>
@@ -130,7 +155,6 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-
 
 		<div class="main">
 			<div class="sidebar">
@@ -206,6 +230,21 @@
 			</div><!--End of Sidebar-->
 			
 			<div class="content">
+				<div class="dashboard">
+					<div class="user-profile">
+						<div class="update-image">
+							<!--image upload-->
+							<form action="">
+								<h5>Update Image</h5>
+								<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" alt="Image-upload"/>
+								<br/><br/>
+								<input type="submit" onclick="updatePic(this.value)" value="Update Picture"/>
+							</form>
+						</div>
+						<img src="images/profile-img.jpg" alt="Profiles">
+					</div>
+				</div>
+				
 				<form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 					<input type="hidden" name="submitted" id="submitted" value="1"/>
 					
@@ -213,15 +252,15 @@
 				
 					<!--DASHBOARD-->
 					<div class="dashboard">
-						<div class="user-profile">
+						<!--<div class="user-profile">
 							<div class="update-image">
-								<!--image upload-->
+								image upload
 								<h5>Update Image</h5>
 								<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" alt="Image-upload"/>
 								<div class="clear"></div>
 							</div>
 							<img src="images/profile-img.jpg" alt="Profiles">
-						</div>
+						</div>-->
 						
 						<div class="user-menu">
 							<div>
