@@ -112,19 +112,21 @@
 		function updatePic(str){
 			var xmlhttp;
 			if (str == ""){
-				document.getElementById("txtHint").innerHTML = "";
+				document.getElementById("myDiv").innerHTML = " please select a picture to upload.";
 				return;
 			}
 			
-			if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+			if (window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
 				xmlhttp = new XMLHttpRequest();
-			} else {// code for IE6, IE5
+			} else {
+				// code for IE6, IE5
 				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 			}
 			
-			xmlhttp.onreadystatechange=function(){
+			xmlhttp.onreadystatechange = function(){
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-					document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+					document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
 				}
 			}
 			
@@ -240,8 +242,9 @@
 								<br/><br/>
 								<input type="submit" onclick="updatePic(this.value)" value="Update Picture"/>
 							</form>
+							<div id="myDiv"></div>
 						</div>
-						<img src="images/profile-img.jpg" alt="Profiles">
+						<!--<img id="" src="images/profile-img.jpg" alt="Profiles">-->
 					</div>
 				</div>
 				
