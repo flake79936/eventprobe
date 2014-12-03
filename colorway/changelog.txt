@@ -1,0 +1,200 @@
+Theme Name: ColorWay
+========================
+
+* Version 3.2.4
+***************************************
+1. Mobile Navigation Issue Fixed.
+2. Theme Style Update.
+
+* Version 3.2.3
+***************************************
+1. Logo Upload issue Fixed
+
+* Version 3.2.2
+***************************************
+Theme Design Improvement
+Fonts Update
+Metabox alignment fixed on blog
+
+* Version 3.2.1
+***************************************
+text domain issue fixed.
+
+* Version 3.2
+***************************************
+1. Theme Layout Inhance
+2. Theme Font Change
+3. Design Improved
+4. Blog Post on Home Page Added
+5. Home Page Widget Area Added
+
+* Version 3.1
+***************************************
+1. FormGet Plugin recommends added.
+
+* Version 3.0
+***************************************
+1. Font license specified.
+2. Theme check issue fixed.
+
+* Version 2.5.7
+***************************************
+1. Script license specified.
+
+* Version 2.5.5
+***************************************
+1. Images sources specified. 
+
+* Version 2.5.3
+***************************************
+1. Core wordpres background added.
+2. If "Front page displays" is set to "Your latest posts" then latest posts should be displayed fixed.
+
+* Version 2.5.2
+***************************************
+1. Edge case word straight fix to word wrap.
+
+* Version 2.5.2
+***************************************
+1. Remove @package wordpress from all files.
+2. Theme name issue fixed.
+3. Upload button style issue in theme option fixed.
+
+* Version 2.5.1
+***************************************
+1. An undefined function was calling in attachment.php is now fixed.
+
+* Version 2.5
+***************************************
+1. Theme name bug fixed. 
+
+* Version 2.4
+***************************************
+1. All headings SEO friendly.
+
+* Version 2.3
+***************************************
+1. Code optimized.
+2. Image fade effect added
+
+* Version 2.2
+***************************************
+1. Debug issues fixed.
+
+* Version 2.1
+***************************************
+1. Color style not working in wordpress preview fixed.
+
+* Version 2.0 
+***************************************
+1. All Javascripts file changed to un-minified.
+
+
+2. Styles, javascripts and functions are set to unique theme slug.
+3. Copyright resources has removed.
+
+
+* Version 1.7.9 
+***************************************
+1. Theme upgraded to responsive layout
+
+
+
+* Version 1.7.8 
+***************************************
+1. Some jquery issue fixed.
+
+
+2. Stylesheet optimized. 
+
+
+* Version 1.7.7 
+***************************************
+1. Some little bugs fixed.
+
+2. Child theme enabled.
+
+
+* Version 1.7.6 
+***************************************
+1. "Main Menu" theme location issue fixed.
+
+
+2. Search Result Posts/Pages? are not proerply aligned issue fixed.
+
+
+3. Themes are required to enqueue comment-reply script via callback issue fixed.
+
+
+4. Cufon replacement and tipsy calling issue fixed.
+
+5. Neutral default image issue fixed.
+
+
+6. Long strings in menu drop down. e.g(aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa) issue fixed.
+
+
+7. Long menu overlaps the designated space in the theme issue fixed.
+
+
+7. Long site title / descriiption overflows in the footer issue fixed.
+
+
+* Version 1.7.5 
+***************************************
+
+1. Stylesheet optimized.
+
+2. Some little bug fixed
+
+
+3. Footer social logos arranged.
+
+
+
+* Version 1.7.4 
+***************************************
+1. Wordpress jquery initialization 
+
+2. Removed unwanted files.
+
+
+3. Fixed unlinked images.
+
+
+4. Fixed analytics code.
+
+* Version 1.7.3 
+***************************************
+1. More social icons added.
+
+
+
+* Version 1.7.2 
+***************************************
+1. Functions file updated.
+
+2. Attachment file added.
+
+
+3. Few bugs fixed in attachment file.
+
+
+
+* Version 1.7.1 
+***************************************
+1. Custom css option panel resolved.
+
+
+2. Favicon option panel resolved.
+
+
+3. Analytics option panel resolved.
+
+
+4. Searching resolved.
+
+
+5. Cufon heading to display resolved.
+
+
