@@ -5,10 +5,10 @@
 <?PHP
 	require_once("./include/membersite_config.php");
 	//assuming the user is registered
-	if(!$fgmembersite->CheckLogin()){
-		$fgmembersite->RedirectToURL("index.php");
-		exit;
-	}
+// 	if(!$fgmembersite->CheckLogin()){
+// 		$fgmembersite->RedirectToURL("index.php");
+// 		exit;
+// 	}
 	
 // 	if(isset($_POST["submitted"])){
 // 		$result = $fgmembersite->searchEvent();
@@ -16,6 +16,7 @@
 // 	}
 ?>
 
+<!-- 
 <html dir="ltr" lang="en-US" >
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,6 +28,7 @@
 		<meta name="format-detection" content="email=no" />
 				<link rel="stylesheet" media="all" href=""/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+ -->
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
@@ -62,11 +64,12 @@
 							<span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span>
 						</div>
 						
-						<div class='container'>
+					<!-- 	<div class='container'> -->
 
-							<input type='text' name='eventSearch' title="Search" id='eventSearch' value='<?php echo $fgmembersite->SafeDisplay('eventSearch') ?>' maxlength="50" /><br/>
+							<input type='text' name='eventSearch' title="Search" id='eventSearch' value='<?php echo $fgmembersite->SafeDisplay('eventSearch') ?>' maxlength="50" />
+<!-- 							<br/> -->
 							<span id='search_eventSearch_errorloc' class='error'></span>
-						</div>
+<!-- 						</div> -->
 						
 						<input id="submitButton" type="submit" name="Submit" value="Search" />
 				</form>
@@ -155,7 +158,7 @@
 				 echo "";
 				} ?>
  -->
-	</body>
+<!-- 	</body> -->
 	
 	<!--This script needs to wihtin the file. 
 		It is validating the form.-->

@@ -61,7 +61,9 @@
 			document.write(cdate);	
 	</script></h1>
 		<div class="temp">75</div>
+		
 		<div class="clear"></div>
+				<?PHP include 'searchForm.php';?>
 	</div>
 </div>
 
@@ -77,6 +79,7 @@
 	<!--clickable dropdown menu-->
 	<div>
 		<?PHP include './menu.php'; ?>
+
 	</div>
 	
 	<div class="clear"></div>
