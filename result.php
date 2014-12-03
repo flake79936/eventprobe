@@ -1,5 +1,24 @@
-<?PHP $result   = $_GET['result'];
-echo $result; ?>
+<?PHP
+	require_once("./include/membersite_config.php");
+ $result   = "";
+//  $_GET['result'];
+  $eventSearch   = $_GET['eventSearch'];
+// echo $result;
+// echo $eventSearch;
+
+
+	
+		$result = $fgmembersite->searchEventHelper($eventSearch);
+		if ($result== null){
+		echo "Sorry no results found.";
+// 		sleep(3);
+		$fgmembersite->RedirectToURL("searchForm.php");
+		}
+
+	
+
+
+ ?>
 
 <div id="main_container">
 					<div id='middle_box'>

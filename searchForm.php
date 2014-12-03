@@ -10,10 +10,10 @@
 		exit;
 	}
 	
-	if(isset($_POST["submitted"])){
-		$result = $fgmembersite->searchEvent();
-// 		header("Location: result.php?result=$result");
-	}
+// 	if(isset($_POST["submitted"])){
+// 		$result = $fgmembersite->searchEvent();
+// // 		header("Location: result.php?result=$result");
+// 	}
 ?>
 
 <html dir="ltr" lang="en-US" >
@@ -30,6 +30,7 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
+<!-- 
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
         <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
@@ -44,6 +45,7 @@
 		
 		
 		
+ -->
 		
 		
 		
@@ -53,7 +55,7 @@
 <!-- 		<div id='fg_membersite' align="center"> -->
 <!-- 			<fieldset align="left"> -->
 
-				<form id='search' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='POST' accept-charset='UTF-8'>
+				<form id='search' action='result.php' method='GET' accept-charset='UTF-8'>
 						<input type='hidden' name='submitted' id='submitted' value='1'/>
 						
 						<div>
@@ -71,7 +73,8 @@
 <!-- 			</fieldset> -->
 <!-- 		</div> -->
 		
-		<?php
+	<!-- 
+	<?php
 				if(isset($_POST["submitted"])){ ?>
 				<div id="main_container">
 					<div id='middle_box'>
@@ -151,6 +154,7 @@
 			<?PHP } else {
 				 echo "";
 				} ?>
+ -->
 	</body>
 	
 	<!--This script needs to wihtin the file. 

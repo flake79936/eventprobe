@@ -371,7 +371,7 @@ class FGMembersite{
 		
 		$itemPicture = $this->upLoadPic();
 		if($itemPicture != false){
-			$formvars['Eflyer'] = $itemPicture;
+			$formvars['Eflyer'] = $this->upLoadPic();
 		}
 		
 		$this->CollectEventSubmission($formvars);
@@ -614,7 +614,7 @@ class FGMembersite{
 		$tempName = $timeStamp . $_FILES["Eflyer"]["tmp_name"];
 		
 		$allowedExts = array("gif", "jpeg", "jpg", "png", "PNG", "JPG", "JPEG", "GIF");
-		$explode = explode(".", $_FILES["Eflyer"]["name"]);
+		$explode = explode(".", $fileName);
 		$extension = end($explode);
 		if (($_FILES["Eflyer"]["size"] < 524288) && in_array($extension, $allowedExts)){
 			if ($_FILES["Eflyer"]["error"] > 0) {
@@ -920,25 +920,25 @@ class FGMembersite{
 		$formvars['eventSearch'] = $this->Sanitize($_POST['eventSearch']);
 	}
 	
-	function searchEventHelper(&$formvars){
+function searchEventHelper($eventSearch){
 		if(!$this->DBLogin()){
 			$this->HandleError("Database login failed!");
 			return false;
 		}
-		 $formvars['eventSearch']       = strtolower (  $formvars['eventSearch']        );
-		$sql = "SELECT * FROM Events WHERE Ecity LIKE '" . $formvars['eventSearch'] . "' UNION ALL 
-		SELECT * FROM Events WHERE Estate LIKE '" . $formvars['eventSearch'] . "' UNION ALL
-		SELECT * FROM Events WHERE Evename LIKE '" . $formvars['eventSearch'] . "' UNION ALL
-		SELECT * FROM Events WHERE Ezip LIKE '" . $formvars['eventSearch'] . "'UNION ALL
-		SELECT * FROM Events WHERE EphoneNumber LIKE '" . $formvars['eventSearch'] . "'UNION ALL
-		SELECT * FROM Events WHERE Edescription LIKE '" . $formvars['eventSearch'] . "' UNION ALL 
-		SELECT * FROM Events WHERE Etype LIKE '" . $formvars['eventSearch'] . "' UNION ALL
-		SELECT * FROM Events WHERE Ehashtag  LIKE '" . $formvars['eventSearch'] . "'ORDER BY EstartDate";
+		 $eventSearch       = strtolower (  $eventSearch       );
+		$sql = "SELECT * FROM Events WHERE Ecity LIKE '" . $eventSearch . "' UNION ALL 
+		SELECT * FROM Events WHERE Estate LIKE '" . $eventSearch . "' UNION ALL
+		SELECT * FROM Events WHERE Evename LIKE '" . $eventSearch . "' UNION ALL
+		SELECT * FROM Events WHERE Ezip LIKE '" . $eventSearch . "'UNION ALL
+		SELECT * FROM Events WHERE EphoneNumber LIKE '" . $eventSearch . "'UNION ALL
+		SELECT * FROM Events WHERE Edescription LIKE '" . $eventSearch . "' UNION ALL 
+		SELECT * FROM Events WHERE Etype LIKE '" . $eventSearch . "' UNION ALL
+		SELECT * FROM Events WHERE Ehashtag  LIKE '" . $eventSearch . "'ORDER BY EstartDate";
 		
 		$result = mysql_query($sql, $this->connection);
 		
 		if(!$result || mysql_num_rows($result) <= 0){
-			$this->HandleError("Did Not Find Any Results For " . $formvars['eventSearch']);
+			$this->HandleError("Did Not Find Any Results For " . $eventSearch);
 			return false;
 		}
 		
