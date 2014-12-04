@@ -54,35 +54,35 @@
 					<div id='middle_box'>
 						<div id="inner-mid-box">
  -->
- 		<h1>Today and this Week Near You</h1>
+ <div class="box">
+
+	<div class="title">
+		<h1>Today and this Week Near You</h1>
 		<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>
 		<div class="clear"></div>
- 			<div class="chart">												
+	</div>								
 				<div class="row">
 							<?PHP
 								$i = 0;
-								echo "test";
+
 								while($row = mysql_fetch_assoc($result)){ 
 								$dt = strtotime($row['EstartDate']);
 								$day = date("D", $dt);
 								?>
-								
 
-	
 					<div class="cell">&nbsp;</div>
 						<div class="cell active">
 						<div class="circle">1</div>
 						<h4><?=substr($row['EstartDate'], 0, 5);?><br /><?= $day ?></h4>
 					</div>
 										
-
 							<?PHP $i++;	 }  ?>
 				</div>										
-			</div>	
 
+
+	</div>			
 				
-				
-				
+</div>				
 <!-- 
 				
 				
