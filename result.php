@@ -19,88 +19,71 @@
 
 
  ?>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Eventprobe</title>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" media="all" href=""/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+        
+        <!--STYLE-->
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/top.css" />
+        <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
+        <link rel="stylesheet" type="text/css" href="css/banner.css" />
+        <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
+        <link rel="stylesheet" type="text/css" href="css/schedule.css" />
+        <link rel="stylesheet" type="text/css" href="css/chart.css" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <link rel="stylesheet" type="text/css" href="css/links.css" />
+        <link rel="stylesheet" type="text/css" href="css/footer.css" />
+
+        <!--FAVICON-->
+        <link rel="shortcut icon" href="favicon.ico"  />
+
+        
+	</head>
 
 
-
+<!-- 
 <div id="main_container">
 					<div id='middle_box'>
 						<div id="inner-mid-box">
+ -->
+ 		<h1>Today and this Week Near You</h1>
+		<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>
+		<div class="clear"></div>
+ 			<div class="chart">												
+				<div class="row">
 							<?PHP
 								$i = 0;
+								echo "test";
 								while($row = mysql_fetch_assoc($result)){ 
+								$dt = strtotime($row['EstartDate']);
+								$day = date("D", $dt);
+								?>
 								
-								//if the street name contains two or more words, the map will not recognize the street.
-								$address = $row['Eaddress'] . ", " . $row['Ecity'] . ", " . $row['Estate'] . " " . $row['Ezip'];
-								$expression = "/\s/";
-								$replace = "+";
 
-								$street = preg_replace($expression, $replace, $address);
-							?>
-								<div class="accordion vertical">
-									<ul>
-										<li>
-											<input type="radio" id="radio-<?= $i?>" name="radio-accordion" checked="checked" />
-											<label for="radio-<?= $i?>"><?= $row['Evename']?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=$row['EstartDate']?></label>
-											<div class="content">
-												
-										<p><b>Address of Event:</b>&nbsp;<?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>&nbsp; <?= $row['Ezip'] ?> </p>
-
-										<p><b>Event Type:</b>&nbsp;<?= $row['Edescription'] ?></p>
-										
-										<?PHP /*if ($row['Ewebsite']) { ?>
-										<p><a href="<?= $row['Ewebsite'] ?>" target="_blank"><?= $row['Ewebsite'] ?></p>
-										<?PHP }*/?>
 	
-												<p><img src="<?= $row['Eflyer'] ?>"/></p>
-												
-												<?PHP if ($row['Efacebook']) { ?>
-                                            	<a href="<?= $row['Efacebook'] ?>" target="_blank" >
-                                            	<img src="./img/icons/facebook.ico"
-                                           		width="20" height="20" title="Facebook"
-                                            	border="0" style="display:inline;"></a>
-												<?PHP }?>
-
-
-												<?PHP if ($row['Ehashtag']) { ?>
-												<a href="https://twitter.com/intent/tweet?button_hashtag=<?= $row['Ehashtag'] ?>"
-												class="twitter-hashtag-button">Tweet#<?= $row['Ehashtag'] ?></a>
-												<?PHP }?>
+					<div class="cell">&nbsp;</div>
+						<div class="cell active">
+						<div class="circle">1</div>
+						<h4><?=substr($row['EstartDate'], 0, 5);?><br /><?= $day ?></h4>
+					</div>
 										
 
-												<?PHP if ($row['Etwitter']) { ?>
-												<a href="https://twitter.com/<?= $row['Etwitter'] ?>" class="twitter-follow-button"
-												data-show-count="false" data-lang="en">Follow<?= $row['Etwitter'] ?></a>
-												<?PHP }?>
+							<?PHP $i++;	 }  ?>
+				</div>										
+			</div>	
 
-
-												<?PHP if ($row['Egoogle']) { ?>
-												<a href="<?= $row['Egoogle'] ?>" rel="publisher" target="_blank">
-												<img src="./img/icons/googleplus.ico"
-												width="20" height="20" title="google+" 
-												border="0" style="display:inline;"></a>
-												<?PHP }?>
-																																						
-												<p><iframe
-													width="300"
-													height="150"
-													frameborder="0" style="border:0"
-													src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB0uLEbR6K9fehSmaCyR4-NdWmIUaYevjY&q=<?= $street?>">
-												</iframe></p>
-												
-												<p><b>Website:</b>&nbsp;<?php echo $row['Ewebsite'] ?></p>
-											
-											</div>
-										</li>
-									</ul>
-								</div>
-							<?PHP $i++; } ?>
-						</div>
-					</div>
-				</div>
 				
 				
 				
-				
+<!-- 
 				
 				
 				
@@ -233,3 +216,4 @@
 	<a href="#"><img src="images/advertisement_02.jpg" alt="Banner" /></a>
 </div>
 <div class="clear"></div>
+ -->
