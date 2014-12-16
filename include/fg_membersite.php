@@ -811,15 +811,16 @@ class FGMembersite{
 	function CreateTableReg(){
 		$qry = "Create Table $this->tablename1 (".
 				"id INTEGER AUTO_INCREMENT NOT NULL,".
-				"UFname CHAR(55) NOT NULL,".
-				"ULname CHAR(55) NOT NULL,".
-				"UPswd CHAR(5) NOT NULL,".
-				"Uemail CHAR(15) NOT NULL,".
-				"Uphone CHAR(10) DEFAULT 'N/A',".
-				"Uadmin CHAR(55) DEFAULT 0,".
-				"UuserName CHAR(55) NOT NULL,".
-				"PRIMARY KEY(id, Uemail)".
-				")";
+				"id INTEGER AUTO_INCREMENT,".
+				"UFname CHAR(255) NOT NULL,".
+				"ULname CHAR(255) NOT NULL,".
+				"UPswd CHAR(255) NOT NULL,".
+				"Uemail CHAR(255) NOT NULL,".
+				"Uphone CHAR(15) DEFAULT 'N/A',".
+				"Uadmin CHAR(1) DEFAULT 0,".
+				"UuserName CHAR(255) NOT NULL,".
+				"PRIMARY KEY(id, UuserName)".
+				");";
 				
 		if(!mysql_query($qry, $this->connection)){
 			$this->HandleDBError("Error creating the table \nquery was\n $qry");
@@ -847,22 +848,32 @@ class FGMembersite{
 	
 	//needs to be updated to the newest table
 	function CreateTableEvent(){
-		$qry = "Create Table $this->tablename2 (".
-				"Eid INT AUTO_INCREMENT NOT NULL,".  
-				"Efname VARCHAR(26) NOT NULL,".
-				"Elname VARCHAR(26) NOT NULL,".
+		$qry = "Create Table $this->tablename2 (". 
+				"Eid INT AUTO_INCREMENT,".
+				"UuserName CHAR(255) NOT NULL,".
 				"Evename VARCHAR(26) NOT NULL,".
-				"Eaddress VARCHAR(255) NOT NULL,".
-				"Ecity VARCHAR(50) NOT NULL,".
-				"Estate CHAR(255) NOT NULL,".
-				"Ezip INT(5) NOT NULL,".
-				"EphoneNumber INT(10),".
-				"Etype VARCHAR(26) NOT NULL,".
-				"Edescription VARCHAR(26) NOT NULL,".
-				"Eflyer BLOB,".
 				"EstartDate VARCHAR(20) NOT NULL,".
 				"EendDate VARCHAR(20) NOT NULL,".
-				"PRIMARY KEY(Eid)".
+				"Eaddress VARCHAR(255) NOT NULL,".
+				"Ecity VARCHAR(50) NOT NULL,".
+				"Estate CHAR(10) NOT NULL,".
+				"Ezip INT(5) NOT NULL,".
+				"EphoneNumber INT(10),".
+				"Edescription VARCHAR(26) NOT NULL,".
+				"Etype VARCHAR(26) NOT NULL,".
+				"Ewebsite VARCHAR(26) NOT NULL,".
+				"Ehashtag CHAR(255),".
+				"Efacebook CHAR(255),".
+				"Etwitter CHAR(255),".
+				"Egoogle CHAR(255),".
+				"Eflyer CHAR(255),".
+				"Eother CHAR(255),".
+				"EtimeStart CHAR(255),".
+				"EtimeEnd CHAR(255),".
+				"Elat DECIMAL(10,6),".
+				"Elong DECIMAL(10,6),".
+				"Erank CHAR(255),".
+				"PRIMARY KEY(Eid, UuserName)".
 			");";
 
 		if(!mysql_query($qry, $this->connection)){
@@ -951,12 +962,12 @@ class FGMembersite{
 		$formvars['eventSearch'] = $this->Sanitize($_POST['eventSearch']);
 	}
 	
-function searchEventHelper($eventSearch){
+	function searchEventHelper($eventSearch){
 		if(!$this->DBLogin()){
 			$this->HandleError("Database login failed!");
 			return false;
 		}
-		 $eventSearch       = strtolower (  $eventSearch       );
+		$eventSearch = strtolower($eventSearch);
 		$sql = "SELECT * FROM Events WHERE Ecity LIKE '" . $eventSearch . "' UNION ALL 
 		SELECT * FROM Events WHERE Estate LIKE '" . $eventSearch . "' UNION ALL
 		SELECT * FROM Events WHERE Evename LIKE '" . $eventSearch . "' UNION ALL

@@ -36,6 +36,7 @@ CREATE TABLE Events(
 	EtimeEnd CHAR(255),
 	Elat DECIMAL(10,6),
 	Elong DECIMAL(10,6),
+	Erank CHAR(255),
 	PRIMARY KEY(Eid, UuserName)
 );
 
