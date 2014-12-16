@@ -22,6 +22,16 @@
         
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="./css/registration.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/top.css" />
+        <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
+        <link rel="stylesheet" type="text/css" href="css/banner.css" />
+        <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
+        <link rel="stylesheet" type="text/css" href="css/schedule.css" />
+        <link rel="stylesheet" type="text/css" href="css/chart.css" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <link rel="stylesheet" type="text/css" href="css/links.css" />
+        <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -51,6 +61,9 @@
 	</head>
 	
 	<body lang="en">
+	    	<div class="top">
+			<?PHP include './top.php';?>
+        </div>
 		<div class="main">
 			<div class="content">
 				<!--Keep this below-->
@@ -113,6 +126,23 @@
 			<div class="clear"></div>
 		</div>
 <!-- 		<div class="footer"></div> -->
+
+
+
+        <div class="app">
+			<?PHP include './app.php'; ?>
+        </div>
+        
+        <div class="links">
+			<?PHP include './links.php'; ?>
+        </div>
+        
+        <div class="footer">
+			<?PHP include './footer.php'; ?>
+        </div>
+
+
+
 	</body>
 		<!--This script needs to wihtin the file. 
 		It is validating the form.-->
@@ -134,8 +164,7 @@
 		frmvalidator.addValidation("UPswd",     "req", "Please Provide a Password");
 		frmvalidator.addValidation("ConPswd",   "req", "Please Confirm Your Password");
 		frmvalidator.addValidation("Uemail",    "req", "Please Please fill in Name");
-		frmvalidator.addValidation("Uphone",    "req", "Please Provide a Phone Number");
-		//frmvalidator.addValidation("Uadmin",    "req", "Please fill in Name");
+
 		
 		// ]]>
 	</script>
