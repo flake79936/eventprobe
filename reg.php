@@ -21,6 +21,7 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
+        <link rel="stylesheet" type="text/css" href="css/registration.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
@@ -43,14 +44,15 @@
         <script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 		<script src="scripts/pwdwidget.js" type="text/javascript"></script>
 		
-		<!--(Start) Tooltip Scripts-->
+		<!--Conflict with Bootstrap-->
+		<!--(Start) Tooltip Scripts
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-		<!--<link rel="stylesheet" href="/resources/demos/styleEdit.css">-->
+		<link rel="stylesheet" href="/resources/demos/styleEdit.css">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		<script type="text/javascript">
-		$(function(){$(document).tooltip();});
-		</script>
+			$(function(){$(document).tooltip();});
+		</script>-->
 		
 	</head>
 	
@@ -65,17 +67,11 @@
 				<form id="register" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 
 					<div class="form-wrap">
-					<!--New inputs-->
-					
 						<input type="hidden" name="submitted" id="submitted" value="1"/>
-						
-<!-- 						<input type="text" class="spmhidip" name="<?php echo $fgmembersite->GetSpamTrapInputName(); ?>" /> -->
 
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					
 						<div class="box">
-
-							
 							<h5>First Name</h5>
 							<input type="text" name="UFname" title="Enter your First Name" id="UFname"  value="<?php echo $fgmembersite->SafeDisplay('UFname') ?>" maxlength="50" /><br/>
 							<span id="register_UFname_errorloc" class="error"></span>
@@ -88,11 +84,8 @@
 							<input type="text" name="UuserName" title="Enter your Username" id="UuserName"  value="<?php echo $fgmembersite->SafeDisplay("UuserName") ?>" maxlength="50" /><br/>
 							<span id="register_UuserName_errorloc" class="error"></span>							
 							
-							<h5>Password</h5>							
-
-
+							<h5>Password</h5>
 							<input type='password' name='UPswd' title="Enter your Password" id='UPswd' value="<?php echo $fgmembersite->SafeDisplay("UPswd") ?>" maxlength="50" />
-
 							<br/><span id='register_UPswd_errorloc' class='error' style='clear:both'></span>
 							
 							<h5>Confirm Password</h5>
@@ -142,12 +135,6 @@
 		It is validating the form.-->
 	<script type="text/javascript">
 		// <![CDATA[
-		//'PasswordWidget()'
-		// @param1: The IDname of the <div> that it is going to be used in.
-		// @param2: The name of the <input> field.
-		var pwdwidget = new PasswordWidget('thepwddiv', 'UPswd');
-		pwdwidget.MakePWDWidget();
-
 		var frmvalidator = new Validator("register");
 		frmvalidator.EnableOnPageErrorDisplay();
 		frmvalidator.EnableMsgsTogether();
@@ -158,8 +145,6 @@
 		frmvalidator.addValidation("UPswd",     "req", "Please Provide a Password");
 		frmvalidator.addValidation("ConPswd",   "req", "Please Confirm Your Password");
 		frmvalidator.addValidation("Uemail",    "req", "Please Please fill in Name");
-
-		
 		// ]]>
 	</script>
 </html>

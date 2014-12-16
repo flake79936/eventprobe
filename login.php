@@ -38,7 +38,7 @@
 				<!--Keep this below-->
 				<form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 
-					<div class="form-wrap">
+					<div class="login">
 					<!--New inputs-->
 					
 						<input type="hidden" name="submitted" id="submitted" value="1"/>
