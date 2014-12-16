@@ -123,7 +123,7 @@
 				</div>
 				<div class="search">
 					<form>
-						<input type="text" value="search for events" />
+						<input type="text" placeholder="search for events" />
 						<input type="image" src="images/btn_search.png" class="btn-search" />
 						<div class="clear"></div>
 					</form>

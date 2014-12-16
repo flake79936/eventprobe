@@ -1,23 +1,16 @@
 <?PHP
 	require_once("./include/membersite_config.php");
- $result   = "";
-//  $_GET['result'];
-  $eventSearch   = $_GET['eventSearch'];
-// echo $result;
-// echo $eventSearch;
+	$result = "";
+	//  $_GET['result'];
+	$eventSearch = $_GET['eventSearch'];
+	// echo $result;
+	// echo $eventSearch;
 
-
-	
-		$result = $fgmembersite->searchEventHelper($eventSearch);
-		if ($result== null){
+	$result = $fgmembersite->searchEventHelper($eventSearch);
+	if ($result == null){
 		echo "Sorry no results found.";
-// 		sleep(3);
 		$fgmembersite->RedirectToURL("searchForm.php");
-		}
-
-	
-
-
+	}
  ?>
 <html>
 	<head>
@@ -43,13 +36,22 @@
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
         <!--FAVICON-->
-        <link rel="shortcut icon" href="favicon.ico"  />
-
-        
+        <link rel="shortcut icon" href="favicon.ico"/>
 	</head>
+	
+	<body>
+		
+	</body>
 
-
-<!-- 
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 
 <div id="main_container">
 					<div id='middle_box'>
 						<div id="inner-mid-box">
