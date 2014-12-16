@@ -31,6 +31,7 @@ class FGMembersite{
 	var $database;   /*EventAdvisors*/
 	var $tablename1; /*Registration*/
 	var $tablename2; /*Events*/
+	var $tablename3; /*MyEvents*/
 	var $connection; /**/
 	var $rand_key;   /**/
 
@@ -42,13 +43,14 @@ class FGMembersite{
         $this->rand_key = '0iQx5oBk66oVZep';
     }
     
-    function InitDB($host, $uname, $pwd, $database, $tablename1, $tablename2){
-        $this->db_host  = $host;
-        $this->username = $uname;
-        $this->pwd  = $pwd;
-        $this->database  = $database;
+    function InitDB($host, $uname, $pwd, $database, $tablename1, $tablename2, $tablename3){
+        $this->db_host    = $host;
+        $this->username   = $uname;
+        $this->pwd        = $pwd;
+        $this->database   = $database;
         $this->tablename1 = $tablename1;   
         $this->tablename2 = $tablename2;   
+        $this->tablename3 = $tablename3;  
     }
 	
     function SetAdminEmail($email){
@@ -164,6 +166,10 @@ class FGMembersite{
             return false;
         }
 		
+		if(!$this->EnsureMyEventsTable($formvars['UuserName'])){
+            return false;
+        }
+		
         if(!$this->IsFieldUnique($formvars, 'email')){
             $this->HandleError("This email is already registered");
             return false;
@@ -209,7 +215,16 @@ class FGMembersite{
         return true;
     }
 	
-	function IsFieldUnique($formvars,$fieldname){
+	function EnsureMyEventsTable($uUserName){
+        $uUserName = $this->SanitizeForSQL($uUserName);
+        $result = mysql_query("SHOW COLUMNS FROM $uUserName.$this->tablename3;");   
+        if(!$result || mysql_num_rows($result) <= 0){
+            return $this->CreateTableMyEvents($uUserName);
+        }
+        return true;
+    }
+	
+	function IsFieldUnique($formvars, $fieldname){
         $field_val = $this->SanitizeForSQL($formvars[$fieldname]);
         $qry = "SELECT UuserName from $this->tablename1 where $fieldname='".$field_val."'";
         $result = mysql_query($qry,$this->connection);   
@@ -806,6 +821,23 @@ class FGMembersite{
 				"UuserName CHAR(55) NOT NULL,".
 				"PRIMARY KEY(id, Uemail)".
 				")";
+				
+		if(!mysql_query($qry, $this->connection)){
+			$this->HandleDBError("Error creating the table \nquery was\n $qry");
+			return false;
+		}
+		return true;
+	}
+	
+	function CreateTableMyEvents($uUserName){
+        $uUserName = $this->SanitizeForSQL($uUserName);
+		$tName = $uUserName.$this->tablename3;
+		
+		$qry = "CREATE TABLE $tName(".
+				"id INTEGER AUTO_INCREMENT NOT NULL,".
+				"Eid INTEGER,".
+				"PRIMARY KEY(id)".
+				");";
 				
 		if(!mysql_query($qry, $this->connection)){
 			$this->HandleDBError("Error creating the table \nquery was\n $qry");

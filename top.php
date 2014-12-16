@@ -72,7 +72,7 @@
 		<div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
 	<?PHP } ?>
 	
-	<?PHP if(isset($usrname)){ ?>
+	<?PHP if(!empty($usrname)){ ?>
 		<h2> <?= $usrname;?> </h2>
 	<?PHP } ?>
 	

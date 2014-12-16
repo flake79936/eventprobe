@@ -19,7 +19,8 @@ $fgmembersite->InitDB(/*hostname*/'localhost',
                       /*password*/'17s_9Eyr',
                       /*database name*/'EventAdvisors',
                       /*table name 1*/'Registration',
-                      /*table name 2*/'Events');
+                      /*table name 2*/'Events',
+                      /*table name 3*/'MyEvents');
 
 //For better security. Get a random string from this link: http://tinyurl.com/randstr
 // and put it here
