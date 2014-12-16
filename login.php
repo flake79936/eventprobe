@@ -42,8 +42,6 @@
 					<!--New inputs-->
 					
 						<input type="hidden" name="submitted" id="submitted" value="1"/>
-						
-						<!--<input type="hidden" class="spmhidip" name="<?php echo $fgmembersite->GetSpamTrapInputName(); ?>" />-->
 
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					
@@ -57,7 +55,7 @@
 							<input type='password' title="Enter your Password" name='UPswd' id='UPswd' maxlength="50" />
 							<span id='login_UPswd_errorloc' class='error'></span>
 							
-					<!--End of new inputs-->
+						<!--End of new inputs-->
 												
 						</div><!--End of form-wrap -->
 

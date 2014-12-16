@@ -68,7 +68,7 @@
 </div>
 
 <div class="profile">
-	<?PHP	if($fgmembersite->CheckLogin()){ ?>
+	<?PHP if($fgmembersite->CheckLogin()){ ?>
 		<div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
 	<?PHP } ?>
 	
