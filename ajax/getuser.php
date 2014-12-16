@@ -1,7 +1,7 @@
 <?php
 	//$q = intval($_GET['q']);
 
-	$con = mysqli_connect('localhost', 'root', '', 'cs5339team9fa14');
+	$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'cs5339team9fa14');
 	if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
 
 	mysqli_select_db($con, "cs5339team9fa14");
@@ -9,7 +9,7 @@
 	$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
 	$qry = "SELECT * FROM master ";
 	$qry .= $var != null ? 
-			" WHERE academicyear REGEXP $var or term REGEXP $var or last REGEXP $var or first REGEXP $var or major REGEXP $var or level REGEXP $var or degree REGEXP $var " 
+			" WHERE academicyear REGEXP $var OR term REGEXP $var OR last REGEXP $var OR first REGEXP $var OR major REGEXP $var OR level REGEXP $var OR degree REGEXP $var " 
 			: "";
 			
 	//$sql = "SELECT * FROM master WHERE id = '".$q."'";

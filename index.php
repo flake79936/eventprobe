@@ -42,12 +42,13 @@
 			<?PHP include './top.php';?>
         </div>
         
-<!-- start My events      -->
-	<?PHP        if($fgmembersite->CheckLogin()){?>
-						<?PHP include './myevents.php'; ?>
-	<?PHP }?>
-
-<!-- end My events -->
+		<!-- start My events      -->
+		<?PHP
+			if($fgmembersite->CheckLogin()){
+				include './myevents.php';
+			}
+		?>
+		<!-- end My events -->
         
         <div class="banner">
 			<?PHP include './banner.php'; ?>

@@ -1,3 +1,19 @@
+<!--
+This can be used for when the complete site is loaded.
+We can load the events automatically (just like we do now with php)
+but with AJAX we can call it again without having to reload the site.
+
+See: http://stackoverflow.com/questions/4144768/javascript-ajax-call-on-page-onload
+	
+To auto refreash the site see:
+http://stackoverflow.com/questions/17266173/ajax-auto-refresh-stats
+
+ 
+$(document).ready(function() {
+   // put Ajax here.
+});
+-->
+
 <?PHP
 	require_once("./include/membersite_config.php");
 	if(!$fgmembersite->CheckLogin()){
