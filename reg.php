@@ -27,6 +27,10 @@
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
+<!--     	<link rel="stylesheet" href="./css/picStyle.css" /> -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+        
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -43,6 +47,8 @@
 		<!--Other Scripts-->
         <script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 		<script src="scripts/pwdwidget.js" type="text/javascript"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="./js/picScript.js"></script>
 		
 		<!--Conflict with Bootstrap-->
 		<!--(Start) Tooltip Scripts
@@ -99,6 +105,17 @@
 							<h5>Phone</h5>
 							<input type="text" name="Uphone" title="Enter your Phone Number"id="Uphone" onchange="check()" value="<?php echo $fgmembersite->SafeDisplay("Uphone") ?>" maxlength="50" /><br/>
 							<span id="register_Uphone_errorloc" class="error"></span>
+							
+							<div id="image_preview"><img id="previewing" src="noimage.png" /></div>
+							<div id="selectImage">
+							<label>Select Your Image</label><br/>
+							<input type="file" name="file" id="file" required />
+<!-- 							<input type="submit" value="Upload" class="submit" /> -->
+							</div>
+							<!-- </form> -->
+							</div>
+							<h4 id='loading' >loading..</h4>
+							<div id="message"></div>
 							
 
 					<!--End of new inputs-->

@@ -4,7 +4,7 @@ e.preventDefault();
 $("#message").empty();
 $('#loading').show();
 $.ajax({
-url: "ajax_php_file2.php", // Url to which the request is send
+url: "./ajax_php_file2.php", // Url to which the request is send
 type: "POST",             // Type of request to be send, called as method
 data: new FormData(this), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
 contentType: false,       // The content type used when sending data to the server.
