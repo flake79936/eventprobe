@@ -13,7 +13,7 @@
 						}
 					}
 					//xmlhttp.open("GET", "gethint.php?q=" + str, true);
-					xmlhttp.open("GET", "getuser.php?q=" + str, true);
+					xmlhttp.open("GET", "getEvent.php?q=" + str, true);
 					xmlhttp.send();
 				}
 			}

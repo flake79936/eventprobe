@@ -1,105 +1,64 @@
-<?PHP
-	require_once("./include/membersite_config.php");
-	$result = "";
-	//  $_GET['result'];
-	$eventSearch = $_GET['eventSearch'];
-	// echo $result;
-	// echo $eventSearch;
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/top.css" />
+	<link rel="stylesheet" type="text/css" href="css/myEvents.css" />
+	<link rel="stylesheet" type="text/css" href="css/banner.css" />
+	<link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
+	<link rel="stylesheet" type="text/css" href="css/schedule.css" />
+	<link rel="stylesheet" type="text/css" href="css/chart.css" />
+	<link rel="stylesheet" type="text/css" href="css/app.css" />
+	<link rel="stylesheet" type="text/css" href="css/links.css" />
+	<link rel="stylesheet" type="text/css" href="css/footer.css" />
+</head>
 
-	$result = $fgmembersite->searchEventHelper($eventSearch);
-	if ($result == null){
-		echo "Sorry no results found.";
-		$fgmembersite->RedirectToURL("searchForm.php");
-	}
- ?>
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<title>Eventprobe</title>
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link rel="stylesheet" media="all" href=""/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
-        
-        <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/top.css" />
-        <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
-        <link rel="stylesheet" type="text/css" href="css/banner.css" />
-        <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
-        <link rel="stylesheet" type="text/css" href="css/schedule.css" />
-        <link rel="stylesheet" type="text/css" href="css/chart.css" />
-        <link rel="stylesheet" type="text/css" href="css/app.css" />
-        <link rel="stylesheet" type="text/css" href="css/links.css" />
-        <link rel="stylesheet" type="text/css" href="css/footer.css" />
+<?php
+	//$q = intval($_GET['q']);
 
-        <!--FAVICON-->
-        <link rel="shortcut icon" href="favicon.ico"/>
-	</head>
+	$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'cs5339team9fa14');
+	if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
+
+	mysqli_select_db($con, "cs5339team9fa14");
 	
-	<body>
+	$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
+	$qry = "SELECT * FROM master ";
+	$qry .= $var != null ? 
+			" WHERE academicyear REGEXP $var OR term REGEXP $var OR last REGEXP $var OR first REGEXP $var OR major REGEXP $var OR level REGEXP $var OR degree REGEXP $var " 
+			: "";
+			
+	//$sql = "SELECT * FROM master WHERE id = '".$q."'";
+	$result = mysqli_query($con, $qry);
+	
+		echo "<table border='1'>
+		<tr>
+		<th>master_id</th>
+		<th>academicyear</th>
+		<th>term</th>
+		<th>last</th>
+		<th>first</th>
+		<th>major</th>
+		<th>level</th>
+		<th>degree</th>
+		</tr>";
+
+		while($row = mysqli_fetch_array($result)) {
+			echo "<tr>";
+			echo "<td>" . $row['master_id'] . "</td>";
+			echo "<td>" . $row['academicyear'] . "</td>";
+			echo "<td>" . $row['term'] . "</td>";
+			echo "<td>" . $row['last'] . "</td>";
+			echo "<td>" . $row['first'] . "</td>";
+			echo "<td>" . $row['major'] . "</td>";
+			echo "<td>" . $row['level'] . "</td>";
+			echo "<td>" . $row['degree'] . "</td>";
+			echo "</tr>";
+		}
+		echo "</table>";
 		
-	</body>
-
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-- 
-<div id="main_container">
-					<div id='middle_box'>
-						<div id="inner-mid-box">
- -->
- <div class="box">
-
-	<div class="title">
-		<h1>Today and this Week Near You</h1>
-		<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>
-		<div class="clear"></div>
-	</div>								
-				<div class="row">
-							<?PHP
-								$i = 0;
-
-								while($row = mysql_fetch_assoc($result)){ 
-								$dt = strtotime($row['EstartDate']);
-								$day = date("D", $dt);
-								?>
-
-					<div class="cell">&nbsp;</div>
-						<div class="cell active">
-						<div class="circle">1</div>
-						<h4><?=substr($row['EstartDate'], 0, 5);?><br /><?= $day ?></h4>
-					</div>
-										
-							<?PHP $i++;	 }  ?>
-				</div>										
-
-
-	</div>			
-				
-</div>				
-<!-- 
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				<div class="box">
+		
+	mysqli_close($con);
+?>
+<body>
+<div class="box">
 	<div class="title">
 		<h1>Today and this Week Near You</h1>
 		<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>
@@ -218,4 +177,4 @@
 	<a href="#"><img src="images/advertisement_02.jpg" alt="Banner" /></a>
 </div>
 <div class="clear"></div>
- -->
+</body>

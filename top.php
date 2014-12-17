@@ -14,56 +14,53 @@
 <div class="date">
 	<div class="box">
 		<h1>
-		<script type="text/javascript">
+			<script type="text/javascript">
+				var currentTime = new Date()
+				var hours = currentTime.getHours()
+				var minutes = currentTime.getMinutes()
 
-			var currentTime = new Date()
-			var hours = currentTime.getHours()
-			var minutes = currentTime.getMinutes()
+				if (minutes < 10)
+				minutes = "0" + minutes
 
-			if (minutes < 10)
-			minutes = "0" + minutes
+				var suffix = "AM";
+				if (hours >= 12) {
+					suffix = "PM";
+					hours = hours - 12;
+				}
+				if (hours == 0) {
+					hours = 12;
+				}
+				document.write("<b>" + hours + ":" + minutes + " " + suffix + "</b>")
+			</script> 	
 
-			var suffix = "AM";
-			if (hours >= 12) {
-			suffix = "PM";
-			hours = hours - 12;
-			}
-			if (hours == 0) {
-			hours = 12;
-			}
+			<script type="text/javascript">
+				var dayarray = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
 
-			document.write("<b>" + hours + ":" + minutes + " " + suffix + "</b>")
-	
-	</script> 	
+				var montharray = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
-	<script type="text/javascript">
+				var mydate = new Date()
+				var year = mydate.getYear()
+				if (year < 1000)
+				year += 1900;
+				var day = mydate.getDate()
+				var month = mydate.getMonth()
+				var mymonth = montharray[month]
 
-			var dayarray = new Array("Sun", "Mon", "Tue", "Wed",
-			"Thu", "Fri", "Sat")
+				var daym = mydate.getDate()
+				var day2 = mydate.getDay()
+				var myday = dayarray[day2]
 
-			var montharray = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun",
-			"Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-
-			var mydate = new Date()
-			var year = mydate.getYear()
-			if (year < 1000)
-			year += 1900
-			var day = mydate.getDate()
-			var month = mydate.getMonth()
-			var mymonth = montharray[month]
-
-			var daym = mydate.getDate()
-			var day2 = mydate.getDay()
-			var myday =dayarray[day2]
-
-			var cdate = "";
-			cdate = myday + " " + mymonth + " " + daym + " ";
-			document.write(cdate);	
-	</script></h1>
+				var cdate = "";
+				cdate = myday + " " + mymonth + " " + daym + " ";
+				document.write(cdate);	
+			</script>
+		</h1>
 		<div class="temp">75</div>
-		
+
 		<div class="clear"></div>
-				<?PHP include 'searchForm.php';?>
+		<div class="search">
+			<?PHP //include 'searchForm.php';?>
+		</div>
 	</div>
 </div>
 
