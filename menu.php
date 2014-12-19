@@ -1,4 +1,6 @@
-<?PHP require_once("./include/membersite_config.php"); ?>
+<?PHP require_once("./include/membersite_config.php"); 
+	  $bool = $fgmembersite->CheckLogin();
+?>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 
@@ -14,12 +16,13 @@
 		<span class="caret"></span>
 	</button>
 	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
-		<?PHP if(!$fgmembersite->CheckLogin()){ ?>
-			<li role="presentation"><?PHP include './login.php'; ?></li>
-			
-		<?PHP } elseif($fgmembersite->CheckLogin()){?>
-			<li role="presentation"><a role="menuitem" tabindex="-1" href='./EventCreation.php'><span>Create Event</span></a>
-			<li role="presentation"><a role="menuitem" tabindex="-1" href='./logout.php'><span>logout</span></a>
+		<?PHP if($bool === TRUE){?>
+				<li role="presentation"><a role="menuitem" tabindex="-1" href='./EventCreation.php'><span>Create Event</span></a>
+				<li role="presentation"><a role="menuitem" tabindex="-1" href='./logout.php'><span>logout</span></a>
 		<?PHP }?>
+		
+		<?PHP if(!$bool === TRUE){ ?>
+				<li role="presentation"><?PHP include './login.php'; ?></li>
+		<?PHP } ?>
 	</ul>
 </div>

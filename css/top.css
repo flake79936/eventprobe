@@ -5,7 +5,6 @@ body{
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 }
 
-.top{ background: url(../images/bg_top.png) repeat-x bottom; }
 .top .logo{ float: left; width: 30%; text-align: center; }
 
 .top .date{ float: left; width: 40%; padding-top: 35px; }
@@ -26,7 +25,6 @@ body{ margin: 0; padding: 0; }
 .top .date{ float: left; width: 450px; height: 85px; padding-top: 35px; }
 .top .profile{ float: none; width: auto; padding: 20px; }
 }
-
 
 /*		Mobile Layout: 320px.
 		Gutters: 24px.

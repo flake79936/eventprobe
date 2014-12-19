@@ -58,9 +58,7 @@
 		<div class="temp">75</div>
 
 		<div class="clear"></div>
-		<div class="search">
-			<?PHP //include 'searchForm.php';?>
-		</div>
+		
 	</div>
 </div>
 
@@ -76,7 +74,6 @@
 	<!--clickable dropdown menu-->
 	<div>
 		<?PHP include './menu.php'; ?>
-
 	</div>
 	
 	<div class="clear"></div>

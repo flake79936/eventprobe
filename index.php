@@ -14,6 +14,7 @@
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
+        <link rel="stylesheet" type="text/css" href="css/search.css" />
         <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
         <link rel="stylesheet" type="text/css" href="css/banner.css" />
         <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
@@ -34,13 +35,17 @@
 			  <?PHP $city = "<script>document.write(city)</script>";
 // 			  echo $city;
 			  ?>
-        
+		
 	</head>
 	
 	<body lang="en">
     	<div class="top">
 			<?PHP include './top.php';?>
         </div>
+		
+		<div class="search">
+			<?PHP include 'searchForm.php';?>
+		</div>
         
 		<!-- start My events      -->
 		<?PHP

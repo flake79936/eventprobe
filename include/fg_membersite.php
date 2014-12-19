@@ -735,8 +735,7 @@ class FGMembersite{
 
          $sessionvar = $this->GetLoginSessionVar();
          
-         if(empty($_SESSION[$sessionvar]))
-         {
+         if(empty($_SESSION[$sessionvar])){
             return false;
          }
          return true;
