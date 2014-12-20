@@ -1,7 +1,7 @@
 <?php
 include './dbconnect.php';
 
-$timestamp      = time(); //timestamp
+$timestamp      = date('YmdHis'); //timestamp
 $uploaddir      = "userPictures/"; //location to store image
 $filename       = $timestamp . $_FILES['file']['name'];
 $filename       = strtolower($filename); //create image name with lower case
@@ -21,7 +21,7 @@ $final_location = "$uploaddir$filename";
 
             move_uploaded_file($_FILES["file"]["tmp_name"], $final_location);
             echo "Stored in: " . $final_location . "<br>";
-            mysql_query("INSERT INTO Registration  (Upic) VALUES ('" . $final_location . "') WHERE UuserName='rob' "); //mysql inser query
+            mysql_query("INSERT INTO Registration  (Upic) VALUES ('" . $final_location . "') WHERE UuserName='ROBERT' "); //mysql inser query
 
         }
     } else {

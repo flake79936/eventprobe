@@ -1,10 +1,10 @@
 <html>
 	<head>
 	<title>Ajax Image Upload Using PHP and jQuery</title>
-	<link rel="stylesheet" href="./css/picStyle.css" />
+	<link rel="stylesheet" href="./picStyle.css" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="./js/picScript.js"></script>
+	<script src="./Script.js"></script>
 	</head>
 	<body>
 	<div class="main">
