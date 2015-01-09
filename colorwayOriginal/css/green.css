@@ -1,0 +1,116 @@
+/*=========================================*/
+/*=========Green Color Scheme Style========*/
+/*=========================================*/
+a {
+    text-decoration:none;
+    color:#4F7327;
+}
+a:hover {
+    color:#2B4908;
+}
+/*=========================================*/
+/*==========Start Home Page Style==========*/
+/*=========================================*/
+/*==========Menus Colors==========*/
+#menu .ddsmoothmenu li li a.selected, #menu .ddsmoothmenu li li a:hover { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
+    color: #FFFFFF;
+    background:#4F7327;
+}
+#menu li.current-menu-item a, #menu li.current-menu-parent a, #menu li.current_page_parent a, #menu li a.selected, #menu li a:hover,#menu li.current_page_item a  {
+    color:#fff;
+}
+#menu .ddsmoothmenu li li {
+    background: #2B4908;
+}
+/*==========Slider Colors==========*/
+.slide .slide-content.entry {
+    background:url(../images/purple.png);
+    border-right: 4px solid #757575;
+}
+#slides .pagination li a {
+    background-image:url(../images/pagination.png);
+}
+.slide .slide-content.entry h2 a {
+    color:#3F3F3F;
+}
+.slide-content p {
+	color: #2B2B2B;
+	font-size: 15px;
+	line-height: 24px;
+}
+/*==========Blockquote Colors==========*/
+blockquote {
+    background:url(../images/qoute.png) no-repeat;
+}
+blockquote a {
+    color:#4f7327;
+}
+/*==========Footer Colors==========*/
+.footer-container {
+    background:url(../images/footer-bg.png);
+}
+.footer-container h4 {
+    background: url(../images/h4-border-bg.png) repeat-x;
+    background-position:0% 100%;
+    color:#a8d17a;
+}
+.footer-container p {
+    color:#FFFFFF;
+}
+.footer-container .textwidget {
+    color: #b7bfaf;
+}
+.footer-container ul {
+    list-style-image:url(../images/disc-img.png);
+}
+.footer-container a {
+    color:#b7bfaf;
+}
+.footer-navi .navigation ul li {
+    background-position:100% 0%;
+}
+.footer-navi .navigation ul li a {
+    color:#FFFFFF;
+}
+.footer-navi .navigation .right-navi p {
+    color:#FFFFFF;
+}
+.footer-navi {
+    background:#2b4908;
+}
+.footer #searchform label {
+    color: #99C26C;
+}
+.footer #searchform {
+    background:url(../images/search-bg.png) no-repeat;
+    width: 180px;
+}
+
+/*=========================================*/
+/*==========Start Home Page Style==========*/
+/*=========================================*/
+
+.folio-page-info ul.paging li.first a {
+    color:#FFFFFF;
+}
+.folio-page-info ul.paging li:hover {
+}
+ul.paging a.active, ul.paging a:hover, ul.paging a.current {
+    color:#ffffff !important;
+    border:1px solid #546F9E;
+    background:url(images/grad_px.gif) top repeat-x #4F7327;
+}
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+    .footer #searchform {
+        border:1px solid #365e05 !important;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        background-color:#2B4908 !important;
+    }
+}
+@media only screen and ( max-width: 768px ) {
+    .it_mobile_menu li a:hover, .it_mobile_menu > li.current_page_item > a {
+        color: #437507 !important;
+    }
+}
