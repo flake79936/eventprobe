@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="./picStyle.css" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="./Script.js"></script>
+	<script src="./picScript.js"></script>
 	</head>
 	<body>
 	<div class="main">

@@ -21,7 +21,7 @@ $final_location = "$uploaddir$filename";
 
             move_uploaded_file($_FILES["file"]["tmp_name"], $final_location);
             echo "Stored in: " . $final_location . "<br>";
-            mysql_query("INSERT INTO Registration  (Upic) VALUES ('" . $final_location . "') WHERE UuserName='ROBERT' "); //mysql inser query
+            mysql_query("INSERT INTO Registration  (Upic) VALUES ('" . $final_location . "') WHERE UuserName='robert' "); //mysql inser query
 
         }
     } else {
