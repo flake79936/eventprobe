@@ -21,20 +21,17 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
+		
         <link rel="stylesheet" type="text/css" href="css/registration.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
-		<link rel="stylesheet" type="text/css" href=".css/picStyle.css" />
- 	
-
-
+		<!--<link rel="stylesheet" type="text/css" href="css/picStyle.css"/>-->
+		
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-
-        
-
+		
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
         
@@ -116,7 +113,6 @@
 						
 						
 
-	<div class="main">
 	<h1>Ajax Image Upload</h1><br/>
 	<hr>		
 						
@@ -129,7 +125,7 @@
 	<input type="submit" value="Upload" class="submit" />
 	</div>
 	</form>
-	</div>
+	
 	<h4 id='loading' >loading..</h4>
 	<div id="message"></div>				
 

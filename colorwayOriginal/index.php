@@ -10,7 +10,7 @@
  *
  */
 ?>
-<?php get_header(); ?>
+<?php //get_header(); ?>
 <!--Start Content Grid-->
 <div class="grid_24 content">
     <div class="grid_16 alpha">
@@ -19,12 +19,12 @@
                 <?php if (function_exists('inkthemes_breadcrumbs')) inkthemes_breadcrumbs(); ?>
             </div>
             <div class="blog" id="blogmain">
-                <?php get_template_part('loop', 'index'); ?>
+                <?php //get_template_part('loop', 'index'); ?>
             </div>
-            <?php inkthemes_content_nav('nav-below'); ?>
+            <?php //inkthemes_content_nav('nav-below'); ?>
         </div>
     </div>
-    <?php get_sidebar(); ?>
+    <?php //get_sidebar(); ?>
 </div>
 <div class="clear"></div>
 <!--End Content Grid-->

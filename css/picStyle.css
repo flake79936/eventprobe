@@ -1,18 +1,19 @@
-body {
-font-family: 'Roboto Condensed', sans-serif;
+body{
+	font-family: 'Roboto Condensed', sans-serif;
 }
-h1
-{
-text-align: center;
-background-color: #FEFFED;
-height: 70px;
-color: rgb(95, 89, 89);
-margin: 0 0 -29px 0;
-padding-top: 14px;
-border-radius: 10px 10px 0 0;
-font-size: 35px;
+
+h1{
+	text-align: center;
+	background-color: #FEFFED;
+	height: 70px;
+	color: rgb(95, 89, 89);
+	margin: 0 0 -29px 0;
+	padding-top: 14px;
+	border-radius: 10px 10px 0 0;
+	font-size: 35px;
 }
-.main {
+
+/*.main {
 position: absolute;
 top: 50px;
 left: 20%;
@@ -21,24 +22,27 @@ height:530px;
 border: 2px solid gray;
 border-radius: 10px;
 }
+
 .main label{
 color: rgba(0, 0, 0, 0.71);
 margin-left: 60px;
-}
+}*/
+
 #image_preview{
-position: absolute;
-font-size: 30px;
-top: 100px;
-left: 100px;
-width: 250px;
-height: 230px;
-text-align: center;
-line-height: 180px;
-font-weight: bold;
-color: #C0C0C0;
-background-color: #FFFFFF;
-overflow: auto;
+	position: absolute;
+	font-size: 30px;
+	top: 100px;
+	left: 100px;
+	width: 250px;
+	height: 230px;
+	text-align: center;
+	line-height: 180px;
+	font-weight: bold;
+	color: #C0C0C0;
+	background-color: #FFFFFF;
+	overflow: auto;
 }
+
 #selectImage{
 padding: 19px 21px 14px 15px;
 position: absolute;

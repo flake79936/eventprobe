@@ -141,68 +141,6 @@ px      68    160    252    */
 
 	.main .content .form-wrap .gmap{ float: none; width: 93%; margin: 20px 0; }
 }
-#image_preview{
-position: absolute;
-font-size: 30px;
-top: 100px;
-left: 100px;
-width: 250px;
-height: 230px;
-text-align: center;
-line-height: 180px;
-font-weight: bold;
-color: #C0C0C0;
-background-color: #FFFFFF;
-overflow: auto;
-}
-#selectImage{
-padding: 19px 21px 14px 15px;
-position: absolute;
-bottom: 0px;
-width: 414px;
-background-color: #FEFFED;
-border-radius: 10px;
-}
-#file {
-color: red;
-padding: 5px;
-border: 5px solid #8BF1B0;
-background-color: #8BF1B0;
-margin-top: 10px;
-border-radius: 5px;
-box-shadow: 0 0 15px #626F7E;
-margin-left: 15%;
-width: 72%;
-}
-#message{
-position:absolute;
-top:120px;
-left:815px;
-}
-#loading
-{
-display:none;
-position:absolute;
-top:50px;
-left:850px;
-font-size:25px;
-}
-#invalid
-{
-color:red;
-}
-#line
-{
-margin-top: 274px;
-}
-#error
-{
-color:red;
-}
-#error_message
-{
-color:blue;
-}
 
 /*		Wide Mobile Layout: 480px.
 		Gutters: 24px.
