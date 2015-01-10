@@ -1,6 +1,6 @@
 <?PHP
 	require_once("./include/membersite_config.php");
-	if(isset($_POST['submitted'])){
+	if(isset($_POST['hSubmitted'])){
 		if($fgmembersite->Login()){
 			$fgmembersite->RedirectToURL("./index.php");
 		}
@@ -41,7 +41,7 @@
 					<div class="login">
 					<!--New inputs-->
 					
-						<input type="hidden" name="submitted" id="submitted" value="1"/>
+						<input type="hidden" name="hSubmitted" id="submitted" value="1"/>
 
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					
