@@ -112,22 +112,9 @@
 							<span id="register_Uphone_errorloc" class="error"></span>
 						
 						
-
-	<h1>Ajax Image Upload</h1><br/>
-	<hr>		
-						
-	<form id="uploadimage" action="" method="post" enctype="multipart/form-data">
-	<div id="image_preview"><img id="previewing" src="noimage.png" /></div>
-	<hr id="line">
-	<div id="selectImage">
-	<label>Select Your Image</label><br/>
-	<input type="file" name="file" id="file" required />
-	<input type="submit" value="Upload" class="submit" />
-	</div>
-	</form>
-	
-	<h4 id='loading' >loading..</h4>
-	<div id="message"></div>				
+							<h5>User Image</h5>
+							<img id="uploadPreview" style="width: 100px; height: 100px;" />
+							<input id="uploadImage" type="file" name="Upic" onchange="PreviewImage();" />
 
 					<!--End of new inputs-->
 												
@@ -161,6 +148,8 @@
 	</body>
 		<!--This script needs to wihtin the file. 
 		It is validating the form.-->
+		
+
 	<script type="text/javascript">
 		// <![CDATA[
 		var frmvalidator = new Validator("register");
@@ -174,5 +163,19 @@
 		frmvalidator.addValidation("ConPswd",   "req", "Please Confirm Your Password");
 		frmvalidator.addValidation("Uemail",    "req", "Please Please fill in Name");
 		// ]]>
+	</script>
+	
+			
+	<script type="text/javascript">
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    };
+
 	</script>
 </html>
