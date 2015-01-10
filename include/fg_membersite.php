@@ -376,7 +376,7 @@ class FGMembersite{
 			return false;
 		}
 		
-		echo "in create method\n";
+// 		echo "in create method\n";
 		$formvars = array();
 
 		if(!$this->ValidateEventSubmission()){
@@ -646,12 +646,12 @@ class FGMembersite{
         && ($_FILES["Eflyer"]["size"] < 524288)) //set image size
         {
         	if ($_FILES["Eflyer"]["error"] > 0) {
-         	   echo "Return Code: " . $_FILES["Eflyer"]["error"] . "<br />";
+//          	   echo "Return Code: " . $_FILES["Eflyer"]["error"] . "<br />";
         } else {
-            echo "Upload: " . $filename . "<br />";
-            echo "Type: " . $_FILES["Eflyer"]["type"] . "<br />";
-            echo "Size: " . ($_FILES["Eflyer"]["size"] / 1024) . " Kb<br />";
-            echo "Temp file: " . $_FILES["Eflyer"]["tmp_name"] . "<br />";
+//             echo "Upload: " . $filename . "<br />";
+//             echo "Type: " . $_FILES["Eflyer"]["type"] . "<br />";
+//             echo "Size: " . ($_FILES["Eflyer"]["size"] / 1024) . " Kb<br />";
+//             echo "Temp file: " . $_FILES["Eflyer"]["tmp_name"] . "<br />";
 
             move_uploaded_file($_FILES["Eflyer"]["tmp_name"], $final_location);
             $final_location = $this->Sanitize("./eventFlyers/" . $filename);

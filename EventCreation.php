@@ -218,12 +218,21 @@
 					<div class="dashboard">
 						<div class="user-profile">
 							<div class="update-image">
+							
+							<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" />
+							
+							
+							
+	
+<!-- 
 								image upload
 								<h5>Update Image</h5>
 								<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" alt="Image-upload"/>
 								<div class="clear"></div>
+ -->
 							</div>
-							<img src="images/profile-img.jpg" alt="Profiles">
+							<img id="uploadPreview" style="width: 270px; height: 250px;" />
+							<!-- <img src="images/profile-img.jpg" alt="Profiles"> -->
 						</div>
 						
 						<div class="user-menu">
@@ -695,6 +704,20 @@
 			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
 			
 			// ]]>
+		</script>
+		
+		
+		<script type="text/javascript">
+
+    		function PreviewImage() {
+       		var oFReader = new FileReader();
+        	oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+       		oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        		};
+   			 };
+
 		</script>
 	</body>
 </html>

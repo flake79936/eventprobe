@@ -39,7 +39,7 @@ include 'dbconnect.php';
 				<h1><?= $row['Evename'] ?></h1>
 			</div>
 		</div>
-		<img src="<?= $row['Eflyer'] ?>" alt="Image" />
+		<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />
 	</li>
 
 	<?PHP $i++; } ?>
