@@ -80,6 +80,11 @@ class FGMembersite{
 			return false;
 		}
 		
+		$itemPicture = $this->upLoadUserPic();
+		if($itemPicture != false){
+			$formvars['Upic'] = $this->upLoadUserPic();
+		}
+		
 		$this->CollectRegistrationSubmission($formvars);
 		
 		if(!$this->comparePswd($formvars)){
@@ -243,14 +248,15 @@ class FGMembersite{
 // 		echo 'Password Hash: <br/>';
 // 		echo md5($formvars['UPswd']) . '<br/>';
 		
-        $insert_query = 'insert into '.$this->tablename1.'(UFname, ULname, Uemail, UuserName, Uphone, UPswd)
+        $insert_query = 'insert into '.$this->tablename1.'(UFname, ULname, Uemail, UuserName, Uphone, UPswd, Upic)
                 values(
                 "' . $this->SanitizeForSQL($formvars['UFname']) . '",
                 "' . $this->SanitizeForSQL($formvars['ULname']) . '",
                 "' . $this->SanitizeForSQL($formvars['Uemail']) . '",
                 "' . $this->SanitizeForSQL($formvars['UuserName']) . '",
                 "' . $this->SanitizeForSQL($formvars['Uphone']) . '",
-                "' . md5($formvars['UPswd']) . '"
+                "' . md5($formvars['UPswd']) . '",
+                "' . $this->SanitizeForSQL($formvars['Upic']) . '"
                 )';
 				
         if(!mysql_query( $insert_query ,$this->connection)){
@@ -669,43 +675,59 @@ class FGMembersite{
 	
 	
 	
-// 		function upLoadUserPic(){
-// 		$timestamp      = time(); //timestamp
-// 		$uploaddir      = "./userPictures/"; //location to store image
-// 		$filename       = $timestamp . $_FILES['file']['name'];
-// 		$filename       = strtolower($filename); //create image name with lower case
-// 		$final_location = "$uploaddir$filename";
-// 
-// // if ($_POST['submit']) {
-// 		if ((($_FILES["file"]["type"] == "image/gif") //set image you want to upload
-// 			|| ($_FILES["file"]["type"] == "image/jpeg") 
-// 			|| ($_FILES["file"]["type"] == "image/png") 
-// 			|| ($_FILES["file"]["type"] == "image/jpg")
-// 			|| ($_FILES["file"]["type"] == "image/GIF")
-// 			|| ($_FILES["file"]["type"] == "image/JPEG")
-// 			|| ($_FILES["file"]["type"] == "image/PNG")
-// 			|| ($_FILES["file"]["type"] == "image/JPG")
-// 			) && ($_FILES["file"]["size"] < 524288)) //set image size
-// 			{
-// 			if ($_FILES["file"]["error"] > 0) {
-// 				echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
-// 			} else {
-// 				echo "Upload: " . $filename . "<br />";
-// 				echo "Type: " . $_FILES["file"]["type"] . "<br />";
-// 				echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-// 				echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
-// 
-// 				move_uploaded_file($_FILES["file"]["tmp_name"], $final_location);
-// 				echo "Stored in: " . $final_location . "<br>";
-// 				return $final_location;
-// 			   // mysql_query("INSERT INTO Registration  (Upic) VALUES ('" . $final_location . "') WHERE UuserName='rob' "); //mysql inser query
-// 
-// 			}
-// 		} else {
-// 			echo "INVALID FILE";
-// 		}
+function upLoadUserPic(){
+		/**
+			$_FILES["Eflyer"]["name"] - the name of the uploaded file
+			$_FILES["Eflyer"]["type"] - the type of the uploaded file
+			$_FILES["Eflyer"]["size"] - the size in kilobytes of the uploaded file
+			$_FILES["Eflyer"]["tmp_name"] - the name of the temporary copy of the file stored on the server
+			$_FILES["Eflyer"]["error"] - the error code resulting from the file upload
+		*/
+		$timestamp      = date('YmdHis'); //timestamp
+		$uploaddir      = "UserPic/"; //location to store image
+		$filename       = $timestamp . $_FILES['Upic']['name'];
+		$filename       = strtolower($filename); //create image name with lower case
+		$final_location = $uploaddir.$filename;
+
+
+			
+				
+		if (
+		(
+		   ($_FILES["Upic"]["type"] == "image/gif") //set image you want to upload
+        || ($_FILES["Upic"]["type"] == "image/jpeg") 
+        || ($_FILES["Upic"]["type"] == "image/png") 
+        || ($_FILES["Upic"]["type"] == "image/jpg")
+        || ($_FILES["Upic"]["type"] == "image/GIF")
+        || ($_FILES["Upic"]["type"] == "image/JPEG") 
+        || ($_FILES["Upic"]["type"] == "image/PNG") 
+        || ($_FILES["Upic"]["type"] == "image/JPG")
+        
+        ) 
+        && ($_FILES["Upic"]["size"] < 524288)) //set image size
+        {
+        	if ($_FILES["Upic"]["error"] > 0) {
+//          	   echo "Return Code: " . $_FILES["Eflyer"]["error"] . "<br />";
+        } else {
+//             echo "Upload: " . $filename . "<br />";
+//             echo "Type: " . $_FILES["Eflyer"]["type"] . "<br />";
+//             echo "Size: " . ($_FILES["Eflyer"]["size"] / 1024) . " Kb<br />";
+//             echo "Temp file: " . $_FILES["Eflyer"]["tmp_name"] . "<br />";
+
+            move_uploaded_file($_FILES["Upic"]["tmp_name"], $final_location);
+            $final_location = $this->Sanitize("./UserPic/" . $filename);
+			return $final_location;
+			
+      }
+    } else {
+        echo "INVALID FILE";
+    }
+
+		return false;
+	} //End uploadUserPic
 	
-	//end of uploadUserPic
+	
+	
 	/*----(Start) User Management----*/
 	function ConfirmUser(){
         if(empty($_GET['code'])||strlen($_GET['code'])<=10){

@@ -21,17 +21,17 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
+		
         <link rel="stylesheet" type="text/css" href="css/registration.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
-<!--     	<link rel="stylesheet" href="./css/picStyle.css" /> -->
-<!-- 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'> -->
-
-        
-
+		<!--<link rel="stylesheet" type="text/css" href="css/picStyle.css"/>-->
+		
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+		
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
         
@@ -39,14 +39,16 @@
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/picScripts.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         
         <!--GOOGLE MAPS-->
-        <script type="text/javascript" src="js/googleapis.js"></script>
-        <script type="text/javascript" src="js/map.js"></script>
+<!--         <script type="text/javascript" src="js/googleapis.js"></script> -->
+<!--         <script type="text/javascript" src="js/map.js"></script> -->
 		
 		<!--Other Scripts-->
-        <script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
-		<script src="scripts/pwdwidget.js" type="text/javascript"></script>
+<!--         <script type="text/javascript" src="scripts/gen_validatorv31.js"></script> -->
+<!-- 		<script src="scripts/pwdwidget.js" type="text/javascript"></script> -->
 <!-- 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="./js/picScript.js"></script>
@@ -80,6 +82,7 @@
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					
 						<div class="box">
+						
 							<h5>First Name</h5>
 							<input type="text" name="UFname" title="Enter your First Name" id="UFname"  value="<?php echo $fgmembersite->SafeDisplay('UFname') ?>" maxlength="50" /><br/>
 							<span id="register_UFname_errorloc" class="error"></span>
@@ -109,22 +112,9 @@
 							<span id="register_Uphone_errorloc" class="error"></span>
 						
 						
-						<iframe src="./colorway/ajax_upload_image_main.php" height="700px" width="600px"></iframe>
-						<?PHP //include './colorway/ajax_upload_image_main.php'; ?>
-						
-<!-- 
-							<div id="image_preview"><img id="previewing" src="noimage.png" /></div>
-							<div id="selectImage">
-							<label>Select Your Image</label><br/>
-							<input type="file" name="file" id="file" required />
-<!~~ 							<input type="submit" value="Upload" class="submit" /> ~~>
-							</div>
-							<!~~ </form> ~~>
-							</div>
-							<h4 id='loading' >loading..</h4>
-							<div id="message"></div>
- -->
-							
+							<h5>User Image</h5>
+							<img id="uploadPreview" style="width: 200px; height: 200px;" />
+							<input id="uploadImage" type="file" name="Upic" onchange="PreviewImage();" />
 
 					<!--End of new inputs-->
 												
@@ -158,6 +148,8 @@
 	</body>
 		<!--This script needs to wihtin the file. 
 		It is validating the form.-->
+		
+
 	<script type="text/javascript">
 		// <![CDATA[
 		var frmvalidator = new Validator("register");
@@ -171,5 +163,19 @@
 		frmvalidator.addValidation("ConPswd",   "req", "Please Confirm Your Password");
 		frmvalidator.addValidation("Uemail",    "req", "Please Please fill in Name");
 		// ]]>
+	</script>
+	
+			
+	<script type="text/javascript">
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    };
+
 	</script>
 </html>
