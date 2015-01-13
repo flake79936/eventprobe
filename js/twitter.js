@@ -16,7 +16,7 @@ g.push(c[e].getElementsByClassName("dt-updated")[0]),void 0!==c[e].getElementsBy
 a.length>k&&(a.splice(k,a.length-k),f.splice(k,f.length-k),g.splice(k,g.length-k),b.splice(k,b.length-k),h.splice(k,h.length-k));c=[];e=a.length;for(b=0;b<e;){if("string"!==typeof x){var d=g[b].getAttribute("datetime"),l=new Date(g[b].getAttribute("datetime").replace(/-/g,"/").replace("T"," ").split("+")[0]),d=x(l,d);g[b].setAttribute("aria-label",d);if(a[b].innerText)if(y)g[b].innerText=d;else{var l=document.createElement("p"),G=document.createTextNode(d);l.appendChild(G);l.setAttribute("aria-label",
 d);g[b]=l}else g[b].textContent=d}d="";B?(r&&(n(a[b]),q&&n(f[b])),q&&(d+='<div class="user">'+v(f[b].innerHTML)+"</div>"),d+='<p class="tweet">'+v(a[b].innerHTML)+"</p>",u&&(d+='<p class="timePosted">'+g[b].getAttribute("aria-label")+"</p>")):a[b].innerText?(q&&(d+='<p class="user">'+f[b].innerText+"</p>"),d+='<p class="tweet">'+a[b].innerText+"</p>",u&&(d+='<p class="timePosted">'+g[b].innerText+"</p>")):(q&&(d+='<p class="user">'+f[b].textContent+"</p>"),d+='<p class="tweet">'+a[b].textContent+
 "</p>",u&&(d+='<p class="timePosted">'+g[b].textContent+"</p>"));D&&(d+='<p class="interact"><a href="https://twitter.com/intent/tweet?in_reply_to='+p[b]+'" class="twitter_reply_icon"'+(r?' target="_blank">':">")+'Reply</a><a href="https://twitter.com/intent/retweet?tweet_id='+p[b]+'" class="twitter_retweet_icon"'+(r?' target="_blank">':">")+'Retweet</a><a href="https://twitter.com/intent/favorite?tweet_id='+p[b]+'" class="twitter_fav_icon"'+(r?' target="_blank">':">")+"Favorite</a></p>");E&&void 0!==
-h[b]&&(l=h[b],void 0!==l?(l=l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[0],l=decodeURIComponent(l).split('"')[1]):l=void 0,d+='<div class="media"><img src="'+l+'" alt="Image from tweet" /></div>');c.push(d);b++}if(null===z){a=c.length;f=0;g=document.getElementById(A);for(h="<ul>";f<a;)h+="<li>"+c[f]+"</li>",f++;g.innerHTML=h+"</ul>"}else z(c);w=!1;0<t.length&&(F.fetch(t[0]),t.splice(0,1))}};return window.twitterFetcher=F});
+h[b]&&(l=h[b],void 0!==l?(l=l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[0],l=decodeURIComponent(l).split('"')[1]):l=void 0,d+='<div class="media"><img src="'+l+'" alt="Image from tweet" /></div>');c.push(d);b++}if(null===z){a=c.length;f=0;g=document.getElementById(A);for(h="<ul>";f<a;)h+="<br>"+c[f]+"",f++;g.innerHTML=h+"</ul>"}else z(c);w=!1;0<t.length&&(F.fetch(t[0]),t.splice(0,1))}};return window.twitterFetcher=F});
 
 
 /**
@@ -82,14 +82,14 @@ h[b]&&(l=h[b],void 0!==l?(l=l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[
 // A simple example to get my latest tweet and write to a HTML element with
 // id "example1". Also automatically hyperlinks URLS and user mentions and
 // hashtags.
-var config1 = {
-  "id": '545741471111200768',
-  "domId": 'example1',
-  "maxTweets": 1,
-  "enableLinks": true
-};
-twitterFetcher.fetch(config1);
-
+// var config1 = {
+//   "id": '545741471111200768',
+//   "domId": 'example1',
+//   "maxTweets": 1,
+//   "enableLinks": true
+// };
+// twitterFetcher.fetch(config1);
+// 
 
 // ##### Simple example 2 #####
 // A simple example to get my latest 5 of my favourite tweets and write to a
@@ -97,7 +97,7 @@ twitterFetcher.fetch(config1);
 // mentions and hashtags but does not display time of post. We also make the
 // request to Twitter specifiying we would like results where possible in
 // English language.
-var config2 = {
+var config1 = {
   "id": '545741471111200768',
   "domId": 'example2',
   "maxTweets": 5,
@@ -106,7 +106,7 @@ var config2 = {
   "showTime": true,
   "lang": 'en'
 };
-twitterFetcher.fetch(config2);
+twitterFetcher.fetch(config1);
 
 
 // ##### Simple example 3 #####
