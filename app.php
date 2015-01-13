@@ -15,7 +15,16 @@
 <!-- 			<h3>Kim Pomeroy</h3> -->
 <!-- 		</div> -->
 
-   	 		<div id="twitter"></div>
+    <h2>Query 1: My latest tweet</h2>
+    <div id="example1"></div>
+    <h2>Query 2: What people are saying about this component!</h2>
+    <div id="example2"></div>
+    <h2>Query 3: Last 5 Twitter posts using hastag #Caturday, including images (if any)</h2>
+    <div id="example3"></div>
+    <h2>Query 4: Last 3 Twitter posts using hastag #API</h2>
+    <div id="example4"></div>
+    <h2>Query 5: Last 3 Twitter posts using hastag #API with custom callback</h2>
+    <div id="example5"></div>
 <!-- 		<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p> -->
 
 		<div class="clear"></div>

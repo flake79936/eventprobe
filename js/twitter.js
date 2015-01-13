@@ -83,9 +83,9 @@ h[b]&&(l=h[b],void 0!==l?(l=l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[
 // id "example1". Also automatically hyperlinks URLS and user mentions and
 // hashtags.
 var config1 = {
-  "id": '545081791108112384',
-  "domId": 'twitter',
-  "maxTweets": 5,
+  "id": '545741471111200768',
+  "domId": 'example1',
+  "maxTweets": 1,
   "enableLinks": true
 };
 twitterFetcher.fetch(config1);
@@ -98,7 +98,7 @@ twitterFetcher.fetch(config1);
 // request to Twitter specifiying we would like results where possible in
 // English language.
 var config2 = {
-  "id": '347099293930377217',
+  "id": '545741471111200768',
   "domId": 'example2',
   "maxTweets": 5,
   "enableLinks": true, 
@@ -113,7 +113,7 @@ twitterFetcher.fetch(config2);
 // A simple example to get latest 5 tweets for #API tag and shows any images
 // attached to tweets.
 var config3 = {
-  "id": '502160051226681344',
+  "id": '545741471111200768',
   "domId": 'example3',
   "maxTweets": 5,
   "enableLinks": true,
@@ -128,7 +128,7 @@ twitterFetcher.fetch(config3);
 // custom format to display the date/time of the post, and does not show
 // retweets.
 var config4 = {
-  "id": '345690956013633536',
+  "id": '545741471111200768',
   "domId": 'example4',
   "maxTweets": 3,
   "enableLinks": true,
@@ -156,7 +156,7 @@ twitterFetcher.fetch(config4);
 // if you need full control over the output.
 
 var config5 = {
-  "id": '345690956013633536',
+  "id": '545741471111200768',
   "domId": '',
   "maxTweets": 3,
   "enableLinks": true,
