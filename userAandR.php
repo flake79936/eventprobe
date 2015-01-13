@@ -109,7 +109,7 @@
 
         
         <div class="app">
-			<?PHP include './app.php'; ?>
+			<?PHP //include './app.php'; ?>
         </div>
         
         <div class="links">

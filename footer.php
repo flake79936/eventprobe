@@ -15,12 +15,14 @@
 		</a>
 	</li>
 	<li>
+<!-- 
 		<a href="#">
 			<img src="images/btn_pin.png" onmouseover="this.src='images/btn_pinColor.png'" onmouseout="this.src='images/btn_pin.png'" alt="Pinterest" />
 		</a>
+ -->
 	</li>	
 </ul>
 
 <div class="footer-logo"><a href="./index.php"><img src="images/footer-logo.png" alt="Logo" /></a></div>
 <div class="clear"></div>
-<?PHP echo '&copy'; echo date("Y"); ?>
+<?PHP echo '&copy'; echo "2014-";echo date("Y"); ?>
