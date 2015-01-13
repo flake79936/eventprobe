@@ -35,7 +35,38 @@
 			  <?PHP $city = "<script>document.write(city)</script>";
 // 			  echo $city;
 			  ?>
+			  
+			  
+			  <script>
+			function showHint(str) {
+				if (str.length == 0) {
+					document.getElementById("txtHint").innerHTML = "";
+					return;
+				} else {
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+							document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+						}
+					}
+					xmlhttp.open("GET", "getEvent.php?q=" + str, true);
+					xmlhttp.send();
+				}
+			}
+		</script>
 		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("input").keydown(function(){
+					$(".my-events").hide();
+					$(".this-week").hide();
+					$(".schedule").hide();
+					//$(".chart").hide();
+					$(".app").hide();
+				});
+			});
+		</script>
 	</head>
 	
 	<body lang="en">
@@ -44,19 +75,24 @@
         </div>
 		
 		<div class="search">
-			<?PHP include 'searchForm.php';?>
+			<?PHP //include 'searchForm.php';?>
+			<form>
+				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
+			</form>
 		</div>
         
 		<!-- start My events      -->
-		<?PHP
-			if($fgmembersite->CheckLogin()){
-				include './myevents.php';
-			}
-		?>
+		<?PHP if($fgmembersite->CheckLogin()){?>
+				<div class="my-events">
+			<?PHP include './myevents.php'; ?>
+				</div>
+		<?PHP } ?>
+		
 		<!-- end My events -->
         
         <div class="banner">
 			<?PHP include './banner.php'; ?>
+			
 		</div>
         
         <div class="this-week">
@@ -77,9 +113,11 @@
             <div class="clear"></div>
         </div>
         
-        <div class="chart">
+        <!--<div class="chart">
 			<?PHP include './chart.php'; ?>
-        </div>
+        </div>-->
+		
+		<div class="chart" id="txtHint"></div>
         
         <div class="app">
 			<?PHP include './app.php'; ?>

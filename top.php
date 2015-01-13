@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<div class="logo"><a href="./index.php"><img src="images/logo.jpg" alt="Logo" /></a></div>
+<div class="logo"><a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a></div>
 <div class="date">
 <!-- 
 	<div class="box">

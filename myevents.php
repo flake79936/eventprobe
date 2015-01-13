@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 ?> 
 
-<div class="my-events">
+
         	<div class="box">
 
             	<h1>My Events</h1>
@@ -113,4 +113,3 @@ $(document).ready(function() {
             </div>
             <div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>
             <div class="clear"></div>
-</div>
