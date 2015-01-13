@@ -14,9 +14,10 @@
 <!-- 			<img src="images/sample_profile_01.png" alt="Image" /> -->
 <!-- 			<h3>Kim Pomeroy</h3> -->
 <!-- 		</div> -->
-	   		 <h2>Query 1: My latest tweet</h2>
-   	 		<div id="example1"></div>
+
+   	 		<div id="twitter"></div>
 <!-- 		<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p> -->
+
 		<div class="clear"></div>
 <!-- 	</div> -->
 	<div class="user">

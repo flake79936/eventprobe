@@ -21,6 +21,7 @@ a:hover {
   color:#82afff;
 }
 
+/* 
 ul li {
   list-style:none;
   overflow:hidden;
@@ -32,6 +33,7 @@ ul li {
 ul li:hover {
   background-color:#f0f3fb;
 }
+ */
 
 .user, .tweet, .timePosted {
   float:left;

@@ -83,9 +83,9 @@ h[b]&&(l=h[b],void 0!==l?(l=l.innerHTML.match(/data-srcset="([A-z0-9%_\.-]+)/i)[
 // id "example1". Also automatically hyperlinks URLS and user mentions and
 // hashtags.
 var config1 = {
-  "id": '345170787868762112',
-  "domId": 'example1',
-  "maxTweets": 1,
+  "id": '545081791108112384',
+  "domId": 'twitter',
+  "maxTweets": 5,
   "enableLinks": true
 };
 twitterFetcher.fetch(config1);
