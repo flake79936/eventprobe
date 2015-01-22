@@ -1,14 +1,11 @@
 <?PHP
 	require_once("./include/membersite_config.php");
 	$city = $fgmembersite->getCity();
-	//$city = $_GET['city'];
+
 
 	$city = (string)$city;
 
-	// Start the session
-	session_start();
-	
-// 	$_SESSION['city2'] = $city;
+
 
 	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
