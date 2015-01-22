@@ -121,6 +121,7 @@
         <div class="sidebar">
             <div class="btn-event"><a href=""><img src="images/btn_event.png" alt="Event" /></a></div>
             <ul id="accordion" class="menu">
+<!-- 
                 <li>
                     <h2>Dashboard</h2>
                     <ul>
@@ -130,6 +131,7 @@
                         <li><img src="images/dollar.png" alt="Dollar" /><a href="#">Sales Events, Oct 30</a></li>
                     </ul>
                 </li>
+ -->
                 <li>
                     <h2>My Events</h2>
                     <ul id="accordion2">
