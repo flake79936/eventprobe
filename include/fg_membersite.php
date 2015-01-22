@@ -865,7 +865,6 @@ function upLoadUserPic(){
 	function CreateTableReg(){
 		$qry = "Create Table $this->tablename1 (".
 				"id INTEGER AUTO_INCREMENT NOT NULL,".
-				"id INTEGER AUTO_INCREMENT,".
 				"UFname CHAR(255) NOT NULL,".
 				"ULname CHAR(255) NOT NULL,".
 				"UPswd CHAR(255) NOT NULL,".
@@ -873,6 +872,7 @@ function upLoadUserPic(){
 				"Uphone CHAR(15) DEFAULT 'N/A',".
 				"Uadmin CHAR(1) DEFAULT 0,".
 				"UuserName CHAR(255) NOT NULL,".
+				"Upic CHAR(255) ,".
 				"PRIMARY KEY(id, UuserName)".
 				");";
 				

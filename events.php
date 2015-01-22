@@ -1,19 +1,18 @@
 <ul>
 	<?PHP
 		require_once("./include/membersite_config.php");
-		// 		$city = $_GET['city'];
-		// 		echo $city;
+		$city2 = $fgmembersite->getCity();
 		if(isset($_POST["submitted"])){
 			$result = $fgmembersite->searchEvent();
 		}
 
-		
-		if(!isset($_SESSION['city2'])){
-			echo"not set";
-			}
-			else{
-		$city2 = $_SESSION['city2'];}
-		
+// 		
+// 		if(!isset($_SESSION['city2'])){
+// 			echo"not set";
+// 			}
+// 			else{
+// 		$city2 = $_SESSION['city2'];}
+// 		
 		
 include 'dbconnect.php';
 
