@@ -1,4 +1,29 @@
-<div class="box">
+<?PHP
+	require_once("./include/membersite_config.php");
+	$city = $fgmembersite->getCity();
+?>
+
+<script>
+	$(document).ready(function() {
+		function showHint(str) {
+			if (str.length == 0) {
+				document.getElementById("txtHint").innerHTML = "";
+				return;
+			} else {
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET", "getEvent.php?q=" + str, true);
+				xmlhttp.send();
+			}
+		}
+	});
+</script>
+
+<!--<div class="box">
 	<div class="title">
 		<h1>Today and this Week Near You</h1>
 		<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>
@@ -110,6 +135,10 @@
 		</div>
 		<div class="clear"></div>
 	</div>
+</div>-->
+
+<div class="box">
+	halloeoaolkfsad
 </div>
 
 <div class="advertisement">

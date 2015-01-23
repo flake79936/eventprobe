@@ -12,13 +12,12 @@ body{
 .top .date h1{ float: left; color: #2e3135; padding: 10px 30px 0 0; }
 .top .date .temp{ background: url(../images/bg_temperature.png) no-repeat right; float: left; width: 60px; height: 50px; padding: 10px 0 0 60px; font-size: 31px; color: #2e3135; }
 
-.top .profile{ float: left; width: 25%; padding: 20px 30px; }
+.top .profile{ float: left; width: 25%; padding: 30px 30px; }
 .top .profile .user{ float: left; }
-.top .profile h2{ float: left; color: #554e45; padding: 30px 0 0 40px; }
+.top .profile h2{ float: left; color: #554e45; padding: 0px 0 0 80px; }
 .top .profile a{ float: right; margin-top: 20px; }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	
 body{ margin: 0; padding: 0; }
 
 .top .logo{ width: 300px; height: 120px; text-align: left; }
@@ -42,6 +41,6 @@ px      68    160    252    */
 	.top .date .box{ width: auto; margin: 0 auto; }
 	.top .date h1{ font-size: 24px; float: none; color: #2e3135; padding: 10px 0 20px 0; }
 	.top .date .temp{ float: none; margin: 0 auto; width: 80px; height: 50px; padding: 10px 0 0 40px; }
-	.top .profile{ float: none; width: auto; padding: 20px; }
+	.top .profile{ width: auto; padding: 20px; }
 	.top .profile h2{ padding: 30px 0 0 20px; }
 }

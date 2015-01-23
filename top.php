@@ -66,11 +66,12 @@
 
 <div class="profile">
 	<?PHP if($fgmembersite->CheckLogin()){ ?>
-		<div class="user"><img src="images/sample_profile.png" alt="Profile" /></div>
-	<?PHP } ?>
-	
-	<?PHP if(!empty($usrname)){ ?>
-		<h2> <?= $usrname;?> </h2>
+		<div class="user">
+			<img src="images/sample_profile.png" alt="Profile" />
+			<?PHP if(!empty($usrname)){ ?>
+				<h2> <?= $usrname;?> </h2>
+			<?PHP } ?>
+		</div>
 	<?PHP } ?>
 	
 	<!--clickable dropdown menu-->
