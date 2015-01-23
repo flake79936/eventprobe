@@ -113,7 +113,7 @@
 	
 	<body>
 		<div class="top">
-			<div class="logo"><img src="images/logo.png" alt="Logo" /></div>
+			<div class="logo"><a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" /></div>
 			<div class="profile">
 				<div class="user">
 					<img src="images/profile.jpg" />
@@ -135,7 +135,9 @@
 
 		<div class="main">
 			<div class="sidebar">
-				<div class="btn-event"><a href=""><img src="images/btn_event.png" alt="Event" /></a></div>
+			<br>
+			<br>
+<!-- 				<div class="btn-event"><a href=""><img src="images/btn_event.png" alt="Event" /></a></div> -->
 				<ul id="accordion" class="menu">
 <!-- 
 					<li>
@@ -280,15 +282,19 @@
 									
 								</div>
 								<div class="reach">
+<!-- 
 									<h3>Increase your reach!</h3>
 									<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>
+ -->
 								</div>
 								<div class="clear"></div>
 							</div>
 							<div class="saved">
+<!-- 
 								<div class="box"><h3>Saved</h3></div>
 								<div class="box"><a href="#"><img src="images/btn_draft.png" alt="Draft" /></a></div>
 								<div class="box"><a href="#"><img src="images/btn_publish.png" alt="Draft" /></a></div>
+ -->
 								<div class="clear"></div>
 							</div>
 						</div>
