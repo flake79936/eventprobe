@@ -26,17 +26,7 @@
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
-        
-         <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
-			<script language="Javascript"> 
-			var city = geoplugin_city();
-			</script>
-			
-			  <?PHP $city = "<script>document.write(city)</script>";
-// 			  echo $city;
-			  ?>
-			  
-			  
+        			  
 			  <script>
 			function showHint(str) {
 				if (str.length == 0) {
