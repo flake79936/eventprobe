@@ -1,4 +1,0 @@
-INSERT INTO `Events` (`Eid`, `UuserName`, `Evename`, `EstartDate`, `EendDate`, `Eaddress`, `Ecity`, `Estate`, `Ezip`, `EphoneNumber`, `Edescription`, `Etype`, `Ewebsite`, `Ehashtag`, `Efacebook`, `Etwitter`, `Egoogle`, `Eflyer`, `Eother`, `Elat`, `Elong`) VALUES
-(11, '', 'robert madrid', '10/13/2014', '10/13/2014', '11880 balladeer ave', 'el paso', 'tx', 79936, 915, 'td', 'Fair', 'http://www.google.com', '', '', '', '', '', NULL, 31.796896, -106.277818),
-(12, '', 'robert madrid', '10/13/2014', '10/13/2014', '14280 valour point', 'el paso', 'tx', 79938, 915, 'tdaf', 'Social', 'http://www.google.com', '', '', '', '', '', NULL, 31.769861, -106.228547),
-(13, '', 'testtttt', '10/13/2014', '10/13/2014', '1432 backus', 'el paso', 'tx', 79925, 915, 'test', 'Art', 'http://www.google.com', '', '', '', '', '', NULL, 31.780296, -106.361624);
