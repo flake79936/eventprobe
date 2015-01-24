@@ -1,4 +1,4 @@
-<?PHP	require_once("./include/membersite_config.php"); ?>
+<?PHP require_once("./include/membersite_config.php"); ?>
 <!doctype html>
 <html>
 	<head>
@@ -75,14 +75,13 @@
         </div>
 		
 		<div class="search">
-			
 			<form>
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
 			</form>
 		</div>
         
 		<!-- start My events      -->
-		<?PHP if($fgmembersite->CheckLogin()){?>
+		<?PHP if($fgmembersite->CheckSession()){ ?>
 				<div class="my-events">
 			<?PHP include './myevents.php'; ?>
 				</div>

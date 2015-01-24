@@ -1,10 +1,10 @@
 <?PHP	require_once("./include/membersite_config.php");
-	if($fgmembersite->CheckLogin()){
+	if($fgmembersite->CheckSession()){
 		$usrname = $fgmembersite->UsrName();  
 	}
 
 	/*This part ckecks whether there is a session or not.*/
-		if(!$fgmembersite->CheckLogin()){
+		if(!$fgmembersite->CheckSession()){
 			$fgmembersite->RedirectToURL("index.php");
 			exit;
 	}

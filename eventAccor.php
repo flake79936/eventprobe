@@ -1,6 +1,6 @@
 <?PHP
 	require_once("./include/membersite_config.php");
-	if(!$fgmembersite->CheckLogin()){
+	if(!$fgmembersite->CheckSession()){
 		$fgmembersite->RedirectToURL("login.php");
 		exit;
 	}

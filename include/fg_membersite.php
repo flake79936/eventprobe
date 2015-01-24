@@ -752,7 +752,7 @@ function upLoadUserPic(){
         return true;
     }    
     
-    function CheckLogin(){
+    function CheckSession(){
          if(!isset($_SESSION)){ session_start(); }
 
          $sessionvar = $this->GetLoginSessionVar();
@@ -839,7 +839,7 @@ function upLoadUserPic(){
         $password = trim($_POST['UPswd']);
         
         if(!isset($_SESSION)){ session_start(); }
-        if(!$this->CheckLoginInDB($username, $password)){
+        if(!$this->CheckSessionInDB($username, $password)){
             return false;
         }
         
@@ -943,7 +943,7 @@ function upLoadUserPic(){
 		return true;
 	}
 
-	function CheckLoginInDB($username, $password){
+	function CheckSessionInDB($username, $password){
 		if(!$this->DBLogin()){
 			$this->HandleError("Database login failed!");
 			return false;
@@ -1115,7 +1115,7 @@ function upLoadUserPic(){
 	}
 
 	function ChangePassword(){
-		if(!$this->CheckLogin()){
+		if(!$this->CheckSession()){
 			$this->HandleError("Not logged in!");
 			return false;
 		}

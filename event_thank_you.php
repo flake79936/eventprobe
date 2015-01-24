@@ -3,7 +3,7 @@
 <?PHP
 	require_once("./include/membersite_config.php");
 	/*This part ckecks whether there is a session or not.*/
-	if(!$fgmembersite->CheckLogin()){
+	if(!$fgmembersite->CheckSession()){
 		$fgmembersite->RedirectToURL("index.php");
 		exit;
 	}

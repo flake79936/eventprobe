@@ -1,6 +1,6 @@
 <?PHP
 	require_once("./include/membersite_config.php");
-	$bool = $fgmembersite->CheckLogin();
+	$bool = $fgmembersite->CheckSession();
 	$usrname = $fgmembersite->UsrName();
 ?>
 <head>
@@ -9,7 +9,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<div class="logo"><a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a></div>
+<div class="logo">
+	<a href="./index.php">
+		<img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
+	</a>
+</div>
+
 <div class="date">
 <!-- 
 	<div class="box">
@@ -68,7 +73,7 @@
 		<div class="user">
 			<img src="images/sample_profile.png" alt="Profile" />
 			<?PHP if(!empty($usrname)){ ?>
-				<h2> <?= $usrname;?> </h2>
+				<h2> <?= $usrname; ?> </h2>
 			<?PHP } ?>
 		</div>
 	<?PHP } ?>

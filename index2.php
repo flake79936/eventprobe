@@ -82,7 +82,7 @@
 		</div>
         
 		<!-- start My events      -->
-		<?PHP if($fgmembersite->CheckLogin()){?>
+		<?PHP if($fgmembersite->CheckSession()){?>
 				<div class="my-events">
 			<?PHP include './myevents.php'; ?>
 				</div>
