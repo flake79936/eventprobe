@@ -2,7 +2,7 @@
 	require_once("./include/membersite_config.php");
 	$city = $fgmembersite->getCity();
 ?>
-
+<link rel="stylesheet" type="text/css" href="css/chart.css" />
 <script>
 	$(document).ready(function() {
 		function showHint(str) {
@@ -23,7 +23,7 @@
 	});
 </script>
 
-<!--<div class="box">
+<div class="box">
 	<div class="title">
 		<h1>Today and this Week Near You</h1>
 		<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>
@@ -135,11 +135,8 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-</div>-->
-
-<div class="box">
-	halloeoaolkfsad
 </div>
+
 
 <div class="advertisement">
 	<a href="#"><img src="images/advertisement_01.jpg" alt="Banner" /></a>

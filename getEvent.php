@@ -1,5 +1,5 @@
 <head>
-	<link rel="stylesheet" type="text/css" href="css/chart.css" />
+	<link rel="stylesheet" type="text/css" href="css/getEvent.css" />
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 	<div class="title">
 		<h1>Today and this Week Near You</h1>
 		<!--To refresh, we can create a method in fg_membersite-->
-		<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>
+		<!--<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>-->
 		<div class="clear"></div>
 	</div>
 	
@@ -50,6 +50,7 @@
 			echo "			<div class='box'><a href='#'>" . $row['degree'] . "</a></div>";
 			echo "		</div>";
 			echo "	<div class='clear'></div>";
+			echo "</div>";
 			echo "</div>";
 		}
 		
