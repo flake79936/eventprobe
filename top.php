@@ -65,14 +65,14 @@
 </div>
 
 <div class="profile">
-	<?PHP if($fgmembersite->CheckLogin()){ ?>
+	<?PHP //if($fgmembersite->CheckLogin()){ ?>
 		<div class="user">
 			<img src="images/sample_profile.png" alt="Profile" />
-			<?PHP if(!empty($usrname)){ ?>
+			<?PHP //if(!empty($usrname)){ ?>
 				<h2> <?= $usrname;?> </h2>
-			<?PHP } ?>
+			<?PHP //} ?>
 		</div>
-	<?PHP } ?>
+	<?PHP //} ?>
 	
 	<!--clickable dropdown menu-->
 	<div>
