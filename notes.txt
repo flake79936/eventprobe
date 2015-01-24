@@ -1,0 +1,5 @@
+- Header should be consistent from the front and back-end.
+- In the event creation should the shadow on the left be shown?
+- Event creation page should have a more compact size while on the web browser.
+- Banner should be brought down to a different size.
+- 

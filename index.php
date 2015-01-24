@@ -65,7 +65,7 @@
         </div>
 		
 		<div class="search">
-			<?PHP //include 'searchForm.php';?>
+			
 			<form>
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
 			</form>

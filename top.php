@@ -1,8 +1,7 @@
 <?PHP
 	require_once("./include/membersite_config.php");
-	if($fgmembersite->CheckLogin()){
-		$usrname = $fgmembersite->UsrName();  
-	}
+	$bool = $fgmembersite->CheckLogin();
+	$usrname = $fgmembersite->UsrName();
 ?>
 <head>
 	<meta charset='utf-8'>
@@ -65,7 +64,7 @@
 </div>
 
 <div class="profile">
-	<?PHP if($fgmembersite->CheckLogin()){ ?>
+	<?PHP if($bool){ ?>
 		<div class="user">
 			<img src="images/sample_profile.png" alt="Profile" />
 			<?PHP if(!empty($usrname)){ ?>
