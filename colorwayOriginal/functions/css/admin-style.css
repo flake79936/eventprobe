@@ -1,0 +1,346 @@
+/*-------------------------------------------------------------------------------------------*/
+/* OptionsFramework Admin Styles */
+/*-------------------------------------------------------------------------------------------*/
+/**Trail version notification */
+.trail-notify {
+    margin: 120px 15px 15px 15px;
+    margin-left: 0;
+    width: 980px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    padding: 10px;
+    background:#3b5382;
+    color: #fff;
+}
+.trail-notify a{
+    color: yellow;
+    text-decoration: none;
+}
+.logo div.updated{
+position:absolute;
+top: 12px;
+width:100%;
+}
+.wrap{
+    width: 1000px;
+    margin-top: 15px;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.nav-tab-wrapper{
+    float: left;
+    position: relative;
+    margin-bottom: 0;
+    z-index: 100;
+    width: 174px;
+    display: block;
+}
+.metabox-holder{
+    padding-top:0 !important;
+    border-top: 1px solid #ccc;
+}
+.nav-tab-wrapper .nav-tab{
+    border:none;
+    font-size: 13px;
+    padding-bottom:16px;
+    padding-top:16px;
+    display:inline-block;
+    color:#797979;
+    font-family: Georgia,Serif;
+	width:172px;
+}
+.nav-tab-wrapper .nav-tab-list:first-child .nav-tab{
+    border:none;
+}
+.nav-tab-wrapper .nav-tab-active, .nav-tab-wrapper .nav-tab:hover{ 
+    background:#fff;
+    width: 174px;
+}
+.nav-tab-wrapper .nav-tab-active{
+    color:#2479a2;   
+}
+#optionsframework .group h2{
+    padding-top: 8px; 
+    padding-left: 10px;
+}
+#header{
+    background:url("../images/gray-grad.png") repeat-x #e1e1e1;
+    padding-top: 20px;
+    padding-bottom:20px; 
+}
+#header .logo{
+    margin-left: 10px;
+}
+#header .icon-option {
+    float: right;
+    height: 50px;
+    width: 178px;
+    background: url(../images/inkthemeslogo.png) no-repeat;
+    margin-top: -45px;
+}
+.nav-tab-wrapper .nav-tab-list{
+    padding-bottom: 1px;
+    border-bottom: 1px solid #ccc;
+    display: block; 
+   width:200px;
+    margin-bottom: 0;
+}
+.updated {
+    max-width:970px;
+    margin-bottom:0px !important;
+	margin-left:-12px !important
+}
+#optionsframework {
+    position:relative;
+    z-index: 0;
+    max-width:1000px;
+    background:#f1f1f1;
+}
+#optionsframework .content input, #optionsframework .content select, #optionsframework .content textarea {
+    margin-bottom: 9px !important;
+    background-color: #f1f1f1;
+    border: 1px solid;
+    border-color: #ccc #e6e6e6 #e6e6e6 #ccc;
+    width: 340px;	
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif;
+    font-size: 12px;
+}
+#optionsframework .content input:focus, #optionsframework .content select:focus, #optionsframework .content textarea:focus {
+    background-color: #fff; 
+}
+#optionsframework .content{
+    margin-left: 200px;
+    border-left: 1px solid #ccc;
+	padding-left:10px;
+    background: #fff;
+}
+#optionsframework p {
+    margin-bottom:0;
+    padding-bottom:10px;
+}
+#optionsframework .section {
+    padding:10px 10px 0;
+}
+#optionsframework .group {
+    padding-bottom:40px;
+}
+#optionsframework .section .heading {
+    padding:10px 0px;
+    margin:0 0 15px;
+    border-bottom: 1px solid #dfdfdf;
+}
+#optionsframework .section .controls {
+    float: left;
+    min-width:350px;
+    width: 54%;
+    padding-right:2%;
+}
+#optionsframework .section .explain {
+    max-width:38%;
+    float: left;
+    font-size: 12px;
+    line-height:16px;
+    color: #777;
+}
+#optionsframework .section-checkbox .controls {
+    width: 98%;
+}
+#optionsframework .section-checkbox .explain {
+    max-width:94%;
+}
+#optionsframework .section-color .controls {
+    min-width:125px;
+    width:125px
+}
+#optionsframework .controls input, #optionsframework .controls select, #optionsframework .controls textarea {
+    margin-bottom:10px;
+    width:100%;
+}
+#optionsframework .section-radio label, #optionsframework .section-multicheck label {
+    float:left;
+    max-width:90%;
+    line-height: 16px;
+    margin-bottom: 5px;
+}
+#optionsframework input.checkbox, #optionsframework input.of-radio {
+    width: 16px;
+    float:left;
+    clear:both;
+}
+#optionsframework .controls .of-color {
+    float:left;
+    width: 80px;
+    margin-left:5px;
+    margin-right:5px;
+}
+#optionsframework .controls .of-typography-size {
+    width:80px;
+    margin-left:5px;
+    float:left
+}
+#optionsframework .controls .of-typography-unit {
+    width:50px;
+    margin-left:5px;
+    float:left
+}
+#optionsframework .controls .of-typography-face {
+    width:100px;
+    margin-left:5px;
+    float:left
+}
+#optionsframework .controls .of-typography-style {
+    width:80px;
+    margin-left:5px;
+    margin-right:5px;
+    float:left
+}
+#optionsframework .of-background-properties {
+    clear:both;
+    margin-top: 18px;	
+}
+#optionsframework .controls .of-background-repeat {
+    width:125px;
+    margin-right:5px;
+    float:left
+}
+#optionsframework .controls .of-background-position {
+    width:125px;
+    margin-right:5px;
+    float:left
+}
+#optionsframework .controls .of-background-attachment {
+    width:125px;
+    margin-right:5px;
+    float:left
+}
+#optionsframework div.section-background .controls input.upload {
+    width:47%;
+}
+#optionsframework .controls .of-radio-img-img {
+    border:3px solid #f9f9f9;
+    margin:0 5px 10px 0;
+    display:none;
+    cursor:pointer;
+    float:left;
+}
+#optionsframework .controls .of-radio-img-selected {
+    border:3px solid #ccc
+}
+#optionsframework .controls .of-radio-img-img:hover {
+    opacity:.8;
+}
+#optionsframework .controls .of-border-width {
+    width:80px;
+    float:left
+}
+#optionsframework .controls .of-border-style {
+    width:120px;
+    float:left
+}
+#optionsframework .hide {
+    display:none;
+}
+#optionsframework .of-option-image {
+    max-width:340px;
+    margin:3px 0 18px 0;
+}
+#optionsframework .mini .controls select, #optionsframework .section .mini .controls {
+    width: 140px;
+}
+#optionsframework .mini .controls input, #optionsframework .mini .controls {
+    min-width:140px;
+    width: 140px;
+}
+#optionsframework .mini .explain {
+    max-width:74%;
+}
+/* Image Uploader */
+
+#optionsframework .controls input.upload {
+    width:80%;
+}
+#optionsframework .controls input.upload_button {
+    float:right;
+    width:70px;
+    border-color:#BBBBBB;
+    cursor:pointer;
+}
+#optionsframework .controls input.upload_button:hover {
+    border-color:#666666;
+    color:#000;
+}
+#optionsframework .screenshot {
+    float:left;
+    margin-left:1px;
+    position:relative;
+    width:344px;
+    margin-top:3px;
+}
+#optionsframework .screenshot img {
+    background:#FAFAFA;
+    border-color:#ccc #eee #eee #ccc;
+    border-style:solid;
+    border-width:1px;
+    float:left;
+    max-width:334px;
+    padding:4px;
+    margin-bottom:10px;
+}
+#optionsframework .screenshot .mlu_remove {
+    background:url("../images/ico-delete.png") no-repeat;
+    border:medium none;
+    bottom:4px;
+    display:block;
+    float:left;
+    height:16px;
+    padding:0;
+    position:absolute;
+    left:-4px;
+    text-indent:-9999px;
+    width:16px;
+}
+#optionsframework .screenshot .no_image .file_link {
+    margin-left: 20px;
+}
+#optionsframework .screenshot .no_image .mlu_remove {
+    bottom: 0px;
+}
+#optionsframework .reset-button {
+    float:left;
+    cursor:pointer;
+}
+
+/* Bottom Section */
+#optionsframework-submit {
+    padding: 7px 10px;
+    border-top: 1px solid #ccc;
+    background-color: #F1F1F1;
+    background-image: -moz-linear-gradient(center top , #F9F9F9, #ECECEC);
+}
+#optionsframework .button-primary {
+    float:right;
+}
+#wrap .of-save-popup {
+    position:absolute;
+    -moz-border-radius:12px;
+    background:rgba(0, 0, 0, 0.4);
+    color:#fff;
+    font-size:24px;
+    text-align:center;
+    display:none
+}
+#wrap .of-save-save {
+    background:url(../images/accept.png) 20px 50% no-repeat;
+    padding:30px 30px 30px 70px
+}
+#wrap .of-save-reset {
+    background:url(../images/warning.png) 20px 50% no-repeat;
+    padding:30px 30px 30px 70px
+}
+.wrap input[type=checkbox], .wrap input[type=radio]{
+margin:0 3px 4px 0;
+}

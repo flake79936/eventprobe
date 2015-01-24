@@ -628,10 +628,13 @@ class FGMembersite{
 			$_FILES["Eflyer"]["tmp_name"] - the name of the temporary copy of the file stored on the server
 			$_FILES["Eflyer"]["error"] - the error code resulting from the file upload
 		*/
-		$timestamp      = date('YmdHis'); //timestamp
-		$uploaddir      = "eventFlyers/"; //location to store image
+		$timestamp      = date('YmdHi'); //timestamp
+		$uploaddir      = "./eventFlyers/"; //location to store image
 		$filename       = $timestamp . $_FILES['Eflyer']['name'];
 		$filename       = strtolower($filename); //create image name with lower case
+		$filename		= str_replace(' ', '_', $filename);
+		$filename		= str_replace('-', '_', $filename);
+		$filename		= str_replace('.', '_', $filename);
 		$final_location = $uploaddir.$filename;
 
 
@@ -683,10 +686,13 @@ function upLoadUserPic(){
 			$_FILES["Eflyer"]["tmp_name"] - the name of the temporary copy of the file stored on the server
 			$_FILES["Eflyer"]["error"] - the error code resulting from the file upload
 		*/
-		$timestamp      = date('YmdHis'); //timestamp
-		$uploaddir      = "UserPic/"; //location to store image
+		$timestamp      = date('YmdHi'); //timestamp
+		$uploaddir      = "./UserPic/"; //location to store image
 		$filename       = $timestamp . $_FILES['Upic']['name'];
 		$filename       = strtolower($filename); //create image name with lower case
+		$filename		= str_replace(' ', '_', $filename);
+		$filename		= str_replace('-', '_', $filename);
+		$filename		= str_replace('.', '_', $filename);
 		$final_location = $uploaddir.$filename;
 
 
