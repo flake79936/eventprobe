@@ -27,4 +27,5 @@
 	<a href="./index.php"><img src="images/footer-logoOrange.png" onmouseover="this.src='images/footer-logo.png'" onmouseout="this.src='images/footer-logoOrange.png'" alt="Logo" /></a>
 </div>
 <div class="clear"></div>
+<br/>
 <?PHP echo '&copy'; echo "2014-";echo date("Y"); ?>

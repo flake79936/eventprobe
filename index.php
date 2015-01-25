@@ -61,7 +61,7 @@
 					$(".my-events").hide();
 					$(".this-week").hide();
 					$(".schedule").hide();
-					//$(".chart").hide();
+					$(".chart").hide();
 					$(".app").hide();
 				});
 			});
@@ -111,11 +111,11 @@
             <div class="clear"></div>
         </div>
         
-        <!--<div class="chart">
+        <div class="chart">
 			<?PHP include './chart.php'; ?>
-        </div>-->
+        </div>
 		
-		<div class="chart" id="txtHint"></div>
+		<div class="events" id="txtHint"></div>
         
         <div class="app">
 			<?PHP include './app.php'; ?>
