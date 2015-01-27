@@ -5,8 +5,8 @@
  */
  
  	require_once("./include/membersite_config.php");
- 	require_once("./include/membersite_config.php");
-		$usrname = $fgmembersite->UsrName();
+// 		include './include/membersite_config.php';
+// 		$usrname = $fgmembersite->UsrName();
 	
 	if(!$fgmembersite->CheckSession()){
 		$fgmembersite->RedirectToURL("index.php");
@@ -43,7 +43,10 @@ class Database {
 	}
 	
 	private function total() {
-		$result = mysql_query("select count(Eid) AS total FROM $this->_table WHERE UuserName = '" . $usrname . "' ");
+		require ('./include/membersite_config.php');
+		$usrname = $fgmembersite->UsrName();
+		
+		$result = mysql_query("SELECT count(Eid) AS total FROM $this->_table WHERE UuserName = '" . $usrname . "' ");
 		$row = mysql_fetch_array($result);
 		return $row['total'];
 	}
