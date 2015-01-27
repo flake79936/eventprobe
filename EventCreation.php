@@ -278,10 +278,28 @@
 												<span id="event_Eother_errorloc" class="error"></span>
 											</div>
 										</div>
-									</div>
 									
+									
+																	
+									<div class="type">
+										<div class="container" id="">
+											<h5 for="Erank">Reach</h5>
+											<h5>
+												<select name="Erank">
+													<option>Please Select One</option>
+													<option value="Free">Free</option>
+													<option value="Paid">Paid</option>
+													<option value="Premium">Premium</option>
+												</select>
+											</h5>
+										</div>
+
+									</div>
 								</div>
+								
 								<div class="reach">
+								
+
 <!-- 
 									<h3>Increase your reach!</h3>
 									<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>
@@ -659,7 +677,7 @@
 								</div>
 								
 								<div class="type" id="Egoogle">
-									<h5 for="Egoogle">Facebook</h5>
+									<h5 for="Egoogle">Google</h5>
 									<input type="text" name="Egoogle" title="?" id="Egoogle" value="<?php echo $fgmembersite->SafeDisplay('Egoogle') ?>" maxlength="50"><br>
 									<span id="event_Egoogle_errorloc" class="error"></span>
 								</div>
@@ -710,6 +728,7 @@
 			frmvalidator.addValidation("Eflyer",       "req", "Please Insert Picture");
 			frmvalidator.addValidation("EtimeStart",   "req", "Please fill in the Start Time");
 			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
+			frmvalidator.addValidation("Erank",        "req", "Please fill in the Rank");
 			
 			// ]]>
 		</script>

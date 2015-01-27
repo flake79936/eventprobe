@@ -46,7 +46,9 @@ class Database {
 		require ('./include/membersite_config.php');
 		$usrname = $fgmembersite->UsrName();
 		
-		$result = mysql_query("SELECT count(Eid) AS total FROM $this->_table WHERE UuserName = '" . $usrname . "' ");
+		$today = Date("m/d/Y");
+		
+		$result = mysql_query("SELECT count(Eid) AS total FROM $this->_table WHERE UuserName = '" . $usrname . "' AND EstartDate >= '".$today."' ");
 		$row = mysql_fetch_array($result);
 		return $row['total'];
 	}
