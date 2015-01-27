@@ -4,7 +4,7 @@
 		$fgmembersite->RedirectToURL("index.php");
 		exit;
 	}
-		$usrname = $fgmembersite->UsrName();
+		
 		
 $action = (isset($_REQUEST['action']) && !empty($_REQUEST['action']))?$_REQUEST['action']: NULL;
 if(empty($action)) {
