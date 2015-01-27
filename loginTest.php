@@ -1,8 +1,5 @@
 <link rel="stylesheet" href="./css/bootstrap.min.css">
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">      
-      <div class="nav-collapse">
+
         <ul class="nav">
 
           <!-- here comes the important part -->
@@ -25,10 +22,9 @@
            </li>
  
         </ul>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+
 
 
 
