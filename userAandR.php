@@ -25,19 +25,14 @@
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
-
-        
 	</head>
 	
 	<body lang="en">
     	<div class="top">
 			<?PHP include './top.php';?>
         </div>
-        
-        
-        
+		
         <div class="content">
-			
 			<center><h2><b>Eventprobe</b> Use Policy and Release </h2></center
 			<h2> 			
 			<div class="container">

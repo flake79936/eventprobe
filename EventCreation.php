@@ -25,6 +25,7 @@
 		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
 		$upcoming = mysqli_query($con, $sql);
 ?>
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
@@ -37,7 +38,9 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/styleUserPage.css" />
+        <link rel="stylesheet" type="text/css" href="./css/styleUserPage.css" />
+        <link rel="stylesheet" type="text/css" href="./css/links.css" />
+        <link rel="stylesheet" type="text/css" href="./css/footer.css" />
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -113,7 +116,9 @@
 	
 	<body>
 		<div class="top">
-			<div class="logo"><a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" /></div>
+			<div class="logo">
+				<a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
+			</div>
 			<div class="profile">
 				<div class="user">
 					<img src="images/profile.jpg" />
@@ -222,18 +227,7 @@
 					<div class="dashboard">
 						<div class="user-profile">
 							<div class="update-image">
-							
-							<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" />
-							
-							
-							
-	
-<!-- 
-								image upload
-								<h5>Update Image</h5>
-								<input type="file" name="Eflyer" id="Eflyer" title="512 kB max" value="<?php echo $fgmembersite->SafeDisplay('Eflyer') ?>" maxlength="50" alt="Image-upload"/>
-								<div class="clear"></div>
- -->
+								<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" />
 							</div>
 							<img id="uploadPreview" style="width: 270px; height: 250px;" />
 							<!-- <img src="images/profile-img.jpg" alt="Profiles"> -->
@@ -659,7 +653,7 @@
 								</div>
 								
 								<div class="type" id="Egoogle">
-									<h5 for="Egoogle">Facebook</h5>
+									<h5 for="Egoogle">Google+</h5>
 									<input type="text" name="Egoogle" title="?" id="Egoogle" value="<?php echo $fgmembersite->SafeDisplay('Egoogle') ?>" maxlength="50"><br>
 									<span id="event_Egoogle_errorloc" class="error"></span>
 								</div>
@@ -686,6 +680,14 @@
 				</form>
 			</div> <!-- End of content -->
 			
+			<div class="links">
+				<?PHP include './links.php'; ?>
+			</div>
+			
+			<div class="footer">
+				<?PHP include './footer.php'; ?>
+			</div>
+			
 		</div><!-- End of Main -->
 		
 		<!--This script needs to wihtin the file. 
@@ -702,18 +704,14 @@
 			frmvalidator.addValidation("Estate",       "req", "Please fill in State");
 			frmvalidator.addValidation("Ezip",         "req", "Please fill in Zip code");
 			frmvalidator.addValidation("EphoneNumber", "req", "Please fill in Phone Number");
-			frmvalidator.addValidation("EstartDate",   "req", "Please Select a Start Date");
-			frmvalidator.addValidation("EendDate",     "req", "Please Select an End Date");
 			frmvalidator.addValidation("Etype",        "req", "Please fill in Type of Event");
-			frmvalidator.addValidation("Edescription", "req", "Please fill in Description");
-			frmvalidator.addValidation("Ewebsite",     "req", "Please fill in Your Website");
-			frmvalidator.addValidation("Eflyer",       "req", "Please Insert Picture");
+			frmvalidator.addValidation("EstartDate",   "req", "Please Select a Start Date");
 			frmvalidator.addValidation("EtimeStart",   "req", "Please fill in the Start Time");
 			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
-			
+			frmvalidator.addValidation("EendDate",     "req", "Please Select an End Date");
+			frmvalidator.addValidation("Edescription", "req", "Please fill in Description");
 			// ]]>
 		</script>
-		
 		
 		<script type="text/javascript">
 

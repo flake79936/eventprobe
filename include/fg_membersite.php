@@ -676,9 +676,7 @@ class FGMembersite{
 	
 	/*----(End) CreateEvent() Submission----*/
 	
-	
-	
-function upLoadUserPic(){
+	function upLoadUserPic(){
 		/**
 			$_FILES["Eflyer"]["name"] - the name of the uploaded file
 			$_FILES["Eflyer"]["type"] - the type of the uploaded file
@@ -694,10 +692,7 @@ function upLoadUserPic(){
 		$filename		= str_replace('-', '_', $filename);
 		$filename		= str_replace('.', '_', $filename);
 		$final_location = $uploaddir.$filename;
-
-
-			
-				
+	
 		if (
 		(
 		   ($_FILES["Upic"]["type"] == "image/gif") //set image you want to upload
@@ -731,8 +726,6 @@ function upLoadUserPic(){
 
 		return false;
 	} //End uploadUserPic
-	
-	
 	
 	/*----(Start) User Management----*/
 	function ConfirmUser(){
