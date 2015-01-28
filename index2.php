@@ -71,14 +71,13 @@
 	<body lang="en">
     	<div class="top">
 			<?PHP include './top.php';?>
+			<div class="searchAjax">
+				<form>
+					<input class="ajax" type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
+				</form>
+			</div>
         </div>
 		
-		<div class="search">
-			<form>
-				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
-			</form>
-		</div>
-        
 		<!-- start My events      -->
 		<?PHP if($fgmembersite->CheckSession()){ ?>
 				<div class="my-events">
