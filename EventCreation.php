@@ -671,11 +671,7 @@
 								</div>
 								
 								<div class="type" id="Egoogle">
-<<<<<<< HEAD
 									<h5 for="Egoogle">Google+</h5>
-=======
-									<h5 for="Egoogle">Google</h5>
->>>>>>> origin/master
 									<input type="text" name="Egoogle" title="?" id="Egoogle" value="<?php echo $fgmembersite->SafeDisplay('Egoogle') ?>" maxlength="50"><br>
 									<span id="event_Egoogle_errorloc" class="error"></span>
 								</div>
@@ -730,13 +726,9 @@
 			frmvalidator.addValidation("EstartDate",   "req", "Please Select a Start Date");
 			frmvalidator.addValidation("EtimeStart",   "req", "Please fill in the Start Time");
 			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
-<<<<<<< HEAD
 			frmvalidator.addValidation("EendDate",     "req", "Please Select an End Date");
 			frmvalidator.addValidation("Edescription", "req", "Please fill in Description");
-=======
 			frmvalidator.addValidation("Erank",        "req", "Please fill in the Rank");
-			
->>>>>>> origin/master
 			// ]]>
 		</script>
 		
