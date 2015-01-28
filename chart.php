@@ -16,14 +16,16 @@
 						document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
 					}
 				}
-				xmlhttp.open("GET", "getEvent.php?q=" + str, true);
+				xmlhttp.open("GET", "getEvent.php", true);
 				xmlhttp.send();
 			}
 		}
 	});
 </script>
 
-<!--<div class="box">
+<div class="box" id="txtHint"></div>
+
+<div class="box">
 	<div class="title">
 		<h1>Today and this Week Near You</h1>
 		<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>
@@ -135,9 +137,6 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-</div>-->
-
-<div class="box">
 </div>
 
 <div class="advertisement">
