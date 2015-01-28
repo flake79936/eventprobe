@@ -1,3 +1,7 @@
+<?PHP
+	require_once("./include/membersite_config.php");	
+
+?>
 <link type="text/css" href="./css/jquery.bbslider.css" rel="stylesheet" media="screen" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./js/jquery.easing.1.3.js"></script>
@@ -5,14 +9,34 @@
 
 <?PHP 
 $height= "300px";
-$width= "873px"?>
+$width= "873px";
+	
+	include 'dbconnect.php';
+
+	$today = Date("m/d/Y");
+
+	$city = $fgmembersite->getCity();
+
+
+       $sql = "SELECT Eflyer FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' ";
+      	$result = mysqli_query($con, $sql);
+      
+
+ ?>
 
 <div   class="bbslider-wrapper" id="auto" height="300px" width="873px" >
-    <div><img src="./banner/96502411.jpg" alt="first image" height=<?= $height ?> width=<?= $width ?>/></div>
-    <div><img src="./banner/131645522.jpg" alt="second image" height=<?= $height ?> width=<?= $width ?>/></div>
-    <div><img src="./banner/138071106.jpg" alt="third image"height=<?= $height ?> width=<?= $width ?> /></div>
-    <div><img src="./banner/143177148.jpg" alt="forth image" height=<?= $height ?> width=<?= $width ?>/></div>
-    <div><img src="./banner/143921954.jpg" alt="fifth image" height=<?= $height ?> width=<?= $width ?>/></div>
+<?PHP
+		$i = 0;
+		while($row = mysqli_fetch_array($result)) {
+
+
+     		echo '<div><img src="'.$row['Eflyer'].'" alt="" height="'.$height.'" width="'.$width.'"/></div>';
+   
+
+			 $i++; } 
+?>
+
+
 </div>
 
 <script type="text/javascript">
