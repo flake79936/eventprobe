@@ -15,10 +15,11 @@ $width= "873px";
 
 	$today = Date("m/d/Y");
 
-	$city = $fgmembersite->getCity();
+ 	$city = $fgmembersite->getCity();
+//	$city='el paso';
 
 
-       $sql = "SELECT Eflyer FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' ";
+       $sql = "SELECT Eflyer, Evename FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' ";
       	$result = mysqli_query($con, $sql);
       
 
@@ -30,7 +31,7 @@ $width= "873px";
 		while($row = mysqli_fetch_array($result)) {
 
 
-     		echo '<div><img src="'.$row['Eflyer'].'" alt="" height="'.$height.'" width="'.$width.'"/></div>';
+     		echo '<div><img src="'.$row['Eflyer'].'" alt="'.$row['Evename'].'" height="'.$height.'" width="'.$width.'"/></div>';
    
 
 			 $i++; } 
