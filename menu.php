@@ -1,6 +1,7 @@
 <?PHP
 	require_once("./include/membersite_config.php"); 
 	$bool = $fgmembersite->CheckSession();
+	$usrname = $fgmembersite->UsrName();
 	  
 	if(isset($_POST['hSubmitted'])){
 		if($fgmembersite->Login()){
@@ -40,7 +41,7 @@
 
 <div class="dropdown clearfix">
 	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">
-		User Account
+		<h3> <?= $usrname; ?> </h3>
 		<span class="caret"></span>
 	</button>
 <!--IF the session is created then show the menu items-->

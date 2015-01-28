@@ -71,9 +71,9 @@
 <div class="profile">
 	<?PHP if($bool){ ?>
 		<div class="user">
-			<img src="images/sample_profile.png" alt="Profile" />
+			<!--<img src="images/sample_profile.png" alt="Profile" />-->
 			<?PHP if(!empty($usrname)){ ?>
-				<h2 class="username"> <?= $usrname; ?> </h2>
+				<!--<h2 class="username"> <?= $usrname; ?> </h2>-->
 			<?PHP } ?>
 		</div>
 	<?PHP } ?>
