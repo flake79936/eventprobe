@@ -73,14 +73,14 @@
 		<div class="user">
 			<img src="images/sample_profile.png" alt="Profile" />
 			<?PHP if(!empty($usrname)){ ?>
-				<h2> <?= $usrname; ?> </h2>
+				<h2 class="username"> <?= $usrname; ?> </h2>
 			<?PHP } ?>
 		</div>
 	<?PHP } ?>
 	
 	<!--clickable dropdown menu-->
 	<div>
-		<?PHP include './menu.php'; ?>
+		<?PHP //include './menu.php'; ?>
 	</div>
 	
 	<div class="clear"></div>

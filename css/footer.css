@@ -5,7 +5,7 @@ body{
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 }
 
-.footer{ background: #f4f1ea; padding: 20px 4% 40px 4%; }
+.footer{ background: #f4f1ea; padding: 0px 4% 40px 4%; }
 .footer .social{ float: left; padding-top: 30px; }
 .footer .social li{ list-style: none; display: inline-block; }
 .footer .footer-logo{ float: right; }

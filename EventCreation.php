@@ -38,7 +38,8 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="./css/styleUserPage.css" />
+        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <link rel="stylesheet" type="text/css" href="./css/top.css" />
         <link rel="stylesheet" type="text/css" href="./css/links.css" />
         <link rel="stylesheet" type="text/css" href="./css/footer.css" />
 
@@ -110,13 +111,13 @@
 				</script>
 			<!--(End) Date Pickers-->
 		<!--(End) Scripts-->
-		
-		
 	</head>
 	
 	<body>
 		<div class="top">
-			<div class="logo">
+			<?PHP include './top - Copy.php';?>
+		
+			<!--<div class="logo">
 				<a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
 			</div>
 			<div class="profile">
@@ -135,7 +136,7 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="clear"></div>
+			<div class="clear"></div>-->
 		</div>
 
 		<div class="main">
@@ -733,7 +734,6 @@
 		</script>
 		
 		<script type="text/javascript">
-
     		function PreviewImage() {
        		var oFReader = new FileReader();
         	oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
@@ -742,7 +742,6 @@
             document.getElementById("uploadPreview").src = oFREvent.target.result;
         		};
    			 };
-
 		</script>
 	</body>
 </html>
