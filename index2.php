@@ -19,7 +19,6 @@
         <link rel="stylesheet" type="text/css" href="css/banner.css" />
         <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
         <link rel="stylesheet" type="text/css" href="css/schedule.css" />
-        <link rel="stylesheet" type="text/css" href="css/chart.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
@@ -62,7 +61,7 @@
 					$(".my-events").hide();
 					$(".this-week").hide();
 					$(".schedule").hide();
-					//$(".chart").hide();
+					$(".chart").hide();
 					$(".app").hide();
 				});
 			});
@@ -112,11 +111,11 @@
             <div class="clear"></div>
         </div>
         
-        <!--<div class="chart">
+        <div class="chart">
 			<?PHP include './chart.php'; ?>
-        </div>-->
+        </div>
 		
-		<div class="chart" id="txtHint"></div>
+		<div class="events" id="txtHint"></div>
         
         <div class="app">
 			<?PHP include './app.php'; ?>
