@@ -80,7 +80,7 @@
 	
 	<!--clickable dropdown menu-->
 	<div>
-		<?PHP //include './menu.php'; ?>
+		<?PHP include './menu.php'; ?>
 	</div>
 	
 	<div class="clear"></div>
