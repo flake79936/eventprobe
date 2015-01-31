@@ -34,18 +34,6 @@
 		<div class="cell">&nbsp;</div>
 		<div class="cell active">
 			<div class="circle">1</div>
-			<h4>9/20<br />TUE</h4>
-		</div>
-		<div class="cell">
-			<div class="blank">&nbsp;</div>
-			<h4>9/20<br />WED</h4>
-		</div>
-		<div class="cell">
-			<div class="circle">1</div>
-			<h4>9/20<br />TUE</h4>
-		</div>
-		<div class="cell">
-			<div class="circle">4</div>
 			<h4>9/20<br />SUN</h4>
 		</div>
 		<div class="cell">
@@ -53,20 +41,24 @@
 			<h4>9/20<br />MON</h4>
 		</div>
 		<div class="cell">
-			<div class="circle">3</div>
+			<div class="circle">1</div>
 			<h4>9/20<br />TUE</h4>
+		</div>
+		<div class="cell">
+			<div class="circle">4</div>
+			<h4>9/20<br />WED</h4>
 		</div>
 		<div class="cell">
 			<div class="blank">&nbsp;</div>
 			<h4>9/20<br />THU</h4>
 		</div>
 		<div class="cell">
-			<div class="blank">&nbsp;</div>
-			<h4>9/20<br />SUN</h4>
+			<div class="circle">3</div>
+			<h4>9/20<br />FRI</h4>
 		</div>
 		<div class="cell">
 			<div class="blank">&nbsp;</div>
-			<h4>9/20<br />WED</h4>
+			<h4>9/20<br />SAT</h4>
 		</div>
 		<div class="cell">&nbsp;</div>
 		<div class="clear"></div>
