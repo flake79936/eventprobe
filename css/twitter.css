@@ -3,9 +3,7 @@
 * You can do whatever the hell you want on your site :-)
 */
 
-h2 {
-  clear:both;
-}
+h2 { clear:both; }
 
 p, a {
   font-size:9pt;
@@ -13,13 +11,9 @@ p, a {
   color:#3d3d3d;
 }
 
-a, a:visited {
-  color:#427fed;
-}
+a, a:visited { color:#427fed; }
 
-a:hover {
-  color:#82afff;
-}
+a:hover { color:#82afff; }
 
 /* 
 ul li {
@@ -28,36 +22,21 @@ ul li {
   border:1px solid #dedede;
   margin:5px;
   padding:5px;
-}
+}*/
 
-ul li:hover {
-  background-color:#f0f3fb;
-}
- */
+/*ul li:hover { background-color:#f0f3fb; } */
 
-.user, .tweet, .timePosted {
-  float:left;
-}
+.user, .tweet, .timePosted { float:left; }
 
-.user {
-  width:25%;
-}
+.user { width:29%; }
 
-.tweet {
-  width:50%;
-}
+.tweet { width:40%; }
 
-.timePosted {
-  width:15%;
-}
+.timePosted { width:18%; }
 
-.user {
-  clear:left;
-}
+.user { clear:left; }
 
-.user a {
- width: 100px;
-}
+.user a { width: 100px; }
 
 .user span span {
   width:100px;
@@ -65,9 +44,7 @@ ul li:hover {
   margin-top:10px;
 }
 
-.user img, .user a > span {
-  float:left;
-}
+.user img, .user a > span { float:left; }
 
 .interact {
   float:left;
@@ -80,9 +57,7 @@ ul li:hover {
   float:left;
 }
 
-.user a > span {
-  margin-left:10px;
-}
+.user a > span { margin-left:10px; }
 
 .media img {
   max-width:250px;

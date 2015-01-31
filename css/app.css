@@ -5,10 +5,10 @@ body{
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 }
 
-.app{ background: #e4dfcd; padding: 3% 5%; }
-.app .left{ float: left; width: 45%; }
+.app{ background: #e4dfcd; padding: 0% 3%; }
+.app .left{ float: left; width: 50%; }
 .app .right{ float: right; width: 45%; padding-top: 50px; }
-.app .user{ margin: 20px 0; }
+.app .user{ margin: 10px 0px 20px 0px; }
 .app .user .box{ float: left; width: 30%; text-align: center; padding: 10px 0; }
 .app .user .box h3{ font-weight: normal; color: #4e473f; }
 .app .user p{ float: left; width: 60%; padding: 30px 20px; color: #22252b; font-size: 21px; font-weight: normal; font-style: italic; }

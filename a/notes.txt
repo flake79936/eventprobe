@@ -1,0 +1,13 @@
+- Header should be consistent from the front and back-end.
+- In the event creation should the shadow on the left be shown?
+- Event creation page should have a more compact size while on the web browser.
+- Banner should be brought down to a different size.
+Sat 24, 2015
+- How do we scrub down diff websites, if each have a different formats?
+- While looking for sites, make sure we they have the RSS feed. 
+	* RSS / XML*****
+- ad exchange****
+- Jim will inquire with site scout about advertising
+- banner 300width
+- eventCreation.php; try to keep the same format as the index, and kill all the dead space.
+- 

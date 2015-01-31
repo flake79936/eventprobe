@@ -1,7 +1,0 @@
-Eventprobe Bugs:
-
-- When logging in into the system from the Registration page, the redirection does not work properly. 
-Also, the page has to be refreshed to be able to see the site once again after the user has logged in. 
-Should not be acting this way.
-- Make the event's address validation more robust and add the state and city by zip code
-- 
