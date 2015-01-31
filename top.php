@@ -82,8 +82,10 @@
 	
 	<!--clickable dropdown menu-->
 	<div>
-		<?PHP if ($bool) {include './logged.php';}
-				else {include './loginTest.php';} ?>
+		<?PHP 
+		if ($bool) {include './logged.php';}
+				else {
+				include './loginTest.php';} ?>
 	</div>
 	
 	<div class="clear"></div>
