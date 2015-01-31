@@ -30,7 +30,18 @@
   </div>
 </div>
 
+<script type='text/javascript'>
+		// <![CDATA[
+		var frmvalidator  = new Validator("login");
+		frmvalidator.EnableOnPageErrorDisplay();
+		frmvalidator.EnableMsgsTogether();
 
+		frmvalidator.addValidation("UuserName", "req", "Provide Your Username");
+
+		frmvalidator.addValidation("UPswd", "req", "Provide Your Password");
+
+		// ]]>
+	</script>
 
 
 <script src="./js/jquery-1.11.1.min.js"></script>
