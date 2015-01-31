@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
         <link rel="stylesheet" type="text/css" href="css/search.css" />
+        <link rel="stylesheet" type="text/css" href="css/chart.css" />
         <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
         <link rel="stylesheet" type="text/css" href="css/banner.css" />
         <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />

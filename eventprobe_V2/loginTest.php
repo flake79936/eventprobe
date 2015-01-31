@@ -13,12 +13,16 @@
                 <b class="caret"></b>
              </a>
              <div class="dropdown-menu">
-               <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" /></div>
+<!--                <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> -->
+               <form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+
+               <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" />
+               <input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" /></div>
                  <fieldset class='textbox' style="padding:10px">
-                   <input style="margin-top: 8px" type="text" placeholder="Username" />
+                   <input style="margin-top: 8px" name="UuserName" type="text" placeholder="Username" />
                    <br>
-                   <input style="margin-top: 8px" type="password" placeholder="Passsword" />
-                   <input class="btn-primary" name="commit" type="submit" value="Log In" />
+                   <input style="margin-top: 8px" type="password" name='UPswd' placeholder="Passsword" />
+                   <input class="btn-primary" name="Submit" type="submit" value="Log In" />
                  </fieldset>
                </form>
              </div>
