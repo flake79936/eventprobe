@@ -69,18 +69,21 @@
 </div>
 
 <div class="profile">
-	<?PHP if($bool){ ?>
+<!-- 	<?PHP if($bool){ ?> -->
 		<div class="user">
+<!-- 
 			<img src="images/sample_profile.png" alt="Profile" />
 			<?PHP if(!empty($usrname)){ ?>
 				<h2> <?= $usrname; ?> </h2>
 			<?PHP } ?>
+ -->
 		</div>
-	<?PHP } ?>
+<!-- 	<?PHP } ?> -->
 	
 	<!--clickable dropdown menu-->
 	<div>
-		<?PHP include './menu.php'; ?>
+		<?PHP if ($bool) {include './logged.php';}
+				else {include './loginTest.php';} ?>
 	</div>
 	
 	<div class="clear"></div>

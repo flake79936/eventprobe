@@ -1,3 +1,8 @@
+<?PHP require_once("./include/membersite_config.php"); 
+		$session = $fgmembersite->CheckSession();
+		$usrname = $fgmembersite->UsrName();
+ 
+?>
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
@@ -16,18 +21,23 @@
 <!--                <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> -->
                <form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 
-               <div style="margin:0;padding:0;display:inline">
-               <input name="utf8" type="hidden" value="&#x2713;" />
-               <input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" />
-               </div>
+               <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" />
+               <input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" /></div>
                  <fieldset class='textbox' style="padding:10px">
-                   <input style="margin-top: 8px" name="UuserName" type="text" placeholder="Username" id="UuserName"  />
+                 		<a role="menuitem" tabindex="-1" href='./EventCreation.php'>
+						<span>Create Event</span>
+						</a>
+                		<br>
+                 
+                 		<a role="menuitem" tabindex="-1" href='./logout.php'>
+						<span>logout</span>
+						</a>
+<!-- 
+                   <input style="margin-top: 8px" name="UuserName" type="text" placeholder="Username" />
                    <br>
-                   <input style="margin-top: 8px" type="password" name='UPswd' placeholder="Passsword" id='UPswd' />
-                   <input class="btn-primary" input id="submitButton" type="submit" name="Submit" value="Login" />
-                   <br>
-                   <a style="margin-top: 8px" href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
-					<img src="./images/login-button.png" alt="Sign in with Facebook"></a>
+                   <input style="margin-top: 8px" type="password" name='UPswd' placeholder="Passsword" />
+                   <input class="btn-primary" name="Submit" type="submit" value="Log In" />
+ -->
                  </fieldset>
                </form>
              </div>
