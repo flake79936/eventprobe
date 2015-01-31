@@ -5,7 +5,7 @@
 		exit;
 	}
 	
-	if(isset($_POST["submitted"])){
+		if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
 	}
 	

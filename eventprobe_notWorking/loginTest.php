@@ -18,6 +18,7 @@
 
                <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" />
                <input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" /></div>
+               
                  <fieldset class='textbox' style="padding:10px">
                    <input style="margin-top: 8px" name="UuserName" type="text" placeholder="Username" />
                    <br>

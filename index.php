@@ -15,7 +15,6 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
         <link rel="stylesheet" type="text/css" href="css/search.css" />
-        <link rel="stylesheet" type="text/css" href="css/chart.css" />
         <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
         <link rel="stylesheet" type="text/css" href="css/banner.css" />
         <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
@@ -72,13 +71,14 @@
 	<body lang="en">
     	<div class="top">
 			<?PHP include './top.php';?>
-			<div class="searchAjax">
-				<form>
-					<input class="ajax" type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
-				</form>
-			</div>
         </div>
 		
+		<div class="search">
+			<form>
+				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
+			</form>
+		</div>
+        
 		<!-- start My events      -->
 		<?PHP if($fgmembersite->CheckSession()){ ?>
 				<div class="my-events">

@@ -15,11 +15,11 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
         <link rel="stylesheet" type="text/css" href="css/search.css" />
+        <link rel="stylesheet" type="text/css" href="css/chart.css" />
         <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
         <link rel="stylesheet" type="text/css" href="css/banner.css" />
         <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
         <link rel="stylesheet" type="text/css" href="css/schedule.css" />
-        <link rel="stylesheet" type="text/css" href="css/chart.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
@@ -62,7 +62,7 @@
 					$(".my-events").hide();
 					$(".this-week").hide();
 					$(".schedule").hide();
-					//$(".chart").hide();
+					$(".chart").hide();
 					$(".app").hide();
 				});
 			});
@@ -72,14 +72,13 @@
 	<body lang="en">
     	<div class="top">
 			<?PHP include './top.php';?>
+			<div class="searchAjax">
+				<form>
+					<input class="ajax" type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
+				</form>
+			</div>
         </div>
 		
-		<div class="search">
-			<form>
-				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
-			</form>
-		</div>
-        
 		<!-- start My events      -->
 		<?PHP if($fgmembersite->CheckSession()){ ?>
 				<div class="my-events">
@@ -112,11 +111,11 @@
             <div class="clear"></div>
         </div>
         
-        <!--<div class="chart">
+        <div class="chart">
 			<?PHP include './chart.php'; ?>
-        </div>-->
+        </div>
 		
-		<div class="chart" id="txtHint"></div>
+		<div class="events" id="txtHint"></div>
         
         <div class="app">
 			<?PHP include './app.php'; ?>

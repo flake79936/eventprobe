@@ -2,7 +2,7 @@
 	require_once("./include/membersite_config.php");
 	$city = $fgmembersite->getCity();
 ?>
-<link rel="stylesheet" type="text/css" href="css/chart.css" />
+
 <script>
 	$(document).ready(function() {
 		function showHint(str) {
@@ -16,12 +16,14 @@
 						document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
 					}
 				}
-				xmlhttp.open("GET", "getEvent.php?q=" + str, true);
+				xmlhttp.open("GET", "getEvent.php", true);
 				xmlhttp.send();
 			}
 		}
 	});
 </script>
+
+<div class="box" id="txtHint"></div>
 
 <div class="box">
 	<div class="title">
@@ -136,7 +138,6 @@
 		<div class="clear"></div>
 	</div>
 </div>
-
 
 <div class="advertisement">
 	<a href="#"><img src="images/advertisement_01.jpg" alt="Banner" /></a>

@@ -1,0 +1,39 @@
+<ul>
+	<?PHP
+		require_once("./include/membersite_config.php");
+		$city = $fgmembersite->getCity();
+		if(isset($_POST["submitted"])){
+			$result = $fgmembersite->searchEvent();
+		}
+	
+		
+include 'dbconnect.php';
+
+		$today = Date("m/d/Y");
+		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '".$city."' ORDER BY EstartDate";
+		$result = mysqli_query($con, $sql);
+
+		$i = 0;
+		while($row = mysqli_fetch_array($result)){
+		//day name of the date	
+		$today= date("m/d/Y");
+		$dt = strtotime($row['EstartDate']);
+		$day = date("l", $dt);
+		if ($today===$row['EstartDate']){
+		$day="Today";}
+	?>
+	<li>
+		<div class="info">
+			<div class="box">
+				<a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
+				<h1><?=$day?></h1>
+				<p><h5> <?=substr($row['EstartDate'], 0, 5);?>, <?= $row['EtimeStart'] ?></h5></p>
+				<h3><?= $row['Evename'] ?></h3>
+			</div>
+		</div>
+		<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />
+	</li>
+
+	<?PHP $i++; } ?>
+<div class="clear"></div>
+</ul>

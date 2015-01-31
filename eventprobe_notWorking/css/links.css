@@ -5,7 +5,7 @@ body{
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 }
 
-.links{ background: #f4f1ea; padding: 50px 0; }
+.links{ background: #f4f1ea; padding: 10px 0; }
 .links ul{ float: left; width: 20%; padding-left: 5%; }
 .links ul li{ list-style: none; line-height: 21px; }
 .links ul li h3{ color: #282826; }

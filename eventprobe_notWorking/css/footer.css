@@ -5,12 +5,10 @@ body{
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 }
 
-.links{ background: #f4f1ea; padding: 50px 0; }
-.links ul{ float: left; width: 20%; padding-left: 5%; }
-.links ul li{ list-style: none; line-height: 21px; }
-.links ul li h3{ color: #282826; }
-.links ul li a{ font-size: 14px; color: #282826; text-decoration: none; }
-.links ul li a:hover{ text-decoration: underline; }
+.footer{ background: #f4f1ea; padding: 0px 4% 40px 4%; }
+.footer .social{ float: left; padding-top: 30px; }
+.footer .social li{ list-style: none; display: inline-block; }
+.footer .footer-logo{ float: right; }
 
 /*		Mobile Layout: 320px.
 		Gutters: 24px.
@@ -20,6 +18,9 @@ body{
 cols    1     2      3
 px      68    160    252    */
 @media only screen and (max-width: 767px) {
-	.links{ padding: 30px 0; }
-	.links ul{ float: none; width: auto; padding: 10px 0; text-align: center; }
+	.footer{ padding: 0 0 20px 0; }
+	.footer .social{ float: none; padding: 0; text-align: center; }
+	.footer .social li{ list-style: none; display: inline-block; }
+	.footer .footer-logo{ float: none; text-align: center; }
 }
+
