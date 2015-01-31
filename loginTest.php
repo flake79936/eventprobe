@@ -1,12 +1,13 @@
 <?PHP
 require_once("./include/membersite_config.php"); 
-$bool = $fgmembersite->CheckSession();
+
  
-if(isset($_POST['hSubmitted'])){
-if($fgmembersite->Login()){
-$fgmembersite->RedirectToURL("./index.php");
+		if(isset($_POST['authenticity_token'])){
+		if($fgmembersite->Login()){
+$fgmembersite->RedirectToURL("./reg.php");
 }
 }
+	$bool = $fgmembersite->CheckSession();
 ?>
 
 <!-- Latest compiled and minified CSS -->
@@ -70,13 +71,13 @@ $fgmembersite->RedirectToURL("./index.php");
 						   		<br>
 						   	  <input style="margin-top: 8px" type="password" name='UPswd' placeholder="Passsword" id='UPswd' />
 				   
-                   </div>
+                </div>
                    
-                   <input class="btn-primary" input id="submitButton" type="submit" name="Submit" value="Login" />
-                   <br>
-                   <a style="margin-top: 8px" href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
-					<img src="./images/login-button.png" alt="Sign in with Facebook"></a>
-                 </fieldset>
+							   <input class="btn-primary" input id="submitButton" type="submit" name="Submit" value="Login" />
+							   <br>
+							   <a style="margin-top: 8px" href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
+								<img src="./images/login-button.png" alt="Sign in with Facebook"></a>
+                 		</fieldset>
                </form>
              </div>
            </li>
@@ -89,6 +90,7 @@ $fgmembersite->RedirectToURL("./index.php");
 
 <!--This script needs to wihtin the file. 
 	It is validating the form.-->
+<!-- 
 <script type='text/javascript'>
 	// <![CDATA[
 	var frmvalidator  = new Validator("login");
@@ -101,6 +103,7 @@ $fgmembersite->RedirectToURL("./index.php");
 
 	// ]]>
 </script>
+ -->
 
 <script src="./js/jquery-1.11.1.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>

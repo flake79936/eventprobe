@@ -1,5 +1,12 @@
 <?PHP
 	require_once("./include/membersite_config.php");
+
+ 
+		if(isset($_POST['authenticity_token'])){
+		if($fgmembersite->Login()){
+$fgmembersite->RedirectToURL("./index.php");
+}
+}
 	$bool = $fgmembersite->CheckSession();
 	$usrname = $fgmembersite->UsrName();
 ?>
@@ -7,6 +14,8 @@
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 
 <div class="logo">
@@ -69,25 +78,67 @@
 </div>
 
 <div class="profile">
-<!-- 	<?PHP if($bool){ ?> -->
+
 		<div class="user">
-<!-- 
-			<img src="images/sample_profile.png" alt="Profile" />
-			<?PHP if(!empty($usrname)){ ?>
-				<h2> <?= $usrname; ?> </h2>
-			<?PHP } ?>
- -->
+
 		</div>
-<!-- 	<?PHP } ?> -->
+
 	
 	<!--clickable dropdown menu-->
 	<div>
-		<?PHP 
-		if ($bool) {include './logged.php';}
-				else {
-				include './loginTest.php';} ?>
+        <ul class="nav">
+
+          <!-- here comes the important part -->
+ 
+           <li class="dropdown" id="menu1">
+             <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+               Login
+                <b class="caret"></b>
+             </a>
+             <div class="dropdown-menu">
+<!--                <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> -->
+               <form style="margin: 0px" id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+
+				<div class="login">
+
+
+					   		<div style="margin:0;padding:0;display:inline">
+						    	<input name="utf8" type="hidden" value="&#x2713;" />
+					   			<input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" />
+					   		</div>
+						 <fieldset class='textbox' style="padding:10px">
+						 	  <input style="margin-top: 8px" name="UuserName" type="text" placeholder="Username" id="UuserName"  />
+						   		<br>
+						   	  <input style="margin-top: 8px" type="password" name='UPswd' placeholder="Passsword" id='UPswd' />
+				   
+                </div>
+                   
+							   <input class="btn-primary" input id="submitButton" type="submit" name="Submit" value="Login" />
+							   <br>
+							   <a style="margin-top: 8px" href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
+								<img src="./images/login-button.png" alt="Sign in with Facebook"></a>
+                 		</fieldset>
+               </form>
+             </div>
+           </li>
+ 
+        </ul>
+               
+               
+               
 	</div>
 	
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>
+
+
+
+<script src="./js/jquery-1.11.1.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script language="javascript">
+    $('.dropdown-toggle').dropdown();
+    $('.dropdown-menu').find('form').click(function (e) {
+        e.stopPropagation();
+      });
+</script>

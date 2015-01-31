@@ -45,7 +45,8 @@
 	</button>
 <!--IF the session is created then show the menu items-->
 	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
-		<?PHP if($bool){ ?>
+<!-- 
+		<?PHP //if($bool){ ?>
 				<li role="presentation">
 					<a role="menuitem" tabindex="-1" href='./EventCreation.php'>
 						<span>Create Event</span>
@@ -57,9 +58,14 @@
 					</a>
 				</li>
 				
-<!--ELSE show the login form-->
-		<?PHP } else { ?>
+<!~~ELSE show the login form~~>
+		<?PHP // } else { ?>
+ -->
 				<li role="presentation">
+				
+
+				
+				
 					<body lang="en">
 						
 					<!--  commented to remove the top, needs to be modified to adapt the whole desing.-->
@@ -73,7 +79,7 @@
 									<!--New inputs-->
 									
 										<input type="hidden" name="hSubmitted" id="submitted" value="1"/>
-
+ 
 										<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 									
 										<div class="box">
@@ -116,7 +122,8 @@
 
 						// ]]>
 					</script>
+
 				</li>
-		<?PHP } ?>
+		<?PHP // } ?>
 	</ul>
 </div>
