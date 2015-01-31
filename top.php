@@ -126,7 +126,7 @@ $fgmembersite->RedirectToURL("./index.php");
  		
  		           <li class="dropdown" id="menu1">
              <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-               Login
+               <?PHP echo $usrname; ?>
                 <b class="caret"></b>
              </a>
              <div class="dropdown-menu">

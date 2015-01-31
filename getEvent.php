@@ -6,9 +6,9 @@
 <?php
 	//$q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'Eventadvisors');
+$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
 if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
-mysqli_select_db($con, "Eventadvisors");
+mysqli_select_db($con, "EventAdvisors");
 $today = Date("m/d/Y");
 
 	$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
