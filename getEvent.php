@@ -9,11 +9,12 @@
 $con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'Eventadvisors');
 if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
 mysqli_select_db($con, "Eventadvisors");
+$today = Date("m/d/Y");
 
 	$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
 	$qry = "SELECT * FROM Events ";
 	$qry .= $var != null ? 
-			" WHERE Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var " 
+			" WHERE (Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var) AND EstartDate >='".$today."' " 
 			: "";
 			
 	//$sql = "SELECT * FROM master WHERE id = '".$q."'";
