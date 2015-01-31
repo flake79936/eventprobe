@@ -15,8 +15,8 @@ $width= "873px";
 
 	$today = Date("m/d/Y");
 
- 	//$city = $fgmembersite->getCity();
-	  $city='el paso';
+ 	$city = $fgmembersite->getCity();
+	//$city='el paso';
 
 
        $sql = "SELECT Eflyer, Evename FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' ";
