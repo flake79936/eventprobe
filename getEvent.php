@@ -6,15 +6,14 @@
 <?php
 	//$q = intval($_GET['q']);
 
-	$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'cs5339team9fa14');
-	if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
+$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'Eventadvisors');
+if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
+mysqli_select_db($con, "Eventadvisors");
 
-	mysqli_select_db($con, "cs5339team9fa14");
-	
 	$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
-	$qry = "SELECT * FROM master ";
+	$qry = "SELECT * FROM Events ";
 	$qry .= $var != null ? 
-			" WHERE academicyear REGEXP $var OR term REGEXP $var OR last REGEXP $var OR first REGEXP $var OR major REGEXP $var OR level REGEXP $var OR degree REGEXP $var " 
+			" WHERE Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var " 
 			: "";
 			
 	//$sql = "SELECT * FROM master WHERE id = '".$q."'";
@@ -32,10 +31,10 @@
 			while($row = mysqli_fetch_array($result)) {
 				echo "<div class='row'>";
 				echo "<div>";
-				echo "	<div class='profile'><img src='images/sample_today.jpg' alt='Image' /> " . $row['master_id'] . "</div>";
+				echo "	<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /> </div>";
 				echo "		<div class='info'>";
-				echo "			<div class='box'>" . $row['academicyear'] . "</div>";
-				echo "			<div class='box'>" . $row['first'] . " " . $row['last'] . "</div>";
+				echo "			<div class='box'>" .  $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
+				echo "			<div class='box'>" . $row['Evename'] . "</div>";
 				echo "			<div class='box'>";
 				echo "				<ul>";
 				echo "					<li><img src='images/icon_star.png' alt='Icon' /></li>";
@@ -45,9 +44,9 @@
 				echo "					<li><img src='images/icon_star.png' alt='Icon' /></li>";
 				echo "				</ul>";
 				echo "			</div>";
-				echo "			<div class='box'> " . $row['major'] . " </div>";
-				echo "			<div class='box'>" . $row['level'] . "</div>";
-				echo "			<div class='box'><a href='#'>" . $row['degree'] . "</a></div>";
+				echo "			<div class='box'> " . $row['Efacebook'] . " </div>";
+				echo "			<div class='box'>" . $row['Efacebook'] . "</div>";
+				echo "			<div class='box'><a href='#'>" . $row['Efacebook'] . "</a></div>";
 				echo "		</div>";
 				echo "	<div class='clear'></div>";
 				echo "</div>";
