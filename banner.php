@@ -1,18 +1,43 @@
+<?PHP
+	require_once("./include/membersite_config.php");	
+
+?>
 <link type="text/css" href="./css/jquery.bbslider.css" rel="stylesheet" media="screen" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="./js/jquery.bbslider.min.js"></script>
 
 <?PHP 
-$height= "528px";
-$width= "1536px"?>
+$height= "300px";
+$width= "873px";
+	
+	include 'dbconnect.php';
 
-<div   class="bbslider-wrapper" id="auto" height="528px" width="1536px" >
-    <div><img src="./banner/96502411.jpg" alt="first image" height=<?= $height ?> width=<?= $width ?>/></div>
-    <div><img src="./banner/131645522.jpg" alt="second image" height=<?= $height ?> width=<?= $width ?>/></div>
-    <div><img src="./banner/138071106.jpg" alt="third image"height=<?= $height ?> width=<?= $width ?> /></div>
-    <div><img src="./banner/143177148.jpg" alt="forth image" height=<?= $height ?> width=<?= $width ?>/></div>
-    <div><img src="./banner/143921954.jpg" alt="fifth image" height=<?= $height ?> width=<?= $width ?>/></div>
+	$today = Date("m/d/Y");
+
+ 	//$city = $fgmembersite->getCity();
+	  $city='el paso';
+
+
+       $sql = "SELECT Eflyer, Evename FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' ";
+      	$result = mysqli_query($con, $sql);
+      
+
+ ?>
+
+<div   class="bbslider-wrapper" id="auto" height="300px" width="873px" >
+<?PHP
+		$i = 0;
+		while($row = mysqli_fetch_array($result)) {
+
+
+     		echo '<div><img src="'.$row['Eflyer'].'" alt="'.$row['Evename'].'" height="'.$height.'" width="'.$width.'"/></div>';
+   
+
+			 $i++; } 
+?>
+
+
 </div>
 
 <script type="text/javascript">
