@@ -1,9 +1,7 @@
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 
         <ul class="nav">
-
           <!-- here comes the important part -->
- 
            <li class="dropdown" id="menu1">
              <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
                Login
