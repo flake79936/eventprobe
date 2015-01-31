@@ -1,4 +1,5 @@
-<?PHP	require_once("./include/membersite_config.php"); ?>
+<?PHP require_once("./include/membersite_config.php"); ?>
+
 <!doctype html>
 <html>
 	<head>
@@ -25,23 +26,18 @@
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
-
-        
 	</head>
 	
 	<body lang="en">
     	<div class="top">
 			<?PHP include './top.php';?>
         </div>
-        
-        
-        
+		
         <div class="content">
 			<h4>Content to be provided by LLC</h4>
 			<div class="clear"> </div>
         </div>
-
-        
+		
         <div class="app">
 			<?PHP include './app.php'; ?>
         </div>
@@ -53,7 +49,5 @@
         <div class="footer">
 			<?PHP include './footer.php'; ?>
         </div>
-    
 	</body>
-	
 </html>

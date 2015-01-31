@@ -1,4 +1,5 @@
 <?PHP	require_once("./include/membersite_config.php"); ?>
+
 <!doctype html>
 <html>
 	<head>
@@ -25,19 +26,14 @@
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
-
-        
 	</head>
 	
 	<body lang="en">
     	<div class="top">
 			<?PHP include './top.php';?>
         </div>
-        
-        
-        
+		
         <div class="content">
-			
 			<center><h2><b>Eventprobe</b> Use Policy and Release </h2></center
 			<h2> 			
 			<div class="container">
@@ -106,8 +102,7 @@
 			</div></h2>
 			<div class="clear"> </div>
         </div>
-
-        
+		
         <div class="app">
 			<?PHP //include './app.php'; ?>
         </div>
@@ -119,7 +114,5 @@
         <div class="footer">
 			<?PHP include './footer.php'; ?>
         </div>
-    
 	</body>
-	
 </html>

@@ -7,7 +7,7 @@
 		}
 	
 		
-include 'dbconnect.php';
+		include 'dbconnect.php';
 
 		$today = Date("m/d/Y");
 		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '".$city."' ORDER BY EstartDate";

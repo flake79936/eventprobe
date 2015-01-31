@@ -15,7 +15,6 @@
 		}
 	}
 	
-	
 	include 'dbconnect.php';
 
 		$today = Date("m/d/Y");
@@ -24,9 +23,9 @@
 		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
 		$upcoming = mysqli_query($con, $sql);
 ?>
+
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset="utf-8"/>
 		<title>Eventprobe</title>
@@ -688,9 +687,6 @@
 			frmvalidator.addValidation("Eflyer",       "req", "Please Insert Picture");
 			frmvalidator.addValidation("EtimeStart",   "req", "Please fill in the Start Time");
 			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
-			
-			
 			// ]]>
 		</script>
-	
 </html>
