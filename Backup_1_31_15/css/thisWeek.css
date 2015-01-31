@@ -1,0 +1,38 @@
+body{
+	background: #e9e4d5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+.this-week{ padding: 10px 0; }
+.this-week .box{ float: left; width: 10%; text-align: center; }
+.this-week .title{ width: 80% !important; }
+.this-week .title h2{ text-transform: capitalize; color: #2e3135; padding-top: 10px; }
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.this-week{ padding: 10px 0; }
+	.this-week .box{ float: left; width: 10%; text-align: center; }
+	.this-week .title{ width: 80% !important; }
+	.this-week .title h2{ text-transform: capitalize; color: #2e3135; padding-top: 10px; }
+}
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+@media only screen and (max-width: 767px) {
+	.this-week .title{ width: 75% !important; }
+	.this-week .title h2{ font-size: 21px; }
+}

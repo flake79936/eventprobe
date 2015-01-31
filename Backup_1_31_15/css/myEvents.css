@@ -1,0 +1,53 @@
+body{
+	background: #e9e4d5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+.my-events{ border-top: 1px solid #f3eddd; }
+.my-events .box{ float: left; width: 25%; padding: 30px 0; color: #2e3135; }
+.my-events .box h1{ text-align: center; margin-top: 50px; }
+.my-events .box h3{ margin: 10px 0; }
+.my-events .box .profile{ float: left; margin-right: 30px; }
+.my-events .box ul{ padding: 10px 0; }
+.my-events .box ul li{ display: inline-block; list-style: none; margin-right: 50px; font-weight: bold; }
+.my-events .event{ width: 40% !important; padding: 40px 0 0 0 !important; }
+.my-events .arrow{ float: right !important; width: 5% !important; padding: 65px 0 0 0 !important; }
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.my-events{ padding: 10px 0; }
+	.my-events .box{ width: 370px; height: auto; padding: 20px 0; margin: 0 auto;     }
+	.my-events .box h1{ text-align: center; }
+	.my-events .box .profile{ margin: 0 30px; }
+	.my-events .box ul{ text-align: center; }
+	.my-events .box ul li{ margin-right: 0; }
+	.my-events .event{ width: 375px !important; padding: 0 0 20px 0 !important; margin: 0 auto; }
+	.my-events .arrow{ width: 355px !important; padding: 30px 20px 0 0 !important; text-align: right; }
+}
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+@media only screen and (max-width: 767px) {
+	.my-events{ padding: 20px 0; }
+	.my-events .box{ float: none; width: auto; padding: 10px 20px; text-align: center; }
+	.my-events .box h1{ margin-top: 0; }
+	.my-events .box .profile{ float: none; margin-right: 0; text-align: center; }
+	.my-events .box ul{ padding: 10px 0; text-align: center;  }
+	.my-events .box ul li{ margin-right: 0; font-size: 14px; }
+	.my-events .event{ width: auto !important; padding: 0 !important; }
+	.my-events .arrow{ float: none !important; width: auto !important; padding: 10px 0 0 0 !important; text-align: center; }
+}
