@@ -1,4 +1,4 @@
-<meta http-equiv="refresh" content="2; index.php">
+<!--<meta http-equiv="refresh" content="2; index.php">-->
 
 <?PHP
 	require_once("./include/membersite_config.php");
@@ -17,10 +17,16 @@
 		<link rel="STYLESHEET" type="text/css" href="css/fg_membersite.css">
 		
 		<!--(Start) Provided by JetDevLLC-->
-		<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-		<link href="css/style.css"            rel="stylesheet" type="text/css" />
-		<link href="css/responsive.css"       rel="stylesheet" type="text/css" />
-		<link href="favicon.ico"              rel="shortcut icon"  />	
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/top.css" />
+        <link rel="stylesheet" type="text/css" href="css/search.css" />
+        <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
+        <link rel="stylesheet" type="text/css" href="css/banner.css" />
+        <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
+        <link rel="stylesheet" type="text/css" href="css/schedule.css" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <link rel="stylesheet" type="text/css" href="css/links.css" />
+        <link rel="stylesheet" type="text/css" href="css/footer.css" />
 		<!--[if IE 6]>
 		<style type="text/css">img, div, { behavior: url("js/iepngfix.htc") }
 		</style>
@@ -41,5 +47,13 @@
 		<div id='fg_membersite' align="center">
 			<h2>Your Event Has Been Posted!</h2>
 		</div>
+		
+		<div class="links">
+			<?PHP include './links.php'; ?>
+        </div>
+        
+        <div class="footer">
+			<?PHP include './footer.php'; ?>
+        </div>
 	</body>
 </html>

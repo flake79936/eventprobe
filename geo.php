@@ -11,6 +11,5 @@
 			
 			window.location.href = "./map.php?city=" + city;
 		</script>
-
 	</body>
 </html>

@@ -2,10 +2,7 @@
 	require_once("./include/membersite_config.php");
 	$city = $fgmembersite->getCity();
 
-
 	$city = (string)$city;
-
-
 
 	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
@@ -29,7 +26,6 @@
 	}
 ?>
 
-
 <!DOCTYPE html>
 <head> 
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
@@ -47,32 +43,27 @@
 			// Setup the different icons and shadows
 			var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
 
-			var icons = [
-			'images/favicon.png'
-			]
+			var icons = ['images/favicon.png']
 			var icons_length = icons.length;
 
-
 			var shadow = {
-			anchor: new google.maps.Point(15,33),
-			url: iconURLPrefix + 'msmarker.shadow.png'
+				anchor: new google.maps.Point(15,33),
+				url: iconURLPrefix + 'msmarker.shadow.png'
 			};
 
 			var map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 12,
-			center: new google.maps.LatLng(-50.92, 120.25),
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			mapTypeControl: true,
-			streetViewControl: true,
-			panControl: true,
-			zoomControlOptions: {
-			position: google.maps.ControlPosition.LEFT_BOTTOM
-			}
+				zoom: 12,
+				center: new google.maps.LatLng(-50.92, 120.25),
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				mapTypeControl: true,
+				streetViewControl: true,
+				panControl: true,
+				zoomControlOptions: {
+					position: google.maps.ControlPosition.LEFT_BOTTOM
+				}
 			});
 
-			var infowindow = new google.maps.InfoWindow({
-			maxWidth: 160
-			});
+			var infowindow = new google.maps.InfoWindow({ maxWidth: 160 });
 
 			var marker;
 			var markers = new Array();
@@ -81,40 +72,39 @@
 
 			// Add the markers and infowindows to the map
 			for (var i = 0; i < locations.length; i++) {  
-			marker = new google.maps.Marker({
-			position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-			map: map,
-			icon : icons[iconCounter],
-			shadow: shadow
-			});
+				marker = new google.maps.Marker({
+					position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+					map: map,
+					icon : icons[iconCounter],
+					shadow: shadow
+				});
 
-			markers.push(marker);
+				markers.push(marker);
 
-			google.maps.event.addListener(marker, 'click', (function(marker, i) {
-			return function() {
-			infowindow.setContent(locations[i][0]);
-			infowindow.open(map, marker);
-			}
-			})(marker, i));
+				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+					return function() {
+						infowindow.setContent(locations[i][0]);
+						infowindow.open(map, marker);
+					}
+				})(marker, i));
 
-			iconCounter++;
-			// We only have a limited number of possible icon colors, so we may have to restart the counter
-			if(iconCounter >= icons_length){
-			iconCounter = 0;
-			}
+				iconCounter++;
+				// We only have a limited number of possible icon colors, so we may have to restart the counter
+				if(iconCounter >= icons_length){
+					iconCounter = 0;
+				}
 			}
 
 			function AutoCenter() {
-			//  Create a new viewpoint bound
-			var bounds = new google.maps.LatLngBounds();
-			//  Go through each...
-			$.each(markers, function (index, marker) {
-			bounds.extend(marker.position);
-			});
-			//  Fit these bounds to the map
-			map.fitBounds(bounds);
-			}
-			AutoCenter();
+				//  Create a new viewpoint bound
+				var bounds = new google.maps.LatLngBounds();
+				//  Go through each...
+				$.each(markers, function (index, marker) {
+					bounds.extend(marker.position);
+				});
+				//  Fit these bounds to the map
+				map.fitBounds(bounds);
+			} AutoCenter();
 		</script>
 	</body>
 </html>
