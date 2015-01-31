@@ -1,5 +1,5 @@
 <?PHP
-	$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'EventAdvisors');
+	$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
 
 	if (!$con) {
 		die('Could not connect: ' . mysqli_error($con));

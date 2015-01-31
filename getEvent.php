@@ -6,7 +6,7 @@
 <?php
 	//$q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost', 'admindev', '17s_9Eyr', 'Eventadvisors');
+$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'Eventadvisors');
 if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
 mysqli_select_db($con, "Eventadvisors");
 $today = Date("m/d/Y");
