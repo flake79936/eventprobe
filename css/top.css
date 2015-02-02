@@ -23,10 +23,10 @@ body{
 
 .top .profile .search .btn-search{ padding: 0; }
 
-.top{ border-bottom: 1px solid #595249; }
+/*.top{ border-bottom: 1px solid #595249; }*/
 
 .top .logo{ float: left; width: 30%; text-align: center; }
-.top .logo{ background: #e9e4d5; width: 450px; float: left; text-align: center; border-right: 1px solid #595249; }
+.top .logo{ background: #e9e4d5; width: 450px; float: left; text-align: center; /*border-right: 1px solid #595249;*/ }
 
 .top .search .image{ margin-top: 10px; }
 

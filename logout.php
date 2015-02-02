@@ -40,13 +40,7 @@
 	</head>
 	
 	<body>
-		<div class="header-wrap">
-			<div class="header">
-			</div><!--//header-->
-		</div><!--//header-wrap-->
-
-		<div class="mobile-menu-list">
-		</div><!--//mobile-menu-list-->
+		
 		
 		<div id='fg_membersite' align="center">
 			<div class="wrap">

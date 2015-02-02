@@ -115,7 +115,7 @@
 	
 	<body>
 		<div class="top">
-			<?PHP include './top - Copy.php';?>
+			<?PHP include './ezTop.php';?>
 		
 			<!--<div class="logo">
 				<a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />

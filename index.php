@@ -26,17 +26,17 @@
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
         
-         <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
-			<script language="Javascript"> 
+		<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+		
+		<script language="Javascript"> 
 			var city = geoplugin_city();
-			</script>
+		</script>
 			
-			  <?PHP $city = "<script>document.write(city)</script>";
-// 			  echo $city;
-			  ?>
-			  
-			  
-			  <script>
+		<?PHP $city = "<script>document.write(city)</script>";
+		// echo $city;
+		?>
+		
+		<script>
 			function showHint(str) {
 				if (str.length == 0) {
 //					document.getElementById("txtHint").innerHTML = "";
@@ -60,6 +60,7 @@
 		</script>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
 		<script>
 			$(document).ready(function(){
 				$("input").keydown(function(){
@@ -74,10 +75,6 @@
 	</head>
 	
 	<body lang="en">
-    	<div class="top">
-			<?PHP include './top.php';?>
-        </div>
-		
 		<div class="search">
 			<form>
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
@@ -93,7 +90,11 @@
 			</form>
 			
 		</div>
-        
+		
+    	<div class="top">
+			<?PHP include './top.php';?>
+        </div>
+		
 		<!-- start My events      -->
 		<?PHP if($fgmembersite->CheckSession()){ ?>
 				<div class="my-events">
