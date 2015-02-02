@@ -27,16 +27,20 @@
 	</head>
 	
 	<body>
-		<div class="header-wrap">
-			<div class="header">
-			</div><!--//header-->
-		</div><!--//header-wrap-->
-
-		<div class="mobile-menu-list">
-		</div><!--//mobile-menu-list-->
-	
+		<div class="top">
+			<?PHP include './ezTop.php';?>
+		</div>
+		
 		<div id='fg_membersite' align="center">
 			<h2>Thanks for registering!</h2>
 		</div>
+		
+		<div class="links">
+			<?PHP include './links.php'; ?>
+        </div>
+        
+        <div class="footer">
+			<?PHP include './footer.php'; ?>
+        </div>
 	</body>
 </html>

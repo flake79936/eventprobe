@@ -102,10 +102,6 @@
 			</div></h2>
 			<div class="clear"> </div>
         </div>
-		
-        <div class="app">
-			<?PHP //include './app.php'; ?>
-        </div>
         
         <div class="links">
 			<?PHP include './links.php'; ?>

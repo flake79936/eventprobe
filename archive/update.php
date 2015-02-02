@@ -5,7 +5,7 @@
 	
 	echo $pic;
 
-	mysql_query("UPDATE Events SET Ehashtag= 'helllo' WHERE Eid=10;"); //mysql insert query
+	mysql_query("UPDATE Events SET Ehashtag = 'helllo' WHERE Eid=10;"); //mysql insert query
 
 	$pict = $_REQUEST['Eflyer'];
 	

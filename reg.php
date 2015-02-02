@@ -73,16 +73,13 @@
 		<div class="main">
 			<div class="content">
 				<!--Keep this below-->
-				
 				<form id="register" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-
 					<div class="form-wrap">
 						<input type="hidden" name="submitted" id="submitted" value="1"/>
-
-						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
-					
-						<div class="box">
 						
+						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
+						
+						<div class="box">
 							<h5>First Name</h5>
 							<input type="text" name="UFname" title="Enter your First Name" id="UFname"  value="<?php echo $fgmembersite->SafeDisplay('UFname') ?>" maxlength="50" /><br/>
 							<span id="register_UFname_errorloc" class="error"></span>
@@ -111,26 +108,19 @@
 							<input type="text" name="Uphone" title="Enter your Phone Number"id="Uphone" onchange="check()" value="<?php echo $fgmembersite->SafeDisplay("Uphone") ?>" maxlength="50" /><br/>
 							<span id="register_Uphone_errorloc" class="error"></span>
 						
-						
 							<h5>User Image</h5>
 							<img id="uploadPreview" style="width: 200px; height: 200px;" />
 							<input id="uploadImage" type="file" name="Upic" onchange="PreviewImage();" />
-
-					<!--End of new inputs-->
-												
-						</div><!--End of form-wrap -->
-
+						</div>
+						
 						<div class="clear"></div>
-					</div>
 					<input id="submitButton" type="submit" name="Submit" value="submit" />
+					</div>
 				</form>
 			</div>
 			<div class="clear"></div>
 		</div>
-<!-- 		<div class="footer"></div> -->
-
-
-
+		
         <div class="app">
 			<?PHP include './app.php'; ?>
         </div>
@@ -142,14 +132,9 @@
         <div class="footer">
 			<?PHP include './footer.php'; ?>
         </div>
-
-
-
 	</body>
-		<!--This script needs to wihtin the file. 
-		It is validating the form.-->
-		
-
+	
+	<!--This script needs to wihtin the file. It is validating the form.-->
 	<script type="text/javascript">
 		// <![CDATA[
 		var frmvalidator = new Validator("register");
@@ -165,17 +150,14 @@
 		// ]]>
 	</script>
 	
-			
 	<script type="text/javascript">
+		function PreviewImage() {
+			var oFReader = new FileReader();
+			oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
 
-    function PreviewImage() {
-        var oFReader = new FileReader();
-        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
-
-        oFReader.onload = function (oFREvent) {
-            document.getElementById("uploadPreview").src = oFREvent.target.result;
-        };
-    };
-
+			oFReader.onload = function (oFREvent) {
+				document.getElementById("uploadPreview").src = oFREvent.target.result;
+			};
+		};
 	</script>
 </html>

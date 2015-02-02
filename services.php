@@ -25,8 +25,6 @@
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
-
-        
 	</head>
 	
 	<body lang="en">
@@ -34,18 +32,11 @@
 			<?PHP include './top.php';?>
         </div>
         
-        
-        
         <div class="content">
 			<h4>Content to be provided by LLC</h4>
 			<div class="clear"> </div>
         </div>
 
-        
-        <div class="app">
-			<?PHP include './app.php'; ?>
-        </div>
-        
         <div class="links">
 			<?PHP include './links.php'; ?>
         </div>
@@ -53,7 +44,5 @@
         <div class="footer">
 			<?PHP include './footer.php'; ?>
         </div>
-    
 	</body>
-	
 </html>

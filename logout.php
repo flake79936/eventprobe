@@ -40,7 +40,9 @@
 	</head>
 	
 	<body>
-		
+		<div class="top">
+			<?PHP include './ezTop.php';?>
+		</div>
 		
 		<div id='fg_membersite' align="center">
 			<div class="wrap">

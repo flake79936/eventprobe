@@ -36,10 +36,6 @@
 			<h4>Content to be provided by LLC</h4>
 			<div class="clear"> </div>
         </div>
-		
-        <div class="app">
-			<?PHP include './app.php'; ?>
-        </div>
         
         <div class="links">
 			<?PHP include './links.php'; ?>

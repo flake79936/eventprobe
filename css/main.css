@@ -74,6 +74,7 @@ body{
 .main .menu li ul li a:hover{ background: #f2efe6; }
 
 .main .content{ float: none; width: auto; /*background: url(../images/bg_shadow.png)*/ repeat-y left #fff; padding: 10px;  }
+.main .policy{ float: none; width: auto; /*background: url(../images/bg_shadow.png)*/ repeat-y left #fff; padding: 133px 0px 10px 30px;  }
 .main .content .dashboard{ background: #fff; border-bottom: 1px solid #999; padding-bottom: 20px; }
 
 .main .content .dashboard .user-profile{ float: left; margin-right: 20px; margin-top: -25px; }

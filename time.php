@@ -12,7 +12,7 @@ var currenttime = '<? print date("F d, Y H:i:s", time())?>' //PHP method of gett
 
 ///////////Stop editting here/////////////////////////////////
 
-var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
+var montharray=new Array("January", "February","March","April","May","June","July","August","September","October","November","December")
 var serverdate=new Date(currenttime)
 
 function padlength(what){
@@ -30,7 +30,6 @@ document.getElementById("servertime").innerHTML=datestring+" "+timestring
 window.onload=function(){
 setInterval("displaytime()", 1000)
 }
-
 </script>
 
 <p><b>Current Server Time:</b> <span id="servertime"></span></p>
