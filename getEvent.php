@@ -12,9 +12,9 @@ mysqli_select_db($con, "EventAdvisors");
 $today = Date("m/d/Y");
 
 	$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
-	$qry = "SELECT * FROM Events ";
+	$qry = "SELECT Eflyer, EtimeStart, EtimeEnd, Evename, Efacebook, Egoogle, Etwitter, Ehashtag, Erank  FROM Events ";
 	$qry .= $var != null ? 
-			" WHERE (Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var) AND EstartDate >='".$today."' " 
+			" WHERE (Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) AND EstartDate >='".$today."' " 
 			: "";
 			
 	//$sql = "SELECT * FROM master WHERE id = '".$q."'";

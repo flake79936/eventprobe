@@ -39,7 +39,12 @@
 			  <script>
 			function showHint(str) {
 				if (str.length == 0) {
-					document.getElementById("txtHint").innerHTML = "";
+//					document.getElementById("txtHint").innerHTML = "";
+					$(".my-events").show();
+					$(".this-week").show();
+					$(".schedule").show();
+					$(".chart").show();
+					$(".app").show();	
 					return;
 				} else {
 					var xmlhttp = new XMLHttpRequest();
@@ -77,6 +82,16 @@
 			<form>
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
 			</form>
+			
+			<form> 
+				<select onselect="showHint(this.value)">
+				<option >Select Event:</option>
+				<option value="ALFKI">Alfreds Futterkiste</option>
+				<option value="NORTS ">North/South</option>
+				<option value="WOLZA">Wolski Zajazd</option>
+				</select>
+			</form>
+			
 		</div>
         
 		<!-- start My events      -->

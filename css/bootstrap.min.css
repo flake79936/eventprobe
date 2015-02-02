@@ -877,7 +877,9 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 .nav>li>a:hover,.nav>li>a:focus{color:black;text-decoration:none;background-color:none}
 .nav>li.disabled>a{color:#777}
 .nav>li.disabled>a:hover,.nav>li.disabled>a:focus{color:#777;text-decoration:none;cursor:not-allowed;background-color:transparent}
-.nav .open>a,.nav .open>a:hover,.nav .open>a:focus{background-color:#eee;border-color:#337ab7}
+.nav .open>a,.nav .open>a:hover,.nav .open>a:focus{
+/* background-color:#eee; */
+border-color:#337ab7}
 .nav .nav-divider{height:1px;margin:9px 0;overflow:hidden;background-color:#e5e5e5}
 .nav>li>a>img{max-width:none}
 .nav-tabs{border-bottom:1px solid #ddd}
