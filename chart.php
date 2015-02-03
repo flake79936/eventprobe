@@ -12,11 +12,9 @@
 	$timezone=$object->timeZoneId;
 
 	date_default_timezone_set($timezone);
-	$today = Date("m/d/Y"); //e.g., 02/03/2015
-	$day   = date("D");
 	
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $today . "' ORDER BY EstartDate LIMIT 7;";
-	$result = mysqli_query($con, $sql);
+	//$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $today . "' ORDER BY EstartDate LIMIT 7;";
+	//$result = mysqli_query($con, $sql);
 ?>
 <link rel="stylesheet" type="text/css" href="css/chart.css" />
 
@@ -42,12 +40,14 @@
 				
 				$day = date("D", $date);
 				
+				$today = Date("m/d/Y", $date); //e.g., 02/03/2015
+				
 				$trimDate = date("m/d/Y", $date);
 				$trimDate = substr($trimDate, 0, 5); //e.g., From 02/03/2015 to 02/03
 		?>
 			<div class="cell">
-				<div class="circle"><!--Count of how many events the user has in their list.-->1</div>
-				<form><a onClick="getByDayEvent(<?= $today ?>);"><h4><?= $trimDate ?><br/><?= $day ?></h4></a></form>
+				<div class="circle"><!--Count of how many events the user has in their list.--><?= $today ?></div>
+				<form><a onClick="getByDayEvent(this.value);" value="<?= $today ?>"><h4><?= $trimDate ?><br/><?= $day ?></h4></a></form>
 			</div>
 		<?PHP } ?>
 	</div>
