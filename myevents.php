@@ -13,9 +13,15 @@ $(document).ready(function() {
    // put Ajax here.
 });
 -->
-
 <?PHP
 	require_once("./include/membersite_config.php");
+	$timezone = $fgmembersite->getLocalTimeZone();
+	date_default_timezone_set($timezone);
+	
+	?>
+
+<?PHP
+
 	if(!$fgmembersite->CheckSession()){
 		$fgmembersite->RedirectToURL("./index.php");
 		exit;
@@ -48,17 +54,6 @@ $(document).ready(function() {
 
 <?PHP
 
-
-
-
-	$lat = $fgmembersite->getLat();
-	$lon = $fgmembersite->getLon();
-	$jsonObject = file_get_contents("https://maps.googleapis.com/maps/api/timezone/json?timestamp=0&sensor=true&location=".$lat.",".$lon."");
-	$object = json_decode($jsonObject);
-
-	$timezone=$object->timeZoneId;
-
-	date_default_timezone_set($timezone);
 	$today = Date("m/d/Y");
 	
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' ORDER BY EstartDate";

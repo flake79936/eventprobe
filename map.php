@@ -10,14 +10,11 @@
 	
 	include 'dbconnect.php';
 	
-	$lat = $fgmembersite->getLat();
-	$lon = $fgmembersite->getLon();
-	$jsonObject = file_get_contents("https://maps.googleapis.com/maps/api/timezone/json?timestamp=0&sensor=true&location=".$lat.",".$lon."");
-	$object = json_decode($jsonObject);
-
-	$timezone=$object->timeZoneId;
-
+	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
+	
+	
+	
 	$today = Date("m/d/Y");
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '". $city ."'  ORDER BY EstartDate;";
 
