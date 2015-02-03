@@ -17,7 +17,7 @@ $(document).ready(function() {
 	require_once("./include/membersite_config.php");
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
-	
+
 	?>
 
 <?PHP
@@ -71,7 +71,6 @@ $(document).ready(function() {
 		$i = 0;
 		while($row = mysqli_fetch_array($result2)){
 			//day name of the date	
-			echo $today = date("m/d/Y");
 			$dt    = strtotime($row['EstartDate']);
 			$day   = date("D", $dt);
 			
