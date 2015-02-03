@@ -79,15 +79,7 @@
 			<form>
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
 			</form>
-			
-			<form action=""> 
-				<select onClick="showHint(this.value)">
-				<option >Select Event:</option>
-				<option value="free">Free</option>
-				<option value="aid">Paid</option>
-				<option value="premium">Premium</option>
-				</select>
-			</form>
+
 			
 		</div>
 		
