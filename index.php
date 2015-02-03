@@ -80,12 +80,12 @@
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
 			</form>
 			
-			<form> 
-				<select onselect="showHint(this.value)">
+			<form action=""> 
+				<select onClick="showHint(this.value)">
 				<option >Select Event:</option>
-				<option value="ALFKI">Alfreds Futterkiste</option>
-				<option value="NORTS ">North/South</option>
-				<option value="WOLZA">Wolski Zajazd</option>
+				<option value="free">Free</option>
+				<option value="aid">Paid</option>
+				<option value="premium">Premium</option>
 				</select>
 			</form>
 			

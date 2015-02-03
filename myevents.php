@@ -44,9 +44,25 @@ $(document).ready(function() {
 		$usrname = $fgmembersite->UsrName();
 		
 	include 'dbconnect.php';
+?>
+<!-- 
+<p id="demo"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
 
+<script>
+var d = new Date();
+document.getElementById("demo").innerHTML = d.getMonth()+1;
+document.getElementById("demo2").innerHTML = d.getDate();
+document.getElementById("demo3").innerHTML = d.getFullYear();
+</script>
+ -->
+
+<?PHP
+date_default_timezone_set('America/Denver');
+//echo date_default_timezone_get();
 	$today = Date("m/d/Y");
-	
+// 	echo $today;
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' ORDER BY EstartDate";
 	$result = mysqli_query($con, $sql);
 	$result2 = mysqli_query($con, $sql);
