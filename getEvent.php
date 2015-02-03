@@ -9,7 +9,16 @@
 $con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
 if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
 mysqli_select_db($con, "EventAdvisors");
-$today = Date("m/d/Y");
+
+	$lat = $fgmembersite->getLat();
+	$lon = $fgmembersite->getLon();
+	$jsonObject = file_get_contents("https://maps.googleapis.com/maps/api/timezone/json?timestamp=0&sensor=true&location=".$lat.",".$lon."");
+	$object = json_decode($jsonObject);
+
+	$timezone=$object->timeZoneId;
+
+	date_default_timezone_set($timezone);
+	$today = Date("m/d/Y");
 
 	$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
 	$qry = "SELECT Eflyer, EtimeStart, EtimeEnd, Evename, Efacebook, Egoogle, Etwitter, Ehashtag, Erank  FROM Events ";
