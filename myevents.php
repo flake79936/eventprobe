@@ -66,7 +66,6 @@ date_default_timezone_set('America/Denver');
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' ORDER BY EstartDate";
 	$result = mysqli_query($con, $sql);
 	$result2 = mysqli_query($con, $sql);
-
 ?> 
 
 <div class="box">
