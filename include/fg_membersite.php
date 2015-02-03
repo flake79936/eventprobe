@@ -1410,6 +1410,21 @@ function upLoadUserPic(){
 		*/	
 	}
 	
+	function getLocalTimeZone(){
+	
+		$lat = $this->getLat();
+		$lon = $this->getLon();
+		$jsonObject = file_get_contents("https://maps.googleapis.com/maps/api/timezone/json?timestamp=0&sensor=true&location=".$lat.",".$lon."");
+		$object = json_decode($jsonObject);
+		$timezone=$object->timeZoneId;
+		date_default_timezone_set($timezone);
+		
+		return $timezone;
+		
+		}
+		
+		
+		
 		function getLon(){
 		$user_ip = getenv('REMOTE_ADDR');
 		$geo     = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));

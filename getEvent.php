@@ -1,3 +1,11 @@
+<?PHP	
+	require_once("./include/membersite_config.php");
+	$timezone = $fgmembersite->getLocalTimeZone();
+	date_default_timezone_set($timezone);
+	
+	?>
+	
+	
 <head>
 	<link rel="stylesheet" type="text/css" href="css/getEvent.css" />
 </head>
@@ -18,6 +26,8 @@ mysqli_select_db($con, "EventAdvisors");
 // 	$timezone=$object->timeZoneId;
 // 
 // 	date_default_timezone_set($timezone);
+	
+
 	
 	$today = Date("m/d/Y");
 
