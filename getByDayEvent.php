@@ -16,6 +16,8 @@
 		require_once("./include/membersite_config.php");
 		$timezone = $fgmembersite->getLocalTimeZone();
 		date_default_timezone_set($timezone);
+		
+		$city = $fgmembersite->getCity();
 	
 		$today = date("m/d/Y");
 
@@ -29,7 +31,7 @@
 		$newformat = date('m/d/Y', $_GET['q']);
 		//echo "<br/>New time format -> " . $newformat;
 		
-		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."'";
+		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "';";
 		$result = mysqli_query($con, $qry);
 	?>
 	
