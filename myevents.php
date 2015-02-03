@@ -45,24 +45,24 @@ $(document).ready(function() {
 		
 	include 'dbconnect.php';
 ?>
-<!-- 
-<p id="demo"></p>
-<p id="demo2"></p>
-<p id="demo3"></p>
-
-<script>
-var d = new Date();
-document.getElementById("demo").innerHTML = d.getMonth()+1;
-document.getElementById("demo2").innerHTML = d.getDate();
-document.getElementById("demo3").innerHTML = d.getFullYear();
-</script>
- -->
 
 <?PHP
-date_default_timezone_set('America/Denver');
-//echo date_default_timezone_get();
+
+
+
+
+$lat = $fgmembersite->getLat();
+$lon = $fgmembersite->getLon();
+
+$jsonObject = file_get_contents("https://maps.googleapis.com/maps/api/timezone/json?timestamp=0&sensor=true&location=".$lat.",".$lon."");
+$object = json_decode($jsonObject);
+
+$timezone=$object->timeZoneId;
+
+
+date_default_timezone_set($timezone);
 	$today = Date("m/d/Y");
-// 	echo $today;
+	
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' ORDER BY EstartDate";
 	$result = mysqli_query($con, $sql);
 	$result2 = mysqli_query($con, $sql);
@@ -78,7 +78,7 @@ date_default_timezone_set('America/Denver');
 		$i = 0;
 		while($row = mysqli_fetch_array($result2)){
 			//day name of the date	
-			$today = date("m/d/Y");
+			echo $today = date("m/d/Y");
 			$dt    = strtotime($row['EstartDate']);
 			$day   = date("D", $dt);
 			
