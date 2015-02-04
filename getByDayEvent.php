@@ -38,15 +38,7 @@
 				echo "			<div class='info'>";
 				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
 				echo "				<div class='box'>" . $row['Evename'] . "</div>";
-				echo "				<div class='box'>";
-				echo "					<ul>";
-				echo "						<li><img src='images/icon_star.png' alt='Icon' /></li>";
-				echo "						<li><img src='images/icon_star.png' alt='Icon' /></li>";
-				echo "						<li><img src='images/icon_star.png' alt='Icon' /></li>";
-				echo "						<li><img src='images/icon_star.png' alt='Icon' /></li>";
-				echo "						<li><img src='images/icon_star.png' alt='Icon' /></li>";
-				echo "					</ul>";
-				echo "				</div>";
+				
 				echo "				<div class='box'>" . $row['Efacebook'] . "</div>";
 				echo "				<div class='box'>" . $row['Efacebook'] . "</div>";
 				echo "				<div class='box'><a onClick='addToUserTable(".$row['Eid'].");'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
