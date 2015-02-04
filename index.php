@@ -57,6 +57,18 @@
 					xmlhttp.send();
 				}
 			}
+			
+			function addToUserTable(str) {
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						//document.getElementById("highlight").innerHTML = xmlhttp.responseText;
+						$(".chart .box .row .info").css({ "background": "#f05a28" });
+					}
+				}
+				xmlhttp.open("GET", "insert.php?eid=" + str, true);
+				xmlhttp.send();
+			}
 		</script>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

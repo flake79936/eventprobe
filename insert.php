@@ -12,9 +12,8 @@
 		include 'dbconnect.php';
 
 		
-		$sql = 'INSERT INTO "' .$usrname.'"MyEvents VALUES("'.$newEventID.'") ';
+		$sql = 'INSERT Eid INTO "' .$usrname.'"MyEvents VALUES("'.$newEventID.'");';
 		$result = mysqli_query($con, $sql);
 		
 		mysqli_close($con);
-
 ?>
