@@ -51,7 +51,7 @@
 				<?PHP
 					if($bool){
 						//Sub-query to show events that the user has related to the master table of the events.
-						$qry = "SELECT Eid, COUNT(Eid) FROM ".$usrname."myevents WHERE Eid IN (SELECT Eid FROM Events WHERE EstartDate = '" . $today . "')";
+						$qry = "SELECT Eid, COUNT(Eid) FROM ".$usrname."MyEvents WHERE Eid IN (SELECT Eid FROM Events WHERE EstartDate = '" . $today . "')";
 						$result = mysqli_query($con, $qry);
 						if(mysqli_num_rows($result) > 0){
 							while($row = mysqli_fetch_assoc($result)){ ?>
