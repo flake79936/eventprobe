@@ -21,7 +21,7 @@
 				document.getElementById("events").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("GET", "getByDayEvent.php?q=" + str, true);
+		xmlhttp.open("GET", "getByDayEvent.php?date=" + str, true);
 		xmlhttp.send();
 	}
 </script>

@@ -5,12 +5,13 @@
 		$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
 		if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
 		mysqli_select_db($con, "EventAdvisors");
-
+		
 		require_once("./include/membersite_config.php");
 		$timezone = $fgmembersite->getLocalTimeZone();
 		date_default_timezone_set($timezone);
 		
-		$city = $fgmembersite->getCity();
+		//$city = $fgmembersite->getCity();
+		$city = "El Paso";
 	
 		$today = date("m/d/Y");
 
@@ -21,7 +22,7 @@
 				: "";*/
 				
 		//echo "Passing -> " . $_GET['q'];
-		$newformat = date('m/d/Y', $_GET['q']);
+		$newformat = date('m/d/Y', $_GET['date']);
 		//echo "<br/>New time format -> " . $newformat;
 		
 		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "';";
@@ -38,7 +39,6 @@
 				echo "			<div class='info'>";
 				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
 				echo "				<div class='box'>" . $row['Evename'] . "</div>";
-				
 				echo "				<div class='box'>" . $row['Efacebook'] . "</div>";
 				echo "				<div class='box'>" . $row['Efacebook'] . "</div>";
 				echo "				<div class='box'><a onClick='addToUserTable(".$row['Eid'].");'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
