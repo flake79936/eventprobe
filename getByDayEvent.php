@@ -5,6 +5,18 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="css/chart.css" />
+	<script>
+		function addToUserTable(str) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("events").innerHTML = xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("GET", "insert.php?eid=" + str, true);
+			xmlhttp.send();
+		}
+	</script>
 </head>
 
 <body>
@@ -54,9 +66,9 @@
 				echo "					<li><img src='images/icon_star.png' alt='Icon' /></li>";
 				echo "				</ul>";
 				echo "			</div>";
-				echo "			<div class='box'>" . $row['Efacebook'] . " </div>";
 				echo "			<div class='box'>" . $row['Efacebook'] . "</div>";
-				echo "			<div class='box'><a href='#'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
+				echo "			<div class='box'>" . $row['Efacebook'] . "</div>";
+				echo "			<form><a onClick='addToUserTable(" . $row['Eid'] . ");'><img src='images/btn_cross.png' alt='Icon' /></a></form>";
 				echo "		</div>";
 				echo "	<div class='clear'></div>";
 				echo "</div>";
@@ -64,8 +76,6 @@
 			}
 			
 			mysqli_close($con);
-			
-			//echo "<br/> outside the Today";
 		?>
 	</div>
 </body>
