@@ -3,11 +3,12 @@
 	include 'dbconnect.php';
 	$city = $fgmembersite->getCity();
 	
+	$usrname = $fgmembersite->UsrName();
+	
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
-	//$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $today . "' ORDER BY EstartDate LIMIT 7;";
-	//$result = mysqli_query($con, $sql);
+	$bool = $fgmembersite->CheckSession();
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/chart.css" />
@@ -36,23 +37,27 @@
 	<div class="row">
 		<div class="cell">&nbsp;</div>
 		<?PHP
-			
 			for($ai = 0; $ai <= 6; $ai++){
-				$tew = "tew";
-				
-				//increments by 1
-				$date = strtotime("+$ai day", strtotime(date("m/d/Y")));
+				$date = strtotime("+$ai day", strtotime(date("m/d/Y"))); //increments by 1
 				
 				$day = date("D", $date); //Tue, Wed, etc.
 				
-				$today = Date("m/d/Y", $date); //e.g., 02/03/2015
+				$today = Date("m/d/Y", $date); //e.g., 02/03/2015, 
 				
 				$trimDate = substr($today, 0, 5); //e.g., From 02/03/2015 to 02/03
 				$toDate = strtotime($today);
-				
 		?>
 			<div class="cell">
-				<div class="circle"><!--Count of how many events the user has in their list.--><?= $ai ?></div>
+				<?PHP
+					if($bool){
+						$qry = "SELECT Eid, COUNT(Eid) FROM ".$usrname."myevents WHERE Eid IN (SELECT Eid FROM Events WHERE EstartDate = '" . $today . "')";
+						$result = mysqli_query($con, $qry);
+						if(mysqli_num_rows($result) > 0){
+							while($row = mysqli_fetch_assoc($result)){ ?>
+								<div class="circle"><!--Count of how many events the user has in their list.--><?= $row['COUNT(Eid)']; ?></div>
+							<?PHP }
+						} 
+					} ?>
 				<form><a onClick="getByDayEvent(<?= $toDate ?>);"><h4><?= $trimDate ?><br/><?= $day ?></h4></a></form>
 			</div>
 		<?PHP } ?>
