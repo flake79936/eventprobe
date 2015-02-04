@@ -56,7 +56,7 @@
 						$result = mysqli_query($con, $qry);
 						if(mysqli_num_rows($result) > 0){
 							while($row = mysqli_fetch_assoc($result)){ ?>
-								<div class="circle"><!--Count of how many events the user has in their list.--><?= $row['COUNT(Eid)']; ?></div>
+								<div class="circle" ><!--Count of how many events the user has in their list.--><?= $row['COUNT(Eid)']; ?></div>
 							<?PHP }
 						} 
 					} ?>

@@ -89,8 +89,6 @@
 			<form>
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
 			</form>
-
-			
 		</div>
 		
     	<div class="top">

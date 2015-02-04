@@ -27,6 +27,8 @@
 		
 		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "';";
 		$result = mysqli_query($con, $qry);
+		
+		$bool = $fgmembersite->CheckSession();
 	?>
 	
 	<div class="box">
@@ -41,7 +43,9 @@
 				echo "				<div class='box'>" . $row['Evename'] . "</div>";
 				echo "				<div class='box'>" . $row['Efacebook'] . "</div>";
 				echo "				<div class='box'>" . $row['Efacebook'] . "</div>";
+				if($bool){
 				echo "				<div class='box'><a onClick='addToUserTable(".$row['Eid'].");'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
+				}
 				echo "			</div>";
 				echo "		<div class='clear'></div>";
 				echo "	</div>";
