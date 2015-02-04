@@ -56,7 +56,7 @@
 				echo "			</div>";
 				echo "			<div class='box'>" . $row['Efacebook'] . " </div>";
 				echo "			<div class='box'>" . $row['Efacebook'] . "</div>";
-				echo "			<div class='box'><a href='#'>" . $row['Efacebook'] . "</a></div>";
+				echo "			<div class='box'><a href='#'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
 				echo "		</div>";
 				echo "	<div class='clear'></div>";
 				echo "</div>";
@@ -71,46 +71,6 @@
 </body>
 
 <!--<div class="row">
-	<div>
-		<div class="profile"><img src="images/sample_today.jpg" alt="Image" /></div>
-			<div class="info active">
-				<div class="box">4:30 PM - 6:000 PM</div>
-				<div class="box">Muligans Happy Hour</div>
-				<div class="box">
-					<ul>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-					</ul>
-				</div>
-				<div class="box"><img src="images/icon_fb.png" alt="Facebook" /></div>
-				<div class="box">more</div>
-				<div class="box"><a href="#"><img src="images/btn_cross.png" alt="Icon" /></a></div>
-			</div>
-		<div class="clear"></div>
-	</div>
-	<div>
-		<div class="profile"><img src="images/sample_today.jpg" alt="Image" /></div>
-			<div class="info">
-				<div class="box">4:30 PM - 6:000 PM</div>
-				<div class="box">Muligans Happy Hour</div>
-				<div class="box">
-					<ul>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-					</ul>
-				</div>
-				<div class="box"><img src="images/icon_fb.png" alt="Facebook" /></div>
-				<div class="box">more</div>
-				<div class="box"><a href="#"><img src="images/btn_cross.png" alt="Icon" /></a></div>
-			</div>
-		<div class="clear"></div>
-	</div>
 	<div>
 		<div class="profile"><img src="images/sample_today.jpg" alt="Image" /></div>
 			<div class="info">

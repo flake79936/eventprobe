@@ -15,15 +15,26 @@
 
 <script>
 	function getByDayEvent(str) {
-			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.onreadystatechange = function() {
-				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					document.getElementById("events").innerHTML = xmlhttp.responseText;
-				}
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById("events").innerHTML = xmlhttp.responseText;
 			}
-			xmlhttp.open("GET", "getByDayEvent.php?q=" + str, true);
-			xmlhttp.send();
 		}
+		xmlhttp.open("GET", "getByDayEvent.php?q=" + str, true);
+		xmlhttp.send();
+	}
+	
+	function addToUserTable(str) {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById("events").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET", "getByDayEvent.php?int=" + str, true);
+		xmlhttp.send();
+	}
 </script>
 
 <div class="box">
