@@ -1,5 +1,6 @@
 <?PHP	require_once("./include/membersite_config.php"); 
-	$newEventID = $_GET['eid'];
+// 	$newEventID = $_GET['eid'];
+	$newEventID = "35";
 	include 'dbconnect.php';
 	?>
 
@@ -45,7 +46,8 @@
 
 							<h2> <?= $row['Evename'] ?> - <?= $row['Ehashtag'] ?></h2>
 							<h4><?= $row['EstartDate'] ?> <?= $row['EtimeStart'] ?> to <?= $row['EtimeEnd'] ?> </h4>
-							
+							<div img src= <?= $row['Eflyer'] ?> height="300px" width="873px" >
+							test
 														
 							</div><!-- End of left-->
 							
