@@ -145,7 +145,24 @@
 
 							<div class="right">
 
-								Right
+<?= $row['Edescription'] ?>
+<br>
+		<a href="<?= $row['Ewebsite'] ?>" target="_blank"><?= $row['Ewebsite'] ?>
+<br>
+		<a href="https://www.facebook.com/eventprobe" target="_blank">
+			<img src="images/btn_fb.png" onmouseover="this.src='images/btn_fbColor.png'" onmouseout="this.src='images/btn_fb.png'" alt="Facebook" />
+		</a>
+		<a href="https://twitter.com/eventprobe" target="_blank">
+			<img src="images/btn_twitter.png" onmouseover="this.src='images/btn_twitterColor.png'" onmouseout="this.src='images/btn_twitter.png'" alt="Twitter" />
+		</a>
+		<a href="#">
+			<img src="images/btn_google.png" onmouseover="this.src='images/btn_googleColor.png'" onmouseout="this.src='images/btn_google.png'" alt="Google" />
+		</a>
+		<br>
+		<br>
+		<?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>, <?= $row['Ezip'] ?>
+		<br>
+		Phone: <?= $row['EphoneNumber'] ?>
 
 							<div class="clear"></div>
 
