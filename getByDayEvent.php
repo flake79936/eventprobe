@@ -37,12 +37,13 @@
 				//echo "Inside the Today " . $row['EstartDate'];
 				echo "<div class='row'>";
 				echo "	<div>";
-				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /> </div>";
+				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
 				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
 				echo "				<div class='box'>" . $row['Evename'] . "</div>";
 				echo "				<div class='box'>" . $row['Efacebook'] . "</div>";
-				echo "				<div class='box'>" . $row['Efacebook'] . "</div>";
+				echo "				<div class='box'>" . $row['Ehashtag'] . "</div>";
+				echo "				<div class='box'><a onClick='seeMoreInfo(".$row['Eid'].");'>More Info</a></div>";
 				if($bool){
 				echo "				<div class='box'><a onClick='addToUserTable(".$row['Eid'].");'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
 				}

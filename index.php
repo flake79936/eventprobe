@@ -82,6 +82,13 @@
 				});
 			});
 		</script>
+		
+		<!--Displays by Event ID in a new page-->
+		<script>
+			function seeMoreInfo(str){
+				window.location = "./eventDisplayPage.php?eid="+str;
+			}
+		</script>
 	</head>
 	
 	<body lang="en">
