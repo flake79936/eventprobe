@@ -41,8 +41,15 @@
 				echo "			<div class='info'>";
 				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
 				echo "				<div class='box'>" . $row['Evename'] . "</div>";
-				echo "				<div class='box'>" . $row['Efacebook'] . "</div>";
+				if ($row['Efacebook'])
+				{
+				echo "				<div class='box'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'
+									 > </div>";
+				}
+				 if ($row['Ehashtag'])
+				{
 				echo "				<div class='box'>" . $row['Ehashtag'] . "</div>";
+				}
 				echo "				<div class='box'><a onClick='seeMoreInfo(".$row['Eid'].");'>More Info</a></div>";
 				if($bool){
 				echo "				<div class='box'><a onClick='addToUserTable(".$row['Eid'].");'><img src='images/btn_cross.png' alt='Icon' /></a></div>";

@@ -6,6 +6,7 @@
 	<li><a href="./services.php" target="_blank">Services</a></li>
 	<li><a href="./disclaimer.php" target="_blank">Disclaimer</a></li>
 </ul>
+<!-- 
 <ul>
 	<li><h3>Libero</h3></li>
 	<li><a href="#">Lorem ipsum dolor</a></li>
@@ -30,4 +31,5 @@
 	<li><a href="#">Donec</a></li>
 	<li><a href="#">Consequat aliquam</a></li>
 </ul>
+ -->
 <div class="clear"></div>

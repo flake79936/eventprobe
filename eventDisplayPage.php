@@ -168,18 +168,15 @@
 						<a href="<?= $row['Ewebsite'] ?>" target="_blank"><?= $row['Ewebsite'] ?>
 				<br>	
 						<?PHP if ($row['Efacebook']){?>
-						<a href="<?= $row['Efacebook'] ?>" target="_blank">
-							<img src="images/btn_fb.png" onmouseover="this.src='images/btn_fbColor.png'" onmouseout="this.src='images/btn_fb.png'" alt="Facebook" />
+						<a href="<?= $row['Efacebook'] ?>" target="_blank"><img src="images/btn_fb.png" onmouseover="this.src='images/btn_fbColor.png'" onmouseout="this.src='images/btn_fb.png'" alt="Facebook" />
 						</a>
 						<?PHP }?>
 						<?PHP if ($row['Etwitter']){?>
-						<a href="<?= $row['Etwitter'] ?>" target="_blank">
-							<img src="images/btn_twitter.png" onmouseover="this.src='images/btn_twitterColor.png'" onmouseout="this.src='images/btn_twitter.png'" alt="Twitter" />
+						<a href="<?= $row['Etwitter'] ?>" target="_blank"><img src="images/btn_twitter.png" onmouseover="this.src='images/btn_twitterColor.png'" onmouseout="this.src='images/btn_twitter.png'" alt="Twitter" />
 						</a>
 						<?PHP }?>
 						<?PHP if ($row['Egoogle']){?>
-						<a href="<?= $row['Egoogle'] ?>">
-							<img src="images/btn_google.png" onmouseover="this.src='images/btn_googleColor.png'" onmouseout="this.src='images/btn_google.png'" alt="Google" />
+						<a href="<?= $row['Egoogle'] ?>"><img src="images/btn_google.png" onmouseover="this.src='images/btn_googleColor.png'" onmouseout="this.src='images/btn_google.png'" alt="Google" />
 						</a>
 						<?PHP }?>
 						<br>
