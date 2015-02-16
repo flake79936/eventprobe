@@ -13,7 +13,7 @@ h6{ font-size: 11px; font-weight: normal; }
 
 
 .eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
-.eventDisplayPage .left{ float: left; width: 35%; }
+.eventDisplayPage .left{ float: left; width: 30%; }
 .eventDisplayPage .right{ float: right; width: 45%; padding-top: 50px; }
 .eventDisplayPage .user{ margin: 10px 0px 20px 0px; }
 .eventDisplayPage .user .box{ float: left; width: 30%; text-align: center; padding: 10px 0; }

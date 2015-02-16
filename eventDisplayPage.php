@@ -49,7 +49,16 @@
 		$Elong = $row['Elong'];
 
 		$eventArray[$i]=[$event,$Elat,$Elong];
+		
+		/**  Format phone number **/
+		$formatPhone = $row['EphoneNumber'];
+    	$formatPhone = preg_replace("/[^0-9]/", "", $formatPhone);
 
+    	if(strlen($formatPhone) == 7)
+        	 $formatPhone=preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $formatPhone);
+    	elseif(strlen($formatPhone) == 10)
+        	$formatPhone= preg_replace("/([0-9]{3})([0-9]{3})([0-9]{4})/", "($1) $2-$3", $formatPhone);
+		/** End format phone number**/
         
         ?>
 				<div class="eventDisplayPage">		
@@ -61,6 +70,8 @@
 							<h2><?= $row['EstartDate'] ?> <?= $row['EtimeStart'] ?> to <?= $row['EtimeEnd'] ?> </h2>
 							<br>
 							<img src= <?= $row['Eflyer'] ?> width="400px" height="300px"  >
+							<br>
+							<br>
 							
 <!-- 	START OF MAP SCRIPT						 -->
 		<div id="map" style="width: 400px; height: 300px;"></div>
@@ -150,19 +161,27 @@
 <br>
 <br>
 <br>
+<br>
+
 			<h1><?= $row['Edescription'] ?></h1>
 				<br>
 						<a href="<?= $row['Ewebsite'] ?>" target="_blank"><?= $row['Ewebsite'] ?>
-				<br>
+				<br>	
+						<?PHP if ($row['Efacebook']){?>
 						<a href="<?= $row['Efacebook'] ?>" target="_blank">
 							<img src="images/btn_fb.png" onmouseover="this.src='images/btn_fbColor.png'" onmouseout="this.src='images/btn_fb.png'" alt="Facebook" />
 						</a>
+						<?PHP }?>
+						<?PHP if ($row['Etwitter']){?>
 						<a href="<?= $row['Etwitter'] ?>" target="_blank">
 							<img src="images/btn_twitter.png" onmouseover="this.src='images/btn_twitterColor.png'" onmouseout="this.src='images/btn_twitter.png'" alt="Twitter" />
 						</a>
+						<?PHP }?>
+						<?PHP if ($row['Egoogle']){?>
 						<a href="<?= $row['Egoogle'] ?>">
 							<img src="images/btn_google.png" onmouseover="this.src='images/btn_googleColor.png'" onmouseout="this.src='images/btn_google.png'" alt="Google" />
 						</a>
+						<?PHP }?>
 						<br>
 						<br>
 						<br>
@@ -172,7 +191,7 @@
 						<br>						
 						<br>
 						<h4><img src='images/favicon.png'><?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>, <?= $row['Ezip'] ?> </h4>
-						<h4>&nbsp;  &nbsp;  &nbsp;  &nbsp;  Phone: <?= $row['EphoneNumber'] ?> </h4>
+						<h4>&nbsp;  &nbsp;  &nbsp;  &nbsp;  Phone: <?= $formatPhone?> </h4>
 
 											<div class="clear"></div>
 
