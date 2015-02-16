@@ -1,0 +1,60 @@
+body{
+	background: #e9e4d5;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+h1{ font-size: 31px; font-weight: normal; }
+h2{ font-size: 24px; font-weight: normal; }
+h3{ font-size: 18px; font-weight: normal; }
+h4{ font-size: 14px; font-weight: normal; }
+h5{ font-size: 12px; font-weight: normal; }
+h6{ font-size: 11px; font-weight: normal; }
+
+
+.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
+.eventDisplayPage .left{ float: left; width: 35%; }
+.eventDisplayPage .right{ float: right; width: 45%; padding-top: 50px; }
+.eventDisplayPage .user{ margin: 10px 0px 20px 0px; }
+.eventDisplayPage .user .box{ float: left; width: 30%; text-align: center; padding: 10px 0; }
+.eventDisplayPage .user .box h3{ font-weight: normal; color: #4e473f; }
+.eventDisplayPage .user p{ float: left; width: 60%; padding: 30px 20px; color: #22252b; font-size: 21px; font-weight: normal; font-style: italic; }
+.eventDisplayPage .image{ float: left; width: 25%; }
+.eventDisplayPage .mobile{ float: left; width: 70%; }
+.eventDisplayPage .mobile h1{ color: #4e473f; margin-bottom: 10px; }
+.eventDisplayPage .mobile p{ color: #4e473f; line-height: 24px; }
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.eventDisplayPage{ padding: 20px 0; }
+	.eventDisplayPage .left{ float: none; width: auto; padding: 10px 0; }
+	.eventDisplayPage .right{ float: none; width: auto; padding: 30px 0; }
+	.eventDisplayPage .image{ text-align: center; }
+}
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+@media only screen and (max-width: 767px) {
+	.eventDisplayPage{ padding: 20px 0; }
+	.eventDisplayPage .left{ float: none; width: auto; }
+	.eventDisplayPage .right{ float: none; width: auto; padding-top: 20px; }
+	.eventDisplayPage .user{ margin: 0; }
+	.eventDisplayPage .user .box{ float: none; width: auto; text-align: center; padding: 10px 0; }
+	.eventDisplayPage .user .box h3{ font-weight: normal; color: #4e473f; }
+	.eventDisplayPage .user p{ float: none; width: auto; padding: 10px; text-align: center; }
+	.eventDisplayPage .image{ float: none; width: auto; text-align: center; }
+	.eventDisplayPage .mobile{ float: none; width: auto; padding: 15px; }
+	.eventDisplayPage .mobile h1{ font-size: 24px; text-align: center; }
+	.eventDisplayPage .mobile p{ font-size: 14px; line-height: 24px; text-align: center; }
+}

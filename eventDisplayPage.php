@@ -19,7 +19,7 @@
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
-        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <link rel="stylesheet" type="text/css" href="css/eventDisplayPage.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
         
@@ -52,18 +52,18 @@
 
         
         ?>
-				<div class="app">		
+				<div class="eventDisplayPage">		
 
 		
 							<div class="left">
 
-							 <?= $row['Evename'] ?> - <?= $row['Ehashtag'] ?>
-							<?= $row['EstartDate'] ?> <?= $row['EtimeStart'] ?> to <?= $row['EtimeEnd'] ?> 
+							<h1> <?= $row['Evename'] ?> - <?= $row['Ehashtag'] ?></h1>
+							<h2><?= $row['EstartDate'] ?> <?= $row['EtimeStart'] ?> to <?= $row['EtimeEnd'] ?> </h2>
 							<br>
-							<img src= <?= $row['Eflyer'] ?> height="200px" width="300px" >
+							<img src= <?= $row['Eflyer'] ?> width="400px" height="300px"  >
 							
 <!-- 	START OF MAP SCRIPT						 -->
-		<div id="map" style="width: 370px; height: 370px;"></div>
+		<div id="map" style="width: 400px; height: 300px;"></div>
 		<script type="text/javascript" language= "php">
 			// Define your locations: HTML content for the info window, latitude, longitude
 
@@ -143,28 +143,38 @@
 							
 							
 
-							<div class="right">
-
-<?= $row['Edescription'] ?>
+		<div class="right">
 <br>
-		<a href="<?= $row['Ewebsite'] ?>" target="_blank"><?= $row['Ewebsite'] ?>
 <br>
-		<a href="https://www.facebook.com/eventprobe" target="_blank">
-			<img src="images/btn_fb.png" onmouseover="this.src='images/btn_fbColor.png'" onmouseout="this.src='images/btn_fb.png'" alt="Facebook" />
-		</a>
-		<a href="https://twitter.com/eventprobe" target="_blank">
-			<img src="images/btn_twitter.png" onmouseover="this.src='images/btn_twitterColor.png'" onmouseout="this.src='images/btn_twitter.png'" alt="Twitter" />
-		</a>
-		<a href="#">
-			<img src="images/btn_google.png" onmouseover="this.src='images/btn_googleColor.png'" onmouseout="this.src='images/btn_google.png'" alt="Google" />
-		</a>
-		<br>
-		<br>
-		<?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>, <?= $row['Ezip'] ?>
-		<br>
-		Phone: <?= $row['EphoneNumber'] ?>
+<br>
+<br>
+<br>
+<br>
+			<h1><?= $row['Edescription'] ?></h1>
+				<br>
+						<a href="<?= $row['Ewebsite'] ?>" target="_blank"><?= $row['Ewebsite'] ?>
+				<br>
+						<a href="<?= $row['Efacebook'] ?>" target="_blank">
+							<img src="images/btn_fb.png" onmouseover="this.src='images/btn_fbColor.png'" onmouseout="this.src='images/btn_fb.png'" alt="Facebook" />
+						</a>
+						<a href="<?= $row['Etwitter'] ?>" target="_blank">
+							<img src="images/btn_twitter.png" onmouseover="this.src='images/btn_twitterColor.png'" onmouseout="this.src='images/btn_twitter.png'" alt="Twitter" />
+						</a>
+						<a href="<?= $row['Egoogle'] ?>">
+							<img src="images/btn_google.png" onmouseover="this.src='images/btn_googleColor.png'" onmouseout="this.src='images/btn_google.png'" alt="Google" />
+						</a>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>	
+						<br>						
+						<br>
+						<h4><img src='images/favicon.png'><?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>, <?= $row['Ezip'] ?> </h4>
+						<h4>&nbsp;  &nbsp;  &nbsp;  &nbsp;  Phone: <?= $row['EphoneNumber'] ?> </h4>
 
-							<div class="clear"></div>
+											<div class="clear"></div>
 
 
 
