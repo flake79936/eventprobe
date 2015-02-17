@@ -199,7 +199,9 @@
 							
 						<?PHP	}?>
 
-        
+        <br>
+        <br>
+
         <div class="links">
 			<?PHP include './links.php'; ?>
         </div>
