@@ -22,11 +22,43 @@
         <link rel="stylesheet" type="text/css" href="css/eventDisplayPage.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
+        <link rel="stylesheet" type="text/css" href="css/search.css" />
         
         <!--GOOGLE MAP-->        
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 		
+				<script>
+			function showHint(str) {
+				if (str.length == 0) {
+//					document.getElementById("txtHint").innerHTML = "";
+					$(".eventDisplayPage").show();
+					$(".right").show();
+					return;
+				} else {
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+							document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+						}
+					}
+					xmlhttp.open("GET", "getEvent.php?q=" + str, true);
+					xmlhttp.send();
+				}
+			}
+			
+			</script>
+					<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+				$("input").keydown(function(){
+					$(".eventDisplayPage").hide();
+					$(".right").hide();
+
+				});
+			});
+		</script>
 		
 		
         <!--FAVICON-->
@@ -34,6 +66,13 @@
 	</head>
 	
 	<body lang="en">
+	
+			<div class="search">
+			<form>
+				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
+			</form>
+		</div>
+		
     	<div class="top">
 			<?PHP include './top.php';?>
         </div>
@@ -201,7 +240,10 @@
 
         <br>
         <br>
-
+		
+		<!-- SHOW SEARCH RESULTS 		 -->
+		<div class="events" id="txtHint"></div>
+        
         <div class="links">
 			<?PHP include './links.php'; ?>
         </div>
