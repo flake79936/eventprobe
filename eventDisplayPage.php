@@ -28,7 +28,7 @@
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 		
-				<script>
+		<script>
 			function showHint(str) {
 				if (str.length == 0) {
 //					document.getElementById("txtHint").innerHTML = "";
@@ -47,8 +47,16 @@
 				}
 			}
 			
-			</script>
-					<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		</script>
+			
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+					
+		<script>
+					
+			function seeMoreInfo(str){
+				window.location = "./eventDisplayPage.php?eid="+str;
+			}
+		</script>		
 		
 		<script>
 			$(document).ready(function(){
