@@ -36,7 +36,7 @@
 			while($row = mysqli_fetch_array($result)) {
 				//echo "Inside the Today " . $row['EstartDate'];
 				echo "<div class='row'>";
-				echo "	<div>";
+				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
 				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
@@ -50,13 +50,13 @@
 				{
 				echo "				<div class='box'>" . $row['Ehashtag'] . "</div>";
 				}
-				echo "				<div class='box'><a onClick='seeMoreInfo(".$row['Eid'].");'>More Info</a></div>";
+				echo "				<div class='box'>More Info</div>";
 				if($bool){
 				echo "				<div class='box'><a onClick='addToUserTable(".$row['Eid'].");'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
 				}
 				echo "			</div>";
 				echo "		<div class='clear'></div>";
-				echo "	</div>";
+				echo "	</a></div>";
 				echo "</div>";
 			}
 			mysqli_close($con);

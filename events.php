@@ -19,24 +19,24 @@
 
 		$i = 0;
 		while($row = mysqli_fetch_array($result)){
-		//day name of the date	
-		$today= date("m/d/Y");
-		$dt = strtotime($row['EstartDate']);
-		$day = date("l", $dt);
-		if ($today===$row['EstartDate']){
-		$day="Today";}
-	?>
-	<li>
-		<div class="info">
-			<div class="box">
-				<a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
-				<h1><?=$day?></h1>
-				<p> <?=substr($row['EstartDate'], 0, 5);?>, <?= $row['EtimeStart'] ?></p>
-				<h1><?= $row['Evename'] ?></h1>
+			//day name of the date	
+			$today= date("m/d/Y");
+			$dt = strtotime($row['EstartDate']);
+			$day = date("l", $dt);
+			if ($today===$row['EstartDate']){
+			$day="Today";}
+		?>
+		<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);"><li>
+			<div class="info">
+				<div class="box">
+					<img src="images/btn_cross.png" alt="Cross" class="btn-cross"/>
+					<h1><?=$day?></h1>
+					<p> <?=substr($row['EstartDate'], 0, 5);?>, <?= $row['EtimeStart'] ?></p>
+					<h1><?= $row['Evename'] ?></h1>
+				</div>
 			</div>
-		</div>
-		<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />
-	</li>
+			<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />
+		</li></a>
 
 	<?PHP $i++; } ?>
 <div class="clear"></div>
