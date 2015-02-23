@@ -57,13 +57,11 @@ if (!class_exists('SimplePie'))
  * @package SimplePie
  * @subpackage API
  */
-class SimplePie_Autoloader
-{
+class SimplePie_Autoloader{
 	/**
 	 * Constructor
 	 */
-	public function __construct()
-	{
+	public function __construct(){
 		$this->path = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'library';
 	}
 
@@ -72,11 +70,9 @@ class SimplePie_Autoloader
 	 *
 	 * @param string $class The name of the class to attempt to load.
 	 */
-	public function autoload($class)
-	{
+	public function autoload($class){
 		// Only load the class if it starts with "SimplePie"
-		if (strpos($class, 'SimplePie') !== 0)
-		{
+		if (strpos($class, 'SimplePie') !== 0){
 			return;
 		}
 

@@ -1,0 +1,55 @@
+Hollywood, FL
+http://www.hollywoodfl.org/support/calendar27.xml
+
+Pasadena, CA
+http://www.pasadena.edu/rss/events/rss.xml
+
+Olathe, KS
+http://www.visitoverlandpark.com/rss/events.html
+
+City of Winston-Salem, NC
+http://www.journalnow.com/calendar/
+
+Philadelphia, PA
+http://www.philadelphiaweekly.com/events/
+
+Raleigh, NC
+http://www.visitraleigh.com/events/
+http://raleigh.eventful.com/events
+
+Alexandria, VA
+http://apps.alexandriava.gov/Calendar/?show=RecreationCommunity
+
+Chula Vista, CA
+http://www.sandiegoreader.com/rss/events/
+
+Fort Collins, CO
+http://www.visitftcollins.com/events
+
+Tacoma, WA
+http://events.kmps.cbslocal.com/
+
+Salt Lake, UT
+http://www.slcgov.com/events
+
+Roseville, CA
+http://www.rocklintoday.com/news/rss.asp?z=4
+
+Augusta, GA
+http://www.augustaga.gov/rss.aspx
+http://www.skycityaugusta.com/events/rss.xml
+
+Los Angeles, CA
+http://www.laweekly.com/calendar
+
+Kansas City, MO
+http://kansascity.eventful.com/events
+
+Seattle, WA
+http://seattle.eventful.com/events
+
+Jacksonville, FL
+http://jacksonville.eventful.com/events
+
+Phoenix, AZ
+http://www.phoenixnewtimes.com/calendar/

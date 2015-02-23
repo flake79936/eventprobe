@@ -965,5 +965,4 @@ class Net_IDNA_php4 extends idna_convert
         return $this->IC->set_parameters($option, $param);
     }
 }
-
 ?>
