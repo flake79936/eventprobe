@@ -145,6 +145,8 @@ class FGMembersite{
         $formvars['ConPswd']     = $this->Sanitize($_POST['ConPswd']);
         $formvars['Uemail']    = $this->Sanitize($_POST['Uemail']);
 		$formvars['Uphone']    = $this->Sanitize($_POST['Uphone']);
+		$formvars['Upic']    = $this->Sanitize($_POST['Upic']);
+		
         //$formvars['Uadmin']    = $this->Sanitize($_POST['Uadmin']);
     }
 	
