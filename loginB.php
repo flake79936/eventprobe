@@ -12,9 +12,9 @@
 
 	#pageWrapper {
 		font: 18px/1.4 'Roboto Condensed', sans-serif;
-								font-weight: 300;
+		font-weight: 300;
 		width: ;
-								height: 800px;
+		height: 800px;
 		background-color: #FFF;
 		margin-left: auto;
 		margin-right: auto;
@@ -116,9 +116,9 @@
 			<?PHP include './top.php';
 			if (!$fgmembersite->CheckSession()) { ?>
 			<h3> Please Login</h3>
-			
+
 			<?PHP } ?>
-			
+
         </div>
 				<center>
 				<div id="pageWrapper"</div>
