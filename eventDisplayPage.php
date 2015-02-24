@@ -212,7 +212,7 @@
 
 			<h1><?= $row['Edescription'] ?></h1>
 				<br>
-						<a href="<?= $row['Ewebsite'] ?>" target="_blank"><?= $row['Ewebsite'] ?>
+						<a href="<?= $row['Ewebsite'] ?>" target="_blank"><?= $row['Ewebsite'] ?> </a>
 				<br>	
 						<?PHP if ($row['Efacebook']){?>
 						<a href="<?= $row['Efacebook'] ?>" target="_blank"><img src="images/btn_fb.png" onmouseover="this.src='images/btn_fbColor.png'" onmouseout="this.src='images/btn_fb.png'" alt="Facebook" />
