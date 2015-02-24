@@ -115,7 +115,7 @@
     	<div class="top">
 			<?PHP include './top.php';
 			if (!$fgmembersite->CheckSession()) { ?>
-			<h3> Please Login</h3>
+			<center><h3> Please Login</h3></center>
 
 			<?PHP } ?>
 
