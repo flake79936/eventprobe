@@ -1,7 +1,8 @@
 <ul>
 	<?PHP
 		require_once("./include/membersite_config.php");
-// 		$city = $fgmembersite->getCity();
+		$city = $fgmembersite->getCity();
+// 		$city="el paso";
 		if(isset($_POST["submitted"])){
 			$result = $fgmembersite->searchEvent();
 		}
@@ -11,7 +12,7 @@
 
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
-	$city="el paso";
+
 	
 		$today = Date("m/d/Y");
 		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '".$city."' ORDER BY EstartDate";
