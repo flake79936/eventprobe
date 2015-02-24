@@ -258,10 +258,11 @@
 											<h5>
 												<select name="Etype">
 													<option>Please Select One</option>
+													<option value="Art">Art</option>
 													<option value="Concert">Concert</option>
 													<option value="Fair">Fair</option>
-													<option value="Art">Art</option>
 													<option value="Social">Social</option>
+													<option value="Social">Sport</option>
 													<option value="Other">Other</option>
 												</select>
 											</h5>
