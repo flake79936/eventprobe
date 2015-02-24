@@ -5,7 +5,7 @@
 
 	/*This part ckecks whether there is a session or not.*/
 		if(!$fgmembersite->CheckSession()){
-			$fgmembersite->RedirectToURL("index.php");
+			$fgmembersite->RedirectToURL("loginB.php");
 			exit;
 	}
 	

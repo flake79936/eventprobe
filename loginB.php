@@ -89,7 +89,12 @@
 		</div>
 		
     	<div class="top">
-			<?PHP include './top.php';?>
+			<?PHP include './top.php';
+			if (!$fgmembersite->CheckSession()) { ?>
+			<h3> Please Login</h3>
+			
+			<?PHP } ?>
+			
         </div>
  
 						 <form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">

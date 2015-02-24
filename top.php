@@ -147,7 +147,7 @@
 	</div>
  -->
  
-	 <img src="./images/btn_event.png">
+	<a href="./eventCreation.php"> <img src="./images/btn_event.png"> </a>
  
  
 	<div class="clear"></div>
