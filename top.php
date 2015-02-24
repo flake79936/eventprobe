@@ -83,9 +83,10 @@
 	<div class="user"> </div>
 
 	<!--clickable dropdown menu-->
+<!-- 
 	<div>
 		<ul class="nav">
-			<!-- here comes the important part -->
+			<!~~ here comes the important part ~~>
 			<?PHP if(!$bool){ ?>
 				<li class="dropdown" id="menu1">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
@@ -93,7 +94,7 @@
 						<b class="caret"></b>
 					</a>
 					<div class="dropdown-menu">
-						<!-- <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> -->
+						<!~~ <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> ~~>
 						<form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 							<div class="login">
 								<div style="margin:0;padding:0;display:inline">
@@ -121,7 +122,7 @@
 						<b class="caret"></b>
 					</a>
 					<div class="dropdown-menu">
-						<!-- <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> -->
+						<!~~ <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> ~~>
 						<form style="margin: 0px" id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 							<div class="login">
 								<div style="margin:0;padding:0;display:inline">
@@ -144,6 +145,11 @@
 			<?PHP } ?>
 		</ul>      
 	</div>
+ -->
+ 
+	 <img src="./images/btn_event.png">
+ 
+ 
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>
