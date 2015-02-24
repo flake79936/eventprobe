@@ -652,7 +652,7 @@ class FGMembersite{
         || ($_FILES["Eflyer"]["type"] == "image/JPG")
         
         ) 
-        && ($_FILES["Eflyer"]["size"] < 524288)) //set image size
+        && ($_FILES["Eflyer"]["size"] <5000000)) //set image size
         {
         	if ($_FILES["Eflyer"]["error"] > 0) {
 //          	   echo "Return Code: " . $_FILES["Eflyer"]["error"] . "<br />";
@@ -710,7 +710,7 @@ function upLoadUserPic(){
         || ($_FILES["Upic"]["type"] == "image/JPG")
         
         ) 
-        && ($_FILES["Upic"]["size"] < 524288)) //set image size
+        && ($_FILES["Upic"]["size"] < 5000000)) //set image size
         {
         	if ($_FILES["Upic"]["error"] > 0) {
 //          	   echo "Return Code: " . $_FILES["Eflyer"]["error"] . "<br />";
