@@ -9,6 +9,7 @@ CREATE TABLE Registration(
 	Uphone CHAR(15) DEFAULT 'N/A',
 	Uadmin CHAR(1) DEFAULT 0,
 	UuserName CHAR(255) NOT NULL,
+	Upic Char(255),
 	PRIMARY KEY(id, UuserName)
 );
 
