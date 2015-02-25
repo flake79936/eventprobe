@@ -12,16 +12,19 @@
 		<link href="favicon.ico" rel="shortcut icon"  />
 		<title>Logout</title>
 		
+<!-- 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="format-detection" content="email=no" />
 		
+ -->
 		<!--(Start) Style Sheets-->
 			<link rel="STYLESHEET" type="text/css" href="css/fg_membersite.css">
-			<link href="css/accordion.css" rel="stylesheet" type="text/css" />
+<!-- 			<link href="css/accordion.css" rel="stylesheet" type="text/css" /> -->
 			
 			<!--(Start) Provided by JetDevLLC-->
 				<link rel="stylesheet" type="text/css" href="css/style.css" />
+<!-- 
 				<link rel="stylesheet" type="text/css" href="css/top.css" />
 				<link rel="stylesheet" type="text/css" href="css/search.css" />
 				<link rel="stylesheet" type="text/css" href="css/myEvents.css" />
@@ -29,6 +32,7 @@
 				<link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
 				<link rel="stylesheet" type="text/css" href="css/schedule.css" />
 				<link rel="stylesheet" type="text/css" href="css/app.css" />
+ -->
 				<link rel="stylesheet" type="text/css" href="css/links.css" />
 				<link rel="stylesheet" type="text/css" href="css/footer.css" />
 				<!--[if IE 6]>
@@ -40,13 +44,15 @@
 	</head>
 	
 	<body>
+<!-- 
 		<div class="top">
-			<?PHP include './ezTop.php';?>
+			<?PHP //include './ezTop.php';?>
 		</div>
+ -->
 		
 		<div id='fg_membersite' align="center">
 			<div class="wrap">
-				<h2>You have logged out!</h2>
+				<h1>You have logged out!</h1>
 			</div>
 		</div>
 		

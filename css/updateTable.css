@@ -1,0 +1,111 @@
+/* CSS Document */
+body {
+	margin:0;
+	padding:0;
+	color:#333333;
+}
+
+#outer_container {
+	width:80%;
+	margin:0 auto;
+	padding: 50px 10px 10px 10px;
+	border:1px solid #ccc;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	position:relative;
+}
+
+input {
+	background:#DDF99A;
+    border: 1px solid #B4D349;
+    border-radius: 2px 2px 2px 2px;
+    padding: 5px;
+    width: 90%;
+}
+
+#loader{
+	position: absolute;
+	text-align: center;
+    z-index: 9999;
+	margin:auto;
+	display:none;
+	top: 50%;
+	left: 50%;
+}
+
+.delall {
+	background: #1F9DBF;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 35px;
+    margin: 0 0 15px 45px;
+    padding: 0 5px 2px;
+}
+
+#data_tbl {
+	font-family:Arial, Helvetica, sans-serif;
+	border-left:1px solid #ccc;
+	border-top:1px solid #ccc;
+}
+
+#data_tbl tbody tr:hover{
+	background-color:#FFFFD2;
+}
+
+#data_tbl td,#data_tbl th{
+	padding:7px;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+
+#data_tbl thead {
+    background: #00b7ea;
+	background: -moz-linear-gradient(top,  #00b7ea 22%, #009ec3 73%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(22%,#00b7ea), color-stop(73%,#009ec3));
+	background: -webkit-linear-gradient(top,  #00b7ea 22%,#009ec3 73%);
+	background: -o-linear-gradient(top,  #00b7ea 22%,#009ec3 73%);
+	background: -ms-linear-gradient(top,  #00b7ea 22%,#009ec3 73%);
+	background: linear-gradient(to bottom,  #00b7ea 22%,#009ec3 73%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#009ec3',GradientType=0 );
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 35px;
+}
+
+.updrow,.delrow{
+	cursor:pointer;
+}
+
+#paginator {
+	margin: 15px auto;
+	width: 91%;
+}
+
+.pagin {
+	padding: 10px 0;
+	font:bold 11px/30px arial, serif;
+}
+
+.pagin * {
+	padding: 2px 6px;
+	color:#3A3B2D;
+	margin: 2px;
+	border-radius:3px;
+}
+
+.pagin a {
+	border:solid 1px #036E92;
+	text-decoration:none;
+	background:#F8FCFF;
+	padding:6px 7px 5px;
+}
+
+.pagin span, a:hover, .pagin a:active, .pagin span.current {
+    background: -moz-linear-gradient(center top , #088899 1px, #036E92 1px, #049DB8) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+}
+
+.pagin span,.current{
+	padding:8px 7px 7px;
+}
