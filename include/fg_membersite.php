@@ -142,10 +142,10 @@ class FGMembersite{
         $formvars['ULname']    = $this->Sanitize($_POST['ULname']);
 		$formvars['UuserName'] = $this->Sanitize($_POST['UuserName']);
         $formvars['UPswd']     = $this->Sanitize($_POST['UPswd']);
-        $formvars['ConPswd']     = $this->Sanitize($_POST['ConPswd']);
+        $formvars['ConPswd']   = $this->Sanitize($_POST['ConPswd']);
         $formvars['Uemail']    = $this->Sanitize($_POST['Uemail']);
 		$formvars['Uphone']    = $this->Sanitize($_POST['Uphone']);
-		$formvars['Upic']    = $this->Sanitize($_POST['Upic']);
+// 		$formvars['Upic']      = $this->Sanitize($_POST['Upic']);
 		
         //$formvars['Uadmin']    = $this->Sanitize($_POST['Uadmin']);
     }
@@ -466,6 +466,7 @@ class FGMembersite{
 		$formvars['EtimeStart']   = $this->Sanitize($_POST['EtimeStart']);
 		$formvars['EtimeEnd']     = $this->Sanitize($_POST['EtimeEnd']);
 		$formvars['Eother']       = $this->Sanitize($_POST['Eother']);
+		$formvars['Erank']       = $this->Sanitize($_POST['Erank']);
 	}
 	
 	function SaveEventToDatabase(&$formvars){
