@@ -183,16 +183,17 @@
 					</div>
 
 					<!-- Let's begin looping through each individual news item in the feed. -->
-					<?php foreach($feed->get_items() as $item): ?>
+					<?php foreach($feed->get_items() as $item): ?> <!--Gets each of the items and sets it into a one variable parameter.-->
 					<div class="chunk">
 						<!-- If the item has a permalink back to the original post (which 99% of them do), link the item's title to it. -->
 						<h4>
-							<?php if ($item->get_permalink()) 
+							<!--get_permlink returns the link(s) from the feed file-->
+							<?php if ($item->get_permalink())
 									echo '<a href="' . $item->get_permalink() . '">';
-									echo $item->get_title(); 
+									echo $item->get_title(); //return the title
 								  if ($item->get_permalink())
 									echo '</a>'; 
-							?>&nbsp;
+							?>&nbsp; ->
 								<span class="footnote">
 									<?php echo $item->get_date('j M Y, g:i a'); ?>
 								</span>
@@ -200,6 +201,7 @@
 
 						<!-- Display the item's primary content. -->
 						<?php echo $item->get_content(); ?>
+						<?php //echo "Dates -> " . $item->get_EventDates(); ?>
 
 						<?php
 							// Check for enclosures.  If an item has any, set the first one to the $enclosure variable.

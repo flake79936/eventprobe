@@ -2676,7 +2676,6 @@ class SimplePie
 		}
 	}
 
-
 	/**
 	 * Get the feed logo's link
 	 *

@@ -368,6 +368,71 @@ class SimplePie_Item
 			return null;
 		}
 	}
+	
+	/**
+	 * NEW
+	 * Get the content for the item
+	 *
+	 * Prefers summaries over full content , but will return full content if a
+	 * summary does not exist.
+	 *
+	 * To prefer full content instead, use {@see get_content}
+	 *
+	 * Uses `<atom:summary>`, `<description>`, `<dc:description>` or
+	 * `<itunes:subtitle>`
+	 *
+	 * @since 0.8
+	 * @param boolean $description_only Should we avoid falling back to the content?
+	 * @return string|null
+	 */
+	public function get_EventDates($description_only = false)
+	{
+		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'calendarEvent:EventDates'))
+		{
+			return $this->sanitize($return[0]['data'], $this->registry->call('Misc', 'atom_10_construct_type', array($return[0]['attribs'])), $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'calendarEvent:EventDates'))
+		{
+			return $this->sanitize($return[0]['data'], $this->registry->call('Misc', 'atom_03_construct_type', array($return[0]['attribs'])), $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_10, 'calendarEvent:EventDates'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_MAYBE_HTML, $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_20, 'calendarEvent:EventDates'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'calendarEvent:EventDates'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'calendarEvent:EventDates'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'calendarEvent:EventDates'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'calendarEvent:EventDates'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_TEXT);
+		}
+		elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_090, 'calendarEvent:EventDates'))
+		{
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML);
+		}
+
+		elseif (!$description_only)
+		{
+			return $this->get_content(true);
+		}
+		else
+		{
+			return null;
+		}
+	}
 
 	/**
 	 * Get the content for the item
@@ -406,6 +471,39 @@ class SimplePie_Item
 			return null;
 		}
 	}
+	
+	/**
+	 * NEW
+	 * Get the content for the item
+	 *
+	 * Prefers full content over summaries, but will return a summary if full
+	 * content does not exist.
+	 *
+	 * To prefer summaries instead, use {@see get_description}
+	 *
+	 * Uses `<atom:content>` or `<content:encoded>` (RSS 1.0 Content Module)
+	 *
+	 * @since 1.0
+	 * @param boolean $content_only Should we avoid falling back to the description?
+	 * @return string|null
+	 */
+	/*public function get_EventDates($content_only = true){
+		if ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'calendarEvent:EventDates')){
+			return $this->sanitize($return[0]['data'], $this->registry->call('Misc', 'atom_10_content_construct_type', array($return[0]['attribs'])), $this->get_base($return[0]));
+		
+		} elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_03, 'calendarEvent:EventDates')){
+			return $this->sanitize($return[0]['data'], $this->registry->call('Misc', 'atom_03_construct_type', array($return[0]['attribs'])), $this->get_base($return[0]));
+		
+		} elseif ($return = $this->get_item_tags(SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT, 'encoded')) {
+			return $this->sanitize($return[0]['data'], SIMPLEPIE_CONSTRUCT_HTML, $this->get_base($return[0]));
+		
+		} elseif (!$content_only){
+			return $this->get_description(true);
+		
+		} else {
+			return null;
+		}
+	}*/
 
 	/**
 	 * Get a category for the item
@@ -2961,4 +3059,3 @@ class SimplePie_Item
 		}
 	}
 }
-
