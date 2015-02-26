@@ -25,9 +25,9 @@ var one_val=$("#one_input_"+ID).val();
 var two_val=$("#two_input_"+ID).val();
 var three_val=$("#three_input_"+ID).val();
 var four_val=$("#four_input_"+ID).val();//New record
-var four_val=$("#five_input_"+ID).val();//New record
-var four_val=$("#six_input_"+ID).val();//New record
-var four_val=$("#seven_input_"+ID).val();//New record
+var five_val=$("#five_input_"+ID).val();//New record
+var six_val=$("#six_input_"+ID).val();//New record
+var seven_val=$("#seven_input_"+ID).val();//New record
 
 var dataString = 'Eid='+ ID +'&Evename='+one_val+'&Edescription='+two_val+'&Ewebsite='+
 three_val+'&Ehashtag='+four_val+'&Efacebook='+five_val+'&Etwitter='+six_val+'&Egoogle='+seven_val;
@@ -45,9 +45,9 @@ $("#one_"+ID).html(one_val);
 $("#two_"+ID).html(two_val);
 $("#three_"+ID).html(three_val);
 $("#four_"+ID).html(four_val);//New record
-$("#five_"+ID).html(four_val);//New record
-$("#six_"+ID).html(four_val);//New record
-$("#seven_"+ID).html(four_val);//New record
+$("#five_"+ID).html(five_val);//New record
+$("#six_"+ID).html(six_val);//New record
+$("#seven_"+ID).html(seven_val);//New record
 e.stopImmediatePropagation();
 }
 });
