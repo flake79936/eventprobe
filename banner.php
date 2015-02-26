@@ -21,7 +21,7 @@
  	$city = $fgmembersite->getCity();
 // 	$city='el paso';
 
-	$sql = "SELECT Eflyer, Evename FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='premium' ";
+	$sql = "SELECT Eid, Eflyer, Evename FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='premium' ";
 	$result = mysqli_query($con, $sql);
 ?>
 
