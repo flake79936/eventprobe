@@ -29,7 +29,7 @@
 	<?PHP
 		$i = 0;
 		while($row = mysqli_fetch_array($result)) {
-			echo '<div><img src="'.$row['Eflyer'].'" alt="'.$row['Evename'].'" height="'.$height.'" width="'.$width.'"/></div>';
+			echo "<div><a onClick='seeMoreInfo(".$row['Eid'].");'><img src='".$row['Eflyer']."' alt='".$row['Evename']."' height='".$height."' width='".$width."'/></a></div>";
 			$i++;
 		}
 	?>
