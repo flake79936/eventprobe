@@ -1,5 +1,5 @@
 <?php
-$query_pag_data = "SELECT Evename,Edescription,Ewebsite,Ehashtag,Efacebook from Events LIMIT $start, $per_page";
+$query_pag_data = "SELECT Evename, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle from Events LIMIT $start, $per_page";
 $result_pag_data = mysql_query($query_pag_data) or die('MySql Error' . mysql_error());
 $finaldata = "";
 // Table Header
