@@ -11,22 +11,24 @@ if(empty($action)) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-        <link rel="stylesheet" type="text/css" href="css/top.css" />
+<!--         <link rel="stylesheet" type="text/css" href="css/top.css" /> -->
 		<link rel="stylesheet" type="text/css" href="./css/updateTable.css" />
+<!-- 
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
+ -->
 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Edit Event</title>
 
 <script type="text/javascript" src="./js/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="./scripts/script.js"></script>
+<script type="text/javascript" src="./js/script.js"></script>
 </head>
 
 <body>
 
 	    <div class="top">
-			<?PHP include './top.php';
+			<?PHP //include './top.php';
 			if (!$fgmembersite->CheckSession()) { ?>
 			<center><h3> Please Login</h3></center>
 
@@ -53,7 +55,7 @@ if($action == 'ajax' || $action == 'update' || $action == 'delete') {
 	$db = new Database;
 	function getTable() {
 		GLOBAL $db;
-		$data = '<button class="delall">Delete Selected</button>
+		$data = '<button class="delall" >Delete Selected</button>
 		<form><table width="90%" cellspacing="0" cellpadding="2" align="center" border="0" id="data_tbl">
 			<thead>
 			  <tr>
@@ -226,11 +228,13 @@ if($action == 'ajax' || $action == 'update' || $action == 'delete') {
 		</div><!~~//mobile-menu-list~~>
  -->
 		</body>
+<!-- 
 		        <div class="links">
-			<?PHP include './links.php'; ?>
+			<?PHP //include './links.php'; ?>
         </div>
 
         <div class="footer">
-			<?PHP include './footer.php'; ?>
+			<?PHP //include './footer.php'; ?>
         </div>
+ -->
 		</html>
