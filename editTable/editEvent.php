@@ -42,10 +42,10 @@
 include "dbconnect.php";
 	$newEventID = $_GET['eid'];
 // $check_user_details = mysql_query("select * from `Events`");
-	$sql = "SELECT * FROM `Events` WHERE  UuserName='rob' ";
+	$sql = "SELECT * FROM `Events` WHERE  Eid='".$newEventID."' ";
 
 	$result = mysqli_query($con, $sql);
-$i=1;
+// $i=1;
 while($row = mysqli_fetch_array($result))
 // while($row = mysqli_fetch_array($check_user_details))
 {
@@ -85,7 +85,7 @@ while($row = mysqli_fetch_array($result))
 
 
 <?php
-$i++;
+// $i++;
 }
 ?>
 

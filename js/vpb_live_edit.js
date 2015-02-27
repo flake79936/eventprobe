@@ -52,7 +52,7 @@ $(document).ready(function()
 				cache: false,
 				beforeSend: function()
 				{
-					$("#detail_a"+details_id).html('<img src="./images/load.gif" />');
+					$("#detail_a"+details_id).html('<img src="load.gif" />');
 				},
 				success: function() 
 				{

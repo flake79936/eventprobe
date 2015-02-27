@@ -43,6 +43,17 @@ $(document).ready(function() {
 
 	<!--FAVICON-->
 	<link rel="shortcut icon" href="favicon.ico"  />    
+	
+	<!-- Scripts	 -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			<script>
+					
+			function editEvent(str){
+				window.location = "./editEvent.php?eid="+str;
+			}
+		</script>
+	<!-- End of Scripts	 -->
+	
 </head>
 	
 <?PHP
@@ -99,8 +110,9 @@ $(document).ready(function() {
 	?>
 		<ul>
 			<li><?= $day ?><?= substr($row['EstartDate'], 0, 5); ?></li>
-			<li><?= $row['Evename'] ?></li>
+			<li><?= $row['Evename'] ?></li> 
 			<li><?= $row['EtimeStart'] ?>-<?= $row['EtimeEnd'] ?></li>
+			<li><?PHP echo "<a onClick='editEvent(".$row['Eid'].")'> " ?> <img src="./images/btn_upgrade.png"></a></li>
 		</ul>
 	<?PHP $i++; } ?>
 </div>
