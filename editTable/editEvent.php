@@ -35,9 +35,11 @@
 
 <center>
 <div class="vpb_main_wrapper" align="left">
+<!-- 
 <div class="vpb_header_lebels" align="left"><span style="padding-left:8px;">Event Name</span></div>
 <div class="vpb_header_lebels" align="left">Website</div>
 <div class="vpb_header_lebels" align="left">Facebook</div><br clear="all" />
+ -->
 <?php
 include "dbconnect.php";
 	$newEventID = $_GET['eid'];
