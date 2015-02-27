@@ -18,7 +18,7 @@ $sql="UPDATE `Events` SET
 	  `Evename` = '".mysql_escape_string(strip_tags($_POST['Evename']))."',
 	  `Ewebsite` = '".mysql_escape_string(strip_tags($_POST['Ewebsite']))."',
 	  `Efacebook` = '".mysql_escape_string(strip_tags($_POST['Efacebook']))."'
-	   WHERE `Eid` = '28'";
+	   WHERE `Eid` = '".mysql_escape_string(strip_tags($_POST['id']))."'";
 	   mysqli_query($con, $sql);
 
 // 	mysqli_query("UPDATE `Events` SET `Evename` = '".mysql_escape_string(strip_tags($_POST['Evename']))."',
