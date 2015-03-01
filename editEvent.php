@@ -66,7 +66,7 @@
 
 <div style=" font-family:Verdana, Geneva, sans-serif; font-size:26px;"></div><br clear="all" /><br clear="all" />
 
-<font style="font-family:Verdana, Geneva, sans-serif; font-size:12px; color:black;"><b>Enter Key</b> on your computer keyboard to have your changes saved.</font><br clear="all" /><br clear="all" />
+<font style="font-family:Verdana, Geneva, sans-serif; font-size:12px; color:black;">Press the <b>Enter Key</b> on your computer keyboard to have your changes saved.</font><br clear="all" /><br clear="all" />
 <br clear="all" />
 
 

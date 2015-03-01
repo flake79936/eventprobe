@@ -112,7 +112,7 @@ $(document).ready(function() {
 			<li><?= $day ?><?= substr($row['EstartDate'], 0, 5); ?></li>
 			<li><?= $row['Evename'] ?></li> 
 			<li><?= $row['EtimeStart'] ?>-<?= $row['EtimeEnd'] ?></li>
-			<li><?PHP echo "<a onClick='editEvent(".$row['Eid'].")'> " ?> <img src="./images/btn_upgrade.png"></a></li>
+			<li><?PHP echo "<a onClick='editEvent(".$row['Eid'].")'> " ?> Edit Event</a></li>
 		</ul>
 	<?PHP $i++; } ?>
 </div>
