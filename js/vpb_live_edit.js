@@ -12,9 +12,31 @@ function vasplus_live_edit_area(details_id)
 	$("#detail_a"+details_id).hide();
 	$("#detail_b"+details_id).hide();
 	$("#detail_c"+details_id).hide();
+	$("#detail_d"+details_id).hide();
+	$("#detail_e"+details_id).hide();
+	$("#detail_f"+details_id).hide();
+	$("#detail_g"+details_id).hide();
+	$("#detail_h"+details_id).hide();
+	$("#detail_i"+details_id).hide();
+	$("#detail_j"+details_id).hide();
+	$("#detail_k"+details_id).hide();
+	$("#detail_l"+details_id).hide();
+	$("#detail_m"+details_id).hide();
+	
 	$("#detail_aa"+details_id).show();
 	$("#detail_bb"+details_id).show();
 	$("#detail_cc"+details_id).show();
+	$("#detail_dd"+details_id).show();
+	$("#detail_ee"+details_id).show();
+	$("#detail_ff"+details_id).show();
+	$("#detail_gg"+details_id).show();
+	$("#detail_hh"+details_id).show();
+	$("#detail_ii"+details_id).show();
+	$("#detail_jj"+details_id).show();
+	$("#detail_kk"+details_id).show();
+	$("#detail_ll"+details_id).show();
+	$("#detail_mm"+details_id).show();
+
 	$("#Eid"+details_id).css("background-color","#F6F6F6");
 	
 }
@@ -40,8 +62,22 @@ $(document).ready(function()
 		var detail_aa = $("#detail_aa"+details_id).val();
 		var detail_bb = $("#detail_bb"+details_id).val();
 		var detail_cc = $("#detail_cc"+details_id).val();
+		var detail_aa = $("#detail_dd"+details_id).val();
+		var detail_bb = $("#detail_ee"+details_id).val();
+		var detail_cc = $("#detail_ff"+details_id).val();
+		var detail_aa = $("#detail_gg"+details_id).val();
+		var detail_bb = $("#detail_hh"+details_id).val();
+		var detail_cc = $("#detail_ii"+details_id).val();
+		var detail_aa = $("#detail_jj"+details_id).val();
+		var detail_bb = $("#detail_kk"+details_id).val();
+		var detail_cc = $("#detail_ll"+details_id).val();
+		var detail_aa = $("#detail_mm"+details_id).val();
 		
-		var dataString = 'id=' + details_id + '&Evename=' + detail_aa + '&Ewebsite='+detail_bb + '&Efacebook='+detail_cc;
+		var dataString = 'id=' + details_id + '&Evename=' + detail_aa + '&EstartDate='+detail_bb + '&EendDate='+detail_cc
+								 details_id + '&EphoneNumber=' + detail_dd + '&Edescription='+detail_ee + '&Etype='+detail_ff
+						     	 details_id + '&Ewebsite=' + detail_gg + '&Ehashtag='+detail_hh + '&Efacebook='+detail_ii
+					    		 details_id + '&Etwitter=' + detail_jj + '&Egoogle='+detail_kk + '&EtimeStart='+detail_ll
+								 details_id + '&EtimeEnd=' + detail_mm;
 		
 		if(detail_aa != "" && detail_bb != "" && detail_cc != "")
 		{
@@ -59,6 +95,16 @@ $(document).ready(function()
 					$("#detail_a"+details_id).html(detail_aa);
 					$("#detail_b"+details_id).html(detail_bb);
 					$("#detail_c"+details_id).html(detail_cc);
+					$("#detail_d"+details_id).html(detail_dd);
+					$("#detail_e"+details_id).html(detail_ee);
+					$("#detail_f"+details_id).html(detail_ff);
+					$("#detail_g"+details_id).html(detail_gg);
+					$("#detail_h"+details_id).html(detail_hh);
+					$("#detail_i"+details_id).html(detail_ii);
+					$("#detail_j"+details_id).html(detail_jj);
+					$("#detail_k"+details_id).html(detail_kk);
+					$("#detail_l"+details_id).html(detail_ll);
+					$("#detail_m"+details_id).html(detail_mm);
 				}
 			});
 		}

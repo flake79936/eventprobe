@@ -16,8 +16,18 @@ include "dbconnect.php";
 
 $sql="UPDATE `Events` SET 
 	  `Evename` = '".mysql_escape_string(strip_tags($_POST['Evename']))."',
+	  `EstartDate` = '".mysql_escape_string(strip_tags($_POST['EstartDate']))."',
+	  `EendDate` = '".mysql_escape_string(strip_tags($_POST['EendDate']))."',
+	  `EphoneNumber` = '".mysql_escape_string(strip_tags($_POST['EphoneNumber']))."',
+	  `Edescription` = '".mysql_escape_string(strip_tags($_POST['Edescription']))."',
+	  `Etype` = '".mysql_escape_string(strip_tags($_POST['Etype']))."',
 	  `Ewebsite` = '".mysql_escape_string(strip_tags($_POST['Ewebsite']))."',
-	  `Efacebook` = '".mysql_escape_string(strip_tags($_POST['Efacebook']))."'
+	  `Ehashtag` = '".mysql_escape_string(strip_tags($_POST['Ehashtag']))."',
+	  `Efacebook` = '".mysql_escape_string(strip_tags($_POST['Efacebook']))."',
+	  `Etwitter` = '".mysql_escape_string(strip_tags($_POST['Etwitter']))."',
+  	  `Egoogle` = '".mysql_escape_string(strip_tags($_POST['Egoogle']))."',
+	  `EtimeStart` = '".mysql_escape_string(strip_tags($_POST['EtimeStart']))."'
+	  `EtimeEnd` = '".mysql_escape_string(strip_tags($_POST['EtimeEnd']))."'
 	   WHERE `Eid` = '".mysql_escape_string(strip_tags($_POST['id']))."'";
 	   mysqli_query($con, $sql);
 
