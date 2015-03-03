@@ -18,11 +18,17 @@
 	-webkit-box-shadow: 0 2px 20px #cbcbcb;
 }
 .vasplus_live_edit_area {
+ overflow: hidden;
 width:100%;
 }
-.vasplus_live_edit_area:hover { background: #F6F6F6;cursor:pointer; width:100%;}
+.vasplus_live_edit_area:hover { 
+overflow: hidden
+background: #F6F6F6;
+cursor:pointer; 
+width:100%;}
  
 .vasplus_hidden_boxes {
+
 padding:6px;outline: 0;
 transition: all 0.25s ease-in-out;
 -webkit-transition: all 0.25s ease-in-out;

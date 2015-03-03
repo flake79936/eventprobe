@@ -167,7 +167,7 @@ while($row = mysqli_fetch_array($result))
 	 style="display:none;width:100%;" />
 	</div>
 	
-		<div style="width:5%;float:left;" >
+		<div style="width:5%;float:left;">
 	<span id="detail_f<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Etype; ?></span>
 	<input type="text" value="<?php echo $Etype; ?>" 
 	class="vasplus_hidden_boxes" id="detail_ff<?php echo $user_id; ?>"
@@ -188,8 +188,8 @@ while($row = mysqli_fetch_array($result))
 	 style="display:none;width:100%;" />
 	</div>
 	
-		<div style="width:10%;float:left;" overflow: hidden;>
-	<span id="detail_i<?php echo $user_id; ?>" class="vasplus_live_content" overflow: hidden;><?php echo $Efacebook; ?></span>
+		<div style="width:10%;float:left;">
+	<span id="detail_i<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Efacebook; ?></span>
 	<input type="text" value="<?php echo $Efacebook; ?>" 
 	class="vasplus_hidden_boxes" id="detail_ii<?php echo $user_id; ?>"
 	 style="display:none;width:100%;" />
