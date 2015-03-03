@@ -17,12 +17,29 @@
 	-moz-box-shadow: 0 2px 20px #cbcbcb;
 	-webkit-box-shadow: 0 2px 20px #cbcbcb;
 }
-.vasplus_live_edit_area {width:725px;}
-.vasplus_live_edit_area:hover { background: #F6F6F6;cursor:pointer; width:725px;}
+.vasplus_live_edit_area {
+width:100%;
+}
+.vasplus_live_edit_area:hover { background: #F6F6F6;cursor:pointer; width:100%;}
  
-.vasplus_hidden_boxes {padding:6px;outline: 0;transition: all 0.25s ease-in-out;-webkit-transition: all 0.25s ease-in-out;-moz-transition: all 0.25s ease-in-out;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;border:1px solid rgba(0,0,0, 0.2);border: 1px solid #C9C9C9;} 
+.vasplus_hidden_boxes {
+padding:6px;outline: 0;
+transition: all 0.25s ease-in-out;
+-webkit-transition: all 0.25s ease-in-out;
+-moz-transition: all 0.25s ease-in-out;
+border-radius:3px;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border:1px solid rgba(0,0,0, 0.2);
+border: 1px solid #C9C9C9;
+} 
 
-.vasplus_hidden_boxes:focus { box-shadow: 0 0 12px #66F;-webkit-box-shadow: 0 0 12px #66F; -moz-box-shadow: 0 0 12px #66F;border:1px solid rgba(0,0,233, 0.0); }
+.vasplus_hidden_boxes:focus { 
+box-shadow: 0 0 12px #66F;
+-webkit-box-shadow: 0 0 12px #66F; 
+-moz-box-shadow: 0 0 12px #66F;
+border:1px solid rgba(0,0,233, 0.0);
+ }
 
 .vpb_header_lebels {
 	width:247px;

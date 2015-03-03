@@ -94,7 +94,8 @@
 <div class="vpb_header_lebels" align="left" style="width:5%">Twitter</div>
 <div class="vpb_header_lebels" align="left" style="width:10%">Google+</div>
 <div class="vpb_header_lebels" align="left" style="width:5%">Start Time</div>
-<div class="vpb_header_lebels" align="left" style="width:5%">End Time</div><br clear="all" />
+<div class="vpb_header_lebels" align="left" style="width:5%">End Time</div>
+<br clear="all" />
 
 <?php
 include "dbconnect.php";
@@ -127,98 +128,100 @@ while($row = mysqli_fetch_array($result))
 
 
 ?>
-<div id="id<?php echo $user_id; ?>" style="padding:8px;padding-top:12px;padding-bottom:12px; float:left; cursor:pointer;" class="vasplus_live_edit_area" onClick="vasplus_live_edit_area(<?php echo $user_id; ?>);" align="left">
+<div id="id<?php echo $user_id; ?>" style="padding:8px;padding-top:12px;padding-bottom:12px;
+ float:left; cursor:pointer;" class="vasplus_live_edit_area" 
+ onClick="vasplus_live_edit_area(<?php echo $user_id; ?>);" align="left">
 
 	<div style="width:10%;float:left;">
 	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Evename; ?></span>
 	<input type="text" value="<?php echo $Evename; ?>" 
 	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	 style="display:none;width:100%;" />
 	</div>
 	
 		<div style="width:5%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EstartDate; ?></span>
+	<span id="detail_b<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EstartDate; ?></span>
 	<input type="text" value="<?php echo $EstartDate; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_bb<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 	
 		<div style="width:5%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EendDate; ?></span>
+	<span id="detail_c<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EendDate; ?></span>
 	<input type="text" value="<?php echo $EendDate; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_cc<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 	
 		<div style="width:10%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EphoneNumber; ?></span>
+	<span id="detail_d<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EphoneNumber; ?></span>
 	<input type="text" value="<?php echo $EphoneNumber; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_dd<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 	
 		<div style="width:10%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Edescription; ?></span>
+	<span id="detail_e<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Edescription; ?></span>
 	<input type="text" value="<?php echo $Edescription; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_ee<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 	
-		<div style="width:5%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Etype; ?></span>
+		<div style="width:5%;float:left;" >
+	<span id="detail_f<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Etype; ?></span>
 	<input type="text" value="<?php echo $Etype; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_ff<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 	
 		<div style="width:10%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Ewebsite; ?></span>
+	<span id="detail_g<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Ewebsite; ?></span>
 	<input type="text" value="<?php echo $Ewebsite; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_gg<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 	
 		<div style="width:10%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Ehashtag; ?></span>
+	<span id="detail_h<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Ehashtag; ?></span>
 	<input type="text" value="<?php echo $Ehashtag; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_hh<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 	
-		<div style="width:10%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Efacebook; ?></span>
+		<div style="width:10%;float:left;" overflow: hidden;>
+	<span id="detail_i<?php echo $user_id; ?>" class="vasplus_live_content" overflow: hidden;><?php echo $Efacebook; ?></span>
 	<input type="text" value="<?php echo $Efacebook; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_ii<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 	
 		<div style="width:5%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Etwitter; ?></span>
+	<span id="detail_j<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Etwitter; ?></span>
 	<input type="text" value="<?php echo $Etwitter; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_jj<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 	
 		<div style="width:10%;float:left;">
-	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Egoogle; ?></span>
+	<span id="detail_k<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Egoogle; ?></span>
 	<input type="text" value="<?php echo $Egoogle; ?>" 
-	class="vasplus_hidden_boxes" id="detail_aa<?php echo $user_id; ?>"
-	 style="display:none;width:180px;" />
+	class="vasplus_hidden_boxes" id="detail_kk<?php echo $user_id; ?>"
+	 style="display:none;width:100%;" />
 	</div>
 
 	<div style="width:5%;float:left;">
-	<span id="detail_b<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EtimeStart; ?></span> 
+	<span id="detail_l<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EtimeStart; ?></span> 
 	<input type="text" value="<?php echo $EtimeStart; ?>"  
-	class="vasplus_hidden_boxes" id="detail_bb<?php echo $user_id; ?>" 
-	style="display:none;width:180px;"/>
+	class="vasplus_hidden_boxes" id="detail_ll<?php echo $user_id; ?>" 
+	style="display:none;width:100%;"/>
 	</div>
 
 
 	<div style="width:5%;float:left;">
-	<span id="detail_c<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EtimeEnd; ?></span> 
+	<span id="detail_m<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $EtimeEnd; ?></span> 
 	<input type="text" value="<?php echo $EtimeEnd; ?>"  
-	class="vasplus_hidden_boxes" id="detail_cc<?php echo $user_id; ?>" 
-	style="display:none;width:232px;"/>
+	class="vasplus_hidden_boxes" id="detail_mm<?php echo $user_id; ?>" 
+	style="display:none;width:100%;"/>
 	</div>
 
 </div><br clear="all">

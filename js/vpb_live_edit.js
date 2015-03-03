@@ -62,26 +62,22 @@ $(document).ready(function()
 		var detail_aa = $("#detail_aa"+details_id).val();
 		var detail_bb = $("#detail_bb"+details_id).val();
 		var detail_cc = $("#detail_cc"+details_id).val();
-		var detail_aa = $("#detail_dd"+details_id).val();
-		var detail_bb = $("#detail_ee"+details_id).val();
-		var detail_cc = $("#detail_ff"+details_id).val();
-		var detail_aa = $("#detail_gg"+details_id).val();
-		var detail_bb = $("#detail_hh"+details_id).val();
-		var detail_cc = $("#detail_ii"+details_id).val();
-		var detail_aa = $("#detail_jj"+details_id).val();
-		var detail_bb = $("#detail_kk"+details_id).val();
-		var detail_cc = $("#detail_ll"+details_id).val();
-		var detail_aa = $("#detail_mm"+details_id).val();
+		var detail_dd = $("#detail_dd"+details_id).val();
+		var detail_ee = $("#detail_ee"+details_id).val();
+		var detail_ff = $("#detail_ff"+details_id).val();
+		var detail_gg = $("#detail_gg"+details_id).val();
+		var detail_hh = $("#detail_hh"+details_id).val();
+		var detail_ii = $("#detail_ii"+details_id).val();
+		var detail_jj = $("#detail_jj"+details_id).val();
+		var detail_kk = $("#detail_kk"+details_id).val();
+		var detail_ll = $("#detail_ll"+details_id).val();
+		var detail_mm = $("#detail_mm"+details_id).val();
 		
-		var dataString = 'id=' + details_id + '&Evename=' + detail_aa + '&EstartDate='+detail_bb + '&EendDate='+detail_cc
-								 details_id + '&EphoneNumber=' + detail_dd + '&Edescription='+detail_ee + '&Etype='+detail_ff
-						     	 details_id + '&Ewebsite=' + detail_gg + '&Ehashtag='+detail_hh + '&Efacebook='+detail_ii
-					    		 details_id + '&Etwitter=' + detail_jj + '&Egoogle='+detail_kk + '&EtimeStart='+detail_ll
-								 details_id + '&EtimeEnd=' + detail_mm;
+		var dataString = 'id=' + details_id + '&Evename=' + detail_aa + '&EstartDate='+detail_bb + '&EendDate='+detail_cc + '&EphoneNumber=' + detail_dd + '&Edescription='+detail_ee + '&Etype='+detail_ff+ '&Ewebsite=' + detail_gg + '&Ehashtag='+ detail_hh + '&Efacebook=' + detail_ii + '&Etwitter=' + detail_jj + '&Egoogle='+ detail_kk + '&EtimeStart='+ detail_ll + '&EtimeEnd=' + detail_mm;
 		
-		if(detail_aa != "" && detail_bb != "" && detail_cc != "")
-		{
-			$.ajax({
+		if(detail_aa != ""){
+			$.ajax(
+			{
 				type: "POST",
 				url: "save_changes.php",
 				data: dataString,
