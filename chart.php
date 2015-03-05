@@ -9,12 +9,42 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
+	$today = Date("m/d/Y"); //e.g., 02/03/2015, 
+	$toDate = strtotime($today);
+	
 	$bool = $fgmembersite->CheckSession();
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/chart.css" />
 
 <script>
+	(function($){
+		$(document).ready(function(){
+			$.ajaxSetup({
+				cache: false,
+				beforeSend: function(){
+					$('#events').hide();
+					$('#loading').show();
+				},
+				complete: function(){
+					$('#loading').hide();
+					$('#events').show();
+				},
+				success: function(){
+					$('#loading').hide();
+					$('#events').show();
+				}
+			});
+			var $container = $("#events");
+			//$container.load("rss-feed-data.php");
+			$container.load("getByDayEvent.php?date=" + <?= $toDate ?>);
+			var refreshId = setInterval(function(){
+				$container.load("getByDayEvent.php?date=" + <?= $toDate ?>);
+			}, 60000);
+		});
+	})(jQuery);
+
+
 	function getByDayEvent(str) {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
@@ -66,6 +96,7 @@
 	</div>
 
 	<div class="chart" id="events"></div>
+	<img src="./images/loading.gif" id="loading" alt="loading" style="display:none;" />
 </div>
 
 <div class="advertisement">
