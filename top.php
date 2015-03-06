@@ -148,6 +148,8 @@
  -->
  
 	<a href="./EventCreation.php"> <img src="./images/btn_event2.png"> </a>
+	<a href="./loginB.php"> Login </a>
+	
  
  
 	<div class="clear"></div>
