@@ -34,7 +34,7 @@
         </div>
         
         <div class="content">
-			<h4>Content to be provided by LLC</h4>
+			<h4>Tontent to be provided by LLC</h4>
 			<div class="clear"> </div>
         </div>
         
