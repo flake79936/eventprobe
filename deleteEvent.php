@@ -8,7 +8,11 @@ include "dbconnect.php";
 	}
 
 		$usrname = $fgmembersite->UsrName();
-
+?>
+<title>Eventprobe</title>
+	<link rel="shortcut icon" href="favicon.ico"  /> 
+	
+<?PHP
 // if(isset($_POST['id']) 			&& 
 // 	isset($_POST['Evename'])  &&
 // 	isset($_POST['Edescription'])   &&
@@ -24,5 +28,6 @@ $newEventID = $_GET['eid'];
 
 $sql= "DELETE FROM Events  WHERE Eid = '".$newEventID."' AND UuserName = '".$usrname."' ";
 mysqli_query($con, $sql);
+		$fgmembersite->RedirectToURL("./index.php");
 
 ?>
