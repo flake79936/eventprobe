@@ -261,20 +261,18 @@
 								</div>-->
 								
 								<div class="type">
-									<div class="container" id="">
+									<div class="container">
 										<h5 for="Etype">Type of Event</h5>
-										<h5>
-											<select name="Etype">
-												<option>Please Select One</option>
-												<option value="Art">Art</option>
-												<option value="Concert">Concert</option>
-												<option value="Fair">Fair</option>
-												<option value="Social">Social</option>
-												<option value="Social">Sport</option>
-												<option value="Other">Other</option>
-											</select>
-											<span id="eventForm_Etype_errorloc" class="error"></span>
-										</h5>
+										<select name="Etype" id="Etype">
+											<option>Please Select One</option>
+											<option value="Art">Art</option>
+											<option value="Concert">Concert</option>
+											<option value="Fair">Fair</option>
+											<option value="Social">Social</option>
+											<option value="Social">Sport</option>
+											<option value="Other">Other</option>
+										</select>
+										<span id="eventForm_Etype_errorloc" class="error"></span>
 									</div>
 									<div class="type">					
 										<div class="container" id="other">
