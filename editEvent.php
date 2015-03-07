@@ -47,6 +47,13 @@
 				});
 			});
 		</script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+					
+			function deleteEvent(str){
+				window.location = "./deleteEvent.php?eid="+str;
+			}
+		</script>
 <!-- End of Scripts -->
 
 
@@ -109,6 +116,7 @@ while($row = mysqli_fetch_array($result))
 // while($row = mysqli_fetch_array($check_user_details))
 {
 	$user_id = strip_tags($row['Eid']);
+		$Eid = strip_tags($row['Eid']);
 	
 	$Evename = strip_tags($row['Evename']);
 	$EstartDate = strip_tags($row['EstartDate']);
@@ -223,10 +231,10 @@ while($row = mysqli_fetch_array($result))
 	class="vasplus_hidden_boxes" id="detail_mm<?php echo $user_id; ?>" 
 	style="display:none;width:100%;"/>
 	</div>
-
+	
 </div><br clear="all">
 
-
+<?PHP echo "<a onClick='deleteEvent(".$row['Eid'].")'> " ?> Delete Event</a>
 <?php
 // $i++;
 }

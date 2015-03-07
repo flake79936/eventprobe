@@ -76,24 +76,24 @@
 				<form id="register" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 					<div class="form-wrap">
 						<input type="hidden" name="submitted" id="submitted" value="1"/>
-						
+  			
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 						
 						<div class="box">
 							<h5>First Name</h5>
-							<input type="text" name="UFname" title="Enter your First Name" id="UFname"  value="<?php echo $fgmembersite->SafeDisplay('UFname') ?>" maxlength="50" /><br/>
+							<input type="text" placeholder="John" name="UFname" title="Enter your First Name" id="UFname"  value="<?php echo $fgmembersite->SafeDisplay('UFname') ?>" maxlength="50" /><br/>
 							<span id="register_UFname_errorloc" class="error"></span>
 
 							<h5>Last Name</h5>
-							<input type="text" name="ULname" title="Enter your Last Name" id="ULname"  value="<?php echo $fgmembersite->SafeDisplay('ULname') ?>" maxlength="50" /><br/>
+							<input type="text" placeholder="Doe" name="ULname" title="Enter your Last Name" id="ULname"  value="<?php echo $fgmembersite->SafeDisplay('ULname') ?>" maxlength="50" /><br/>
 							<span id="register_UFname_errorloc" class="error"></span>
 							
 							<h5>Username</h5>
-							<input type="text" name="UuserName" title="Enter your Username" id="UuserName"  value="<?php echo $fgmembersite->SafeDisplay("UuserName") ?>" maxlength="50" /><br/>
+							<input type="text" placeholder="JohnDoe"  name="UuserName" title="Enter your Username" id="UuserName"  value="<?php echo $fgmembersite->SafeDisplay("UuserName") ?>" maxlength="50" /><br/>
 							<span id="register_UuserName_errorloc" class="error"></span>							
 							
 							<h5>Password</h5>
-							<input type='password' name='UPswd' title="Enter your Password" id='UPswd' value="<?php echo $fgmembersite->SafeDisplay("UPswd") ?>" maxlength="50" />
+							<input type='password'  name='UPswd' title="Enter your Password" id='UPswd' value="<?php echo $fgmembersite->SafeDisplay("UPswd") ?>" maxlength="50" />
 							<br/><span id='register_UPswd_errorloc' class='error' style='clear:both'></span>
 							
 							<h5>Confirm Password</h5>
@@ -101,11 +101,11 @@
 							<span id="register_ConPswd_errorloc" class="error" style="clear: both"></span>
 							
 							<h5>Email</h5>
-							<input type="text" name="Uemail" title="Enter your Email"id="Uemail" onchange="check()" value="<?php echo $fgmembersite->SafeDisplay('Uemail') ?>" maxlength="50" /><br/>
+							<input type="text"  placeholder="email@email.com" name="Uemail" title="Enter your Email"id="Uemail" onchange="check()" value="<?php echo $fgmembersite->SafeDisplay('Uemail') ?>" maxlength="50" /><br/>
 							<span id="register_Uemail_errorloc" class="error"></span>
 							
 							<h5>Phone</h5>
-							<input type="text" name="Uphone" title="Enter your Phone Number"id="Uphone" onchange="check()" value="<?php echo $fgmembersite->SafeDisplay("Uphone") ?>" maxlength="50" /><br/>
+							<input type="text" placeholder="1234567890" name="Uphone" title="Enter your Phone Number"id="Uphone" onchange="check()" value="<?php echo $fgmembersite->SafeDisplay("Uphone") ?>" maxlength="50" /><br/>
 							<span id="register_Uphone_errorloc" class="error"></span>
 						
 							<h5>User Image</h5>
