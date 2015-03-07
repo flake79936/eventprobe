@@ -219,7 +219,7 @@ body{ margin: 0; padding: 0; }
 
 .main .content .dashboard .user-menu .error, .main .content .dashboard .form-wrap .box .error{
 	font-family: Verdana, Arial, sans-serif; 
-	font-size: 0.7em;
+	font-size: 0.9em;
 	color: #900;
 	background-color : #ffff00;
 }

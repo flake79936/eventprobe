@@ -264,16 +264,17 @@
 									<div class="container">
 										<h5 for="Etype">Type of Event</h5>
 										<select name="Etype" id="Etype">
-											<option>Please Select One</option>
+											<option value="" disabled selected>Please Select a Type</option>
 											<option value="Art">Art</option>
 											<option value="Concert">Concert</option>
 											<option value="Fair">Fair</option>
 											<option value="Social">Social</option>
 											<option value="Social">Sport</option>
 											<option value="Other">Other</option>
-										</select>
+										</select><br>
 										<span id="eventForm_Etype_errorloc" class="error"></span>
 									</div>
+									
 									<div class="type">					
 										<div class="container" id="other">
 											<label for="Eother">Other: </label><br>
@@ -281,20 +282,16 @@
 											<span id="eventForm_Eother_errorloc" class="error"></span>
 										</div>
 									</div>
-														
-									<div class="type">
-										<div class="container" id="">
-											<h5 for="Erank">Reach</h5>
-											<h5>
-												<select name="Erank">
-													<option>Please Select One</option>
-													<option value="Free">Free</option>
-													<option value="Paid">Paid</option>
-													<option value="Premium">Premium</option>
-												</select>
-												<span id="eventForm_Erank_errorloc" class="error"></span>
-											</h5>
-										</div>
+									
+									<div class="container">
+										<h5 for="Erank">Reach</h5>
+										<select name="Erank" id="Erank">
+											<option value="" disabled selected>Please Select a Rank</option>
+											<option value="Free">Free</option>
+											<option value="Paid">Paid</option>
+											<option value="Premium">Premium</option>
+										</select><br>
+										<span id="eventForm_Erank_errorloc" class="error"></span>
 									</div>
 								</div>
 								
@@ -326,7 +323,7 @@
 							<div class="location" id="Eaddress">
 							   <!-- <div class="image"><img src="images/icon_location.png" /></div> -->
 								<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="" maxlength="50">
-								<br/>
+								<br>
 								<span id="eventForm_Eaddress_errorloc" class="error"></span>
 							</div>
 						
@@ -341,7 +338,7 @@
 									<div class="container" id="Estate">
 										<h5 for="Estate">State: </h5><br>
 										<select name="Estate" size="1">
-											<option>Select The State</option>
+											<option value="" disabled selected>Select The State</option>
 											<option value="AK">AK</option>
 
 											<option value="AL">AL</option>
@@ -407,6 +404,7 @@
 											<option value="WV">WV</option>
 											<option value="WY">WY</option>
 										</select>
+										<br>
 										<span id="eventForm_Estate_errorloc" class="error"></span>
 									</div>
 								</div>
