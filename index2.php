@@ -105,7 +105,7 @@
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event"><br/>
 				<a id="type" onclick="showHint('sports');"><img alt="sports" src="./images/sports40.png"/></a>
 				<a id="type" onclick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a>
-				<a id="type" onclick="showHint('fair');"><img alt="fair" src="./images/music.png"/></a>
+				<a id="type" onclick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a>
 			</form>
 		</div>
 		

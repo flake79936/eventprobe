@@ -108,117 +108,117 @@
 		
 				<tr>
 					<td width="400"><h1><?= $row['Evename'] ?></h1></td>
-					<td width="21">-</td>
+					<td width="21">&nbsp;</td>
 					<td width="88"><h1><?= $row['Ehashtag'] ?></h1></td>
-					<td width="86">-</td>
-					<td width="491">-</td>
+					<td width="86">&nbsp;</td>
+					<td width="491">&nbsp;</td>
 				</tr>
 				<tr>
 					<td><h2><?= $row['EstartDate'] ?><br><?= $row['EtimeStart'] ?> to <?= $row['EtimeEnd'] ?> </h2></td>
-					<td>-</td>
+					<td>&nbsp;</td>
 					<td colspan="7"><h1><?= $row['Edescription'] ?></h1></td>
 				</tr>
 				<tr>
 					<td rowspan="13"><img src= <?= $row['Eflyer'] ?> width="400px" height="300px"  ></td>
-					<td>-</td>
-					<td>-</td>
-					<td>-</td>
-					<td>-</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 				</tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
 				  
   </tr>
 				<tr>
-					<td>-</td>
-					<td>-</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 					<td><a href="<?= $row['Ewebsite'] ?>" target="_blank"><?= $row['Ewebsite'] ?> </a></td>
-					<td>-</td>
-					<td>-</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td>-</td>
-					<td>-</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 					<td><?PHP if ($row['Efacebook']){ ?>
 							<a href="<?= $row['Efacebook'] ?>" target="_blank">
 								<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
@@ -236,11 +236,11 @@
 						<?PHP } ?></td>
 				</tr>
 				<tr>
-				<td>-</td>
-				<td>-</td>
-				<td>-</td>
-				<td>-</td>
-				<td>-</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 				</tr>
 				<tr>
 <td rowspan="14"><!-- START OF MAP SCRIPT -->
@@ -316,43 +316,43 @@
 								} AutoCenter();
 							</script> 
 							<!-- END OF MAP SCRIPT --></td>
-				  <td>-</td>
-				  <td colspan="5"><h4><img src='images/favicon.png'><?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>, <?= $row['Ezip'] ?> </h4></td>
+				  <td>&nbsp;</td>
+				  <td colspan="5"><h4><img src='images/favicon.png'>&nbsp;<?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>, <?= $row['Ezip'] ?> </h4></td>
   </tr>
 				<tr>
-				  <td>-</td>
+				  <td>&nbsp;</td>
 				  <td colspan="5"><h4>Phone: <?= $formatPhone?> </h4></td>
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
   </tr>
 				<tr>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
-				  <td>-</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
+				  <td>&nbsp;</td>
   </tr>
 				<tr>
 					
-					<td>-</td>
-					<td>-</td>
-					<td>-</td>
-					<td>-</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 				</tr>
 				<tr>
 				  <td>&nbsp;</td>
@@ -379,10 +379,10 @@
 				  <td>&nbsp;</td>
   </tr>
 				<tr>
-					<td>-</td>
-					<td>-</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 					<td></td>
-					<td>-</td>
+					<td>&nbsp;</td>
 				</tr>
 		<?PHP } ?>
 		</table>
