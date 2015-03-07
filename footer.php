@@ -26,5 +26,7 @@
 <div class="clear"></div>
 <br/>
 <div id="footer">
+	<p class="copyright">
 <?PHP echo '&copy'; echo "2014-";echo date("Y"); ?>
+    </p>
 </div>

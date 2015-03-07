@@ -38,7 +38,7 @@
 		<div class="main">
 			<div class="policy">
 				<!--Keep this below-->
-				<h4>
+				<h3>Policy</h3>
                 	<p><strong>Eventprobe</strong> is an online service which has been established to allow users to post and comment on events.  All aspects of Eventprobe (website, mobile application, and related aspects) are owned by JET APP Development, LLC.  All postings should be free of copyright infringement and should be original to the poster.  If there is a question about the authenticity of any postings, the managers of <strong>Eventprobe</strong> will suspend and remove the post once notified in writing (see contact information below).  Furthermore, <strong>Eventprobe</strong> retains the right to remove any posts that it, in its sole discretion, deems to be offensive or harmful.  By agreeing to the terms and conditions, you acknowledge and agree to the policies and practices of <strong>Eventprobe</strong> and release its owners, managers, and affiliated companies from any liability.</p>
 					<ul style="list-style-type:disc">
 						<li>We won't share your personal data e.g. E-mail id, Contact Number with any third party which does not have a relationship/agreement with Eventprobe, its parent company, or affiliates.<br></li>
@@ -52,7 +52,6 @@
                         <li>Any third-party website that is accessed via <strong>Eventprobe</strong> does not operate under these poblicies and you should review their policies.</li>
                         <li>If accessing Eventprobe from outside the United States of America, you should know that your information will be stored on servers within the USA.  The laws of the USA and other countries may not be the same and your rights may be different.</li>
 					</ul>
-				</h4>
 			</div>
 			<div class="clear"></div>
 		</div>
