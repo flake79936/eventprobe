@@ -1,8 +1,6 @@
 <ul class="social">
 	<li>
-		<a href="#">
-			<img src="images/btn_google.png" onmouseover="this.src='images/btn_googleColor.png'" onmouseout="this.src='images/btn_google.png'" alt="Google" />
-		</a>
+		
 	</li>
 	<li>
 		<a href="https://twitter.com/eventprobe" target="_blank">
@@ -20,6 +18,9 @@
 			<img src="images/btn_pin.png" onmouseover="this.src='images/btn_pinColor.png'" onmouseout="this.src='images/btn_pin.png'" alt="Pinterest" />
 		</a>
  -->
+ <a href="#">
+			<img src="images/btn_google.png" onmouseover="this.src='images/btn_googleColor.png'" onmouseout="this.src='images/btn_google.png'" alt="Google" />
+		</a>
 	</li>	
 </ul>
 
