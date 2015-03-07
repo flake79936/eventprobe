@@ -433,6 +433,7 @@
 										<div class="container" id="">
 											<h5 for="EtimeStart">StartTime </h5><br>
 											<select name="EtimeStart" size="1">
+												<option value="" disabled selected>Select Start Time</option>
 												<option value="12:00 am">12:00 am</option>
 
 												<option value="12:30 am">12:30 am</option>
@@ -502,6 +503,7 @@
 									<div class="container" id="EtimeEnd">
 										<h5 for="EtimeEnd">End Time </h5><br>
 										<select name="EtimeEnd" size="1">
+											<option value="" disabled selected>Select End Time</option>
 											<option value="12:00 am">12:00 am</option>
 
 											<option value="12:30 am">12:30 am</option>

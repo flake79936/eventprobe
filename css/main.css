@@ -107,10 +107,10 @@ body{
 
 .main .content .form-wrap .box textarea{ width: 95%; height: 100px; border: 1px solid #999; padding: 10px; margin-bottom: 20px; outline: none; resize: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 
-.main .content .form-wrap .box .wrap .type{ width: 155px; float: left; margin-right: 10px; }
+.main .content .form-wrap .box .wrap .type{ width: 155px; float: left; margin-right: 10px;}
 .main .content .form-wrap .box .wrap .type input{ width: 85%; }
 
-.main .content .form-wrap select{ width: 99%; border: 1px solid #999; padding: 5px; margin-bottom: 20px; outline: none; }
+.main .content .form-wrap select{ width: 99%; border: 1px solid #999; padding: 5px; margin-bottom: 20px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;}
 
 .main .content .form-wrap .social{ border-left: 1px solid #555; }
 .main .content .form-wrap .social li{ float: left; list-style: none; padding: 10px 15px; border-right: 1px solid #555; border-top: 1px solid #555; border-bottom: 1px solid #555; }
