@@ -33,7 +33,9 @@
         </div>
         
         <div class="content">
-			<h4>Content to be provided by LLC</h4>
+			<h4>Services</h4>
+            <p>Its pretty simple folks. For end users we compile all the public events in every city and bring it to you in a simple site and app. All events can be searched by zip code, genre, and timeframe. We give you the power to know what you're doing before you ever get there! </p>
+<p>If you are a promoter posting events is free if we didn’t already do it for you. Free Listings are just that. </p>
 			<div class="clear"> </div>
         </div>
 
