@@ -216,3 +216,14 @@ body{ margin: 0; padding: 0; }
 
 /* http://sonspring.com/journal/clearing-floats */
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
+
+.main .content .dashboard .user-menu .error, .main .content .dashboard .form-wrap .box .error{
+	font-family: Verdana, Arial, sans-serif; 
+	font-size: 0.7em;
+	color: #900;
+	background-color : #ffff00;
+}
+
+#content #register_password_errorloc{
+	clear:both;
+}

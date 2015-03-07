@@ -1,4 +1,5 @@
-<?PHP	require_once("./include/membersite_config.php");
+<?PHP
+	require_once("./include/membersite_config.php");
 	if($fgmembersite->CheckSession()){
 		$usrname = $fgmembersite->UsrName();  
 	}
@@ -19,11 +20,13 @@
 	
 	include 'dbconnect.php';
 
-		$today = Date("m/d/Y");
-		$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
-		$past = mysqli_query($con, $sql);
-		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
-		$upcoming = mysqli_query($con, $sql);
+	$today = Date("m/d/Y");
+	$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
+	
+	$past = mysqli_query($con, $sql);
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
+	
+	$upcoming = mysqli_query($con, $sql);
 ?>
 
 <html lang="en">
@@ -165,22 +168,27 @@
 									<?PHP $i = 0;
 										while($row = mysqli_fetch_array($upcoming)){ ?>
 										<?=  $month='';
-									if    (substr($row['EstartDate'], 0, 2) ==='01')$month=  'Jan';
-									elseif(substr($row['EstartDate'], 0, 2) ==='02') $month= 'Feb';
-									elseif(substr($row['EstartDate'], 0, 2) ==='03')$month= 'Mar';
-									elseif(substr($row['EstartDate'], 0, 2) ==='04')$month= 'Apr';
-									elseif(substr($row['EstartDate'], 0, 2) ==='05')$month= 'May';
-									elseif(substr($row['EstartDate'], 0, 2) ==='06')$month= 'Jun';
-									elseif(substr($row['EstartDate'], 0, 2) ==='07')$month= 'Jul';
-									elseif(substr($row['EstartDate'], 0, 2) ==='08')$month= 'Aug';
-									elseif(substr($row['EstartDate'], 0, 2) ==='09')$month= 'Sep';
-									elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
-									elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
-									else $month= 'Dec';?>
-									<li><img src="images/music.png" alt="Music" /><a href="#"><?= $row['Evename'] ?>, 
-									<?=  $month
-									?> 
-									<?=substr($row['EstartDate'], 3, 2);?></a></li>
+											if    (substr($row['EstartDate'], 0, 2) ==='01')$month= 'Jan';
+											elseif(substr($row['EstartDate'], 0, 2) ==='02')$month= 'Feb';
+											elseif(substr($row['EstartDate'], 0, 2) ==='03')$month= 'Mar';
+											elseif(substr($row['EstartDate'], 0, 2) ==='04')$month= 'Apr';
+											elseif(substr($row['EstartDate'], 0, 2) ==='05')$month= 'May';
+											elseif(substr($row['EstartDate'], 0, 2) ==='06')$month= 'Jun';
+											elseif(substr($row['EstartDate'], 0, 2) ==='07')$month= 'Jul';
+											elseif(substr($row['EstartDate'], 0, 2) ==='08')$month= 'Aug';
+											elseif(substr($row['EstartDate'], 0, 2) ==='09')$month= 'Sep';
+											elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
+											elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
+											else $month= 'Dec';
+										?>
+									<li>
+										<img src="images/music.png" alt="Music" />
+										<a href="#">
+										<?= $row['Evename'] ?>,
+										<?= $month ?> 
+										<?= substr($row['EstartDate'], 3, 2); ?>
+										</a>
+									</li>
 									<?PHP $i++; } ?>
 								</ul>
 							</li>
@@ -219,7 +227,7 @@
 			<div class="content">
 				<?PHP //include 'updatePic.php'; ?>
 				
-				<form id="event" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+				<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 					<input type="hidden" name="submitted" id="submitted" value="1"/>
 					
 					<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
@@ -234,49 +242,48 @@
 							<!-- <img src="images/profile-img.jpg" alt="Profiles"> -->
 						</div>
 						
-						<div class="user-menu">
-							<div>
-								<div class="name">
-									<!--<h1>DJ Maxwell</h1>-->
-									<h5 for="Evename">Name of event</h5>
-									<div class="type" id="Evename">
-										<!--<div class="image"><img src="images/icon_location.png" /></div> -->
-										<input type="text" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>" maxlength="50">
-										<div class="clear"></div>
+					<div class="user-menu">
+						<div>
+							<div class="name">
+								<!--<h1>DJ Maxwell</h1>-->
+								<h5 for="Evename">Name of event</h5>
+								<div class="type" id="Evename">
+									<!--<div class="image"><img src="images/icon_location.png" /></div> -->
+									<input type="text" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>" maxlength="50">
+									<span id="eventForm_Evename_errorloc" class="error"></span>
+								</div>
+								
+								<!--<div class="info">
+									<div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
+									<div class="box"><h3>Music Event</h3></div>
+									<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
+									<div class="clear"></div>
+								</div>-->
+								
+								<div class="type">
+									<div class="container" id="">
+										<h5 for="Etype">Type of Event</h5>
+										<h5>
+											<select name="Etype">
+												<option>Please Select One</option>
+												<option value="Art">Art</option>
+												<option value="Concert">Concert</option>
+												<option value="Fair">Fair</option>
+												<option value="Social">Social</option>
+												<option value="Social">Sport</option>
+												<option value="Other">Other</option>
+											</select>
+											<span id="eventForm_Etype_errorloc" class="error"></span>
+										</h5>
 									</div>
-									
-									
-									<!--<div class="info">
-										<div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
-										<div class="box"><h3>Music Event</h3></div>
-										<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
-										<div class="clear"></div>
-									</div>-->
-									 <div class="type">
-										<div class="container" id="">
-											<h5 for="Etype">Type of Event</h5>
-											<h5>
-												<select name="Etype">
-													<option>Please Select One</option>
-													<option value="Art">Art</option>
-													<option value="Concert">Concert</option>
-													<option value="Fair">Fair</option>
-													<option value="Social">Social</option>
-													<option value="Social">Sport</option>
-													<option value="Other">Other</option>
-												</select>
-											</h5>
+									<div class="type">					
+										<div class="container" id="other">
+											<label for="Eother">Other: </label><br>
+											<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
+											<span id="eventForm_Eother_errorloc" class="error"></span>
 										</div>
-										<div class="type">					
-											<div class="container" id="other">
-												<label for="Eother">Other: </label><br>
-												<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
-												<span id="event_Eother_errorloc" class="error"></span>
-											</div>
-										</div>
-									
-									
-																	
+									</div>
+														
 									<div class="type">
 										<div class="container" id="">
 											<h5 for="Erank">Reach</h5>
@@ -287,28 +294,22 @@
 													<option value="Paid">Paid</option>
 													<option value="Premium">Premium</option>
 												</select>
+												<span id="eventForm_Erank_errorloc" class="error"></span>
 											</h5>
 										</div>
-
 									</div>
 								</div>
 								
 								<div class="reach">
-								
-
-<!-- 
-									<h3>Increase your reach!</h3>
-									<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>
- -->
+								<!--<h3>Increase your reach!</h3>
+									<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>-->
 								</div>
 								<div class="clear"></div>
 							</div>
 							<div class="saved">
-<!-- 
-								<div class="box"><h3>Saved</h3></div>
+							<!--<div class="box"><h3>Saved</h3></div>
 								<div class="box"><a href="#"><img src="images/btn_draft.png" alt="Draft" /></a></div>
-								<div class="box"><a href="#"><img src="images/btn_publish.png" alt="Draft" /></a></div>
- -->
+								<div class="box"><a href="#"><img src="images/btn_publish.png" alt="Draft" /></a></div>-->
 								<div class="clear"></div>
 							</div>
 						</div>
@@ -321,99 +322,101 @@
 							<h5 for="Edescription">description</h5>
 							<textarea onkeyup="textCounter(this,'charsLeft', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value=""></textarea>
 							<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeft" value="500"> 500 Characters Max</div>
-							<span id="event_Edescription_errorloc" class="error"></span>
+							<span id="eventForm_Edescription_errorloc" class="error"></span>
 						
 							<h5 for="Eaddress">Address</h5>
 							<div class="location" id="Eaddress">
 							   <!-- <div class="image"><img src="images/icon_location.png" /></div> -->
 								<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="" maxlength="50">
-								<div class="clear"></div>
+								<br/>
+								<span id="eventForm_Eaddress_errorloc" class="error"></span>
 							</div>
 						
 							<div class="wrap">
 								<div class="type" id="Ecity" >
 									<h5 for="Ecity">City</h5>
 										<input type="text" name="Ecity" placeholder="City" title="Enter the City of the Event" id="Ecity" value="" maxlength="50"><br>
-									<span id="event_Ecity_errorloc" class="error"></span>
+									<span id="eventForm_Ecity_errorloc" class="error"></span>
 								</div>
 								
 								<div class="type">
 									<div class="container" id="Estate">
 										<h5 for="Estate">State: </h5><br>
 										<select name="Estate" size="1">
-										<option>Select The State</option>
-										<option value="AK">AK</option>
+											<option>Select The State</option>
+											<option value="AK">AK</option>
 
-										<option value="AL">AL</option>
-										<option value="AR">AR</option>
-										<option value="AZ">AZ</option>
-										<option value="CA">CA</option>
+											<option value="AL">AL</option>
+											<option value="AR">AR</option>
+											<option value="AZ">AZ</option>
+											<option value="CA">CA</option>
 
-										<option value="CO">CO</option>
-										<option value="CT">CT</option>
-										<option value="DC">DC</option>
-										<option value="DE">DE</option>
+											<option value="CO">CO</option>
+											<option value="CT">CT</option>
+											<option value="DC">DC</option>
+											<option value="DE">DE</option>
 
-										<option value="FL">FL</option>
-										<option value="GA">GA</option>
-										<option value="HI">HI</option>
-										<option value="IA">IA</option>
+											<option value="FL">FL</option>
+											<option value="GA">GA</option>
+											<option value="HI">HI</option>
+											<option value="IA">IA</option>
 
-										<option value="ID">ID</option>
-										<option value="IL">IL</option>
-										<option value="IN">IN</option>
-										<option value="KS">KS</option>
+											<option value="ID">ID</option>
+											<option value="IL">IL</option>
+											<option value="IN">IN</option>
+											<option value="KS">KS</option>
 
-										<option value="KY">KY</option>
-										<option value="LA">LA</option>
-										<option value="MA">MA</option>
-										<option value="MD">MD</option>
+											<option value="KY">KY</option>
+											<option value="LA">LA</option>
+											<option value="MA">MA</option>
+											<option value="MD">MD</option>
 
-										<option value="ME">ME</option>
-										<option value="MI">MI</option>
-										<option value="MN">MN</option>
-										<option value="MO">MO</option>
+											<option value="ME">ME</option>
+											<option value="MI">MI</option>
+											<option value="MN">MN</option>
+											<option value="MO">MO</option>
 
-										<option value="MS">MS</option>
-										<option value="MT">MT</option>
-										<option value="NC">NC</option>
-										<option value="ND">ND</option>
+											<option value="MS">MS</option>
+											<option value="MT">MT</option>
+											<option value="NC">NC</option>
+											<option value="ND">ND</option>
 
-										<option value="NE">NE</option>
-										<option value="NH">NH</option>
-										<option value="NJ">NJ</option>
-										<option value="NM">NM</option>
+											<option value="NE">NE</option>
+											<option value="NH">NH</option>
+											<option value="NJ">NJ</option>
+											<option value="NM">NM</option>
 
-										<option value="NV">NV</option>
-										<option value="NY">NY</option>
-										<option value="OH">OH</option>
-										<option value="OK">OK</option>
+											<option value="NV">NV</option>
+											<option value="NY">NY</option>
+											<option value="OH">OH</option>
+											<option value="OK">OK</option>
 
-										<option value="OR">OR</option>
-										<option value="PA">PA</option>
-										<option value="RI">RI</option>
-										<option value="SC">SC</option>
+											<option value="OR">OR</option>
+											<option value="PA">PA</option>
+											<option value="RI">RI</option>
+											<option value="SC">SC</option>
 
-										<option value="SD">SD</option>
-										<option value="TN">TN</option>
-										<option value="TX">TX</option>
-										<option value="UT">UT</option>
+											<option value="SD">SD</option>
+											<option value="TN">TN</option>
+											<option value="TX">TX</option>
+											<option value="UT">UT</option>
 
-										<option value="VA">VA</option>
-										<option value="VT">VT</option>
-										<option value="WA">WA</option>
-										<option value="WI">WI</option>
+											<option value="VA">VA</option>
+											<option value="VT">VT</option>
+											<option value="WA">WA</option>
+											<option value="WI">WI</option>
 
-										<option value="WV">WV</option>
-										<option value="WY">WY</option>
+											<option value="WV">WV</option>
+											<option value="WY">WY</option>
 										</select>
-										</div>
+										<span id="eventForm_Estate_errorloc" class="error"></span>
+									</div>
 								</div>
 								
 								<div class="type" id="Ezip">
 									<h5 for="Ezip">ZIP</h5>
 										<input type="text" name="Ezip" placeholder="12345" title="Enter the Zip code of the Event" id="Ezip" value="" maxlength="50"><br>
-									<span id="event_Ezip_errorloc" class="error"></span>
+									<span id="eventForm_Ezip_errorloc" class="error"></span>
 								</div>						
 							</div>
 						
@@ -421,7 +424,7 @@
 								<div class="type" id="EphoneNumber" >
 									<h5 for="EphoneNumber">Phone Number</h5>
 										<input type="text" name="EphoneNumber" placeholder="1234567890" title="(e.g., " id="EphoneNumber" value="" maxlength="50"><br>
-									<span id="event_EphoneNumber_errorloc" class="error"></span>
+									<span id="eventForm_EphoneNumber_errorloc" class="error"></span>
 								</div>
 							</div>
 							
@@ -493,6 +496,7 @@
 												<option value="11:00 pm">11:00 pm</option>
 												<option value="11:30 pm">11:30 pm</option>
 											</select>
+											<span id="eventForm_EtimeStart_errorloc" class="error"></span>
 										</div>
 									</div>
 								</div>
@@ -561,6 +565,7 @@
 											<option value="11:00 pm">11:00 pm</option>
 											<option value="11:30 pm">11:30 pm</option>
 										</select>
+										<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
 									</div>
 								</div>
 							</div>
@@ -694,9 +699,9 @@
 						<div class="clear"></div>
 					</div><!--End of Form-wrap-->
 						<!--Submit Button-->
-						<div>
-							<input id="submitButton" type="submit" name="Submit" value="Create Event" />
-						</div>
+					<div>
+						<input id="submitButton" type="submit" name="Submit" value="Create Event" />
+					</div>
 				</form>
 			</div> <!-- End of content -->
 			
@@ -714,23 +719,23 @@
 		It is validating the form.-->
 		<script type="text/javascript">
 			// <![CDATA[
-			var frmvalidator = new Validator("event");
+			var frmvalidator = new Validator("eventForm");
 			frmvalidator.EnableOnPageErrorDisplay();
 			frmvalidator.EnableMsgsTogether();
 			
 			frmvalidator.addValidation("Evename",      "req", "Please fill in Event Name");
+			frmvalidator.addValidation("Etype",        "req", "Please fill in Type of Event");
+			frmvalidator.addValidation("Erank",        "req", "Please fill in the Rank");
+			frmvalidator.addValidation("Edescription", "req", "Please fill in Description");
 			frmvalidator.addValidation("Eaddress",     "req", "Please fill in address");
 			frmvalidator.addValidation("Ecity",        "req", "Please fill in City");
 			frmvalidator.addValidation("Estate",       "req", "Please fill in State");
 			frmvalidator.addValidation("Ezip",         "req", "Please fill in Zip code");
 			frmvalidator.addValidation("EphoneNumber", "req", "Please fill in Phone Number");
-			frmvalidator.addValidation("Etype",        "req", "Please fill in Type of Event");
-			frmvalidator.addValidation("EstartDate",   "req", "Please Select a Start Date");
 			frmvalidator.addValidation("EtimeStart",   "req", "Please fill in the Start Time");
 			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
+			frmvalidator.addValidation("EstartDate",   "req", "Please Select a Start Date");
 			frmvalidator.addValidation("EendDate",     "req", "Please Select an End Date");
-			frmvalidator.addValidation("Edescription", "req", "Please fill in Description");
-			frmvalidator.addValidation("Erank",        "req", "Please fill in the Rank");
 			// ]]>
 		</script>
 		
