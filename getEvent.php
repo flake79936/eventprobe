@@ -3,10 +3,8 @@
 
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
-	
 ?>
-	
-	
+
 <head>
 	<link rel="stylesheet" type="text/css" href="css/getEvent.css" />
 </head>
