@@ -388,7 +388,6 @@ class FGMembersite{
 		$formvars = array();
 
 		if(!$this->ValidateEventSubmission()){
-			echo "<h1>nothing happened</h1>";
 			return false;
 		}
 		

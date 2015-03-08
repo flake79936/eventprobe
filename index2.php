@@ -73,7 +73,7 @@
 		
 		<script>
 			$(document).ready(function(){
-				$("input").keydown(function(){
+				$("input, #concert, #fair, #sport").keydown(function(){
 					$(".my-events").hide();
 					$(".this-week").hide();
 					$(".schedule").hide();
@@ -81,23 +81,7 @@
 					$(".app").hide();
 				});
 				
-				$("#sports").click(function(){
-					$(".my-events").hide();
-					$(".this-week").hide();
-					$(".schedule").hide();
-					$(".chart").hide();
-					$(".app").hide();
-				});
-				
-				$("#concert").click(function(){
-					$(".my-events").hide();
-					$(".this-week").hide();
-					$(".schedule").hide();
-					$(".chart").hide();
-					$(".app").hide();
-				});
-				
-				$("#fair").click(function(){
+				$("#concert, #fair, #sport").click(function(){
 					$(".my-events").hide();
 					$(".this-week").hide();
 					$(".schedule").hide();
@@ -119,7 +103,7 @@
 		<div class="search">
 			<form>
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event"><br/>
-				<a id="sports" onclick="showHint('sports');"><img alt="sports" src="./images/sports40.png"/></a>
+				<a id="sport" onclick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a>
 				<a id="concert" onclick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a>
 				<a id="fair" onclick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a>
 			</form>

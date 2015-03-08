@@ -46,25 +46,22 @@ $(document).ready(function() {
 	
 	<!-- Scripts	 -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-			<script>
-					
-			function editEvent(str){
-				window.location = "./editEvent.php?eid="+str;
-			}
-		</script>
-	<!-- End of Scripts	 -->
-	
+	<script>
+		function editEvent(str){
+			window.location = "./editEvent.php?eid="+str;
+		}
+	</script>
+	<!-- End of Scripts	-->
 </head>
 	
 <?PHP
 	require_once("./include/membersite_config.php");
-		$usrname = $fgmembersite->UsrName();
-		
+	$usrname = $fgmembersite->UsrName();
+	
 	include 'dbconnect.php';
 ?>
 
 <?PHP
-
 	$today = Date("m/d/Y");
 	
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' ORDER BY EstartDate";
@@ -109,7 +106,7 @@ $(document).ready(function() {
 			}
 	?>
 		<ul>
-			<li><?= $day ?><?= substr($row['EstartDate'], 0, 5); ?></li>
+			<li><?= $day ?>&nbsp;<?= substr($row['EstartDate'], 0, 5); ?></li>
 			<li><?= $row['Evename'] ?></li> 
 			<li><?= $row['EtimeStart'] ?>-<?= $row['EtimeEnd'] ?></li>
 			<li><?PHP echo "<a onClick='editEvent(".$row['Eid'].")'> " ?> Edit Event</a></li>
