@@ -65,6 +65,15 @@ body{
 .main .content .form-wrap h5{ font-weight: bold; text-transform: uppercase; margin-bottom: 0px; }
 .main .content .form-wrap .box input{ width: 95%; border: 1px solid #999; padding: 10px; margin-bottom: 10px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 
+.main .content .form-wrap .box .error{
+	font-family: Verdana, Arial, sans-serif; 
+	font-size: 0.9em;
+	color: #900;
+	background-color : #ffff00;
+}
+
+#content #register_password_errorloc{ clear:both; }
+
 /*		Tablet Layout: 768px.
 		Gutters: 24px.
 		Outer margins: 28px.

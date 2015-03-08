@@ -41,18 +41,12 @@
         <script type="text/javascript" src="js/scripts.js"></script>
         <script type="text/javascript" src="js/picScripts.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        
-        <!--GOOGLE MAPS-->
-<!--         <script type="text/javascript" src="js/googleapis.js"></script> -->
-<!--         <script type="text/javascript" src="js/map.js"></script> -->
 		
 		<!--Other Scripts-->
-<!--         <script type="text/javascript" src="scripts/gen_validatorv31.js"></script> -->
-<!-- 		<script src="scripts/pwdwidget.js" type="text/javascript"></script> -->
-<!-- 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="./js/picScript.js"></script>
- -->
+			<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
+		
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="./js/picScript.js"></script>-->
 		
 		<!--Conflict with Bootstrap-->
 		<!--(Start) Tooltip Scripts
@@ -86,14 +80,14 @@
 
 							<h5>Last Name</h5>
 							<input type="text" placeholder="Doe" name="ULname" title="Enter your Last Name" id="ULname"  value="<?php echo $fgmembersite->SafeDisplay('ULname') ?>" maxlength="50" /><br/>
-							<span id="register_UFname_errorloc" class="error"></span>
+							<span id="register_ULname_errorloc" class="error"></span>
 							
 							<h5>Username</h5>
-							<input type="text" placeholder="JohnDoe"  name="UuserName" title="Enter your Username" id="UuserName"  value="<?php echo $fgmembersite->SafeDisplay("UuserName") ?>" maxlength="50" /><br/>
+							<input type="text" placeholder="JohnDoe" name="UuserName" title="Enter your Username" id="UuserName"  value="<?php echo $fgmembersite->SafeDisplay("UuserName") ?>" maxlength="50" /><br/>
 							<span id="register_UuserName_errorloc" class="error"></span>							
 							
 							<h5>Password</h5>
-							<input type='password'  name='UPswd' title="Enter your Password" id='UPswd' value="<?php echo $fgmembersite->SafeDisplay("UPswd") ?>" maxlength="50" />
+							<input type='password' name='UPswd' title="Enter your Password" id='UPswd' value="<?php echo $fgmembersite->SafeDisplay("UPswd") ?>" maxlength="50" />
 							<br/><span id='register_UPswd_errorloc' class='error' style='clear:both'></span>
 							
 							<h5>Confirm Password</h5>
@@ -114,16 +108,12 @@
 						</div>
 						
 						<div class="clear"></div>
-					<input id="submitButton" type="submit" name="Submit" value="submit" />
+						<input id="submitButton" type="submit" name="Submit" value="submit" />
 					</div>
 				</form>
 			</div>
 			<div class="clear"></div>
 		</div>
-		
-        <div class="app">
-			<?PHP include './app.php'; ?>
-        </div>
         
         <div class="links">
 			<?PHP include './links.php'; ?>
@@ -147,6 +137,7 @@
 		frmvalidator.addValidation("UPswd",     "req", "Please Provide a Password");
 		frmvalidator.addValidation("ConPswd",   "req", "Please Confirm Your Password");
 		frmvalidator.addValidation("Uemail",    "req", "Please Please fill in Name");
+		frmvalidator.addValidation("Uphone",    "req", "Please Provide a Valid Phone Number");
 		// ]]>
 	</script>
 	
