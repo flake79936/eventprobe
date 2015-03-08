@@ -42,7 +42,7 @@
 					$(".this-week").show();
 					$(".schedule").show();
 					$(".chart").show();
-					$(".app").show();	
+					$(".app").show();
 					return;
 				} else {
 					var xmlhttp = new XMLHttpRequest();
@@ -56,6 +56,11 @@
 				}
 			}
 			
+			/*When the '+' plus button on the chart section is clicked,
+			  it will be added to a list for the user on which they are related
+			  to them. The events are the ones the user likes and would like to 
+			  attend in the future.
+			*/
 			function addToUserTable(str) {
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
@@ -73,7 +78,7 @@
 		
 		<script>
 			$(document).ready(function(){
-				$("input, #concert, #fair, #sport").keydown(function(){
+				$("input").keydown(function(){
 					$(".my-events").hide();
 					$(".this-week").hide();
 					$(".schedule").hide();

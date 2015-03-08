@@ -4,4 +4,17 @@
 	top: 50px;
 	left: 500px;
 }
+
+.search form input{
+	width: 100%;
+	border: 1px solid #999;
+	padding: 5px;
+	margin-bottom: 5px;
+	outline: none;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	border-radius: 6px;
+}
+
 .search .box { margin: 0px 500px; }
