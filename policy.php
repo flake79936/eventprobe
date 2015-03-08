@@ -35,8 +35,8 @@
 			<?PHP include './ezTop.php';?>
 		</div>
 
-		<div class="main">
-			<div class="policy">
+		<div class="content">
+			<!--<div class="policy">-->
 				<!--Keep this below-->
 				<h3>Policy</h3>
                 	<p><strong>Eventprobe</strong> is an online service which has been established to allow users to post and comment on events.  All aspects of Eventprobe (website, mobile application, and related aspects) are owned by JET APP Development, LLC.  All postings should be free of copyright infringement and should be original to the poster.  If there is a question about the authenticity of any postings, the managers of <strong>Eventprobe</strong> will suspend and remove the post once notified in writing (see contact information below).  Furthermore, <strong>Eventprobe</strong> retains the right to remove any posts that it, in its sole discretion, deems to be offensive or harmful.  By agreeing to the terms and conditions, you acknowledge and agree to the policies and practices of <strong>Eventprobe</strong> and release its owners, managers, and affiliated companies from any liability.</p>

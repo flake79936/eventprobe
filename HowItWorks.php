@@ -34,7 +34,7 @@
         </div>
 		
         <div class="content">
-			<h4>How It Works</h4>
+			<h3>How It Works</h3>
             <p>Events are by default will be listed in descending order by date. Closest due dates at top. We have no affiliation with promoters, or organizers and our only wish is to bring true and current information to you. Events that have been boosted will always be listed first in their category because that keeps the lights on. </p>
 			<div class="clear"> </div>
         </div>
