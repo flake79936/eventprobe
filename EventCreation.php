@@ -721,7 +721,7 @@
 								
 								<div class="type" id="Etwitter" >
 									<h5 for="Etwitter">Twitter</h5>
-									<input type="text" name="Etwitter" placeholder="https://twitter.com/USERNAME" title="?" id="Etwitter" value="<?php echo $fgmembersite->SafeDisplay('Etwitter') ?>" maxlength="50"><br>
+									<input type="text" name="Etwitter" placeholder="@USERNAME" title="?" id="Etwitter" value="<?php echo $fgmembersite->SafeDisplay('Etwitter') ?>" maxlength="50"><br>
 									<span id="event_Etwitter_errorloc" class="error"></span>
 								</div>
 								
