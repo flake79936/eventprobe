@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="css/banner.css" />
         <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
         <link rel="stylesheet" type="text/css" href="css/schedule.css" />
+        <link rel="stylesheet" type="text/css" href="css/chart.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
@@ -26,98 +27,58 @@
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
         
-		<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
-		
-		<script language="Javascript"> var city = geoplugin_city(); </script>
+         <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+			<script language="Javascript"> 
+			var city = geoplugin_city();
+			</script>
 			
-		<?PHP $city = "<script>document.write(city)</script>";
-		// echo $city;
-		?>
-		
-		<script>
-			function showHint(str) {
-				if (str.length == 0) {
-//					document.getElementById("txtHint").innerHTML = "";
-					$(".my-events").show();
-					$(".this-week").show();
-					$(".schedule").show();
-					$(".chart").show();
-					$(".app").show();
-					return;
-				} else {
-					var xmlhttp = new XMLHttpRequest();
-					xmlhttp.onreadystatechange = function() {
-						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-							document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-						}
-					}
-					xmlhttp.open("GET", "getEvent.php?q=" + str, true);
-					xmlhttp.send();
+			  <?PHP $city = "<script>document.write(city)</script>";
+// 			  echo $city;
+			  ?>
+			  
+<script language="javascript" type="text/javascript">
+	function showHint(str) {
+		if (str.length == 0) {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
 				}
 			}
-			
-			/*When the '+' plus button on the chart section is clicked,
-			  it will be added to a list for the user on which they are related
-			  to them. The events are the ones the user likes and would like to 
-			  attend in the future.
-			*/
-			function addToUserTable(str) {
-				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function() {
-					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-						//document.getElementById("highlight").innerHTML = xmlhttp.responseText;
-						$(".chart .box .row .info").css({ "background": "#f05a28" });
-					}
-				}
-				xmlhttp.open("GET", "insert.php?eid=" + str, true);
-				xmlhttp.send();
-			}
-		</script>
+			xmlhttp.open("GET", "getEvent.php?q=" + str, true);
+			xmlhttp.send();
+		}
+	}
+</script>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		
 		<script>
 			$(document).ready(function(){
 				$("input").keydown(function(){
 					$(".my-events").hide();
 					$(".this-week").hide();
 					$(".schedule").hide();
-					$(".chart").hide();
-					$(".app").hide();
-				});
-				
-				$("#concert, #fair, #sport").click(function(){
-					$(".my-events").hide();
-					$(".this-week").hide();
-					$(".schedule").hide();
-					$(".chart").hide();
+					//$(".chart").hide();
 					$(".app").hide();
 				});
 			});
 		</script>
-		
-		<!--Displays by Event ID in a new page-->
-		<script>
-			function seeMoreInfo(str){
-				window.location = "./eventDisplayPage.php?eid="+str;
-			}
-		</script>
 	</head>
 	
 	<body lang="en">
-		<div class="search">
-			<form>
-				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event"><br/>
-				<a id="sport" onclick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a>
-				<a id="concert" onclick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a>
-				<a id="fair" onclick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a>
-			</form>
-		</div>
-		
     	<div class="top">
 			<?PHP include './top.php';?>
         </div>
 		
+		<div class="search">
+			<form>
+				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
+			</form>
+		</div>
+        
 		<!-- start My events      -->
 		<?PHP if($fgmembersite->CheckSession()){ ?>
 				<div class="my-events">
@@ -150,11 +111,11 @@
             <div class="clear"></div>
         </div>
         
-        <div class="chart">
+        <!--<div class="chart">
 			<?PHP include './chart.php'; ?>
-        </div>
+        </div>-->
 		
-		<div class="events" id="txtHint"></div>
+		<div class="chart" id="txtHint"></div>
         
         <div class="app">
 			<?PHP include './app.php'; ?>
@@ -167,5 +128,7 @@
         <div class="footer">
 			<?PHP include './footer.php'; ?>
         </div>
+    
 	</body>
+	
 </html>

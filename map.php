@@ -55,8 +55,8 @@
 			};
 
 			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 12,
-				center: new google.maps.LatLng(-50.92, 120.25),
+				zoom: 3,
+				center: new google.maps.LatLng(37.6, -95.665),
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 				mapTypeControl: true,
 				streetViewControl: true,
@@ -72,10 +72,11 @@
 			var markers = new Array();
 
 			var iconCounter = 0;
-
+			
 			// Add the markers and infowindows to the map
 			for (var i = 0; i < locations.length; i++) {  
 				marker = new google.maps.Marker({
+					zoom: 5,
 					position: new google.maps.LatLng(locations[i][1], locations[i][2]),
 					map: map,
 					icon : icons[iconCounter],

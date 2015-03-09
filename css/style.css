@@ -25,7 +25,7 @@ a img {border: 0;}
 /* FONTS */
 
 /* TYPOGRAPHY */
-h1{ font-size: 31px; font-weight: normal; }
+h1{ font-size: 26px; font-weight: normal; }
 h2{ font-size: 24px; font-weight: normal; }
 h3{ font-size: 18px; font-weight: normal; }
 h4{ font-size: 14px; font-weight: normal; }
@@ -68,3 +68,6 @@ px      68    160    252    344    436    */
 
 /* http://sonspring.com/journal/clearing-floats */
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
+
+.content {width: 450px;  margin: 0 0 0 40px }
+.content p {width: 450px;  margin: 25px 0 20px 0 }

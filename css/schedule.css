@@ -13,6 +13,7 @@ body{
 .schedule .today ul li .info{ position: absolute; z-index: 9; background: url(../images/bg_black.png) repeat; color: #fff; width: 17.2%; padding: 20px 0; }
 .schedule .today ul li .info .btn-cross{ width: 40px; float: right; }
 .schedule .today ul li .info .box{ padding: 0 20px; }
+.schedule .today .info .box p{ color: #FFFFFF; }
 
 /*		Tablet Layout: 768px.
 		Gutters: 24px.

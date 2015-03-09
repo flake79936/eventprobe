@@ -143,6 +143,7 @@
 									<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
 									<img src="./images/login-button.png" alt="Sign in with Facebook"></a>
 									<br>
+									<a href="./reg.php">Register</a>
 									<br>
 								</center>
 								</fieldset>
