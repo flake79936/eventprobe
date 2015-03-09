@@ -69,5 +69,6 @@ px      68    160    252    344    436    */
 /* http://sonspring.com/journal/clearing-floats */
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 
-.content {width: 450px;  margin: 0 0 0 40px }
-.content p {width: 450px;  margin: 25px 0 20px 0 }
+.content {float: left; width: 100%;  margin: 0 0 0 40px }
+.content p {float: left; width: 450px;  margin: 25px 0 20px 0 }
+.content img {float: left; margin: 25px 0 20px 0 }
