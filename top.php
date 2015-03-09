@@ -148,7 +148,13 @@
  -->
  
 	<a href="./EventCreation.php"> <img src="./images/btn_event2.png"> </a>
-	
+	<?PHP if(!$bool){ ?>
+	<a href="./loginB.php"><img src="./images/btn_login.png"></a>
+	<?PHP }
+	else {?>
+	<a href="./logout.php"> Logout </a>
+ <?PHP }?>
+ 
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>

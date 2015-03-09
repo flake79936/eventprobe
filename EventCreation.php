@@ -21,10 +21,10 @@
 	include 'dbconnect.php';
 
 	$today = Date("m/d/Y");
-	$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
+	$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
 	
 	$past = mysqli_query($con, $sql);
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' ORDER BY EstartDate";
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
 	
 	$upcoming = mysqli_query($con, $sql);
 ?>
@@ -169,7 +169,7 @@
 										  $count = 1;
 										while($row = mysqli_fetch_array($upcoming)){ ?>
 										<?=  $month='';
-<<<<<<< HEAD
+										
 									if    (substr($row['EstartDate'], 0, 2) ==='01')$month=  'Jan';
 									elseif(substr($row['EstartDate'], 0, 2) ==='02') $month= 'Feb';
 									elseif(substr($row['EstartDate'], 0, 2) ==='03')$month= 'Mar';
@@ -183,35 +183,11 @@
 									elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
 									else $month= 'Dec';?>
 									<li><img src="images/music.png" alt="Music" /><a href="#"> <?PHP echo $count;?> <?= $row['Evename'] ?>, 
-									<?=  $month
-									?> 
+									<?=  $month	?> 
 									<?=substr($row['EstartDate'], 3, 2);?></a></li>
 									<?PHP $i++;
 									      $count++; } ?>
-=======
-											if    (substr($row['EstartDate'], 0, 2) ==='01')$month= 'Jan';
-											elseif(substr($row['EstartDate'], 0, 2) ==='02')$month= 'Feb';
-											elseif(substr($row['EstartDate'], 0, 2) ==='03')$month= 'Mar';
-											elseif(substr($row['EstartDate'], 0, 2) ==='04')$month= 'Apr';
-											elseif(substr($row['EstartDate'], 0, 2) ==='05')$month= 'May';
-											elseif(substr($row['EstartDate'], 0, 2) ==='06')$month= 'Jun';
-											elseif(substr($row['EstartDate'], 0, 2) ==='07')$month= 'Jul';
-											elseif(substr($row['EstartDate'], 0, 2) ==='08')$month= 'Aug';
-											elseif(substr($row['EstartDate'], 0, 2) ==='09')$month= 'Sep';
-											elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
-											elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
-											else $month= 'Dec';
-										?>
-									<li>
-										<img src="images/music.png" alt="Music" />
-										<a href="#">
-										<?= $row['Evename'] ?>,
-										<?= $month ?> 
-										<?= substr($row['EstartDate'], 3, 2); ?>
-										</a>
-									</li>
-									<?PHP $i++; } ?>
->>>>>>> origin/master
+
 								</ul>
 							</li>
 							
@@ -285,6 +261,7 @@
 									<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
 									<div class="clear"></div>
 								</div>-->
+<!-- 
 								
 								<div class="type">
 									<div class="container">
@@ -301,7 +278,8 @@
 										<span id="eventForm_Etype_errorloc" class="error"></span>
 									</div>
 									
-<<<<<<< HEAD
+ -->
+
 									
 									<!--<div class="info">
 										<div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
@@ -330,6 +308,7 @@
 												<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
 												<span id="event_Eother_errorloc" class="error"></span>
 											</div>
+<!-- 
 =======
 									<div class="type">					
 										<div class="container" id="other">
@@ -338,6 +317,7 @@
 											<span id="eventForm_Eother_errorloc" class="error"></span>
 >>>>>>> origin/master
 										</div>
+ -->
 									</div>
 									
 									<div class="container">
