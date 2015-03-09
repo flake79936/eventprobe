@@ -38,7 +38,7 @@ body{
 
 .top .date .temp{ background: url(../images/bg_temperature.png) no-repeat right; float: left; width: 60px; height: 50px; padding: 10px 0 0 60px; font-size: 31px; color: #2e3135; }
 
-.top .profile{ float: left; width: 25%; padding: 15px 31px; }
+.top .profile{ float: left; width: 25%; padding: 45px 31px; }
 
 .top .profile h2{ float: left; color: #554e45; padding: 50px 0 0 30px; }
 .top .profile .username{ float: left; color: #554e45; padding: 10px 0 0 100px; }
