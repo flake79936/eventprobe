@@ -25,7 +25,7 @@
 		$newformat = date('m/d/Y', $_GET['date']);
 		//echo "<br/>New time format -> " . $newformat;
 		
-		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "' AND Edisplay='1';";
+		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "';";
 		$result = mysqli_query($con, $qry);
 		
 		$bool = $fgmembersite->CheckSession();
@@ -44,7 +44,7 @@
 				if ($row['Efacebook'])
 				{
 				echo "				<div class='box'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'
-									 > </div>";
+									 > </a></div>";
 				}
 				 if ($row['Ehashtag'])
 				{

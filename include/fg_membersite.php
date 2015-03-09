@@ -503,7 +503,7 @@ class FGMembersite{
 		$uName = $this->UsrName();
 
 		if($formvars['Etype'] === 'Other'){
-			$formvars['Evename']      = strtolower (  $formvars['Evename']       );
+			//$formvars['Evename']      = strtolower (  $formvars['Evename']       );
 			$formvars['Eaddress']     = strtolower (  $formvars['Eaddress']      );
 			$formvars['Ecity']        = strtolower (  $formvars['Ecity']         );
 			$formvars['Estate']       = strtolower (  $formvars['Estate']        );
@@ -563,7 +563,7 @@ class FGMembersite{
 				);';
 		} else {
 			//
-			$formvars['Evename']      = strtolower (  $formvars['Evename']       );
+// 			$formvars['Evename']      = strtolower (  $formvars['Evename']       );
 			$formvars['Eaddress']     = strtolower (  $formvars['Eaddress']      );
 			$formvars['Ecity']        = strtolower (  $formvars['Ecity']         );
 			$formvars['Estate']       = strtolower (  $formvars['Estate']        );
@@ -921,7 +921,7 @@ function upLoadUserPic(){
 		$qry = "Create Table $this->tablename2 (". 
 				"Eid INT AUTO_INCREMENT,".
 				"UuserName CHAR(255) NOT NULL,".
-				"Evename VARCHAR(26) NOT NULL,".
+				"Evename VARCHAR(255) NOT NULL,".
 				"EstartDate VARCHAR(20) NOT NULL,".
 				"EendDate VARCHAR(20) NOT NULL,".
 				"Eaddress VARCHAR(255) NOT NULL,".

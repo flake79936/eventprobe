@@ -30,7 +30,7 @@
 					<img src="images/btn_cross.png" alt="Cross" class="btn-cross"/>
 					<h1><?= $day ?></h1>
 					<p> <?= substr($row['EstartDate'], 0, 5);?>, <?= $row['EtimeStart'] ?></p>
-					<h1><?= $row['Evename'] ?></h1>
+					<h3><?= $row['Evename'] ?></h3>
 				</div>
 			</div>
 			<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />

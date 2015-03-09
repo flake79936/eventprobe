@@ -76,23 +76,7 @@
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
 			</form>
 		</div>
-<<<<<<< HEAD
-		
-    	<div class="top">
-			<?PHP include './top.php';?>
-        </div>
-        
-        <?PHP
-  		$qry = "SELECT * FROM Events WHERE Eid = '".$newEventID."' AND Edisplay='1' ;";
-		$result = mysqli_query($con, $qry);   
-		
-		while($row = mysqli_fetch_array($result)) {   
-		$i = 0 ;
-		$event = $row['Evename'];
-		$Elat  = $row['Elat'];
-		$Elong = $row['Elong'];
-=======
->>>>>>> origin/master
+
 
 		<div class="top">
 			<?PHP include './top.php';?>
@@ -101,7 +85,7 @@
 		<table width="1108" border="0">
 		
 		<?PHP
-			$qry = "SELECT * FROM Events WHERE Eid = '".$newEventID."' ;";
+			$qry = "SELECT * FROM Events WHERE Eid = '".$newEventID."' AND Edisplay='1';";
 			$result = mysqli_query($con, $qry);
 			
 			while($row = mysqli_fetch_array($result)){  
