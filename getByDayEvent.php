@@ -1,5 +1,12 @@
 <link rel="stylesheet" type="text/css" href="css/chart.css" />
 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script>
+			function seeMoreInfo(str){
+				window.location = "./eventDisplayPage.php?eid="+str;
+			}
+		</script>	
 <body>
 	<?php
 		$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
@@ -31,11 +38,11 @@
 		$bool = $fgmembersite->CheckSession();
 	?>
 	
-	<div class="box">
+	<div class="box" >
 		<?PHP
 			while($row = mysqli_fetch_array($result)) {
 				//echo "Inside the Today " . $row['EstartDate'];
-				echo "<div class='row'>";
+				echo "<div class='row' >";
 				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
@@ -50,7 +57,7 @@
 				{
 				echo "				<div class='box'>" . $row['Ehashtag'] . "</div>";
 				}
-				echo "				<div class='box'>More Info</div>";
+				echo "				<div class='box'><a onClick='seeMoreInfo(".$row['Eid'].");'>More Info</div>";
 				if($bool){
 				echo "				<div class='box'><a onClick='addToUserTable(".$row['Eid'].");'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
 				}
