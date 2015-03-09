@@ -533,7 +533,7 @@ class FGMembersite{
 						$lat = $output->results[0]->geometry->location->lat;
 						$long = $output->results[0]->geometry->location->lng;
 						
-			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Edescription, Etype, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank)
+			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Edescription, Etype, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank,Edisplay)
 				VALUES(
 					"' . $this->SanitizeForSQL($uName) . '",
 					"' . $this->SanitizeForSQL($formvars['Evename']) . '",
@@ -558,6 +558,7 @@ class FGMembersite{
 					"' . $this->SanitizeForSQL($lat)                . '",
 					"' . $this->SanitizeForSQL($long)               . '",
 					"' . $this->SanitizeForSQL($formvars['Erank']) . '",
+					"1"
 				);';
 		} else {
 			//
@@ -592,7 +593,7 @@ class FGMembersite{
 						$lat = $output->results[0]->geometry->location->lat;
 						$long = $output->results[0]->geometry->location->lng;
 
-			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Eflyer, Egoogle,EtimeStart, EtimeEnd, Elat, Elong, Erank)
+			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Eflyer, Egoogle,EtimeStart, EtimeEnd, Elat, Elong, Erank, Edisplay)
 				VALUES(
 					"' . $this->SanitizeForSQL($uName) . '",
 					"' . $this->SanitizeForSQL($formvars['Evename']) . '",
@@ -615,7 +616,8 @@ class FGMembersite{
 					"' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '",
 					"' . $this->SanitizeForSQL($lat)                . '",
 					"' . $this->SanitizeForSQL($long)               . '",
-					"' . $this->SanitizeForSQL($formvars['Erank']) . '"
+					"' . $this->SanitizeForSQL($formvars['Erank']) . '",
+					"1"
 				);';
 		}
 		
@@ -940,6 +942,7 @@ function upLoadUserPic(){
 				"Elat DECIMAL(10,6),".
 				"Elong DECIMAL(10,6),".
 				"Erank CHAR(255),".
+				"Edisplay INT(1),".
 				"PRIMARY KEY(Eid, UuserName)".
 			");";
 

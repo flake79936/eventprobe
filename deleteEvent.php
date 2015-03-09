@@ -26,7 +26,7 @@ include "dbconnect.php";
 // $con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
 $newEventID = $_GET['eid'];
 
-$sql= "DELETE FROM Events  WHERE Eid = '".$newEventID."' AND UuserName = '".$usrname."' ";
+$sql= "UPDATE Events SET Edisplay= '0'  WHERE Eid = '".$newEventID."' AND UuserName = '".$usrname."' ";
 mysqli_query($con, $sql);
 		$fgmembersite->RedirectToURL("./index.php");
 

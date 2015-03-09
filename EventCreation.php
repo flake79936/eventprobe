@@ -163,6 +163,7 @@
 								<h3>Upcoming</h3>
 								<ul>
 									<?PHP $i = 0;
+										  $count = 1;
 										while($row = mysqli_fetch_array($upcoming)){ ?>
 										<?=  $month='';
 									if    (substr($row['EstartDate'], 0, 2) ==='01')$month=  'Jan';
@@ -177,11 +178,12 @@
 									elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
 									elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
 									else $month= 'Dec';?>
-									<li><img src="images/music.png" alt="Music" /><a href="#"><?= $row['Evename'] ?>, 
+									<li><img src="images/music.png" alt="Music" /><a href="#"> <?PHP echo $count;?> <?= $row['Evename'] ?>, 
 									<?=  $month
 									?> 
 									<?=substr($row['EstartDate'], 3, 2);?></a></li>
-									<?PHP $i++; } ?>
+									<?PHP $i++;
+									      $count++; } ?>
 								</ul>
 							</li>
 							
@@ -189,6 +191,7 @@
 								<h3>Past</h3>
 								<ul>
 									 <?PHP $i = 0;
+									       $count = 1;
 										while($row = mysqli_fetch_array($past)){ ?>
 										<?=  $month='';
 									if    (substr($row['EstartDate'], 0, 2) ==='01')$month=  'Jan';
@@ -203,11 +206,12 @@
 									elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
 									elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
 									else $month= 'Dec';?>
-									<li><img src="images/music.png" alt="Music" /><a href="#"><?= $row['Evename'] ?>, 
+									<li><img src="images/music.png" alt="Music" /><a href="#"><?PHP echo $count;?> <?= $row['Evename']?>, 
 									<?=  $month
 									?> 
 									<?=substr($row['EstartDate'], 3, 2);?></a></li>
-									<?PHP $i++; } ?>
+									<?PHP $i++; 
+									      $count++; } ?>
 
 								</ul>
 							</li>
@@ -261,7 +265,7 @@
 													<option value="Art">Art</option>
 													<option value="Concert">Concert</option>
 													<option value="Fair">Fair</option>
-													<option value="Social">Social</option>
+													<option value="Festival">Festival</option>
 													<option value="Social">Sport</option>
 													<option value="Other">Other</option>
 												</select>

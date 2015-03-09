@@ -86,7 +86,7 @@
         </div>
         
         <?PHP
-  		$qry = "SELECT * FROM Events WHERE Eid = '".$newEventID."' ;";
+  		$qry = "SELECT * FROM Events WHERE Eid = '".$newEventID."' AND Edisplay='1' ;";
 		$result = mysqli_query($con, $qry);   
 		
 		while($row = mysqli_fetch_array($result)) {   

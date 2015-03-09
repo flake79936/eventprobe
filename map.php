@@ -13,7 +13,7 @@
 	date_default_timezone_set($timezone);
 	
 	$today = Date("m/d/Y");
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '". $city ."'  ORDER BY EstartDate;";
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '". $city ."' AND Edisplay='1' ORDER BY EstartDate;";
 
 	$result = mysqli_query($con, $sql);
 	

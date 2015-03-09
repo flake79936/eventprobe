@@ -73,7 +73,7 @@ $(document).ready(function()
 		var detail_ll = $("#detail_ll"+details_id).val();
 		var detail_mm = $("#detail_mm"+details_id).val();
 		
-		var dataString = 'id=' + details_id + '&Evename=' + detail_aa + '&EstartDate='+detail_bb + '&EendDate='+detail_cc + '&EphoneNumber=' + detail_dd + '&Edescription='+detail_ee + '&Etype='+detail_ff+ '&Ewebsite=' + detail_gg + '&Ehashtag='+ detail_hh + '&Efacebook=' + detail_ii + '&Etwitter=' + detail_jj + '&Egoogle='+ detail_kk + '&EtimeStart='+ detail_ll + '&EtimeEnd=' + detail_mm;
+		var dataString = 'id=' + details_id + '&Evename=' +  detail_aa + '&Edescription=' + detail_bb + '&EstartDate='+detail_cc + '&EendDate='+detail_dd + '&EtimeStart='+ detail_ee + '&EtimeEnd=' + detail_ff + '&EphoneNumber=' + detail_gg + '&Etype='+detail_hh+ '&Ewebsite=' + detail_ii + '&Ehashtag='+ detail_jj + '&Efacebook=' + detail_kk + '&Etwitter=' + detail_ll + '&Egoogle='+ detail_mm ;
 		
 		if(detail_aa != ""){
 			$.ajax(

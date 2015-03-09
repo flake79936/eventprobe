@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 	$today = Date("m/d/Y");
 	
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' ORDER BY EstartDate";
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate";
 	$result = mysqli_query($con, $sql);
 	$result2 = mysqli_query($con, $sql);
 ?> 
