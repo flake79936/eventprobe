@@ -86,7 +86,7 @@
 					$(".app").hide();
 				});
 				
-				$("#concert, #fair, #sport").click(function(){
+				$("#concert, #fair, #sport, #art").click(function(){
 					$(".my-events").hide();
 					$(".this-week").hide();
 					$(".schedule").hide();
@@ -111,6 +111,7 @@
 				<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a>
 				<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a>
 				<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a>
+				<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art35.png"/></a>
 			</form>
 		</div>
 		
