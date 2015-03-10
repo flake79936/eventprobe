@@ -1,9 +1,0 @@
-.searchAjax {
-	background: url(../images/bg_top.png) repeat-x bottom; 
-	position: absolute;
-	top: 50px;
-	left: 500px;
-}
-.searchAjax .ajax { /*margin: 0px 500px; width: 50%;*/ border: 1px solid #999; padding: 10px; /*margin-bottom: 43px; margin-top: 40px;*/ outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
-
-
