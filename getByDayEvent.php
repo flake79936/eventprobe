@@ -52,6 +52,16 @@
 				{
 				echo "				<div class='box'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'
 									 > </a></div>";
+				}				
+				if ($row['Etwitter'])
+				{
+				echo "				<div class='box'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'  > <img src='images/btn_twitter.png'
+									 > </a></div>";
+				}
+				if ($row['Egoogle'])
+				{
+				echo "				<div class='box'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/btn_google.png'
+									 > </a></div>";
 				}
 				 if ($row['Ehashtag'])
 				{

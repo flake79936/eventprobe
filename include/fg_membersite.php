@@ -504,15 +504,15 @@ class FGMembersite{
 
 		if($formvars['Etype'] === 'Other'){
 			//$formvars['Evename']      = strtolower (  $formvars['Evename']       );
-			$formvars['Eaddress']     = strtolower (  $formvars['Eaddress']      );
-			$formvars['Ecity']        = strtolower (  $formvars['Ecity']         );
-			$formvars['Estate']       = strtolower (  $formvars['Estate']        );
-			$formvars['Edescription'] = strtolower (  $formvars['Edescription']  );
-			$formvars['Ewebsite']     = strtolower (  $formvars['Ewebsite']      );
-			$formvars['Ehashtag']     = strtolower (  $formvars['Ehashtag']      );
-			$formvars['Efacebook']    = strtolower (  $formvars['Efacebook']     );
-			$formvars['Etwitter']     = strtolower (  $formvars['Etwitter']      );
-			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
+// 			$formvars['Eaddress']     = strtolower (  $formvars['Eaddress']      );
+// 			$formvars['Ecity']        = strtolower (  $formvars['Ecity']         );
+// 			$formvars['Estate']       = strtolower (  $formvars['Estate']        );
+// 			$formvars['Edescription'] = strtolower (  $formvars['Edescription']  );
+// 			$formvars['Ewebsite']     = strtolower (  $formvars['Ewebsite']      );
+// 			$formvars['Ehashtag']     = strtolower (  $formvars['Ehashtag']      );
+// 			$formvars['Efacebook']    = strtolower (  $formvars['Efacebook']     );
+// 			$formvars['Etwitter']     = strtolower (  $formvars['Etwitter']      );
+// 			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
 			$formvars['Eother']       = strtolower (  $formvars['Eother']        );
 			$formvars['EtimeStart']   = strtolower (  $formvars['EtimeStart']    );
 			$formvars['EtimeEnd']     = strtolower (  $formvars['EtimeEnd']    );
@@ -564,15 +564,15 @@ class FGMembersite{
 		} else {
 			//
 // 			$formvars['Evename']      = strtolower (  $formvars['Evename']       );
-			$formvars['Eaddress']     = strtolower (  $formvars['Eaddress']      );
-			$formvars['Ecity']        = strtolower (  $formvars['Ecity']         );
-			$formvars['Estate']       = strtolower (  $formvars['Estate']        );
-			$formvars['Edescription'] = strtolower (  $formvars['Edescription']  );
-			$formvars['Ewebsite']     = strtolower (  $formvars['Ewebsite']      );
-			$formvars['Ehashtag']     = strtolower (  $formvars['Ehashtag']      );
-			$formvars['Efacebook']    = strtolower (  $formvars['Efacebook']     );
-			$formvars['Etwitter']     = strtolower (  $formvars['Etwitter']      );
-			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
+// 			$formvars['Eaddress']     = strtolower (  $formvars['Eaddress']      );
+// 			$formvars['Ecity']        = strtolower (  $formvars['Ecity']         );
+// 			$formvars['Estate']       = strtolower (  $formvars['Estate']        );
+// 			$formvars['Edescription'] = strtolower (  $formvars['Edescription']  );
+// 			$formvars['Ewebsite']     = strtolower (  $formvars['Ewebsite']      );
+// 			$formvars['Ehashtag']     = strtolower (  $formvars['Ehashtag']      );
+// 			$formvars['Efacebook']    = strtolower (  $formvars['Efacebook']     );
+// 			$formvars['Etwitter']     = strtolower (  $formvars['Etwitter']      );
+// 			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
 			$formvars['Eother']       = strtolower (  $formvars['Eother']        );
 			$formvars['EtimeStart']   = strtolower (  $formvars['EtimeStart']    );
 			$formvars['EtimeEnd']     = strtolower (  $formvars['EtimeEnd']      );

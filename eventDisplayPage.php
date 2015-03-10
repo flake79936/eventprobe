@@ -226,7 +226,7 @@
 							</a>
 						<?PHP } ?></td>
 					<td><?PHP if ($row['Etwitter']){ ?>
-							<a href="<?= $row['Etwitter'] ?>" target="_blank">
+							<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
 								<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
 							</a>
 						<?PHP } ?></td>
