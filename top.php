@@ -9,9 +9,7 @@
 	
 	$bool = $fgmembersite->CheckSession();
 	$usrname = $fgmembersite->UsrName();
-?>
-
-<head>
+?><head>
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,11 +17,9 @@
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 
-<div class="logo">
-	<a href="./index.php">
-		<img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
-	</a>
-</div>
+
+
+<div class="logo"><a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a></div>
 
 <div class="date">
 <!-- 
@@ -152,7 +148,7 @@
 	<a href="./loginB.php"><img src="./images/btn_login.png"></a>
 	<?PHP }
 	else {?>
-	<a href="./logout.php"> Logout </a>
+	<a href="./logout.php"><img src="./images/btn_logout.png"></a>
  <?PHP }?>
  
 	<div class="clear"></div>
