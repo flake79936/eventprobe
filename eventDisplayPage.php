@@ -117,7 +117,7 @@
 				<tr>
 					<td><h2><?= $row['EstartDate'] ?><br><?= $row['EtimeStart'] ?> to <?= $row['EtimeEnd'] ?> </h2></td>
 					<td>&nbsp;</td>
-					<td colspan="7"><h1><?= $row['Edescription'] ?></h1></td>
+					<td colspan="7"><h4><?= $row['Edescription'] ?></h4></td>
 				</tr>
 				<tr>
 					<td rowspan="13"><img src= <?= $row['Eflyer'] ?> width="400px" height="300px"  ></td>
