@@ -32,7 +32,7 @@
 		$newformat = date('m/d/Y', $_GET['date']);
 		//echo "<br/>New time format -> " . $newformat;
 		
-		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "';";
+		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "' AND Edisplay='1' ;";
 		$result = mysqli_query($con, $qry);
 		
 		$bool = $fgmembersite->CheckSession();
@@ -65,7 +65,8 @@
 				}
 				 if ($row['Ehashtag'])
 				{
-				echo "				<div class='box'>" . $row['Ehashtag'] . "</div>";
+				echo "				<div class='box'><a href=https://instagram.com/" . $row['Ehashtag'] . " target='_blank'  > <img src='images/icon_instagram2.png'
+									 > </a></div>";
 				}
 				echo "				<div class='box'><a onClick='seeMoreInfo(".$row['Eid'].");'>More Info</div>";
 				if($bool){
