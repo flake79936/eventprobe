@@ -231,13 +231,13 @@
 							</a>
 						<?PHP } ?></td>
 					<td><?PHP if ($row['Egoogle']){ ?>
-							<a href="<?= $row['Egoogle'] ?>">
+							<a href="<?= $row['Egoogle'] ?>" target="_blank">
 								<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
 							</a>
 						<?PHP } ?></td>
 						<td><?PHP if ($row['Ehashtag']){ ?>
-							<a href="https://instagram.com/<?= $row['Ehashtag'] ?>">
-								<img src="images/icon_instagram2.png" onMouseOver="this.src='images/icon_instagram2.png'" onMouseOut="this.src='iimages/icon_instagram2.png'" alt="Google" />
+							<a href="https://instagram.com/<?= $row['Ehashtag'] ?>" target="_blank">
+								<img src="images/icon_instagram2.png" onMouseOver="this.src='images/icon_instagram2.png'" onMouseOut="this.src='images/icon_instagram2.png'" alt="Hashtag" />
 							</a>
 						<?PHP } ?></td>
 				</tr>
