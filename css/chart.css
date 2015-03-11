@@ -5,7 +5,7 @@ body{
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 }
 
-.chart .box{ float: left; width: 70%; }
+.chart .box{ float: left; width: 100%; }
 .chart .box .title{ padding: 15px 30px; }
 .chart .box .title h1{ float: left; color: #323438; }
 .chart .box .title a{ float: right; }
