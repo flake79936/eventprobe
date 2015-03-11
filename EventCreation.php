@@ -721,13 +721,13 @@
 								
 								<div class="type" id="Etwitter" >
 									<h5 for="Etwitter">Twitter</h5>
-									<input type="text" name="Etwitter" placeholder="@USERNAME" title="?" id="Etwitter" value="<?php echo $fgmembersite->SafeDisplay('Etwitter') ?>" maxlength="50"><br>
+									<input type="text" name="Etwitter" placeholder="USERNAME" title="?" id="Etwitter" value="<?php echo $fgmembersite->SafeDisplay('Etwitter') ?>" maxlength="50"><br>
 									<span id="event_Etwitter_errorloc" class="error"></span>
 								</div>
 								
 								<div class="type" id="Ehashtag" />
 									<h5 for="Ehashtag">Hashtag</h5>
-									<input type="text" name="Ehashtag" placeholder="https://instagram.com/USERNAME" title="#hello" id="Ehashtag" value="<?php echo $fgmembersite->SafeDisplay('Ehashtag') ?>" maxlength="50"><br>
+									<input type="text" name="Ehashtag" placeholder="USERNAME" title="#hello" id="Ehashtag" value="<?php echo $fgmembersite->SafeDisplay('Ehashtag') ?>" maxlength="50"><br>
 									<span id="event_Ehashtag_errorloc" class="error"></span>
 								</div>
 							</div>
