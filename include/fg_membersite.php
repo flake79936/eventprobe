@@ -66,7 +66,6 @@ class FGMembersite{
     }
     /*----(End) Initialization----*/
 	
-	
     //----Main Operations-------
 	/*----(Start) Registration of User----*/
 	function RegisterUser(){
@@ -868,7 +867,9 @@ class FGMembersite{
     }
 	
 	/*----(End) User Management----*/
-		//nothing in here yet
+	function updateEvent(){
+		
+	}
 	/*----(Start) User Management----*/
 	
 	/*----(Start) Login information/Methods----*/

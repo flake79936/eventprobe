@@ -11,12 +11,6 @@
 	if($fgmembersite->CheckSession()){
 		$usrname = $fgmembersite->UsrName();  
 	}
-	
-	if(isset($_POST["submitted"])){
-		if($fgmembersite->updateEvent()){
-			$fgmembersite->RedirectToURL("event_thank_you.php");
-		}
-	}
 
 	//$today = Date("m/d/Y");
 	//$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
@@ -26,6 +20,12 @@
 	
 	//$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
 	//$upcoming = mysqli_query($con, $sql);
+	
+	if(isset($_POST["submitted"])){
+		if($fgmembersite->updateEvent()){
+			$fgmembersite->RedirectToURL("./event_thank_you.php?edi=" . $_GET['eid']);
+		}
+	}
 ?>
 
 <html lang="en">

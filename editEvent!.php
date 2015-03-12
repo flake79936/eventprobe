@@ -43,13 +43,12 @@
 				$("input").keydown(function(){
 // 					$(".links").hide();
 // 					$(".footer").hide();
-
 				});
 			});
 		</script>
-			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script>
-					
 			function deleteEvent(str){
 				window.location = "./deleteEvent.php?eid="+str;
 			}
@@ -75,16 +74,6 @@
 
 <font style="font-family:Verdana, Geneva, sans-serif; font-size:12px; color:black;">Press the <b>Enter Key</b> on your computer keyboard to have your changes saved.</font><br clear="all" /><br clear="all" />
 <br clear="all" />
-
-
-
-
-
-
-
-
-
-
 
 <center>
 <div class="vpb_main_wrapper" align="left">
@@ -137,9 +126,7 @@ while($row = mysqli_fetch_array($result))
 
 
 ?>
-<div id="id<?php echo $user_id; ?>" style="padding:8px;padding-top:12px;padding-bottom:12px;
- float:left; cursor:pointer;" class="vasplus_live_edit_area" 
- onClick="vasplus_live_edit_area(<?php echo $user_id; ?>);" align="left">
+<div id="id<?php echo $user_id; ?>" style="padding:8px;padding-top:12px;padding-bottom:12px; float:left; cursor:pointer;" class="vasplus_live_edit_area"  onClick="vasplus_live_edit_area(<?php echo $user_id; ?>);" align="left">
 
 		<div style="width:10%;float:left;">
 	<span id="detail_a<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Evename; ?></span>
@@ -192,9 +179,6 @@ while($row = mysqli_fetch_array($result))
 	 style="display:none;width:100%;" />
 	</div>
 	
-
-	
-	
 		<div style="width:5%;float:left;">
 	<div style="overflow: hidden" id="detail_h<?php echo $user_id; ?>" class="vasplus_live_content"><?php echo $Etype; ?></div>
 	<input type="text" value="<?php echo $Etype; ?>" 
@@ -239,10 +223,6 @@ while($row = mysqli_fetch_array($result))
 
 
 </div><br clear="all">
-
-
-
-
 </div><br clear="all">
 </center>
 <?PHP echo "<a onClick='deleteEvent(".$row['Eid'].")'> " ?> Delete Event</a>
@@ -265,8 +245,5 @@ while($row = mysqli_fetch_array($result))
         <div class="footer">
 			<?PHP include './footer.php'; ?>
         </div>
-
 </body>
-
-
 </html>
