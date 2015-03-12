@@ -23,7 +23,7 @@
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->updateEvent()){
-			$fgmembersite->RedirectToURL("./event_thank_you.php?edi=" . $_GET['eid']);
+			$fgmembersite->RedirectToURL("./editEvent.php?edi=" . $_GET['eid']);
 		}
 	}
 ?>
@@ -206,6 +206,7 @@
 				<div class="content">
 					<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 						<input type="hidden" name="submitted" id="submitted" value="1"/>
+						<input type="hidden" name="Eid" id="Eid" value=" <?PHP echo $row['Eid'];?> "/>
 						
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					
@@ -214,7 +215,7 @@
 							<div class="user-profile">
 								<div class="update-image">
 									<!--added the 'value' to reflect the value from the DB based on the 'Eid' (event id)-->
-									<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" />
+									<input id="uploadImage" value="<?php echo $row['Eflyer']; ?>" type="file" name="Eflyer" onchange="PreviewImage();" />
 									<br>
 									<span id="eventForm_Eflyer_errorloc" class="error"></span>
 								</div>

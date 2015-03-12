@@ -826,8 +826,214 @@ class FGMembersite{
 	*  
 	*/
 	function updateEvent(){
+		if(!isset($_POST['submitted'])){
+			return false;
+		}
 		
+		$formvars = array();
+
+		if(!$this->ValidateUpdatedSubmission()){
+			return false;
+		}
+		
+		$itemPicture = $this->upLoadPic();
+		if($itemPicture != false){
+			$formvars['Eflyer'] = $this->upLoadPic();
+		}
+		
+		$this->CollectUpdatedSubmission($formvars);
+		
+		if(!$this->updateEventInDatabase($formvars)){
+			return false;
+		}
+		
+		return true;
 	}
+	
+	/* Added by Eduardo Corral
+	*  
+	*/
+	function ValidateUpdatedSubmission(){
+		//This is a hidden input field. Humans won't fill this field.
+		if(!empty($_POST[$this->GetSpamTrapInputName()]) ){
+			//The proper error is not given intentionally
+			$this->HandleError("Automated submission prevention");
+			return false;
+		}
+
+		$validator = new FormValidator();
+		$validator->addValidation("Evename",      "req", "Please fill in Event Name");
+		$validator->addValidation("Eaddress",     "req", "Please fill in address");
+		$validator->addValidation("Ecity",        "req", "Please fill in City");
+		$validator->addValidation("Estate",       "req", "Please fill in State");
+		$validator->addValidation("Ezip",         "req", "Please fill in Zip code");
+		$validator->addValidation("EphoneNumber", "req", "Please fill in Phone Number");
+		$validator->addValidation("Etype",        "req", "Please fill in Type of Event");
+		$validator->addValidation("EstartDate",   "req", "Please Select a Start Date");
+		$validator->addValidation("EtimeStart",   "req", "Please fill in the Start Time");
+		$validator->addValidation("EtimeEnd",     "req", "Please fill in the End Time");
+		$validator->addValidation("EendDate",     "req", "Please Select an End Date");
+		$validator->addValidation("Edescription", "req", "Please fill in Description");
+
+		if(!$validator->ValidateForm()){
+			$error='';
+			$error_hash = $validator->GetErrors();
+			foreach($error_hash as $inpname => $inp_err){
+				$error .= $inpname.':'.$inp_err."\n";
+			}
+			$this->HandleError($error);
+			return false;
+		}        
+		return true;
+	}
+	
+	/* Added by Eduardo Corral
+	*  Collects all the fields of the form.
+	*/
+	function CollectUpdatedSubmission(&$formvars){
+		$formvars['Eid']          = $this->Sanitize($_POST['Eid']);
+		$formvars['Evename']      = $this->Sanitize($_POST['Evename']);
+		$formvars['EstartDate']   = $this->Sanitize($_POST['EstartDate']);
+		$formvars['EendDate']     = $this->Sanitize($_POST['EendDate']);
+		$formvars['Eaddress']     = $this->Sanitize($_POST['Eaddress']);
+		$formvars['Ecity']        = $this->Sanitize($_POST['Ecity']);
+		$formvars['Estate']       = $this->Sanitize($_POST['Estate']);
+		$formvars['Ezip']         = $this->Sanitize($_POST['Ezip']);
+		$formvars['EphoneNumber'] = $this->Sanitize($_POST['EphoneNumber']);
+		$formvars['Edescription'] = $this->Sanitize($_POST['Edescription']);
+		$formvars['Etype']        = $this->Sanitize($_POST['Etype']);
+		$formvars['Ewebsite']     = $this->Sanitize($_POST['Ewebsite']);
+		$formvars['Ehashtag']     = $this->Sanitize($_POST['Ehashtag']);
+		$formvars['Efacebook']    = $this->Sanitize($_POST['Efacebook']);
+		$formvars['Etwitter']     = $this->Sanitize($_POST['Etwitter']);
+		$formvars['Egoogle']      = $this->Sanitize($_POST['Egoogle']);
+		$formvars['EtimeStart']   = $this->Sanitize($_POST['EtimeStart']);
+		$formvars['EtimeEnd']     = $this->Sanitize($_POST['EtimeEnd']);
+		$formvars['Eother']       = $this->Sanitize($_POST['Eother']);
+		$formvars['Erank']        = $this->Sanitize($_POST['Erank']);
+	}
+	
+	/* Added by Eduardo Corral
+	*  
+	*/
+	function updateEventInDatabase(&$formvars){
+		if(!$this->DBLogin()){
+			$this->HandleError("Database login failed!");
+			return false;
+		}
+
+		if(!$this->EnsureEventTable()){
+			return false;
+		}
+
+		if(!$this->updateEventTable($formvars)){
+			$this->HandleError("Inserting to Database failed!");
+			return false;
+		}
+		return true;
+	}
+	
+	/* This function will update the events table */
+	function updateEventTable(&$formvars){
+        //$confirmcode = $this->MakeConfirmationMd5($formvars['email']);
+        
+        //$formvars['confirmcode'] = $confirmcode;
+		
+		$uName = $this->UsrName();
+		
+		/* Address manipulation--------Start
+		 * This portion is where we manipulate the address.
+		 * Sends it to Google services to get the Latitude and Longitude of the address.
+		 */
+		$address = $formvars['Eaddress'] . ", " . $formvars['Ecity'] . ", " . $formvars['Estate'] . " " . $formvars['Ezip'];
+		$expression = "/\s/";
+		$replace = "+";
+
+		$street = preg_replace($expression, $replace, $address);
+		$prepAddr = str_replace(' ', '+', $street);
+		$geocode = file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+		$output = json_decode($geocode);
+		/*Address manipulation--------End*/
+		
+		/*Returns the coordinates of the address.*/
+		$lat  = $output->results[0]->geometry->location->lat;
+		$long = $output->results[0]->geometry->location->lng;
+		
+		/* If the option from the drop down in the form is 'Other'
+		 * Then we use this option that allows to insert the other typed by the user.
+		 */
+		if($formvars['Etype'] === 'Other'){
+			$formvars['Eother']     = strtolower($formvars['Eother']);
+			$formvars['EtimeStart'] = strtolower($formvars['EtimeStart']);
+			$formvars['EtimeEnd']   = strtolower($formvars['EtimeEnd']);
+			$formvars['Erank']      = strtolower($formvars['Erank']);
+			
+			$insert_query = 
+			'UPDATE ' . $this->tablename2 . ' SET '
+			. 'UuserName = ' . $this->SanitizeForSQL($uName) . ' , ' 
+			. 'Evename = ' . $this->SanitizeForSQL($formvars['Evename']) . ' , ' 
+			. 'EstartDate = ' . $this->SanitizeForSQL($formvars['EstartDate']) . ' , ' 
+			. 'EendDate = ' . $this->SanitizeForSQL($formvars['EendDate']) . ' , ' 
+			. 'Eaddress = ' . $this->SanitizeForSQL($formvars['Eaddress']) . ' , ' 
+			. 'Ecity = ' . $this->SanitizeForSQL($formvars['Ecity']) . ' , ' 
+			. 'Estate = ' . $this->SanitizeForSQL($formvars['Estate']) . ' , ' 
+			. 'Ezip = ' . $this->SanitizeForSQL($formvars['Ezip']) . ' , ' 
+			. 'EphoneNumber = ' . $this->SanitizeForSQL($formvars['EphoneNumber']) . ' , ' 
+			. 'Edescription = ' . $this->SanitizeForSQL($formvars['Edescription']) . ' , ' 
+			. 'Etype = ' . $this->SanitizeForSQL($formvars['Etype']) . ' , ' 
+			. 'Ewebsite = ' . $this->SanitizeForSQL($formvars['Ewebsite']) . ' , ' 
+			. 'Ehashtag = ' . $this->SanitizeForSQL($formvars['Ehashtag']) . ' , ' 
+			. 'Efacebook = ' . $this->SanitizeForSQL($formvars['Efacebook']) . ' , ' 
+			. 'Etwitter = ' . $this->SanitizeForSQL($formvars['Etwitter']) . ' , ' 
+			. 'Egoogle = ' . $this->SanitizeForSQL($formvars['Egoogle']) . ' , ' 
+			. 'Eflyer = ' . $this->SanitizeForSQL($formvars['Eflyer']) . ' , ' 
+			. 'Eother = ' . $this->SanitizeForSQL($formvars['Eother']) . ' , ' 
+			. 'EtimeStart = ' . $this->SanitizeForSQL($formvars['EtimeStart']) . ' , ' 
+			. 'EtimeEnd = ' . $this->SanitizeForSQL($formvars['EtimeEnd']) . ' , ' 
+			. 'Elat = ' . $this->SanitizeForSQL($lat) . ' , ' 
+			. 'Elong = ' . $this->SanitizeForSQL($long) . ' , ' 
+			. 'Erank = ' . $this->SanitizeForSQL($formvars['Erank']) . ' , ' 
+			. 'WHERE Eid = ' . $this->SanitizeForSQL($formvars['Eid']);
+		
+		} else {
+			$formvars['Eother']     = strtolower($formvars['Eother']);
+			$formvars['EtimeStart'] = strtolower($formvars['EtimeStart']);
+			$formvars['EtimeEnd']   = strtolower($formvars['EtimeEnd']);
+			$formvars['Erank']      = strtolower($formvars['Erank']);
+			
+			$insert_query = 
+				'UPDATE ' . $this->tablename2 . ' SET '
+				. 'UuserName = ' . $this->SanitizeForSQL($uName) . ' , ' 
+				. 'Evename = ' . $this->SanitizeForSQL($formvars['Evename']) . ' , ' 
+				. 'EstartDate = ' . $this->SanitizeForSQL($formvars['EstartDate']) . ' , ' 
+				. 'EendDate = ' . $this->SanitizeForSQL($formvars['EendDate']) . ' , ' 
+				. 'Eaddress = ' . $this->SanitizeForSQL($formvars['Eaddress']) . ' , ' 
+				. 'Ecity = ' . $this->SanitizeForSQL($formvars['Ecity']) . ' , ' 
+				. 'Estate = ' . $this->SanitizeForSQL($formvars['Estate']) . ' , ' 
+				. 'Ezip = ' . $this->SanitizeForSQL($formvars['Ezip']) . ' , ' 
+				. 'EphoneNumber = ' . $this->SanitizeForSQL($formvars['EphoneNumber']) . ' , ' 
+				. 'Edescription = ' . $this->SanitizeForSQL($formvars['Edescription']) . ' , ' 
+				. 'Etype = ' . $this->SanitizeForSQL($formvars['Etype']) . ' , ' 
+				. 'Ewebsite = ' . $this->SanitizeForSQL($formvars['Ewebsite']) . ' , ' 
+				. 'Ehashtag = ' . $this->SanitizeForSQL($formvars['Ehashtag']) . ' , ' 
+				. 'Efacebook = ' . $this->SanitizeForSQL($formvars['Efacebook']) . ' , ' 
+				. 'Etwitter = ' . $this->SanitizeForSQL($formvars['Etwitter']) . ' , ' 
+				. 'Egoogle = ' . $this->SanitizeForSQL($formvars['Egoogle']) . ' , ' 
+				. 'Eflyer = ' . $this->SanitizeForSQL($formvars['Eflyer']) . ' , ' 
+				. 'EtimeStart = ' . $this->SanitizeForSQL($formvars['EtimeStart']) . ' , ' 
+				. 'EtimeEnd = ' . $this->SanitizeForSQL($formvars['EtimeEnd']) . ' , ' 
+				. 'Elat = ' . $this->SanitizeForSQL($lat) . ' , ' 
+				. 'Elong = ' . $this->SanitizeForSQL($long) . ' , ' 
+				. 'Erank = ' . $this->SanitizeForSQL($formvars['Erank']) . ' , ' 
+				. 'WHERE Eid = ' . $this->SanitizeForSQL($formvars['Eid']);
+		}
+		
+        if(!mysql_query($insert_query, $this->connection)){
+            $this->HandleDBError("Error inserting data to the table\nquery: $insert_query");
+            return false;
+        }
+		return true;
+    }
 	
 	/*Added by Eduardo Corral.
 	  This function will delete the event based on the ID the function has 
