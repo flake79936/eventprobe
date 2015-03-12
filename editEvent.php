@@ -3,10 +3,10 @@
 	include 'dbconnect.php';
 	
 	/*This part ckecks whether there is a session or not.*/
-	if(!$fgmembersite->CheckSession()){
+	/*if(!$fgmembersite->CheckSession()){
 		$fgmembersite->RedirectToURL("loginB.php");
 		exit;
-	}
+	}*/
 	
 	if($fgmembersite->CheckSession()){
 		$usrname = $fgmembersite->UsrName();  
@@ -214,7 +214,7 @@
 							<div class="user-profile">
 								<div class="update-image">
 									<!--added the 'value' to reflect the value from the DB based on the 'Eid' (event id)-->
-									<input id="uploadImage" type="file" value="<?php echo $username; ?>" name="Eflyer" onchange="PreviewImage();" />
+									<input id="uploadImage" type="file" value="<?php echo $row['Epic']; ?>" name="Eflyer" onchange="PreviewImage();" />
 									<br>
 									<span id="eventForm_Eflyer_errorloc" class="error"></span>
 								</div>
@@ -229,14 +229,14 @@
 									<h5 for="Evename">Name of event</h5>
 									<div class="type" id="Evename">
 										<!--<div class="image"><img src="images/icon_location.png" /></div> -->
-										<input type="text" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>" maxlength="50">
+										<input type="text" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $row['Evename']; ?>" maxlength="50">
 										<span id="eventForm_Evename_errorloc" class="error"></span>
 									</div>
 									
 									<div class="type">
 										<div class="container">
 											<h5 for="Etype">Type of Event</h5>
-											<select name="Etype" id="Etype">
+											<select name="Etype" id="Etype" value="<?php echo $row['Evename']; ?>">
 												<option value="" disabled selected>Please Select a Type</option>
 												<option value="Art">Art</option>
 												<option value="Concert">Concert</option>
@@ -252,14 +252,14 @@
 									<div class="type">					
 										<div class="container" id="other">
 											<label for="Eother">Other: </label><br>
-											<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
+											<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $row['Evename']; ?>" maxlength="50"><br>
 											<span id="event_Eother_errorloc" class="error"></span>
 										</div>
 									</div>
 									
 									<div class="container">
 										<h5 for="Erank">Reach</h5>
-										<select name="Erank" id="Erank">
+										<select name="Erank" id="Erank" value="<?PHP echo $row['Erank']; ?>">
 											<option value="" disabled selected>Please Select a Rank</option>
 											<option value="Free">Free</option>
 											<option value="Paid">Paid</option>
@@ -274,6 +274,7 @@
 									</div>
 									<div class="clear"></div>
 								</div>
+								
 								<div class="saved">
 								<!--<div class="box"><h3>Saved</h3></div>
 									<div class="box"><a href="#"><img src="images/btn_draft.png" alt="Draft" /></a></div>
@@ -288,14 +289,14 @@
 						<div class="form-wrap">
 							<div class="box">
 								<h5 for="Edescription">Description</h5>
-								<textarea onkeyup="textCounter(this,'charsLeft', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value=""></textarea>
+								<textarea onkeyup="textCounter(this,'charsLeft', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value="<?PHP echo $row['Edescription']; ?>"></textarea>
 								<div style="color: red; font-size: 12pt; font-style: italic; margin-bottom: 5px;" id="charsLeft" value="500"> 500 Characters Max</div>
 								<span id="eventForm_Edescription_errorloc" class="error"></span>
 							
 								<h5 for="Eaddress">Address</h5>
 								<div class="location" id="Eaddress">
 								   <!-- <div class="image"><img src="images/icon_location.png" /></div> -->
-									<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="" maxlength="50">
+									<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="<?PHP echo $row['Eaddress']; ?>" maxlength="50">
 									<br>
 									<span id="eventForm_Eaddress_errorloc" class="error"></span>
 								</div>
@@ -303,14 +304,14 @@
 								<div class="wrap">
 									<div class="type" id="Ecity" >
 										<h5 for="Ecity">City</h5>
-											<input type="text" name="Ecity" placeholder="City" title="Enter the City of the Event" id="Ecity" value="" maxlength="50"><br>
+											<input type="text" name="Ecity" placeholder="City" title="Enter the City of the Event" id="Ecity" value="<?PHP echo $row['Ecity']; ?>" maxlength="50"><br>
 										<span id="eventForm_Ecity_errorloc" class="error"></span>
 									</div>
 									
 									<div class="type">
 										<div class="container" id="Estate">
 											<h5 for="Estate">State</h5>
-											<select name="Estate" size="1">
+											<select name="Estate" size="1" value="<?PHP echo $row['Estate']; ?>">
 												<option value="" disabled selected>Select The State</option>
 												<option value="AK">AK</option>
 
@@ -384,7 +385,7 @@
 									
 									<div class="type" id="Ezip">
 										<h5 for="Ezip">ZIP</h5>
-											<input type="text" name="Ezip" placeholder="12345" title="Enter the Zip code of the Event" id="Ezip" value="" maxlength="50"><br>
+											<input type="text" name="Ezip" placeholder="12345" title="Enter the Zip code of the Event" id="Ezip" value="<?PHP echo $row['Ezip']; ?>" maxlength="50"><br>
 										<span id="eventForm_Ezip_errorloc" class="error"></span>
 									</div>						
 								</div>
@@ -392,7 +393,7 @@
 								<div class="wrap">
 									<div class="type" id="EphoneNumber" >
 										<h5 for="EphoneNumber">Phone Number</h5>
-											<input type="text" name="EphoneNumber" placeholder="1234567890" title="(e.g., " id="EphoneNumber" value="" maxlength="50"><br>
+											<input type="text" name="EphoneNumber" placeholder="1234567890" title="(e.g., " id="EphoneNumber" value="<?PHP echo $row['EphoneNumber']; ?>" maxlength="50"><br>
 										<span id="eventForm_EphoneNumber_errorloc" class="error"></span>
 									</div>
 								</div>
@@ -405,7 +406,7 @@
 										<div class="container" id="EtimeStart">
 											<div class="container" id="">
 												<h5 for="EtimeStart">Start Time</h5>
-												<select name="EtimeStart" size="1">
+												<select name="EtimeStart" size="1" value="<?PHP echo $row['EtimeStart']; ?>">
 													<option value="" disabled selected>Select Start Time</option>
 													<option value="12:00 am">12:00 am</option>
 
@@ -475,7 +476,7 @@
 									<div class="type">
 										<div class="container" id="EtimeEnd">
 											<h5 for="EtimeEnd">End Time</h5>
-											<select name="EtimeEnd" size="1">
+											<select name="EtimeEnd" size="1" value="<?PHP echo $row['EtimeEnd']; ?>">
 												<option value="" disabled selected>Select End Time</option>
 												<option value="12:00 am">12:00 am</option>
 
@@ -548,7 +549,7 @@
 										<!--Start Date picker-->
 										<div class="container" id="">
 											<h5 for="EstartDate">Start Date</h5>
-											<input type="text" name="EstartDate" placeholder="12/22/2015" title="Pick Start Date" id="EstartDate" value="" maxlength="50"><br>
+											<input type="text" name="EstartDate" placeholder="12/22/2015" title="Pick Start Date" id="EstartDate" value="<?PHP echo $row['EstartDate']; ?>" maxlength="50"><br>
 											<span id="eventForm_EstartDate_errorloc" class="error"></span>
 											
 											<div style="display: none" class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;">
@@ -624,12 +625,11 @@
 										</div>
 									</div>	
 
-
 									<div class="type">
 										<!--End Date picker-->
 										<div class="container" id="">
 											<h5 for="EendDate">End Date</h5>
-											<input type="text" name="EendDate" placeholder="12/31/2015" title="Pick Start Date" id="EendDate" value="" maxlength="50"><br>
+											<input type="text" name="EendDate" placeholder="12/31/2015" title="Pick Start Date" id="EendDate" value="<?PHP echo $row['EendDate']; ?>" maxlength="50"><br>
 											<span id="eventForm_EendDate_errorloc" class="error"></span>
 											<div style="display: none;" class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">December</span>&nbsp;<span class="ui-datepicker-year">2014</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th><th scope="col"><span title="Monday">Mo</span></th><th scope="col"><span title="Tuesday">Tu</span></th><th scope="col"><span title="Wednesday">We</span></th><th scope="col"><span title="Thursday">Th</span></th><th scope="col"><span title="Friday">Fr</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default ui-state-highlight ui-state-active" href="#">1</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">2</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">3</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">4</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">5</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">6</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">7</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">10</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">11</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">12</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">13</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">17</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">18</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">19</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">20</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">21</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">24</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">25</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">26</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">27</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">31</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div>
 										</div>
@@ -639,31 +639,31 @@
 									
 									<div class="type" id="Ewebsite" >
 										<h5 for="Ewebsite">Website</h5>
-										<input type="text" name="Ewebsite"  placeholder="http://www.website.com" title="correct format: http://www.website.com" id="Ewebsite" value="<?php echo $fgmembersite->SafeDisplay('Ewebsite') ?>" maxlength="50"><br>
+										<input type="text" name="Ewebsite" placeholder="http://www.website.com" title="correct format: http://www.website.com" id="Ewebsite" value="<?PHP echo $row['Ewebsite']; ?>" maxlength="50"><br>
 										<span id="event_Ewebsite_errorloc" class="error"></span>
 									</div>
 									
 									<div class="type" id="Efacebook" >
 										<h5 for="Efacebook">Facebook</h5>
-										<input type="text" name="Efacebook" placeholder="https://www.facebook.com/USERNAME" title="?" id="Efacebook" value="<?php echo $fgmembersite->SafeDisplay('Efacebook') ?>" maxlength="50"><br>
+										<input type="text" name="Efacebook" placeholder="https://www.facebook.com/USERNAME" title="?" id="Efacebook" value="<?PHP echo $row['Efacebook']; ?>" maxlength="50"><br>
 										<span id="event_Efacebook_errorloc" class="error"></span>
 									</div>
 									
 									<div class="type" id="Egoogle" >
 										<h5 for="Egoogle">Google+</h5>
-										<input type="text" name="Egoogle" placeholder="https://plus.google.com/USERNAME" title="?" id="Egoogle" value="<?php echo $fgmembersite->SafeDisplay('Egoogle') ?>" maxlength="50"><br>
+										<input type="text" name="Egoogle" placeholder="https://plus.google.com/USERNAME" title="?" id="Egoogle" value="<?php echo $row['Egoogle'] ?>" maxlength="50"><br>
 										<span id="event_Egoogle_errorloc" class="error"></span>
 									</div>
 									
 									<div class="type" id="Etwitter" >
 										<h5 for="Etwitter">Twitter</h5>
-										<input type="text" name="Etwitter" placeholder="@USERNAME" title="?" id="Etwitter" value="<?php echo $fgmembersite->SafeDisplay('Etwitter') ?>" maxlength="50"><br>
+										<input type="text" name="Etwitter" placeholder="@USERNAME" title="?" id="Etwitter" value="<?php echo $row['Etwitter']; ?>" maxlength="50"><br>
 										<span id="event_Etwitter_errorloc" class="error"></span>
 									</div>
 									
-									<div class="type" id="Ehashtag" />
+									<div class="type" id="Ehashtag">
 										<h5 for="Ehashtag">Hashtag</h5>
-										<input type="text" name="Ehashtag" placeholder="https://instagram.com/USERNAME" title="#hello" id="Ehashtag" value="<?php echo $fgmembersite->SafeDisplay('Ehashtag') ?>" maxlength="50"><br>
+										<input type="text" name="Ehashtag" placeholder="https://instagram.com/USERNAME" title="#hello" id="Ehashtag" value="<?php echo $row['Ehashtag']; ?>" maxlength="50"><br>
 										<span id="event_Ehashtag_errorloc" class="error"></span>
 									</div>
 								</div>

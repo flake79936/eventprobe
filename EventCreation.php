@@ -12,9 +12,7 @@
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->CreateEvent()){
-			//echo "before thank you";
 			$fgmembersite->RedirectToURL("event_thank_you.php");
-			//echo "after thank you";
 		}
 	}
 	
