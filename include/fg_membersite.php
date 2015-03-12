@@ -686,9 +686,35 @@ class FGMembersite{
 	
 	/*----(End) CreateEvent() Submission----*/
 	
+	/*Added by Eduardo Corral.
+	  This function will delete the event based on the ID the function has 
+	  recieved from the form coming from eventDisplayPage.php
+	* Before we delete the event we have to make sure the event actually
+	* belongs to the user that is requesting to delete the event.
+	* This will guaranty the integrity of the function. safety feature.  
+	*/
+	function deleteEvent($delEventID){
+		if($this->checkUser()){
+			
+		}
+		return "<script type='js/javascript'> </script>";
+	}
 	
+	/*Added by Eduardo Corral.
+	  Function determine if the user requesting to delete the event is the 
+	  same as the one in the field of the event record
+	* 
+	*/
+	function checkUser(){
+		return $this->UsrName == $this->eveDbUser() ? TRUE : FALSE;
+	}
 	
-function upLoadUserPic(){
+	function eveDbUser(){
+		
+		
+	}
+	
+	function upLoadUserPic(){
 		/**
 			$_FILES["Eflyer"]["name"] - the name of the uploaded file
 			$_FILES["Eflyer"]["type"] - the type of the uploaded file
@@ -704,10 +730,7 @@ function upLoadUserPic(){
 		$filename		= str_replace('-', '_', $filename);
 		$filename		= str_replace('.', '_', $filename);
 		$final_location = $uploaddir.$filename;
-
-
-			
-				
+		
 		if (
 		(
 		   ($_FILES["Upic"]["type"] == "image/gif") //set image you want to upload
@@ -741,8 +764,6 @@ function upLoadUserPic(){
 
 		return false;
 	} //End uploadUserPic
-	
-	
 	
 	/*----(Start) User Management----*/
 	function ConfirmUser(){

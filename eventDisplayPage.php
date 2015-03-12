@@ -77,7 +77,6 @@
 			</form>
 		</div>
 
-
 		<div class="top">
 			<?PHP include './top.php';?>
 		</div>
@@ -131,85 +130,73 @@
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-				  
-  </tr>
+				</tr>
 				<tr>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
@@ -242,14 +229,14 @@
 						<?PHP } ?></td>
 				</tr>
 				<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 				</tr>
 				<tr>
-<td rowspan="14"><!-- START OF MAP SCRIPT -->
+				<td rowspan="14"><!-- START OF MAP SCRIPT -->
 							<div id="map" style="width: 400px; height: 300px;"></div>
 							<script type="text/javascript" language= "php">
 								// Define your locations: HTML content for the info window, latitude, longitude
@@ -324,7 +311,7 @@
 							<!-- END OF MAP SCRIPT --></td>
 				  <td>&nbsp;</td>
 				  <td colspan="5"><h4><img src='images/favicon.png'>&nbsp;<?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>, <?= $row['Ezip'] ?> </h4></td>
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td colspan="5"><h4>Phone: <?= $formatPhone?> </h4></td>
@@ -334,25 +321,25 @@
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
-  </tr>
+				</tr>
 				<tr>
 					
 					<td>&nbsp;</td>
@@ -365,30 +352,30 @@
 				  <td>&nbsp;</td>
 				  <td></td>
 				  <td>&nbsp;</td>
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td></td>
 				  <td>&nbsp;</td>
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td></td>
 				  <td>&nbsp;</td>
-  </tr>
+				</tr>
 				<tr>
 				  <td>&nbsp;</td>
 				  <td>&nbsp;</td>
 				  <td></td>
 				  <td>&nbsp;</td>
-  </tr>
+				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td>&nbsp;</td>
+					<td><a onclick="<?= $fgmembersite->deleteEvent($newEventID);?>">Delete Event<a></td>
 					<td></td>
-					<td>&nbsp;</td>
+					<td>Edit Event</td>
 				</tr>
 		<?PHP } ?>
 		</table>
