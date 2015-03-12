@@ -261,7 +261,6 @@
 									<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
 									<div class="clear"></div>
 								</div>-->
-<!-- 
 								
 								<div class="type">
 									<div class="container">
@@ -272,52 +271,19 @@
 											<option value="Concert">Concert</option>
 											<option value="Fair">Fair</option>
 											<option value="Social">Social</option>
-											<option value="Social">Sport</option>
+											<option value="Sport">Sport</option>
+											<option value="Public Speaker">Public Speaker</option>
 											<option value="Other">Other</option>
 										</select><br>
 										<span id="eventForm_Etype_errorloc" class="error"></span>
 									</div>
-									
- -->
-
-									
-									<!--<div class="info">
-										<div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
-										<div class="box"><h3>Music Event</h3></div>
-										<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
-										<div class="clear"></div>
-									</div>-->
-									 <div class="type">
-										<div class="container" id="">
-											<h5 for="Etype">Type of Event</h5>
-											<h5>
-												<select name="Etype">
-													<option>Please Select One</option>
-													<option value="Art">Art</option>
-													<option value="Concert">Concert</option>
-													<option value="Fair">Fair</option>
-													<option value="Festival">Festival</option>
-													<option value="Social">Sport</option>
-													<option value="Other">Other</option>
-												</select>
-											</h5>
-										</div>
-										<div class="type">					
-											<div class="container" id="other">
-												<label for="Eother">Other: </label><br>
-												<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
-												<span id="event_Eother_errorloc" class="error"></span>
-											</div>
-<!-- 
-=======
+									 
 									<div class="type">					
 										<div class="container" id="other">
 											<label for="Eother">Other: </label><br>
 											<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
-											<span id="eventForm_Eother_errorloc" class="error"></span>
->>>>>>> origin/master
+											<span id="event_Eother_errorloc" class="error"></span>
 										</div>
- -->
 									</div>
 									
 									<div class="container">

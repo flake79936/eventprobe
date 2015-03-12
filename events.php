@@ -6,7 +6,6 @@
 			$result = $fgmembersite->searchEvent();
 		}
 	
-		
 		include 'dbconnect.php';
 
 		$today = Date("m/d/Y");
