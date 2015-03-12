@@ -24,9 +24,9 @@ CREATE TABLE Events(
 	Estate CHAR(10) NOT NULL,
 	Ezip INT(5) NOT NULL,
 	EphoneNumber INT(10),
-	Edescription VARCHAR(26) NOT NULL,
+	Edescription VARCHAR(500) NOT NULL,
 	Etype VARCHAR(26) NOT NULL,
-	Ewebsite VARCHAR(26) NOT NULL,
+	Ewebsite VARCHAR(255) NOT NULL,
 	Ehashtag CHAR(255),
 	Efacebook CHAR(255),
 	Etwitter CHAR(255),
@@ -38,6 +38,7 @@ CREATE TABLE Events(
 	Elat DECIMAL(10,6),
 	Elong DECIMAL(10,6),
 	Erank CHAR(255),
+	Edisplay INT(1),
 	PRIMARY KEY(Eid, UuserName)
 );
 
