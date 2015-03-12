@@ -689,7 +689,7 @@
 									<span id="event_Etwitter_errorloc" class="error"></span>
 								</div>
 								
-								<div class="type" id="Ehashtag" />
+								<div class="type" id="Ehashtag">
 									<h5 for="Ehashtag">Hashtag</h5>
 									<input type="text" name="Ehashtag" placeholder="USERNAME" title="#hello" id="Ehashtag" value="<?php echo $fgmembersite->SafeDisplay('Ehashtag') ?>" maxlength="50"><br>
 									<span id="event_Ehashtag_errorloc" class="error"></span>

@@ -13,7 +13,7 @@
 	}
 	
 	if(isset($_POST["submitted"])){
-		if($fgmembersite->CreateEvent()){
+		if($fgmembersite->updateEvent()){
 			$fgmembersite->RedirectToURL("event_thank_you.php");
 		}
 	}
@@ -218,14 +218,14 @@
 									<br>
 									<span id="eventForm_Eflyer_errorloc" class="error"></span>
 								</div>
-								<img id="uploadPreview" value="<?php echo $row['Epic']; ?>" style="width: 270px; height: 250px;"/>
+								<img id="uploadPreview" src="<?php echo $row['Eflyer']; ?>" style="width: 270px; height: 250px;"/>
 								<!-- <img src="images/profile-img.jpg" alt="Profiles"> -->
 							</div>
 							
 						<div class="user-menu">
 							<div class="box">
 								<div class="name">
-									<!--<h1>DJ Maxwell</h1>-->
+									<!--Event Name "Evename"-->
 									<h5 for="Evename">Name of event</h5>
 									<div class="type" id="Evename">
 										<!--<div class="image"><img src="images/icon_location.png" /></div> -->
@@ -233,22 +233,24 @@
 										<span id="eventForm_Evename_errorloc" class="error"></span>
 									</div>
 									
+									<!--Event type "Etype"-->
 									<div class="type">
 										<div class="container">
 											<h5 for="Etype">Type of Event</h5>
 											<select name="Etype" id="Etype">
 												<option value="" disabled selected>Please Select a Type</option>
-												<option value="Art"     <?php echo $row['Etype']=="Art"     ? "Selected" : ""; ?>>Art</option>
-												<option value="Concert" <?php echo $row['Etype']=="Concert" ? "Selected" : ""; ?>>Concert</option>
-												<option value="Fair"    <?php echo $row['Etype']=="Fair"    ? "Selected" : ""; ?>>Fair</option>
-												<option value="Social"  <?php echo $row['Etype']=="Social"  ? "Selected" : ""; ?>>Social</option>
-												<option value="Sport"   <?php echo $row['Etype']=="Sport"   ? "Selected" : ""; ?>>Sport</option>
-												<option value="Other"   <?php echo $row['Etype']=="Other"   ? "Selected" : ""; ?>>Other</option>
+												<option value="Art"     <?php echo strcasecmp($row['Etype'], "Art"    ) == 0 ? "Selected" : ""; ?>>Art</option>
+												<option value="Concert" <?php echo strcasecmp($row['Etype'], "Concert") == 0 ? "Selected" : ""; ?>>Concert</option>
+												<option value="Fair"    <?php echo strcasecmp($row['Etype'], "Fair"   ) == 0 ? "Selected" : ""; ?>>Fair</option>
+												<option value="Social"  <?php echo strcasecmp($row['Etype'], "Social" ) == 0 ? "Selected" : ""; ?>>Social</option>
+												<option value="Sport"   <?php echo strcasecmp($row['Etype'], "Sport"  ) == 0 ? "Selected" : ""; ?>>Sport</option>
+												<option value="Other"   <?php echo strcasecmp($row['Etype'], "Other"  ) == 0 ? "Selected" : ""; ?>>Other</option>
 											</select><br>
 											<span id="eventForm_Etype_errorloc" class="error"></span>
 										</div>
 									</div>
-										
+									
+									<!--Event other option "Eother"-->
 									<div class="type">					
 										<div class="container" id="other">
 											<label for="Eother">Other: </label><br>
@@ -257,13 +259,14 @@
 										</div>
 									</div>
 									
+									<!--Event rank "Erank"-->
 									<div class="container">
 										<h5 for="Erank">Reach</h5>
 										<select name="Erank" id="Erank">
 											<option value="" disabled selected>Please Select a Rank</option>
-											<option value="Free"    <?php echo $row['Erank']=="Free"    ? "Selected" : ""; ?>>Free</option>
-											<option value="Paid"    <?php echo $row['Erank']=="Paid"    ? "Selected" : ""; ?>>Paid</option>
-											<option value="Premium" <?php echo $row['Erank']=="Premium" ? "Selected" : ""; ?>>Premium</option>
+											<option value="Free"    <?php echo strcasecmp($row['Erank'], "Free") == 0    ? "Selected" : ""; ?>>Free</option>
+											<option value="Paid"    <?php echo strcasecmp($row['Erank'], "Paid") == 0    ? "Selected" : ""; ?>>Paid</option>
+											<option value="Premium" <?php echo strcasecmp($row['Erank'], "Premium") == 0 ? "Selected" : ""; ?>>Premium</option>
 										</select><br>
 										<span id="eventForm_Erank_errorloc" class="error"></span>
 									</div>
@@ -298,12 +301,12 @@
 								<h5 for="Eaddress">Address</h5>
 								<div class="location" id="Eaddress">
 								   <!-- <div class="image"><img src="images/icon_location.png" /></div> -->
-									<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="<?PHP echo $row['Eaddress']; ?>" maxlength="50">
-									<br>
+									<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="<?PHP echo $row['Eaddress']; ?>" maxlength="50"><br>
 									<span id="eventForm_Eaddress_errorloc" class="error"></span>
 								</div>
 							
 								<div class="wrap">
+									<!--Event city "Ecity"-->
 									<div class="type" id="Ecity" >
 										<h5 for="Ecity">City</h5>
 											<input type="text" name="Ecity" placeholder="City" title="Enter the City of the Event" id="Ecity" value="<?PHP echo $row['Ecity']; ?>" maxlength="50"><br>
@@ -315,70 +318,70 @@
 											<h5 for="Estate">State</h5>
 											<select name="Estate" size="1">
 												<option value="" disabled selected>Select The State</option>
-												<option value="AK" <?php echo $row['Estate']=="AK" ? "Selected" : ""; ?>>AK</option>
-												                                                   
-												<option value="AL" <?php echo $row['Estate']=="AL" ? "Selected" : ""; ?>>AL</option>
-												<option value="AR" <?php echo $row['Estate']=="AR" ? "Selected" : ""; ?>>AR</option>
-												<option value="AZ" <?php echo $row['Estate']=="AZ" ? "Selected" : ""; ?>>AZ</option>
-												<option value="CA" <?php echo $row['Estate']=="CA" ? "Selected" : ""; ?>>CA</option>
-												                                                   
-												<option value="CO" <?php echo $row['Estate']=="CO" ? "Selected" : ""; ?>>CO</option>
-												<option value="CT" <?php echo $row['Estate']=="CT" ? "Selected" : ""; ?>>CT</option>
-												<option value="DC" <?php echo $row['Estate']=="DC" ? "Selected" : ""; ?>>DC</option>
-												<option value="DE" <?php echo $row['Estate']=="DE" ? "Selected" : ""; ?>>DE</option>
-												                                                   
-												<option value="FL" <?php echo $row['Estate']=="FL" ? "Selected" : ""; ?>>FL</option>
-												<option value="GA" <?php echo $row['Estate']=="GA" ? "Selected" : ""; ?>>GA</option>
-												<option value="HI" <?php echo $row['Estate']=="HI" ? "Selected" : ""; ?>>HI</option>
-												<option value="IA" <?php echo $row['Estate']=="IA" ? "Selected" : ""; ?>>IA</option>
-												                                                   
-												<option value="ID" <?php echo $row['Estate']=="ID" ? "Selected" : ""; ?>>ID</option>
-												<option value="IL" <?php echo $row['Estate']=="IL" ? "Selected" : ""; ?>>IL</option>
-												<option value="IN" <?php echo $row['Estate']=="IN" ? "Selected" : ""; ?>>IN</option>
-												<option value="KS" <?php echo $row['Estate']=="KS" ? "Selected" : ""; ?>>KS</option>
-                                                                                               
-												<option value="KY" <?php echo $row['Estate']=="KY" ? "Selected" : ""; ?>>KY</option>
-												<option value="LA" <?php echo $row['Estate']=="LA" ? "Selected" : ""; ?>>LA</option>
-												<option value="MA" <?php echo $row['Estate']=="MA" ? "Selected" : ""; ?>>MA</option>
-												<option value="MD" <?php echo $row['Estate']=="MD" ? "Selected" : ""; ?>>MD</option>
-												                                               
-												<option value="ME" <?php echo $row['Estate']=="ME" ? "Selected" : ""; ?>>ME</option>
-												<option value="MI" <?php echo $row['Estate']=="MI" ? "Selected" : ""; ?>>MI</option>
-												<option value="MN" <?php echo $row['Estate']=="MN" ? "Selected" : ""; ?>>MN</option>
-												<option value="MO" <?php echo $row['Estate']=="MO" ? "Selected" : ""; ?>>MO</option>
-												                                               
-												<option value="MS" <?php echo $row['Estate']=="MS" ? "Selected" : ""; ?>>MS</option>
-												<option value="MT" <?php echo $row['Estate']=="MT" ? "Selected" : ""; ?>>MT</option>
-												<option value="NC" <?php echo $row['Estate']=="NC" ? "Selected" : ""; ?>>NC</option>
-												<option value="ND" <?php echo $row['Estate']=="ND" ? "Selected" : ""; ?>>ND</option>
-												                                               
-												<option value="NE" <?php echo $row['Estate']=="NE" ? "Selected" : ""; ?>>NE</option>
-												<option value="NH" <?php echo $row['Estate']=="NH" ? "Selected" : ""; ?>>NH</option>
-												<option value="NJ" <?php echo $row['Estate']=="NJ" ? "Selected" : ""; ?>>NJ</option>
-												<option value="NM" <?php echo $row['Estate']=="NM" ? "Selected" : ""; ?>>NM</option>
-												                                               
-												<option value="NV" <?php echo $row['Estate']=="NV" ? "Selected" : ""; ?>>NV</option>
-												<option value="NY" <?php echo $row['Estate']=="NY" ? "Selected" : ""; ?>>NY</option>
-												<option value="OH" <?php echo $row['Estate']=="OH" ? "Selected" : ""; ?>>OH</option>
-												<option value="OK" <?php echo $row['Estate']=="OK" ? "Selected" : ""; ?>>OK</option>
-												                                               
-												<option value="OR" <?php echo $row['Estate']=="OR" ? "Selected" : ""; ?>>OR</option>
-												<option value="PA" <?php echo $row['Estate']=="PA" ? "Selected" : ""; ?>>PA</option>
-												<option value="RI" <?php echo $row['Estate']=="RI" ? "Selected" : ""; ?>>RI</option>
-												<option value="SC" <?php echo $row['Estate']=="SC" ? "Selected" : ""; ?>>SC</option>
-												                                               
-												<option value="SD" <?php echo $row['Estate']=="SD" ? "Selected" : ""; ?>>SD</option>
-												<option value="TN" <?php echo $row['Estate']=="TN" ? "Selected" : ""; ?>>TN</option>
-												<option value="TX" <?php echo $row['Estate']=="TX" ? "Selected" : ""; ?>>TX</option>
-												<option value="UT" <?php echo $row['Estate']=="UT" ? "Selected" : ""; ?>>UT</option>
-												                                               
-												<option value="VA" <?php echo $row['Estate']=="VA" ? "Selected" : ""; ?>>VA</option>
-												<option value="VT" <?php echo $row['Estate']=="VT" ? "Selected" : ""; ?>>VT</option>
-												<option value="WA" <?php echo $row['Estate']=="WA" ? "Selected" : ""; ?>>WA</option>
-												<option value="WI" <?php echo $row['Estate']=="WI" ? "Selected" : ""; ?>>WI</option>
-												                                               
-												<option value="WV" <?php echo $row['Estate']=="WV" ? "Selected" : ""; ?>>WV</option>
-												<option value="WY" <?php echo $row['Estate']=="WY" ? "Selected" : ""; ?>>WY</option>
+												<option value="AK" <?php echo strcasecmp($row['Estate'], "AK") == 0 ? "Selected" : ""; ?>>AK</option>
+												
+												<option value="AL" <?php echo strcasecmp($row['Estate'], "AL") == 0 ? "Selected" : ""; ?>>AL</option>
+												<option value="AR" <?php echo strcasecmp($row['Estate'], "AR") == 0 ? "Selected" : ""; ?>>AR</option>
+												<option value="AZ" <?php echo strcasecmp($row['Estate'], "AZ") == 0 ? "Selected" : ""; ?>>AZ</option>
+												<option value="CA" <?php echo strcasecmp($row['Estate'], "CA") == 0 ? "Selected" : ""; ?>>CA</option>
+												                                                          
+												<option value="CO" <?php echo strcasecmp($row['Estate'], "CO") == 0 ? "Selected" : ""; ?>>CO</option>
+												<option value="CT" <?php echo strcasecmp($row['Estate'], "CT") == 0 ? "Selected" : ""; ?>>CT</option>
+												<option value="DC" <?php echo strcasecmp($row['Estate'], "DC") == 0 ? "Selected" : ""; ?>>DC</option>
+												<option value="DE" <?php echo strcasecmp($row['Estate'], "DE") == 0 ? "Selected" : ""; ?>>DE</option>
+												                                                          
+												<option value="FL" <?php echo strcasecmp($row['Estate'], "FL") == 0 ? "Selected" : ""; ?>>FL</option>
+												<option value="GA" <?php echo strcasecmp($row['Estate'], "GA") == 0 ? "Selected" : ""; ?>>GA</option>
+												<option value="HI" <?php echo strcasecmp($row['Estate'], "HI") == 0 ? "Selected" : ""; ?>>HI</option>
+												<option value="IA" <?php echo strcasecmp($row['Estate'], "IA") == 0 ? "Selected" : ""; ?>>IA</option>
+												                                                          
+												<option value="ID" <?php echo strcasecmp($row['Estate'], "ID") == 0 ? "Selected" : ""; ?>>ID</option>
+												<option value="IL" <?php echo strcasecmp($row['Estate'], "IL") == 0 ? "Selected" : ""; ?>>IL</option>
+												<option value="IN" <?php echo strcasecmp($row['Estate'], "IN") == 0 ? "Selected" : ""; ?>>IN</option>
+												<option value="KS" <?php echo strcasecmp($row['Estate'], "KS") == 0 ? "Selected" : ""; ?>>KS</option>
+												                                                          
+												<option value="KY" <?php echo strcasecmp($row['Estate'], "KY") == 0 ? "Selected" : ""; ?>>KY</option>
+												<option value="LA" <?php echo strcasecmp($row['Estate'], "LA") == 0 ? "Selected" : ""; ?>>LA</option>
+												<option value="MA" <?php echo strcasecmp($row['Estate'], "MA") == 0 ? "Selected" : ""; ?>>MA</option>
+												<option value="MD" <?php echo strcasecmp($row['Estate'], "MD") == 0 ? "Selected" : ""; ?>>MD</option>
+												                                                          
+												<option value="ME" <?php echo strcasecmp($row['Estate'], "ME") == 0 ? "Selected" : ""; ?>>ME</option>
+												<option value="MI" <?php echo strcasecmp($row['Estate'], "MI") == 0 ? "Selected" : ""; ?>>MI</option>
+												<option value="MN" <?php echo strcasecmp($row['Estate'], "MN") == 0 ? "Selected" : ""; ?>>MN</option>
+												<option value="MO" <?php echo strcasecmp($row['Estate'], "MO") == 0 ? "Selected" : ""; ?>>MO</option>
+												                                                          
+												<option value="MS" <?php echo strcasecmp($row['Estate'], "MS") == 0 ? "Selected" : ""; ?>>MS</option>
+												<option value="MT" <?php echo strcasecmp($row['Estate'], "MT") == 0 ? "Selected" : ""; ?>>MT</option>
+												<option value="NC" <?php echo strcasecmp($row['Estate'], "NC") == 0 ? "Selected" : ""; ?>>NC</option>
+												<option value="ND" <?php echo strcasecmp($row['Estate'], "ND") == 0 ? "Selected" : ""; ?>>ND</option>
+												                                                          
+												<option value="NE" <?php echo strcasecmp($row['Estate'], "NE") == 0 ? "Selected" : ""; ?>>NE</option>
+												<option value="NH" <?php echo strcasecmp($row['Estate'], "NH") == 0 ? "Selected" : ""; ?>>NH</option>
+												<option value="NJ" <?php echo strcasecmp($row['Estate'], "NJ") == 0 ? "Selected" : ""; ?>>NJ</option>
+												<option value="NM" <?php echo strcasecmp($row['Estate'], "NM") == 0 ? "Selected" : ""; ?>>NM</option>
+												                                                          
+												<option value="NV" <?php echo strcasecmp($row['Estate'], "NV") == 0 ? "Selected" : ""; ?>>NV</option>
+												<option value="NY" <?php echo strcasecmp($row['Estate'], "NY") == 0 ? "Selected" : ""; ?>>NY</option>
+												<option value="OH" <?php echo strcasecmp($row['Estate'], "OH") == 0 ? "Selected" : ""; ?>>OH</option>
+												<option value="OK" <?php echo strcasecmp($row['Estate'], "OK") == 0 ? "Selected" : ""; ?>>OK</option>
+												                                                          
+												<option value="OR" <?php echo strcasecmp($row['Estate'], "OR") == 0 ? "Selected" : ""; ?>>OR</option>
+												<option value="PA" <?php echo strcasecmp($row['Estate'], "PA") == 0 ? "Selected" : ""; ?>>PA</option>
+												<option value="RI" <?php echo strcasecmp($row['Estate'], "RI") == 0 ? "Selected" : ""; ?>>RI</option>
+												<option value="SC" <?php echo strcasecmp($row['Estate'], "SC") == 0 ? "Selected" : ""; ?>>SC</option>
+												                                                          
+												<option value="SD" <?php echo strcasecmp($row['Estate'], "SD") == 0 ? "Selected" : ""; ?>>SD</option>
+												<option value="TN" <?php echo strcasecmp($row['Estate'], "TN") == 0 ? "Selected" : ""; ?>>TN</option>
+												<option value="TX" <?php echo strcasecmp($row['Estate'], "TX") == 0 ? "Selected" : ""; ?>>TX</option>
+												<option value="UT" <?php echo strcasecmp($row['Estate'], "UT") == 0 ? "Selected" : ""; ?>>UT</option>
+												                                                          
+												<option value="VA" <?php echo strcasecmp($row['Estate'], "VA") == 0 ? "Selected" : ""; ?>>VA</option>
+												<option value="VT" <?php echo strcasecmp($row['Estate'], "VT") == 0 ? "Selected" : ""; ?>>VT</option>
+												<option value="WA" <?php echo strcasecmp($row['Estate'], "WA") == 0 ? "Selected" : ""; ?>>WA</option>
+												<option value="WI" <?php echo strcasecmp($row['Estate'], "WI") == 0 ? "Selected" : ""; ?>>WI</option>
+												                                                          
+												<option value="WV" <?php echo strcasecmp($row['Estate'], "WV") == 0 ? "Selected" : ""; ?>>WV</option>
+												<option value="WY" <?php echo strcasecmp($row['Estate'], "WY") == 0 ? "Selected" : ""; ?>>WY</option>
 											</select>
 											<br>
 											<span id="eventForm_Estate_errorloc" class="error"></span>
@@ -674,7 +677,7 @@
 						</div><!--End of Form-wrap-->
 							<!--Submit Button-->
 						<div class="submitButton">
-							<input type="submit" name="Submit" value="Create Event" />
+							<input type="submit" name="Submit" value="Update Event" />
 						</div>
 					</form>
 				</div> <!-- End of content -->

@@ -694,10 +694,14 @@ class FGMembersite{
 	* This will guaranty the integrity of the function. safety feature.  
 	*/
 	function deleteEvent($delEventID){
-		if($this->checkUser()){
+		if($this->checkUser($delEventID)){ //checks for the user if true then delete
+			$qry = "DELETE FROM $this->tablename2 WHERE Eid = $delEventID;";
 			
+			mysql_query($qry, $this->connection);
+			
+			return "<script> window.alert('Your Event has been deleted.');</script>";
 		}
-		return "<script type='js/javascript'> </script>";
+		return "<script> window.alert('You are not the user who crated this event<br>You cannot delete it.');</script>"; //false then show alert messsage.
 	}
 	
 	/*Added by Eduardo Corral.
@@ -705,13 +709,26 @@ class FGMembersite{
 	  same as the one in the field of the event record
 	* 
 	*/
-	function checkUser(){
-		return $this->UsrName == $this->eveDbUser() ? TRUE : FALSE;
+	function checkUser($delEventID){
+		return $this->UsrName === $this->eveDbUser($delEventID) ? TRUE : FALSE; //return if both names match otherwise false
 	}
 	
-	function eveDbUser(){
+	/*
+	* 
+	*/
+	function eveDbUser($delEventID){
+		$qry = "SELECT UuserName FROM $this->tablename2 WHERE Eid = $delEventID;";
 		
-		
+		$result = mysql_query($qry, $this->connection);
+
+		if(!$result || mysql_num_rows($result) <= 0){
+			$this->HandleError(" ...Something... ");
+			return false;
+		}
+
+		$row = mysql_fetch_assoc($result);
+
+		return $row['UuserName'];
 	}
 	
 	function upLoadUserPic(){
@@ -1453,11 +1470,9 @@ class FGMembersite{
 		
 		return $timezone;
 		
-		}
+	}
 		
-		
-		
-		function getLon(){
+	function getLon(){
 		$user_ip = getenv('REMOTE_ADDR');
 		$geo     = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));
 		$lon    = $geo["geoplugin_longitude"];
