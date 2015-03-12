@@ -14,7 +14,7 @@
 
 	//$today = Date("m/d/Y");
 	//$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
-	$sql = "SELECT * FROM Events WHERE Eid = '" . $_GET['eid'] . "'";
+	$sql = "SELECT * FROM Events WHERE Eid = '" . $_GET['eid'] . "'"; //works fine
 	
 	$edit = mysqli_query($con, $sql);
 	
@@ -23,7 +23,7 @@
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->updateEvent()){
-			$fgmembersite->RedirectToURL("./editEvent.php?edi=" . $_GET['eid']);
+			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
 ?>
@@ -176,9 +176,9 @@
 									 <?PHP $i = 0;
 									       $count = 1;
 										while($row = mysqli_fetch_array($past)){ ?>
-										<?=  $month='';
-									if    (substr($row['EstartDate'], 0, 2) ==='01')$month=  'Jan';
-									elseif(substr($row['EstartDate'], 0, 2) ==='02') $month= 'Feb';
+										<?= $month='';
+									if    (substr($row['EstartDate'], 0, 2) ==='01')$month= 'Jan';
+									elseif(substr($row['EstartDate'], 0, 2) ==='02')$month= 'Feb';
 									elseif(substr($row['EstartDate'], 0, 2) ==='03')$month= 'Mar';
 									elseif(substr($row['EstartDate'], 0, 2) ==='04')$month= 'Apr';
 									elseif(substr($row['EstartDate'], 0, 2) ==='05')$month= 'May';
@@ -188,7 +188,7 @@
 									elseif(substr($row['EstartDate'], 0, 2) ==='09')$month= 'Sep';
 									elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
 									elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
-									else $month= 'Dec';?>
+									else $month = 'Dec';?>
 									<li><img src="images/music.png" alt="Music" /><a href="#"><?PHP echo $count;?> <?= $row['Evename']?>, 
 									<?=  $month
 									?> 
@@ -206,7 +206,7 @@
 				<div class="content">
 					<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 						<input type="hidden" name="submitted" id="submitted" value="1"/>
-						<input type="hidden" name="Eid" id="Eid" value=" <?PHP echo $row['Eid'];?> "/>
+						<input type="hidden" name="Eid" id="Eid" value=" <?PHP echo $_GET['eid'];?> "/>
 						
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					

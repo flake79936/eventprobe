@@ -821,7 +821,7 @@ class FGMembersite{
         return true;
     }
 	
-	/*----(End) User Management----*/
+	/*----(Start) User Management----*/
 	/* Added by Eduardo Corral
 	*  
 	*/
@@ -969,30 +969,18 @@ class FGMembersite{
 			$formvars['Erank']      = strtolower($formvars['Erank']);
 			
 			$insert_query = 
-			'UPDATE ' . $this->tablename2 . ' SET '
-			. 'UuserName = ' . $this->SanitizeForSQL($uName) . ' , ' 
-			. 'Evename = ' . $this->SanitizeForSQL($formvars['Evename']) . ' , ' 
-			. 'EstartDate = ' . $this->SanitizeForSQL($formvars['EstartDate']) . ' , ' 
-			. 'EendDate = ' . $this->SanitizeForSQL($formvars['EendDate']) . ' , ' 
-			. 'Eaddress = ' . $this->SanitizeForSQL($formvars['Eaddress']) . ' , ' 
-			. 'Ecity = ' . $this->SanitizeForSQL($formvars['Ecity']) . ' , ' 
-			. 'Estate = ' . $this->SanitizeForSQL($formvars['Estate']) . ' , ' 
-			. 'Ezip = ' . $this->SanitizeForSQL($formvars['Ezip']) . ' , ' 
-			. 'EphoneNumber = ' . $this->SanitizeForSQL($formvars['EphoneNumber']) . ' , ' 
-			. 'Edescription = ' . $this->SanitizeForSQL($formvars['Edescription']) . ' , ' 
-			. 'Etype = ' . $this->SanitizeForSQL($formvars['Etype']) . ' , ' 
-			. 'Ewebsite = ' . $this->SanitizeForSQL($formvars['Ewebsite']) . ' , ' 
-			. 'Ehashtag = ' . $this->SanitizeForSQL($formvars['Ehashtag']) . ' , ' 
-			. 'Efacebook = ' . $this->SanitizeForSQL($formvars['Efacebook']) . ' , ' 
-			. 'Etwitter = ' . $this->SanitizeForSQL($formvars['Etwitter']) . ' , ' 
-			. 'Egoogle = ' . $this->SanitizeForSQL($formvars['Egoogle']) . ' , ' 
-			. 'Eflyer = ' . $this->SanitizeForSQL($formvars['Eflyer']) . ' , ' 
-			. 'Eother = ' . $this->SanitizeForSQL($formvars['Eother']) . ' , ' 
-			. 'EtimeStart = ' . $this->SanitizeForSQL($formvars['EtimeStart']) . ' , ' 
-			. 'EtimeEnd = ' . $this->SanitizeForSQL($formvars['EtimeEnd']) . ' , ' 
-			. 'Elat = ' . $this->SanitizeForSQL($lat) . ' , ' 
-			. 'Elong = ' . $this->SanitizeForSQL($long) . ' , ' 
-			. 'Erank = ' . $this->SanitizeForSQL($formvars['Erank']) . ' , ' 
+			'UPDATE ' . $this->tablename2 . ' SET UuserName = ' . $this->SanitizeForSQL($uName) . ' , ' 
+			. 'Evename = ' . $this->SanitizeForSQL($formvars['Evename']) . ', EstartDate = ' . $this->SanitizeForSQL($formvars['EstartDate']) . ', ' 
+			. 'EendDate = ' . $this->SanitizeForSQL($formvars['EendDate']) . ', Eaddress = ' . $this->SanitizeForSQL($formvars['Eaddress']) . ', ' 
+			. 'Ecity = ' . $this->SanitizeForSQL($formvars['Ecity']) . ', Estate = ' . $this->SanitizeForSQL($formvars['Estate']) . ', ' 
+			. 'Ezip = ' . $this->SanitizeForSQL($formvars['Ezip']) . ', EphoneNumber = ' . $this->SanitizeForSQL($formvars['EphoneNumber']) . ', ' 
+			. 'Edescription = ' . $this->SanitizeForSQL($formvars['Edescription']) . ', Etype = ' . $this->SanitizeForSQL($formvars['Etype']) . ', ' 
+			. 'Ewebsite = ' . $this->SanitizeForSQL($formvars['Ewebsite']) . ', Ehashtag = ' . $this->SanitizeForSQL($formvars['Ehashtag']) . ', ' 
+			. 'Efacebook = ' . $this->SanitizeForSQL($formvars['Efacebook']) . ', Etwitter = ' . $this->SanitizeForSQL($formvars['Etwitter']) . ', ' 
+			. 'Egoogle = ' . $this->SanitizeForSQL($formvars['Egoogle']) . ', Eflyer = ' . $this->SanitizeForSQL($formvars['Eflyer']) . ', ' 
+			. 'Eother = ' . $this->SanitizeForSQL($formvars['Eother']) . ', EtimeStart = ' . $this->SanitizeForSQL($formvars['EtimeStart']) . ', ' 
+			. 'EtimeEnd = ' . $this->SanitizeForSQL($formvars['EtimeEnd']) . ', Elat = ' . $this->SanitizeForSQL($lat) . ', ' 
+			. 'Elong = ' . $this->SanitizeForSQL($long) . ', Erank = ' . $this->SanitizeForSQL($formvars['Erank']) . ', ' 
 			. 'WHERE Eid = ' . $this->SanitizeForSQL($formvars['Eid']);
 		
 		} else {
@@ -1079,7 +1067,7 @@ class FGMembersite{
 
 		return $row['UuserName'];
 	}
-	/*----(Start) User Management----*/
+	/*----(End) User Management----*/
 	
 	/*----(Start) Login information/Methods----*/
 	function Login(){
