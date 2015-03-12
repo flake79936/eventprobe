@@ -3,10 +3,10 @@
 	include 'dbconnect.php';
 	
 	/*This part ckecks whether there is a session or not.*/
-	/*if(!$fgmembersite->CheckSession()){
+	if(!$fgmembersite->CheckSession()){
 		$fgmembersite->RedirectToURL("loginB.php");
 		exit;
-	}*/
+	}
 	
 	if($fgmembersite->CheckSession()){
 		$usrname = $fgmembersite->UsrName();  
@@ -214,11 +214,11 @@
 							<div class="user-profile">
 								<div class="update-image">
 									<!--added the 'value' to reflect the value from the DB based on the 'Eid' (event id)-->
-									<input id="uploadImage" type="file" value="<?php echo $row['Epic']; ?>" name="Eflyer" onchange="PreviewImage();" />
+									<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" />
 									<br>
 									<span id="eventForm_Eflyer_errorloc" class="error"></span>
 								</div>
-								<img id="uploadPreview" style="width: 270px; height: 250px;" />
+								<img id="uploadPreview" value="<?php echo $row['Epic']; ?>" style="width: 270px; height: 250px;"/>
 								<!-- <img src="images/profile-img.jpg" alt="Profiles"> -->
 							</div>
 							
@@ -236,14 +236,14 @@
 									<div class="type">
 										<div class="container">
 											<h5 for="Etype">Type of Event</h5>
-											<select name="Etype" id="Etype" value="<?php echo $row['Evename']; ?>">
+											<select name="Etype" id="Etype">
 												<option value="" disabled selected>Please Select a Type</option>
-												<option value="Art">Art</option>
-												<option value="Concert">Concert</option>
-												<option value="Fair">Fair</option>
-												<option value="Social">Social</option>
-												<option value="Social">Sport</option>
-												<option value="Other">Other</option>
+												<option value="Art"     <?php echo $row['Etype']=="Art"     ? "Selected" : ""; ?>>Art</option>
+												<option value="Concert" <?php echo $row['Etype']=="Concert" ? "Selected" : ""; ?>>Concert</option>
+												<option value="Fair"    <?php echo $row['Etype']=="Fair"    ? "Selected" : ""; ?>>Fair</option>
+												<option value="Social"  <?php echo $row['Etype']=="Social"  ? "Selected" : ""; ?>>Social</option>
+												<option value="Sport"   <?php echo $row['Etype']=="Sport"   ? "Selected" : ""; ?>>Sport</option>
+												<option value="Other"   <?php echo $row['Etype']=="Other"   ? "Selected" : ""; ?>>Other</option>
 											</select><br>
 											<span id="eventForm_Etype_errorloc" class="error"></span>
 										</div>
@@ -252,18 +252,18 @@
 									<div class="type">					
 										<div class="container" id="other">
 											<label for="Eother">Other: </label><br>
-											<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $row['Evename']; ?>" maxlength="50"><br>
+											<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $row['Eother']; ?>" maxlength="50"><br>
 											<span id="event_Eother_errorloc" class="error"></span>
 										</div>
 									</div>
 									
 									<div class="container">
 										<h5 for="Erank">Reach</h5>
-										<select name="Erank" id="Erank" value="<?PHP echo $row['Erank']; ?>">
+										<select name="Erank" id="Erank">
 											<option value="" disabled selected>Please Select a Rank</option>
-											<option value="Free">Free</option>
-											<option value="Paid">Paid</option>
-											<option value="Premium">Premium</option>
+											<option value="Free"    <?php echo $row['Erank']=="Free"    ? "Selected" : ""; ?>>Free</option>
+											<option value="Paid"    <?php echo $row['Erank']=="Paid"    ? "Selected" : ""; ?>>Paid</option>
+											<option value="Premium" <?php echo $row['Erank']=="Premium" ? "Selected" : ""; ?>>Premium</option>
 										</select><br>
 										<span id="eventForm_Erank_errorloc" class="error"></span>
 									</div>
@@ -272,6 +272,7 @@
 									<!--<h3>Increase your reach!</h3>
 										<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>-->
 									</div>
+									
 									<div class="clear"></div>
 								</div>
 								
@@ -281,6 +282,7 @@
 									<div class="box"><a href="#"><img src="images/btn_publish.png" alt="Draft" /></a></div>-->
 									<div class="clear"></div>
 								</div>
+								
 							</div>
 							<div class="clear"></div>
 						</div>
@@ -289,7 +291,7 @@
 						<div class="form-wrap">
 							<div class="box">
 								<h5 for="Edescription">Description</h5>
-								<textarea onkeyup="textCounter(this,'charsLeft', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value="<?PHP echo $row['Edescription']; ?>"></textarea>
+								<textarea onkeyup="textCounter(this,'charsLeft', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription"><?PHP echo $row['Edescription']; ?></textarea>
 								<div style="color: red; font-size: 12pt; font-style: italic; margin-bottom: 5px;" id="charsLeft" value="500"> 500 Characters Max</div>
 								<span id="eventForm_Edescription_errorloc" class="error"></span>
 							
@@ -311,72 +313,72 @@
 									<div class="type">
 										<div class="container" id="Estate">
 											<h5 for="Estate">State</h5>
-											<select name="Estate" size="1" value="<?PHP echo $row['Estate']; ?>">
+											<select name="Estate" size="1">
 												<option value="" disabled selected>Select The State</option>
-												<option value="AK">AK</option>
-
-												<option value="AL">AL</option>
-												<option value="AR">AR</option>
-												<option value="AZ">AZ</option>
-												<option value="CA">CA</option>
-
-												<option value="CO">CO</option>
-												<option value="CT">CT</option>
-												<option value="DC">DC</option>
-												<option value="DE">DE</option>
-
-												<option value="FL">FL</option>
-												<option value="GA">GA</option>
-												<option value="HI">HI</option>
-												<option value="IA">IA</option>
-
-												<option value="ID">ID</option>
-												<option value="IL">IL</option>
-												<option value="IN">IN</option>
-												<option value="KS">KS</option>
-
-												<option value="KY">KY</option>
-												<option value="LA">LA</option>
-												<option value="MA">MA</option>
-												<option value="MD">MD</option>
-
-												<option value="ME">ME</option>
-												<option value="MI">MI</option>
-												<option value="MN">MN</option>
-												<option value="MO">MO</option>
-
-												<option value="MS">MS</option>
-												<option value="MT">MT</option>
-												<option value="NC">NC</option>
-												<option value="ND">ND</option>
-
-												<option value="NE">NE</option>
-												<option value="NH">NH</option>
-												<option value="NJ">NJ</option>
-												<option value="NM">NM</option>
-
-												<option value="NV">NV</option>
-												<option value="NY">NY</option>
-												<option value="OH">OH</option>
-												<option value="OK">OK</option>
-
-												<option value="OR">OR</option>
-												<option value="PA">PA</option>
-												<option value="RI">RI</option>
-												<option value="SC">SC</option>
-
-												<option value="SD">SD</option>
-												<option value="TN">TN</option>
-												<option value="TX">TX</option>
-												<option value="UT">UT</option>
-
-												<option value="VA">VA</option>
-												<option value="VT">VT</option>
-												<option value="WA">WA</option>
-												<option value="WI">WI</option>
-
-												<option value="WV">WV</option>
-												<option value="WY">WY</option>
+												<option value="AK" <?php echo $row['Estate']=="AK" ? "Selected" : ""; ?>>AK</option>
+												                                                   
+												<option value="AL" <?php echo $row['Estate']=="AL" ? "Selected" : ""; ?>>AL</option>
+												<option value="AR" <?php echo $row['Estate']=="AR" ? "Selected" : ""; ?>>AR</option>
+												<option value="AZ" <?php echo $row['Estate']=="AZ" ? "Selected" : ""; ?>>AZ</option>
+												<option value="CA" <?php echo $row['Estate']=="CA" ? "Selected" : ""; ?>>CA</option>
+												                                                   
+												<option value="CO" <?php echo $row['Estate']=="CO" ? "Selected" : ""; ?>>CO</option>
+												<option value="CT" <?php echo $row['Estate']=="CT" ? "Selected" : ""; ?>>CT</option>
+												<option value="DC" <?php echo $row['Estate']=="DC" ? "Selected" : ""; ?>>DC</option>
+												<option value="DE" <?php echo $row['Estate']=="DE" ? "Selected" : ""; ?>>DE</option>
+												                                                   
+												<option value="FL" <?php echo $row['Estate']=="FL" ? "Selected" : ""; ?>>FL</option>
+												<option value="GA" <?php echo $row['Estate']=="GA" ? "Selected" : ""; ?>>GA</option>
+												<option value="HI" <?php echo $row['Estate']=="HI" ? "Selected" : ""; ?>>HI</option>
+												<option value="IA" <?php echo $row['Estate']=="IA" ? "Selected" : ""; ?>>IA</option>
+												                                                   
+												<option value="ID" <?php echo $row['Estate']=="ID" ? "Selected" : ""; ?>>ID</option>
+												<option value="IL" <?php echo $row['Estate']=="IL" ? "Selected" : ""; ?>>IL</option>
+												<option value="IN" <?php echo $row['Estate']=="IN" ? "Selected" : ""; ?>>IN</option>
+												<option value="KS" <?php echo $row['Estate']=="KS" ? "Selected" : ""; ?>>KS</option>
+                                                                                               
+												<option value="KY" <?php echo $row['Estate']=="KY" ? "Selected" : ""; ?>>KY</option>
+												<option value="LA" <?php echo $row['Estate']=="LA" ? "Selected" : ""; ?>>LA</option>
+												<option value="MA" <?php echo $row['Estate']=="MA" ? "Selected" : ""; ?>>MA</option>
+												<option value="MD" <?php echo $row['Estate']=="MD" ? "Selected" : ""; ?>>MD</option>
+												                                               
+												<option value="ME" <?php echo $row['Estate']=="ME" ? "Selected" : ""; ?>>ME</option>
+												<option value="MI" <?php echo $row['Estate']=="MI" ? "Selected" : ""; ?>>MI</option>
+												<option value="MN" <?php echo $row['Estate']=="MN" ? "Selected" : ""; ?>>MN</option>
+												<option value="MO" <?php echo $row['Estate']=="MO" ? "Selected" : ""; ?>>MO</option>
+												                                               
+												<option value="MS" <?php echo $row['Estate']=="MS" ? "Selected" : ""; ?>>MS</option>
+												<option value="MT" <?php echo $row['Estate']=="MT" ? "Selected" : ""; ?>>MT</option>
+												<option value="NC" <?php echo $row['Estate']=="NC" ? "Selected" : ""; ?>>NC</option>
+												<option value="ND" <?php echo $row['Estate']=="ND" ? "Selected" : ""; ?>>ND</option>
+												                                               
+												<option value="NE" <?php echo $row['Estate']=="NE" ? "Selected" : ""; ?>>NE</option>
+												<option value="NH" <?php echo $row['Estate']=="NH" ? "Selected" : ""; ?>>NH</option>
+												<option value="NJ" <?php echo $row['Estate']=="NJ" ? "Selected" : ""; ?>>NJ</option>
+												<option value="NM" <?php echo $row['Estate']=="NM" ? "Selected" : ""; ?>>NM</option>
+												                                               
+												<option value="NV" <?php echo $row['Estate']=="NV" ? "Selected" : ""; ?>>NV</option>
+												<option value="NY" <?php echo $row['Estate']=="NY" ? "Selected" : ""; ?>>NY</option>
+												<option value="OH" <?php echo $row['Estate']=="OH" ? "Selected" : ""; ?>>OH</option>
+												<option value="OK" <?php echo $row['Estate']=="OK" ? "Selected" : ""; ?>>OK</option>
+												                                               
+												<option value="OR" <?php echo $row['Estate']=="OR" ? "Selected" : ""; ?>>OR</option>
+												<option value="PA" <?php echo $row['Estate']=="PA" ? "Selected" : ""; ?>>PA</option>
+												<option value="RI" <?php echo $row['Estate']=="RI" ? "Selected" : ""; ?>>RI</option>
+												<option value="SC" <?php echo $row['Estate']=="SC" ? "Selected" : ""; ?>>SC</option>
+												                                               
+												<option value="SD" <?php echo $row['Estate']=="SD" ? "Selected" : ""; ?>>SD</option>
+												<option value="TN" <?php echo $row['Estate']=="TN" ? "Selected" : ""; ?>>TN</option>
+												<option value="TX" <?php echo $row['Estate']=="TX" ? "Selected" : ""; ?>>TX</option>
+												<option value="UT" <?php echo $row['Estate']=="UT" ? "Selected" : ""; ?>>UT</option>
+												                                               
+												<option value="VA" <?php echo $row['Estate']=="VA" ? "Selected" : ""; ?>>VA</option>
+												<option value="VT" <?php echo $row['Estate']=="VT" ? "Selected" : ""; ?>>VT</option>
+												<option value="WA" <?php echo $row['Estate']=="WA" ? "Selected" : ""; ?>>WA</option>
+												<option value="WI" <?php echo $row['Estate']=="WI" ? "Selected" : ""; ?>>WI</option>
+												                                               
+												<option value="WV" <?php echo $row['Estate']=="WV" ? "Selected" : ""; ?>>WV</option>
+												<option value="WY" <?php echo $row['Estate']=="WY" ? "Selected" : ""; ?>>WY</option>
 											</select>
 											<br>
 											<span id="eventForm_Estate_errorloc" class="error"></span>
@@ -406,66 +408,66 @@
 										<div class="container" id="EtimeStart">
 											<div class="container" id="">
 												<h5 for="EtimeStart">Start Time</h5>
-												<select name="EtimeStart" size="1" value="<?PHP echo $row['EtimeStart']; ?>">
+												<select name="EtimeStart" size="1">
 													<option value="" disabled selected>Select Start Time</option>
-													<option value="12:00 am">12:00 am</option>
-
-													<option value="12:30 am">12:30 am</option>
-													<option value="1:00 am">1:00 am</option>
-													<option value="1:30 am">1:30 am</option>
-													<option value="2:00 am">2:00 am</option>
-
-													<option value="2:30 am">2:30 am</option>
-													<option value="3:00 am">3:00 am</option>
-													<option value="3:30 am">3:30 am</option>
-													<option value="4:00 am">4:00 am</option>
-
-													<option value="4:30 am">4:30 am</option>
-													<option value="5:00 am">5:00 am</option>
-													<option value="5:30 am">5:30 am</option>
-													<option value="6:00 am">6:00 am</option>
-
-													<option value="6:30 am">6:30 am</option>
-													<option value="7:00 am">7:00 am</option>
-													<option value="7:30 am">7:30 am</option>
-													<option value="8:00 am">8:00 am</option>
-
-													<option value="8:30 am">8:30 am</option>
-													<option value="9:00 am">9:00 am</option>
-													<option value="9:30 am">9:30 am</option>
-													<option value="10:00 am">10:00 am</option>
-
-													<option value="11:00 am">11:00 am</option>
-													<option value="11:30 am">11:30 am</option>
-													<option value="12:00 pm">12:00 pm</option>
-													<option value="12:30 pm">12:30 pm</option>
-
-													<option value="1:00 pm">1:00 pm</option>
-													<option value="1:30 pm">1:30 pm</option>
-													<option value="2:00 pm">2:00 pm</option>
-
-													<option value="2:30 pm">2:30 pm</option>
-													<option value="3:00 pm">3:00 pm</option>
-													<option value="3:30 pm">3:30 pm</option>
-													<option value="4:00 pm">4:00 pm</option>
-
-													<option value="4:30 pm">4:30 pm</option>
-													<option value="5:00 pm">5:00 pm</option>
-													<option value="5:30 pm">5:30 pm</option>
-													<option value="6:00 pm">6:00 pm</option>
-
-													<option value="6:30 pm">6:30 pm</option>
-													<option value="7:00 pm">7:00 pm</option>
-													<option value="7:30 pm">7:30 pm</option>
-													<option value="8:00 pm">8:00 pm</option>
-
-													<option value="8:30 pm">8:30 pm</option>
-													<option value="9:00 pm">9:00 pm</option>
-													<option value="9:30 pm">9:30 pm</option>
-													<option value="10:00 pm">10:00 pm</option>
-
-													<option value="11:00 pm">11:00 pm</option>
-													<option value="11:30 pm">11:30 pm</option>
+													<option value="12:00 am" <?php echo $row['EtimeStart']=="12:00 am" ? "Selected" : ""; ?>>12:00 am</option>
+													
+													<option value="12:30 am" <?php echo $row['EtimeStart']=="12:30 am" ? "Selected" : ""; ?>>12:30 am</option>
+													<option value="1:00 am"  <?php echo $row['EtimeStart']=="1:00 am"  ? "Selected" : ""; ?>>1:00 am</option>
+													<option value="1:30 am"  <?php echo $row['EtimeStart']=="1:30 am"  ? "Selected" : ""; ?>>1:30 am</option>
+													<option value="2:00 am"  <?php echo $row['EtimeStart']=="2:00 am"  ? "Selected" : ""; ?>>2:00 am</option>
+													                                                                   
+													<option value="2:30 am"  <?php echo $row['EtimeStart']=="2:30 am"  ? "Selected" : ""; ?>>2:30 am</option>
+													<option value="3:00 am"  <?php echo $row['EtimeStart']=="3:00 am"  ? "Selected" : ""; ?>>3:00 am</option>
+													<option value="3:30 am"  <?php echo $row['EtimeStart']=="3:30 am"  ? "Selected" : ""; ?>>3:30 am</option>
+													<option value="4:00 am"  <?php echo $row['EtimeStart']=="4:00 am"  ? "Selected" : ""; ?>>4:00 am</option>
+													                                                                   
+													<option value="4:30 am"  <?php echo $row['EtimeStart']=="4:30 am"  ? "Selected" : ""; ?>>4:30 am</option>
+													<option value="5:00 am"  <?php echo $row['EtimeStart']=="5:00 am"  ? "Selected" : ""; ?>>5:00 am</option>
+													<option value="5:30 am"  <?php echo $row['EtimeStart']=="5:30 am"  ? "Selected" : ""; ?>>5:30 am</option>
+													<option value="6:00 am"  <?php echo $row['EtimeStart']=="6:00 am"  ? "Selected" : ""; ?>>6:00 am</option>
+													                                                                   
+													<option value="6:30 am"  <?php echo $row['EtimeStart']=="6:30 am"  ? "Selected" : ""; ?>>6:30 am</option>
+													<option value="7:00 am"  <?php echo $row['EtimeStart']=="7:00 am"  ? "Selected" : ""; ?>>7:00 am</option>
+													<option value="7:30 am"  <?php echo $row['EtimeStart']=="7:30 am"  ? "Selected" : ""; ?>>7:30 am</option>
+													<option value="8:00 am"  <?php echo $row['EtimeStart']=="8:00 am"  ? "Selected" : ""; ?>>8:00 am</option>
+													
+													<option value="8:30 am"  <?php echo $row['EtimeStart']=="8:30 am"  ? "Selected" : ""; ?>>8:30 am</option>
+													<option value="9:00 am"  <?php echo $row['EtimeStart']=="9:00 am"  ? "Selected" : ""; ?>>9:00 am</option>
+													<option value="9:30 am"  <?php echo $row['EtimeStart']=="9:30 am"  ? "Selected" : ""; ?>>9:30 am</option>
+													<option value="10:00 am" <?php echo $row['EtimeStart']=="10:00 am" ? "Selected" : ""; ?>>10:00 am</option>
+													
+													<option value="11:00 am" <?php echo $row['EtimeStart']=="11:00 am" ? "Selected" : ""; ?>>11:00 am</option>
+													<option value="11:30 am" <?php echo $row['EtimeStart']=="11:30 am" ? "Selected" : ""; ?>>11:30 am</option>
+													<option value="12:00 pm" <?php echo $row['EtimeStart']=="12:00 pm" ? "Selected" : ""; ?>>12:00 pm</option>
+													<option value="12:30 pm" <?php echo $row['EtimeStart']=="12:30 pm" ? "Selected" : ""; ?>>12:30 pm</option>
+													
+													<option value="1:00 pm"  <?php echo $row['EtimeStart']=="1:00 pm"  ? "Selected" : ""; ?>>1:00 pm</option>
+													<option value="1:30 pm"  <?php echo $row['EtimeStart']=="1:30 pm"  ? "Selected" : ""; ?>>1:30 pm</option>
+													<option value="2:00 pm"  <?php echo $row['EtimeStart']=="2:00 pm"  ? "Selected" : ""; ?>>2:00 pm</option>
+													                                                                   
+													<option value="2:30 pm"  <?php echo $row['EtimeStart']=="2:30 pm"  ? "Selected" : ""; ?>>2:30 pm</option>
+													<option value="3:00 pm"  <?php echo $row['EtimeStart']=="3:00 pm"  ? "Selected" : ""; ?>>3:00 pm</option>
+													<option value="3:30 pm"  <?php echo $row['EtimeStart']=="3:30 pm"  ? "Selected" : ""; ?>>3:30 pm</option>
+													<option value="4:00 pm"  <?php echo $row['EtimeStart']=="4:00 pm"  ? "Selected" : ""; ?>>4:00 pm</option>
+													                                                                   
+													<option value="4:30 pm"  <?php echo $row['EtimeStart']=="4:30 pm"  ? "Selected" : ""; ?>>4:30 pm</option>
+													<option value="5:00 pm"  <?php echo $row['EtimeStart']=="5:00 pm"  ? "Selected" : ""; ?>>5:00 pm</option>
+													<option value="5:30 pm"  <?php echo $row['EtimeStart']=="5:30 pm"  ? "Selected" : ""; ?>>5:30 pm</option>
+													<option value="6:00 pm"  <?php echo $row['EtimeStart']=="6:00 pm"  ? "Selected" : ""; ?>>6:00 pm</option>
+													
+													<option value="6:30 pm"  <?php echo $row['EtimeStart']=="6:30 pm"  ? "Selected" : ""; ?>>6:30 pm</option>
+													<option value="7:00 pm"  <?php echo $row['EtimeStart']=="7:00 pm"  ? "Selected" : ""; ?>>7:00 pm</option>
+													<option value="7:30 pm"  <?php echo $row['EtimeStart']=="7:30 pm"  ? "Selected" : ""; ?>>7:30 pm</option>
+													<option value="8:00 pm"  <?php echo $row['EtimeStart']=="8:00 pm"  ? "Selected" : ""; ?>>8:00 pm</option>
+													                                                                   
+													<option value="8:30 pm"  <?php echo $row['EtimeStart']=="8:30 pm"  ? "Selected" : ""; ?>>8:30 pm</option>
+													<option value="9:00 pm"  <?php echo $row['EtimeStart']=="9:00 pm"  ? "Selected" : ""; ?>>9:00 pm</option>
+													<option value="9:30 pm"  <?php echo $row['EtimeStart']=="9:30 pm"  ? "Selected" : ""; ?>>9:30 pm</option>
+													<option value="10:00 pm" <?php echo $row['EtimeStart']=="10:00 pm" ? "Selected" : ""; ?>>10:00 pm</option>
+													                                                                   
+													<option value="11:00 pm" <?php echo $row['EtimeStart']=="11:00 pm" ? "Selected" : ""; ?>>11:00 pm</option>
+													<option value="11:30 pm" <?php echo $row['EtimeStart']=="11:30 pm" ? "Selected" : ""; ?>>11:30 pm</option>
 												</select>
 												<span id="eventForm_EtimeStart_errorloc" class="error"></span>
 											</div>
@@ -478,64 +480,64 @@
 											<h5 for="EtimeEnd">End Time</h5>
 											<select name="EtimeEnd" size="1" value="<?PHP echo $row['EtimeEnd']; ?>">
 												<option value="" disabled selected>Select End Time</option>
-												<option value="12:00 am">12:00 am</option>
-
-												<option value="12:30 am">12:30 am</option>
-												<option value="1:00 am">1:00 am</option>
-												<option value="1:30 am">1:30 am</option>
-												<option value="2:00 am">2:00 am</option>
-
-												<option value="2:30 am">2:30 am</option>
-												<option value="3:00 am">3:00 am</option>
-												<option value="3:30 am">3:30 am</option>
-												<option value="4:00 am">4:00 am</option>
-
-												<option value="4:30 am">4:30 am</option>
-												<option value="5:00 am">5:00 am</option>
-												<option value="5:30 am">5:30 am</option>
-												<option value="6:00 am">6:00 am</option>
-
-												<option value="6:30 am">6:30 am</option>
-												<option value="7:00 am">7:00 am</option>
-												<option value="7:30 am">7:30 am</option>
-												<option value="8:00 am">8:00 am</option>
-
-												<option value="8:30 am">8:30 am</option>
-												<option value="9:00 am">9:00 am</option>
-												<option value="9:30 am">9:30 am</option>
-												<option value="10:00 am">10:00 am</option>
-
-												<option value="11:00 am">11:00 am</option>
-												<option value="11:30 am">11:30 am</option>
-												<option value="12:00 pm">12:00 pm</option>
-												<option value="12:30 pm">12:30 pm</option>
-
-												<option value="1:00 pm">1:00 pm</option>
-												<option value="1:30 pm">1:30 pm</option>
-												<option value="2:00 pm">2:00 pm</option>
-
-												<option value="2:30 pm">2:30 pm</option>
-												<option value="3:00 pm">3:00 pm</option>
-												<option value="3:30 pm">3:30 pm</option>
-												<option value="4:00 pm">4:00 pm</option>
-
-												<option value="4:30 pm">4:30 pm</option>
-												<option value="5:00 pm">5:00 pm</option>
-												<option value="5:30 pm">5:30 pm</option>
-												<option value="6:00 pm">6:00 pm</option>
-
-												<option value="6:30 pm">6:30 pm</option>
-												<option value="7:00 pm">7:00 pm</option>
-												<option value="7:30 pm">7:30 pm</option>
-												<option value="8:00 pm">8:00 pm</option>
-
-												<option value="8:30 pm">8:30 pm</option>
-												<option value="9:00 pm">9:00 pm</option>
-												<option value="9:30 pm">9:30 pm</option>
-												<option value="10:00 pm">10:00 pm</option>
-
-												<option value="11:00 pm">11:00 pm</option>
-												<option value="11:30 pm">11:30 pm</option>
+												<option value="12:00 am"<?php echo $row['EtimeEnd']=="12:00 am" ? "Selected" : ""; ?>>12:00 am</option>
+												
+												<option value="12:30 am"<?php echo $row['EtimeEnd']=="12:30 am" ? "Selected" : ""; ?>>12:30 am</option>
+												<option value="1:00 am" <?php echo $row['EtimeEnd']=="1:00 am"  ? "Selected" : ""; ?>>1:00 am</option>
+												<option value="1:30 am" <?php echo $row['EtimeEnd']=="1:30 am"  ? "Selected" : ""; ?>>1:30 am</option>
+												<option value="2:00 am" <?php echo $row['EtimeEnd']=="2:00 am"  ? "Selected" : ""; ?>>2:00 am</option>
+												
+												<option value="2:30 am" <?php echo $row['EtimeEnd']=="2:30 am"  ? "Selected" : ""; ?>>2:30 am</option>
+												<option value="3:00 am" <?php echo $row['EtimeEnd']=="3:00 am"  ? "Selected" : ""; ?>>3:00 am</option>
+												<option value="3:30 am" <?php echo $row['EtimeEnd']=="3:30 am"  ? "Selected" : ""; ?>>3:30 am</option>
+												<option value="4:00 am" <?php echo $row['EtimeEnd']=="4:00 am"  ? "Selected" : ""; ?>>4:00 am</option>
+												
+												<option value="4:30 am" <?php echo $row['EtimeEnd']=="4:30 am"  ? "Selected" : ""; ?>>4:30 am</option>
+												<option value="5:00 am" <?php echo $row['EtimeEnd']=="5:00 am"  ? "Selected" : ""; ?>>5:00 am</option>
+												<option value="5:30 am" <?php echo $row['EtimeEnd']=="5:30 am"  ? "Selected" : ""; ?>>5:30 am</option>
+												<option value="6:00 am" <?php echo $row['EtimeEnd']=="6:00 am"  ? "Selected" : ""; ?>>6:00 am</option>
+												
+												<option value="6:30 am" <?php echo $row['EtimeEnd']=="6:30 am"  ? "Selected" : ""; ?>>6:30 am</option>
+												<option value="7:00 am" <?php echo $row['EtimeEnd']=="7:00 am"  ? "Selected" : ""; ?>>7:00 am</option>
+												<option value="7:30 am" <?php echo $row['EtimeEnd']=="7:30 am"  ? "Selected" : ""; ?>>7:30 am</option>
+												<option value="8:00 am" <?php echo $row['EtimeEnd']=="8:00 am"  ? "Selected" : ""; ?>>8:00 am</option>
+												
+												<option value="8:30 am" <?php echo $row['EtimeEnd']=="8:30 am"  ? "Selected" : ""; ?>>8:30 am</option>
+												<option value="9:00 am" <?php echo $row['EtimeEnd']=="9:00 am"  ? "Selected" : ""; ?>>9:00 am</option>
+												<option value="9:30 am" <?php echo $row['EtimeEnd']=="9:30 am"  ? "Selected" : ""; ?>>9:30 am</option>
+												<option value="10:00 am"<?php echo $row['EtimeEnd']=="10:00 am" ? "Selected" : ""; ?>>10:00 am</option>
+												
+												<option value="11:00 am"<?php echo $row['EtimeEnd']=="11:00 am" ? "Selected" : ""; ?>>11:00 am</option>
+												<option value="11:30 am"<?php echo $row['EtimeEnd']=="11:30 am" ? "Selected" : ""; ?>>11:30 am</option>
+												<option value="12:00 pm"<?php echo $row['EtimeEnd']=="12:00 pm" ? "Selected" : ""; ?>>12:00 pm</option>
+												<option value="12:30 pm"<?php echo $row['EtimeEnd']=="12:30 pm" ? "Selected" : ""; ?>>12:30 pm</option>
+												
+												<option value="1:00 pm" <?php echo $row['EtimeEnd']=="1:00 pm"  ? "Selected" : ""; ?>>1:00 pm</option>
+												<option value="1:30 pm" <?php echo $row['EtimeEnd']=="1:30 pm"  ? "Selected" : ""; ?>>1:30 pm</option>
+												<option value="2:00 pm" <?php echo $row['EtimeEnd']=="2:00 pm"  ? "Selected" : ""; ?>>2:00 pm</option>
+												
+												<option value="2:30 pm" <?php echo $row['EtimeEnd']=="2:30 pm"  ? "Selected" : ""; ?>>2:30 pm</option>
+												<option value="3:00 pm" <?php echo $row['EtimeEnd']=="3:00 pm"  ? "Selected" : ""; ?>>3:00 pm</option>
+												<option value="3:30 pm" <?php echo $row['EtimeEnd']=="3:30 pm"  ? "Selected" : ""; ?>>3:30 pm</option>
+												<option value="4:00 pm" <?php echo $row['EtimeEnd']=="4:00 pm"  ? "Selected" : ""; ?>>4:00 pm</option>
+												
+												<option value="4:30 pm" <?php echo $row['EtimeEnd']=="4:30 pm"  ? "Selected" : ""; ?>>4:30 pm</option>
+												<option value="5:00 pm" <?php echo $row['EtimeEnd']=="5:00 pm"  ? "Selected" : ""; ?>>5:00 pm</option>
+												<option value="5:30 pm" <?php echo $row['EtimeEnd']=="5:30 pm"  ? "Selected" : ""; ?>>5:30 pm</option>
+												<option value="6:00 pm" <?php echo $row['EtimeEnd']=="6:00 pm"  ? "Selected" : ""; ?>>6:00 pm</option>
+												
+												<option value="6:30 pm" <?php echo $row['EtimeEnd']=="6:30 pm"  ? "Selected" : ""; ?>>6:30 pm</option>
+												<option value="7:00 pm" <?php echo $row['EtimeEnd']=="7:00 pm"  ? "Selected" : ""; ?>>7:00 pm</option>
+												<option value="7:30 pm" <?php echo $row['EtimeEnd']=="7:30 pm"  ? "Selected" : ""; ?>>7:30 pm</option>
+												<option value="8:00 pm" <?php echo $row['EtimeEnd']=="8:00 pm"  ? "Selected" : ""; ?>>8:00 pm</option>
+												
+												<option value="8:30 pm" <?php echo $row['EtimeEnd']=="8:30 pm"  ? "Selected" : ""; ?>>8:30 pm</option>
+												<option value="9:00 pm" <?php echo $row['EtimeEnd']=="9:00 pm"  ? "Selected" : ""; ?>>9:00 pm</option>
+												<option value="9:30 pm" <?php echo $row['EtimeEnd']=="9:30 pm"  ? "Selected" : ""; ?>>9:30 pm</option>
+												<option value="10:00 pm"<?php echo $row['EtimeEnd']=="10:00 pm" ? "Selected" : ""; ?>>10:00 pm</option>
+												
+												<option value="11:00 pm"<?php echo $row['EtimeEnd']=="11:00 pm" ? "Selected" : ""; ?>>11:00 pm</option>
+												<option value="11:30 pm"<?php echo $row['EtimeEnd']=="11:30 pm" ? "Selected" : ""; ?>>11:30 pm</option>
 											</select>
 											<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
 										</div>
