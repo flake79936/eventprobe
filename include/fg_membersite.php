@@ -685,51 +685,6 @@ class FGMembersite{
 	
 	/*----(End) CreateEvent() Submission----*/
 	
-	/*Added by Eduardo Corral.
-	  This function will delete the event based on the ID the function has 
-	  recieved from the form coming from eventDisplayPage.php
-	* Before we delete the event we have to make sure the event actually
-	* belongs to the user that is requesting to delete the event.
-	* This will guaranty the integrity of the function. safety feature.  
-	*/
-	function deleteEvent($delEventID){
-		if($this->checkUser($delEventID)){ //checks for the user if true then delete
-			$qry = "DELETE FROM $this->tablename2 WHERE Eid = $delEventID;";
-			
-			mysql_query($qry, $this->connection);
-			
-			return "<script> window.alert('Your Event has been deleted.');</script>";
-		}
-		return "<script> window.alert('You are not the user who crated this event<br>You cannot delete it.');</script>"; //false then show alert messsage.
-	}
-	
-	/*Added by Eduardo Corral.
-	  Function determine if the user requesting to delete the event is the 
-	  same as the one in the field of the event record
-	* 
-	*/
-	function checkUser($delEventID){
-		return $this->UsrName === $this->eveDbUser($delEventID) ? TRUE : FALSE; //return if both names match otherwise false
-	}
-	
-	/*
-	* 
-	*/
-	function eveDbUser($delEventID){
-		$qry = "SELECT UuserName FROM $this->tablename2 WHERE Eid = $delEventID;";
-		
-		$result = mysql_query($qry, $this->connection);
-
-		if(!$result || mysql_num_rows($result) <= 0){
-			$this->HandleError(" ...Something... ");
-			return false;
-		}
-
-		$row = mysql_fetch_assoc($result);
-
-		return $row['UuserName'];
-	}
-	
 	function upLoadUserPic(){
 		/**
 			$_FILES["Eflyer"]["name"] - the name of the uploaded file
@@ -867,8 +822,56 @@ class FGMembersite{
     }
 	
 	/*----(End) User Management----*/
+	/* Added by Eduardo Corral
+	*  
+	*/
 	function updateEvent(){
 		
+	}
+	
+	/*Added by Eduardo Corral.
+	  This function will delete the event based on the ID the function has 
+	  recieved from the form coming from eventDisplayPage.php
+	* Before we delete the event we have to make sure the event actually
+	* belongs to the user that is requesting to delete the event.
+	* This will guaranty the integrity of the function. safety feature.  
+	*/
+	function deleteEvent($delEventID){
+		if($this->checkUser($delEventID)){ //checks for the user if true then delete
+			$qry = "DELETE FROM $this->tablename2 WHERE Eid = $delEventID;";
+			
+			mysql_query($qry, $this->connection);
+			
+			return "<script> window.alert('Your Event has been deleted.');</script>";
+		}
+		return "<script> window.alert('You are not the user who crated this event<br>You cannot delete it.');</script>"; //false then show alert messsage.
+	}
+	
+	/*Added by Eduardo Corral.
+	  Function determine if the user requesting to delete the event is the 
+	  same as the one in the field of the event record
+	* 
+	*/
+	function checkUser($delEventID){
+		return $this->UsrName === $this->getUserInDB($delEventID) ? TRUE : FALSE; //return if both names match otherwise false
+	}
+	
+	/* Added by Eduardo Corral
+	*  gets the user that officially had registered the event.
+	*/
+	function getUserInDB($delEventID){
+		$qry = "SELECT UuserName FROM $this->tablename2 WHERE Eid = $delEventID;";
+		
+		$result = mysql_query($qry, $this->connection);
+
+		if(!$result || mysql_num_rows($result) <= 0){
+			$this->HandleError(" ...Something... ");
+			return false;
+		}
+
+		$row = mysql_fetch_assoc($result);
+
+		return $row['UuserName'];
 	}
 	/*----(Start) User Management----*/
 	
