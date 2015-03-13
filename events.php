@@ -21,7 +21,7 @@
 		if ($today===$row['EstartDate']){
 		$day="Today";}
 	?>
-	<li>
+	<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);"><li>
 		<div class="info">
 			<div class="box">
 				<a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />
-	</li>
+	</li></a>
 
 	<?PHP $i++; } ?>
 <div class="clear"></div>
