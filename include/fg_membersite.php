@@ -821,7 +821,7 @@ class FGMembersite{
         return true;
     }
 	
-	/*----(Start) User Management----*/
+	/*----(Start) User Management--------------------------------------------------------------------------------------------------------------------------*/
 	/* Added by Eduardo Corral
 	*  
 	*/
@@ -1023,6 +1023,7 @@ class FGMembersite{
 		return true;
     }
 	
+	
 	/*Added by Eduardo Corral.
 	  This function will delete the event based on the ID the function has 
 	  recieved from the form coming from eventDisplayPage.php
@@ -1067,7 +1068,7 @@ class FGMembersite{
 
 		return $row['UuserName'];
 	}
-	/*----(End) User Management----*/
+	/*----(End) User Management---------------------------------------------------------------------------------------------------------------------------*/
 	
 	/*----(Start) Login information/Methods----*/
 	function Login(){
