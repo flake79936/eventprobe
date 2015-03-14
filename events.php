@@ -21,17 +21,19 @@
 		if ($today===$row['EstartDate']){
 		$day="Today";}
 	?>
-	<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);"><li>
+	<li>
+		<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
 		<div class="info">
 			<div class="box">
-				<a href="#" class="btn-cross"><img src="images/btn_cross.png" alt="Cross" /></a>
+				<img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
 				<h1><?=$day?></h1>
 				<p> <?=substr($row['EstartDate'], 0, 5);?>, <?= $row['EtimeStart'] ?></p>
 				<h1><?= $row['Evename'] ?></h1>
 			</div>
 		</div>
 		<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />
-	</li></a>
+		</a>
+	</li>
 
 	<?PHP $i++; } ?>
 <div class="clear"></div>
