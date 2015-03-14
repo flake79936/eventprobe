@@ -66,7 +66,7 @@ $(document).ready(function() {
 	
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate";
 	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate";
-	$sql3 = "SELECT Upic FROM Registration WHERE AND UuserName = '" . $usrname . "'";
+	$sql3 = "SELECT Upic FROM Registration WHERE UuserName = '" . $usrname . "'";
 	$result = mysqli_query($con, $sql);
 	$result2 = mysqli_query($con, $sql2);
 	$result3 = mysqli_query($con, $sql3);
@@ -77,10 +77,14 @@ $(document).ready(function() {
 </div>
 
 <div class="box">
-	<?PHP while($row = mysqli_fetch_array($result2)){ 
+<!-- <div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div> -->
+	<?PHP 
+	while($row = mysqli_fetch_array($result3)){ 
 	$pic=$row['Upic'];
+	
+	echo "<div class='profile'><img src=".$row['Upic']." alt='Profile' /></div> ";
 	}?>
-	<div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div>
+
 	<?PHP  			
 		$i = 0;
 		while($row = mysqli_fetch_array($result2)){
