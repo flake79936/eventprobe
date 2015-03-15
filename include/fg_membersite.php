@@ -501,39 +501,27 @@ class FGMembersite{
 		
 		$uName = $this->UsrName();
 
-		if($formvars['Etype'] === 'Other'){
-			//$formvars['Evename']      = strtolower (  $formvars['Evename']       );
-// 			$formvars['Eaddress']     = strtolower (  $formvars['Eaddress']      );
-// 			$formvars['Ecity']        = strtolower (  $formvars['Ecity']         );
-// 			$formvars['Estate']       = strtolower (  $formvars['Estate']        );
-// 			$formvars['Edescription'] = strtolower (  $formvars['Edescription']  );
-// 			$formvars['Ewebsite']     = strtolower (  $formvars['Ewebsite']      );
-// 			$formvars['Ehashtag']     = strtolower (  $formvars['Ehashtag']      );
-// 			$formvars['Efacebook']    = strtolower (  $formvars['Efacebook']     );
-// 			$formvars['Etwitter']     = strtolower (  $formvars['Etwitter']      );
-// 			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
-			$formvars['Eother']       = strtolower (  $formvars['Eother']        );
-			$formvars['EtimeStart']   = strtolower (  $formvars['EtimeStart']    );
-			$formvars['EtimeEnd']     = strtolower (  $formvars['EtimeEnd']    );
-			$formvars['Erank']     = strtolower (  $formvars['Erank']    );
+		// build for google
+		$address    = $formvars['Eaddress'] . ", " . $formvars['Ecity'] . ", " . $formvars['Estate'] . " " . $formvars['Ezip'];
+		$expression = "/\s/";
+		$replace    = "+";
 
-						$address = $formvars['Eaddress'] . ", " . $formvars['Ecity'] . ", " . $formvars['Estate'] . " " . $formvars['Ezip'];
-						$expression = "/\s/";
-						$replace = "+";
+		$street   = preg_replace($expression, $replace, $address);
+		$prepAddr = str_replace(' ','+',$street);
+		$geocode  = file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
+		$output   = json_decode($geocode);
 
-						$street = preg_replace($expression, $replace, $address);
-						
-						
-						$prepAddr = str_replace(' ','+',$street);
- 
-						$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
- 
-						$output= json_decode($geocode);
- 
-						$lat = $output->results[0]->geometry->location->lat;
-						$long = $output->results[0]->geometry->location->lng;
-						
-			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Edescription, Etype, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank,Edisplay)
+		$lat  = $output->results[0]->geometry->location->lat;
+		$long = $output->results[0]->geometry->location->lng;
+		
+		//
+		$formvars['EtimeStart'] = date("g:i a", strtotime($formvars['EtimeStart']));
+		$formvars['EtimeEnd']   = date("g:i a", strtotime($formvars['EtimeEnd']));
+		
+		if ($formvars['Eother'] === null)  $formvars['Eother'] = "";  
+		
+//		if($formvars['Etype'] === 'Other'){
+			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank,Edisplay)
 				VALUES(
 					"' . $this->SanitizeForSQL($uName) . '",
 					"' . $this->SanitizeForSQL($formvars['Evename']) . '",
@@ -560,66 +548,34 @@ class FGMembersite{
 					"' . $this->SanitizeForSQL($formvars['Erank']) . '",
 					"1"
 				);';
-		} else {
-			//
-// 			$formvars['Evename']      = strtolower (  $formvars['Evename']       );
-// 			$formvars['Eaddress']     = strtolower (  $formvars['Eaddress']      );
-// 			$formvars['Ecity']        = strtolower (  $formvars['Ecity']         );
-// 			$formvars['Estate']       = strtolower (  $formvars['Estate']        );
-// 			$formvars['Edescription'] = strtolower (  $formvars['Edescription']  );
-// 			$formvars['Ewebsite']     = strtolower (  $formvars['Ewebsite']      );
-// 			$formvars['Ehashtag']     = strtolower (  $formvars['Ehashtag']      );
-// 			$formvars['Efacebook']    = strtolower (  $formvars['Efacebook']     );
-// 			$formvars['Etwitter']     = strtolower (  $formvars['Etwitter']      );
-// 			$formvars['Egoogle']      = strtolower (  $formvars['Egoogle']       );
-			$formvars['Eother']       = strtolower (  $formvars['Eother']        );
-			$formvars['EtimeStart']   = strtolower (  $formvars['EtimeStart']    );
-			$formvars['EtimeEnd']     = strtolower (  $formvars['EtimeEnd']      );
-			$formvars['Erank']     = strtolower (  $formvars['Erank']      );
-
-						$address = $formvars['Eaddress'] . ", " . $formvars['Ecity'] . ", " . $formvars['Estate'] . " " . $formvars['Ezip'];
-						$expression = "/\s/";
-						$replace = "+";
-
-						$street = preg_replace($expression, $replace, $address);
-						
-						
-						$prepAddr = str_replace(' ','+',$street);
- 
-						$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
- 
-						$output= json_decode($geocode);
- 
-						$lat = $output->results[0]->geometry->location->lat;
-						$long = $output->results[0]->geometry->location->lng;
-
-			$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Eflyer, Egoogle,EtimeStart, EtimeEnd, Elat, Elong, Erank, Edisplay)
-				VALUES(
-					"' . $this->SanitizeForSQL($uName) . '",
-					"' . $this->SanitizeForSQL($formvars['Evename']) . '",
-					"' . $this->SanitizeForSQL($formvars['EstartDate']) . '",
-					"' . $this->SanitizeForSQL($formvars['EendDate']) . '",
-					"' . $this->SanitizeForSQL($formvars['Eaddress']) . '",
-					"' . $this->SanitizeForSQL($formvars['Ecity']) . '",
-					"' . $this->SanitizeForSQL($formvars['Estate']) . '",
-					"' . $this->SanitizeForSQL($formvars['Ezip']) . '",
-					"' . $this->SanitizeForSQL($formvars['EphoneNumber']) . '",
-					"' . $this->SanitizeForSQL($formvars['Etype']) . '",
-					"' . $this->SanitizeForSQL($formvars['Edescription']) . '",
-					"' . $this->SanitizeForSQL($formvars['Ewebsite']) . '",
-					"' . $this->SanitizeForSQL($formvars['Ehashtag']) . '",
-					"' . $this->SanitizeForSQL($formvars['Efacebook']) . '",
-					"' . $this->SanitizeForSQL($formvars['Etwitter']) . '",
-					"' . $this->SanitizeForSQL($formvars['Eflyer']) . '",
-					"' . $this->SanitizeForSQL($formvars['Egoogle']) . '",
-					"' . $this->SanitizeForSQL($formvars['EtimeStart']) . '",
-					"' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '",
-					"' . $this->SanitizeForSQL($lat)                . '",
-					"' . $this->SanitizeForSQL($long)               . '",
-					"' . $this->SanitizeForSQL($formvars['Erank']) . '",
-					"1"
-				);';
-		}
+		// } else {
+			// $insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Eflyer, Egoogle,EtimeStart, EtimeEnd, Elat, Elong, Erank, Edisplay)
+				// VALUES(
+					// "' . $this->SanitizeForSQL($uName) . '",
+					// "' . $this->SanitizeForSQL($formvars['Evename']) . '",
+					// "' . $this->SanitizeForSQL($formvars['EstartDate']) . '",
+					// "' . $this->SanitizeForSQL($formvars['EendDate']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Eaddress']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Ecity']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Estate']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Ezip']) . '",
+					// "' . $this->SanitizeForSQL($formvars['EphoneNumber']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Etype']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Edescription']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Ewebsite']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Ehashtag']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Efacebook']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Etwitter']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Eflyer']) . '",
+					// "' . $this->SanitizeForSQL($formvars['Egoogle']) . '",
+					// "' . $this->SanitizeForSQL($formvars['EtimeStart']) . '",
+					// "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '",
+					// "' . $this->SanitizeForSQL($lat)                . '",
+					// "' . $this->SanitizeForSQL($long)               . '",
+					// "' . $this->SanitizeForSQL($formvars['Erank']) . '",
+					// "1"
+				// );';
+		// }
 		
         if(!mysql_query($insert_query, $this->connection)){
             $this->HandleDBError("Error inserting data to the table\nquery: $insert_query");
@@ -644,11 +600,8 @@ class FGMembersite{
 		$filename		= str_replace(' ', '_', $filename);
 		$filename		= str_replace('-', '_', $filename);
 		$filename		= str_replace('.', '_', $filename);
-		$final_location = $uploaddir.$filename;
-
-
+		$final_location = ((strpos($filename, $uploaddir) === false) ? $uploaddir : "" ) . $filename;
 			
-				
 		if (
 		(
 		   ($_FILES["Eflyer"]["type"] == "image/gif") //set image you want to upload
@@ -959,48 +912,26 @@ class FGMembersite{
 		$lat  = $output->results[0]->geometry->location->lat;
 		$long = $output->results[0]->geometry->location->lng;
 		
+		$formvars['EtimeStart'] = date("g:i a", strtotime($formvars['EtimeStart']));
+		$formvars['EtimeEnd']   = date("g:i a", strtotime($formvars['EtimeEnd']));
 		/* If the option from the drop down in the form is 'Other'
 		 * Then we use this option that allows to insert the other typed by the user.
 		 */
-		if($formvars['Etype'] === 'Other'){
-			$formvars['Eother']     = strtolower($formvars['Eother']);
-			$formvars['EtimeStart'] = strtolower($formvars['EtimeStart']);
-			$formvars['EtimeEnd']   = strtolower($formvars['EtimeEnd']);
-			$formvars['Erank']      = strtolower($formvars['Erank']);
-			
-			$insert_query = 'UPDATE ' . $this->tablename2 . ' SET UuserName = "' . $this->SanitizeForSQL($uName) . '", ' 
-			. 'Evename = "' . $this->SanitizeForSQL($formvars['Evename']) . '", EstartDate = "' . $this->SanitizeForSQL($formvars['EstartDate']) . '", ' 
-			. 'EendDate =  "' . $this->SanitizeForSQL($formvars['EendDate']) . '", Eaddress = "' . $this->SanitizeForSQL($formvars['Eaddress']) . '", ' 
-			. 'Ecity = "' . $this->SanitizeForSQL($formvars['Ecity']) . '", Estate = "' . $this->SanitizeForSQL($formvars['Estate']) . '", ' 
-			. 'Ezip = "' . $this->SanitizeForSQL($formvars['Ezip']) . '", EphoneNumber = "' . $this->SanitizeForSQL($formvars['EphoneNumber']) . '", ' 
-			. 'Edescription = "' . $this->SanitizeForSQL($formvars['Edescription']) . '", Etype = "' . $this->SanitizeForSQL($formvars['Etype']) . '", ' 
-			. 'Ewebsite = "' . $this->SanitizeForSQL($formvars['Ewebsite']) . '", Ehashtag = "' . $this->SanitizeForSQL($formvars['Ehashtag']) . '", ' 
-			. 'Efacebook = "' . $this->SanitizeForSQL($formvars['Efacebook']) . '", Etwitter = "' . $this->SanitizeForSQL($formvars['Etwitter']) . '", ' 
-			. 'Egoogle = "' . $this->SanitizeForSQL($formvars['Egoogle']) . '", Eflyer = "' . $this->SanitizeForSQL($formvars['Eflyer']) . '", ' 
-			. 'Eother = "' . $this->SanitizeForSQL($formvars['Eother']) . '", EtimeStart = "' . $this->SanitizeForSQL($formvars['EtimeStart']) . '", ' 
-			. 'EtimeEnd = "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '", Elat = "' . $this->SanitizeForSQL($lat) . '", ' 
-			. 'Elong = "' . $this->SanitizeForSQL($long) . '", Erank = "' . $this->SanitizeForSQL($formvars['Erank']) . '"' 
-			. 'WHERE Eid = "' . $this->SanitizeForSQL($formvars['Eid']).'"';
-		
-		} else {
-			$formvars['Eother']     = strtolower($formvars['Eother']);
-			$formvars['EtimeStart'] = strtolower($formvars['EtimeStart']);
-			$formvars['EtimeEnd']   = strtolower($formvars['EtimeEnd']);
-			$formvars['Erank']      = strtolower($formvars['Erank']);
-			
-			$insert_query = 'UPDATE ' . $this->tablename2 . ' SET UuserName = "' . $this->SanitizeForSQL($uName) . '", Evename = "' . $this->SanitizeForSQL($formvars['Evename']) . '", ' 
-				. 'EstartDate = "' . $this->SanitizeForSQL($formvars['EstartDate']) . '", EendDate = "' . $this->SanitizeForSQL($formvars['EendDate']) . '", ' 
-				. 'Eaddress = "' . $this->SanitizeForSQL($formvars['Eaddress']) . '", Ecity = "' . $this->SanitizeForSQL($formvars['Ecity']) . '", ' 
-				. 'Estate = "' . $this->SanitizeForSQL($formvars['Estate']) . '", Ezip = "' . $this->SanitizeForSQL($formvars['Ezip']) . '", ' 
-				. 'EphoneNumber = "' . $this->SanitizeForSQL($formvars['EphoneNumber']) . '", Edescription = "' . $this->SanitizeForSQL($formvars['Edescription']) . '", ' 
-				. 'Etype = "' . $this->SanitizeForSQL($formvars['Etype']) . '", Ewebsite = "' . $this->SanitizeForSQL($formvars['Ewebsite']) . '", ' 
-				. 'Ehashtag = "' . $this->SanitizeForSQL($formvars['Ehashtag']) . '", Efacebook = "' . $this->SanitizeForSQL($formvars['Efacebook']) . '", ' 
-				. 'Etwitter = "' . $this->SanitizeForSQL($formvars['Etwitter']) . '", Egoogle = "' . $this->SanitizeForSQL($formvars['Egoogle']) . '", ' 
-				. 'Eflyer = "' . $this->SanitizeForSQL($formvars['Eflyer']) . '", EtimeStart = "' . $this->SanitizeForSQL($formvars['EtimeStart']) . '", ' 
-				. 'EtimeEnd = "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '", Elat = "' . $this->SanitizeForSQL($lat) . '", ' 
-				. 'Elong = "' . $this->SanitizeForSQL($long) . '", Erank = "' . $this->SanitizeForSQL($formvars['Erank']) . '"' 
-				. 'WHERE Eid = "' . $this->SanitizeForSQL($formvars['Eid']).'"';
-		}
+		$insert_query = 'UPDATE ' . $this->tablename2 . ' SET UuserName = "' . $this->SanitizeForSQL($uName) . '", ' 
+		. 'Evename = "' . $this->SanitizeForSQL($formvars['Evename']) . '", EstartDate = "' . $this->SanitizeForSQL($formvars['EstartDate']) . '", ' 
+		. 'EendDate =  "' . $this->SanitizeForSQL($formvars['EendDate']) . '", Eaddress = "' . $this->SanitizeForSQL($formvars['Eaddress']) . '", ' 
+		. 'Ecity = "' . $this->SanitizeForSQL($formvars['Ecity']) . '", Estate = "' . $this->SanitizeForSQL($formvars['Estate']) . '", ' 
+		. 'Ezip = "' . $this->SanitizeForSQL($formvars['Ezip']) . '", EphoneNumber = "' . $this->SanitizeForSQL($formvars['EphoneNumber']) . '", ' 
+		. 'Edescription = "' . $this->SanitizeForSQL($formvars['Edescription']) . '", Etype = "' . $this->SanitizeForSQL($formvars['Etype']) . '", ' 
+		. 'Ewebsite = "' . $this->SanitizeForSQL($formvars['Ewebsite']) . '", Ehashtag = "' . $this->SanitizeForSQL($formvars['Ehashtag']) . '", ' 
+		. 'Efacebook = "' . $this->SanitizeForSQL($formvars['Efacebook']) . '", Etwitter = "' . $this->SanitizeForSQL($formvars['Etwitter']) . '", ' 
+		. 'Egoogle = "' . $this->SanitizeForSQL($formvars['Egoogle']) . '", '
+		. (($formvars['Eflyer'] !== null) ? ('Eflyer = "' . $this->SanitizeForSQL($formvars['Eflyer'])) . '", ' : "") 
+		. (($formvars['Etype'] === 'Other') ? ('Eother = "' . $this->SanitizeForSQL($formvars['Eother'])) . '", ' : "")
+		. 'EtimeStart = "' . $this->SanitizeForSQL($formvars['EtimeStart']) . '", ' 
+		. 'EtimeEnd = "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '", Elat = "' . $this->SanitizeForSQL($lat) . '", ' 
+		. 'Elong = "' . $this->SanitizeForSQL($long) . '", Erank = "' . $this->SanitizeForSQL($formvars['Erank']) . '"' 
+		. 'WHERE Eid = "' . $this->SanitizeForSQL($formvars['Eid']).'"';
 		
         if(!mysql_query($insert_query, $this->connection)){
             $this->HandleDBError("Error inserting data to the table\nquery: $insert_query");
@@ -1151,7 +1082,7 @@ class FGMembersite{
 				"Ecity VARCHAR(50) NOT NULL,".
 				"Estate CHAR(10) NOT NULL,".
 				"Ezip INT(5) NOT NULL,".
-				"EphoneNumber INT(10),".
+				"EphoneNumber VARCHAR(50),".
 				"Edescription VARCHAR(26) NOT NULL,".
 				"Etype VARCHAR(26) NOT NULL,".
 				"Ewebsite VARCHAR(26) NOT NULL,".

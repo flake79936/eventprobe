@@ -73,10 +73,10 @@
 			
 			<!--(Start) Date Pickers-->
 				<script type="text/javascript">
-					$(document).ready(function(){
+					/*$(document).ready(function(){
 						$("#EstartDate").datepicker({minDate: 0});
 						$("#EendDate").datepicker({minDate: 0});
-					});
+					});*/
 				</script>
 			<!--(End) Date Pickers-->
 			
@@ -84,8 +84,8 @@
 				<script type="text/javascript">
 					$(document).ready(function(){
 						$("#other").hide();
-						$("select").change(function(){
-							$("select option:selected").each(function(){
+						$("#Etype").change(function(){
+							$("#Etype option:selected").each(function(){
 								if($(this).attr("value") == "Other"){
 									$("#other").show();
 								} else {
@@ -212,10 +212,11 @@
 					
 						<!--DASHBOARD-->
 						<div class="dashboard">
+							<!--Upload picture-->
 							<div class="user-profile">
 								<div class="update-image">
 									<!--added the 'value' to reflect the value from the DB based on the 'Eid' (event id)-->
-									<input id="uploadImage" value="<?php echo $row['Eflyer']; ?>" type="file" name="Eflyer" onchange="PreviewImage();" />
+									<input id="uploadImage" accept="image/*" value="<?php echo $row['Eflyer']; ?>" type="file" name="Eflyer" onchange="PreviewImage();" />
 									<br>
 									<span id="eventForm_Eflyer_errorloc" class="error"></span>
 								</div>
@@ -399,7 +400,7 @@
 									<div class="wrap">
 										<div class="type" id="EphoneNumber" >
 											<h5 for="EphoneNumber">Phone Number</h5>
-												<input type="text" name="EphoneNumber" placeholder="1234567890" title="(e.g., " id="EphoneNumber" value="<?PHP echo $row['EphoneNumber']; ?>" maxlength="50"><br>
+											<input type='tel' name="EphoneNumber" id="EphoneNumber" pattern='\d{3}[\-]\d{3}[\-]\d{4}' value="<?PHP echo $row['EphoneNumber']; ?>" title='Phone Number (Format: 999-999-9999)' maxlength="12" placeholder="999-999-9999"><br>
 											<span id="eventForm_EphoneNumber_errorloc" class="error"></span>
 										</div>
 									</div>
@@ -412,67 +413,7 @@
 											<div class="container" id="EtimeStart">
 												<div class="container" id="">
 													<h5 for="EtimeStart">Start Time</h5>
-													<select name="EtimeStart" size="1">
-														<option value="" disabled selected>Select Start Time</option>
-														<option value="12:00 am" <?php echo $row['EtimeStart']=="12:00 am" ? "Selected" : ""; ?>>12:00 am</option>
-														
-														<option value="12:30 am" <?php echo $row['EtimeStart']=="12:30 am" ? "Selected" : ""; ?>>12:30 am</option>
-														<option value="1:00 am"  <?php echo $row['EtimeStart']=="1:00 am"  ? "Selected" : ""; ?>>1:00 am</option>
-														<option value="1:30 am"  <?php echo $row['EtimeStart']=="1:30 am"  ? "Selected" : ""; ?>>1:30 am</option>
-														<option value="2:00 am"  <?php echo $row['EtimeStart']=="2:00 am"  ? "Selected" : ""; ?>>2:00 am</option>
-																														   
-														<option value="2:30 am"  <?php echo $row['EtimeStart']=="2:30 am"  ? "Selected" : ""; ?>>2:30 am</option>
-														<option value="3:00 am"  <?php echo $row['EtimeStart']=="3:00 am"  ? "Selected" : ""; ?>>3:00 am</option>
-														<option value="3:30 am"  <?php echo $row['EtimeStart']=="3:30 am"  ? "Selected" : ""; ?>>3:30 am</option>
-														<option value="4:00 am"  <?php echo $row['EtimeStart']=="4:00 am"  ? "Selected" : ""; ?>>4:00 am</option>
-																														   
-														<option value="4:30 am"  <?php echo $row['EtimeStart']=="4:30 am"  ? "Selected" : ""; ?>>4:30 am</option>
-														<option value="5:00 am"  <?php echo $row['EtimeStart']=="5:00 am"  ? "Selected" : ""; ?>>5:00 am</option>
-														<option value="5:30 am"  <?php echo $row['EtimeStart']=="5:30 am"  ? "Selected" : ""; ?>>5:30 am</option>
-														<option value="6:00 am"  <?php echo $row['EtimeStart']=="6:00 am"  ? "Selected" : ""; ?>>6:00 am</option>
-																														   
-														<option value="6:30 am"  <?php echo $row['EtimeStart']=="6:30 am"  ? "Selected" : ""; ?>>6:30 am</option>
-														<option value="7:00 am"  <?php echo $row['EtimeStart']=="7:00 am"  ? "Selected" : ""; ?>>7:00 am</option>
-														<option value="7:30 am"  <?php echo $row['EtimeStart']=="7:30 am"  ? "Selected" : ""; ?>>7:30 am</option>
-														<option value="8:00 am"  <?php echo $row['EtimeStart']=="8:00 am"  ? "Selected" : ""; ?>>8:00 am</option>
-														
-														<option value="8:30 am"  <?php echo $row['EtimeStart']=="8:30 am"  ? "Selected" : ""; ?>>8:30 am</option>
-														<option value="9:00 am"  <?php echo $row['EtimeStart']=="9:00 am"  ? "Selected" : ""; ?>>9:00 am</option>
-														<option value="9:30 am"  <?php echo $row['EtimeStart']=="9:30 am"  ? "Selected" : ""; ?>>9:30 am</option>
-														<option value="10:00 am" <?php echo $row['EtimeStart']=="10:00 am" ? "Selected" : ""; ?>>10:00 am</option>
-														
-														<option value="11:00 am" <?php echo $row['EtimeStart']=="11:00 am" ? "Selected" : ""; ?>>11:00 am</option>
-														<option value="11:30 am" <?php echo $row['EtimeStart']=="11:30 am" ? "Selected" : ""; ?>>11:30 am</option>
-														<option value="12:00 pm" <?php echo $row['EtimeStart']=="12:00 pm" ? "Selected" : ""; ?>>12:00 pm</option>
-														<option value="12:30 pm" <?php echo $row['EtimeStart']=="12:30 pm" ? "Selected" : ""; ?>>12:30 pm</option>
-														
-														<option value="1:00 pm"  <?php echo $row['EtimeStart']=="1:00 pm"  ? "Selected" : ""; ?>>1:00 pm</option>
-														<option value="1:30 pm"  <?php echo $row['EtimeStart']=="1:30 pm"  ? "Selected" : ""; ?>>1:30 pm</option>
-														<option value="2:00 pm"  <?php echo $row['EtimeStart']=="2:00 pm"  ? "Selected" : ""; ?>>2:00 pm</option>
-																														   
-														<option value="2:30 pm"  <?php echo $row['EtimeStart']=="2:30 pm"  ? "Selected" : ""; ?>>2:30 pm</option>
-														<option value="3:00 pm"  <?php echo $row['EtimeStart']=="3:00 pm"  ? "Selected" : ""; ?>>3:00 pm</option>
-														<option value="3:30 pm"  <?php echo $row['EtimeStart']=="3:30 pm"  ? "Selected" : ""; ?>>3:30 pm</option>
-														<option value="4:00 pm"  <?php echo $row['EtimeStart']=="4:00 pm"  ? "Selected" : ""; ?>>4:00 pm</option>
-																														   
-														<option value="4:30 pm"  <?php echo $row['EtimeStart']=="4:30 pm"  ? "Selected" : ""; ?>>4:30 pm</option>
-														<option value="5:00 pm"  <?php echo $row['EtimeStart']=="5:00 pm"  ? "Selected" : ""; ?>>5:00 pm</option>
-														<option value="5:30 pm"  <?php echo $row['EtimeStart']=="5:30 pm"  ? "Selected" : ""; ?>>5:30 pm</option>
-														<option value="6:00 pm"  <?php echo $row['EtimeStart']=="6:00 pm"  ? "Selected" : ""; ?>>6:00 pm</option>
-														
-														<option value="6:30 pm"  <?php echo $row['EtimeStart']=="6:30 pm"  ? "Selected" : ""; ?>>6:30 pm</option>
-														<option value="7:00 pm"  <?php echo $row['EtimeStart']=="7:00 pm"  ? "Selected" : ""; ?>>7:00 pm</option>
-														<option value="7:30 pm"  <?php echo $row['EtimeStart']=="7:30 pm"  ? "Selected" : ""; ?>>7:30 pm</option>
-														<option value="8:00 pm"  <?php echo $row['EtimeStart']=="8:00 pm"  ? "Selected" : ""; ?>>8:00 pm</option>
-																														   
-														<option value="8:30 pm"  <?php echo $row['EtimeStart']=="8:30 pm"  ? "Selected" : ""; ?>>8:30 pm</option>
-														<option value="9:00 pm"  <?php echo $row['EtimeStart']=="9:00 pm"  ? "Selected" : ""; ?>>9:00 pm</option>
-														<option value="9:30 pm"  <?php echo $row['EtimeStart']=="9:30 pm"  ? "Selected" : ""; ?>>9:30 pm</option>
-														<option value="10:00 pm" <?php echo $row['EtimeStart']=="10:00 pm" ? "Selected" : ""; ?>>10:00 pm</option>
-																														   
-														<option value="11:00 pm" <?php echo $row['EtimeStart']=="11:00 pm" ? "Selected" : ""; ?>>11:00 pm</option>
-														<option value="11:30 pm" <?php echo $row['EtimeStart']=="11:30 pm" ? "Selected" : ""; ?>>11:30 pm</option>
-													</select>
+													<input type="time" name="EtimeStart" placeholder="" id="EtimeStart" value="<?PHP echo date("H:i", strtotime($row['EtimeStart'])); ?>" maxlength="50"><br>
 													<span id="eventForm_EtimeStart_errorloc" class="error"></span>
 												</div>
 											</div>
@@ -482,67 +423,7 @@
 										<div class="type">
 											<div class="container" id="EtimeEnd">
 												<h5 for="EtimeEnd">End Time</h5>
-												<select name="EtimeEnd" size="1" value="<?PHP echo $row['EtimeEnd']; ?>">
-													<option value="" disabled selected>Select End Time</option>
-													<option value="12:00 am"<?php echo $row['EtimeEnd']=="12:00 am" ? "Selected" : ""; ?>>12:00 am</option>
-													
-													<option value="12:30 am"<?php echo $row['EtimeEnd']=="12:30 am" ? "Selected" : ""; ?>>12:30 am</option>
-													<option value="1:00 am" <?php echo $row['EtimeEnd']=="1:00 am"  ? "Selected" : ""; ?>>1:00 am</option>
-													<option value="1:30 am" <?php echo $row['EtimeEnd']=="1:30 am"  ? "Selected" : ""; ?>>1:30 am</option>
-													<option value="2:00 am" <?php echo $row['EtimeEnd']=="2:00 am"  ? "Selected" : ""; ?>>2:00 am</option>
-													
-													<option value="2:30 am" <?php echo $row['EtimeEnd']=="2:30 am"  ? "Selected" : ""; ?>>2:30 am</option>
-													<option value="3:00 am" <?php echo $row['EtimeEnd']=="3:00 am"  ? "Selected" : ""; ?>>3:00 am</option>
-													<option value="3:30 am" <?php echo $row['EtimeEnd']=="3:30 am"  ? "Selected" : ""; ?>>3:30 am</option>
-													<option value="4:00 am" <?php echo $row['EtimeEnd']=="4:00 am"  ? "Selected" : ""; ?>>4:00 am</option>
-													
-													<option value="4:30 am" <?php echo $row['EtimeEnd']=="4:30 am"  ? "Selected" : ""; ?>>4:30 am</option>
-													<option value="5:00 am" <?php echo $row['EtimeEnd']=="5:00 am"  ? "Selected" : ""; ?>>5:00 am</option>
-													<option value="5:30 am" <?php echo $row['EtimeEnd']=="5:30 am"  ? "Selected" : ""; ?>>5:30 am</option>
-													<option value="6:00 am" <?php echo $row['EtimeEnd']=="6:00 am"  ? "Selected" : ""; ?>>6:00 am</option>
-													
-													<option value="6:30 am" <?php echo $row['EtimeEnd']=="6:30 am"  ? "Selected" : ""; ?>>6:30 am</option>
-													<option value="7:00 am" <?php echo $row['EtimeEnd']=="7:00 am"  ? "Selected" : ""; ?>>7:00 am</option>
-													<option value="7:30 am" <?php echo $row['EtimeEnd']=="7:30 am"  ? "Selected" : ""; ?>>7:30 am</option>
-													<option value="8:00 am" <?php echo $row['EtimeEnd']=="8:00 am"  ? "Selected" : ""; ?>>8:00 am</option>
-													
-													<option value="8:30 am" <?php echo $row['EtimeEnd']=="8:30 am"  ? "Selected" : ""; ?>>8:30 am</option>
-													<option value="9:00 am" <?php echo $row['EtimeEnd']=="9:00 am"  ? "Selected" : ""; ?>>9:00 am</option>
-													<option value="9:30 am" <?php echo $row['EtimeEnd']=="9:30 am"  ? "Selected" : ""; ?>>9:30 am</option>
-													<option value="10:00 am"<?php echo $row['EtimeEnd']=="10:00 am" ? "Selected" : ""; ?>>10:00 am</option>
-													
-													<option value="11:00 am"<?php echo $row['EtimeEnd']=="11:00 am" ? "Selected" : ""; ?>>11:00 am</option>
-													<option value="11:30 am"<?php echo $row['EtimeEnd']=="11:30 am" ? "Selected" : ""; ?>>11:30 am</option>
-													<option value="12:00 pm"<?php echo $row['EtimeEnd']=="12:00 pm" ? "Selected" : ""; ?>>12:00 pm</option>
-													<option value="12:30 pm"<?php echo $row['EtimeEnd']=="12:30 pm" ? "Selected" : ""; ?>>12:30 pm</option>
-													
-													<option value="1:00 pm" <?php echo $row['EtimeEnd']=="1:00 pm"  ? "Selected" : ""; ?>>1:00 pm</option>
-													<option value="1:30 pm" <?php echo $row['EtimeEnd']=="1:30 pm"  ? "Selected" : ""; ?>>1:30 pm</option>
-													<option value="2:00 pm" <?php echo $row['EtimeEnd']=="2:00 pm"  ? "Selected" : ""; ?>>2:00 pm</option>
-													
-													<option value="2:30 pm" <?php echo $row['EtimeEnd']=="2:30 pm"  ? "Selected" : ""; ?>>2:30 pm</option>
-													<option value="3:00 pm" <?php echo $row['EtimeEnd']=="3:00 pm"  ? "Selected" : ""; ?>>3:00 pm</option>
-													<option value="3:30 pm" <?php echo $row['EtimeEnd']=="3:30 pm"  ? "Selected" : ""; ?>>3:30 pm</option>
-													<option value="4:00 pm" <?php echo $row['EtimeEnd']=="4:00 pm"  ? "Selected" : ""; ?>>4:00 pm</option>
-													
-													<option value="4:30 pm" <?php echo $row['EtimeEnd']=="4:30 pm"  ? "Selected" : ""; ?>>4:30 pm</option>
-													<option value="5:00 pm" <?php echo $row['EtimeEnd']=="5:00 pm"  ? "Selected" : ""; ?>>5:00 pm</option>
-													<option value="5:30 pm" <?php echo $row['EtimeEnd']=="5:30 pm"  ? "Selected" : ""; ?>>5:30 pm</option>
-													<option value="6:00 pm" <?php echo $row['EtimeEnd']=="6:00 pm"  ? "Selected" : ""; ?>>6:00 pm</option>
-													
-													<option value="6:30 pm" <?php echo $row['EtimeEnd']=="6:30 pm"  ? "Selected" : ""; ?>>6:30 pm</option>
-													<option value="7:00 pm" <?php echo $row['EtimeEnd']=="7:00 pm"  ? "Selected" : ""; ?>>7:00 pm</option>
-													<option value="7:30 pm" <?php echo $row['EtimeEnd']=="7:30 pm"  ? "Selected" : ""; ?>>7:30 pm</option>
-													<option value="8:00 pm" <?php echo $row['EtimeEnd']=="8:00 pm"  ? "Selected" : ""; ?>>8:00 pm</option>
-													
-													<option value="8:30 pm" <?php echo $row['EtimeEnd']=="8:30 pm"  ? "Selected" : ""; ?>>8:30 pm</option>
-													<option value="9:00 pm" <?php echo $row['EtimeEnd']=="9:00 pm"  ? "Selected" : ""; ?>>9:00 pm</option>
-													<option value="9:30 pm" <?php echo $row['EtimeEnd']=="9:30 pm"  ? "Selected" : ""; ?>>9:30 pm</option>
-													<option value="10:00 pm"<?php echo $row['EtimeEnd']=="10:00 pm" ? "Selected" : ""; ?>>10:00 pm</option>
-													
-													<option value="11:00 pm"<?php echo $row['EtimeEnd']=="11:00 pm" ? "Selected" : ""; ?>>11:00 pm</option>
-													<option value="11:30 pm"<?php echo $row['EtimeEnd']=="11:30 pm" ? "Selected" : ""; ?>>11:30 pm</option>
-												</select>
+												<input type="time" name="EtimeEnd" placeholder="" id="EtimeEnd" value="<?PHP echo date("H:i", strtotime($row['EtimeEnd'])); ?>" maxlength="50"><br>
 												<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
 											</div>
 										</div>
@@ -555,79 +436,8 @@
 											<!--Start Date picker-->
 											<div class="container" id="">
 												<h5 for="EstartDate">Start Date</h5>
-												<input type="text" name="EstartDate" placeholder="12/22/2015" title="Pick Start Date" id="EstartDate" value="<?PHP echo $row['EstartDate']; ?>" maxlength="50"><br>
+												<input type="date" name="EstartDate" placeholder="12/22/2015" title="Pick Start Date" id="EstartDate" value="<?PHP echo $row['EstartDate']; ?>" maxlength="50"><br>
 												<span id="eventForm_EstartDate_errorloc" class="error"></span>
-												
-												<div style="display: none" class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;">
-													<div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
-														<a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="Prev">
-															<span class="ui-icon ui-icon-circle-triangle-w">Prev</span>
-														</a>
-														<a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next">
-															<span class="ui-icon ui-icon-circle-triangle-e">Next</span>
-														</a>
-														<div class="ui-datepicker-title">
-															<span class="ui-datepicker-month">December</span>&nbsp;
-															<span class="ui-datepicker-year">2014</span>
-														</div>
-													</div>
-													<table class="ui-datepicker-calendar">
-														<thead>
-															<tr>
-																<th scope="col" class="ui-datepicker-week-end">
-																	<span title="Sunday">Su</span>
-																</th>
-																<th scope="col">
-																	<span title="Monday">Mo</span>
-																</th>
-																<th scope="col">
-																	<span title="Tuesday">Tu</span>
-																</th>
-																<th scope="col">
-																	<span title="Wednesday">We</span>
-																</th>
-																<th scope="col">
-																	<span title="Thursday">Th</span>
-																</th>
-																<th scope="col">
-																	<span title="Friday">Fr</span>
-																</th>
-																<th scope="col" class="ui-datepicker-week-end">
-																	<span title="Saturday">Sa</span>
-																</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td>
-																<td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="11" data-year="2014">
-																	<a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="#">1</a>
-																</td>
-																<td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014">
-																<a class="ui-state-default" href="#">2</a>
-																</td>
-																<td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014">
-																<a class="ui-state-default" href="#">3</a>
-																</td>
-																<td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014">
-																<a class="ui-state-default" href="#">4</a>
-																</td>
-																<td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014">
-																<a class="ui-state-default" href="#">5</a>
-																</td>
-																<td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014">
-																<a class="ui-state-default" href="#">6</a>
-																</td>
-																</tr>
-																<tr>
-																<td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014">
-																<a class="ui-state-default" href="#">7</a>
-																</td>
-																<td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">10</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">11</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">12</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">13</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">17</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">18</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">19</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">20</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">21</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">24</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">25</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">26</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">27</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">31</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
 											</div>
 										</div>	
 
@@ -635,9 +445,8 @@
 											<!--End Date picker-->
 											<div class="container" id="">
 												<h5 for="EendDate">End Date</h5>
-												<input type="text" name="EendDate" placeholder="12/31/2015" title="Pick Start Date" id="EendDate" value="<?PHP echo $row['EendDate']; ?>" maxlength="50"><br>
+												<input type="date" name="EendDate" placeholder="12/31/2015" title="Pick Start Date" id="EendDate" value="<?PHP echo $row['EendDate']; ?>" maxlength="50"><br>
 												<span id="eventForm_EendDate_errorloc" class="error"></span>
-												<div style="display: none;" class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">December</span>&nbsp;<span class="ui-datepicker-year">2014</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th><th scope="col"><span title="Monday">Mo</span></th><th scope="col"><span title="Tuesday">Tu</span></th><th scope="col"><span title="Wednesday">We</span></th><th scope="col"><span title="Thursday">Th</span></th><th scope="col"><span title="Friday">Fr</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default ui-state-highlight ui-state-active" href="#">1</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">2</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">3</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">4</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">5</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">6</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">7</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">10</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">11</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">12</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">13</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">17</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">18</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">19</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">20</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">21</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">24</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">25</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">26</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">27</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="11" data-year="2014"><a class="ui-state-default" href="#">31</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div>
 											</div>
 										</div>	
 										
@@ -705,7 +514,7 @@
 			frmvalidator.EnableOnPageErrorDisplay();
 			frmvalidator.EnableMsgsTogether();
 			
-			frmvalidator.addValidation("Eflyer",       "req", "Please Insert an Image");
+			//frmvalidator.addValidation("Eflyer",       "req", "Please Insert an Image");
 			frmvalidator.addValidation("Evename",      "req", "Please fill in Event Name");
 			frmvalidator.addValidation("Etype",        "req", "Please fill in Type of Event");
 			frmvalidator.addValidation("Erank",        "req", "Please fill in the Rank");
