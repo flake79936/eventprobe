@@ -911,11 +911,6 @@ class FGMembersite{
 		$formvars['EtimeEnd']     = $this->Sanitize($_POST['EtimeEnd']);
 		$formvars['Eother']       = $this->Sanitize($_POST['Eother']);
 		$formvars['Erank']        = $this->Sanitize($_POST['Erank']);
-		
-		/*echo "<h1> Insides the value collection method </h1>";
-		foreach($formvars as $values){
-			echo $values;
-		}*/
 	}
 	
 	/* Added by Eduardo Corral
@@ -940,10 +935,10 @@ class FGMembersite{
 	
 	/* This function will update the events table */
 	function updateEventTable(&$formvars){
-		echo "<br><h1> Inside the update event table method </h1> <br>";
+		/* "<br><h1> Inside the update event table method </h1> <br>";
 		foreach($formvars as $key => $values){
 			echo $key . ": " . $values . "<br>";
-		}
+		}*/
 		
         //$confirmcode = $this->MakeConfirmationMd5($formvars['email']);
         
@@ -978,8 +973,7 @@ class FGMembersite{
 			$formvars['EtimeEnd']   = strtolower($formvars['EtimeEnd']);
 			$formvars['Erank']      = strtolower($formvars['Erank']);
 			
-			$insert_query = 
-			'UPDATE ' . $this->tablename2 . ' SET UuserName = "' . $this->SanitizeForSQL($uName) . '", ' 
+			$insert_query = 'UPDATE ' . $this->tablename2 . ' SET UuserName = "' . $this->SanitizeForSQL($uName) . '", ' 
 			. 'Evename = "' . $this->SanitizeForSQL($formvars['Evename']) . '", EstartDate = "' . $this->SanitizeForSQL($formvars['EstartDate']) . '", ' 
 			. 'EendDate =  "' . $this->SanitizeForSQL($formvars['EendDate']) . '", Eaddress = "' . $this->SanitizeForSQL($formvars['Eaddress']) . '", ' 
 			. 'Ecity = "' . $this->SanitizeForSQL($formvars['Ecity']) . '", Estate = "' . $this->SanitizeForSQL($formvars['Estate']) . '", ' 
@@ -999,8 +993,10 @@ class FGMembersite{
 			$formvars['EtimeEnd']   = strtolower($formvars['EtimeEnd']);
 			$formvars['Erank']      = strtolower($formvars['Erank']);
 			
-			$insert_query = 
-				'UPDATE ' . $this->tablename2 . ' SET UuserName = "' . $this->SanitizeForSQL($uName) . '", Evename = "' . $this->SanitizeForSQL($formvars['Evename']) . '", ' 
+			echo "<br><h1>Inside the ELSE <u>before</u> the storing process </h1><br>";
+			
+			
+			$insert_query = 'UPDATE ' . $this->tablename2 . ' SET UuserName = "' . $this->SanitizeForSQL($uName) . '", Evename = "' . $this->SanitizeForSQL($formvars['Evename']) . '", ' 
 				. 'EstartDate = "' . $this->SanitizeForSQL($formvars['EstartDate']) . '", EendDate = "' . $this->SanitizeForSQL($formvars['EendDate']) . '", ' 
 				. 'Eaddress = "' . $this->SanitizeForSQL($formvars['Eaddress']) . '", Ecity = "' . $this->SanitizeForSQL($formvars['Ecity']) . '", ' 
 				. 'Estate = "' . $this->SanitizeForSQL($formvars['Estate']) . '", Ezip = "' . $this->SanitizeForSQL($formvars['Ezip']) . '", ' 
@@ -1012,6 +1008,12 @@ class FGMembersite{
 				. 'EtimeEnd = "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '", Elat = "' . $this->SanitizeForSQL($lat) . '", ' 
 				. 'Elong = "' . $this->SanitizeForSQL($long) . '", Erank = "' . $this->SanitizeForSQL($formvars['Erank']) . '"' 
 				. 'WHERE Eid = "' . $this->SanitizeForSQL($formvars['Eid']);
+				
+			echo "<br><h1>Inside the ELSE <u>after</u> the storing process </h1><br>";
+			echo $insert_query . "<br>";
+			foreach($formvars as $key => $values){
+				echo $key . ": " . $values . "<br>";
+			}
 		}
 		
         if(!mysql_query($insert_query, $this->connection)){

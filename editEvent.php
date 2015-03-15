@@ -202,9 +202,9 @@
 				</ul>
 			</div><!--End of Sidebar-->
 			
-			<?PHP while($row = mysqli_fetch_array($edit)){ ?>
-				<div class="content">
-					<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+				<?PHP while($row = mysqli_fetch_array($edit)){ ?>
+					<div class="content">
 						<input type="hidden" name="submitted" id="submitted" value="1" />
 						<input type="hidden" name="Eid" id="Eid" value="<?PHP echo $_GET['eid']; ?>" />
 						
@@ -682,9 +682,10 @@
 								<input type="submit" name="Submit" value="Update Event" />
 							</div>
 						</div> <!-- End of content -->
-					</form>
-				</div>
-			<?php } ?>
+					
+					</div>
+				<?php } ?>
+			</form>
 			
 			<div class="links">
 				<?PHP include './links.php'; ?>
