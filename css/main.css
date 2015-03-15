@@ -128,7 +128,7 @@ body{
 .footer{ background: #d2c9ab; height: 100px; }
 
 .main .content .dashboard .user-menu .error, .main .content .dashboard .form-wrap .box .error,
-.main .content .dashboard .user-profile .error{
+.main .content .dashboard .user-profile .error, .main .content .form-wrap .box .error{
 	font-family: Verdana, Arial, sans-serif; 
 	font-size: 0.9em;
 	color: #900;

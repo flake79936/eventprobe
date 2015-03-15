@@ -242,74 +242,75 @@
 							<!-- <img src="images/profile-img.jpg" alt="Profiles"> -->
 						</div>
 						
-					<div class="user-menu">
-						<div class="box">
-							<div class="name">
-								<!--<h1>DJ Maxwell</h1>-->
-								<h5 for="Evename">Name of event</h5>
-								<div class="type" id="Evename">
-									<!--<div class="image"><img src="images/icon_location.png" /></div> -->
-									<input type="text" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>" maxlength="50">
-									<span id="eventForm_Evename_errorloc" class="error"></span>
-								</div>
-								
-								<!--<div class="info">
-									<div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
-									<div class="box"><h3>Music Event</h3></div>
-									<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
-									<div class="clear"></div>
-								</div>-->
-								
-								<div class="type">
-									<div class="container">
-										<h5 for="Etype">Type of Event</h5>
-										<select name="Etype" id="Etype">
-											<option value="" disabled selected>Please Select a Type</option>
-											<option value="Art">Art</option>
-											<option value="Concert">Concert</option>
-											<option value="Fair">Fair</option>
-											<option value="Social">Social</option>
-											<option value="Sport">Sport</option>
-											<option value="Public Speaker">Public Speaker</option>
-											<option value="Other">Other</option>
-										</select><br>
-										<span id="eventForm_Etype_errorloc" class="error"></span>
+						<div class="user-menu">
+							<div class="box">
+								<div class="name">
+									<!--<h1>DJ Maxwell</h1>-->
+									<h5 for="Evename">Name of event</h5>
+									<div class="type" id="Evename">
+										<!--<div class="image"><img src="images/icon_location.png" /></div> -->
+										<input type="text" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>" maxlength="50">
+										<span id="eventForm_Evename_errorloc" class="error"></span>
 									</div>
-									 
-									<div class="type">					
-										<div class="container" id="other">
-											<label for="Eother">Other: </label><br>
-											<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
-											<span id="event_Eother_errorloc" class="error"></span>
+									
+									<!--<div class="info">
+										<div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
+										<div class="box"><h3>Music Event</h3></div>
+										<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
+										<div class="clear"></div>
+									</div>-->
+									
+									<div class="type">
+										<div class="container">
+											<h5 for="Etype">Type of Event</h5>
+											<select name="Etype" id="Etype">
+												<option value="" disabled selected>Please Select a Type</option>
+												<option value="Art">Art</option>
+												<option value="Concert">Concert</option>
+												<option value="Fair">Fair</option>
+												<option value="Social">Social</option>
+												<option value="Sport">Sport</option>
+												<option value="Public Speaker">Public Speaker</option>
+												<option value="Other">Other</option>
+											</select><br>
+											<span id="eventForm_Etype_errorloc" class="error"></span>
+										</div>
+										 
+										<div class="type">					
+											<div class="container" id="other">
+												<label for="Eother">Other: </label><br>
+												<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
+												<span id="event_Eother_errorloc" class="error"></span>
+											</div>
+										</div>
+										
+										<div class="container">
+											<h5 for="Erank">Reach</h5>
+											<select name="Erank" id="Erank">
+												<option value="" disabled selected>Please Select a Rank</option>
+												<option value="Free">Free</option>
+												<option value="Paid">Paid</option>
+												<option value="Premium">Premium</option>
+											</select><br>
+											<span id="eventForm_Erank_errorloc" class="error"></span>
 										</div>
 									</div>
 									
-									<div class="container">
-										<h5 for="Erank">Reach</h5>
-										<select name="Erank" id="Erank">
-											<option value="" disabled selected>Please Select a Rank</option>
-											<option value="Free">Free</option>
-											<option value="Paid">Paid</option>
-											<option value="Premium">Premium</option>
-										</select><br>
-										<span id="eventForm_Erank_errorloc" class="error"></span>
+									<div class="reach">
+									<!--<h3>Increase your reach!</h3>
+										<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>-->
 									</div>
+									<div class="clear"></div>
 								</div>
-								
-								<div class="reach">
-								<!--<h3>Increase your reach!</h3>
-									<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>-->
+								<div class="saved">
+								<!--<div class="box"><h3>Saved</h3></div>
+									<div class="box"><a href="#"><img src="images/btn_draft.png" alt="Draft" /></a></div>
+									<div class="box"><a href="#"><img src="images/btn_publish.png" alt="Draft" /></a></div>-->
+									<div class="clear"></div>
 								</div>
-								<div class="clear"></div>
 							</div>
-							<div class="saved">
-							<!--<div class="box"><h3>Saved</h3></div>
-								<div class="box"><a href="#"><img src="images/btn_draft.png" alt="Draft" /></a></div>
-								<div class="box"><a href="#"><img src="images/btn_publish.png" alt="Draft" /></a></div>-->
-								<div class="clear"></div>
-							</div>
+							<div class="clear"></div>
 						</div>
-						<div class="clear"></div>
 					</div>
 					<!--Dashboard-->
 					
@@ -703,6 +704,7 @@
 						<input type="submit" name="Submit" value="Create Event" />
 					</div>
 				</form>
+				
 			</div> <!-- End of content -->
 			
 			<div class="links">
