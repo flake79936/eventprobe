@@ -985,7 +985,7 @@ class FGMembersite{
 			. 'Eother = "' . $this->SanitizeForSQL($formvars['Eother']) . '", EtimeStart = "' . $this->SanitizeForSQL($formvars['EtimeStart']) . '", ' 
 			. 'EtimeEnd = "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '", Elat = "' . $this->SanitizeForSQL($lat) . '", ' 
 			. 'Elong = "' . $this->SanitizeForSQL($long) . '", Erank = "' . $this->SanitizeForSQL($formvars['Erank']) . '"' 
-			. 'WHERE Eid = "' . $this->SanitizeForSQL($formvars['Eid']);
+			. 'WHERE Eid = "' . $this->SanitizeForSQL($formvars['Eid']).'"';
 		
 		} else {
 			$formvars['Eother']     = strtolower($formvars['Eother']);
@@ -1007,7 +1007,7 @@ class FGMembersite{
 				. 'Eflyer = "' . $this->SanitizeForSQL($formvars['Eflyer']) . '", EtimeStart = "' . $this->SanitizeForSQL($formvars['EtimeStart']) . '", ' 
 				. 'EtimeEnd = "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '", Elat = "' . $this->SanitizeForSQL($lat) . '", ' 
 				. 'Elong = "' . $this->SanitizeForSQL($long) . '", Erank = "' . $this->SanitizeForSQL($formvars['Erank']) . '"' 
-				. 'WHERE Eid = "' . $this->SanitizeForSQL($formvars['Eid']);
+				. 'WHERE Eid = "' . $this->SanitizeForSQL($formvars['Eid']).'"';
 				
 			echo "<br><h1>Inside the ELSE <u>after</u> the storing process </h1><br>";
 			echo $insert_query . "<br>";
