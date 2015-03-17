@@ -15,13 +15,13 @@
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 
-
-
-<div class="logo"><a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a></div>
+<div class="logo">
+	<a href="./index2.php">
+		<img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
+	</a>
+</div>
 
 <div class="date">
 <!-- 
@@ -156,12 +156,3 @@
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>
-
-<script src="./js/jquery-1.11.1.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<script language="javascript">
-	$('.dropdown-toggle').dropdown();
-	$('.dropdown-menu').find('form').click(function (e) {
-		e.stopPropagation();
-	});
-</script>
