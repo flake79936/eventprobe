@@ -50,7 +50,7 @@
 					var UuserName = $(this).val(); // Get username textbox using $(this)
 					var Result = $('#result'); // Get ID of the result DIV where we display the results
 					if(UuserName.length > 2) { // if greater than 2 (minimum 3)
-						Result.html('Loading... ' + UuserName); // you can use loading animation here
+						Result.html('Loading...'); // you can use loading animation here
 						var dataPass = 'action=availability&UuserName='+UuserName;
 						$.ajax({ // Send the username val to available.php
 							type : 'POST',
@@ -58,11 +58,13 @@
 							url  : './available.php',
 							success: function(responseText){ // Get the result
 								if(responseText == 0){
+									//Result.html('<span class="error">Taken</span>');
 									Result.html('<span class="success">Available</span>');
 								} else if(responseText > 0){
+									//Result.html('<span class="success">Available</span>');
 									Result.html('<span class="error">Taken</span>');
 								} else {
-									alert('Problem with sql query');
+									alert('Problem with sql query... ' + responseText);
 								}
 							}
 						});
@@ -79,8 +81,6 @@
 		<style type="text/css">
 			.success{ color: green; }
 			.error{ color: red; }
-			.content{ width:900px; margin:0 auto; }
-			#UuserName{ width:500px; border:solid 1px #000; padding:10px; font-size:14px; }
 		</style>
 	</head>
 	
