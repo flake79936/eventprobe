@@ -1,3 +1,5 @@
+<!--Module-->
+
 <?php
 	class databaseAtt{
 		$mysql_hostname = "localhost";

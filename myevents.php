@@ -1,4 +1,4 @@
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
+<!--Module-->
 
 <!--
 This can be used for when the complete site is loaded.

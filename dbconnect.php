@@ -1,3 +1,5 @@
+<!--Module-->
+
 <?PHP
 	$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
 

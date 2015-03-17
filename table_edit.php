@@ -1,4 +1,4 @@
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
+<!--AJAX Module-->
 
 <?php
 $query_pag_data = "SELECT Evename, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle from Events LIMIT $start, $per_page";

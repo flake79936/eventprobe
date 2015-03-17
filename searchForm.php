@@ -1,4 +1,4 @@
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
+<!--Module-->
 
 <!---This PHP file is being used only for those users who are registered in the system.
 	-All other users will not be using this Search Form.

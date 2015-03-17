@@ -1,4 +1,4 @@
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
 <?PHP require_once("./include/membersite_config.php"); ?>
 <!doctype html>
@@ -121,52 +121,60 @@
 			<?PHP include './top.php';?>
         </div>
 		
-		<!-- start My events      -->
+		<!--My Events Section-->
 		<?PHP if($fgmembersite->CheckSession()){ ?>
-				<div class="my-events">
-			<?PHP include './myevents.php'; ?>
-				</div>
+			<div class="my-events">
+				<?PHP include './myevents.php'; ?>
+			</div>
 		<?PHP } ?>
-		
-		<!-- end My events -->
         
+		<!--Banner  Section-->
         <div class="banner">
 			<?PHP include './banner.php'; ?>
 			
 		</div>
         
+		<!--This-Week Section-->
         <div class="this-week">
 			<?PHP include './this-week.php'; ?>
         </div>
         
+		<!--Schedule Section-->
         <div class="schedule">
+			<!--Map Section-->
         	<div class="map">
-        	<iframe src="./geo.php" height="390px" width="390px"></iframe>
-<!-- 				<?PHP include('./geo.php'); ?> -->
+				<iframe src="./geo.php" height="390px" width="390px"></iframe>
+				<!-- <?PHP //include('./geo.php'); ?> -->
 				<!--<img src="images/map.jpg" alt="Map" />-->
-        	        </div>
+			</div>
+			
+			<!--Today Section-->
             <div class="today">
-<!--             <iframe src="./geo2.php" height="380px" width="700px"></iframe> -->
 				<?PHP include './events.php'; ?>
             </div>
-           
+			
             <div class="clear"></div>
         </div>
         
+		<!--Chart Section-->
         <div class="chart">
 			<?PHP include './chart.php'; ?>
         </div>
 		
+		<!--Events txtHints Section-->
 		<div class="events" id="txtHint"></div>
         
+		<!--App Section-->
         <div class="app">
 			<?PHP include './app.php'; ?>
         </div>
         
+		<!--Links  Section-->
         <div class="links">
 			<?PHP include './links.php'; ?>
         </div>
         
+		<!--Footer Section-->
         <div class="footer">
 			<?PHP include './footer.php'; ?>
         </div>

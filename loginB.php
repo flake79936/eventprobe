@@ -1,4 +1,4 @@
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -30,7 +30,7 @@
 
 	if(isset($_POST['authenticity_token'])){
 		if($fgmembersite->Login()){
-			$fgmembersite->RedirectToURL("./index.php");
+			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
 
@@ -50,10 +50,9 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/top.css" />
-<!--         <link rel="stylesheet" type="text/css" href="css/eventDisplayPage.css" /> -->
-        <link rel="stylesheet" type="text/css" href="css/links.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css"  />
+        <link rel="stylesheet" type="text/css" href="css/top.css"    />
+        <link rel="stylesheet" type="text/css" href="css/links.css"  />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
         <link rel="stylesheet" type="text/css" href="css/search.css" />
 
@@ -79,13 +78,11 @@
 					xmlhttp.send();
 				}
 			}
-
 		</script>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 		<script>
-
 			function seeMoreInfo(str){
 				window.location = "./eventDisplayPage.php?eid="+str;
 			}
@@ -101,14 +98,12 @@
 			});
 		</script>
 
-
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
 	</head>
 
 	<body lang="en">
-
-			<div class="search">
+		<div class="search">
 			<form>
 				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
 			</form>

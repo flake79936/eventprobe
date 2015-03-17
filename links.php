@@ -1,5 +1,4 @@
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
-
+<!--Module-->
 <ul>
 	<li><h3>Information</h3></li>
 	<li><a href="./about.php">About</a></li>
