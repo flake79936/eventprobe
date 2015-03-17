@@ -149,54 +149,77 @@
 								<ul>
 									<?PHP $i = 0;
 										  $count = 1;
-										while($row = mysqli_fetch_array($upcoming)){ ?>
-										<?=  $month='';
-										
-									if    (substr($row['EstartDate'], 0, 2) ==='01')$month=  'Jan';
-									elseif(substr($row['EstartDate'], 0, 2) ==='02') $month= 'Feb';
-									elseif(substr($row['EstartDate'], 0, 2) ==='03')$month= 'Mar';
-									elseif(substr($row['EstartDate'], 0, 2) ==='04')$month= 'Apr';
-									elseif(substr($row['EstartDate'], 0, 2) ==='05')$month= 'May';
-									elseif(substr($row['EstartDate'], 0, 2) ==='06')$month= 'Jun';
-									elseif(substr($row['EstartDate'], 0, 2) ==='07')$month= 'Jul';
-									elseif(substr($row['EstartDate'], 0, 2) ==='08')$month= 'Aug';
-									elseif(substr($row['EstartDate'], 0, 2) ==='09')$month= 'Sep';
-									elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
-									elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
-									else $month= 'Dec';?>
-									<li><img src="images/music.png" alt="Music" /><a href="#"> <?PHP echo $count;?> <?= $row['Evename'] ?>, 
-									<?=  $month	?> 
-									<?=substr($row['EstartDate'], 3, 2);?></a></li>
-									<?PHP $i++;
-									      $count++; } ?>
+										  $month = '';
+										  
+										  while($row = mysqli_fetch_array($upcoming)){ 
+											/*Date format to Month/Day/Year */
+											$date = date_create($row['EstartDate']);
+											$EstartDate = date_format($date, 'm/d/Y');
+											//echo "Date: " . $EstartDate;
+											
+											if    (substr($EstartDate, 0, 2) === '01')$month = 'Jan';
+											elseif(substr($EstartDate, 0, 2) === '02')$month = 'Feb';
+											elseif(substr($EstartDate, 0, 2) === '03')$month = 'Mar';
+											elseif(substr($EstartDate, 0, 2) === '04')$month = 'Apr';
+											elseif(substr($EstartDate, 0, 2) === '05')$month = 'May';
+											elseif(substr($EstartDate, 0, 2) === '06')$month = 'Jun';
+											elseif(substr($EstartDate, 0, 2) === '07')$month = 'Jul';
+											elseif(substr($EstartDate, 0, 2) === '08')$month = 'Aug';
+											elseif(substr($EstartDate, 0, 2) === '09')$month = 'Sep';
+											elseif(substr($EstartDate, 0, 2) === '10')$month = 'Oct';
+											elseif(substr($EstartDate, 0, 2) === '11')$month = 'Nov';
+											else $month = 'Dec';?>
+											<li>
+												<img src="images/music.png" alt="Music" />
+												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
+													<?PHP //echo $count; ?>
+													<?= $row['Evename'] ?>, 
+													<?= $month ?> 
+													<?= substr($EstartDate, 3, 2); ?>
+												</a>
+											</li>
+										<?PHP $i++;
+											  $count++;
+										} ?>
 								</ul>
 							</li>
 							
 							<li>
 								<h3>Past</h3>
 								<ul>
-									 <?PHP $i = 0;
-									       $count = 1;
-										while($row = mysqli_fetch_array($past)){ ?>
-										<?= $month='';
-									if    (substr($row['EstartDate'], 0, 2) ==='01')$month= 'Jan';
-									elseif(substr($row['EstartDate'], 0, 2) ==='02')$month= 'Feb';
-									elseif(substr($row['EstartDate'], 0, 2) ==='03')$month= 'Mar';
-									elseif(substr($row['EstartDate'], 0, 2) ==='04')$month= 'Apr';
-									elseif(substr($row['EstartDate'], 0, 2) ==='05')$month= 'May';
-									elseif(substr($row['EstartDate'], 0, 2) ==='06')$month= 'Jun';
-									elseif(substr($row['EstartDate'], 0, 2) ==='07')$month= 'Jul';
-									elseif(substr($row['EstartDate'], 0, 2) ==='08')$month= 'Aug';
-									elseif(substr($row['EstartDate'], 0, 2) ==='09')$month= 'Sep';
-									elseif(substr($row['EstartDate'], 0, 2) ==='10')$month= 'Oct';
-									elseif(substr($row['EstartDate'], 0, 2) ==='11')$month= 'Nov';
-									else $month = 'Dec';?>
-									<li><img src="images/music.png" alt="Music" /><a href="#"><?PHP echo $count;?> <?= $row['Evename']?>, 
-									<?=  $month
-									?> 
-									<?=substr($row['EstartDate'], 3, 2);?></a></li>
-									<?PHP $i++; 
-									      $count++; } ?>
+									<?PHP $i = 0;
+										  $count = 1;
+										  $month = '';
+										  
+										  while($row = mysqli_fetch_array($past)){
+											$date = date_create($row['EstartDate']);
+											$EstartDate = date_format($date, 'm/d/Y');
+											//echo "Date: " . $EstartDate;
+												
+											if    (substr($EstartDate, 0, 2) === '01')$month = 'Jan';
+											elseif(substr($EstartDate, 0, 2) === '02')$month = 'Feb';
+											elseif(substr($EstartDate, 0, 2) === '03')$month = 'Mar';
+											elseif(substr($EstartDate, 0, 2) === '04')$month = 'Apr';
+											elseif(substr($EstartDate, 0, 2) === '05')$month = 'May';
+											elseif(substr($EstartDate, 0, 2) === '06')$month = 'Jun';
+											elseif(substr($EstartDate, 0, 2) === '07')$month = 'Jul';
+											elseif(substr($EstartDate, 0, 2) === '08')$month = 'Aug';
+											elseif(substr($EstartDate, 0, 2) === '09')$month = 'Sep';
+											elseif(substr($EstartDate, 0, 2) === '10')$month = 'Oct';
+											elseif(substr($EstartDate, 0, 2) === '11')$month = 'Nov';
+											else $month= 'Dec';?>
+											<li>
+												<img src="images/music.png" alt="Music" />
+												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
+													<?PHP //echo $count; ?>
+													<?= $row['Evename'] ?>, 
+													<?= $month ?> 
+													<?= substr($EstartDate, 3, 2); ?>
+												</a>
+											</li>
+										<?PHP $i++; 
+											  $count++; 
+										} ?>
 								</ul>
 							</li>
 						</ul>
