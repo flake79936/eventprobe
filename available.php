@@ -2,6 +2,7 @@
 
 <?php
 	include_once('./db.php');
+	echo $_POST['UuserName'];
 	if(isset($_POST['action']) && $_POST['action'] == 'availability'){
 		$UuserName = mysqli_real_escape_string($connection, $_POST['UuserName']); // Get the username values
 		$query = "SELECT UuserName FROM registration WHERE UuserName='" . $UuserName . "'";

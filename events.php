@@ -17,7 +17,7 @@
 		$i = 0;
 		while($row = mysqli_fetch_array($result)){
 		//day name of the date	
-		$today= date("m/d/Y");
+		$today = date("m/d/Y");
 		$dt = strtotime($row['EstartDate']);
 		$day = date("l", $dt);
 		if ($today===$row['EstartDate']){
@@ -29,7 +29,7 @@
 			<div class="box">
 				<img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
 				<h1><?=$day?></h1>
-				<p> <?=substr($row['EstartDate'], 0, 5);?>, <?= $row['EtimeStart'] ?></p>
+				<p> <?=substr($row['EstartDate'], 5, 9);?>, <?= $row['EtimeStart'] ?></p>
 				<h1><?= $row['Evename'] ?></h1>
 			</div>
 		</div>
