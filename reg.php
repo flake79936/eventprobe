@@ -57,9 +57,14 @@
 							data : dataPass,
 							url  : './available.php',
 							success: function(responseText){ // Get the result
+								//alert(responseText);
+							
+								//responseText returns a digit '0' (zero) for not in the table
 								if(responseText == 0){
 									//Result.html('<span class="error">Taken</span>');
 									Result.html('<span class="success">Available</span>');
+								
+								//responseText returns a digit '1+' (one) for in the table
 								} else if(responseText > 0){
 									//Result.html('<span class="success">Available</span>');
 									Result.html('<span class="error">Taken</span>');
