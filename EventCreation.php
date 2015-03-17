@@ -43,7 +43,6 @@
         <link rel="stylesheet" type="text/css" href="./css/top.css" />
         <link rel="stylesheet" type="text/css" href="./css/links.css" />
         <link rel="stylesheet" type="text/css" href="./css/footer.css" />
-		<link href="css/accordion.css" rel="stylesheet" type="text/css" />
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -161,7 +160,7 @@
 								<h3>Upcoming</h3>
 								<ul>
 									<?PHP $i = 0;
-										  $count = 1;
+										  //$count = 1;
 										  $month = '';
 										  
 										  while($row = mysqli_fetch_array($upcoming)){ 
@@ -181,7 +180,7 @@
 											elseif(substr($EstartDate, 0, 2) === '09')$month = 'Sep';
 											elseif(substr($EstartDate, 0, 2) === '10')$month = 'Oct';
 											elseif(substr($EstartDate, 0, 2) === '11')$month = 'Nov';
-											else $month = 'Dec';?>
+											else $month = 'Dec'; ?>
 											<li>
 												<img src="images/music.png" alt="Music" />
 												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
@@ -192,7 +191,7 @@
 												</a>
 											</li>
 										<?PHP $i++;
-											  $count++;
+											  //$count++;
 										} ?>
 								</ul>
 							</li>
@@ -201,7 +200,7 @@
 								<h3>Past</h3>
 								<ul>
 									<?PHP $i = 0;
-										  $count = 1;
+										  //$count = 1;
 										  $month = '';
 										  
 										  while($row = mysqli_fetch_array($past)){
@@ -220,7 +219,7 @@
 											elseif(substr($EstartDate, 0, 2) === '09')$month = 'Sep';
 											elseif(substr($EstartDate, 0, 2) === '10')$month = 'Oct';
 											elseif(substr($EstartDate, 0, 2) === '11')$month = 'Nov';
-											else $month= 'Dec';?>
+											else $month= 'Dec'; ?>
 											<li>
 												<img src="images/music.png" alt="Music" />
 												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
@@ -231,7 +230,7 @@
 												</a>
 											</li>
 										<?PHP $i++; 
-											  $count++; 
+											  //$count++; 
 										} ?>
 								</ul>
 							</li>
