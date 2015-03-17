@@ -56,8 +56,8 @@
 			
 			<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 			
-			<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
-			<script type="text/javascript" src="./js/jquery-ui.js"></script>
+			<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+			<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 			<script type="text/javascript" src="./js/scripts.js"></script>
 			
 			<!--(Start) Provided by JetDevLLC-->
@@ -103,15 +103,6 @@
 				</script>
 			<!--(End) Counts the number of characters-->
 			
-			<!--(Start) Date Pickers-->
-				<script type="text/javascript">
-					/*$(document).ready(function(){
-						$("#EstartDate").datepicker({minDate: 0});
-						$("#EendDate").datepicker({minDate: 0});
-					});*/
-				</script>
-			<!--(End) Date Pickers-->
-			
 			<!--onclick it will redirect the user to the event display page, displaying the event the user clicked on.-->
 			<script>
 				function seeMoreInfo(str){
@@ -153,17 +144,15 @@
 			<br>
 			<!-- <div class="btn-event"><a href=""><img src="images/btn_event.png" alt="Event" /></a></div> -->
 				<ul id="accordion" class="menu">
-<!-- 
-					<li>
+					<!--<li>
 						<h2>Dashboard</h2>
 						<ul>
-						
 							<li><img src="images/music.png" alt="Music" /><a href="#">DJ Maxwell, Aug 30</a></li>
 							<li><img src="images/speaker.png" alt="Speaker" /><a href="#">Speaker Event, Sep 30</a></li>
 							<li><img src="images/dollar.png" alt="Dollar" /><a href="#">Sales Events, Oct 30</a></li>
 						</ul>
-					</li>
- -->
+					</li>-->
+					
 					<li>
 						<h2>My Events</h2>
 						<ul id="accordion2">
