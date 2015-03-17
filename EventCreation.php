@@ -249,7 +249,7 @@
 									<h5 for="Evename">Name of event</h5>
 									<div class="type" id="Evename">
 										<!--<div class="image"><img src="images/icon_location.png" /></div> -->
-										<input type="text" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>" maxlength="50">
+										<input type="text" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>" maxlength="70">
 										<span id="eventForm_Evename_errorloc" class="error"></span>
 									</div>
 									
