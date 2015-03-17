@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
 <script type="text/javascript">
 
 // Current Server Time script (SSI or PHP)- By JavaScriptKit.com (http://www.javascriptkit.com)

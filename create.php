@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
 <?php
 	$link = mysql_connect('localhost', 'admindev', '17s_9Eyr');
 	if (!$link) {

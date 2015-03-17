@@ -1,13 +1,13 @@
 <?php
 // include "database_connection.php"; //Include database connection settings file
 		require_once("./include/membersite_config.php");
-include "dbconnect.php";
+	include "dbconnect.php";
 	if(!$fgmembersite->CheckSession()){
 		$fgmembersite->RedirectToURL("./index.php");
 		exit;
 	}
 
-		$usrname = $fgmembersite->UsrName();
+	$usrname = $fgmembersite->UsrName();
 ?>
 <title>Eventprobe</title>
 	<link rel="shortcut icon" href="favicon.ico"  /> 

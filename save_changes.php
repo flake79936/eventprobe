@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
 <?php
 // include "database_connection.php"; //Include database connection settings file
 include "dbconnect.php";
