@@ -39,7 +39,7 @@
 		<script>
 			function showHint(str) {
 				if (str.length == 0) {
-//					document.getElementById("txtHint").innerHTML = "";
+					document.getElementById("txtHint").innerHTML = "";
 					$(".my-events").show();
 					$(".this-week").show();
 					$(".schedule").show();
