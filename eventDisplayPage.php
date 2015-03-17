@@ -1,4 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
 
 <?PHP
 	require_once("./include/membersite_config.php"); 
@@ -104,7 +104,11 @@
 					$event = $row['Evename'];
 					$Elat  = $row['Elat'];
 					$Elong = $row['Elong'];
-
+					
+					/*Date format to Month/Day/Year */
+					$date = date_create($row['EstartDate']);
+					$EstartDate = date_format($date, 'm/d/Y');
+					
 					$eventArray[$i]=[$event,$Elat,$Elong];
 
 					/**  Format phone number **/
@@ -112,9 +116,9 @@
 					$formatPhone = preg_replace("/[^0-9]/", "", $formatPhone);
 
 					if(strlen($formatPhone) == 7)
-					$formatPhone=preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $formatPhone);
+						$formatPhone = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $formatPhone);
 					elseif(strlen($formatPhone) == 10)
-					$formatPhone= preg_replace("/([0-9]{3})([0-9]{3})([0-9]{4})/", "($1) $2-$3", $formatPhone);
+						$formatPhone = preg_replace("/([0-9]{3})([0-9]{3})([0-9]{4})/", "($1) $2-$3", $formatPhone);
 					/** End format phone number**/
 			?>
 			
@@ -126,7 +130,7 @@
 						<td width="491">&nbsp;</td>
 					</tr>
 					<tr>
-						<td><h2><?= $row['EstartDate'] ?><br><?= $row['EtimeStart'] ?> to <?= $row['EtimeEnd'] ?> </h2></td>
+						<td><h2><?PHP echo $EstartDate; ?><br><?= $row['EtimeStart'] ?> to <?= $row['EtimeEnd'] ?> </h2></td>
 						<td>&nbsp;</td>
 						<td colspan="7"><h4><?= $row['Edescription'] ?></h4></td>
 					</tr>

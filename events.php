@@ -1,4 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
 
 <ul>
 	<?PHP
@@ -28,8 +28,8 @@
 		<div class="info">
 			<div class="box">
 				<img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
-				<h1><?=$day?></h1>
-				<p> <?=substr($row['EstartDate'], 5, 9);?>, <?= $row['EtimeStart'] ?></p>
+				<h1><?= $day ?></h1>
+				<p> <?= substr($row['EstartDate'], 5, 9); ?>, <?= $row['EtimeStart'] ?></p>
 				<h1><?= $row['Evename'] ?></h1>
 			</div>
 		</div>

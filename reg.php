@@ -1,4 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
 <?PHP
 	require_once("./include/membersite_config.php");
 	
@@ -50,12 +50,12 @@
 					var UuserName = $(this).val(); // Get username textbox using $(this)
 					var Result = $('#result'); // Get ID of the result DIV where we display the results
 					if(UuserName.length > 2) { // if greater than 2 (minimum 3)
-						Result.html('Loading...'); // you can use loading animation here
+						Result.html('Loading... ' + UuserName); // you can use loading animation here
 						var dataPass = 'action=availability&UuserName='+UuserName;
 						$.ajax({ // Send the username val to available.php
 							type : 'POST',
 							data : dataPass,
-							url  : 'available.php',
+							url  : './available.php',
 							success: function(responseText){ // Get the result
 								if(responseText == 0){
 									Result.html('<span class="success">Available</span>');
