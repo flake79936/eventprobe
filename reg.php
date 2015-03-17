@@ -1,4 +1,4 @@
-<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 <?PHP
 	require_once("./include/membersite_config.php");
 	
@@ -83,10 +83,6 @@
 				});
 			});
 		</script>
-		<style type="text/css">
-			.success{ color: green; }
-			.error{ color: red; }
-		</style>
 	</head>
 	
 	<body lang="en">

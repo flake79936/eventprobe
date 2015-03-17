@@ -72,6 +72,8 @@ body{
 	background-color : #ffff00;
 }
 
+.main .content .form-wrap .box .success{ color: green; }
+
 #content #register_password_errorloc{ clear:both; }
 
 /*		Tablet Layout: 768px.
