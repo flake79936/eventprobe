@@ -4,7 +4,7 @@
 
 	if(isset($_POST['authenticity_token'])){
 		if($fgmembersite->Login()){
-			$fgmembersite->RedirectToURL("./index.php");
+			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
 	
@@ -22,7 +22,7 @@
 
 
 
-<div class="logo"><a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a></div>
+<div class="logo"><a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a></div>
 
 <div class="date">
 <!-- 

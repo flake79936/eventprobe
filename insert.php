@@ -4,7 +4,7 @@
 	require_once("./include/membersite_config.php");
 
 	if(!$fgmembersite->CheckSession()){
-		$fgmembersite->RedirectToURL("./index.php");
+		$fgmembersite->RedirectToURL("./index2.php");
 		exit;
 	}
 	

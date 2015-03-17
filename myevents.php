@@ -25,7 +25,7 @@ $(document).ready(function() {
 <?PHP
 
 	if(!$fgmembersite->CheckSession()){
-		$fgmembersite->RedirectToURL("./index.php");
+		$fgmembersite->RedirectToURL("./index2.php");
 		exit;
 	}
 ?>

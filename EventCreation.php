@@ -121,7 +121,7 @@
 			<?PHP include './ezTop.php';?>
 		
 			<!--<div class="logo">
-				<a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
+				<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
 			</div>
 			<div class="profile">
 				<div class="user">
