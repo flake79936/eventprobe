@@ -103,7 +103,7 @@
 	
 	<body>
 		<div class="top">
-			<?PHP include './ezTop.php';?>
+			<?PHP include './top.php';?>
 		
 			<!--<div class="logo">
 				<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />

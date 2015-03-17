@@ -34,7 +34,7 @@
 	
 	<body lang="en">
 		<div class="top">
-			<?PHP include './ezTop.php';?>
+			<?PHP include './top.php';?>
 		</div>
 
 		<div class="content">

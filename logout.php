@@ -32,7 +32,7 @@
 	<body>
 <!-- 
 		<div class="top">
-			<?PHP //include './ezTop.php';?>
+			<?PHP //include './top.php';?>
 		</div>
  -->
 		
