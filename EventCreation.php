@@ -43,6 +43,7 @@
         <link rel="stylesheet" type="text/css" href="./css/top.css" />
         <link rel="stylesheet" type="text/css" href="./css/links.css" />
         <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+		<link href="css/accordion.css" rel="stylesheet" type="text/css" />
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -56,9 +57,9 @@
 			
 			<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 			
-			<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-			<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-			<script type="text/javascript" src="./js/scripts.js"></script>
+			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+			<script type="text/javascript" src="js/jquery-ui.js"></script>
+			<script type="text/javascript" src="js/scripts.js"></script>
 			
 			<!--(Start) Provided by JetDevLLC-->
 				<script type="text/javascript">

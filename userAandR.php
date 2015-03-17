@@ -17,12 +17,6 @@
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/top.css" />
-        <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
-        <link rel="stylesheet" type="text/css" href="css/banner.css" />
-        <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
-        <link rel="stylesheet" type="text/css" href="css/schedule.css" />
-        <link rel="stylesheet" type="text/css" href="css/chart.css" />
-        <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
 

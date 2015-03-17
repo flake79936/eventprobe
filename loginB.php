@@ -1,27 +1,23 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-				<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
 
 	<link rel="StyleSheet" href="./includes/menu.css" />
 	<script type="text/javascript" src="./includes/menu.js"></script>
 
 	<style type="text/css">
-
-	#pageWrapper {
-		font: 18px/1.4 'Roboto Condensed', sans-serif;
-		font-weight: 300;
-		width: ;
-		height: 800px;
-		background-color: #FFF;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
+		#pageWrapper {
+			font: 18px/1.4 'Roboto Condensed', sans-serif;
+			font-weight: 300;
+			width: ;
+			height: 800px;
+			background-color: #FFF;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	</style>
 
 <?PHP	require_once("./include/membersite_config.php");
@@ -35,7 +31,7 @@
 	}
 
 	include 'dbconnect.php';
-	?>
+?>
 
 <!doctype html>
 <html>

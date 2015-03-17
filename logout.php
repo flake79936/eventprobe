@@ -1,6 +1,3 @@
-<meta http-equiv="refresh" content="1; index2.php">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-
 <?PHP
 	require_once("./include/membersite_config.php");
 	$fgmembersite->LogOut();
@@ -10,6 +7,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 	<head>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		<meta http-equiv="refresh" content="1; index2.php">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 		<link href="favicon.ico" rel="shortcut icon"  />
 		<title>Logout</title>
 		
@@ -19,6 +18,7 @@
 			
 			<!--(Start) Provided by JetDevLLC-->
 				<link rel="stylesheet" type="text/css" href="css/style.css" />
+				<link rel="stylesheet" type="text/css" href="css/top.css" />
 				<link rel="stylesheet" type="text/css" href="css/links.css" />
 				<link rel="stylesheet" type="text/css" href="css/footer.css" />
 				<!--[if IE 6]>
@@ -30,11 +30,9 @@
 	</head>
 	
 	<body>
-<!-- 
 		<div class="top">
-			<?PHP //include './top.php';?>
+			<?PHP include './top.php';?>
 		</div>
- -->
 		
 		<div id='fg_membersite' align="center">
 			<div class="wrap">

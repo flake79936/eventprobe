@@ -20,10 +20,6 @@ $(document).ready(function() {
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 
-	?>
-
-<?PHP
-
 	if(!$fgmembersite->CheckSession()){
 		$fgmembersite->RedirectToURL("./index2.php");
 		exit;
@@ -61,9 +57,7 @@ $(document).ready(function() {
 	$usrname = $fgmembersite->UsrName();
 	
 	include 'dbconnect.php';
-?>
-
-<?PHP
+	
 	$today = Date("m/d/Y");
 	
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate";
@@ -109,7 +103,8 @@ $(document).ready(function() {
 	<?PHP  		
 		$i = 0;
 		while($row = mysqli_fetch_array($result)){
-			//day name of the date	
+			//day name of the date
+			$date = 
 			$today = date("m/d/Y");
 			$dt    = strtotime($row['EstartDate']);
 			$day   = date("D", $dt);
