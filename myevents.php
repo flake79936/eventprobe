@@ -24,6 +24,19 @@ $(document).ready(function() {
 		$fgmembersite->RedirectToURL("./index2.php");
 		exit;
 	}
+	
+	$usrname = $fgmembersite->UsrName();
+	
+	include 'dbconnect.php';
+	
+	$today = Date("Y-m-d"); //should format to 12/12/2000
+	
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate";
+	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate";
+	$sql3 = "SELECT Upic FROM Registration WHERE UuserName = '" . $usrname . "'";
+	$result = mysqli_query($con, $sql);
+	$result2 = mysqli_query($con, $sql2);
+	$result3 = mysqli_query($con, $sql3);
 ?>
 
 <head>
@@ -51,51 +64,38 @@ $(document).ready(function() {
 	</script>
 	<!-- End of Scripts	-->
 </head>
-	
-<?PHP
-	require_once("./include/membersite_config.php");
-	$usrname = $fgmembersite->UsrName();
-	
-	include 'dbconnect.php';
-	
-	$today = Date("m/d/Y");
-	
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate";
-	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate";
-	$sql3 = "SELECT Upic FROM Registration WHERE UuserName = '" . $usrname . "'";
-	$result = mysqli_query($con, $sql);
-	$result2 = mysqli_query($con, $sql2);
-	$result3 = mysqli_query($con, $sql3);
-?> 
 
 <div class="box">
 	<h1>My Events</h1>
 </div>
 
 <div class="box">
-<!-- <div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div> -->
-	<?PHP 
-	while($row = mysqli_fetch_array($result3)){ 
-	$pic=$row['Upic'];
-	
-	echo "<div class='profile'><img src=".$row['Upic']." alt='Profile' height='146px'' width='136px''/></div> ";
-	}?>
-
-	<?PHP  			
+	<!-- <div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div> -->
+	<?PHP
+		/*Gets the user's uploaded image or by default puts one.*/
+		while($row = mysqli_fetch_array($result3)){ 
+			$pic = $row['Upic'];
+			echo "<div class='profile'><img src=".$row['Upic']." alt='Profile' height='146px'' width='136px''/></div> ";
+		}
+		
 		$i = 0;
 		while($row = mysqli_fetch_array($result2)){
-			//day name of the date	
-			$dt    = strtotime($row['EstartDate']);
-			$day   = date("D", $dt);
+			$date = date_create($row['EstartDate']);
+			$EstartDate = date_format($date, 'm/d/Y');
 			
-			if ($today === $row['EstartDate']){
-			$day = "Today"; 
+			//day name of the date	
+			$dt  = strtotime($EstartDate);
+			$day = date("D", $dt);
+
+			if ($today === $EstartDate){
+				$day = "Today"; 
 	?>
-			<h3><strong><?= $day ?></strong></h3>
-			<h3><?= $row['Evename'] ?></h3>
-			<h3><strong><?= $row['EtimeStart'] ?></strong></h3>
-		<?PHP } ?>
-	<?PHP $i++; } ?>
+				<h3><strong><?= $day ?></strong></h3>
+				<h3><?= $row['Evename'] ?></h3>
+				<h3><strong><?= $row['EtimeStart'] ?></strong></h3>
+	  <?PHP } ?>
+			<?PHP $i++; 
+		} ?>
 	<div class="clear"></div>
 </div>
 
@@ -104,16 +104,19 @@ $(document).ready(function() {
 		$i = 0;
 		while($row = mysqli_fetch_array($result)){
 			//day name of the date
-			$date = 
+			$date = date_create($row['EstartDate']);
+			$EstartDate = date_format($date, 'm/d/Y');
+			
+			
 			$today = date("m/d/Y");
-			$dt    = strtotime($row['EstartDate']);
+			$dt    = strtotime($EstartDate);
 			$day   = date("D", $dt);
-			if ($today === $row['EstartDate']){
+			if ($today === $EstartDate){
 				$day = "Today";
 			}
 	?>
 		<ul>
-			<li><?= $day ?>&nbsp;<?= substr($row['EstartDate'], 0, 5); ?></li>
+			<li><?= $day ?>&nbsp;<?= substr($EstartDate, 0, 5); ?></li>
 			<li><?= $row['Evename'] ?></li> 
 			<li><?= $row['EtimeStart'] ?> - <?= $row['EtimeEnd'] ?></li>
 			<li><?PHP echo "<a onClick='editEvent(".$row['Eid'].")'> " ?> <img src="images/btn_editevent.png"></a></li>
