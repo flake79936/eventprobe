@@ -29,7 +29,7 @@ $(document).ready(function() {
 	
 	include 'dbconnect.php';
 	
-	$today = Date("Y-m-d"); //should format to 12/12/2000
+	$today = Date("Y-m-d"); //should format to 2000-12-31
 	
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate";
 	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate";
@@ -74,16 +74,19 @@ $(document).ready(function() {
 	<?PHP
 		/*Gets the user's uploaded image or by default puts one.*/
 		while($row = mysqli_fetch_array($result3)){
-			If($row['Upic'] === null){
-				echo "<div class='profile'><img src=".$row['Upic']." alt='Profile' height='146px'' width='136px''/></div> ";
+			if($row['Upic'] === ""){
+				echo "<div class='profile'><img src='./images/defaultUpic.png' alt='default image' height='146px' width='136px'/></div> ";
+			} else {
+				echo "<div class='profile'><img src='".$row['Upic']."' alt='Profile' height='146px' width='136px'/></div>";
 			}
-			echo "<div class='profile'><img src=".$row['Upic']." alt='Profile' height='146px'' width='136px''/></div> ";
 		}
-		
-		$i = 0;
+	?>
+	<?PHP
 		while($row = mysqli_fetch_array($result2)){
 			$date = date_create($row['EstartDate']);
 			$EstartDate = date_format($date, 'm/d/Y');
+			
+			echo "Start Date: " . $EstartDate . "<br>";
 			
 			//day name of the date	
 			$dt  = strtotime($EstartDate);
@@ -96,14 +99,12 @@ $(document).ready(function() {
 				<h3><?= $row['Evename'] ?></h3>
 				<h3><strong><?= $row['EtimeStart'] ?></strong></h3>
 	  <?PHP } ?>
-			<?PHP $i++; 
-		} ?>
+	<?PHP } ?>
 	<div class="clear"></div>
 </div>
 
 <div class="box event">
-	<?PHP  		
-		$i = 0;
+	<?PHP
 		while($row = mysqli_fetch_array($result)){
 			//day name of the date
 			$date = date_create($row['EstartDate']);
@@ -123,7 +124,7 @@ $(document).ready(function() {
 			<li><?= $row['EtimeStart'] ?> - <?= $row['EtimeEnd'] ?></li>
 			<li><?PHP echo "<a onClick='editEvent(".$row['Eid'].")'> " ?> <img src="images/btn_editevent.png"></a></li>
 		</ul>
-	<?PHP $i++; } ?>
+	<?PHP } ?>
 </div>
 <!--<div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>-->
 <div class="clear"></div>
