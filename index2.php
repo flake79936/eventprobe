@@ -143,7 +143,7 @@
         <div class="schedule">
 			<!--Map Section-->
         	<div class="map">
-				<iframe src="./geo.php" height="390px" width="390px"></iframe>
+				<iframe src="./map.php" height="390px" width="390px"></iframe>
 				<!-- <?PHP //include('./geo.php'); ?> -->
 				<!--<img src="images/map.jpg" alt="Map" />-->
 			</div>

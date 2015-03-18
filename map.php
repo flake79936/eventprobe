@@ -13,7 +13,7 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
-	$today = Date("m/d/Y");
+	$today = Date("Y-m-d");
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '". $city ."' AND Edisplay='1'  ORDER BY EstartDate LIMIT 8;";
 
 	$result = mysqli_query($con, $sql);
