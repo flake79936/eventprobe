@@ -79,7 +79,7 @@
 <div class="profile">
 	<div class="user"> </div>
  
-	<a href="./EventCreation.php">
+	<a href="./eventCreation.php">
 		<img src="./images/btn_event2.png">
 	</a>
 	

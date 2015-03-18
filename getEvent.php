@@ -33,9 +33,7 @@ mysqli_select_db($con, "EventAdvisors");
 	$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
 	$qry = "SELECT * FROM Events ";
 	$qry .= $var != null ? 
-
 			" WHERE (Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) AND EstartDate >='".$today."' AND Edisplay ='1' " 
-
 			: "";
 			
 	//$sql = "SELECT * FROM master WHERE id = '".$q."'";

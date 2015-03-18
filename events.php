@@ -34,7 +34,7 @@
 						<div class="box">
 							<img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
 							<h2><?= $day ?></h2>
-							<p><?= substr($EstartDate, 5, 9); ?>, <?= $row['EtimeStart'] ?></p>
+							<p><?= substr($EstartDate, 0, 5); ?>, <?= $row['EtimeStart'] ?></p>
 							<h3><?= $row['Evename'] ?></h3>
 						</div>
 					</div>

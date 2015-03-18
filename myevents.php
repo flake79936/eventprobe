@@ -123,5 +123,5 @@ $(document).ready(function() {
 		</ul>
 	<?PHP $i++; } ?>
 </div>
-<div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>
+<!--<div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>-->
 <div class="clear"></div>

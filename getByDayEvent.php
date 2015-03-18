@@ -1,14 +1,17 @@
 <!--AJAX Module-->
 
-<link rel="stylesheet" type="text/css" href="css/chart.css" />
+<head>
+	<link rel="stylesheet" type="text/css" href="css/chart.css" />
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-		<script>
-			function seeMoreInfo(str){
-				window.location = "./eventDisplayPage.php?eid="+str;
-			}
-		</script>	
+	<script>
+		function seeMoreInfo(str){
+			window.location = "./eventDisplayPage.php?eid="+str;
+		}
+	</script>
+</head>
+
 <body>
 	<?php
 		$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
@@ -23,16 +26,8 @@
 // 		$city = "El Paso";
 	
 		$today = date("m/d/Y");
-
-		/*$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
-		$qry = "SELECT EstartDate, Eflyer, EtimeStart, EtimeEnd, Evename, Efacebook, Egoogle, Etwitter, Ehashtag, Erank FROM Events ";
-		$qry .= $var != null ? 
-				" WHERE (EstartDate REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) AND EstartDate >='".$today."' " 
-				: "";*/
 				
-		//echo "Passing -> " . $_GET['q'];
-		$newformat = date('m/d/Y', $_GET['date']);
-		//echo "<br/>New time format -> " . $newformat;
+		$newformat = date('Y-m-d', $_GET['date']);
 		
 		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "' AND Edisplay='1' ;";
 		$result = mysqli_query($con, $qry);
@@ -83,27 +78,3 @@
 		?>
 	</div>
 </body>
-
-<!--<div class="row">
-	<div>
-		<div class="profile"><img src="images/sample_today.jpg" alt="Image" /></div>
-			<div class="info">
-				<div class="box">4:30 PM - 6:000 PM</div>
-				<div class="box">Muligans Happy Hour</div>
-				<div class="box">
-					<ul>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-						<li><img src="images/icon_star.png" alt="Icon" /></li>
-					</ul>
-				</div>
-				<div class="box"><img src="images/icon_fb.png" alt="Facebook" /></div>
-				<div class="box">more</div>
-				<div class="box"><a href="#"><img src="images/btn_cross.png" alt="Icon" /></a></div>
-			</div>
-		<div class="clear"></div>
-	</div>
-	<div class="clear"></div>
-</div>-->
