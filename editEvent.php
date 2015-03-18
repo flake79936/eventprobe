@@ -11,15 +11,16 @@
 	if($fgmembersite->CheckSession()){
 		$usrname = $fgmembersite->UsrName();  
 	}
-
-	//$today = Date("m/d/Y");
-	//$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
-	$sql = "SELECT * FROM Events WHERE Eid = '" . $_GET['eid'] . "'"; //works fine
 	
-	$edit = mysqli_query($con, $sql);
+	$editSQL = "SELECT * FROM Events WHERE Eid = '" . $_GET['eid'] . "'"; //works fine
+	$edit = mysqli_query($con, $editSQL);
 	
-	//$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
-	//$upcoming = mysqli_query($con, $sql);
+	$today = Date("m/d/Y");
+	$upcomingSQL = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$upcoming = mysqli_query($con, $upcomingSQL);
+	
+	$pastSQL = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$past = mysqli_query($con, $pastSQL);
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->updateEvent()){
@@ -71,15 +72,6 @@
 				</script>
 			<!--(End) Counts the number of characters-->
 			
-			<!--(Start) Date Pickers-->
-				<script type="text/javascript">
-					/*$(document).ready(function(){
-						$("#EstartDate").datepicker({minDate: 0});
-						$("#EendDate").datepicker({minDate: 0});
-					});*/
-				</script>
-			<!--(End) Date Pickers-->
-			
 			<!--(Start) Script to show whether the event is 'Other'-->
 				<script type="text/javascript">
 					$(document).ready(function(){
@@ -96,6 +88,14 @@
 					});
 				</script>
 			<!--(End) Script to show whether the event is 'Other'-->
+
+			<!--Redirects the user to the edit page.-->
+			<script>
+				function editInfo(str){
+					window.location = "./editEvent.php?eid="+str;
+				}
+			</script>
+			
 		<!--(End) Scripts-->
 	</head>
 	
@@ -153,6 +153,7 @@
 											/*Date format to Month/Day/Year */
 											$date = date_create($row['EstartDate']);
 											$EstartDate = date_format($date, 'm/d/Y');
+											$Etype = $row['Etype'];
 											//echo "Date: " . $EstartDate;
 											
 											if    (substr($EstartDate, 0, 2) === '01')$month = 'Jan';
@@ -166,10 +167,21 @@
 											elseif(substr($EstartDate, 0, 2) === '09')$month = 'Sep';
 											elseif(substr($EstartDate, 0, 2) === '10')$month = 'Oct';
 											elseif(substr($EstartDate, 0, 2) === '11')$month = 'Nov';
-											else $month = 'Dec';?>
+											else $month = 'Dec'; 
+											
+											switch($Etype){
+												case "Art": $Etype = "art35"; break;
+												case "Concert": $Etype = "music"; break;
+												case "Fair": $Etype = "fair35"; break;
+												case "Social": $Etype = "weight35"; break;
+												case "Sport": $Etype = "sports40"; break;
+												case "Public Speaker": $Etype = "speaker"; break;
+												default: $Etype = "magic35"; break;
+											}
+											?>
 											<li>
-												<img src="images/music.png" alt="Music" />
-												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
+												<img src="images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
+												<a onClick="editInfo(<?= $row['Eid'] ?>);">
 													<?PHP //echo $count; ?>
 													<?= $row['Evename'] ?>, 
 													<?= $month ?> 
@@ -192,6 +204,7 @@
 										  while($row = mysqli_fetch_array($past)){
 											$date = date_create($row['EstartDate']);
 											$EstartDate = date_format($date, 'm/d/Y');
+											$Etype = $row['Etype'];
 											//echo "Date: " . $EstartDate;
 												
 											if    (substr($EstartDate, 0, 2) === '01')$month = 'Jan';
@@ -205,9 +218,20 @@
 											elseif(substr($EstartDate, 0, 2) === '09')$month = 'Sep';
 											elseif(substr($EstartDate, 0, 2) === '10')$month = 'Oct';
 											elseif(substr($EstartDate, 0, 2) === '11')$month = 'Nov';
-											else $month= 'Dec';?>
+											else $month= 'Dec'; 
+											
+											switch($Etype){
+												case "Art": $Etype = "art35"; break;
+												case "Concert": $Etype = "music"; break;
+												case "Fair": $Etype = "fair35"; break;
+												case "Social": $Etype = "weight35"; break;
+												case "Sport": $Etype = "sports40"; break;
+												case "Public Speaker": $Etype = "speaker"; break;
+												default: $Etype = "magic35"; break;
+											}
+											?>
 											<li>
-												<img src="images/music.png" alt="Music" />
+												<img src="images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
 												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
 													<?PHP //echo $count; ?>
 													<?= $row['Evename'] ?>, 

@@ -1630,11 +1630,8 @@ class FGMembersite{
 		$str = $this->StripSlashes($str);
 
 		if($remove_nl){
-			$injections = array('/(\n+)/i', '/(\r+)/i',
-								'/(\t+)/i', '/(%0A+)/i',
-								'/(%0D+)/i', '/(%08+)/i',
-								'/(%09+)/i', '/(%+)/i'
-								);
+			$injections = array('/(\n+)/i', '/(\r+)/i', '/(\t+)/i', '/(%0A+)/i',
+								'/(%0D+)/i', '/(%08+)/i', '/(%09+)/i', '/(%+)/i');
 			$str = preg_replace($injections, '', $str);
 		}
 		return $str;
