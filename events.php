@@ -32,8 +32,8 @@
 				<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
 					<div class="info">
 						<div class="box">
-							<img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
-							<h2><?= $day ?></h2>
+							<h2><?= $day ?></h2><img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
+							
 							<p><?= substr($EstartDate, 0, 5); ?>, <?= $row['EtimeStart'] ?></p>
 							<h3><?= $row['Evename'] ?></h3>
 						</div>
