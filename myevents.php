@@ -78,7 +78,7 @@ $(document).ready(function() {
 	while($row = mysqli_fetch_array($result3)){ 
 	$pic=$row['Upic'];
 	
-	echo "<div class='profile'><img src=".$row['Upic']." alt='Profile' /></div> ";
+	echo "<div class='profile'><img src=".$row['Upic']." alt='Profile' height='146px'' width='136px''/></div> ";
 	}?>
 
 	<?PHP  			
