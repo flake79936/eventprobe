@@ -73,8 +73,10 @@ $(document).ready(function() {
 	<!-- <div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div> -->
 	<?PHP
 		/*Gets the user's uploaded image or by default puts one.*/
-		while($row = mysqli_fetch_array($result3)){ 
-			$pic = $row['Upic'];
+		while($row = mysqli_fetch_array($result3)){
+			If($row['Upic'] === null){
+				echo "<div class='profile'><img src=".$row['Upic']." alt='Profile' height='146px'' width='136px''/></div> ";
+			}
 			echo "<div class='profile'><img src=".$row['Upic']." alt='Profile' height='146px'' width='136px''/></div> ";
 		}
 		
