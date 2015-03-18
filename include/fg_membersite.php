@@ -1413,6 +1413,14 @@ class FGMembersite{
 		header("Location: $url");
 		exit;
 	}
+	
+	/*Added by Eduardo Corral
+	 *After the user has submitted the event, a query is generated to pull back the event of that one user.
+	 *Only the most current of that user. ([explicitly] A user can only post one event at a time.)
+	 */
+	function redirectToEvent($eid){
+		
+	}
 
 	function GetSpamTrapInputName(){
 		return 'sp'.md5('KHGdnbvsgst' . $this->rand_key);
