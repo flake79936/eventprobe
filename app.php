@@ -18,7 +18,7 @@
 </div>
 <div class="right">
 <div class="advertisement">
-	<a href="http://www.rudolphchevrolet.com/" target="_blank"><img src="images/advertisement_01.jpg" alt="Banner" /></a>
+	<a href="http://www.rudolphchevrolet.com/" target="_blank"><img src="images/advertisement_01.jpg" alt="Banner" width="490px"/></a>
 	<a href="http://ravemarketing.com/" target="_blank"><img src="images/advertisement_02.jpg" alt="Banner" /></a>
 </div>
 	<div class="image">
