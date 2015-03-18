@@ -1,6 +1,5 @@
-<!--AJAX Module-->
-
 <?php
+	/*AJAX Module*/
 	require_once("./include/membersite_config.php");
 	
 	/*Connects only to the DB*/

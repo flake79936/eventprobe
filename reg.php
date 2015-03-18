@@ -120,11 +120,11 @@
 							<span id="register_ConPswd_errorloc" class="error" style="clear: both"></span>
 							
 							<h5>Email</h5>
-							<input type="text"  placeholder="email@email.com" name="Uemail" title="Enter your Email"id="Uemail" onchange="check()" value="<?php echo $fgmembersite->SafeDisplay('Uemail') ?>" maxlength="50" /><br/>
+							<input type="text"  placeholder="email@email.com" name="Uemail" title="Enter your Email"id="Uemail" value="<?php echo $fgmembersite->SafeDisplay('Uemail') ?>" maxlength="50" /><br/>
 							<span id="register_Uemail_errorloc" class="error"></span>
 							
 							<h5>Phone</h5>
-							<input type="text" placeholder="1234567890" name="Uphone" title="Enter your Phone Number"id="Uphone" onchange="check()" value="<?php echo $fgmembersite->SafeDisplay("Uphone") ?>" maxlength="50" /><br/>
+							<input type="tel" placeholder="999-999-9999" name="Uphone" title='Phone Number (Format: 999-999-9999)' id="Uphone" pattern='\d{3}[\-]\d{3}[\-]\d{4}' value="<?php echo $fgmembersite->SafeDisplay("Uphone") ?>" maxlength="12" /><br/>
 							<span id="register_Uphone_errorloc" class="error"></span>
 						
 							<h5>User Image</h5>

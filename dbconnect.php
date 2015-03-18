@@ -1,6 +1,5 @@
-<!--Module-->
-
 <?PHP
+	/*Module*/
 	$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
 
 	if (!$con) {
