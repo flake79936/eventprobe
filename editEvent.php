@@ -67,7 +67,7 @@
 						 // otherwise, update 'characters left' counter
 						else
 							//cntfield.value = maxlimit - field.value.length;
-							document.getElementById('charsLeft').innerHTML = maxlimit - field.value.length;
+							document.getElementById(cnt).innerHTML = maxlimit - field.value.length;
 					}
 				</script>
 			<!--(End) Counts the number of characters-->
@@ -95,7 +95,6 @@
 					window.location = "./editEvent.php?eid="+str;
 				}
 			</script>
-			
 		<!--(End) Scripts-->
 	</head>
 	
@@ -278,7 +277,8 @@
 										<h5 for="Evename">Name of event</h5>
 										<div class="type" id="Evename">
 											<!--<div class="image"><img src="images/icon_location.png" /></div> -->
-											<input type="text" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $row['Evename']; ?>" maxlength="50">
+											<input type="text" onkeyup="textCounter(this,'charsLeftName', 85)" name="Evename" placeholder="Enter The Name Event" id="Evename" value="<?php echo $row['Evename']; ?>">
+											<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftName" value="85"> 85 Characters Max</div>
 											<span id="eventForm_Evename_errorloc" class="error"></span>
 										</div>
 										
@@ -343,8 +343,8 @@
 							<div class="form-wrap">
 								<div class="box">
 									<h5 for="Edescription">Description</h5>
-									<textarea onkeyup="textCounter(this,'charsLeft', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription"><?PHP echo $row['Edescription']; ?></textarea>
-									<div style="color: red; font-size: 12pt; font-style: italic; margin-bottom: 5px;" id="charsLeft" value="500"> 500 Characters Max</div>
+									<textarea onkeyup="textCounter(this,'charsLeftText', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription"><?PHP echo $row['Edescription']; ?></textarea>
+									<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftText" value="500"> 500 Characters Max</div>
 									<span id="eventForm_Edescription_errorloc" class="error"></span>
 								
 									<h5 for="Eaddress">Address</h5>

@@ -101,8 +101,6 @@
 							//cntfield.value = maxlimit - field.value.length;
 							document.getElementById(cnt).innerHTML = maxlimit - field.value.length;
 					}
-					
-					
 				</script>
 			<!--(End) Counts the number of characters-->
 			
@@ -293,8 +291,8 @@
 									<h5 for="Evename">Name of event</h5>
 									<div class="type" id="Evename">
 										<!--<div class="image"><img src="images/icon_location.png" /></div> -->
-										<input type="text" onkeyup="textCounter(this,'charsLeftname', 85)" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>">
-										<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftname" value="85"> 85 Characters Max</div>
+										<input type="text" onkeyup="textCounter(this,'charsLeftName', 85)" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>">
+										<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftName" value="85"> 85 Characters Max</div>
 										<span id="eventForm_Evename_errorloc" class="error"></span>
 									</div>
 									
@@ -363,7 +361,7 @@
 						<div class="box">
 							<h5 for="Edescription">Description</h5>
 							<textarea onkeyup="textCounter(this,'charsLeftText', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value=""></textarea>
-							<div style="color: red; font-size: 12pt; font-style: italic; margin-bottom: 5px;" id="charsLeftText" value="500"> 500 Characters Max</div>
+							<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftText" value="500"> 500 Characters Max</div>
 							<span id="eventForm_Edescription_errorloc" class="error"></span>
 						
 							<h5 for="Eaddress">Address</h5>
@@ -521,7 +519,7 @@
 								
 								<div class="type" id="Ewebsite" >
 									<h5 for="Ewebsite">Website</h5>
-									<input type="text" name="Ewebsite"  placeholder="http://www.website.com" title="correct format: http://www.website.com" id="Ewebsite" value="<?php echo $fgmembersite->SafeDisplay('Ewebsite') ?>" maxlength="50"><br>
+									<input type="url" name="Ewebsite"  placeholder="http://www.website.com" title="correct format: http://www.website.com" id="Ewebsite" value="<?php echo $fgmembersite->SafeDisplay('Ewebsite') ?>" maxlength="50"><br>
 									<span id="event_Ewebsite_errorloc" class="error"></span>
 								</div>
 								
