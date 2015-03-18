@@ -77,82 +77,18 @@
 </div>
 
 <div class="profile">
-
 	<div class="user"> </div>
-
-	<!--clickable dropdown menu-->
-<!-- 
-	<div>
-		<ul class="nav">
-			<!~~ here comes the important part ~~>
-			<?PHP if(!$bool){ ?>
-				<li class="dropdown" id="menu1">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-						Login
-						<b class="caret"></b>
-					</a>
-					<div class="dropdown-menu">
-						<!~~ <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> ~~>
-						<form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-							<div class="login">
-								<div style="margin:0;padding:0;display:inline">
-									<input name="utf8" type="hidden" value="&#x2713;" />
-									<input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" />
-								</div>
-								<fieldset class='textbox'>
-									<input name="UuserName" type="text" placeholder="Username" id="UuserName"  />
-									<br>
-									<input type="password" name='UPswd' placeholder="Passsword" id='UPswd' />
-									<input class="btn-primary" input id="submitButton" type="submit" name="Submit" value="Login" />
-									<br>
-									<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
-									<img src="./images/login-button.png" alt="Sign in with Facebook"></a>
-								</fieldset>
-							</div>
-						</form>
-					</div>
-				</li>
-			<?PHP } else { ?>
-			
-				<li class="dropdown" id="menu1">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-						<?PHP echo $usrname; ?>
-						<b class="caret"></b>
-					</a>
-					<div class="dropdown-menu">
-						<!~~ <form style="margin: 0px" accept-charset="UTF-8" action="/sessions" method="post"> ~~>
-						<form style="margin: 0px" id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-							<div class="login">
-								<div style="margin:0;padding:0;display:inline">
-									<input name="utf8" type="hidden" value="&#x2713;" />
-									<input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" />
-								</div>
-								<fieldset class='textbox' style="padding:10px">
-									<a role="menuitem" tabindex="-1" href='./EventCreation.php'>
-									<span>Create Event</span>
-									</a>
-									<br>
-									<a role="menuitem" tabindex="-1" href='./logout.php'>
-										<span>logout</span>
-									</a>
-								</fieldset>
-							</div>
-						</form>
-					</div>
-				</li>
-			<?PHP } ?>
-		</ul>      
-	</div>
- -->
  
-	<a href="./EventCreation.php"> <img src="./images/btn_event2.png"></a>
+	<a href="./EventCreation.php">
+		<img src="./images/btn_event2.png">
+	</a>
+	
 	<?PHP if(!$bool){ ?>
-	<a href="./loginB.php"><img src="./images/btn_login.png"></a>
-	<?PHP }
-	else {?>
-	<a href="./logout.php"><img src="./images/btn_logout.png"></a>
- <?PHP }?>
- 
+		<a href="./loginB.php"><img src="./images/btn_login.png"></a>
+	<?PHP } else { ?>
+		<a href="./logout.php"><img src="./images/btn_logout.png"></a>
+	<?PHP } ?>
+	
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>
