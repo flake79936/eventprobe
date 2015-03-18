@@ -28,9 +28,9 @@
 		<div class="info">
 			<div class="box">
 				<img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
-				<h1><?= $day ?></h1>
+				<h2><?= $day ?></h2>
 				<p> <?= substr($row['EstartDate'], 5, 9); ?>, <?= $row['EtimeStart'] ?></p>
-				<h1><?= $row['Evename'] ?></h1>
+				<h3><?= $row['Evename'] ?></h3>
 			</div>
 		</div>
 		<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />
