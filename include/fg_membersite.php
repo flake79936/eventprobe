@@ -1192,6 +1192,7 @@ class FGMembersite{
 			$this->HandleError("Database login failed!");
 			return false;
 		}
+		
 		$eventSearch = strtolower($eventSearch);
 		$sql = "SELECT * FROM Events WHERE Ecity LIKE '" . $eventSearch . "' UNION ALL 
 		SELECT * FROM Events WHERE Estate LIKE '" . $eventSearch . "' UNION ALL
@@ -1418,8 +1419,28 @@ class FGMembersite{
 	 *After the user has submitted the event, a query is generated to pull back the event of that one user.
 	 *Only the most current of that user. ([explicitly] A user can only post one event at a time.)
 	 */
-	function redirectToEvent($eid){
+	function redirectToEvent(){
+		if(!$this->DBLogin()){
+			$this->HandleError("Database login failed!");
+			return false;
+		}
 		
+		$username = $this->UsrName();
+		
+		$sql = "SELECT MAX(Eid) FROM Events WHERE UuserName = '". $username ."';";
+		
+		$eid = mysql_query($sql, $this->connection);
+		
+		$row = mysqli_fetch_array($eid);
+		
+		if(!$eid || mysql_num_rows($eid) <= 0){
+			$this->HandleError("Did Not Find Any Results For " . $row['MAX(Eid)']);
+			return false;
+		}
+		$eid = $row['MAX(Eid)'];
+		echo "Eid: " . $eid;
+		//header("Location: http://eventprobe.com/eventDisplayPage.php?eid=");
+		//exit;
 	}
 
 	function GetSpamTrapInputName(){

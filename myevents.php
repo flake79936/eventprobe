@@ -31,11 +31,13 @@ $(document).ready(function() {
 	
 	$today = Date("Y-m-d"); //should format to 2000-12-31
 	
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate";
-	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate";
-	$sql3 = "SELECT Upic FROM Registration WHERE UuserName = '" . $usrname . "'";
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate;";
 	$result = mysqli_query($con, $sql);
+	
+	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate;";
 	$result2 = mysqli_query($con, $sql2);
+	
+	$sql3 = "SELECT Upic FROM Registration WHERE UuserName = '" . $usrname . "';";
 	$result3 = mysqli_query($con, $sql3);
 ?>
 
@@ -81,8 +83,11 @@ $(document).ready(function() {
 			}
 		}
 	?>
+	
 	<?PHP
+		echo "Not Working!";
 		while($row = mysqli_fetch_array($result2)){
+			echo "Date: " . $row['EstartDate'] . "<br>";
 			$date = date_create($row['EstartDate']);
 			$EstartDate = date_format($date, 'm/d/Y');
 			
@@ -105,6 +110,7 @@ $(document).ready(function() {
 
 <div class="box event">
 	<?PHP
+		echo "Works!";
 		while($row = mysqli_fetch_array($result)){
 			//day name of the date
 			$date = date_create($row['EstartDate']);

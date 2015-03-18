@@ -12,7 +12,8 @@
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->CreateEvent()){
-			$fgmembersite->RedirectToURL("event_thank_you.php");
+			//$fgmembersite->RedirectToURL("event_thank_you.php");
+			$fgmembersite->redirectToEvent();
 		}
 	}
 	
