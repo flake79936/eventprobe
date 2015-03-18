@@ -85,7 +85,7 @@ $(document).ready(function() {
 	?>
 	
 	<?PHP
-		echo "Not Working!";
+		//echo "Not Working!";
 		while($row = mysqli_fetch_array($result2)){
 			echo "Date: " . $row['EstartDate'] . "<br>";
 			$date = date_create($row['EstartDate']);
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
 <div class="box event">
 	<?PHP
-		echo "Works!";
+		//echo "Works!";
 		while($row = mysqli_fetch_array($result)){
 			//day name of the date
 			$date = date_create($row['EstartDate']);

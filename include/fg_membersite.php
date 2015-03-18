@@ -1431,16 +1431,15 @@ class FGMembersite{
 		
 		$eid = mysql_query($sql, $this->connection);
 		
-		$row = mysqli_fetch_array($eid);
-		
 		if(!$eid || mysql_num_rows($eid) <= 0){
 			$this->HandleError("Did Not Find Any Results For " . $row['MAX(Eid)']);
 			return false;
 		}
-		$eid = $row['MAX(Eid)'];
-		echo "Eid: " . $eid;
-		//header("Location: http://eventprobe.com/eventDisplayPage.php?eid=");
-		//exit;
+		
+		$row = mysql_fetch_array($eid);
+		
+		header("Location: http://eventprobe.com/eventDisplayPage.php?eid=".$row['MAX(Eid)']);
+		exit;
 	}
 
 	function GetSpamTrapInputName(){
