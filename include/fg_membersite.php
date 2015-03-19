@@ -987,7 +987,10 @@ class FGMembersite{
 	* 
 	*/
 	function checkUser(&$formvars){
-		return $this->UsrName === $this->getUserInDB($formvars['Eid']) ? TRUE : FALSE; //return if both names match otherwise false
+		$uname = $this->UsrName;
+		$dbUName = $this->getUserInDB($formvars['Eid']);
+		
+		return $uname === $dbUName ? TRUE : FALSE; //return if both names match otherwise false
 	}
 	
 	/* Added by Eduardo Corral
@@ -1009,8 +1012,8 @@ class FGMembersite{
 		}
 
 		$row = mysql_fetch_assoc($result);
-		echo $row['UuserName'];
-		//return $row['UuserName'];
+		//echo $row['UuserName'];
+		return $row['UuserName'];
 	}
 	
 	/*This function will not literally delete the event,
