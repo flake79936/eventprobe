@@ -5,5 +5,5 @@
 	$_SESSION['lat'] = $_GET['lat'];
 	$_SESSION['long'] = $_GET['long'];
 	
-	$fgmembersite->RedirectToURL("index2.php");
+	return "Success";
 ?>

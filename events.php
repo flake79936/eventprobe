@@ -2,8 +2,8 @@
 <ul>
 	<?PHP
 		require_once("./include/membersite_config.php");
-		//$city = $fgmembersite->getCity();
-		$city = "El Paso";
+		$city = $fgmembersite->getCity();
+		//$city = "El Paso";
 		
 		if(isset($_POST["submitted"])){
 			$result = $fgmembersite->searchEvent();

@@ -1,5 +1,3 @@
-
-
 <?PHP require_once("./include/membersite_config.php"); ?>
 <!doctype html>
 <html>
@@ -36,30 +34,59 @@
 		// echo $city;
 		?>
 		
-		<script>
-			function getGeolocation(){
-				//var x = document.getElementById("demo");
-				if (navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition(setGeolocation);
-				} else { 
-					//x.innerHTML = "Geolocation is not supported by this browser.";
-				}
-			}
-			
-			function setGeolocation(position) {
-				//x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-				/*pass lat and long back to server*/
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		<!--<script>
+			$(document).ready(function(){
+				$.ajaxSetup({
+					cache: false,
+					beforeSend: function getGeolocation(){
+						//var x = document.getElementById("demo");
+						if (navigator.geolocation) {
+							navigator.geolocation.getCurrentPosition(setGeolocation);
+						} else { 
+							//x.innerHTML = "Geolocation is not supported by this browser.";
+							alert("Geolocation is not supported by this browser.");
+						}
+					},
+					complete: function setGeolocation(position) {
+						//x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+						/*pass lat and long back to server*/
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function(){
+							if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+								//document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+								alert(xmlhttp.responseText + " You are now pinged!");
+							}
+						}
+						xmlhttp.open("GET", "setGeolocation.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, true);
+						xmlhttp.send();
+					},
+					success: function(){
+						//$('#loading').hide();
+						//$('#events').show();
+						url: './index2.php';
+					}
+				});
+			});
+
+			/*function getByDayEvent(str) {
 				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function(){
+				xmlhttp.onreadystatechange = function() {
 					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-						//document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+						document.getElementById("events").innerHTML = xmlhttp.responseText;
 					}
 				}
-				xmlhttp.open("GET", "setGeolocation.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, true);
+				xmlhttp.open("GET", "getByDayEvent.php?date=" + str, true);
 				xmlhttp.send();
-			}
-			
-			/**/
+			}*/
+		</script>-->
+		
+		<script>
+			/* User types in search bar, this will send an HTTP request on the 
+			 * background to search the DB and get the result based on what the 
+			 * user typed
+			 */
 			function showHint(str) {
 				if (str.length == 0) {
 					document.getElementById("txtHint").innerHTML = "";
@@ -99,8 +126,6 @@
 			}
 		</script>
 		
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		
 		<script>
 			$(document).ready(function(){
 				$("input").keydown(function(){
@@ -118,8 +143,6 @@
 					$(".chart").hide();
 					$(".app").hide();
 				});
-				
-				getGeolocation();
 			});
 		</script>
 		
@@ -156,7 +179,6 @@
 		<!--Banner  Section-->
         <div class="banner">
 			<?PHP include './banner.php'; ?>
-			
 		</div>
         
 		<!--This-Week Section-->
@@ -186,7 +208,7 @@
 			<?PHP include './chart.php'; ?>
         </div>
 		
-		<!--Events txtHints Section-->
+		<!--Section where events will show when user types on the search bar-->
 		<div class="events" id="txtHint"></div>
         
 		<!--App Section-->

@@ -20,8 +20,8 @@
 	date_default_timezone_set($timezone);
 	$today = Date("m/d/Y");
 
- 	//$city = $fgmembersite->getCity();
-	$city='el paso';
+ 	$city = $fgmembersite->getCity();
+	//$city = 'el paso';
 
 	$sql = "SELECT Eid, Eflyer, Evename FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='premium' AND Edisplay='1' ";
 	$result = mysqli_query($con, $sql);
