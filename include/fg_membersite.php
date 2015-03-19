@@ -948,7 +948,7 @@ class FGMembersite{
 		return true;
     }
 	
-	
+	/*DELETE AN EVENT FUNCTIONALITY (START)*/
 	/*Added by Eduardo Corral.
 	  This function will delete the event based on the ID the function has 
 	  recieved from the form coming from eventDisplayPage.php
@@ -956,15 +956,29 @@ class FGMembersite{
 	* belongs to the user that is requesting to delete the event.
 	* This will guaranty the integrity of the function. safety feature.  
 	*/
-	function deleteEvent($delEventID){
-		if($this->checkUser($delEventID)){ //checks for the user if true then delete
-			$qry = "DELETE FROM $this->tablename2 WHERE Eid = $delEventID;";
-			
-			mysql_query($qry, $this->connection);
-			
-			return "<script> window.alert('Your Event has been deleted.');</script>";
+	function deleteEvent(){
+		if(!isset($_POST['submitted'])){
+			return false;
 		}
-		return "<script> window.alert('You are not the user who crated this event<br>You cannot delete it.');</script>"; //false then show alert messsage.
+		
+		$formvars = array();
+		
+		$this->getEid($formvars);
+		
+		if($this->checkUser($formvars)){ //checks for the user if true then delete
+			if($this->dltUpdtEvent($formvars)){
+				return TRUE;
+			}
+		}
+		return FALSE; //false then show alert messsage.
+	}
+	
+	/*Only useful for getting the Eid (event identification #).
+	 *This number get collected when the user clicks on the 'delete event' button.
+	 *
+	 */
+	function getEid(&$formvars){
+		$formvars['Eid'] = $this->Sanitize($_POST['Eid']);
 	}
 	
 	/*Added by Eduardo Corral.
@@ -972,27 +986,55 @@ class FGMembersite{
 	  same as the one in the field of the event record
 	* 
 	*/
-	function checkUser($delEventID){
-		return $this->UsrName === $this->getUserInDB($delEventID) ? TRUE : FALSE; //return if both names match otherwise false
+	function checkUser(&$formvars){
+		return $this->UsrName === $this->getUserInDB($formvars['Eid']) ? TRUE : FALSE; //return if both names match otherwise false
 	}
 	
 	/* Added by Eduardo Corral
 	*  gets the user that officially had registered the event.
 	*/
 	function getUserInDB($delEventID){
-		$qry = "SELECT UuserName FROM $this->tablename2 WHERE Eid = $delEventID;";
+		if(!$this->DBLogin()){
+			$this->HandleError("Database login failed!");
+			return false;
+		}
+		
+		$qry = "SELECT UuserName FROM " . $this->tablename2 . " WHERE Eid = " . $delEventID . ";";
 		
 		$result = mysql_query($qry, $this->connection);
 
 		if(!$result || mysql_num_rows($result) <= 0){
-			$this->HandleError(" ...Something... ");
+			$this->HandleError(" ...Something... " . $qry);
 			return false;
 		}
 
 		$row = mysql_fetch_assoc($result);
-
-		return $row['UuserName'];
+		echo $row['UuserName'];
+		//return $row['UuserName'];
 	}
+	
+	/*This function will not literally delete the event,
+	 * but it will only update the field 'display' in the Event table.
+	 *We are keeping the event for analytical reasons.
+	 *We only make the user believe the event has been deleted.
+	 *After a couple of years or so, this data probably will be obsolete, 
+	 * depending on the trends going on in the event scene.
+	 */
+	function dltUpdtEvent(&$formvars){
+		if(!$this->DBLogin()){
+			$this->HandleError("Database login failed!");
+			return false;
+		}
+		
+		$dltUpdtQuery = 'UPDATE ' . $this->tablename2 . ' SET Edisplay = 0 WHERE Eid = "' . $formvars['Eid'] . '";';
+		
+        if(!mysql_query($dltUpdtQuery, $this->connection)){
+            $this->HandleDBError("Error inserting data to the table\nquery: $dltUpdtQuery");
+            return false;
+        }
+		return true;
+	}
+	/*DELETE AN EVENT FUNCTIONALITY (END)*/
 	/*----(End) User Management---------------------------------------------------------------------------------------------------------------------------*/
 	
 	/*----(Start) Login information/Methods----*/

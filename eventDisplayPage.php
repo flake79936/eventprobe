@@ -7,8 +7,8 @@
 	include 'dbconnect.php';
 	
 	if(isset($_POST["submitted"])){
-		if($fgmembersite->CreateEvent()){
-			$fgmembersite->RedirectToURL("event_thank_you.php");
+		if($fgmembersite->deleteEvent()){
+			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
 ?>
@@ -71,6 +71,14 @@
 					$(".eventDisplayPage").hide();
 					$(".right").hide();
 				});
+				
+				$("#concert, #fair, #sport, #art").click(function(){
+					$(".my-events").hide();
+					$(".this-week").hide();
+					$(".schedule").hide();
+					$(".chart").hide();
+					$(".app").hide();
+				});
 			});
 		</script>
 
@@ -81,7 +89,11 @@
 	<body lang="en">
 		<div class="search">
 			<form>
-				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event">
+				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event"><br>
+				<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a>
+				<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a>
+				<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a>
+				<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art35.png"/></a>
 			</form>
 		</div>
 
@@ -91,6 +103,7 @@
 		
 		<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 			<input type="hidden" name="submitted" id="submitted" value="1"/>
+			<input type="hidden" name="Eid" id="Eid" value="<?PHP echo $newEventID; ?>"/>
 					
 			<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 			<table width="1108" border="0">
@@ -389,7 +402,7 @@
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td><a onclick="<?= $fgmembersite->deleteEvent($newEventID); ?>">Delete Event<a></td>
+						<td><input type="submit" name="submit" value="Delete Event"/></td>
 						<td></td>
 						<td><a href="./editEvent.php?eid=<?PHP echo $newEventID; ?>">Edit Event</a></td>
 					</tr>
