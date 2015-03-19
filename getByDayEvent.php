@@ -22,8 +22,8 @@
 		$timezone = $fgmembersite->getLocalTimeZone();
 		date_default_timezone_set($timezone);
 		
-		$city = $fgmembersite->getCity();
-// 		$city = "El Paso";
+		//$city = $fgmembersite->getCity();
+$city = "El Paso";
 	
 		$today = date("m/d/Y");
 				

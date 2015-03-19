@@ -1,4 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
 
 <?PHP require_once("./include/membersite_config.php"); ?>
 <!doctype html>
@@ -10,7 +10,7 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
@@ -28,15 +28,38 @@
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
         
-		<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+		<!--<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>-->
 		
-		<script language="Javascript"> var city = geoplugin_city(); </script>
+		<!--<script language="Javascript"> var city = geoplugin_city(); </script>-->
 			
 		<?PHP $city = "<script>document.write(city)</script>";
 		// echo $city;
 		?>
 		
 		<script>
+			function getGeolocation(){
+				//var x = document.getElementById("demo");
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(setGeolocation);
+				} else { 
+					//x.innerHTML = "Geolocation is not supported by this browser.";
+				}
+			}
+			
+			function setGeolocation(position) {
+				//x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+				/*pass lat and long back to server*/
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function(){
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						//document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET", "setGeolocation.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, true);
+				xmlhttp.send();
+			}
+			
+			/**/
 			function showHint(str) {
 				if (str.length == 0) {
 					document.getElementById("txtHint").innerHTML = "";
@@ -95,6 +118,8 @@
 					$(".chart").hide();
 					$(".app").hide();
 				});
+				
+				getGeolocation();
 			});
 		</script>
 		

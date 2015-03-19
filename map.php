@@ -1,8 +1,8 @@
 <!--Module-->
 <?PHP
 	require_once("./include/membersite_config.php");
-	$city = $fgmembersite->getCity();
-// 	$city = "El Paso";
+	//$city = $fgmembersite->getCity();
+	$city = "El Paso";
 
 	if(isset($_POST["submitted"])){
 		$result = $fgmembersite->searchEvent();
@@ -14,6 +14,7 @@
 	date_default_timezone_set($timezone);
 	
 	$today = Date("Y-m-d");
+	//$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Elat = '" . . "' Ecity = '". $city ."' AND Edisplay='1'  ORDER BY EstartDate LIMIT 8;";
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '". $city ."' AND Edisplay='1'  ORDER BY EstartDate LIMIT 8;";
 
 	$result = mysqli_query($con, $sql);
@@ -24,7 +25,7 @@
 		$Elat  = $row['Elat'];
 		$Elong = $row['Elong'];
 
-		$eventArray[$i]=[$event,$Elat,$Elong];
+		$eventArray[$i] = [$event, $Elat, $Elong];
 
 		$i++;
 	}

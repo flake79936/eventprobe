@@ -730,6 +730,14 @@ class FGMembersite{
         return isset($_SESSION['email_of_user'])?$_SESSION['email_of_user']:'';
     }
 	
+	function getLatitude(){
+		return isset($_SESSION['lat']) ? $_SESSION['lat'] : '';
+	}
+	
+	function getLongtitude(){
+		return isset($_SESSION['long']) ? $_SESSION['long'] : '';
+	}
+	
 	function SendUserWelcomeEmail(&$user_rec){
         $mailer = new PHPMailer();
         
@@ -1003,6 +1011,7 @@ class FGMembersite{
         $password = trim($_POST['UPswd']);
         
         if(!isset($_SESSION)){ session_start(); }
+		
         if(!$this->CheckSessionInDB($username, $password)){
             return false;
         }
@@ -1017,7 +1026,7 @@ class FGMembersite{
         
         $sessionvar = $this->GetLoginSessionVar();
         
-        $_SESSION[$sessionvar]=NULL;
+        $_SESSION[$sessionvar] = NULL;
         
         unset($_SESSION[$sessionvar]);
     }
@@ -1573,7 +1582,7 @@ class FGMembersite{
 	function getLat(){
 		$user_ip = getenv('REMOTE_ADDR');
 		$geo     = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));
-		$lat    = $geo["geoplugin_latitude"];
+		$lat     = $geo["geoplugin_latitude"];
 		
 		return $lat;
 		/*
