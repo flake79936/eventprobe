@@ -4,15 +4,7 @@
 	require_once("./include/membersite_config.php");
 ?>
 
-<!-- 
-<link type="text/css" href="./css/jquery.bbslider.css" rel="stylesheet" media="screen" />
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="./js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="./js/jquery.bbslider.min.js"></script>
-<script type="text/javascript" src="./js/jquery-2.1.3.min.js"></script>
-
- -->
 
 <!-- jQuery library (served from Google) -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -23,7 +15,7 @@
 
 
 <?PHP 
-	$height = "310px";
+	$height = "300px";
 	$width = "100%";
 
 	include 'dbconnect.php';
@@ -99,7 +91,7 @@
 	$(document).ready(function(){
   		$('.bxslider').bxSlider({
 // 		  mode: 'fade',
-//  		 captions: true,
+ 		 captions: true,
   		 auto: true,
 //   		autoControls: true
 		});

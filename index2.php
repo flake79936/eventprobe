@@ -179,7 +179,7 @@
         
 		<!--Banner  Section-->
         <div class="banner">
-			<?PHP include './banner.php'; ?>
+			<?PHP include './banner2.php'; ?>
 		</div>
         
 		<!--This-Week Section-->
