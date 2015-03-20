@@ -43,7 +43,7 @@
 				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
-				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
+				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . " &nbsp; &nbsp; &nbsp;".ucfirst($row['Ecity'])."</div>";
 				echo "				<div class='box'>" . $row['Evename'] . "</div>";
 				if ($row['Efacebook'])
 				{
