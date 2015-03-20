@@ -412,7 +412,7 @@
 							<td></td>
 							<td>
 								<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
-									<a href="./editEvent.php?eid=<?PHP echo $newEventID; ?>">Edit Event</a>
+									<a href="./editEvent.php?eid=<?PHP echo $newEventID; ?>"><img src="./images/btn_editevent.png"></a>
 								<?PHP } ?>
 							</td>
 						</tr>

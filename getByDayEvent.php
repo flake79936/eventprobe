@@ -29,7 +29,7 @@
 				
 		$newformat = date('Y-m-d', $_GET['date']);
 		
-		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "' AND Edisplay='1' ;";
+		$qry = "SELECT * FROM Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "' AND Edisplay='1' AND Erank='Free' ;";
 		$result = mysqli_query($con, $qry);
 		
 		$bool = $fgmembersite->CheckSession();
