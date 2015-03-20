@@ -2,7 +2,7 @@
 
 <div class="box">
 	<a href="#">
-		<img src="images/btn_arrow_left.png" alt="Arrow" />
+<!-- 		<img src="images/btn_arrow_left.png" alt="Arrow" /> -->
 	</a>
 </div>
 <div class="box title">
@@ -10,7 +10,7 @@
 </div>
 <div class="box">
 	<a href="#">
-		<img src="images/btn_arrow_right.png" alt="Arrow" />
+<!-- 		<img src="images/btn_arrow_right.png" alt="Arrow" /> -->
 	</a>
 </div>
 <div class="clear"></div>
