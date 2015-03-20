@@ -43,7 +43,7 @@ px      68    160    252    */
 @media only screen and (max-width: 767px) {
 	.app{ padding: 20px 0; }
 	.app .left{ float: none; width: auto; }
-	.app .right{ float: none; width: atuo; padding-top: 15px; }
+	.app .right{ float: none; width: auto; padding-top: 15px; }
 	.app .right .advertisement a img{ float: none; width: 100%; padding: 0px; }
 	.app .user{ margin: 0; }
 	.app .user .box{ float: none; width: auto; text-align: center; padding: 10px 0; }
