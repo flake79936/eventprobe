@@ -1,9 +1,17 @@
-/*body{
-	background: #e9e4d5;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes
-}*/
+/*	Resets ------	*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+a img { border: 0; cursor: pointer; }
 
 h1{ font-size: 31px; font-weight: normal; }
 h2{ font-size: 24px; font-weight: normal; }
@@ -12,18 +20,34 @@ h4{ font-size: 14px; font-weight: normal; }
 h5{ font-size: 12px; font-weight: normal; }
 h6{ font-size: 11px; font-weight: normal; }
 
+/* Selection colours (easy to forget) */
+::selection 	 	{background: rgb(255,255,158);}
+::-moz-selection 	{background: rgb(255,255,158);}
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+body {-webkit-tap-highlight-color: rgb(255,255,158); background: #e9e4d5;}
 
 .eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
-.eventDisplayPage .left{ float: left; width: 30%; }
-.eventDisplayPage .right{ float: right; width: 45%; padding-top: 50px; }
-.eventDisplayPage .user{ margin: 10px 0px 20px 0px; }
-.eventDisplayPage .user .box{ float: left; width: 30%; text-align: center; padding: 10px 0; }
-.eventDisplayPage .user .box h3{ font-weight: normal; color: #4e473f; }
-.eventDisplayPage .user p{ float: left; width: 60%; padding: 30px 20px; color: #22252b; font-size: 21px; font-weight: normal; font-style: italic; }
-.eventDisplayPage .image{ float: left; width: 25%; }
-.eventDisplayPage .mobile{ float: left; width: 70%; }
-.eventDisplayPage .mobile h1{ color: #4e473f; margin-bottom: 10px; }
-.eventDisplayPage .mobile p{ color: #4e473f; line-height: 24px; }
+.eventDisplayPage .content .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
+.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 30px;}
+
+.eventDisplayPage .content .dashboard .box .upper .eNameNHashtag{ width: 30% }
+.eventDisplayPage .content .dashboard .box .upper .eDateTime{ }
+.eventDisplayPage .content .dashboard .box .upper .eDescription{ }
+.eventDisplayPage .content .dashboard .box .upper .eFlyer img{ width: 15%; height: auto; }
+.eventDisplayPage .content .dashboard .box .upper .eWebsite{ }
+.eventDisplayPage .content .dashboard .box .upper .eFacebook{ }
+.eventDisplayPage .content .dashboard .box .upper .eTwitter{ }
+.eventDisplayPage .content .dashboard .box .upper .eGoogle{ }
+
+.eventDisplayPage .content .dashboard .box .lower .eMap{ float: right; width: 100% }
+.eventDisplayPage .content .dashboard .box .lower .eAddress{  }
+.eventDisplayPage .content .dashboard .box .lower .ePhone{  }
+.eventDisplayPage .content .dashboard .box .lower .dltButton{  }
+.eventDisplayPage .content .dashboard .box .lower .editButton{  }
+
+/* http://sonspring.com/journal/clearing-floats */
+.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 
 /*		Tablet Layout: 768px.
 		Gutters: 24px.
@@ -37,6 +61,17 @@ px      68    160    252    344    436    528    620    712    */
 	.eventDisplayPage .left{ float: none; width: auto; padding: 10px 0; }
 	.eventDisplayPage .right{ float: none; width: auto; padding: 30px 0; }
 	.eventDisplayPage .image{ text-align: center; }
+}
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	body{ margin: 0; padding: 0; width: 360px;}
 }
 
 /*		Mobile Layout: 320px.

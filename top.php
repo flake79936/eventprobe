@@ -17,11 +17,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 
-<div class="logo">
-	<a href="./index2.php">
+<a href="./index2.php">
+	<div class="logo">
 		<img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
-	</a>
-</div>
+	</div>
+</a>
 
 <div class="date">
 <!-- 
