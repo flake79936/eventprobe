@@ -38,7 +38,7 @@
 		<link rel="stylesheet" type="text/css" href="css/footer.css" />
 		<link rel="stylesheet" type="text/css" href="css/search.css" />
 
-		<!--GOOGLE MAP-->        
+		<!--GOOGLE MAP-->
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 
@@ -418,7 +418,7 @@
 						</tr>
 				<?PHP } ?>
 				</table>
-			<form>
+			</form>
 		</div>
 		<br/>
 		

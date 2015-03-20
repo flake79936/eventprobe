@@ -1,31 +1,20 @@
 <?PHP
-	require_once("./include/membersite_config.php");
-	if($fgmembersite->CheckSession()){
-		$usrname = $fgmembersite->UsrName();  
-	}
-
-	/*This part ckecks whether there is a session or not.*/
-		if(!$fgmembersite->CheckSession()){
-			$fgmembersite->RedirectToURL("loginB.php");
-			exit;
-	}
+	require_once("./include/membersite_config.php"); 
+	$newEventID = $_GET['eid'];
+	// 	$newEventID = "35";
+	include 'dbconnect.php';
 	
 	if(isset($_POST["submitted"])){
-		if($fgmembersite->CreateEvent()){
-			//$fgmembersite->RedirectToURL("event_thank_you.php");
-			$fgmembersite->redirectToEvent();
+		if($fgmembersite->deleteEvent()){
+			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
 	
-	include 'dbconnect.php';
-
-	$today = Date("m/d/Y");
-	$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	if($fgmembersite->CheckSession()){
+		$usrname = $fgmembersite->UsrName();
+	}
 	
-	$past = mysqli_query($con, $sql);
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
-	
-	$upcoming = mysqli_query($con, $sql);
+	$inDBUser = $fgmembersite->getUserInDB($newEventID);
 ?>
 
 <html lang="en">
@@ -33,113 +22,123 @@
 		<meta charset="utf-8"/>
 		<title>Eventprobe</title>
 		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
-        
-        <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="./css/main.css" />
-        <link rel="stylesheet" type="text/css" href="./css/top.css" />
-        <link rel="stylesheet" type="text/css" href="./css/links.css" />
-        <link rel="stylesheet" type="text/css" href="./css/footer.css" />
 
-        <!--FAVICON-->
-        <link rel="shortcut icon" href="favicon.ico"  />
-        
-        <!--GOOGLE MAPS
-        <script type="text/javascript" src="js/googleapis.js"></script>
-        <script type="text/javascript" src="js/map.js"></script>-->
+		<!--STYLE-->
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/top.css" />
+		<link rel="stylesheet" type="text/css" href="css/eventDisplayPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/links.css" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/search.css" />
 
-		<!--(Start) Scripts-->
-			<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
-			
-			<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-			
-			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-			<script type="text/javascript" src="js/jquery-ui.js"></script>
-			<script type="text/javascript" src="js/scripts.js"></script>
-			
-			<!--(Start) Provided by JetDevLLC-->
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$(".mobile-menu-list").hide();
-						$('.mobile-menu-btn').click(function(){
-							$(this).toggleClass("active");
-							$(".mobile-menu-list").slideToggle(200);
-						});
-					});
-				</script>
-			<!--(End) Provided by JetDevLLC-->
-			
-			<!--(Start) Script to show whether the event is 'Other'-->
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$("#other").hide();
-						$("#Etype").change(function(){
-							$("#Etype option:selected").each(function(){
-								if($(this).attr("value") == "Other"){
-									$("#other").show();
-								} else {
-									$("#other").hide();
-								}
-							});
-						}).change();
-					});
-				</script>
-			<!--(End) Script to show whether the event is 'Other'-->
-			
-			<!--(Start) Counts the number of characters-->
-				<script type="text/javascript">
-					//counts for the text area tag
-					function textCounter(field, cnt, maxlimit) {         
-						var cntfield = document.getElementById(cnt)
-						if (field.value.length > maxlimit) // if too long...trim it!
-							field.value = field.value.substring(0, maxlimit);
-						 // otherwise, update 'characters left' counter
-						else
-							//cntfield.value = maxlimit - field.value.length;
-							document.getElementById(cnt).innerHTML = maxlimit - field.value.length;
+		<!--GOOGLE MAP-->
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
+
+		<script>
+			function showHint(str){
+				if(str.length == 0){
+					document.getElementById("txtHint").innerHTML = "";
+					$(".eventDisplayPage").show();
+					$(".right").show();
+					return;
+				} else {
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+						if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+							document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+						}
 					}
-				</script>
-			<!--(End) Counts the number of characters-->
-			
-			<!--onclick it will redirect the user to the event display page, displaying the event the user clicked on.-->
-			<script>
-				function seeMoreInfo(str){
-					window.location = "./eventDisplayPage.php?eid="+str;
+					xmlhttp.open("GET", "getEvent.php?q=" + str, true);
+					xmlhttp.send();
 				}
-			</script>
-		<!--(End) Scripts-->
+			}
+		</script>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script>
+			function seeMoreInfo(str){
+				window.location = "./eventDisplayPage.php?eid="+str;
+			}
+		</script>		
+
+		<script>
+			$(document).ready(function(){
+				$("input").keydown(function(){
+					$(".eventDisplayPage").hide();
+				});
+				
+				$("#concert, #fair, #sport, #art").click(function(){
+					$(".eventDisplayPage").hide();
+				});
+			});
+		</script>
+
+		<!--FAVICON-->
+		<link rel="shortcut icon" href="favicon.ico"  />
 	</head>
 	
 	<body>
+		<div class="search">
+			<form>
+				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event"><br>
+				<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a> | 
+				<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a> | 
+				<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a> | 
+				<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art35.png"/></a>
+				<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
+			</form>
+		</div>
+		
 		<div class="top">
 			<?PHP include './top.php';?>
-		
-			<!--<div class="logo">
-				<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
-			</div>
-			<div class="profile">
-				<div class="user">
-					<img src="images/profile.jpg" />
-					<h2><?= $usrname?></h2>
-					<a href="#"><img src="images/btn_dropdown.png" alt="Dropdown" /></a>
-					<div class="clear"></div>
-				</div>
-				<div class="search">
-					<form>
-						<input type="text" placeholder="search for events" />
-						<input type="image" src="images/btn_search.png" class="btn-search" />
-						<div class="clear"></div>
-					</form>
-				</div>
-				<div class="clear"></div>
-			</div>
-			<div class="clear"></div>-->
 		</div>
+		
+		<div class="eventDisplayPage">
+			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+				<input type="hidden" name="submitted" id="submitted" value="1"/>
+				<input type="hidden" name="Eid" id="Eid" value="<?PHP echo $newEventID; ?>"/>
+						
+				<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
+				
+				<?PHP
+					$qry = "SELECT * FROM Events WHERE Eid = '".$newEventID."' AND Edisplay='1';";
+					$result = mysqli_query($con, $qry);
+					
+					while($row = mysqli_fetch_array($result)){  
+						$i = 0 ;
+						$event = $row['Evename'];
+						$Elat  = $row['Elat'];
+						$Elong = $row['Elong'];
+						
+						/*Date format to Month/Day/Year */
+						$date = date_create($row['EstartDate']);
+						$EstartDate = date_format($date, 'm/d/Y');
+						
+						$eventArray[$i]=[$event,$Elat,$Elong];
 
+						/**  Format phone number **/
+						$formatPhone = $row['EphoneNumber'];
+						$formatPhone = preg_replace("/[^0-9]/", "", $formatPhone);
+
+						if(strlen($formatPhone) == 7)
+							$formatPhone = preg_replace("/([0-9]{3})([0-9]{4})/", "$1-$2", $formatPhone);
+						elseif(strlen($formatPhone) == 10)
+							$formatPhone = preg_replace("/([0-9]{3})([0-9]{3})([0-9]{4})/", "($1) $2-$3", $formatPhone);
+						/** End format phone number**/
+				?>
+				
+				<?PHP } ?>
+			</form>
+		</div>
+		
+		
 		<div class="main">
 			<div class="sidebar">
 			<br>
@@ -551,14 +550,13 @@
 						</div>
 						<div class="clear"></div>
 					</div><!--End of Form-wrap-->
-						
-					<!--Submit Button-->
+						<!--Submit Button-->
 					<div class="submitButton">
 						<input type="submit" name="Submit" value="Create Event" />
 					</div>
 				</form>
 				
-			</div> <!-- End of content -->
+			</div><!-- End of content -->
 			
 			<div class="links">
 				<?PHP include './links.php'; ?>
@@ -569,41 +567,5 @@
 			</div>
 			
 		</div><!-- End of Main -->
-		
-		<!--This script needs to wihtin the file. 
-		It is validating the form.-->
-		<script type="text/javascript">
-			// <![CDATA[
-			var frmvalidator = new Validator("eventForm");
-			frmvalidator.EnableOnPageErrorDisplay();
-			frmvalidator.EnableMsgsTogether();
-			
-			frmvalidator.addValidation("Eflyer",       "req", "Please Insert an Image");
-			frmvalidator.addValidation("Evename",      "req", "Please fill in Event Name");
-			frmvalidator.addValidation("Etype",        "req", "Please fill in Type of Event");
-			frmvalidator.addValidation("Erank",        "req", "Please fill in the Rank");
-			frmvalidator.addValidation("Edescription", "req", "Please fill in Description");
-			frmvalidator.addValidation("Eaddress",     "req", "Please fill in address");
-			frmvalidator.addValidation("Ecity",        "req", "Please fill in City");
-			frmvalidator.addValidation("Estate",       "req", "Please fill in State");
-			frmvalidator.addValidation("Ezip",         "req", "Please fill in Zip code");
-			frmvalidator.addValidation("EphoneNumber", "req", "Please fill in Phone Number");
-			frmvalidator.addValidation("EtimeStart",   "req", "Please fill in the Start Time");
-			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
-			frmvalidator.addValidation("EstartDate",   "req", "Please Select a Start Date");
-			frmvalidator.addValidation("EendDate",     "req", "Please Select an End Date");
-			// ]]>
-		</script>
-		
-		<script type="text/javascript">
-    		function PreviewImage() {
-       		var oFReader = new FileReader();
-        	oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
-
-       		oFReader.onload = function (oFREvent) {
-            document.getElementById("uploadPreview").src = oFREvent.target.result;
-        		};
-   			 };
-		</script>
 	</body>
 </html>

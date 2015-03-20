@@ -7,7 +7,7 @@
 
 .app{ background: #e4dfcd; padding: 0% 3%; }
 .app .left{ float: left; width: 50%; }
-.app .right{ float: right; width: auto; padding-top: 50px; }
+.app .right{ float: right; width: 50%; padding-top: 25px; }
 .app .right .advertisement a img{ float: right; width: 50%; padding-top: 50px; }
 .app .user{ margin: 10px 0px 20px 0px; }
 .app .user .box{ float: left; width: 30%; text-align: center; padding: 10px 0; }
