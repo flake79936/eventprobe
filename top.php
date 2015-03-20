@@ -81,12 +81,16 @@
  
 	<a href="./eventCreation.php">
 		<img src="./images/btn_event2.png">
-	</a>
+	</a>&nbsp;
 	
 	<?PHP if(!$bool){ ?>
-		<a href="./loginB.php"><img src="./images/btn_login.png"></a>
+		<a href="./loginB.php">
+			<img src="./images/btn_login.png">
+		</a>
 	<?PHP } else { ?>
-		<a href="./logout.php"><img src="./images/btn_logout.png"></a>
+		<a href="./logout.php">
+			<img src="./images/btn_logout.png">
+		</a>
 	<?PHP } ?>
 	
 	<div class="clear"></div>
