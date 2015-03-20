@@ -1,13 +1,14 @@
-body{
+/*body{
 	background: #e9e4d5;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
-}
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes
+}*/
 
 .app{ background: #e4dfcd; padding: 0% 3%; }
 .app .left{ float: left; width: 50%; }
-.app .right{ float: right; width: 50%; padding-top: 50px; }
+.app .right{ float: right; width: auto; padding-top: 50px; }
+.app .right .advertisement a img{ float: right; width: 50%; padding-top: 50px; }
 .app .user{ margin: 10px 0px 20px 0px; }
 .app .user .box{ float: left; width: 30%; text-align: center; padding: 10px 0; }
 .app .user .box h3{ font-weight: normal; color: #4e473f; }
@@ -28,6 +29,7 @@ px      68    160    252    344    436    528    620    712    */
 	.app{ padding: 20px 0; }
 	.app .left{ float: none; width: auto; padding: 10px 0; }
 	.app .right{ float: none; width: auto; padding: 30px 0; }
+	.app .right .advertisement a img{ float: none; width: 100%; padding: 0px; }
 	.app .image{ text-align: center; }
 }
 
@@ -41,7 +43,8 @@ px      68    160    252    */
 @media only screen and (max-width: 767px) {
 	.app{ padding: 20px 0; }
 	.app .left{ float: none; width: auto; }
-	.app .right{ float: none; width: auto; padding-top: 15px; }
+	.app .right{ float: none; width: atuo; padding-top: 15px; }
+	.app .right .advertisement a img{ float: none; width: 100%; padding: 0px; }
 	.app .user{ margin: 0; }
 	.app .user .box{ float: none; width: auto; text-align: center; padding: 10px 0; }
 	.app .user .box h3{ font-weight: normal; color: #4e473f; }

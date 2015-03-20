@@ -20,7 +20,7 @@ menu, footer, header, nav, section, summary, time, mark, audio, video {
 article, aside, canvas, figure, figure img, figcaption, hgroup,
 footer, header, nav, section, audio, video { display: block; }
 
-a img {border: 0;}
+a img {border: 0; cursor: pointer;}
 
 /* FONTS */
 
@@ -39,7 +39,7 @@ p{ line-height: normal; }
 ::-moz-selection 	{background: rgb(255,255,158);}
 img::selection 		{background: transparent;}
 img::-moz-selection	{background: transparent;}
-body {-webkit-tap-highlight-color: rgb(255,255,158);}
+body {-webkit-tap-highlight-color: rgb(255,255,158); }
 
 /*		Default Layout: 992px. 
 		Gutters: 24px.
@@ -63,7 +63,7 @@ cols    1     2      3      4      5
 px      68    160    252    344    436    */
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-	body{ margin: 0; padding: 0; }
+	body{ margin: 0; padding: 0; width: 360px;}
 }
 
 /* http://sonspring.com/journal/clearing-floats */

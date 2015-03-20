@@ -18,3 +18,26 @@
 }
 
 .search .box { margin: 0px 500px; }
+
+@media only screen and (max-width: 767px) {
+	.search {
+		/*background: url(../images/bg_top.png) repeat-x bottom;*/ 
+		position: absolute;
+		top: 100px;
+		left: 10px;
+	}
+	
+	.search form input{
+		width: 300px;
+		border: 1px solid #999;
+		padding: 5px;
+		margin-bottom: 5px;
+		outline: none;
+		-moz-border-radius: 6px;
+		-webkit-border-radius: 6px;
+		-khtml-border-radius: 6px;
+		border-radius: 6px;
+	}
+	
+	.search .box { margin: 0px 500px; }
+}
