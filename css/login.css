@@ -5,11 +5,8 @@
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes 
 }*/
 
-.main{ background: #fafaf7; }
-.main .content{ float: left; width: 198px; padding: 20px; }
-.main .content .login{ border-bottom: 1px solid #999; padding: 0px 0; }
-.main .content .login .box{ float: left; width: 500px; }
-.main .content .login h5{ font-weight: bold; text-transform: uppercase; margin-bottom: 3px; }
-.main .content .login .box input{ width: 100px; border: 1px solid #999; padding: 5px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+.form-wrap{ background: #FFF; }
+.form-wrap .login{ text-align: center; padding: 25px 0px 25px 0px; }
+.form-wrap .login .textbox .buttonInput{ width: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 
-.main .content a { float: right; margin-top: 0px; }
+.form-wrap .content a { float: right; margin-top: 0px; }
