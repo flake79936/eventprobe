@@ -161,42 +161,45 @@
 										<h4><?PHP echo $row['Edescription']; ?></h4>
 									</div>
 									
-									<div class="eFlyer">
-										<img src= <?= $row['Eflyer'] ?> alt="event image"/>
+									<div class="upperMid">
+										<div class="eFlyer">
+											<img src= <?= $row['Eflyer'] ?> alt="event image"/>
+										</div>
+										
+										<div class="socialLinks">
+											<div class="eWebsite">
+												<?PHP if($row['Ewebsite'] !== ""){?>
+													<a href="<?= $row['Ewebsite'] ?>" target="_blank">
+														<?PHP echo $row['Ewebsite']; ?>
+													</a>
+												<?PHP } ?>
+											</div>
+											
+											<div class="eFacebook">
+												<?PHP if($row['Efacebook'] !== ""){ ?>
+													<a href="<?= $row['Efacebook'] ?>" target="_blank">
+														<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
+													</a>
+												<?PHP } ?>
+											</div>
+											
+											<div class="eTwitter">
+												<?PHP if ($row['Etwitter'] !== ""){ ?>
+													<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
+														<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
+													</a>
+												<?PHP } ?>
+											</div>
+											
+											<div class="eGoogle">
+												<?PHP if ($row['Egoogle'] !== ""){ ?>
+													<a href="<?= $row['Egoogle'] ?>" target="_blank">
+														<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
+													</a>
+												<?PHP } ?>
+											</div>
+										</div>
 									</div>
-									
-									<div class="eWebsite">
-										<?PHP if($row['Ewebsite'] !== ""){?>
-											<a href="<?= $row['Ewebsite'] ?>" target="_blank">
-												<?PHP echo $row['Ewebsite']; ?>
-											</a>
-										<?PHP } ?>
-									</div>
-									
-									<div class="eFacebook">
-										<?PHP if($row['Efacebook'] !== ""){ ?>
-											<a href="<?= $row['Efacebook'] ?>" target="_blank">
-												<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
-											</a>
-										<?PHP } ?>
-									</div>
-									
-									<div class="eTwitter">
-										<?PHP if ($row['Etwitter'] !== ""){ ?>
-											<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
-												<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
-											</a>
-										<?PHP } ?>
-									</div>
-									
-									<div class="eGoogle">
-										<?PHP if ($row['Egoogle'] !== ""){ ?>
-											<a href="<?= $row['Egoogle'] ?>" target="_blank">
-												<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
-											</a>
-										<?PHP } ?>
-									</div>
-									
 								</div>
 								
 								<div class="lower">
@@ -276,27 +279,22 @@
 										<!-- END OF MAP SCRIPT -->
 									</div>
 									
-									<div class="eAddress">
+									<div class="eAdrsPhone">
 										<h4>
 											<img src='images/favicon.png'/>&nbsp;
 											<?= $row['Eaddress'] ?>, 
 											<?= $row['Ecity'] ?>, 
 											<?= $row['Estate'] ?>&nbsp; 
-											<?= $row['Ezip'] ?>
+											<?= $row['Ezip'] ?><br>
+											<?PHP echo "Phone: " . $row['EphoneNumber']; ?>
 										</h4>
 									</div>
 									
-									<div class="ePhone">
-										<?PHP echo $row['EphoneNumber']; ?><br>
-									</div>
-									
-									<div class="dltButton">
+									<div class="button">
 										<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
-											<input type="submit" name="submit" value="Delete Event"/>
+											<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/>
 										<?PHP } ?>
-									</div>
-									
-									<div class="editButton">
+										|
 										<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
 											<a href="./editEvent.php?eid=<?PHP echo $newEventID; ?>"><img src="./images/btn_editevent.png"></a>
 										<?PHP } ?>

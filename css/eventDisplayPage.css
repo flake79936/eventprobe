@@ -32,19 +32,19 @@ body {-webkit-tap-highlight-color: rgb(255,255,158); background: #e9e4d5;}
 .eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 30px;}
 
 .eventDisplayPage .content .dashboard .box .upper .eNameNHashtag{ width: 30% }
-.eventDisplayPage .content .dashboard .box .upper .eDateTime{ }
-.eventDisplayPage .content .dashboard .box .upper .eDescription{ }
-.eventDisplayPage .content .dashboard .box .upper .eFlyer img{ width: 15%; height: auto; }
-.eventDisplayPage .content .dashboard .box .upper .eWebsite{ }
-.eventDisplayPage .content .dashboard .box .upper .eFacebook{ }
-.eventDisplayPage .content .dashboard .box .upper .eTwitter{ }
-.eventDisplayPage .content .dashboard .box .upper .eGoogle{ }
+.eventDisplayPage .content .dashboard .box .upper .eDateTime{ width: 30% }
+.eventDisplayPage .content .dashboard .box .upper .eDescription{ width: 30% }
 
-.eventDisplayPage .content .dashboard .box .lower .eMap{ float: right; width: 100% }
-.eventDisplayPage .content .dashboard .box .lower .eAddress{  }
-.eventDisplayPage .content .dashboard .box .lower .ePhone{  }
-.eventDisplayPage .content .dashboard .box .lower .dltButton{  }
-.eventDisplayPage .content .dashboard .box .lower .editButton{  }
+.eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 15%; height: auto; }
+.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding-left: 100px;}
+
+.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 86%; padding: 25px 0px 25px 0px; }
+.eventDisplayPage .content .dashboard .box .lower .eMap{ float: left; width: 45%;}
+.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ width: 100% }
+
+.eventDisplayPage .content .dashboard .box .lower .button{ float: right; }
+/*.eventDisplayPage .content .dashboard .box .lower .button .dltButton{ background-image: url("./images/btn_delete.png"); }*/
+
 
 /* http://sonspring.com/journal/clearing-floats */
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
