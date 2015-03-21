@@ -31,9 +31,9 @@ body {-webkit-tap-highlight-color: rgb(255,255,158); background: #e9e4d5;}
 .eventDisplayPage .content .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
 .eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 30px;}
 
-.eventDisplayPage .content .dashboard .box .upper .eNameNHashtag{ width: 30% }
-.eventDisplayPage .content .dashboard .box .upper .eDateTime{ width: 30% }
-.eventDisplayPage .content .dashboard .box .upper .eDescription{ width: 30% }
+.eventDisplayPage .content .dashboard .box .upper .eNameNHashtag{ width: 30%; }
+.eventDisplayPage .content .dashboard .box .upper .eDateTime{ width: 30%; }
+.eventDisplayPage .content .dashboard .box .upper .eDescription{ width: 30%; word-wrap: break-word; }
 
 .eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 50%; height: auto; }
 .eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding-left: 100px;}
