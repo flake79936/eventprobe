@@ -535,7 +535,7 @@
 							
 							<!--Submit Button-->
 							<div class="submitButton">
-								<input type="submit" name="Submit" value="Update Event" />
+								<input type="image" name="Submit" src="./images/btn_update.png" value="" />
 							</div>
 						</div> <!-- End of content -->
 					

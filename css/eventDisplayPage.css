@@ -35,14 +35,14 @@ body {-webkit-tap-highlight-color: rgb(255,255,158); background: #e9e4d5;}
 .eventDisplayPage .content .dashboard .box .upper .eDateTime{ width: 30% }
 .eventDisplayPage .content .dashboard .box .upper .eDescription{ width: 30% }
 
-.eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 15%; height: auto; }
+.eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 50%; height: auto; }
 .eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding-left: 100px;}
 
 .eventDisplayPage .content .dashboard .box .lower{ float: left; width: 86%; padding: 25px 0px 25px 0px; }
 .eventDisplayPage .content .dashboard .box .lower .eMap{ float: left; width: 45%;}
 .eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ width: 100% }
 
-.eventDisplayPage .content .dashboard .box .lower .button{ float: right; }
+.eventDisplayPage .content .dashboard .box .lower .button{ float: left; width: 100%; padding-top: 25; }
 /*.eventDisplayPage .content .dashboard .box .lower .button .dltButton{ background-image: url("./images/btn_delete.png"); }*/
 
 

@@ -292,9 +292,8 @@
 									
 									<div class="button">
 										<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
-											<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/>
+											<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/> |
 										<?PHP } ?>
-										|
 										<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
 											<a href="./editEvent.php?eid=<?PHP echo $newEventID; ?>"><img src="./images/btn_editevent.png"></a>
 										<?PHP } ?>
@@ -306,6 +305,9 @@
 				<?php } ?>
 			</form>
 		</div>
+		
+		<!-- SHOW SEARCH RESULTS -->
+		<div class="events" id="txtHint"></div>
 		
 		<div class="links">
 			<?PHP include './links.php'; ?>

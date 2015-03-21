@@ -158,11 +158,13 @@
 		<div class="search">
 			<form>
 				<input type="text" onKeyUp="showHint(this.value)" placeholder="Search for Event, City, State, Zip Code"><br/>
-				<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a> | 
-				<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a> | 
-				<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a> | 
-				<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art35.png"/></a>
-				<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
+				<div style="text-align: center;">
+					<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a> | 
+					<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a> | 
+					<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a> | 
+					<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art35.png"/></a>
+					<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
+				</div>
 			</form>
 		</div>
 		
