@@ -15,7 +15,7 @@
 	
 	$today = Date("Y-m-d");
 	//$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Elat = '" . . "' Ecity = '". $city ."' AND Edisplay='1'  ORDER BY EstartDate LIMIT 8;";
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '". $city ."' AND Edisplay='1'  ORDER BY EstartDate LIMIT 8;";
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '". $city ."' AND Edisplay='1' AND Erank='Paid' ORDER BY EstartDate LIMIT 8;";
 
 	$result = mysqli_query($con, $sql);
 	
