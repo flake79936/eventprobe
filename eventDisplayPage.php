@@ -4,15 +4,16 @@
 	//$newEventID = "124";
 	include 'dbconnect.php';
 	
+	if($fgmembersite->CheckSession()){
+		$usrname = $fgmembersite->UsrName();
+	}
+	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->deleteEvent()){
 			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
 	
-	if($fgmembersite->CheckSession()){
-		$usrname = $fgmembersite->UsrName();
-	}
 	if($newEventID !== ""){
 		$inDBUser = $fgmembersite->getUserFromDB($newEventID);
 	}
@@ -103,7 +104,7 @@
 		</div>
 		
 		<div class="eventDisplayPage">
-			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete');">
+			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
 				<?PHP
 					$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID . " AND Edisplay = 1;";
 					$result = mysqli_query($con, $qry);
@@ -225,7 +226,7 @@
 											};
 
 											var map = new google.maps.Map(document.getElementById('map'), {
-											zoom: 8,
+											zoom: 12,
 											center: new google.maps.LatLng(-50.92, 120.25),
 											mapTypeId: google.maps.MapTypeId.ROADMAP,
 											mapTypeControl: true,

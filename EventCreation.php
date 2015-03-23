@@ -1,5 +1,7 @@
 <?PHP
 	require_once("./include/membersite_config.php");
+	include 'dbconnect.php';
+	
 	if($fgmembersite->CheckSession()){
 		$usrname = $fgmembersite->UsrName();  
 	}
@@ -12,12 +14,9 @@
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->CreateEvent()){
-			//$fgmembersite->RedirectToURL("event_thank_you.php");
 			$fgmembersite->redirectToEvent();
 		}
 	}
-	
-	include 'dbconnect.php';
 
 	$today = Date("m/d/Y");
 	$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
@@ -266,9 +265,7 @@
 			</div><!--End of Sidebar-->
 			
 			<div class="content">
-				<?PHP //include 'updatePic.php'; ?>
-				
-				<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+				<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
 					<input type="hidden" name="submitted" id="submitted" value="1"/>
 					
 					<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
@@ -554,7 +551,7 @@
 						
 					<!--Submit Button-->
 					<div class="submitButton">
-						<input type="submit" name="Submit" value="Create Event" />
+						<input type="image" name="Submit" src="./images/btn_create.png" value="" />
 					</div>
 				</form>
 				

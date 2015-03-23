@@ -1494,24 +1494,42 @@ class FGMembersite{
 	 *Only the most current of that user. ([explicitly] A user can only post one event at a time.)
 	 */
 	function redirectToEvent(){
+		if(!isset($_POST['submitted'])){
+			return false;
+		}
+		
 		if(!$this->DBLogin()){
 			$this->HandleError("Database login failed!");
 			return false;
 		}
 		
-		$username = $this->UsrName();
+		$formvars = array();
 		
-		$sql = "SELECT MAX(Eid) FROM Events WHERE UuserName = '". $username ."';";
-		$eid = mysql_query($sql, $this->connection);
-		if(!$eid || mysql_num_rows($eid) <= 0){
-			$this->HandleError("Did Not Find Any Results For " . $row['MAX(Eid)']);
-			return false;
+		$this->getEid($formvars);
+		
+		if($formvars['Eid'] === ""){
+			$username = $this->UsrName();
+			
+			$sql = "SELECT MAX(Eid) FROM Events WHERE UuserName = '". $username ."';";
+			$eid = mysql_query($sql, $this->connection);
+			if(!$eid || mysql_num_rows($eid) <= 0){
+				$this->HandleError("Did Not Find Any Results For " . $row['MAX(Eid)']);
+				return false;
+			}
+			
+			$row = mysql_fetch_array($eid);
+			
+			header("Location: http://eventprobe.com/eventDisplayPage.php?eid=".$row['MAX(Eid)']);
+			exit;
+		} else {		
+			header("Location: http://eventprobe.com/eventDisplayPage.php?eid=".$formvars['Eid']);
+			exit;
 		}
-		
-		$row = mysql_fetch_array($eid);
-		
-		header("Location: http://eventprobe.com/eventDisplayPage.php?eid=".$row['MAX(Eid)']);
-		exit;
+	}
+	
+	/*only gets the event id from the form*/
+	function getEid(&$formvars){
+		$formvars['Eid'] = $this->Sanitize($_POST['Eid']);
 	}
 
 	function GetSpamTrapInputName(){

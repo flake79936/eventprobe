@@ -24,7 +24,8 @@
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->updateEvent()){
-			$fgmembersite->redirectToURL("./index2.php");
+			//we should be redirecting the user once they have submitted the edited event.
+			$fgmembersite->redirectToEvent();
 		}
 	}
 ?>
@@ -248,7 +249,7 @@
 				</ul>
 			</div><!--End of Sidebar-->
 			
-			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
 				<?PHP while($row = mysqli_fetch_array($edit)){ ?>
 					<div class="content">
 						<input type="hidden" name="submitted" id="submitted" value="1" />
