@@ -1490,7 +1490,7 @@ class FGMembersite{
 	}
 	
 	/*Added by Eduardo Corral
-	 *After the user has submitted the event, a query is generated to pull back the event of that one user.
+	 *After the user has submitted the event (new event), a query is generated to pull back the event of that one user.
 	 *Only the most current of that user. ([explicitly] A user can only post one event at a time.)
 	 */
 	function redirectToEvent(){
@@ -1502,9 +1502,7 @@ class FGMembersite{
 		$username = $this->UsrName();
 		
 		$sql = "SELECT MAX(Eid) FROM Events WHERE UuserName = '". $username ."';";
-		
 		$eid = mysql_query($sql, $this->connection);
-		
 		if(!$eid || mysql_num_rows($eid) <= 0){
 			$this->HandleError("Did Not Find Any Results For " . $row['MAX(Eid)']);
 			return false;

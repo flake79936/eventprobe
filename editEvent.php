@@ -24,7 +24,7 @@
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->updateEvent()){
-			$fgmembersite->RedirectToURL("./index2.php");
+			$fgmembersite->redirectToURL("./index2.php");
 		}
 	}
 ?>
@@ -60,11 +60,11 @@
 			
 			<!--(Start) Counts the number of characters-->
 				<script type="text/javascript">
-					function textCounter(field, cnt, maxlimit) {         
+					function textCounter(field, cnt, maxlimit){
 						var cntfield = document.getElementById(cnt)
 						if (field.value.length > maxlimit) // if too long...trim it!
 							field.value = field.value.substring(0, maxlimit);
-						 // otherwise, update 'characters left' counter
+						// otherwise, update 'characters left' counter
 						else
 							//cntfield.value = maxlimit - field.value.length;
 							document.getElementById(cnt).innerHTML = maxlimit - field.value.length;
@@ -277,7 +277,7 @@
 										<h5 for="Evename">Name of event</h5>
 										<div class="type" id="Evename">
 											<!--<div class="image"><img src="images/icon_location.png" /></div> -->
-											<input type="text" onkeyup="textCounter(this,'charsLeftName', 85)" name="Evename" placeholder="Enter The Name Event" id="Evename" value="<?php echo $row['Evename']; ?>">
+											<input type="text" onkeyup="textCounter(this, 'charsLeftName', 85)" name="Evename" placeholder="Enter The Name Event" id="Evename" value="<?php echo $row['Evename']; ?>">
 											<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftName" value="85"> 85 Characters Max</div>
 											<span id="eventForm_Evename_errorloc" class="error"></span>
 										</div>
