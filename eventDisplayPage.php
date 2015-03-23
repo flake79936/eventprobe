@@ -13,8 +13,9 @@
 	if($fgmembersite->CheckSession()){
 		$usrname = $fgmembersite->UsrName();
 	}
-	
-	$inDBUser = $fgmembersite->getUserInDB($newEventID);
+	if($newEventID !== ""){
+		$inDBUser = $fgmembersite->getUserFromDB($newEventID);
+	}
 ?>
 
 <html lang="en">
@@ -102,13 +103,13 @@
 		</div>
 		
 		<div class="eventDisplayPage">
-			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete');">
 				<?PHP
-					$qry = "SELECT * FROM Events WHERE Eid = '".$newEventID."' AND Edisplay='1';";
+					$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID . " AND Edisplay = 1;";
 					$result = mysqli_query($con, $qry);
 					
 					while($row = mysqli_fetch_array($result)){  
-						$i = 0 ;
+						$i     = 0;
 						$event = $row['Evename'];
 						$Elat  = $row['Elat'];
 						$Elong = $row['Elong'];
@@ -132,7 +133,9 @@
 				
 					<div class="content">
 						<input type="hidden" name="submitted" id="submitted" value="1" />
-						<input type="hidden" name="Eid" id="Eid" value="<?PHP echo $_GET['eid']; ?>" />
+						<input type="hidden" name="Eid" id="Eid" value="<?PHP echo $newEventID; ?>" />
+						<input type="hidden" name="dbUserName" id="dbUserName" value="<?PHP echo $inDBUser; ?>" />
+						<input type="hidden" name="usrName" id="usrName" value="<?PHP echo $usrname; ?>" />
 						
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					
@@ -143,7 +146,7 @@
 									<div class="eNameNHashtag">
 										<h1>
 										<?php echo $row['Evename']; 
-											if($row['Ehashtag'] !== "" ){ 
+											if($row['Ehashtag'] !== ""){ 
 										?> 
 												- <?php echo $row['Ehashtag']; ?>
 											<?PHP } ?>

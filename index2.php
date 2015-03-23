@@ -36,51 +36,33 @@
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		
-		<!--<script>
-			$(document).ready(function(){
-				$.ajaxSetup({
-					cache: false,
-					beforeSend: function getGeolocation(){
-						//var x = document.getElementById("demo");
-						if (navigator.geolocation) {
-							navigator.geolocation.getCurrentPosition(setGeolocation);
-						} else { 
-							//x.innerHTML = "Geolocation is not supported by this browser.";
-							alert("Geolocation is not supported by this browser.");
-						}
-					},
-					complete: function setGeolocation(position) {
-						//x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-						/*pass lat and long back to server*/
-						var xmlhttp = new XMLHttpRequest();
-						xmlhttp.onreadystatechange = function(){
-							if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-								//document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-								alert(xmlhttp.responseText + " You are now pinged!");
-							}
-						}
-						xmlhttp.open("GET", "setGeolocation.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, true);
-						xmlhttp.send();
-					},
-					success: function(){
-						//$('#loading').hide();
-						//$('#events').show();
-						url: './index2.php';
-					}
-				});
+		<script>
+			$(document).ready(function(){ 
+				<?php if($fgmembersite->geoNotSet()) echo "getGeolocation();"; ?> 
+				getGeolocation();
 			});
-
-			/*function getByDayEvent(str) {
+			
+			function getGeolocation(){
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(setGeolocation);
+				} else { 
+					alert("Geolocation is not supported by this browser.");
+				}
+			}
+			
+			function setGeolocation(position) {
+				/* pass lat and long back to server*/
 				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function() {
+				xmlhttp.onreadystatechange = function(){
 					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-						document.getElementById("events").innerHTML = xmlhttp.responseText;
+						// $fgmembersite->RedirectToURL("./index2.php");
+						alert("lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
 					}
 				}
-				xmlhttp.open("GET", "getByDayEvent.php?date=" + str, true);
+				xmlhttp.open("GET", "./setGeolocation.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, true);
 				xmlhttp.send();
-			}*/
-		</script>-->
+			}
+		</script>
 		
 		<script>
 			/* User types in search bar, this will send an HTTP request on the 
@@ -168,7 +150,10 @@
 			</form>
 		</div>
 		
-    	<div class="top">
+		<?PHP //echo "Latitude: " . $fgmembersite->getLatitude() . "<br>"; ?>
+		<?PHP //echo "Longtitude: " . $fgmembersite->getLongtitude() . "<br>"; ?>
+    	
+		<div class="top">
 			<?PHP include './top.php';?>
         </div>
 		

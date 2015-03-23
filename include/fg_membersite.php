@@ -738,6 +738,17 @@ class FGMembersite{
 		return isset($_SESSION['long']) ? $_SESSION['long'] : '';
 	}
 	
+	function geoNotSet(){
+		return !(isset($_SESSION['lat']) && isset($_SESSION['long']));
+	}
+	
+	function setGeolocation(){
+		if(!isset($_SESSION)){ session_start(); }
+		
+		$_SESSION['lat']  = isset($_REQUEST['lat'] ) ? $_REQUEST['lat'] : "";
+		$_SESSION['long'] = isset($_REQUEST['long']) ? $_REQUEST['long']: "";
+	}
+	
 	function SendUserWelcomeEmail(&$user_rec){
         $mailer = new PHPMailer();
         
@@ -963,40 +974,67 @@ class FGMembersite{
 		
 		$formvars = array();
 		
-		$this->getEid($formvars);
+		$this->getValues($formvars);
 		
-		if($this->checkUser($formvars)){ //checks for the user if true then delete
-			if($this->dltUpdtEvent($formvars)){
-				return TRUE;
-			}
+		if($this->dltUpdtEvent($formvars)){
+			return TRUE;
 		}
 		return FALSE; //false then show alert messsage.
 	}
 	
-	/*Only useful for getting the Eid (event identification #).
-	 *This number get collected when the user clicks on the 'delete event' button.
-	 *
-	 */
-	function getEid(&$formvars){
-		$formvars['Eid'] = $this->Sanitize($_POST['Eid']);
+	/* Gets the values from the hidden fields from the eventDisplayPage*/
+	function getValues(&$formvars){
+		$formvars['Eid']        = $this->Sanitize($_POST['Eid']);
+		$formvars['dbUserName'] = $this->Sanitize($_POST['dbUserName']);
+		$formvars['usrName']    = $this->Sanitize($_POST['usrName']);
 	}
 	
-	/*Added by Eduardo Corral.
-	  Function determine if the user requesting to delete the event is the 
-	  same as the one in the field of the event record
-	* 
-	*/
-	function checkUser(&$formvars){
-		$uname = $this->UsrName;
-		$dbUName = $this->getUserInDB($formvars['Eid']);
+	/*This function will not literally delete the event,
+	 * but it will only update the field 'display' in the Event table.
+	 *We are keeping the event for analytical reasons.
+	 *We only make the user believe the event has been deleted.
+	 *After a couple of years or so, this data probably will be obsolete, 
+	 * depending on the trends going on in the event scene.
+	 */
+	function dltUpdtEvent(&$formvars){
+		if(!$this->DBLogin()){
+			$this->HandleError("Database login failed!");
+			return false;
+		}
 		
-		return $uname === $dbUName ? TRUE : FALSE; //return if both names match otherwise false
+		$eid       = $formvars['Eid'];
+		$uUserName = $formvars['dbUserName'];
+		$uname     = $formvars['usrName'];
+		
+		//echo "1: dltUpdtEvent eid: "       . $eid       . "<br>";
+		//echo "2: dltUpdtEvent uUserName: " . $uUserName . "<br>";
+		//echo "3: dltUpdtEvent uname: "     . $uname     . "<br>";
+		
+		if($uname !== $uUserName){
+			$this->HandleDBError("Sorry you are not the user of this event! ");
+            return false;
+		} else {
+			$dltUpdtQuery = "UPDATE " . $this->tablename2 . 
+			" SET Edisplay = 0 " . 
+			" WHERE Eid = " . $eid . 
+			" AND UuserName = '" . $uUserName . "';";
+			
+			if(!mysql_query($dltUpdtQuery, $this->connection)){
+				$this->HandleDBError("Error inserting data to the table\nquery: $dltUpdtQuery");
+				return false;
+			}
+			
+			//echo "4: getUserInDB Query: " . $dltUpdtQuery . "<br>";
+		}
+		return true;
 	}
 	
 	/* Added by Eduardo Corral
 	*  gets the user that officially had registered the event.
 	*/
-	function getUserInDB($delEventID){
+	function getUserFromDB($delEventID){
+		//echo "5: getUserFromDB Eid: " . $delEventID . "<br>";
+		
 		if(!$this->DBLogin()){
 			$this->HandleError("Database login failed!");
 			return false;
@@ -1013,29 +1051,11 @@ class FGMembersite{
 
 		$row = mysql_fetch_assoc($result);
 		//echo $row['UuserName'];
-		return $row['UuserName'];
-	}
-	
-	/*This function will not literally delete the event,
-	 * but it will only update the field 'display' in the Event table.
-	 *We are keeping the event for analytical reasons.
-	 *We only make the user believe the event has been deleted.
-	 *After a couple of years or so, this data probably will be obsolete, 
-	 * depending on the trends going on in the event scene.
-	 */
-	function dltUpdtEvent(&$formvars){
-		if(!$this->DBLogin()){
-			$this->HandleError("Database login failed!");
-			return false;
-		}
 		
-		$dltUpdtQuery = 'UPDATE ' . $this->tablename2 . ' SET Edisplay = 0 WHERE Eid = "' . $formvars['Eid'] . '";';
+		//echo "6: getUserFromDB Query: " . $qry . "<br>";
 		
-        if(!mysql_query($dltUpdtQuery, $this->connection)){
-            $this->HandleDBError("Error inserting data to the table\nquery: $dltUpdtQuery");
-            return false;
-        }
-		return true;
+		$username = $row['UuserName'];
+		return $username;
 	}
 	/*DELETE AN EVENT FUNCTIONALITY (END)*/
 	/*----(End) User Management---------------------------------------------------------------------------------------------------------------------------*/
