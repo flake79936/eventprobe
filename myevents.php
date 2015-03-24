@@ -149,6 +149,7 @@ $(document).ready(function() {
 				<input type="hidden" name="Eid" id="Eid" value="<?PHP echo $row['Eid']; ?>" />
 				<input type="hidden" name="dbUserName" id="dbUserName" value="<?PHP echo $inDBUser; ?>" />
 				<input type="hidden" name="usrName" id="usrName" value="<?PHP echo $usrname; ?>" />
+				
  			<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
  			
 			<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/> |
