@@ -25,6 +25,12 @@ $(document).ready(function() {
 		exit;
 	}
 	
+	if(isset($_POST["submitted"])){
+		if($fgmembersite->deleteEvent()){
+			$fgmembersite->RedirectToURL("./index2.php");
+			}
+		}
+	
 	$usrname = $fgmembersite->UsrName();
 	
 	include 'dbconnect.php';
@@ -128,6 +134,28 @@ $(document).ready(function() {
 			<li><?= $day ?>&nbsp;<?= substr($EstartDate, 0, 5); ?></li>
 			<li><?= $row['Evename'] ?></li> 
 			<li><?= $row['EtimeStart'] ?> - <?= $row['EtimeEnd'] ?></li>
+			
+			<li>
+			
+			<?PHP 
+				if($row['Eid'] !== ""){
+				$inDBUser = $fgmembersite->getUserFromDB($row['Eid']);
+				}
+			
+			?>
+			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
+			
+				<input type="hidden" name="submitted" id="submitted" value="1" />
+				<input type="hidden" name="Eid" id="Eid" value="<?PHP echo $row['Eid']; ?>" />
+				<input type="hidden" name="dbUserName" id="dbUserName" value="<?PHP echo $inDBUser; ?>" />
+				<input type="hidden" name="usrName" id="usrName" value="<?PHP echo $usrname; ?>" />
+ 			<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+ 			
+			<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/> |
+			<?PHP } ?>
+			</form>
+			 </li>
+			 
 			<li><?PHP echo "<a onClick='editEvent(".$row['Eid'].")'> " ?> <img src="images/btn_editevent.png"></a></li>
 		</ul>
 	<?PHP } ?>
