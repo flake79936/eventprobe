@@ -17,6 +17,8 @@ $(document).ready(function() {
 -->
 <?PHP
 	require_once("./include/membersite_config.php");
+	include 'dbconnect.php';
+	
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 
@@ -28,12 +30,10 @@ $(document).ready(function() {
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->deleteEvent()){
 			$fgmembersite->RedirectToURL("./index2.php");
-			}
 		}
+	}
 	
 	$usrname = $fgmembersite->UsrName();
-	
-	include 'dbconnect.php';
 	
 	$today = Date("Y-m-d"); //should format to 2000-12-31
 	
@@ -65,6 +65,7 @@ $(document).ready(function() {
 	
 	<!-- Scripts	 -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
 	<script>
 		function editEvent(str){
 			window.location = "./editEvent.php?eid="+str;
@@ -122,10 +123,10 @@ $(document).ready(function() {
 			$date = date_create($row['EstartDate']);
 			$EstartDate = date_format($date, 'm/d/Y');
 			
-			
 			$today = date("m/d/Y");
 			$dt    = strtotime($EstartDate);
 			$day   = date("D", $dt);
+			
 			if ($today === $EstartDate){
 				$day = "Today";
 			}
@@ -137,23 +138,22 @@ $(document).ready(function() {
 			
 			<li>
 			
-			<?PHP 
+			<?PHP				
 				if($row['Eid'] !== ""){
-				$inDBUser = $fgmembersite->getUserFromDB($row['Eid']);
+					$inDBUser = $fgmembersite->getUserFromDB($row['Eid']);
 				}
-			
 			?>
-			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
 			
+			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
 				<input type="hidden" name="submitted" id="submitted" value="1" />
 				<input type="hidden" name="Eid" id="Eid" value="<?PHP echo $row['Eid']; ?>" />
+				
 				<input type="hidden" name="dbUserName" id="dbUserName" value="<?PHP echo $inDBUser; ?>" />
 				<input type="hidden" name="usrName" id="usrName" value="<?PHP echo $usrname; ?>" />
 				
- 			<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
- 			
-			<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/> |
-			<?PHP } ?>
+				<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+					<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/> |
+				<?PHP } ?>
 			</form>
 			 </li>
 			 
