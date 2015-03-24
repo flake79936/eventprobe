@@ -12,9 +12,11 @@
 	date_default_timezone_set($timezone);
 	
 	$today = Date("m/d/Y"); //e.g., 02/03/2015, 
-	$toDate = strtotime($today);
+	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
 	
 	$bool = $fgmembersite->CheckSession();
+	
+	$page = (isset($_GET["page"]) ? $_GET["page"] : 1);
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/chart.css" />
@@ -38,15 +40,13 @@
 				}
 			});
 			var $container = $("#events");
-			//$container.load("rss-feed-data.php");
-			$container.load("getByDayEvent.php?date=" + <?= $toDate ?>);
+			$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&page=" + <?= $page ?>);			
 			var refreshId = setInterval(function(){
-				$container.load("getByDayEvent.php?date=" + <?= $toDate ?>);
-			}, 60000);
+				$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&page=" + <?= $page ?>);
+			}, 120000);
 		});
 	})(jQuery);
-
-
+	
 	function getByDayEvent(str) {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
@@ -87,24 +87,19 @@
 						$qry = "SELECT Eid, COUNT(Eid) FROM ".$usrname."MyEvents WHERE Eid IN (SELECT Eid FROM Events WHERE EstartDate = '" . $today . "' AND Edisplay='1')";
 						$result = mysqli_query($con, $qry);
 						if(mysqli_num_rows($result) > 0){
-							while($row = mysqli_fetch_assoc($result)){ ?>
-								<div class="circle" ><!--Count of how many events the user has in their list.--><?= $row['COUNT(Eid)']; ?></div>
-							<?PHP }
+							while($row = mysqli_fetch_assoc($result)){ 
+				?>
+								<div class="circle" ><!--Count of how many events the user has in their list.-->
+									<?= $row['COUNT(Eid)']; ?>
+								</div>
+					  <?PHP }
 						} 
 					} ?>
 				<form><a onClick="getByDayEvent(<?= $toDate ?>);"><h4><?= $trimDate ?><br/><?= $day ?></h4></a></form>
 			</div>
 		<?PHP } ?>
 	</div>
-
-	<div class="chart" id="events"></div>
 	<img src="./images/loading.gif" id="loading" alt="loading" style="display:none;" />
+	<div class="chart" id="events"></div>
 </div>
-
-<!-- 
-<div class="advertisement">
-	<a href="http://www.rudolphchevrolet.com/" target="_blank"><img src="images/advertisement_01.jpg" alt="Banner" /></a>
-	<a href="http://ravemarketing.com/" target="_blank"><img src="images/advertisement_02.jpg" alt="Banner" /></a>
-</div>
- -->
 <div class="clear"></div>

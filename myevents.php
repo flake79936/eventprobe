@@ -266,7 +266,8 @@ $(document).ready(function() {
 		</ul>
 	<?PHP } 
 		// displaying paginaiton.
-		echo pagination($statement, $per_page, $page, 'http://eventprobe.com/index2.php?');?>
+		echo pagination($statement, $per_page, $page, 'http://eventprobe.com/index2.php?');
+	?>
 </div>
 <!--<div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>-->
 <div class="clear"></div>
