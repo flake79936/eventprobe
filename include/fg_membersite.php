@@ -976,10 +976,11 @@ class FGMembersite{
 		
 		$this->getValues($formvars);
 		
-		if($this->dltUpdtEvent($formvars)){
-			return TRUE;
+		if(!$this->dltUpdtEvent($formvars)){
+			$this->HandleDBError("<script> alert('Sorry couldn't delete your event!'); </script>");
+			return false;
 		}
-		return FALSE; //false then show alert messsage.
+		return true; //false then show alert messsage.
 	}
 	
 	/* Gets the values from the hidden fields from the eventDisplayPage*/
@@ -1050,7 +1051,6 @@ class FGMembersite{
 		}
 
 		$row = mysql_fetch_assoc($result);
-		//echo $row['UuserName'];
 		
 		//echo "6: getUserFromDB Query: " . $qry . "<br>";
 		
