@@ -123,7 +123,7 @@
 
 		$startpoint = ($page * $per_page) - $per_page;
 		
-		$statement = "Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "' AND Edisplay='1' AND Erank='Free'";
+		$statement = "Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium') ";
 		/*End of pagination code (section)*/
 		
 		$timezone = $fgmembersite->getLocalTimeZone();
