@@ -167,7 +167,7 @@
 									
 									<div class="upperMid">
 										<div class="eFlyer">
-											<img src= <?= $row['Eflyer'] ?> alt="event image"/>
+											<img src= <?= $row['Eflyer'] ?> style="width: 400px; height: 300px;" alt="event image"/>
 										</div>
 										
 										<div class="socialLinks">
