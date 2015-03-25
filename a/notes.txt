@@ -2,7 +2,8 @@
 - In the event creation should the shadow on the left be shown?
 - Event creation page should have a more compact size while on the web browser.
 - Banner should be brought down to a different size.
-Sat 24, 2015
+
+***************************************Sat 24, 2015***************************************
 - How do we scrub down diff websites, if each have a different formats?
 - While looking for sites, make sure we they have the RSS feed. 
 	* RSS / XML*****
@@ -10,4 +11,17 @@ Sat 24, 2015
 - Jim will inquire with site scout about advertising
 - banner 300width
 - eventCreation.php; try to keep the same format as the index, and kill all the dead space.
-- 
+
+***************************************AS OF MARCH 25, 2015***************************************
+We still have to do:
+* MyEvents section:
+- add pagination to the list of events. (myEvents and Free Events sections done so far)
+- add the delete button (it should have a confirmation dialog)
+* Banner section:
+- if there are no events we should hide the div.
+* THIS WEEK NEAR YOU section:
+- get the geolocation working
+- add pagination where the events are displaying
+* TODAY AND THIS WEEK NEAR YOU section:
+- get the orange circle #'s show the number dynamically.
+- highlight the events that were added to the list

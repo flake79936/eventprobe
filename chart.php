@@ -43,7 +43,7 @@
 			$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&page=" + <?= $page ?>);			
 			var refreshId = setInterval(function(){
 				$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&page=" + <?= $page ?>);
-			}, 120000);
+			}, 30000); //30k = 30 seconds
 		});
 	})(jQuery);
 	
