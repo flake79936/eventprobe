@@ -47,14 +47,14 @@
 		});
 	})(jQuery);
 	
-	function getByDayEvent(str) {
+	function getByDayEvent(str, page) {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				document.getElementById("events").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("GET", "getByDayEvent.php?date=" + str, true);
+		xmlhttp.open("GET", "getByDayEvent.php?date=" + str + "&page=" + page, true);
 		xmlhttp.send();
 	}
 </script>
@@ -95,7 +95,11 @@
 					  <?PHP }
 						} 
 					} ?>
-				<form><a onClick="getByDayEvent(<?= $toDate ?>);"><h4><?= $trimDate ?><br/><?= $day ?></h4></a></form>
+				<form>
+					<a onClick="getByDayEvent(<?= $toDate ?>, <?= $page ?>);">
+						<h4><?= $trimDate ?><br/><?= $day ?></h4>
+					</a>
+				</form>
 			</div>
 		<?PHP } ?>
 	</div>
