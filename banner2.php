@@ -9,7 +9,7 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
-	$today = Date("m/d/Y");
+	$today = Date("Y-m-d");
 
 	$city = $fgmembersite->getCity();
 	//$city = 'el paso';
