@@ -237,6 +237,7 @@
 											}
 											});
 
+										
 											var infowindow = new google.maps.InfoWindow({ maxWidth: 160 });
 
 											var marker;
@@ -290,7 +291,7 @@
 											<?= $row['Ecity'] ?>, 
 											<?= $row['Estate'] ?>&nbsp; 
 											<?= $row['Ezip'] ?><br>
-											<?PHP echo "Phone: " . $row['EphoneNumber']; ?>
+											<?PHP echo "Phone: " . $formatPhone; ?>
 										</h4>
 									</div>
 									
