@@ -1,4 +1,8 @@
-<?PHP require_once("./include/membersite_config.php"); ?>
+<?PHP
+	require_once("./include/membersite_config.php"); 
+	$minDate = date("Y-m-d");
+?>
+
 <!doctype html>
 <html>
 	<head>
@@ -70,7 +74,7 @@
 			 * user typed
 			 */
 			function showHint(str) {
-				if (str.length == 0) {
+				if (str.length == 0){
 					document.getElementById("txtHint").innerHTML = "";
 					$(".my-events").show();
 					$(".this-week").show();
@@ -125,6 +129,14 @@
 					$(".chart").hide();
 					$(".app").hide();
 				});
+				
+				$("#searchDate").change(function(){
+					$(".my-events").hide();
+					$(".this-week").hide();
+					$(".schedule").hide();
+					$(".chart").hide();
+					$(".app").hide();
+				});
 			});
 		</script>
 		
@@ -139,7 +151,8 @@
 	<body lang="en">
 		<div class="search">
 			<form>
-				<input type="text" onKeyUp="showHint(this.value)" placeholder="Search for Event, City, State, Zip Code"><br/>
+				<input type="text" onKeyUp="showHint(this.value);" placeholder="Search for Event, City, State, Zip Code">
+				<input type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By"><br/>
 				<div style="text-align: center;">
 					<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a> | 
 					<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a> | 

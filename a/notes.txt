@@ -43,8 +43,9 @@ DONE - add state next to the city
 - Dates should be able to scroll to the next or previous 7 days with arrows next and previous but never scroll back from the current date.
 
 * Index search bar:
-- add filter next to the search bar; can be placed anywhere just near the search bar.
-    --Functionality shall be date picker, sends to AJAX request returns with the events
+DONE - add filter next to the search bar; can be placed anywhere just near the search bar.
+	--Functionality shall be date picker, sends to AJAX request returns with the events
+
 * awknowledgements of payment will be written and provided to us later. no specific date given.
 - if the event has been paid for to post and the user wants to edit the event because of some reason. They should be able to edit as long as the event has not expired  yet.
 
