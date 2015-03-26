@@ -8,7 +8,7 @@
 
 	<script>
 		function seeMoreInfo(str){
-			window.location = "./eventDisplayPage.php?eid="+str;
+			window.location = "./eventDisplaypaging.php?eid="+str;
 		}
 	</script>
 </head>
@@ -24,7 +24,7 @@
 		$newformat = date('Y-m-d', $_GET['date']);
 		
 		// Pagination Function
-		function pagination($query, $per_page, $page, $url){
+		function pagination($query, $per_paging, $paging, $url){
 			global $con;
 			
 			$query = "SELECT COUNT(*) as `num` FROM {$query}";
@@ -36,77 +36,77 @@
 			$nextlabel = "Next &rsaquo;";
 			$lastlabel = "Last &rsaquo;&rsaquo;";
 			 
-			$page = ($page == 0 ? 1 : $page);  
-			$start = ($page - 1) * $per_page;                               
+			$paging = ($paging == 0 ? 1 : $paging);  
+			$start = ($paging - 1) * $per_paging;                               
 			 
-			$prev = $page - 1;                          
-			$next = $page + 1;
+			$prev = $paging - 1;                          
+			$next = $paging + 1;
 			 
-			$lastpage = ceil($total/$per_page);
+			$lastpaging = ceil($total/$per_paging);
 			 
-			$lpm1 = $lastpage - 1; // //last page minus 1
+			$lpm1 = $lastpaging - 1; // //last paging minus 1
 			 
 			$pagination = "";
-			if($lastpage > 1){   
+			if($lastpaging > 1){   
 				$pagination .= "<ul class='pagination'>";
-				$pagination .= "<li class='page_info'>Page {$page} of {$lastpage}</li>";
+				$pagination .= "<li class='paging_info'>paging {$paging} of {$lastpaging}</li>";
 					 
-					if ($page > 1) $pagination.= "<li><a href='{$url}page={$prev}'>{$prevlabel}</a></li>";
+					if ($paging > 1) $pagination.= "<li><a href='{$url}paging={$prev}'>{$prevlabel}</a></li>";
 					 
-				if ($lastpage < 7 + ($adjacents * 2)){   
-					for ($counter = 1; $counter <= $lastpage; $counter++){
-						if ($counter == $page)
+				if ($lastpaging < 7 + ($adjacents * 2)){   
+					for ($counter = 1; $counter <= $lastpaging; $counter++){
+						if ($counter == $paging)
 							$pagination.= "<li><a class='current'>{$counter}</a></li>";
 						else
-							$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
+							$pagination.= "<li><a href='{$url}paging={$counter}'>{$counter}</a></li>";                    
 					}
 				 
-				} elseif($lastpage > 5 + ($adjacents * 2)){
+				} elseif($lastpaging > 5 + ($adjacents * 2)){
 					 
-					if($page < 1 + ($adjacents * 2)) {
+					if($paging < 1 + ($adjacents * 2)) {
 						 
 						for ($counter = 1; $counter < 4 + ($adjacents * 2); $counter++){
-							if ($counter == $page)
+							if ($counter == $paging)
 								$pagination.= "<li><a class='current'>{$counter}</a></li>";
 							else
-								$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
+								$pagination.= "<li><a href='{$url}paging={$counter}'>{$counter}</a></li>";                    
 						}
 						$pagination.= "<li>...</li>";
-						$pagination.= "<li><a href='{$url}page={$lpm1}'>{$lpm1}</a></li>";
-						$pagination.= "<li><a href='{$url}page={$lastpage}'>{$lastpage}</a></li>";  
+						$pagination.= "<li><a href='{$url}paging={$lpm1}'>{$lpm1}</a></li>";
+						$pagination.= "<li><a href='{$url}paging={$lastpaging}'>{$lastpaging}</a></li>";  
 							 
-					} elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
+					} elseif($lastpaging - ($adjacents * 2) > $paging && $paging > ($adjacents * 2)) {
 						 
-						$pagination.= "<li><a href='{$url}page=1'>1</a></li>";
-						$pagination.= "<li><a href='{$url}page=2'>2</a></li>";
+						$pagination.= "<li><a href='{$url}paging=1'>1</a></li>";
+						$pagination.= "<li><a href='{$url}paging=2'>2</a></li>";
 						$pagination.= "<li>...</li>";
-						for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++) {
-							if ($counter == $page)
+						for ($counter = $paging - $adjacents; $counter <= $paging + $adjacents; $counter++) {
+							if ($counter == $paging)
 								$pagination.= "<li><a class='current'>{$counter}</a></li>";
 							else
-								$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
+								$pagination.= "<li><a href='{$url}paging={$counter}'>{$counter}</a></li>";                    
 						}
 						$pagination.= "<li>..</li>";
-						$pagination.= "<li><a href='{$url}page={$lpm1}'>{$lpm1}</a></li>";
-						$pagination.= "<li><a href='{$url}page={$lastpage}'>{$lastpage}</a></li>";      
+						$pagination.= "<li><a href='{$url}paging={$lpm1}'>{$lpm1}</a></li>";
+						$pagination.= "<li><a href='{$url}paging={$lastpaging}'>{$lastpaging}</a></li>";      
 						 
 					} else {
 						 
-						$pagination.= "<li><a href='{$url}page=1'>1</a></li>";
-						$pagination.= "<li><a href='{$url}page=2'>2</a></li>";
+						$pagination.= "<li><a href='{$url}paging=1'>1</a></li>";
+						$pagination.= "<li><a href='{$url}paging=2'>2</a></li>";
 						$pagination.= "<li>..</li>";
-						for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++) {
-							if ($counter == $page)
+						for ($counter = $lastpaging - (2 + ($adjacents * 2)); $counter <= $lastpaging; $counter++) {
+							if ($counter == $paging)
 								$pagination.= "<li><a class='current'>{$counter}</a></li>";
 							else
-								$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
+								$pagination.= "<li><a href='{$url}paging={$counter}'>{$counter}</a></li>";                    
 						}
 					}
 				}
 				 
-					if ($page < $counter - 1) {
-						$pagination.= "<li><a href='{$url}page={$next}'>{$nextlabel}</a></li>";
-						$pagination.= "<li><a href='{$url}page=$lastpage'>{$lastlabel}</a></li>";
+					if ($paging < $counter - 1) {
+						$pagination.= "<li><a href='{$url}paging={$next}'>{$nextlabel}</a></li>";
+						$pagination.= "<li><a href='{$url}paging=$lastpaging'>{$lastlabel}</a></li>";
 					}
 				 
 				$pagination.= "</ul>";        
@@ -116,12 +116,12 @@
 		}
 		
 		/*Start of pagination code (section)*/
-		$page = (int)(!isset($_GET["page"]) ? 1 : $_GET["page"]);
-		if ($page <= 0) $page = 1; //DEFAULT PAGE # 1
+		$paging = (int)(!isset($_GET["paging"]) ? 1 : $_GET["paging"]);
+		if ($paging <= 0) $paging = 1; //DEFAULT paging # 1
 
-		$per_page = 1; // Set how many records do you want to display per page.
+		$per_paging = 1; // Set how many records do you want to display per paging.
 
-		$startpoint = ($page * $per_page) - $per_page;
+		$startpoint = ($paging * $per_paging) - $per_paging;
 		
 		$statement = "Events WHERE EstartDate = '".$newformat."' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ";
 		/*End of pagination code (section)*/
@@ -129,7 +129,7 @@
 		$timezone = $fgmembersite->getLocalTimeZone();
 		date_default_timezone_set($timezone);
 		
-		$qry = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_page};";
+		$qry = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_paging};";
 		$result = mysqli_query($con, $qry);
 		
 		$bool = $fgmembersite->CheckSession();
@@ -137,7 +137,20 @@
 	
 	<div class="box" >
 		<?PHP
-			while($row = mysqli_fetch_array($result)) {
+			while($row = mysqli_fetch_array($result)) {				
+				$type = $row['Etype'];
+				if($row['Eflyer'] === ""){
+					switch($type){
+						case "Art":            $row['Eflyer'] = "./images/art35.png"; break;
+						case "Concert":        $row['Eflyer'] = "./images/music.png"; break;
+						case "Fair":           $row['Eflyer'] = "./images/fair35.png"; break;
+						case "Social":         $row['Eflyer'] = "./images/weight35.png"; break;
+						case "Sport":          $row['Eflyer'] = "./images/sports40.png"; break;
+						case "Public Speaker": $row['Eflyer'] = "./images/speaker.png"; break;
+						default:               $row['Eflyer'] = "./images/magic35.png"; break;
+					}
+				}
+				
 				//echo "Inside the Today " . $row['EstartDate'];
 				echo "<div class='row' >";
 				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
@@ -166,7 +179,7 @@
 				echo "	</a></div>";
 				echo "</div>";
 				
-				echo pagination($statement, $per_page, $page, 'http://eventprobe.com/index2.php?');
+				echo pagination($statement, $per_paging, $paging, 'http://eventprobe.com/index2.php?');
 			}
 			mysqli_close($con);
 		?>

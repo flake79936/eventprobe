@@ -167,7 +167,21 @@
 									
 									<div class="upperMid">
 										<div class="eFlyer">
-											<img src= <?= $row['Eflyer'] ?> style="width: 400px; height: 300px;" alt="event image"/>
+										<?PHP 
+											$type = $row['Etype'];
+											if($row['Eflyer'] === ""){
+												switch($type){
+													case "Art":            $row['Eflyer'] = "./images/art35.png"; break;
+													case "Concert":        $row['Eflyer'] = "./images/music.png"; break;
+													case "Fair":           $row['Eflyer'] = "./images/fair35.png"; break;
+													case "Social":         $row['Eflyer'] = "./images/weight35.png"; break;
+													case "Sport":          $row['Eflyer'] = "./images/sports40.png"; break;
+													case "Public Speaker": $row['Eflyer'] = "./images/speaker.png"; break;
+													default:               $row['Eflyer'] = "./images/magic35.png"; break;
+												}
+											}
+										?>
+											<img src="<?php echo $row['Eflyer']; ?>" style="width: 400px; height: 300px;" alt="event image"/>
 										</div>
 										
 										<div class="socialLinks">
@@ -221,64 +235,65 @@
 											var icons_length = icons.length;
 
 											var shadow = {
-											anchor: new google.maps.Point(15,33),
-											url: iconURLPrefix + 'msmarker.shadow.png'
+												anchor: new google.maps.Point(15, 33),
+												url: iconURLPrefix + 'msmarker.shadow.png'
 											};
 
 											var map = new google.maps.Map(document.getElementById('map'), {
-											zoom: 12,
-											center: new google.maps.LatLng(-50.92, 120.25),
-											mapTypeId: google.maps.MapTypeId.ROADMAP,
-											mapTypeControl: true,
-											streetViewControl: true,
-											panControl: true,
-											zoomControlOptions: {
-											position: google.maps.ControlPosition.LEFT_BOTTOM
-											}
+												zoom: 3,
+												center: new google.maps.LatLng(37.6, -95.665),
+												mapTypeId: google.maps.MapTypeId.ROADMAP,
+												mapTypeControl: true,
+												streetViewControl: true,
+												panControl: true,
+												zoomControlOptions: {
+													position: google.maps.ControlPosition.LEFT_BOTTOM
+												}
 											});
-
-										
+											
 											var infowindow = new google.maps.InfoWindow({ maxWidth: 160 });
-
+											
 											var marker;
 											var markers = new Array();
-
+											
 											var iconCounter = 0;
-
+											
 											// Add the markers and infowindows to the map
-											for (var i = 0; i < locations.length; i++){  
-											marker = new google.maps.Marker({
-											position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-											map: map,
-											icon : icons[iconCounter],
-											shadow: shadow
-											});
+											for (var i = 0; i < locations.length; i++){
+												marker = new google.maps.Marker({
+													position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+													zoom: 5,
+													map: map,
+													icon : icons[iconCounter],
+													shadow: shadow
+												});
 
-											markers.push(marker);
+												markers.push(marker);
 
-											google.maps.event.addListener(marker, 'click', (function(marker, i) {
-											return function() {
-											infowindow.setContent(locations[i][0]);
-											infowindow.open(map, marker);
+												google.maps.event.addListener(marker, 'click', (function(marker, i) {
+													return function(){
+														infowindow.setContent(locations[i][0]);
+														infowindow.open(map, marker);
+													}
+												})(marker, i));
+
+												iconCounter++;
+												
+												// We only have a limited number of possible icon colors, so we may have to restart the counter
+												if(iconCounter >= icons_length){
+													iconCounter = 0;
+												}
 											}
-											})(marker, i));
 
-											iconCounter++;
-											// We only have a limited number of possible icon colors, so we may have to restart the counter
-											if(iconCounter >= icons_length){
-											iconCounter = 0;
-											}
-											}
-
-											function AutoCenter() {
-											//  Create a new viewpoint bound
-											var bounds = new google.maps.LatLngBounds();
-											//  Go through each...
-											$.each(markers, function (index, marker) {
-											bounds.extend(marker.position);
-											});
-											//  Fit these bounds to the map
-											map.fitBounds(bounds);
+											function AutoCenter(){
+												//  Create a new viewpoint bound
+												var bounds = new google.maps.LatLngBounds();
+												//  Go through each...
+												$.each(markers, function (index, marker) {
+													bounds.extend(marker.position);
+												});
+												//  Fit these bounds to the map
+												map.fitBounds(bounds);
 											} AutoCenter();
 										</script> 
 										<!-- END OF MAP SCRIPT -->

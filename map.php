@@ -53,7 +53,7 @@
 			var icons_length = icons.length;
 
 			var shadow = {
-				anchor: new google.maps.Point(15,33),
+				anchor: new google.maps.Point(15, 33),
 				url: iconURLPrefix + 'msmarker.shadow.png'
 			};
 
@@ -79,8 +79,8 @@
 			// Add the markers and infowindows to the map
 			for (var i = 0; i < locations.length; i++) {  
 				marker = new google.maps.Marker({
-					zoom: 5,
 					position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+					zoom: 5,
 					map: map,
 					icon : icons[iconCounter],
 					shadow: shadow

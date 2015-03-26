@@ -16,7 +16,7 @@
 	
 	$bool = $fgmembersite->CheckSession();
 	
-	$page = (isset($_GET["page"]) ? $_GET["page"] : 1);
+	$paging = (isset($_GET["paging"]) ? $_GET["paging"] : 1);
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/chart.css" />
@@ -40,21 +40,21 @@
 				}
 			});
 			var $container = $("#events");
-			$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&page=" + <?= $page ?>);			
+			$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&paging=" + <?= $paging ?>);			
 			var refreshId = setInterval(function(){
-				$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&page=" + <?= $page ?>);
+				$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&paging=" + <?= $paging ?>);
 			}, 30000); //30k = 30 seconds
 		});
 	})(jQuery);
 	
-	function getByDayEvent(str, page) {
+	function getByDayEvent(str, paging) {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				document.getElementById("events").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("GET", "getByDayEvent.php?date=" + str + "&page=" + page, true);
+		xmlhttp.open("GET", "getByDayEvent.php?date=" + str + "&paging=" + paging, true);
 		xmlhttp.send();
 	}
 </script>
@@ -96,7 +96,7 @@
 						} 
 					} ?>
 				<form>
-					<a onClick="getByDayEvent(<?= $toDate ?>, <?= $page ?>);">
+					<a onClick="getByDayEvent(<?= $toDate ?>, <?= $paging ?>);">
 						<h4><?= $trimDate ?><br/><?= $day ?></h4>
 					</a>
 				</form>

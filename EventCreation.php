@@ -17,7 +17,9 @@
 			$fgmembersite->redirectToEvent();
 		}
 	}
-
+	
+	$minDate = date("Y-m-d");
+	
 	$today = Date("m/d/Y");
 	$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
 	
@@ -60,18 +62,6 @@
 			<script type="text/javascript" src="js/jquery-ui.js"></script>
 			<script type="text/javascript" src="js/scripts.js"></script>
 			
-			<!--(Start) Provided by JetDevLLC-->
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$(".mobile-menu-list").hide();
-						$('.mobile-menu-btn').click(function(){
-							$(this).toggleClass("active");
-							$(".mobile-menu-list").slideToggle(200);
-						});
-					});
-				</script>
-			<!--(End) Provided by JetDevLLC-->
-			
 			<!--(Start) Script to show whether the event is 'Other'-->
 				<script type="text/javascript">
 					$(document).ready(function(){
@@ -108,6 +98,18 @@
 			<script>
 				function seeMoreInfo(str){
 					window.location = "./eventDisplayPage.php?eid="+str;
+				}
+			</script>
+			
+			<script type="text/javascript">
+				function checkDates(){
+					//var minDate = document.getElementById("EstartDate").getAttribute("src");
+					var minDate = document.getElementById("EstartDate").value;
+					var maxDate = document.getElementById("EendDate").value;
+					
+					if(minDate > maxDate){
+						alert("Your dates dont make any senses.\nCheck them again.");
+					}
 				}
 			</script>
 		<!--(End) Scripts-->
@@ -326,12 +328,12 @@
 										</div>
 										
 										<div class="container">
-											<h5 for="Erank">Reach</h5>
+											<h5 for="Erank">Ad Placement</h5>
 											<select name="Erank" id="Erank">
 												<option value="" disabled selected>Please Select a Rank</option>
-												<option value="Free">Free</option>
-												<option value="Paid">Paid</option>
 												<option value="Premium">Premium</option>
+												<option value="Paid">Paid</option>
+												<option value="Free">Free</option>
 											</select><br>
 											<span id="eventForm_Erank_errorloc" class="error"></span>
 										</div>
@@ -343,6 +345,7 @@
 									</div>
 									<div class="clear"></div>
 								</div>
+								
 								<div class="saved">
 								<!--<div class="box"><h3>Saved</h3></div>
 									<div class="box"><a href="#"><img src="images/btn_draft.png" alt="Draft" /></a></div>
@@ -475,7 +478,7 @@
 									<div class="container" id="EtimeStart">
 										<div class="container" id="">
 											<h5 for="EtimeStart">Start Time</h5>
-											<input type="time" name="EtimeStart" placeholder="" id="EtimeStart" value="" maxlength="50"><br>
+											<input type="time" name="EtimeStart" id="EtimeStart"><br>
 											<span id="eventForm_EtimeStart_errorloc" class="error"></span>
 										</div>
 									</div>
@@ -485,7 +488,7 @@
 								<div class="type">
 									<div class="container" id="EtimeEnd">
 										<h5 for="EtimeEnd">End Time</h5>
-										<input type="time" name="EtimeEnd" placeholder="" id="EtimeEnd" value="" maxlength="50"><br>
+										<input type="time" name="EtimeEnd" id="EtimeEnd"><br>
 										<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
 									</div>
 								</div>
@@ -498,7 +501,7 @@
 									<!--Start Date picker-->
 									<div class="container" id="">
 										<h5 for="EstartDate">Start Date</h5>
-										<input type="date" name="EstartDate" placeholder="" title="Pick Start Date" id="EstartDate" value="" maxlength="50"><br>
+										<input type="date" name="EstartDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date" id="EstartDate"><br>
 										<span id="eventForm_EstartDate_errorloc" class="error"></span>
 									</div>
 								</div>	
@@ -508,7 +511,7 @@
 									<!--End Date picker-->
 									<div class="container" id="">
 										<h5 for="EendDate">End Date</h5>
-										<input type="date" name="EendDate" placeholder="12/31/2015" title="Pick Start Date" id="EendDate" value="" maxlength="50"><br>
+										<input onchange="checkDates();" type="date" name="EendDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date" id="EendDate"><br>
 										<span id="eventForm_EendDate_errorloc" class="error"></span>
 									</div>
 								</div>	
@@ -575,7 +578,7 @@
 			frmvalidator.EnableOnPageErrorDisplay();
 			frmvalidator.EnableMsgsTogether();
 			
-			frmvalidator.addValidation("Eflyer",       "req", "Please Insert an Image");
+			//frmvalidator.addValidation("Eflyer",       "req", "Please Insert an Image");
 			frmvalidator.addValidation("Evename",      "req", "Please fill in Event Name");
 			frmvalidator.addValidation("Etype",        "req", "Please fill in Type of Event");
 			frmvalidator.addValidation("Erank",        "req", "Please fill in the Rank");
