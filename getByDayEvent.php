@@ -21,11 +21,10 @@
 		$city = $fgmembersite->getCity();
 		//$city = "El Paso";
 		$usrname = $fgmembersite->UsrName();
-		$toDay = $_GET['date'];
-		$newformat = date('Y-m-d', $toDay);
+		$newformat = date('Y-m-d', $_GET['date']);
 		
 		// Pagination Function
-		function pagination($query, $per_page, $page, $toDay, $url){
+		function pagination($query, $per_page, $page, $url){
 			global $con;
 			
 			$query = "SELECT COUNT(*) as `num` FROM {$query}";
@@ -52,14 +51,14 @@
 				$pagination .= "<ul class='pagination'>";
 				$pagination .= "<li class='page_info'>Page {$page} of {$lastpage}</li>";
 					 
-					if ($page > 1) $pagination.= "<li><a href='{$url}date={$toDay}&page={$prev}'>{$prevlabel}</a></li>";
+					if ($page > 1) $pagination.= "<li><a href='{$url}page={$prev}'>{$prevlabel}</a></li>";
 					 
 				if ($lastpage < 7 + ($adjacents * 2)){   
 					for ($counter = 1; $counter <= $lastpage; $counter++){
 						if ($counter == $page)
 							$pagination.= "<li><a class='current'>{$counter}</a></li>";
 						else
-							$pagination.= "<li><a href='{$url}date={$toDay}&page={$counter}'>{$counter}</a></li>";                    
+							$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
 					}
 				 
 				} elseif($lastpage > 5 + ($adjacents * 2)){
@@ -70,47 +69,49 @@
 							if ($counter == $page)
 								$pagination.= "<li><a class='current'>{$counter}</a></li>";
 							else
-								$pagination.= "<li><a href='{$url}date={$toDay}&page={$counter}'>{$counter}</a></li>";                    
+								$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
 						}
 						$pagination.= "<li>...</li>";
-						$pagination.= "<li><a href='{$url}date={$toDay}&page={$lpm1}'>{$lpm1}</a></li>";
-						$pagination.= "<li><a href='{$url}date={$toDay}&page={$lastpage}'>{$lastpage}</a></li>";  
+						$pagination.= "<li><a href='{$url}page={$lpm1}'>{$lpm1}</a></li>";
+						$pagination.= "<li><a href='{$url}page={$lastpage}'>{$lastpage}</a></li>";  
 							 
 					} elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
 						 
-						$pagination.= "<li><a href='{$url}date={$toDay}&page=1'>1</a></li>";
-						$pagination.= "<li><a href='{$url}date={$toDay}&page=2'>2</a></li>";
+						$pagination.= "<li><a href='{$url}page=1'>1</a></li>";
+						$pagination.= "<li><a href='{$url}page=2'>2</a></li>";
 						$pagination.= "<li>...</li>";
 						for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++) {
 							if ($counter == $page)
 								$pagination.= "<li><a class='current'>{$counter}</a></li>";
 							else
-								$pagination.= "<li><a href='{$url}date={$toDay}&page={$counter}'>{$counter}</a></li>";                    
+								$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
 						}
 						$pagination.= "<li>..</li>";
-						$pagination.= "<li><a href='{$url}date={$toDay}&page={$lpm1}'>{$lpm1}</a></li>";
-						$pagination.= "<li><a href='{$url}date={$toDay}&page={$lastpage}'>{$lastpage}</a></li>";      
+						$pagination.= "<li><a href='{$url}page={$lpm1}'>{$lpm1}</a></li>";
+						$pagination.= "<li><a href='{$url}page={$lastpage}'>{$lastpage}</a></li>";      
 						 
 					} else {
 						 
-						$pagination.= "<li><a href='{$url}date={$toDay}&page=1'>1</a></li>";
-						$pagination.= "<li><a href='{$url}date={$toDay}&page=2'>2</a></li>";
+						$pagination.= "<li><a href='{$url}page=1'>1</a></li>";
+						$pagination.= "<li><a href='{$url}page=2'>2</a></li>";
 						$pagination.= "<li>..</li>";
 						for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++) {
 							if ($counter == $page)
 								$pagination.= "<li><a class='current'>{$counter}</a></li>";
 							else
-								$pagination.= "<li><a href='{$url}date={$toDay}&page={$counter}'>{$counter}</a></li>";                    
+								$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
 						}
 					}
 				}
 				 
-				if ($page < $counter - 1) {
-					$pagination.= "<li><a href='{$url}date={$toDay}&page={$next}'>{$nextlabel}</a></li>";
-					$pagination.= "<li><a href='{$url}date={$toDay}&page=$lastpage'>{$lastlabel}</a></li>";
-				}				 
+					if ($page < $counter - 1) {
+						$pagination.= "<li><a href='{$url}page={$next}'>{$nextlabel}</a></li>";
+						$pagination.= "<li><a href='{$url}page=$lastpage'>{$lastlabel}</a></li>";
+					}
+				 
 				$pagination.= "</ul>";        
 			}
+			 
 			return $pagination;
 		}
 		
@@ -142,7 +143,7 @@
 				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
-				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "&nbsp;&nbsp;&nbsp;".ucfirst($row['Ecity'])."</div>";
+				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "&nbsp;&nbsp;&nbsp;".ucfirst($row['Ecity'])."&nbsp;&nbsp;&nbsp;".strtoupper($row['Estate'])." </div>";
 				echo "				<div class='box'>" . $row['Evename'] . "</div>";
 				if ($row['Efacebook']){
 				echo "				<div class='box'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'> </a></div>";
@@ -165,7 +166,7 @@
 				echo "	</a></div>";
 				echo "</div>";
 				
-				echo pagination($statement, $per_page, $page, $toDay, 'http://eventprobe.com/index2.php?');
+				echo pagination($statement, $per_page, $page, 'http://eventprobe.com/index2.php?');
 			}
 			mysqli_close($con);
 		?>
