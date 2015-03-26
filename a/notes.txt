@@ -28,26 +28,32 @@ Done - add pagination where the events are displaying
 
 ***************************************Meeting: March 25, 2015***************************************
 * Create Event:
-- Dates should check -> start <= end
-- phone: (limit 7 to 10 #'s) autoformat as user types the number (e.g., (999) 123-4567)
+DONE - Dates should check -> start <= end
+DONE - phone: (limit 7 to 10 #'s) autoformat as user types the number (e.g., (999) 123-4567)
 - International #'s will be added later on
 DONE - "reach" should be changed to "Ad Placement"
 DONE - order of Free, Paid, & Premium should change to Premium, Paid, & Free
-- if user does not require to insert an image, in this case we default the type of event image. (e.g., type of event is sports, default image should be the running man.)
+DONE - if user does not require to insert an image, in this case we default the type of event image. (e.g., type of event is sports, default image should be the running  man.)
+
 * Map:
-- adjust the zoom
+BUGGY - adjust the zoom
+
 * Free section:
-- add state next to the city
-- dates should be able to scroll to the next or previous 7 days with arrows next and previous but never scroll back from the current date.
+DONE - add state next to the city
+- Dates should be able to scroll to the next or previous 7 days with arrows next and previous but never scroll back from the current date.
+
 * Index search bar:
 - add filter next to the search bar; can be placed anywhere just near the search bar.
     --Functionality shall be date picker, sends to AJAX request returns with the events
 * awknowledgements of payment will be written and provided to us later. no specific date given.
-- if the event has been paid for to post and the user wants to edit the event because of some reason. They should be able to edit as long as the event has not expired yet.
+- if the event has been paid for to post and the user wants to edit the event because of some reason. They should be able to edit as long as the event has not expired  yet.
+
 * TODAY AND THIS WEEK NEAR YOU section:
 - get the orange circle #'s show the number dynamically.
 - highlight the events that were added to the list
+
 * Banner section:
 - if there are no events we should hide the div.
+
 * THIS WEEK NEAR YOU section:
 - get the geolocation working
