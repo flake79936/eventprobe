@@ -8,7 +8,7 @@
 
 	<script>
 		function seeMoreInfo(str){
-			window.location = "./eventDisplaypaging.php?eid="+str;
+			window.location = "./eventDisplayPage.php?eid="+str;
 		}
 	</script>
 </head>
