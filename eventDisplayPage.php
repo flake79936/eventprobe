@@ -181,7 +181,7 @@
 												}
 											}
 										?>
-											<img src="<?php echo $row['Eflyer']; ?>" style="width: 400px; height: 300px;" alt="event image"/>
+											<img src="<?php echo $row['Eflyer']; ?>" style="width: 400px; height: auto;" alt="event image"/>
 										</div>
 										
 										<div class="socialLinks">

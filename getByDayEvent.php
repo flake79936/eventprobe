@@ -137,7 +137,9 @@
 	
 	<div class="box" >
 		<?PHP
-			while($row = mysqli_fetch_array($result)) {				
+			while($row = mysqli_fetch_array($result)) {		
+				$formattedDate= str_replace("-","/",$row['EstartDate']);
+				$formattedDate= substr($formattedDate,5,10);
 				$type = $row['Etype'];
 				if($row['Eflyer'] === ""){
 					switch($type){
@@ -156,7 +158,7 @@
 				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
-				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "&nbsp;&nbsp;&nbsp;".ucfirst($row['Ecity'])."&nbsp;&nbsp;&nbsp;".strtoupper($row['Estate'])." </div>";
+				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "&nbsp;&nbsp;&nbsp;".$formattedDate."&nbsp;&nbsp;&nbsp;".ucfirst($row['Ecity'])."&nbsp;&nbsp;&nbsp;".strtoupper($row['Estate'])." </div>";
 				echo "				<div class='box'>" . $row['Evename'] . "</div>";
 				if ($row['Efacebook']){
 				echo "				<div class='box'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'> </a></div>";

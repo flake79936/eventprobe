@@ -61,7 +61,7 @@ DONE - add filter next to the search bar; can be placed anywhere just near the s
 
 *eventDisplayPAge
 DONE-zoom out
-Height, auto
+DONE-Height, auto
 
 *Search Results
--add date
+DONE-add date

@@ -49,12 +49,15 @@
 		
 		<?PHP
 			while($row = mysqli_fetch_array($result)) {
+				$formattedDate= str_replace("-","/",$row['EstartDate']);
+				$formattedDate= substr($formattedDate,5,10);
 				//echo "Inside the Today " . $row['EstartDate'];
 				echo "<div class='row'>";
 				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
-				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
+// 				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
+echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "&nbsp;&nbsp;&nbsp;".$formattedDate."&nbsp;&nbsp;&nbsp;".ucfirst($row['Ecity'])."&nbsp;&nbsp;&nbsp;".strtoupper($row['Estate'])." </div>";
 				echo "				<div class='box'>" . $row['Evename'] . "</div>";
 				if ($row['Efacebook'])
 				{
