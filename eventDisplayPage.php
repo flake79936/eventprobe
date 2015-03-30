@@ -88,7 +88,7 @@
 	<body >
 		<div class="search">
 			<form>
-				<input type="text" onKeyUp="showHint(this.value)" placeholder="Search for Event"><br>
+				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event"><br>
 				<div style="text-align: center;">
 				<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a> | 
 				<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a> | 
@@ -104,7 +104,7 @@
 		</div>
 		
 		<div class="eventDisplayPage">
-			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onSubmit="return confirm('Do you wish to delete?');">
+			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
 				<?PHP
 					$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID . " AND Edisplay = 1;";
 					$result = mysqli_query($con, $qry);
@@ -196,7 +196,7 @@
 											<div class="eFacebook">
 												<?PHP if($row['Efacebook'] !== ""){ ?>
 													<a href="<?= $row['Efacebook'] ?>" target="_blank">
-														<img src="images/icon_fb.png" onMouseOver="this.src='images/icon_fb.png'" onMouseOut="this.src='images/icon_fb.png'" alt="Facebook" />
+														<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
 													</a>
 												<?PHP } ?>
 											</div>
@@ -204,7 +204,7 @@
 											<div class="eTwitter">
 												<?PHP if ($row['Etwitter'] !== ""){ ?>
 													<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
-														<img src="images/icon_tw.png" onMouseOver="this.src='images/icon_tw.png'" onMouseOut="this.src='images/icon_tw.png'" alt="Twitter" />
+														<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
 													</a>
 												<?PHP } ?>
 											</div>
@@ -223,79 +223,38 @@
 								<div class="lower">
 									<div class="eMap">
 										<!-- START OF MAP SCRIPT -->
-										<div id="map" style="width: 400px; height: 300px;"></div>
-										<script type="text/javascript" language= "php">
-											// Define your locations: HTML content for the info window, latitude, longitude
-											var locations = <?php echo json_encode($eventArray);?>;
 
-											// Setup the different icons and shadows
-											var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
+	<script type="text/javascript">
+		$(document).ready(function () {
+			// Define the latitude and longitude positions
+			var latitude = parseFloat("<?php echo $Elat; ?>"); // Latitude get from above variable
+			var longitude = parseFloat("<?php echo $Elong; ?>"); // Longitude from same
+			var latlngPos = new google.maps.LatLng(latitude, longitude);
+			// Set up options for the Google map
+			var image = 'images/favicon.png';
 
-											var icons = ['images/favicon.png']
-											var icons_length = icons.length;
-
-											var shadow = {
-												anchor: new google.maps.Point(15, 33),
-												url: iconURLPrefix + 'msmarker.shadow.png'
-											};
-
-											var map = new google.maps.Map(document.getElementById('map'), {
-												zoom: 16,
-												center: new google.maps.LatLng(37.6, -95.665),
-												mapTypeId: google.maps.MapTypeId.ROADMAP,
-												mapTypeControl: true,
-												streetViewControl: true,
-												panControl: true,
-												zoomControlOptions: {
-													position: google.maps.ControlPosition.LEFT_BOTTOM
-												}
-											});
-											
-											var infowindow = new google.maps.InfoWindow({ maxWidth: 160,zoom:16 });
-											
-											var marker;
-											var markers = new Array();
-											
-											var iconCounter = 0;
-											
-											// Add the markers and infowindows to the map
-											for (var i = 0; i < locations.length; i++){
-												marker = new google.maps.Marker({
-													position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-													zoom: 16,
-													map: map,
-													icon : icons[iconCounter],
-													shadow: shadow
-												});
-
-												markers.push(marker);
-
-												google.maps.event.addListener(marker, 'click', (function(marker, i) {
-													return function(){
-														infowindow.setContent(locations[i][0]);
-														infowindow.open(map, marker);
-													}
-												})(marker, i));
-
-												iconCounter++;
-												
-												// We only have a limited number of possible icon colors, so we may have to restart the counter
-												if(iconCounter >= icons_length){
-													iconCounter = 0;
-												}
-											}
-
-											function AutoCenter(){
-												//  Create a new viewpoint bound
-												var bounds = new google.maps.LatLngBounds();
-												//  Go through each...
-												$.each(markers, function (index, marker) {
-													bounds.extend(marker.position);
-												});
-												//  Fit these bounds to the map
-												map.fitBounds(bounds);
-											} AutoCenter();
-										</script> 
+			var myOptions = {
+					zoom: 16,
+					center: latlngPos,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					zoomControlOptions: true,
+					zoomControlOptions: {
+					style: google.maps.ZoomControlStyle.LARGE
+					}
+				};
+			// Define the map 
+			var eventprobe = ['images/favicon.png'];
+			map = new google.maps.Map(document.getElementById("map"), myOptions);
+			// Add the marker
+						var marker = new google.maps.Marker({
+						position: latlngPos,
+						map: map,
+						icon: image,
+						title: "<?php echo $Evename; ?>"
+						});
+			});
+	</script>
+<div id="map" style="width:400px;height:300px; margin-top:10px;"></div>
 										<!-- END OF MAP SCRIPT -->
 									</div>
 									

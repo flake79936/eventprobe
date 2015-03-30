@@ -60,7 +60,7 @@ DONE - add filter next to the search bar; can be placed anywhere just near the s
 - get the geolocation working
 
 *eventDisplayPAge
--zoom out,
+DONE-zoom out
 Height, auto
 
 *Search Results
