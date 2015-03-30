@@ -88,7 +88,7 @@
 	<body >
 		<div class="search">
 			<form>
-				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event"><br>
+				<input type="text" onKeyUp="showHint(this.value)" placeholder="Search for Event"><br>
 				<div style="text-align: center;">
 				<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a> | 
 				<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a> | 
@@ -104,7 +104,7 @@
 		</div>
 		
 		<div class="eventDisplayPage">
-			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
+			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onSubmit="return confirm('Do you wish to delete?');">
 				<?PHP
 					$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID . " AND Edisplay = 1;";
 					$result = mysqli_query($con, $qry);
@@ -196,7 +196,7 @@
 											<div class="eFacebook">
 												<?PHP if($row['Efacebook'] !== ""){ ?>
 													<a href="<?= $row['Efacebook'] ?>" target="_blank">
-														<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
+														<img src="images/icon_fb.png" onMouseOver="this.src='images/icon_fb.png'" onMouseOut="this.src='images/icon_fb.png'" alt="Facebook" />
 													</a>
 												<?PHP } ?>
 											</div>
@@ -204,7 +204,7 @@
 											<div class="eTwitter">
 												<?PHP if ($row['Etwitter'] !== ""){ ?>
 													<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
-														<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
+														<img src="images/icon_tw.png" onMouseOver="this.src='images/icon_tw.png'" onMouseOut="this.src='images/icon_tw.png'" alt="Twitter" />
 													</a>
 												<?PHP } ?>
 											</div>
