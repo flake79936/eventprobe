@@ -240,7 +240,7 @@
 											};
 
 											var map = new google.maps.Map(document.getElementById('map'), {
-												zoom: 3,
+												zoom: 16,
 												center: new google.maps.LatLng(37.6, -95.665),
 												mapTypeId: google.maps.MapTypeId.ROADMAP,
 												mapTypeControl: true,
@@ -251,7 +251,7 @@
 												}
 											});
 											
-											var infowindow = new google.maps.InfoWindow({ maxWidth: 160 });
+											var infowindow = new google.maps.InfoWindow({ maxWidth: 160,zoom:16 });
 											
 											var marker;
 											var markers = new Array();
@@ -262,7 +262,7 @@
 											for (var i = 0; i < locations.length; i++){
 												marker = new google.maps.Marker({
 													position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-													zoom: 5,
+													zoom: 16,
 													map: map,
 													icon : icons[iconCounter],
 													shadow: shadow

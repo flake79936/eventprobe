@@ -58,3 +58,10 @@ DONE - add filter next to the search bar; can be placed anywhere just near the s
 
 * THIS WEEK NEAR YOU section:
 - get the geolocation working
+
+*eventDisplayPAge
+-zoom out,
+Height, auto
+
+*Search Results
+-add date
