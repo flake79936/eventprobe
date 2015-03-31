@@ -58,6 +58,7 @@
 			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 			<script type="text/javascript" src="js/jquery-ui.js"></script>
 			<script type="text/javascript" src="js/scripts.js"></script>
+			<script type="text/javascript" src="js/formatPhone.js"></script>
 			
 			<!--(Start) Counts the number of characters-->
 				<script type="text/javascript">
@@ -448,7 +449,7 @@
 									<div class="wrap">
 										<div class="type" id="EphoneNumber" >
 											<h5 for="EphoneNumber">Phone Number</h5>
-											<input type='tel' name="EphoneNumber" id="EphoneNumber"  value="<?PHP echo $row['EphoneNumber']; ?>" title='Phone Number (Format: 9999999999)' maxlength="12" placeholder="9999999999"><br>
+											<input type='tel' name="EphoneNumber" id="EphoneNumber"  value="<?PHP echo $row['EphoneNumber']; ?>" title='Phone Number (Format: (999) 999-9999)' maxlength="16" placeholder="(999) 999-9999" onkeydown="javascript:backspacerDOWN(this, event);" onkeyup="javascript:backspacerUP(this, event);"><br> 
 											<span id="eventForm_EphoneNumber_errorloc" class="error"></span>
 										</div>
 									</div>
