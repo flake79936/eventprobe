@@ -250,7 +250,7 @@
 						position: latlngPos,
 						map: map,
 						icon: image,
-						title: "<?php echo $Evename; ?>"
+						title: "<?php echo $event; ?>"
 						});
 			});
 	</script>
