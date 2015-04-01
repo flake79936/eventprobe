@@ -1,0 +1,18 @@
+<?xml version="1.0"?><rss version="2.0" xmlns:calendarEvent="http://www.augustaga.gov/Calendar.aspx"><channel>
+	<title>Augusta - Calendar - Special Events</title>
+	<link>http://www.augustaga.gov/Calendar.aspx</link>
+	<lastBuildDate>Fri, 13 Mar 2015 00:06:42 -0500</lastBuildDate>
+	<description>Augusta - Get the latest events</description>
+	<language>en-us</language>
+	<item>
+		<title>St. Patrick&#39;s Day Celebration</title>
+		<link>http://www.augustaga.gov/Calendar.aspx?EID=2241</link>
+		<pubDate>Wed, 07 Jan 2015 17:26:35 -0500</pubDate>
+		<description>&lt;strong&gt;Event date:&lt;/strong&gt; March 17, 2015 &lt;br&gt;&lt;strong&gt;Event Time: &lt;/strong&gt;02:00 PM - 09:00 PM&lt;br&gt;&lt;strong&gt;Location:&lt;/strong&gt; &lt;br&gt;836 Reynolds Street&lt;br&gt;Augusta, GA 30901&lt;br&gt;&lt;strong&gt;Description:&lt;/strong&gt;&lt;br&gt;Augusta Common will be “rolling out the Green Carpet” on the St. Patrick’s Day. Come join us in the Augusta Common for live entertainment, children’s play area, and lots of food, merchandise, and drink vendors. Vendors Welcome. For more information, please call 706-821-1754.</description>
+		<calendarEvent:EventDates> March 17, 2015 </calendarEvent:EventDates>
+		<calendarEvent:EventTimes>02:00 PM - 09:00 PM</calendarEvent:EventTimes>
+		<calendarEvent:Location>836 Reynolds Street&lt;br&gt;Augusta, GA 30901</calendarEvent:Location>
+		
+		<guid isPermaLink="false">http://www.augustaga.gov/Calendar.aspx?EID=2241/635562447950000000</guid>
+	</item>
+</channel></rss>
