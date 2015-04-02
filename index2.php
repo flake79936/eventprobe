@@ -16,10 +16,8 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <!--link rel="stylesheet" type="text/css" href="css/top.css" /-->
-        <link rel="stylesheet" type="text/css" href="css/search.css" />
+        <link rel="stylesheet" type="text/css" href="css/header.css" />
         <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
         <link rel="stylesheet" type="text/css" href="css/banner.css" />
         <link rel="stylesheet" type="text/css" href="css/thisWeek.css" />
@@ -151,101 +149,66 @@
 	
 	<body lang="en">
 		<div class="wrap">
-			<div id="header">
-				<div class="logo">
-				<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a>
-		</div>
-				<div class="u-1 form-box">
-				            <div class="l-box">
-				                <form class="pure-form">
-				                    <input type="text" onKeyUp="showHint(this.value);" placeholder="Search for Event, City, State, Zip Code">
-				                    <input type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
-				                    <button type="submit" class="pure-button">Submit</button>
-				                </form>
-				            </div>
-				        </div>
-				<!--div class="search">
-					<form class="pure-form">
-						<fieldset>
-							<input type="text" onKeyUp="showHint(this.value);" placeholder="Search for Event, City, State, Zip Code">
-							<input type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
-							<div style="text-align: center;">
-							<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a> | 
-							<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a> | 
-							<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a> | 
-							<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art35.png"/></a>
-							<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
-						</div>
-						</fieldset>
-					</form>
-				</div-->
+			<div class="header">
+				<?PHP include './header.php'; ?>
 			</div>
-			
-		
-		
-			<?PHP //echo "Latitude: " . $fgmembersite->getLatitude() . "<br>"; ?>
-			<?PHP //echo "Longtitude: " . $fgmembersite->getLongtitude() . "<br>"; ?>
-    	
-			<div class="top">
-			<?PHP include './top.php';?>
-        </div>
-		
+
 			<!--My Events Section-->
 			<?PHP if($fgmembersite->CheckSession()){ ?>
-			<div class="my-events">
-				<?PHP include './myevents.php'; ?>
-			</div>
-		<?PHP } ?>
-        
+				<div class="my-events">
+					<?PHP include './myevents.php'; ?>
+				</div>
+			<?PHP } ?>
+
 			<!--Banner  Section-->
-        	<div class="banner">
-			<?PHP include './banner2.php'; ?>
-		</div>
-        
-			<!--This-Week Section-->
-        	<div class="this-week">
-			<?PHP include './this-week.php'; ?>
-        </div>
-        
-			<!--Schedule Section-->
-        	<div class="schedule">
-			<!--Map Section-->
-        	<div class="map">
-				<iframe src="./map.php" height="390px" width="390px"></iframe>
-				<!-- <?PHP //include('./geo.php'); ?> -->
-				<!--<img src="images/map.jpg" alt="Map" />-->
+			<div class="banner">
+				<?PHP include './banner2.php'; ?>
 			</div>
-			
-			<!--Today Section-->
-            <div class="today">
-				<?PHP include './events.php'; ?>
-            </div>
-			
-            <div class="clear"></div>
-        </div>
-        
+
+			<!--This-Week Section-->
+			<div class="this-week">
+				<?PHP include './this-week.php'; ?>
+			</div>
+
+			<!--Schedule Section-->
+			<div class="schedule">
+				<!--Map Section-->
+				<div class="map">
+					<iframe src="./map.php" height="390px" width="390px"></iframe>
+					<!-- <?PHP //include('./geo.php'); ?> -->
+					<!--<img src="images/map.jpg" alt="Map" />-->
+				</div>
+
+				<!--Today Section-->
+				<div class="today">
+					<?PHP include './events.php'; ?>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+
 			<!--Chart Section-->
-        	<div class="chart">
-			<?PHP include './chart.php'; ?>
-        </div>
-		
+			<div class="chart">
+				<?PHP include './chart.php'; ?>
+			</div>
+
 			<!--Section where events will show when user types on the search bar-->
 			<div class="events" id="txtHint"></div>
-        
+
 			<!--App Section-->
-        	<div class="app">
-			<?PHP include './app.php'; ?>
-        </div>
-        
+			<div class="app">
+				<?PHP include './app.php'; ?>
+			</div>
+
 			<!--Links  Section-->
-        	<div class="links">
-			<?PHP include './links.php'; ?>
-        </div>
-        
+			<div class="links">
+				<?PHP include './links.php'; ?>
+			</div>
+
 			<!--Footer Section-->
-        	<div class="footer">
-			<?PHP include './footer.php'; ?>
-        </div>
+			<div class="footer">
+				<?PHP include './footer.php'; ?>
+			</div>
 		</div>
 	</body>
 </html>

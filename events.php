@@ -36,7 +36,7 @@
 							<h2><?= $day ?></h2><img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
 							
 							<p><?= substr($EstartDate, 0, 5); ?>, <?= $row['EtimeStart'] ?></p>
-							<h3><?= $row['Evename'] ?></h3>
+							<h3><?= substr($row['Evename'], 0, 12) . " ..."; ?></h3>
 						</div>
 					</div>
 					<?PHP 

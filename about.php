@@ -1,5 +1,3 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-
 <?PHP require_once("./include/membersite_config.php"); ?>
 
 <!doctype html>
@@ -11,12 +9,12 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/top.css" />
+        <link rel="stylesheet" type="text/css" href="css/header.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
@@ -25,24 +23,38 @@
 	</head>
 	
 	<body lang="en">
-    	<div class="top">
-			<?PHP include './top.php';?>
-        </div>
-        
-        <div class="content">
-			<h3>About Us</h3>
-            <p>Everyone is working more and vacationing less these days. And getting away for a 3-day weekend is more common now than ever. Making the most of those 72 hours has become key. When you get there what are going to do? Where should you go? Is there a concert? Theres an app for that! Say hello to your friends at EventProbe. All events across the nation in the palm of your hand. Searchable by location, genre, time…you get the picture. No more fumbling through multiple sites.</p>
-            <img src="images/about_events.png">
-			<div class="clear"> </div>
-            
-        </div>
-        
-        <div class="links">
-			<?PHP include './links.php'; ?>
-        </div>
-        
-        <div class="footer">
-			<?PHP include './footer.php'; ?>
-        </div>
+		<div class="wrap">
+			<div class="header">
+				<?PHP include './header.php'; ?>
+			</div>
+			
+			<div class="content">
+				<div class="con-wrap">
+					<h1>About Us</h1>
+					<p>Everyone is working more and vacationing less these days. 
+					And getting away for a 3-day weekend is more common now than ever. 
+					Making the most of those 72 hours has become key. 
+					When you get there what are going to do? 
+					Where should you go? Is there a concert? 
+					Theres an app for that! Say hello to your friends at EventProbe. 
+					All events across the nation in the palm of your hand. 
+					Searchable by location, genre, time…you get the picture. 
+					No more fumbling through multiple sites.</p>
+					<img src="images/about_events.png">
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div class="links">
+				<?PHP include './links.php'; ?>
+			</div>
+			
+			<div class="footer">
+				<?PHP include './footer.php'; ?>
+			</div>
+		</div>
 	</body>
 </html>

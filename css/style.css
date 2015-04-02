@@ -1,31 +1,11 @@
-/*	Less Framework 4
+/*
+	Less Framework 4
 	http://lessframework.com
 	by Joni Korpi
-	License: http://opensource.org/licenses/mit-license.php	*/
-
-/*	Resets 
-	------	
-	
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
-p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
-img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
-dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figure, figcaption, hgroup, 
-menu, footer, header, nav, section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-article, aside, canvas, figure, figure img, figcaption, hgroup,
-footer, header, nav, section, audio, video { display: block; }
-
-a img {border: 0; cursor: pointer;}
+	License: http://opensource.org/licenses/mit-license.php
 */
-@import url(meyer_reset.css);
-/* FONTS */
 
+@import url(meyer_reset.css);
 /* TYPOGRAPHY */
 h1{ font-size: 26px; font-weight: normal; }
 h2{ font-size: 24px; font-weight: normal; }
@@ -37,20 +17,18 @@ h6{ font-size: 11px; font-weight: normal; }
 p{ line-height: normal; }
 
 /* Selection colours (easy to forget) */
-::selection 	 	{background: rgb(255,255,158);}
+::selection                  {background: rgb(255,255,158);}
 ::-moz-selection 	{background: rgb(255,255,158);}
 img::selection 		{background: transparent;}
 img::-moz-selection	{background: transparent;}
-body {-webkit-tap-highlight-color: rgb(255,255,158); }
-}
-.logo{
-	float:left;
-}
+body                                {-webkit-tap-highlight-color: rgb(255,255,158); }
 
-/*		Default Layout: 992px. 
-		Gutters: 24px.
-		Outer margins: 48px.
-		Leftover space for scrollbars @1024px: 32px.
+.logo{ float:left; }
+
+/*	Default Layout: 992px. 
+	Gutters: 24px.
+	Outer margins: 48px.
+	Leftover space for scrollbars @1024px: 32px.
 -------------------------------------------------------------------------------
 cols    1     2      3      4      5      6      7      8      9      10
 px      68    160    252    344    436    528    620    712    804    896    */
@@ -67,18 +45,17 @@ body{
 ------------------------------------------------------------
 cols    1     2      3      4      5
 px      68    160    252    344    436    */
-
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 	body{ margin: 0; padding: 0; width: 360px;}
 }
 
+.content { background: #e9e4d5; float: right; width: 100%; margin: 0 0 0 40px; border-top: 1px solid #f3eddd; }
+.content .con-wrap{ background: #e9e4d5; float: left; width: 56%; margin: 0 0 0 300px; border-top: 1px solid #f3eddd;}
+.content .container{ background: #e9e4d5; float: left; width: 91%; margin: 0 0 0 100px; }
+.content .container .para{ text-align:justify; float: left; width: 86%; margin: 10px 0 10px 0; }
+.content .container .bullets{ text-align:justify; float: left; width: 86%; margin: 0 0 0 0px; }
+.content p { text-align:justify; float: left; width: 450px; word-wrap: break-word; margin: 25px 0 20px 0 }
+.content img { float: left; margin: 25px 0 20px 0 }
+
 /* http://sonspring.com/journal/clearing-floats */
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
-
-.content {float: left; width: 100%;  margin: 0 0 0 40px }
-.content p {float: left; width: 450px;  margin: 25px 0 20px 0 }
-.content img {float: left; margin: 25px 0 20px 0 }
-
-.logo{
-	float:left;
-}

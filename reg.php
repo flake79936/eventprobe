@@ -23,12 +23,10 @@
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/registration.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/top.css" />
+        <link rel="stylesheet" type="text/css" href="css/header.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
-		
-		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 		
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -84,8 +82,8 @@
 	</head>
 	
 	<body lang="en">
-	    <div class="top">
-			<?PHP include './top.php';?>
+	    <div class="header">
+			<?PHP include './header.php';?>
         </div>
 		
 		<div class="main">

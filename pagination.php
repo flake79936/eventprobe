@@ -107,7 +107,7 @@
 		<meta charset="utf-8">
 		<title>Pagination - OTallu.com</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/top.css" />
+        <link rel="stylesheet" type="text/css" href="css/header.css" />
         <link rel="stylesheet" type="text/css" href="css/search.css" />
         <link rel="stylesheet" type="text/css" href="css/myEvents.css" />
         <link rel="stylesheet" type="text/css" href="css/banner.css" />

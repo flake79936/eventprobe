@@ -31,11 +31,10 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 
 		<!--STYLE-->
-		<link rel="stylesheet" type="text/css" href="css/top.css" />
+		<link rel="stylesheet" type="text/css" href="css/header.css" />
 		<link rel="stylesheet" type="text/css" href="css/eventDisplayPage.css" />
 		<link rel="stylesheet" type="text/css" href="css/links.css" />
 		<link rel="stylesheet" type="text/css" href="css/footer.css" />
-		<link rel="stylesheet" type="text/css" href="css/search.css" />
 
 		<!--GOOGLE MAP-->
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -85,22 +84,9 @@
 		<link rel="shortcut icon" href="favicon.ico"  />
 	</head>
 	
-	<body >
-		<div class="search">
-			<form>
-				<input type="text" onkeyup="showHint(this.value)" placeholder="Search for Event"><br>
-				<div style="text-align: center;">
-				<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a> | 
-				<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a> | 
-				<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a> | 
-				<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art35.png"/></a>
-				<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
-				</div>
-			</form>
-		</div>
-		
-		<div class="top">
-			<?PHP include './top.php';?>
+	<body lang="en">
+		<div class="header">
+			<?PHP include './header.php';?>
 		</div>
 		
 		<div class="eventDisplayPage">
@@ -223,38 +209,37 @@
 								<div class="lower">
 									<div class="eMap">
 										<!-- START OF MAP SCRIPT -->
+										<script type="text/javascript">
+											$(document).ready(function () {
+												// Define the latitude and longitude positions
+												var latitude = parseFloat("<?php echo $Elat; ?>"); // Latitude get from above variable
+												var longitude = parseFloat("<?php echo $Elong; ?>"); // Longitude from same
+												var latlngPos = new google.maps.LatLng(latitude, longitude);
+												// Set up options for the Google map
+												var image = 'images/favicon.png';
 
-	<script type="text/javascript">
-		$(document).ready(function () {
-			// Define the latitude and longitude positions
-			var latitude = parseFloat("<?php echo $Elat; ?>"); // Latitude get from above variable
-			var longitude = parseFloat("<?php echo $Elong; ?>"); // Longitude from same
-			var latlngPos = new google.maps.LatLng(latitude, longitude);
-			// Set up options for the Google map
-			var image = 'images/favicon.png';
-
-			var myOptions = {
-					zoom: 16,
-					center: latlngPos,
-					mapTypeId: google.maps.MapTypeId.ROADMAP,
-					zoomControlOptions: true,
-					zoomControlOptions: {
-					style: google.maps.ZoomControlStyle.LARGE
-					}
-				};
-			// Define the map 
-			var eventprobe = ['images/favicon.png'];
-			map = new google.maps.Map(document.getElementById("map"), myOptions);
-			// Add the marker
-						var marker = new google.maps.Marker({
-						position: latlngPos,
-						map: map,
-						icon: image,
-						title: "<?php echo $event; ?>"
-						});
-			});
-	</script>
-<div id="map" style="width:400px;height:300px; margin-top:10px;"></div>
+												var myOptions = {
+														zoom: 16,
+														center: latlngPos,
+														mapTypeId: google.maps.MapTypeId.ROADMAP,
+														zoomControlOptions: true,
+														zoomControlOptions: {
+														style: google.maps.ZoomControlStyle.LARGE
+														}
+													};
+												// Define the map 
+												var eventprobe = ['images/favicon.png'];
+												map = new google.maps.Map(document.getElementById("map"), myOptions);
+												// Add the marker
+															var marker = new google.maps.Marker({
+															position: latlngPos,
+															map: map,
+															icon: image,
+															title: "<?php echo $event; ?>"
+															});
+												});
+										</script>
+										<div id="map" style="width:400px;height:300px; margin-top:10px;"></div>
 										<!-- END OF MAP SCRIPT -->
 									</div>
 									

@@ -119,7 +119,7 @@ $(document).ready(function() {
 	$page = (int)(!isset($_GET["page"]) ? 1 : $_GET["page"]);
 	if ($page <= 0) $page = 1; //DEFAULT PAGE # 1
 
-	$per_page = 1; // Set how many records do you want to display per page.
+	$per_page = 3; // Set how many records do you want to display per page.
 
 	$startpoint = ($page * $per_page) - $per_page;
 	
@@ -237,8 +237,8 @@ $(document).ready(function() {
 			}
 	?>
 		<ul>
-			<li><?= $day ?>&nbsp;<?= substr($EstartDate, 0, 5); ?></li>
-			<li><?= $row['Evename'] ?></li> 
+			<li><?= $day ?>&nbsp;<?= substr($EstartDate, 0, 5);  ?></li>
+			<li><?= substr($row['Evename'], 0, 12) . " ...";     ?></li> 
 			<li><?= $row['EtimeStart'] ?> - <?= $row['EtimeEnd'] ?></li>
 			
 			<li>
@@ -249,7 +249,7 @@ $(document).ready(function() {
 				}
 			?>
 			
-			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
+			<form class="myEventForm" id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
 				<input type="hidden" name="submitted" id="submitted" value="1" />
 				<input type="hidden" name="Eid" id="Eid" value="<?PHP echo $row['Eid']; ?>" />
 				
@@ -257,12 +257,12 @@ $(document).ready(function() {
 				<input type="hidden" name="usrName" id="usrName" value="<?PHP echo $usrname; ?>" />
 				
 				<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
-					<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/> |
+					<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/>
 				<?PHP } ?>
 			</form>
 			 </li>
 			 
-			<li><?PHP echo "<a onClick='editEvent(".$row['Eid'].")'> " ?> <img src="images/btn_editevent.png"></a></li>
+			<li><?PHP echo "<a class='myEventForm' onClick='editEvent(".$row['Eid'].")'> " ?> <img src="images/btn_editevent.png"></a></li>
 		</ul>
 	<?PHP } 
 		// displaying paginaiton.

@@ -1,11 +1,12 @@
 <!--AJAX Module-->
 
 <head>
+	<!--SYTLE SHEETS-->
 	<link rel="stylesheet" type="text/css" href="css/chart.css" />
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/pagination.css" />
-
+	
+	<!--SCRIPTS-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script>
 		function seeMoreInfo(str){
 			window.location = "./eventDisplayPage.php?eid="+str;

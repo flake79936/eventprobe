@@ -2,11 +2,11 @@
 <ul>
 	<li><h3>Information</h3></li>
 	<li><a href="./about.php">About</a></li>
-	<li><a href="./contact.php">Contact</a></li>
-	<li><a href="./policy.php">Policy</a></li>
-	<li><a href="./services.php">Services</a></li>
-	<li><a href="./disclaimer.php">Disclaimer</a></li>
 	<li><a href="./userAandR.php">A & R</a></li>
+	<li><a href="./contact.php">Contact</a></li>
+	<li><a href="./disclaimer.php">Disclaimer</a></li>
+	<li><a href="./services.php">Services</a></li>
+	<li><a href="./policy.php">Policy</a></li>
 </ul>
 <!-- 
 <ul>

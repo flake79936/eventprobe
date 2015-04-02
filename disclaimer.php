@@ -12,9 +12,9 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/top.css" />
-        <link rel="stylesheet" type="text/css" href="css/links.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css"  />
+        <link rel="stylesheet" type="text/css" href="css/header.css" />
+        <link rel="stylesheet" type="text/css" href="css/links.css"  />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
         <!--FAVICON-->
@@ -22,16 +22,23 @@
 	</head>
 	
 	<body lang="en">
-    	<div class="top">
-			<?PHP include './top.php';?>
+    	<div class="header">
+			<?PHP include './header.php';?>
         </div>
         
-        <div class="content">
-			<h3>Disclaimer</h3>
-            <p>Events are by default will be listed in descending order by date. Closest due dates at top. We have no affiliation with promoters, or organizers and our only wish is to bring true and current information to you. Events that have been boosted will always be listed first in their category because that keeps the lights on. </p>
-			<div class="clear"> </div>
-        </div>
+		<div class="content">
+			<div class="con-wrap">
+				<h3>Disclaimer</h3>
+				<p>Events are by default will be listed in descending order by date. Closest due dates at top. 
+				We have no affiliation with promoters, or organizers and our only wish is to bring true and current information to you. 
+				Events that have been boosted will always be listed first in their category because that keeps the lights on. </p>
+				<div class="clear"> </div>
+			</div>
+			<div class="clear"></div>
+		</div>
         
+		<div class="clear"></div>
+		
         <div class="links">
 			<?PHP include './links.php'; ?>
         </div>

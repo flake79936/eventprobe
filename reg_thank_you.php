@@ -10,9 +10,9 @@
 		<!--(Start) Style Sheets-->
 			<!--(Start) Provided by JetDevLLC-->
 				<link rel="stylesheet" type="text/css" href="css/style.css" />
+				<link rel="stylesheet" type="text/css" href="css/header.css" />
 				<link rel="stylesheet" type="text/css" href="css/links.css" />
 				<link rel="stylesheet" type="text/css" href="css/footer.css" />
-				<link rel="stylesheet" type="text/css" href="css/search.css" />
 				<!--[if IE 6]>
 				<style type="text/css">img, div, { behavior: url("js/iepngfix.htc") }
 				</style>
@@ -22,8 +22,8 @@
 	</head>
 	
 	<body>
-		<div class="top">
-			<?PHP include './top.php';?>
+		<div class="header">
+			<?PHP include './header.php';?>
 		</div>
 		
 		<div id='fg_membersite' align="center">

@@ -1,0 +1,105 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100);
+
+.header{ /*border-bottom: 1px solid #595249;*/ }
+.header .profile{ background: #e9e4d5; /*border-bottom: 5px solid #aca58d;*/ }
+.header .profile .user{ float: left; width: 360px; /*height: 102px;*/ padding: 0px 0px 0px 10px; }
+.header .profile .user img{ float: left; }
+.header .profile .user a{ float: right; margin-top: 20px;}
+
+.header .logo{ float: left; width: 30%; text-align: left; padding:20px; }
+.header .logo{ background: #e9e4d5; width: 275px; float: left; text-align: left; /*border-right: 1px solid #595249;*/ }
+
+.header .date{ font-family: 'Raleway', sans-serif; font-size:18pt;  float: left; width: 350px; padding-top: 35px; }
+.header .date .box{ width: 275px; margin: 0 auto; }
+.header .date h1{ float: left; color: #2e3135; padding: 10px 30px 0 0; }
+.header .date .temp{ background: url(../images/bg_temperature.png) no-repeat right; float: left; width: 60px; height: 50px; padding: 10px 0 0 60px; font-size: 31px; color: #2e3135; }
+
+.header .profile{ float: right; width: 300px; padding-top: 35px; padding-right:35px; }
+.header .profile h2{ float: left; color: #554e45; padding: 50px 0 0 30px; }
+.header .profile h3{ float: left; color: #554e45; padding: 10px 0 0 10px; }
+.header .profile .username{ float: left; color: #554e45; padding: 10px 0 0 100px; }
+
+.header .profile .search{ float: left; height: 85px; border-left: solid 1px #595249; border-right: 1px solid #595249; padding: 35px 50px 0 50px; text-align: center; }
+.header .profile .search form{ border: 1px solid #595249; padding: 2px; }
+.header .profile .search input{ background: #d2c9ab; padding: 10px; border: none; float: left; color: #ff0000; font-size: 16px; outline: none; }
+.header .profile .search .btn-search{ padding: 0; }
+.header .search .image{ margin-top: 10px; }
+.header .search{ /*background: url(../images/bg_top.png) repeat-x bottom;*/  float:left; padding-top:30px; /*text-align:center;*/ width: 30%; }
+
+.header .search form .searchBar{
+	float:                 left;
+	width:                 370px;
+	border:                1px solid #999;
+	padding:               10px;
+	font-size:             15pt;
+	margin-bottom:         5px;
+	outline:               none;
+	-moz-border-radius:    6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius:  6px;
+	border-radius:         6px;
+}
+
+.header .search form .datePicker{
+	float:                 left;
+	width:                 146px;
+	border:                1px solid #999;
+	padding:               6px;
+	font-size:             10pt;
+	margin-bottom:         5px;
+	outline:               none;
+	-moz-border-radius:    6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius:  6px;
+	border-radius:         6px;
+}
+
+.header .search .box { margin: 0px 0px; float:left; }
+
+/*Responsive*/
+@media only screen and (max-width: 767px) {
+	.header .search { /*background: url(../images/bg_top.png) repeat-x bottom;*/  text-align: center; }
+	.header .search form input{ width: 280px; border: 1px solid #999; padding: 10px; font-size:15pt; margin-bottom: 5px; outline: none;
+		-moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;
+	}
+	.header .search .box { margin: 0px 500px; }
+}
+
+/*.header .profile .user h2{ float: left; color: #595249; padding: 25px 30px; }*/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	body{ margin: 0; padding: 0; }
+
+	.header{ border-bottom: 1px solid #595249; }
+	.header .logo{ width: auto; float: none; border: none; }
+	.header .profile .user{ width: auto; }
+	.header .profile .search{ border: none; padding: 35px 0 0 100px; }
+
+	.header .logo{ width: 300px; height: 120px; text-align: left; }
+	.header .date{ float: left; width: 450px; height: 85px; padding-top: 35px; }
+	.header .profile{ float: none; width: auto; padding: 20px; }
+}
+
+/* Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+@media only screen and (max-width: 767px) {	
+	body{ margin: 0; padding: 0; }
+
+	.header .logo{ width: auto; float: none; border: none; text-align: center; }
+	
+	.header .profile{ width: auto; padding: 20px; border-bottom: 5px solid #aca58d; text-align:center; }
+	.header .profile h2{ padding: 30px 0 0 20px; }
+	.header .profile .user{ float: none; width: auto; height: auto; padding: 15px 0 15px 15px; }
+	.header .profile .user h2{ padding: 30px 20px; }
+	.header .profile .search{ float: none; height: auto; border-left: none; padding: 30px;text-align:center; }
+	.header .profile .search .btn-search{ float: right; padding: 0; }
+
+	.header .date{ float: none; width: auto; height: auto; padding-top: 0; text-align: center; }
+	.header .date h1{ font-size: 24px; float: none; color: #2e3135; padding: 10px 0 20px 0; }
+	.header .date .box{ width: auto; margin: 0 auto; }
+	.header .date .temp{ float: none; margin: 0 auto; width: 80px; height: 50px; padding: 10px 0 0 40px; }
+}

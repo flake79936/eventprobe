@@ -21,7 +21,7 @@
 </ul>
 
 <div class="footer-logo">
-	<a href="./index2.php"><img src="images/footer-logoOrange.png" onmouseover="this.src='images/footer-logo.png'" onmouseout="this.src='images/footer-logoOrange.png'" alt="Logo" /></a>
+	<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a>
 </div>
 <div class="clear"></div>
 <br/>

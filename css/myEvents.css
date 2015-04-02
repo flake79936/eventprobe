@@ -11,7 +11,10 @@
 .my-events .box h3{ margin: 10px 0; }
 .my-events .box .profile{ float: left; margin-right: 0px; border: black solid 1px;}
 .my-events .box ul{ padding: 10px 0; }
-.my-events .box ul li{ display: inline-block; list-style: none; margin-right: 50px; font-weight: bold; }
+.my-events .box ul li{ display: inline-block; list-style: none; margin-right: 30px; font-weight: bold; }
+
+.my-events .box ul li .myEventForm{ display: inline-block; list-style: none; margin-right: 0px; font-weight: bold; }
+
 .my-events .event{ width: 40% !important; padding: 40px 0 0 0 !important; }
 .my-events .arrow{ float: right !important; width: 5% !important; padding: 65px 0 0 0 !important; }
 

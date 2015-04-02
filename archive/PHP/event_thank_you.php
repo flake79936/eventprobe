@@ -18,7 +18,7 @@
 		
 			<!--(Start) Provided by JetDevLLC-->
 				<link rel="stylesheet" type="text/css" href="css/style.css" />
-				<link rel="stylesheet" type="text/css" href="css/top.css" />
+				<link rel="stylesheet" type="text/css" href="css/header.css" />
 				<link rel="stylesheet" type="text/css" href="css/links.css" />
 				<link rel="stylesheet" type="text/css" href="css/footer.css" />
 				<!--[if IE 6]>
@@ -30,8 +30,8 @@
 	</head>
 	
 	<body>
-		<div class="top">
-			<?PHP include './top.php';?>
+		<div class="header">
+			<?PHP include './header.php';?>
 		</div>
 		
 		<div id='fg_membersite' align="center">

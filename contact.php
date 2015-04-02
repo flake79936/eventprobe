@@ -12,9 +12,9 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/top.css" />
-        <link rel="stylesheet" type="text/css" href="css/links.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css"  />
+        <link rel="stylesheet" type="text/css" href="css/header.css" />
+        <link rel="stylesheet" type="text/css" href="css/links.css"  />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
         <!--FAVICON-->
@@ -22,21 +22,28 @@
 	</head>
 	
 	<body lang="en">
-    	<div class="top">
-			<?PHP include './top.php';?>
-        </div>
-		
-        <div class="content">
-			<h4>Content to be provided by LLC</h4>
-			<div class="clear"> </div>
-        </div>
-        
-        <div class="links">
-			<?PHP include './links.php'; ?>
-        </div>
-        
-        <div class="footer">
-			<?PHP include './footer.php'; ?>
+		<div class="wrap">
+			<div class="header">
+				<?PHP include './header.php';?>
+			</div>
+			
+			<div class="content">
+				<div class="con-wrap">
+					<h4>Content to be provided by LLC</h4>
+					<div class="clear"> </div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div class="links">
+				<?PHP include './links.php'; ?>
+			</div>
+			
+			<div class="footer">
+				<?PHP include './footer.php'; ?>
+			</div>
         </div>
 	</body>	
 </html>
