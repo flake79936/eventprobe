@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<body>
+	<body  lang="en">
 		<p>Click the button to get your coordinates.</p>
 		<button onclick="getLocation()">Try It</button>
 		<p id="demo" value=""></p>

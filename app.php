@@ -18,6 +18,7 @@
 		<div class="clear"></div>
 	</div>
 </div>
+
 <div class="right">
 	<div class="advertisement">
 		<a href="http://www.rudolphchevrolet.com/" target="_blank"><img src="images/advertisement_01.jpg" alt="Banner"/></a>

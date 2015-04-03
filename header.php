@@ -12,11 +12,6 @@
 	$usrname = $fgmembersite->UsrName();
 ?>
 
-<head>
-	<meta charset='utf-8'>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-</head>
-
 <div class="logo">
 	<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a>
 </div>
@@ -33,8 +28,7 @@
 	</form>
 </div>
 
-<div class="date">
-<!-- 
+<!-- <div class="date">
 	<div class="box">
 		<h1>
 			<script type="text/javascript">
@@ -83,15 +77,14 @@
 		<div class="clear"></div>
 		
 	</div>
- -->
-</div>
+</div>-->
 
 <div class="profile">
 	<div class="user"> </div>
  
 	<a href="./eventCreation.php">
 		<img src="./images/btn_event2.png">
-	</a>&nbsp;
+	</a>
 	
 	<?PHP if(!$bool){ ?>
 		<a href="./loginB.php">

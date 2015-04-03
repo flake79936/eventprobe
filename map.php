@@ -39,7 +39,7 @@
 		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/map.css" />
 	</head> 
-	<body>
+	<body  lang="en">
 		<div id="map" class="map"></div>
 		<script type="text/javascript" language= "php">
 			// Define your locations: HTML content for the info window, latitude, longitude

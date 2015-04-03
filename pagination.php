@@ -149,7 +149,7 @@
 		</style>
 	</head>
 	
-	<body>
+	<body  lang="en">
 		<?php
 			$page = (int)(!isset($_GET["page"]) ? 1 : $_GET["page"]);
 			if ($page <= 0) $page = 1; //DEFAULT PAGE # 1

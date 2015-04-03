@@ -14,7 +14,7 @@
 	</script>
 </head>
 
-<body>
+<body  lang="en">
 	<?php
 		require_once("./include/membersite_config.php");
 		include 'dbconnect.php';

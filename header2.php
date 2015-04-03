@@ -94,7 +94,6 @@
 		<img src="./images/btn_event2.png">
 	</a>&nbsp;
 	
-
 	<div class="clear"></div>
 </div>
 <div class="clear"></div>

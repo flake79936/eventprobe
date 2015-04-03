@@ -1,15 +1,16 @@
 <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		<meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=.9, user-scalable=0"/>
+		
 		<title>Eventprobe - Policy</title>
 
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+		<!-- Adding "maximum-scale=.9" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -24,10 +25,6 @@
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
-		
-		<!--Other Scripts-->
-        <script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
-		<script src="scripts/pwdwidget.js" type="text/javascript"></script>
 	</head>
 	
 	<body lang="en">

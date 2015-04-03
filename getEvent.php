@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/getEvent.css" />
 </head>
 
-<body>
+<body  lang="en">
 <?php
 	//$q = intval($_GET['q']);
 
@@ -57,26 +57,27 @@
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
 // 				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
-echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "&nbsp;&nbsp;&nbsp;".$formattedDate."&nbsp;&nbsp;&nbsp;".ucfirst($row['Ecity'])."&nbsp;&nbsp;&nbsp;".strtoupper($row['Estate'])." </div>";
-				echo "				<div class='box'>" . $row['Evename'] . "</div>";
+				echo "				<div class='etime'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . " </div>";
+				echo "				<div class='ecity'>" . ucfirst($row['Ecity']).", ".strtoupper($row['Estate'])." </div>";
+				echo "				<div class='ename'>" . $row['Evename'] . "</div>";
 				if ($row['Efacebook'])
 				{
-				echo "				<div class='box'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'
+				echo "				<div class='FB'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'
 									 > </div>";
 				}
 				if ($row['Etwitter'])
 				{
-				echo "				<div class='box'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'  > <img src='images/btn_twitter.png'> </a></div>";
+				echo "				<div class='TW'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'  > <img src='images/btn_twitter.png'> </a></div>";
 				}
 				if ($row['Egoogle'])
 				{
-				echo "				<div class='box'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/btn_google.png'> </a></div>";
+				echo "				<div class='Goo'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/btn_google.png'> </a></div>";
 				}
 				 if ($row['Ehashtag'])
 				{
-				echo "				<div class='box'>" . $row['Ehashtag'] . "</div>";
+				echo "				<div class='Hashtag'>" . $row['Ehashtag'] . "</div>";
 				}
-				echo "				<div class='box'>More Info</div>";
+				//echo "				<div class='more'>More Info</div>";
 
 				echo "			</div>";
 				echo "		<div class='clear'></div>";
