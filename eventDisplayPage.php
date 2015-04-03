@@ -182,7 +182,7 @@
 											<div class="eFacebook">
 												<?PHP if($row['Efacebook'] !== ""){ ?>
 													<a href="<?= $row['Efacebook'] ?>" target="_blank">
-														<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
+														<img src="images/btn_fb2.png" onMouseOver="this.src='images/btn_fbColor2.png'" onMouseOut="this.src='images/btn_fb2.png'" alt="Facebook" />
 													</a>
 												<?PHP } ?>
 											</div>
@@ -190,7 +190,7 @@
 											<div class="eTwitter">
 												<?PHP if ($row['Etwitter'] !== ""){ ?>
 													<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
-														<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
+														<img src="images/btn_twitter2.png" onMouseOver="this.src='images/btn_twitterColor2.png'" onMouseOut="this.src='images/btn_twitter2.png'" alt="Twitter" />
 													</a>
 												<?PHP } ?>
 											</div>
@@ -198,7 +198,7 @@
 											<div class="eGoogle">
 												<?PHP if ($row['Egoogle'] !== ""){ ?>
 													<a href="<?= $row['Egoogle'] ?>" target="_blank">
-														<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
+														<img src="images/btn_google2.png" onMouseOver="this.src='images/btn_googleColor2.png'" onMouseOut="this.src='images/btn_google2.png'" alt="Google" />
 													</a>
 												<?PHP } ?>
 											</div>
