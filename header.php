@@ -25,10 +25,10 @@
 	<form>
 		<input class="searchBar" type="text" onKeyUp="showHint(this.value);" placeholder="Search for Event, City, State, Zip Code">
 		<input class="datePicker" type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">&nbsp;&nbsp;
-		<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports40.png"/></a> | 
-		<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music.png"/></a> | 
-		<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair35.png"/></a> | 
-		<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art35.png"/></a>
+		<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports2.png"/></a> | 
+		<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music2.png"/></a> | 
+		<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair2.png"/></a> | 
+		<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art2.png"/></a>
 		<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
 	</form>
 </div>
