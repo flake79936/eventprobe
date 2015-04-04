@@ -118,7 +118,7 @@ $test=grabCurrentURL();
 		<a href="./loginB.php">
 			<img src="./images/btn_login.png">
 		</a>
-	<?PHP } else if ($bool && !$pos !== true){ ?>
+	<?PHP } else if (!$pos !== false){ ?>
 		<a href="./logout.php">
 			<img src="./images/btn_logout.png">
 		</a>
