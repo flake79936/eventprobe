@@ -41,7 +41,6 @@ p{ line-height: normal; }
 ::-moz-selection 	{background: rgb(255,255,158);}
 img::selection 		{background: transparent;}
 img::-moz-selection	{background: transparent;}
-body {-webkit-tap-highlight-color: rgb(255,255,158);}
 
 /*		Default Layout: 992px. 
 		Gutters: 24px.
@@ -51,12 +50,14 @@ body {-webkit-tap-highlight-color: rgb(255,255,158);}
 cols    1     2      3      4      5      6      7      8      9      10
 px      68    160    252    344    436    528    620    712    804    896    */
 
-/*body{
+body{
+	
 	background: #e9e4d5;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes
-}*/
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes*/
+	-webkit-tap-highlight-color: rgb(255,255,158);
+}
 
 .main{ background: #FFFFFF; }
 .main .content{ float: left; width: auto; /*background: url(../images/bg_shadow.png) repeat-y left #fff;*/ padding: 50px;  }

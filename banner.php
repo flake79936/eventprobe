@@ -1,8 +1,6 @@
 <!--Module-->
 
-<?PHP
-	require_once("./include/membersite_config.php");
-?>
+<?PHP require_once("./include/membersite_config.php"); ?>
 
 <link type="text/css" href="./css/jquery.bbslider.css" rel="stylesheet" media="screen" />
 

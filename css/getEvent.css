@@ -18,6 +18,16 @@
 .events .box .row .info{ background: #e9e4d6; width: 91%; height: 95px; float: left; cursor: pointer; }
 .events .box .row .info:hover{ color: #e9e4d6; cursor: pointer; }
 
+/*.events .box .row .info .etime{ float: left; width: 50%; padding: 5px 0 0 0; /*text-align: center; color: #323438; }*/
+.events .box .row .info .etime{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
+.events .box .row .info .ecity{ /*float: left;*/ width: 40%; padding: 20px 0 0 0; /*text-align: center;*/ color: #323438; }
+.events .box .row .info .ename{ /*float: left;*/ width: 60%; padding: 5px 0 0 0; /*text-align: center;*/ color: #323438; }
+.events .box .row .info .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+.events .box .row .info .TW{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+.events .box .row .info .Goo{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+.events .box .row .info .Hashtag{ float: left; width: 46%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+.events .box .row .info .more{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
+
 .events .box .row .info.active{ background: #f05a28; }
 .events .box .row .info.active .box{ color: #fff; }
 .events .box .row .info .box{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
@@ -34,7 +44,7 @@
 -----------------------------------------------------------------
 cols    1     2      3      4      5      6      7      8
 px      68    160    252    344    436    528    620    712    */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
 	.events .box{ float: none; width: auto; }
 	.events .box .row .info .box{ font-size: 13px; }
 	.events .advertisement{ width: auto; float: none; }
@@ -48,7 +58,7 @@ px      68    160    252    344    436    528    620    712    */
 ---------------------------------------------
 cols    1     2      3
 px      68    160    252    */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-device-width: 767px) {
 	.events .box{ float: none; width: auto; }
 	.events .box .title{ padding: 15px; }
 	.events .box .title h1{ font-size: 24px; }
@@ -84,7 +94,7 @@ px      68    160    252    */
 	.events .box .row .info.active .box{ color: #fff; }
 	.events .box .row .info .box{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
 	
-	.events .box .row .info .etime{ float: left; width: 45%; padding: 5px 0 0 0; /*text-align: center;*/ color: #323438; }
+	.events .box .row .info .etime{ float: left; width: 50%; padding: 5px 0 0 0; /*text-align: center;*/ color: #323438; }
 	.events .box .row .info .ecity{ /*float: left;*/ width: 40%; padding: 20px 0 0 0; /*text-align: center;*/ color: #323438; }
 	.events .box .row .info .ename{ /*float: left;*/ width: 60%; padding: 5px 0 0 0; /*text-align: center;*/ color: #323438; }
 	.events .box .row .info .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }

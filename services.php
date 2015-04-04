@@ -3,13 +3,13 @@
 <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		<meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=.9, user-scalable=0"/>
 		<title>Eventprobe - Services</title>
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
-		<meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=.9, user-scalable=0"/>
 		<!-- Adding "maximum-scale=.9" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->

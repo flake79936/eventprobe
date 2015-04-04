@@ -1,10 +1,3 @@
-/*body{
-	background: #e9e4d5;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes 
-}*/
-
 .form-wrap{ background: #FFF; }
 .form-wrap .login{ text-align: center; padding: 25px 0px 25px 0px; }
 .form-wrap .login .textbox .buttonInput{ width: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }

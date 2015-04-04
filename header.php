@@ -80,7 +80,7 @@
 </div>-->
 
 <div class="profile">
-	<div class="user"> </div>
+	<!--<div class="user"></div>-->
  
 	<a href="./eventCreation.php">
 		<img src="./images/btn_event2.png">

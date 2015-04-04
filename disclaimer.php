@@ -5,7 +5,6 @@
 		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=.9, user-scalable=0"/>
 		
-		
 		<title>Eventprobe - Disclaimer</title>
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

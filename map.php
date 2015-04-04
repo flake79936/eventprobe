@@ -32,8 +32,10 @@
 ?>
 
 <!DOCTYPE html>
-<head> 
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+<html>
+	<head> 
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		<meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=.9, user-scalable=0"/>
 		<title>Google Maps Multiple Markers</title> 
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
