@@ -77,7 +77,7 @@
 
 	<body lang="en">
 		<div class="header">
-			<?PHP include './header2.php'; ?>
+			<?PHP include './header.php'; ?>
 		</div>
 		
 		<?PHP if (!$fgmembersite->CheckSession()){ ?>

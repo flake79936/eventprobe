@@ -7,7 +7,34 @@
 			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
+	function grabCurrentURL(){
+	if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+		$url = "https://";
+	}else{
+		$url = "http://";
+	}
+	$url .= $_SERVER['SERVER_NAME'];
+	if($_SERVER['SERVER_PORT'] != 80){
+		$url .= ":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+	}else{
+		$url .= $_SERVER["REQUEST_URI"];	
+	}
+	return $url;
+}
+$test=grabCurrentURL();
+ 
+	 $mystring = (string)$test;
 	
+	$findme   = 'loginB.php';
+	$pos = strpos($test, $findme);
+	
+	$findme2 = 'eventCreation.php';
+	$pos2 = strpos($test, $findme2);
+	
+// if(!$pos !== true){
+// echo "test";
+// }
+
 	$bool = $fgmembersite->CheckSession();
 	$usrname = $fgmembersite->UsrName();
 ?>
@@ -81,16 +108,17 @@
 
 <div class="profile">
 	<!--<div class="user"></div>-->
- 
+ 	<?PHP if(!$pos2 !== false){ ?>
 	<a href="./eventCreation.php">
 		<img src="./images/btn_event2.png">
 	</a>
-	
-	<?PHP if(!$bool){ ?>
+	<?PHP }?> 
+	 
+	<?PHP if(!$bool && !$pos !== false){ ?>
 		<a href="./loginB.php">
 			<img src="./images/btn_login.png">
 		</a>
-	<?PHP } else { ?>
+	<?PHP } else if ($bool && !$pos !== true){ ?>
 		<a href="./logout.php">
 			<img src="./images/btn_logout.png">
 		</a>
