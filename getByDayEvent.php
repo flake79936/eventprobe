@@ -159,30 +159,36 @@
 				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
-				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "&nbsp;&nbsp;&nbsp;".$formattedDate."&nbsp;&nbsp;&nbsp;".ucfirst($row['Ecity'])."&nbsp;&nbsp;&nbsp;".strtoupper($row['Estate'])." </div>";
-				echo "				<div class='box'>" . $row['Evename'] . "</div>";
+				//echo "				<div class='left'>";
+				//echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "&nbsp;&nbsp;&nbsp;".$formattedDate."&nbsp;&nbsp;&nbsp;".ucfirst($row['Ecity'])."&nbsp;&nbsp;&nbsp;".strtoupper($row['Estate'])." </div>";
+				echo "					<div class='etime'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . " </div>";
+				echo "					<div class='ecity'>" . ucfirst($row['Ecity']).", ".strtoupper($row['Estate'])." </div>";
+				echo "					<div class='ename'>" . $row['Evename'] . "</div>";
 				if ($row['Efacebook']){
-				echo "				<div class='box'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'> </a></div>";
+				echo "					<div class='FB'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'> </a></div>";
 				}				
 				if ($row['Etwitter']){
-				echo "				<div class='box'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'  > <img src='images/btn_twitter.png'> </a></div>";
+				echo "					<div class='TW'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'  > <img src='images/btn_twitter.png'> </a></div>";
 				}
 				if ($row['Egoogle']){
-				echo "				<div class='box'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/btn_google.png'> </a></div>";
+				echo "					<div class='Goo'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/btn_google.png'> </a></div>";
 				}
 				if ($row['Ehashtag']){
-				echo "				<div class='box'><a href=https://instagram.com/" . $row['Ehashtag'] . " target='_blank'  > <img src='images/icon_instagram2.png'> </a></div>";
+				echo "					<div class='Hashtag'><a href=https://instagram.com/" . $row['Ehashtag'] . " target='_blank'  > <img src='images/icon_instagram2.png'> </a></div>";
 				}
-				echo "				<div class='box'><a onClick='seeMoreInfo(".$row['Eid'].");'>More Info</div>";
+				//echo "				<div class='box'><a onClick='seeMoreInfo(".$row['Eid'].");'>More Info</div>";
+				//echo "				</div>";
+				//echo "				<div class='right'>";
 				if($bool){
-				echo "				<div class='box'><a onClick='addToUserTable(".$row['Eid'].");'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
+				echo "					<div class='addButton'><a onClick='addToUserTable(".$row['Eid'].");'><img src='images/btn_cross.png' alt='Icon' /></a></div>";
 				}
+				//echo "				</div>";
 				echo "			</div>";
 				echo "		<div class='clear'></div>";
 				echo "	</a></div>";
 				echo "</div>";
 				
-				echo pagination($statement, $per_paging, $paging, 'http://eventprobe.com/index2.php?');
+				//echo pagination($statement, $per_paging, $paging, 'http://eventprobe.com/index2.php?');
 			}
 			mysqli_close($con);
 		?>

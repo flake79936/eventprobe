@@ -32,3 +32,23 @@ px      68    160    252    */
 		text-align:   center;
 	}
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px){
+	.footer{ background: #f4f1ea; padding: 0px 4% 40px 4%; }
+	
+	/*.footer .social{ float: left; padding-top: 30px; }*/
+	.footer .social li{ list-style: none; display: inline-block; }
+	.footer .social .FB a img, 
+	.footer .social .TW a img, 
+	.footer .social .Goo a img{ width: 100%; height: auto; }
+	
+	.footer .footer-logo{ float: right; }
+
+	.footer p.copyright {
+		float:        left;
+		padding:      0px;
+		width:        230px;
+		border-right: #e6e6e6 1px solid;
+		text-align:   center;
+	}
+}

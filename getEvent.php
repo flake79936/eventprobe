@@ -60,21 +60,16 @@
 				echo "				<div class='etime'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . " </div>";
 				echo "				<div class='ecity'>" . ucfirst($row['Ecity']).", ".strtoupper($row['Estate'])." </div>";
 				echo "				<div class='ename'>" . $row['Evename'] . "</div>";
-				if ($row['Efacebook'])
-				{
-				echo "				<div class='FB'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'
-									 > </div>";
+				if ($row['Efacebook']){
+				echo "				<div class='FB'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'> </div>";
 				}
-				if ($row['Etwitter'])
-				{
-				echo "				<div class='TW'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'  > <img src='images/btn_twitter.png'> </a></div>";
+				if ($row['Etwitter']){
+				echo "				<div class='TW'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'> <img src='images/icon_twitter.png'> </a></div>";
 				}
-				if ($row['Egoogle'])
-				{
-				echo "				<div class='Goo'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/btn_google.png'> </a></div>";
+				if ($row['Egoogle']){
+				echo "				<div class='Goo'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/icon_google.png'> </a></div>";
 				}
-				 if ($row['Ehashtag'])
-				{
+				if ($row['Ehashtag']){
 				echo "				<div class='Hashtag'>" . $row['Ehashtag'] . "</div>";
 				}
 				//echo "				<div class='more'>More Info</div>";
