@@ -16,7 +16,7 @@
 		<!-- Adding "maximum-scale=.9" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="css/container.css"  />
+        <link rel="stylesheet" type="text/css" href="css/style.css"  />
         <link rel="stylesheet" type="text/css" href="css/header.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css"  />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
@@ -31,7 +31,7 @@
 				<?PHP include './header.php';?>
 			</div>
 			
-			<div class="container">
+			<div class="content">
 				<div class="container">
 					<h1><b>Eventprobe</b> Use Policy and Release</h1>
 					<div class="para">

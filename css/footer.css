@@ -42,7 +42,7 @@ px      68    160    252    */
 	.footer .social .TW a img, 
 	.footer .social .Goo a img{ width: 100%; height: auto; }
 	
-	.footer .footer-logo{ float: none; text-align: center; }
+	.footer .footer-logo{ float: right; }
 
 	.footer p.copyright {
 		float:        left;

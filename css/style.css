@@ -5,6 +5,7 @@
 	License: http://opensource.org/licenses/mit-license.php
 */
 
+@import url(meyer_reset.css);
 /* TYPOGRAPHY */
 h1{ font-size: 26px; font-weight: normal; }
 h2{ font-size: 24px; font-weight: normal; }
@@ -31,6 +32,7 @@ img::-moz-selection	{background: transparent;}
 cols    1     2      3      4      5      6      7      8      9      10
 px      68    160    252    344    436    528    620    712    804    896    */
 body{
+	
 	background: #e9e4d5;
 	font-family: Arial, Helvetica, sans-serif;
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
@@ -49,41 +51,12 @@ px      68    160    252    344    436    */
 }
 
 .content { background: #e9e4d5; float: right; width: 100%; margin: 0 0 0 40px; border-top: 1px solid #f3eddd; }
-.content .con-wrap{ background: #e9e4d5; float: left; width: 56%; margin: 0 0 0 300px; border-top: 1px solid #f3eddd; }
+.content .con-wrap{ background: #e9e4d5; float: left; width: 56%; margin: 0 0 0 300px; border-top: 1px solid #f3eddd;}
 .content .container{ background: #e9e4d5; float: left; width: 91%; margin: 0 0 0 100px; }
 .content .container .para{ text-align:justify; float: left; width: 86%; margin: 10px 0 10px 0; }
 .content .container .bullets{ text-align:justify; float: left; width: 86%; margin: 0 0 0 0px; }
-.content p { text-align:justify; float: left; width: 450px; word-wrap: break-word; margin: 25px 0 20px 0; }
+.content p { text-align:justify; float: left; width: 450px; word-wrap: break-word; margin: 25px 0 20px 0 }
 .content img { float: left; margin: 25px 0 20px 0 }
 
 /* http://sonspring.com/journal/clearing-floats */
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px){
-	h1{ font-size: 26px; font-weight: normal; }
-	h2{ font-size: 24px; font-weight: normal; }
-	h3{ font-size: 18px; font-weight: normal; }
-	h4{ font-size: 14px; font-weight: normal; }
-	h5{ font-size: 12px; font-weight: normal; }
-	h6{ font-size: 11px; font-weight: normal; }
-
-	p{ line-height: normal; }
-
-	/* Selection colours (easy to forget) */
-	::selection                  { background: rgb(255,255,158); }
-	::-moz-selection 	{ background: rgb(255,255,158); }
-	img::selection 		{ background: transparent; }
-	img::-moz-selection	{ background: transparent; }
-
-	.logo{ float:left; }
-
-	.content { background: #e9e4d5; float: left; width: 100%; border-top: 1px solid #f3eddd; margin: 0 0 0 0; text-align: center; }
-	.content .con-wrap{ background: #e9e4d5; float: left; width: 100%; margin: 0 0 0 0; border-top: 1px solid #f3eddd;}
-	.content .con-wrap img { float: left; width: 80%; height: auto; margin: 25px; }
-	.content .container{ background: #e9e4d5; float: left; width: 91%; margin: 0 0 0 100px; }
-	
-	.content .container .para{ text-align:justify; float: left; width: 100%; margin: 10px 0 10px 0; }
-	.content .container .bullets{ text-align:justify; float: left; width: 86%; margin: 0 0 0 0px; }
-	
-	.content p { text-align: justify; float: none; width: 100%; word-wrap: break-word; margin: 0 0 0 0; }
-}
