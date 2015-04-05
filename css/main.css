@@ -4,8 +4,7 @@
 	License: http://opensource.org/licenses/mit-license.php	*/
 
 
-/*	Resets
-	------	*/
+/*	Resets ------	*/
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
 p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
@@ -52,14 +51,13 @@ img::-moz-selection	{background: transparent;}
 -------------------------------------------------------------------------------
 cols    1     2      3      4      5      6      7      8      9      10
 px      68    160    252    344    436    528    620    712    804    896    */
-
 body{
-	
 	background: #e9e4d5;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 	-webkit-tap-highlight-color: rgb(255,255,158);
+	margin: 0; padding: 0;
 }
 
 .main{ background: #f4f1ea; }
@@ -147,9 +145,7 @@ body{
 -----------------------------------------------------------------
 cols    1     2      3      4      5      6      7      8
 px      68    160    252    344    436    528    620    712    */
-@media only screen and (min-width: 768px) and (max-width: 991px) {	
-	body{ margin: 0; padding: 0; }
-
+@media only screen and (min-width: 768px) and (max-width: 991px){
 	.main .sidebar{ float: none; width: auto; padding: 50px; }
 	.main .content{ float: none; width: auto; background: #fff; padding: 50px; box-shadow: 0 2px 4px #555; }
 
@@ -175,9 +171,7 @@ px      68    160    252    344    436    528    620    712    */
 ---------------------------------------------
 cols    1     2      3
 px      68    160    252    */
-@media only screen and (max-width: 767px) {
-	body{ margin: 0; padding: 0; }
-
+@media only screen and (max-width: 767px){
 	.main .sidebar{ float: none; width: auto; padding: 15px 15px 40px 15px; }
 	.main .sidebar .btn-event img{ width: 100%; padding: 0; }
 
@@ -224,8 +218,7 @@ px      68    160    252    */
 ------------------------------------------------------------
 cols    1     2      3      4      5
 px      68    160    252    344    436    */
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-	body{ margin: 0; padding: 0; }
+@media only screen and (min-width: 480px) and (max-width: 767px){
 	.main .content .dashboard .user-menu .name .info .box{ padding-left: 60px; }
 }
 
@@ -235,7 +228,9 @@ px      68    160    252    344    436    */
 	.main .content{ float: none; width: auto; background: #fff; padding: 0 20px 10px; box-shadow: 0 2px 4px #555; }
 }
 
-
-
 /* http://sonspring.com/journal/clearing-floats */
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+
+}
