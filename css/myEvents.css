@@ -11,14 +11,26 @@
 .my-events .event{ width: 40% !important; padding: 40px 0 0 0 !important; }
 .my-events .arrow{ float: right !important; width: 5% !important; padding: 65px 0 0 0 !important; }
 
-/*		Tablet Layout: 768px.
-		Gutters: 24px.
-		Outer margins: 28px.
-		Inherits styles from: Default Layout.
------------------------------------------------------------------
-cols    1     2      3      4      5      6      7      8
-px      68    160    252    344    436    528    620    712    */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
+ * Google Nexus 7 2											-> 960 x 600
+ * 															-------------
+ * Google Nexus 7											-> 966 x 604
+ * 															-------------
+ * Amazon Kindle Fire (First Generation)					-> 1024 x 600
+ * BlackBerry PlayBook										-> 1024 x 600
+ * Samsung Galaxy Tab										-> 1024 x 600
+ * Apple iPad 1/ 2/ iPad Mini								-> 1024 x 768
+ * Apple iPad 3/ 4											-> 1024 x 768
+ * 															-------------
+ * Google Nexus 10											-> 1280 x 800
+ * Motorola Xoom, Xyboard									-> 1280 x 800
+ * Samsung Galaxy Tab 7.7, 8.9, 10.1						-> 1280 x 800
+ * 															-------------
+ * Amazon Kindle Fire HDX 7"								-> 1920 x 1200
+ * 															-------------
+ * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
+ */
+@media only screen and (min-width: 960px) and (max-width: 2560px) {
 	.my-events{ padding: 10px 0; }
 	.my-events .box{ width: 370px; height: auto; padding: 20px 0; margin: 0 auto;     }
 	.my-events .box h1{ text-align: center; }
@@ -27,6 +39,19 @@ px      68    160    252    344    436    528    620    712    */
 	.my-events .box ul li{ margin-right: 0; }
 	.my-events .event{ width: 375px !important; padding: 0 0 20px 0 !important; margin: 0 auto; }
 	.my-events .arrow{ width: 355px !important; padding: 30px 20px 0 0 !important; text-align: right; }
+	
+	.my-events{ border-top: 1px solid #f3eddd; }
+	.my-events .box{ float: left; width: 25%; padding: 30px 0; color: #2e3135; }
+	.my-events .box h1{ text-align: center; margin-top: 50px; }
+	.my-events .box h3{ margin: 10px 0; }
+	.my-events .box .profile{ float: left; margin-right: 0px; border: black solid 1px;}
+	.my-events .box ul{ padding: 10px 0; }
+	.my-events .box ul li{ display: inline-block; list-style: none; margin-right: 30px; font-weight: bold; }
+
+	.my-events .box ul li .myEventForm{ display: inline-block; list-style: none; margin-right: 0px; font-weight: bold; }
+
+	.my-events .event{ width: 40% !important; padding: 40px 0 0 0 !important; }
+	.my-events .arrow{ float: right !important; width: 5% !important; padding: 65px 0 0 0 !important; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):

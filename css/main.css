@@ -137,14 +137,26 @@ body{
 
 .main .content .dashboard .submitButton{ float: right; }
 
-/*		Tablet Layout: 768px.
-		Gutters: 24px.
-		Outer margins: 28px.
-		Inherits styles from: Default Layout.
------------------------------------------------------------------
-cols    1     2      3      4      5      6      7      8
-px      68    160    252    344    436    528    620    712    */
-@media only screen and (min-width: 768px) and (max-width: 991px){
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
+ * Google Nexus 7 2											-> 960 x 600
+ * 															-------------
+ * Google Nexus 7											-> 966 x 604
+ * 															-------------
+ * Amazon Kindle Fire (First Generation)					-> 1024 x 600
+ * BlackBerry PlayBook										-> 1024 x 600
+ * Samsung Galaxy Tab										-> 1024 x 600
+ * Apple iPad 1/ 2/ iPad Mini								-> 1024 x 768
+ * Apple iPad 3/ 4											-> 1024 x 768
+ * 															-------------
+ * Google Nexus 10											-> 1280 x 800
+ * Motorola Xoom, Xyboard									-> 1280 x 800
+ * Samsung Galaxy Tab 7.7, 8.9, 10.1						-> 1280 x 800
+ * 															-------------
+ * Amazon Kindle Fire HDX 7"								-> 1920 x 1200
+ * 															-------------
+ * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
+ */
+@media only screen and (min-width: 960px) and (max-width: 2560px){
 	.main .sidebar{ float: none; width: auto; padding: 50px; }
 	.main .content{ float: none; width: auto; background: #fff; padding: 50px; box-shadow: 0 2px 4px #555; }
 

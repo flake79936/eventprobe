@@ -68,7 +68,6 @@
 	</div>
 	
 	<div class="row">
-		<div class="cell">&nbsp;</div>
 		<?PHP
 			for($ai = 0; $ai <= 6; $ai++){
 				$date = strtotime("+$ai day", strtotime(date("m/d/Y"))); //increments by 1

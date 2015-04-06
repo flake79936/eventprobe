@@ -43,6 +43,29 @@ body{
 
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
+ * Google Nexus 7 2											-> 960 x 600
+ * 															-------------
+ * Google Nexus 7											-> 966 x 604
+ * 															-------------
+ * Amazon Kindle Fire (First Generation)					-> 1024 x 600
+ * BlackBerry PlayBook										-> 1024 x 600
+ * Samsung Galaxy Tab										-> 1024 x 600
+ * Apple iPad 1/ 2/ iPad Mini								-> 1024 x 768
+ * Apple iPad 3/ 4											-> 1024 x 768
+ * 															-------------
+ * Google Nexus 10											-> 1280 x 800
+ * Motorola Xoom, Xyboard									-> 1280 x 800
+ * Samsung Galaxy Tab 7.7, 8.9, 10.1						-> 1280 x 800
+ * 															-------------
+ * Amazon Kindle Fire HDX 7"								-> 1920 x 1200
+ * 															-------------
+ * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
+ */
+@media only screen and (min-width: 960px) and (max-width: 2560px) {
+	
+}
+
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
  * Apple iPhone 3GS												-> 320 x 480
  * Apple iPhone 4												-> 320 x 480
@@ -85,20 +108,12 @@ body{
  * Motorola Droid Razr HD										-> 720 x 1280
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
-	h1{ font-size: 24px; font-weight: normal; }
-	h2{ font-size: 24px; font-weight: normal; }
-	h3{ font-size: 18px; font-weight: normal; }
-	h4{ font-size: 14px; font-weight: normal; }
-	h5{ font-size: 12px; font-weight: normal; }
-	h6{ font-size: 11px; font-weight: normal; }
-
-	p{ line-height: normal; }
-
-	/* Selection colours (easy to forget) */
-	::selection                  { background: rgb(255,255,158); }
-	::-moz-selection 	{ background: rgb(255,255,158); }
-	img::selection 		{ background: transparent; }
-	img::-moz-selection	{ background: transparent; }
+	.content h1{ font-size: 24px; font-weight: normal; }
+	.content h2{ font-size: 24px; font-weight: normal; }
+	.content h3{ font-size: 18px; font-weight: normal; }
+	.content h4{ font-size: 14px; font-weight: normal; }
+	.content h5{ font-size: 12px; font-weight: normal; }
+	.content h6{ font-size: 11px; font-weight: normal; }
 
 	.content { background: #e9e4d5; float: left; width: 100%; border-top: 1px solid #f3eddd; margin: 0 0 0 0; text-align: center; }
 	.content .con-wrap{ background: #e9e4d5; float: left; width: 100%; margin: 0 0 0 0; border-top: 1px solid #f3eddd;}
@@ -108,7 +123,7 @@ body{
 	.content .container .para{ text-align:justify; float: left; width: 92%; padding: 10px; margin: 0px; font-size: large; }
 	.content .container .bullets{ text-align:justify; float: left; width: 87%; margin: 0 0 10px 27px; font-size: large; }
 	
-	.content p { text-align: justify; float: none; width: 100%; word-wrap: break-word; margin: 0 0 0 0; }
+	.content p { text-align: justify; float: none; width: 100%; word-wrap: break-word; margin: 0 0 0 0; line-height: normal; }
 	
 	.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 }
