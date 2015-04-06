@@ -46,12 +46,14 @@ $test=grabCurrentURL();
 <div class="search">
 	<form>
 		<input class="searchBar" type="text" onKeyUp="showHint(this.value);" placeholder="Search for Event, City, State, Zip Code">
-		<input class="datePicker" type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">&nbsp;&nbsp;
-		<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/sports2.png"/></a> | 
-		<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/music2.png"/></a> | 
-		<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/fair2.png"/></a> | 
-		<a id="art" onClick="showHint('art');"><img alt="art" src="./images/art2.png"/></a>
-		<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
+		<input class="datePicker" type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
+		<div class="search-icons">
+			<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/icon_marathon.png"/></a> | 
+			<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/icon_concert.png"/></a> | 
+			<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/icon_festival.png"/></a> | 
+			<a id="art" onClick="showHint('art');"><img alt="art" src="./images/icon_artEvent.png"/></a>
+			<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
+		</div>
 	</form>
 </div>
 
@@ -110,7 +112,7 @@ $test=grabCurrentURL();
 	<!--<div class="user"></div>-->
  	<?PHP if(!$pos2 !== false){ ?>
 	<a href="./eventCreation.php">
-		<img src="./images/btn_event2.png">
+		<img src="./images/btn_crtevent.png">
 	</a>
 	<?PHP }?> 
 	 

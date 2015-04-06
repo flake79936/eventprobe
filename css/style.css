@@ -1,9 +1,11 @@
 /*
-	Less Framework 4
-	http://lessframework.com
-	by Joni Korpi
-	License: http://opensource.org/licenses/mit-license.php
-*/
+ * Less Framework 4
+ * http://lessframework.com
+ * by Joni Korpi
+ * License: http://opensource.org/licenses/mit-license.php
+ * Modifier: Eduardo Corral
+ * Date: April 5, 2015
+ */
 
 @import url(meyer_reset.css);
 
@@ -18,36 +20,17 @@ h6{ font-size: 11px; font-weight: normal; }
 p{ line-height: normal; }
 
 /* Selection colours (easy to forget) */
-::selection                  {background: rgb(255,255,158);}
-::-moz-selection 	{background: rgb(255,255,158);}
-img::selection 		{background: transparent;}
-img::-moz-selection	{background: transparent;}
+::selection                  { background: rgb(255,255,158); }
+::-moz-selection 	{ background: rgb(255,255,158); }
+img::selection 		{ background: transparent; }
+img::-moz-selection	{ background: transparent; }
 
-.logo{ float:left; }
-
-/*	Default Layout: 992px. 
-	Gutters: 24px.
-	Outer margins: 48px.
-	Leftover space for scrollbars @1024px: 32px.
--------------------------------------------------------------------------------
-cols    1     2      3      4      5      6      7      8      9      10
-px      68    160    252    344    436    528    620    712    804    896    */
 body{
 	background: #e9e4d5;
 	font-family: Arial, Helvetica, sans-serif;
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 	-webkit-tap-highlight-color: rgb(255,255,158);
-}
-
-/*		Wide Mobile Layout: 480px.
-		Gutters: 24px.
-		Outer margins: 22px.
-		Inherits styles from: Default Layout, Mobile Layout.
-------------------------------------------------------------
-cols    1     2      3      4      5
-px      68    160    252    344    436    */
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-	body{ margin: 0; padding: 0; width: 360px;}
+	margin: 0; padding: 0;
 }
 
 .content { background: #e9e4d5; float: right; width: 100%; margin: 0 0 0 40px; border-top: 1px solid #f3eddd; }
@@ -58,10 +41,50 @@ px      68    160    252    344    436    */
 .content p { text-align:justify; float: left; width: 450px; word-wrap: break-word; margin: 25px 0 20px 0; }
 .content img { float: left; margin: 25px 0 20px 0 }
 
-/* http://sonspring.com/journal/clearing-floats */
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px){
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
+ * Apple iPhone 3GS												-> 320 x 480
+ * Apple iPhone 4												-> 320 x 480
+ * Google Nexus S												-> 320 x 533
+ * HTC Evo, Touch HD, Desire HD, Desire							-> 320 x 533
+ * LG Optimus 2X, Optimus 3D, Optimus Black						-> 320 X 533
+ * Nokia Lumia 7X0, Lumia 8XX, Lumia 900, N800, N810, N900		-> 320 x 533
+ * Samsung Galaxy S, S II, W									-> 320 x 533
+ * Apple iPhone 5												-> 320 x 568
+ * Motorola Defy, Droid, Droid X, Milestone						-> 320 x 569
+ *	 															------------
+ * BlackBerry Z30												-> 360 x 640
+ * Google Nexus 5												-> 360 x 640
+ * HTC One X, EVO LTE											-> 360 x 640
+ * HTC Sensation, Evo 3D										-> 360 x 640
+ * Nokia C5, C6, C7, N97, N8, X7								-> 360 x 640
+ * Samsung Galaxy Note	3										-> 360 x 640
+ * Samsung Galaxy Note	II										-> 360 x 640
+ * Samsung Galaxy S II, Galaxy Nexus							-> 360 x 640
+ * Samsung Galaxy S4											-> 360 x 640
+ * Sony Xperia S, Ion											-> 360 x 640
+ * Sony Xperia Z, Z1											-> 360 x 640
+ * 																------------ 
+ * Apple iPhone 6												-> 375 x 667 
+ * 																------------ 
+ * BlackBerry Z10												-> 384 x 640 
+ * Google Nexus 4												-> 384 x 640 
+ * LG Optimus Generation										-> 384 x 640 
+ * 																------------
+ * Samsung Galaxy Note											-> 400 x 640
+ * 																------------ 
+ * Apple iPhone 6 Plus											-> 414 x 736 
+ * 																------------ 
+ * LG Optimus LTE, Optimus 4X HD								-> 424 x 753 
+ * 																------------ 
+ * Sony Xperia Sola, U											-> 480 x 854
+ * 																------------
+ * Motorola Droid 3, Droid 4, Droid Razr, Atrix 4G, Atrix 2		-> 540 x 960
+ * 																------------
+ * Motorola Droid Razr HD										-> 720 x 1280
+ */
+@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	h1{ font-size: 26px; font-weight: normal; }
 	h2{ font-size: 24px; font-weight: normal; }
 	h3{ font-size: 18px; font-weight: normal; }
@@ -77,15 +100,15 @@ px      68    160    252    344    436    */
 	img::selection 		{ background: transparent; }
 	img::-moz-selection	{ background: transparent; }
 
-	.logo{ float:left; }
-
-	.content { background: #e9e4d5; float: left; border-top: 1px solid #f3eddd; margin: 0 0 0 0; text-align: center; }
+	.content { background: #e9e4d5; float: left; width: 100%; border-top: 1px solid #f3eddd; margin: 0 0 0 0; text-align: center; }
 	.content .con-wrap{ background: #e9e4d5; float: left; width: 100%; margin: 0 0 0 0; border-top: 1px solid #f3eddd;}
 	.content .con-wrap img { float: left; width: 80%; height: auto; margin: 25px; }
-	.content .container{ background: #e9e4d5; float: left; width: 91%; margin: 0 0 0 100px; }
+	.content .container{ background: #e9e4d5; float: left; width: 100%; margin: 0 0 0 0; }
 	
-	.content .container .para{ text-align:justify; float: left; width: 86%; margin: 10px 0 10px 0; }
-	.content .container .bullets{ text-align:justify; float: left; width: 86%; margin: 0 0 0 0px; }
+	.content .container .para{ text-align:justify; float: left; width: 92%; padding: 10px; margin: 0px; font-size: large; }
+	.content .container .bullets{ text-align:justify; float: left; width: 87%; margin: 0 0 10px 27px; font-size: large; }
 	
 	.content p { text-align: justify; float: none; width: 100%; word-wrap: break-word; margin: 0 0 0 0; }
+	
+	.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 }

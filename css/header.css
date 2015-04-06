@@ -28,7 +28,7 @@
 	border:                1px solid #999;
 	padding:               10px;
 	font-size:             15pt;
-	margin-bottom:         5px;
+	margin:                0 0 0 5px;
 	outline:               none;
 	-moz-border-radius:    6px;
 	-webkit-border-radius: 6px;
@@ -42,7 +42,7 @@
 	border:                1px solid #999;
 	padding:               6px;
 	font-size:             10pt;
-	margin-bottom:         5px;
+	margin:                0 0 0 5px;
 	outline:               none;
 	-moz-border-radius:    6px;
 	-webkit-border-radius: 6px;
@@ -52,27 +52,48 @@
 
 .header .search .box { margin: 0px 0px; float:left; }
 
-/*.header .profile .user h2{ float: left; color: #595249; padding: 25px 30px; }*/
-@media only screen and (min-width: 768px) and (max-width: 991px){
-	.header{ border-bottom: 1px solid #595249; }
-	.header .logo{ width: auto; float: none; border: none; }
-	.header .profile .user{ width: auto; }
-	.header .profile .search{ border: none; padding: 35px 0 0 100px; }
-
-	.header .logo{ width: 300px; height: 120px; text-align: left; }
-	.header .date{ float: left; width: 450px; height: 85px; padding-top: 35px; }
-	.header .profile{ float: none; width: auto; padding: 20px; }
-}
-
-/*Responsive*/
-/* Mobile Layout: 320px.
-		Gutters: 24px.
-		Outer margins: 34px.
-		Inherits styles from: Default Layout.
----------------------------------------------
-cols    1     2      3
-px      68    160    252    */
-@media only screen and (max-width: 767px){
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
+ * Apple iPhone 3GS												-> 320 x 480
+ * Apple iPhone 4												-> 320 x 480
+ * Google Nexus S												-> 320 x 533
+ * HTC Evo, Touch HD, Desire HD, Desire							-> 320 x 533
+ * LG Optimus 2X, Optimus 3D, Optimus Black						-> 320 X 533
+ * Nokia Lumia 7X0, Lumia 8XX, Lumia 900, N800, N810, N900		-> 320 x 533
+ * Samsung Galaxy S, S II, W									-> 320 x 533
+ * Apple iPhone 5												-> 320 x 568
+ * Motorola Defy, Droid, Droid X, Milestone						-> 320 x 569
+ *	 															------------
+ * BlackBerry Z30												-> 360 x 640
+ * Google Nexus 5												-> 360 x 640
+ * HTC One X, EVO LTE											-> 360 x 640
+ * HTC Sensation, Evo 3D										-> 360 x 640
+ * Nokia C5, C6, C7, N97, N8, X7								-> 360 x 640
+ * Samsung Galaxy Note	3										-> 360 x 640
+ * Samsung Galaxy Note	II										-> 360 x 640
+ * Samsung Galaxy S II, Galaxy Nexus							-> 360 x 640
+ * Samsung Galaxy S4											-> 360 x 640
+ * Sony Xperia S, Ion											-> 360 x 640
+ * Sony Xperia Z, Z1											-> 360 x 640
+ * 																------------ 
+ * Apple iPhone 6												-> 375 x 667 
+ * 																------------ 
+ * BlackBerry Z10												-> 384 x 640 
+ * Google Nexus 4												-> 384 x 640 
+ * LG Optimus Generation										-> 384 x 640 
+ * 																------------
+ * Samsung Galaxy Note											-> 400 x 640
+ * 																------------ 
+ * Apple iPhone 6 Plus											-> 414 x 736 
+ * 																------------ 
+ * LG Optimus LTE, Optimus 4X HD								-> 424 x 753 
+ * 																------------ 
+ * Sony Xperia Sola, U											-> 480 x 854
+ * 																------------
+ * Motorola Droid 3, Droid 4, Droid Razr, Atrix 4G, Atrix 2		-> 540 x 960
+ * 																------------
+ * Motorola Droid Razr HD										-> 720 x 1280
+ */
+@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	.header .profile{ background: #e9e4d5; float: left; width: auto; padding: 0 0 0 57px; text-align:center; }
 	
 	.header .profile .user{ float: none; width: auto; height: auto; padding: 15px 0 15px 15px; }
@@ -90,62 +111,7 @@ px      68    160    252    */
 	.header .profile .search input{ background: #d2c9ab; padding: 10px; border: none; float: left; color: #ff0000; font-size: 16px; outline: none; }
 	
 	.header .search .image{ margin-top: 10px; }
-	.header .search{ float:left; padding-top: 35px; width: 100%; text-align: center; }
-	.header .search .box { margin: 0px 500px; float:left; }
-	
-	.header .search form input{ width: 280px; border: 1px solid #999; padding: 10px; font-size:15pt; margin-bottom: 5px; outline: none;
-		-moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;
-	}
-
-	.header .logo{ width: auto; float: none; border: none; text-align: center; }
-	
-	.header .date{ float: none; width: auto; height: auto; padding-top: 0; text-align: center; }
-	
-	.header .date h1{ font-size: 24px; float: left; color: #2e3135; padding: 10px 30px 0 0; }
-	
-	.header .date .box{ width: auto; margin: 0 auto; }
-	.header .date .box{ width: 275px; margin: 0 auto; }
-	
-	.header .date .temp{ float: none; margin: 0 auto; width: 80px; height: 50px; padding: 10px 0 0 40px; }
-	.header .date .temp{ background: url(../images/bg_temperature.png) no-repeat right; float: left; width: 60px; height: 50px; padding: 10px 0 0 60px; font-size: 31px; color: #2e3135; }
-	
-	.header .date{ font-family: 'Raleway', sans-serif; font-size:18pt;  float: left; width: 350px; padding-top: 35px; }
-
-	.header .search form .searchBar, .header .search form .datePicker{
-		float:                 left;
-		width:                 367px;
-		border:                1px solid #999;
-		padding:               10px;
-		font-size:             12pt;
-		margin-left:           5px;
-		margin-bottom:         5px;
-		outline:               none;
-		-moz-border-radius:    6px;
-		-webkit-border-radius: 6px;
-		-khtml-border-radius:  6px;
-		border-radius:         6px;
-	}
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px){
-	.header .profile{ background: #e9e4d5; float: left; width: auto; padding: 0 0 0 57px; text-align:center; }
-	
-	.header .profile .user{ float: none; width: auto; height: auto; padding: 15px 0 15px 15px; }
-	.header .profile .user a{ float: right; margin-top: 20px;}
-	.header .profile .user h2{ padding: 30px 20px; }
-	.header .profile .user img{ float: left; }
-	
-	.header .profile h2{ float: left; color: #554e45; padding: 30px 0 0 20px; }
-	.header .profile h3{ float: left; color: #554e45; padding: 10px 0 0 10px; }
-	
-	.header .profile .username{ float: left; color: #554e45; padding: 10px 0 0 100px; }
-	
-	.header .profile .search{ float: none; height: auto; border-left: none; padding: 30px; text-align:center; }
-	.header .profile .search form{ border: 1px solid #595249; padding: 2px; }
-	.header .profile .search input{ background: #d2c9ab; padding: 10px; border: none; float: left; color: #ff0000; font-size: 16px; outline: none; }
-	
-	.header .search .image{ margin-top: 10px; }
-	.header .search{ float:left; padding-top: 35px; width: 100%; text-align: center; }
+	.header .search{ float: left; padding-top: 5px; width: 100%; text-align: center; }
 	.header .search .box { margin: 0px 500px; float:left; }
 	
 	.header .search form input{ width: 280px; border: 1px solid #999; padding: 10px; font-size:15pt; margin-bottom: 5px; outline: none;
@@ -168,16 +134,17 @@ px      68    160    252    */
 	
 	.header .search form .searchBar, .header .search form .datePicker{
 		float:                 left;
-		width:                 367px;
+		width:                 93%;
 		border:                1px solid #999;
 		padding:               10px;
 		font-size:             12pt;
-		margin-left:           5px;
-		margin-bottom:         5px;
+		margin:                0 5px 5px 5px;
 		outline:               none;
 		-moz-border-radius:    6px;
 		-webkit-border-radius: 6px;
 		-khtml-border-radius:  6px;
 		border-radius:         6px;
 	}
+	
+	.header .search form .search-icons{ width: 100%; margin: 0 5px 5px 5px; }
 }
