@@ -85,7 +85,7 @@ body{
  * Motorola Droid Razr HD										-> 720 x 1280
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
-	h1{ font-size: 26px; font-weight: normal; }
+	h1{ font-size: 24px; font-weight: normal; }
 	h2{ font-size: 24px; font-weight: normal; }
 	h3{ font-size: 18px; font-weight: normal; }
 	h4{ font-size: 14px; font-weight: normal; }

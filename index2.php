@@ -197,6 +197,7 @@
 
 			<!--Section where events will show when user types on the search bar-->
 			<div class="events" id="txtHint"></div>
+			<div class="clear"></div>
 
 			<!--App Section-->
 			<div class="app">

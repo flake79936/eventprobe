@@ -22,13 +22,13 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=.9, user-scalable=0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		<title>Eventprobe</title>
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
-		<!-- Adding "maximum-scale=.9" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 
 		<!--STYLE-->
 		<link rel="stylesheet" type="text/css" href="css/header.css" />
@@ -182,7 +182,7 @@
 											<div class="eFacebook">
 												<?PHP if($row['Efacebook'] !== ""){ ?>
 													<a href="<?= $row['Efacebook'] ?>" target="_blank">
-														<img src="images/btn_fb2.png" onMouseOver="this.src='images/btn_fbColor2.png'" onMouseOut="this.src='images/btn_fb2.png'" alt="Facebook" />
+														<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
 													</a>
 												<?PHP } ?>
 											</div>
@@ -190,7 +190,7 @@
 											<div class="eTwitter">
 												<?PHP if ($row['Etwitter'] !== ""){ ?>
 													<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
-														<img src="images/btn_twitter2.png" onMouseOver="this.src='images/btn_twitterColor2.png'" onMouseOut="this.src='images/btn_twitter2.png'" alt="Twitter" />
+														<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
 													</a>
 												<?PHP } ?>
 											</div>
@@ -198,7 +198,7 @@
 											<div class="eGoogle">
 												<?PHP if ($row['Egoogle'] !== ""){ ?>
 													<a href="<?= $row['Egoogle'] ?>" target="_blank">
-														<img src="images/btn_google2.png" onMouseOver="this.src='images/btn_googleColor2.png'" onMouseOut="this.src='images/btn_google2.png'" alt="Google" />
+														<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
 													</a>
 												<?PHP } ?>
 											</div>

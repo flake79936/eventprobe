@@ -5,7 +5,6 @@
 
 
 /*	Resets ------	*/
-
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
 p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
 img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
@@ -164,14 +163,48 @@ px      68    160    252    344    436    528    620    712    */
 	.main .content .form-wrap .box{ float: none; width: auto; }
 }
 
-/*		Mobile Layout: 320px.
-		Gutters: 24px.
-		Outer margins: 34px.
-		Inherits styles from: Default Layout.
----------------------------------------------
-cols    1     2      3
-px      68    160    252    */
-@media only screen and (max-width: 767px){
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
+ * Apple iPhone 3GS												-> 320 x 480
+ * Apple iPhone 4												-> 320 x 480
+ * Google Nexus S												-> 320 x 533
+ * HTC Evo, Touch HD, Desire HD, Desire							-> 320 x 533
+ * LG Optimus 2X, Optimus 3D, Optimus Black						-> 320 X 533
+ * Nokia Lumia 7X0, Lumia 8XX, Lumia 900, N800, N810, N900		-> 320 x 533
+ * Samsung Galaxy S, S II, W									-> 320 x 533
+ * Apple iPhone 5												-> 320 x 568
+ * Motorola Defy, Droid, Droid X, Milestone						-> 320 x 569
+ *	 															------------
+ * BlackBerry Z30												-> 360 x 640
+ * Google Nexus 5												-> 360 x 640
+ * HTC One X, EVO LTE											-> 360 x 640
+ * HTC Sensation, Evo 3D										-> 360 x 640
+ * Nokia C5, C6, C7, N97, N8, X7								-> 360 x 640
+ * Samsung Galaxy Note	3										-> 360 x 640
+ * Samsung Galaxy Note	II										-> 360 x 640
+ * Samsung Galaxy S II, Galaxy Nexus							-> 360 x 640
+ * Samsung Galaxy S4											-> 360 x 640
+ * Sony Xperia S, Ion											-> 360 x 640
+ * Sony Xperia Z, Z1											-> 360 x 640
+ * 																------------ 
+ * Apple iPhone 6												-> 375 x 667 
+ * 																------------ 
+ * BlackBerry Z10												-> 384 x 640 
+ * Google Nexus 4												-> 384 x 640 
+ * LG Optimus Generation										-> 384 x 640 
+ * 																------------
+ * Samsung Galaxy Note											-> 400 x 640
+ * 																------------ 
+ * Apple iPhone 6 Plus											-> 414 x 736 
+ * 																------------ 
+ * LG Optimus LTE, Optimus 4X HD								-> 424 x 753 
+ * 																------------ 
+ * Sony Xperia Sola, U											-> 480 x 854
+ * 																------------
+ * Motorola Droid 3, Droid 4, Droid Razr, Atrix 4G, Atrix 2		-> 540 x 960
+ * 																------------
+ * Motorola Droid Razr HD										-> 720 x 1280
+ */
+@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	.main .sidebar{ float: none; width: auto; padding: 15px 15px 40px 15px; }
 	.main .sidebar .btn-event img{ width: 100%; padding: 0; }
 
@@ -209,28 +242,11 @@ px      68    160    252    */
 	.main .content .form-wrap .social li{ float: none; height: 60px; border-right: none; border-top: none; }
 
 	.main .content .form-wrap .gmap{ float: none; width: 93%; margin: 20px 0; }
-}
-
-/*		Wide Mobile Layout: 480px.
-		Gutters: 24px.
-		Outer margins: 22px.
-		Inherits styles from: Default Layout, Mobile Layout.
-------------------------------------------------------------
-cols    1     2      3      4      5
-px      68    160    252    344    436    */
-@media only screen and (min-width: 480px) and (max-width: 767px){
-	.main .content .dashboard .user-menu .name .info .box{ padding-left: 60px; }
-}
-
-@media only screen and (max-width: 360px){
 	.main .menu li ul li a{ padding: 20px; }
 	.main .content .dashboard .user-profile{ float: none; margin-top: 0; width: 289px; margin: 0 auto; }
 	.main .content{ float: none; width: auto; background: #fff; padding: 0 20px 10px; box-shadow: 0 2px 4px #555; }
-}
-
-/* http://sonspring.com/journal/clearing-floats */
-.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px)
-
+	.main .content .dashboard .user-menu .name .info .box{ padding-left: 60px; }
+	
+	.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
+	
 }

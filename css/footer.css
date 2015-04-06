@@ -55,7 +55,7 @@
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	.footer{ background: #f4f1ea; padding: 0px 4% 40px 4%; }
 	
-	/*.footer .social{ float: left; padding-top: 30px; }*/
+	.footer .social{ float: left; width: 100%; padding: 0 0 0 0px; text-align: center; }
 	.footer .social li{ list-style: none; display: inline-block; }
 	.footer .social .FB a img, 
 	.footer .social .TW a img, 
@@ -66,7 +66,7 @@
 	.footer p.copyright {
 		float:        left;
 		padding:      0px;
-		width:        230px;
+		width:        100%;
 		border-right: #e6e6e6 1px solid;
 		text-align:   center;
 	}

@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
 		<meta http-equiv="refresh" content="2; index2.php"/>
-		<meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=.9, user-scalable=0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		<link href="favicon.ico" rel="shortcut icon" />
 		<title>Thank you!</title>
 

@@ -29,14 +29,48 @@ px      68    160    252    344    436    528    620    712    */
 	.my-events .arrow{ width: 355px !important; padding: 30px 20px 0 0 !important; text-align: right; }
 }
 
-/*		Mobile Layout: 320px.
-		Gutters: 24px.
-		Outer margins: 34px.
-		Inherits styles from: Default Layout.
----------------------------------------------
-cols    1     2      3
-px      68    160    252    */
-@media only screen and (max-width: 767px) {
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
+ * Apple iPhone 3GS												-> 320 x 480
+ * Apple iPhone 4												-> 320 x 480
+ * Google Nexus S												-> 320 x 533
+ * HTC Evo, Touch HD, Desire HD, Desire							-> 320 x 533
+ * LG Optimus 2X, Optimus 3D, Optimus Black						-> 320 X 533
+ * Nokia Lumia 7X0, Lumia 8XX, Lumia 900, N800, N810, N900		-> 320 x 533
+ * Samsung Galaxy S, S II, W									-> 320 x 533
+ * Apple iPhone 5												-> 320 x 568
+ * Motorola Defy, Droid, Droid X, Milestone						-> 320 x 569
+ *	 															------------
+ * BlackBerry Z30												-> 360 x 640
+ * Google Nexus 5												-> 360 x 640
+ * HTC One X, EVO LTE											-> 360 x 640
+ * HTC Sensation, Evo 3D										-> 360 x 640
+ * Nokia C5, C6, C7, N97, N8, X7								-> 360 x 640
+ * Samsung Galaxy Note	3										-> 360 x 640
+ * Samsung Galaxy Note	II										-> 360 x 640
+ * Samsung Galaxy S II, Galaxy Nexus							-> 360 x 640
+ * Samsung Galaxy S4											-> 360 x 640
+ * Sony Xperia S, Ion											-> 360 x 640
+ * Sony Xperia Z, Z1											-> 360 x 640
+ * 																------------ 
+ * Apple iPhone 6												-> 375 x 667 
+ * 																------------ 
+ * BlackBerry Z10												-> 384 x 640 
+ * Google Nexus 4												-> 384 x 640 
+ * LG Optimus Generation										-> 384 x 640 
+ * 																------------
+ * Samsung Galaxy Note											-> 400 x 640
+ * 																------------ 
+ * Apple iPhone 6 Plus											-> 414 x 736 
+ * 																------------ 
+ * LG Optimus LTE, Optimus 4X HD								-> 424 x 753 
+ * 																------------ 
+ * Sony Xperia Sola, U											-> 480 x 854
+ * 																------------
+ * Motorola Droid 3, Droid 4, Droid Razr, Atrix 4G, Atrix 2		-> 540 x 960
+ * 																------------
+ * Motorola Droid Razr HD										-> 720 x 1280
+ */
+@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	.my-events{ padding: 20px 0; }
 	.my-events .box{ float: none; width: 39%; padding: 3px 114px; text-align: center; }
 	.my-events .box h1{ margin-top: 0; }
@@ -45,8 +79,17 @@ px      68    160    252    */
 	.my-events .box ul li{ margin-right: 0; font-size: 14px; }
 	.my-events .event{ width: auto !important; padding: 0 !important; }
 	.my-events .arrow{ float: none !important; width: auto !important; padding: 10px 0 0 0 !important; text-align: center; }
-}
+	
+	.my-events{ border-top: 1px solid #f3eddd; }
+	.my-events .box{ float: left; width: 25%; padding: 30px 0; color: #2e3135; }
+	.my-events .box h1{ text-align: center; margin-top: 50px; }
+	.my-events .box h3{ margin: 10px 0; }
+	.my-events .box .profile{ float: left; margin-right: 0px; border: black solid 1px;}
+	.my-events .box ul{ padding: 10px 0; }
+	.my-events .box ul li{ display: inline-block; list-style: none; margin-right: 30px; font-weight: bold; }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+	.my-events .box ul li .myEventForm{ display: inline-block; list-style: none; margin-right: 0px; font-weight: bold; }
 
+	.my-events .event{ width: 40% !important; padding: 40px 0 0 0 !important; }
+	.my-events .arrow{ float: right !important; width: 5% !important; padding: 65px 0 0 0 !important; }
 }

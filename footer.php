@@ -24,7 +24,6 @@
 	<a href="./index2.php"><img src="./images/logo.png" onmouseover="this.src='./images/logo2.png'" onmouseout="this.src='./images/logo.png'" alt="Logo" /></a>
 </div>
 <div class="clear"></div>
-<br/>
 <div id="footer">
 	<p class="copyright">
 		<?PHP echo '&copy'; echo "2014-";echo date("Y"); ?>

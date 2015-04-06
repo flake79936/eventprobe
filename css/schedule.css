@@ -15,7 +15,7 @@
 -----------------------------------------------------------------
 cols    1     2      3      4      5      6      7      8
 px      68    160    252    344    436    528    620    712    */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 767px) and (max-width: 991px) {
 	.schedule .map{ float: none; width: auto; margin: 0 auto; }
 	.schedule .today{ float: none; width: auto; }
 	.schedule .today ul li{ width: 24.5%; }
@@ -23,22 +23,55 @@ px      68    160    252    344    436    528    620    712    */
 	.schedule .today ul li .info .box{ padding: 0 15px; }
 }
 
-/*		Mobile Layout: 320px.
-		Gutters: 24px.
-		Outer margins: 34px.
-		Inherits styles from: Default Layout.
----------------------------------------------
-cols    1     2      3
-px      68    160    252    */
-@media only screen and (max-width: 767px) {
-	.schedule .map{ float: none; width: auto; margin: 0 auto; }
-	.schedule .today{ float: none; width: auto; }
-	.schedule .today ul li{ width: 49.2%; }
-	.schedule .today ul li .info{ width: 49.2%; padding: 10px 0; font-size: 14px; }
-	.schedule .today ul li .info .box{ padding: 0 10px; }
-	.schedule .today ul li .info .box h1{ font-size: 16px; padding: 5px 0; }
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px)
-
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
+ * Apple iPhone 3GS												-> 320 x 480
+ * Apple iPhone 4												-> 320 x 480
+ * Google Nexus S												-> 320 x 533
+ * HTC Evo, Touch HD, Desire HD, Desire							-> 320 x 533
+ * LG Optimus 2X, Optimus 3D, Optimus Black						-> 320 X 533
+ * Nokia Lumia 7X0, Lumia 8XX, Lumia 900, N800, N810, N900		-> 320 x 533
+ * Samsung Galaxy S, S II, W									-> 320 x 533
+ * Apple iPhone 5												-> 320 x 568
+ * Motorola Defy, Droid, Droid X, Milestone						-> 320 x 569
+ *	 															------------
+ * BlackBerry Z30												-> 360 x 640
+ * Google Nexus 5												-> 360 x 640
+ * HTC One X, EVO LTE											-> 360 x 640
+ * HTC Sensation, Evo 3D										-> 360 x 640
+ * Nokia C5, C6, C7, N97, N8, X7								-> 360 x 640
+ * Samsung Galaxy Note	3										-> 360 x 640
+ * Samsung Galaxy Note	II										-> 360 x 640
+ * Samsung Galaxy S II, Galaxy Nexus							-> 360 x 640
+ * Samsung Galaxy S4											-> 360 x 640
+ * Sony Xperia S, Ion											-> 360 x 640
+ * Sony Xperia Z, Z1											-> 360 x 640
+ * 																------------ 
+ * Apple iPhone 6												-> 375 x 667 
+ * 																------------ 
+ * BlackBerry Z10												-> 384 x 640 
+ * Google Nexus 4												-> 384 x 640 
+ * LG Optimus Generation										-> 384 x 640 
+ * 																------------
+ * Samsung Galaxy Note											-> 400 x 640
+ * 																------------ 
+ * Apple iPhone 6 Plus											-> 414 x 736 
+ * 																------------ 
+ * LG Optimus LTE, Optimus 4X HD								-> 424 x 753 
+ * 																------------ 
+ * Sony Xperia Sola, U											-> 480 x 854
+ * 																------------
+ * Motorola Droid 3, Droid 4, Droid Razr, Atrix 4G, Atrix 2		-> 540 x 960
+ * 																------------
+ * Motorola Droid Razr HD										-> 720 x 1280
+ */
+@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+	.schedule .map{ float: left; width: 100%; height: auto; }
+	.schedule .map img{ width: 100%; height: auto; }
+	.schedule .today{ float: right; width: 70%; }
+	.schedule .today ul li{ list-style: none; display: inline-block; margin: 0; width: 24.6%; }
+	.schedule .today ul li img{ width: 100%; }
+	.schedule .today ul li .info{ position: absolute; z-index: 9; background: url(../images/bg_black.png) repeat; color: #fff; width: 17.2%; padding: 20px 0; }
+	.schedule .today ul li .info .btn-cross{ width: 40px; float: right; }
+	.schedule .today ul li .info .box{ padding: 0 20px; }
+	.schedule .today .info .box p{ color: #FFFFFF; }
 }
