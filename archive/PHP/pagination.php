@@ -115,7 +115,6 @@
         <link rel="stylesheet" type="text/css" href="css/schedule.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
-        <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
 		<!-- Scripts	 -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

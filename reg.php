@@ -22,7 +22,6 @@
         
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/registration.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/header.css" />
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <link rel="stylesheet" type="text/css" href="css/links.css" />
