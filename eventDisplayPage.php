@@ -239,7 +239,7 @@
 															});
 												});
 										</script>
-										<div id="map" style="width:400px;height:300px; margin-top:10px;"></div>
+										<div id="map" style="height:300px; margin-top:10px; max-width:auto; min-width:250px;"></div>
 										<!-- END OF MAP SCRIPT -->
 									</div>
 									
