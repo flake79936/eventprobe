@@ -99,8 +99,11 @@ body { font-family: Arial, Helvetica, sans-serif; -webkit-tap-highlight-color: r
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 30px;}
 
 	.eventDisplayPage .content .dashboard .box .upper .eNameNHashtag{ width: 100%; }
-	.eventDisplayPage .content .dashboard .box .upper .eDateTime{ width: 100%; }
-	.eventDisplayPage .content .dashboard .box .upper .eDescription{ text-align:justify; width: 86%; word-wrap: break-word; }
+	.eventDisplayPage .content .dashboard .box .upper .eDateTime { width: 100%; }
+	.eventDisplayPage .content .dashboard .box .upper .eDateTime .edate{ width: 100%; }
+	.eventDisplayPage .content .dashboard .box .upper .eDateTime .etime{ width: 100%; }
+	
+	.eventDisplayPage .content .dashboard .box .upper .eDescription{ text-align:justify; width: 86%; word-wrap: break-word; text-transform: capitalize; }
 
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 84%; height: auto; }
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding-left: 0px; }

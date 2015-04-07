@@ -189,20 +189,20 @@
 											else $month = 'Dec'; 
 											
 											switch($Etype){
-												case "Art": $Etype = "art35"; break;
-												case "Concert": $Etype = "music"; break;
-												case "Fair": $Etype = "fair35"; break;
-												case "Social": $Etype = "weight35"; break;
-												case "Sport": $Etype = "sports40"; break;
-												case "Public Speaker": $Etype = "speaker"; break;
-												default: $Etype = "magic35"; break;
+												case "Art":            $Etype = "icon_artEvent"  ; break;
+												case "Concert":        $Etype = "icon_concert"   ; break;
+												case "Fair":           $Etype = "icon_festival"  ; break;
+												case "Social":         $Etype = "icon_kettleball"; break;
+												case "Sport":          $Etype = "icon_marathon"  ; break;
+												case "Public Speaker": $Etype = "icon_speaker"   ; break;
+												default:               $Etype = "icon_fireworks" ; break;
 											}
 											?>
 											<li>
-												<img src="images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
+												<img src="./images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
 													<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
 														<?PHP //echo $count; ?>
-														<?= $row['Evename'] ?>, 
+														<?= substr($row['Evename'], 0, 12) . "..."; ?>, 
 														<?= $month ?> 
 														<?= substr($EstartDate, 3, 2); ?>
 													</a>
@@ -240,20 +240,20 @@
 											else $month= 'Dec'; 
 											
 											switch($Etype){
-												case "Art": $Etype = "art35"; break;
-												case "Concert": $Etype = "music"; break;
-												case "Fair": $Etype = "fair35"; break;
-												case "Social": $Etype = "weight35"; break;
-												case "Sport": $Etype = "sports40"; break;
-												case "Public Speaker": $Etype = "speaker"; break;
-												default: $Etype = "magic35"; break;
+												case "Art":            $Etype = "icon_artEvent"  ; break;
+												case "Concert":        $Etype = "icon_concert"   ; break;
+												case "Fair":           $Etype = "icon_festival"  ; break;
+												case "Social":         $Etype = "icon_kettleball"; break;
+												case "Sport":          $Etype = "icon_marathon"  ; break;
+												case "Public Speaker": $Etype = "icon_speaker"   ; break;
+												default:               $Etype = "icon_fireworks" ; break;
 											}
 											?>
 											<li>
 												<img src="images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
 												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
 													<?PHP //echo $count; ?>
-													<?= $row['Evename'] ?>, 
+													<?= substr($row['Evename'], 0, 12) . "..."; ?>, 
 													<?= $month ?> 
 													<?= substr($EstartDate, 3, 2); ?>
 												</a>
@@ -556,7 +556,7 @@
 						
 					<!--Submit Button-->
 					<div class="submitButton">
-						<input type="image" name="Submit" src="./images/btn_create.png" value="" />
+						<input type="image" name="Submit" src="./images/btn_submit.png" value="" />
 					</div>
 				</form>
 				

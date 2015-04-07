@@ -46,10 +46,10 @@
 								case "Art":            $row['Eflyer'] = "./images/art35.png"; break;
 								case "Concert":        $row['Eflyer'] = "./images/music.png"; break;
 								case "Fair":           $row['Eflyer'] = "./images/fair35.png"; break;
-								case "Social":         $row['Eflyer'] = "./images/weight35.png"; break;
-								case "Sport":          $row['Eflyer'] = "./images/sports40.png"; break;
+								case "Social":         $row['Eflyer'] = "./images/icon_kettleball.png"; break;
+								case "Sport":          $row['Eflyer'] = "./images/icon_marathon.png"; break;
 								case "Public Speaker": $row['Eflyer'] = "./images/speaker.png"; break;
-								default:               $row['Eflyer'] = "./images/magic35.png"; break;
+								default:               $row['Eflyer'] = "./images/icon_fireworks.png"; break;
 							}
 						}
 					?>

@@ -104,27 +104,6 @@
 	<body  lang="en">
 		<div class="header">
 			<?PHP include './header.php';?>
-		
-			<!--<div class="logo">
-				<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo.jpg'" onmouseout="this.src='images/logo.png'" alt="Logo" />
-			</div>
-			<div class="profile">
-				<div class="user">
-					<img src="images/profile.jpg" />
-					<h2><?= $usrname?></h2>
-					<a href="#"><img src="images/btn_dropdown.png" alt="Dropdown" /></a>
-					<div class="clear"></div>
-				</div>
-				<div class="search">
-					<form>
-						<input type="text" placeholder="search for events" />
-						<input type="image" src="images/btn_search.png" class="btn-search" />
-						<div class="clear"></div>
-					</form>
-				</div>
-				<div class="clear"></div>
-			</div>
-			<div class="clear"></div>-->
 		</div>
 
 		<div class="main">
@@ -172,20 +151,20 @@
 											else $month = 'Dec'; 
 											
 											switch($Etype){
-												case "Art": $Etype = "art35"; break;
-												case "Concert": $Etype = "music"; break;
-												case "Fair": $Etype = "fair35"; break;
-												case "Social": $Etype = "weight35"; break;
-												case "Sport": $Etype = "sports40"; break;
-												case "Public Speaker": $Etype = "speaker"; break;
-												default: $Etype = "magic35"; break;
+												case "Art":            $Etype = "icon_artEvent"  ; break;
+												case "Concert":        $Etype = "icon_concert"   ; break;
+												case "Fair":           $Etype = "icon_festival"  ; break;
+												case "Social":         $Etype = "icon_kettleball"; break;
+												case "Sport":          $Etype = "icon_marathon"  ; break;
+												case "Public Speaker": $Etype = "icon_speaker"   ; break;
+												default:               $Etype = "icon_fireworks" ; break;
 											}
 											?>
 											<li>
 												<img src="images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
 												<a onClick="editInfo(<?= $row['Eid'] ?>);">
 													<?PHP //echo $count; ?>
-													<?= $row['Evename'] ?>, 
+													<?= substr($row['Evename'], 0, 12) . "..."; ?>,
 													<?= $month ?> 
 													<?= substr($EstartDate, 3, 2); ?>
 												</a>
@@ -223,20 +202,20 @@
 											else $month= 'Dec'; 
 											
 											switch($Etype){
-												case "Art": $Etype = "art35"; break;
-												case "Concert": $Etype = "music"; break;
-												case "Fair": $Etype = "fair35"; break;
-												case "Social": $Etype = "weight35"; break;
-												case "Sport": $Etype = "sports40"; break;
-												case "Public Speaker": $Etype = "speaker"; break;
-												default: $Etype = "magic35"; break;
+												case "Art":            $Etype = "icon_artEvent"  ; break;
+												case "Concert":        $Etype = "icon_concert"   ; break;
+												case "Fair":           $Etype = "icon_festival"  ; break;
+												case "Social":         $Etype = "icon_kettleball"; break;
+												case "Sport":          $Etype = "icon_marathon"  ; break;
+												case "Public Speaker": $Etype = "icon_speaker"   ; break;
+												default:               $Etype = "icon_fireworks" ; break;
 											}
 											?>
 											<li>
 												<img src="images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
 												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
 													<?PHP //echo $count; ?>
-													<?= $row['Evename'] ?>, 
+													<?= substr($row['Evename'], 0, 12) . "..."; ?>,
 													<?= $month ?> 
 													<?= substr($EstartDate, 3, 2); ?>
 												</a>
@@ -265,6 +244,20 @@
 							<div class="user-profile">
 								<div class="update-image">
 									<!--added the 'value' to reflect the value from the DB based on the 'Eid' (event id)-->
+									<?PHP 
+										$type = $row['Etype'];
+										if($row['Eflyer'] === ""){
+											switch($type){
+												case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png"; break;
+												case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png"; break;
+												case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png"; break;
+												case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
+												case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png"; break;
+												case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png"; break;
+												default:               $row['Eflyer'] = "./images/icon_fireworksHD.png"; break;
+											}
+										}
+									?>
 									<input id="uploadImage" accept="image/*" value="<?php echo $row['Eflyer']; ?>" type="file" name="Eflyer" onchange="PreviewImage();" />
 									<br>
 									<span id="eventForm_Eflyer_errorloc" class="error"></span>
@@ -532,16 +525,14 @@
 											<span id="event_Ehashtag_errorloc" class="error"></span>
 										</div>
 									</div>
+									<!--Submit Button-->
+									<div class="submitButton">
+										<input type="image" name="Submit" src="./images/btn_update.png" value="" />
+									</div>
 								</div>
 								<div class="clear"></div>
 							</div><!--End of Form-wrap-->
-							
-							<!--Submit Button-->
-							<div class="submitButton">
-								<input type="image" name="Submit" src="./images/btn_update.png" value="" />
-							</div>
 						</div> <!-- End of content -->
-					
 					</div>
 				<?php } ?>
 			</form>

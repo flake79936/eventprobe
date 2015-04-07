@@ -1,8 +1,6 @@
 <!--Module-->
 
 <link rel="stylesheet" type="text/css" href="css/twitter.css" />
-<link rel="stylesheet" type="text/css" href="css/app.css" />
-<link rel="stylesheet" type="text/css" href="css/chart.css" />
 
 <script type="text/javascript" src="js/twitter.js"></script>
 

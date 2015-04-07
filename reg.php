@@ -86,7 +86,7 @@
 			<?PHP include './header.php';?>
         </div>
 		
-		<div class="main">
+		<div class="reg">
 			<div class="content">
 				<!--Keep this below-->
 				<form id="register" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
@@ -96,42 +96,53 @@
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 						
 						<div class="box">
-							<h5>First Name</h5>
-							<input type="text" placeholder="John" name="UFname" title="Enter your First Name" id="UFname" value="<?php echo $fgmembersite->SafeDisplay('UFname') ?>" maxlength="50" /><br/>
-							<span id="register_UFname_errorloc" class="error"></span>
-
-							<h5>Last Name</h5>
-							<input type="text" placeholder="Doe" name="ULname" title="Enter your Last Name" id="ULname" value="<?php echo $fgmembersite->SafeDisplay('ULname') ?>" maxlength="50" /><br/>
-							<span id="register_ULname_errorloc" class="error"></span>
-							
-							<h5>Username</h5>
-							<input type="text" placeholder="JohnDoe" name="UuserName" title="Enter your Username" id="UuserName" value="<?php echo $fgmembersite->SafeDisplay("UuserName") ?>" maxlength="50" />
-							<div class="result" id="result"></div><br/>
-							<span id="register_UuserName_errorloc" class="error"></span>							
-							
-							<h5>Password</h5>
-							<input type='password' name='UPswd' title="Enter your Password" id='UPswd' value="<?php echo $fgmembersite->SafeDisplay("UPswd") ?>" maxlength="50" />
-							<br/><span id='register_UPswd_errorloc' class='error' style='clear:both'></span>
-							
-							<h5>Confirm Password</h5>
-							<input type='password' name="ConPswd" title="Confirm your Password"id="ConPswd" value="<?php echo $fgmembersite->SafeDisplay("ConPswd") ?>" maxlength="50" /><br/>
-							<span id="register_ConPswd_errorloc" class="error" style="clear: both"></span>
-							
-							<h5>Email</h5>
-							<input type="text"  placeholder="email@email.com" name="Uemail" title="Enter your Email"id="Uemail" value="<?php echo $fgmembersite->SafeDisplay('Uemail') ?>" maxlength="50" /><br/>
-							<span id="register_Uemail_errorloc" class="error"></span>
-							
-							<h5>Phone</h5>
-							<input type="tel" placeholder="999-999-9999" name="Uphone" title='Phone Number (Format: 999-999-9999)' id="Uphone" pattern='\d{3}[\-]\d{3}[\-]\d{4}' value="<?php echo $fgmembersite->SafeDisplay("Uphone") ?>" maxlength="12" /><br/>
-							<span id="register_Uphone_errorloc" class="error"></span>
-						
-							<h5>User Image</h5>
-							<img id="uploadPreview" style="width: 200px; height: 200px;" />
-							<input id="uploadImage" type="file" name="Upic" onchange="PreviewImage();" />
+							<div class="regFirst">
+								<h5>First Name</h5>
+								<input type="text" placeholder="John" name="UFname" title="Enter your First Name" id="UFname" value="<?php echo $fgmembersite->SafeDisplay('UFname') ?>" maxlength="50" /><br/>
+								<span id="register_UFname_errorloc" class="error"></span>
+							</div>
+							<div class="regLast">
+								<h5>Last Name</h5>
+								<input type="text" placeholder="Doe" name="ULname" title="Enter your Last Name" id="ULname" value="<?php echo $fgmembersite->SafeDisplay('ULname') ?>" maxlength="50" /><br/>
+								<span id="register_ULname_errorloc" class="error"></span>
+							</div>
+							<div class="regUser">
+								<h5>Username</h5>
+								<input type="text" placeholder="JohnDoe" name="UuserName" title="Enter your Username" id="UuserName" value="<?php echo $fgmembersite->SafeDisplay("UuserName") ?>" maxlength="50" />
+								<div class="result" id="result"></div><br/>
+								<span id="register_UuserName_errorloc" class="error"></span>							
+							</div>
+							<div class="regPass">
+								<h5>Password</h5>
+								<input type='password' name='UPswd' title="Enter your Password" id='UPswd' value="<?php echo $fgmembersite->SafeDisplay("UPswd") ?>" maxlength="50" /><br/>
+								<span id='register_UPswd_errorloc' class='error' style='clear:both'></span>
+							</div>
+							<div class="regConPass">
+								<h5>Confirm Password</h5>
+								<input type='password' name="ConPswd" title="Confirm your Password"id="ConPswd" value="<?php echo $fgmembersite->SafeDisplay("ConPswd") ?>" maxlength="50" /><br/>
+								<span id="register_ConPswd_errorloc" class="error" style="clear: both"></span>
+							</div>
+							<div class="regEmail">
+								<h5>Email</h5>
+								<input type="text"  placeholder="email@email.com" name="Uemail" title="Enter your Email"id="Uemail" value="<?php echo $fgmembersite->SafeDisplay('Uemail') ?>" maxlength="50" /><br/>
+								<span id="register_Uemail_errorloc" class="error"></span>
+							</div>
+							<div class="regTel">
+								<h5>Phone</h5>
+								<input type="tel" placeholder="999-999-9999" name="Uphone" title='Phone Number (Format: 999-999-9999)' id="Uphone" pattern='\d{3}[\-]\d{3}[\-]\d{4}' value="<?php echo $fgmembersite->SafeDisplay("Uphone") ?>" maxlength="12" /><br/>
+								<span id="register_Uphone_errorloc" class="error"></span>
+							</div>
+							<div class="regImage">
+								<h5>User Image</h5>
+								<img id="uploadPreview" style="width: 200px; height: 200px;" />
+								<input id="uploadImage" type="file" name="Upic" onchange="PreviewImage();" />
+							</div>
 						</div>
 						
 						<div class="clear"></div>
-						<input id="submitButton" type="submit" name="Submit" value="submit" />
+						<div class="regSubmit">
+							<input id="submitButton" type="image" src="./images/btn_register.png" name="Submit" value="submit" />
+						</div>
 					</div>
 				</form>
 			</div>

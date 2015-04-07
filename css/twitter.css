@@ -58,7 +58,7 @@ ul li {
   text-decoration:none;
   padding:5px;
   width:10%;
-  font-family:arial;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):

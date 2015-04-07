@@ -31,10 +31,11 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 
 		<!--STYLE-->
-		<link rel="stylesheet" type="text/css" href="css/header.css" />
-		<link rel="stylesheet" type="text/css" href="css/eventDisplayPage.css" />
-		<link rel="stylesheet" type="text/css" href="css/links.css" />
-		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="./css/header.css" />
+		<link rel="stylesheet" type="text/css" href="./css/getEvent.css" />
+		<link rel="stylesheet" type="text/css" href="./css/eventDisplayPage.css" />
+		<link rel="stylesheet" type="text/css" href="./css/links.css" />
+		<link rel="stylesheet" type="text/css" href="./css/footer.css" />
 
 		<!--GOOGLE MAP-->
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -141,10 +142,16 @@
 									</div>
 									
 									<div class="eDateTime">
-										<h2><?PHP echo $EstartDate; ?>&nbsp;
-										<?PHP echo date("g:i a", strtotime($row['EtimeStart'])); ?>
-										to 
-										<?PHP echo date("g:i a", strtotime($row['EtimeEnd'])); ?></h2>
+										<h2>
+											<div class="edate">
+												<?PHP echo $EstartDate; ?>
+											</div>
+											<div class="etime">
+											<?PHP echo date("g:i a", strtotime($row['EtimeStart'])); ?>
+											to
+											<?PHP echo date("g:i a", strtotime($row['EtimeEnd'])); ?>
+											</div>
+										</h2>
 									</div>
 									
 									<div class="eDescription">
@@ -157,13 +164,13 @@
 											$type = $row['Etype'];
 											if($row['Eflyer'] === ""){
 												switch($type){
-													case "Art":            $row['Eflyer'] = "./images/art35.png"; break;
-													case "Concert":        $row['Eflyer'] = "./images/music.png"; break;
-													case "Fair":           $row['Eflyer'] = "./images/fair35.png"; break;
-													case "Social":         $row['Eflyer'] = "./images/weight35.png"; break;
-													case "Sport":          $row['Eflyer'] = "./images/sports40.png"; break;
-													case "Public Speaker": $row['Eflyer'] = "./images/speaker.png"; break;
-													default:               $row['Eflyer'] = "./images/magic35.png"; break;
+													case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png"; break;
+													case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png"; break;
+													case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png"; break;
+													case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
+													case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png"; break;
+													case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png"; break;
+													default:               $row['Eflyer'] = "./images/icon_fireworksHD.png"; break;
 												}
 											}
 										?>

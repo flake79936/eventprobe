@@ -97,14 +97,21 @@
 						<input class="buttonInput" type="password" name='UPswd' placeholder="Password" id='UPswd' />
 						<br>
 						<br>
-						<input class="btn-primary" input id="submitButton" type="image" src="./images/btn_login.png" name="Submit" value="" />
-						<a href="./reg.php">
-							<img src="./images/btn_register.png">
-						</a>
-						<br>
-						<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
-							<img src="./images/login-button.png" alt="Sign in with Facebook">
-						</a>
+						<div class="btn-log">
+							<div class="btn-primary">
+								<input input id="submitButton" type="image" src="./images/btn_login.png" name="Submit" value="" />
+							</div>
+							<div class="btn-reg">
+								<a href="./reg.php">
+									<img src="./images/btn_register.png">
+								</a>
+							</div>
+							<div class="btn-fb">
+								<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
+									<img src="./images/login-button.png" alt="Sign in with Facebook">
+								</a>
+							</div>
+						</div>
 					</fieldset>
 				</div>
 			</form>
