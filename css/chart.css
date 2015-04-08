@@ -45,7 +45,54 @@
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
 @media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
-
+.chart .box{ float: left; width: 100%; }
+	.chart .box .row{ background: #f4f1ea; width: 100%; }
+	.chart .box .row .profile{ width: 12%; height: auto; float: left; padding: 0; }
+	.chart .box .row .profile img{ width: 100%; height: auto; }
+	
+	.chart .box .title{ padding: 10px; }
+	.chart .box .title h1{ font-size: 24px; float: left; color: #323438; }
+	.chart .box .title a{ float: right; }
+	
+	.chart .box .row .cell{ width: 14%; float: left; text-align: center; padding: 12px 0 11px 0; }
+	.chart .box .row .cell h4{ color: #315fa9; }
+	.chart .box .row .cell img{ width: 100%; }
+	.chart .box .row .circle{ background: #f05a28; color: #fff; width: 25px; padding: 5px 2px; margin: 0 auto; margin-bottom: 5px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -khtml-border-radius: 20px; border-radius: 20px; }
+	.chart .box .row .active .circle{ background: #fff; color: #f05a28; }
+	
+	.chart .box .row .active{ background: #f05a28; }
+	.chart .box .row .active h4{ color: #fff; }
+	
+	.chart .box .row .blank{ width: 25px; height: 25px; margin: 0 auto; margin-bottom: 5px; }
+	
+	.chart .box .row .info{ color: #323438; background: #e9e4d6; width: 88%; height: 96px; float: right; cursor: pointer; }
+	.chart .box .row .info:hover{ color: #e9e4d6; cursor: pointer; }
+	
+	.chart .box .row .info .active{ background: #f05a28; }
+	.chart .box .row .info .active .box{ color: #fff; }
+	
+	.chart .box .row .info .box{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
+	.chart .box .row .info .box ul{ text-align: center; }
+	.chart .box .row .info .box ul li{ display: inline-block; list-style: none; }
+	
+	.chart .box .row .info  .etime, 
+	.chart .box .row .info  .ecity,
+	.chart .box .row .info  .ename{ margin: 5px 0 0 5px; }
+	
+	.chart .box .row .info .FB, 
+	.chart .box .row .info .TW, 
+	.chart .box .row .info .Goo{ float: left; width: 8%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+	
+	.chart .box .row .info .Hashtag{ float: left; width: auto; padding: 5px 0 0 0; text-align: center; color: #323438; }
+	.chart .box .row .info .more{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
+	.chart .box .row .info img{ width: 30px; height: auto; }
+	
+	.chart .box .row .info .addButton{ text-align: center; color: #323438; width: 50%; float: right; }
+	
+	.chart .advertisement{ width: 29.8%; float: left; }
+	.chart .advertisement img{ width: 100%; }
+	
+	.chart .box .row .info a, .chart .box .row .info a:visited, .chart .box .row .info a:hover { color: #323438; cursor: pointer; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):

@@ -143,8 +143,6 @@
 			<div class="clear"></div>-->
 		</div>
 		
-		<div class="clear"></div>
-		
 		<div class="eventCrt">
 			<div class="sidebar">
 				<ul id="accordion" class="menu">
@@ -271,7 +269,6 @@
 								<span id="eventForm_Eflyer_errorloc" class="error"></span>
 							</div>
 							<img id="uploadPreview" style="width: 270px; height: 250px;" />
-							<!-- <img src="images/profile-img.jpg" alt="Profiles"> -->
 						</div>
 						
 						<div class="user-form-top">
@@ -461,14 +458,14 @@
 								</div>
 
 								<!--Start Date picker-->
-								<div class="container" id="">
+								<div class="eStartDate">
 									<h5 for="EstartDate">Start Date</h5>
 									<input type="date" name="EstartDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date" id="EstartDate"><br>
 									<span id="eventForm_EstartDate_errorloc" class="error"></span>
 								</div>
 								
 								<!--End Date picker-->
-								<!--<div class="type">
+								<!--<div class="eEndDate">
 									<h5 for="EendDate">End Date</h5>
 									<input onchange="checkDates();" type="date" name="EendDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date" id="EendDate"><br>
 									<span id="eventForm_EendDate_errorloc" class="error"></span>
@@ -506,6 +503,7 @@
 							</div>
 							<div class="clear"></div>
 						</div>
+						
 						<!--Submit Button-->
 						<div class="submitButton">
 							<input type="image" name="Submit" src="./images/btn_submit.png" value="" />
@@ -523,7 +521,6 @@
 		<div class="footer">
 			<?PHP include './footer.php'; ?>
 		</div>
-		
 		
 		<!--This script needs to wihtin the file. 
 		It is validating the form.-->

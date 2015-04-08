@@ -120,7 +120,7 @@
 		$paging = (int)(!isset($_GET["paging"]) ? 1 : $_GET["paging"]);
 		if ($paging <= 0) $paging = 1; //DEFAULT paging # 1
 
-		$per_paging = 1; // Set how many records do you want to display per paging.
+		$per_paging = 3; // Set how many records do you want to display per paging.
 
 		$startpoint = ($paging * $per_paging) - $per_paging;
 		
