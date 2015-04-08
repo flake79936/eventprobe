@@ -46,8 +46,12 @@
 
 <div class="search">
 	<form>
-		<input class="searchBar" type="text" onKeyUp="showHint(this.value);" placeholder="Search for Event, City, State, Zip Code">
-		<input class="datePicker" type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
+		<div class="searchBar">
+			<input type="text" onKeyUp="showHint(this.value);" placeholder="Search for Event, City, State, Zip Code">
+		</div>
+		<div class="datePicker">
+			<input type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
+		</div>
 		<div class="search-icons">
 			<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/icon_marathon.png"/></a> | 
 			<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/icon_concert.png"/></a> | 
@@ -112,19 +116,25 @@
 <div class="profile">
 	<!--<div class="user"></div>-->
  	<?PHP if(!$pos2 !== false){ ?>
-	<a href="./eventCreation.php">
-		<img src="./images/btn_crtevent.png">
-	</a>
+		<div class="crtEvent">
+			<a href="./eventCreation.php">
+				<img src="./images/btn_crtevent.png">
+			</a>
+		</div>
 	<?PHP }?> 
 	 
 	<?PHP if(!$bool && !$pos !== false){ ?>
-		<a href="./loginB.php">
-			<img src="./images/btn_login.png">
-		</a>
+		<div class="inbtn">
+			<a href="./loginB.php">
+				<img src="./images/btn_login.png">
+			</a>
+		</div>
 	<?PHP } else if (!$pos !== false){ ?>
-		<a href="./logout.php">
-			<img src="./images/btn_logout.png">
-		</a>
+		<div class="outbtn">
+			<a href="./logout.php">
+				<img src="./images/btn_logout.png">
+			</a>
+		</div>
 	<?PHP } ?>
 	
 	<div class="clear"></div>

@@ -22,7 +22,7 @@
 .header .search .image{ margin-top: 10px; }
 .header .search{ float:left; padding-top: 30px; width: 29%; }
 
-.header .search form .searchBar{
+.header .search form .searchBar input{
 	float:                 left;
 	width:                 370px;
 	border:                1px solid #999;
@@ -36,7 +36,7 @@
 	border-radius:         6px;
 }
 
-.header .search form .datePicker{
+.header .search form .datePicker input{
 	float:                 left;
 	width:                 146px;
 	border:                1px solid #999;
@@ -71,8 +71,64 @@
  * 															-------------
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
-@media only screen and (min-width: 960px) and (max-width: 2560px){
+@media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
+.header{ /*border-bottom: 1px solid #595249;*/ }
+.header .profile{ background: #e9e4d5; float: right; width: 20%; padding: 35px 35px 0 0; }
 
+.header .profile .user{ float: left; width: 360px; /*height: 102px;*/ padding: 0px 0px 0px 10px; }
+.header .profile .user img{ float: left; }
+.header .profile .user a{ float: right; margin-top: 20px;}
+
+.header .logo{ background: #e9e4d5; width: 275px; float: left; text-align: left; padding: 20px 0 20px 20px; width: 30%; }
+
+.header .date .box{ width: 275px; margin: 0 auto; }
+.header .date h1{ float: left; color: #2e3135; padding: 10px 30px 0 0; }
+.header .date .temp{ background: url(../images/bg_temperature.png) no-repeat right; float: left; width: 60px; height: 50px; padding: 10px 0 0 60px; font-size: 31px; color: #2e3135; }
+
+.header .profile .crtEvent, 
+.header .profile .inbtn, 
+.header .profile .outbtn{ float: none; width: 100%; padding: 0 0 0 0; }
+
+.header .profile h2{ float: left; color: #554e45; padding: 50px 0 0 30px; }
+.header .profile h3{ float: left; color: #554e45; padding: 10px 0 0 10px; }
+.header .profile .username{ float: left; color: #554e45; padding: 10px 0 0 100px; }
+
+.header .profile .search{ float: left; height: 85px; border-left: solid 1px #595249; border-right: 1px solid #595249; padding: 35px 50px 0 50px; text-align: center; }
+.header .profile .search form{ border: 1px solid #595249; padding: 2px; }
+.header .profile .search input{ background: #d2c9ab; padding: 10px; border: none; float: left; color: #ff0000; font-size: 16px; outline: none; }
+.header .profile .search .btn-search{ padding: 0; }
+.header .search .image{ margin-top: 10px; }
+.header .search{ float:left; padding-top: 35px; width: 38%; }
+
+.header .search form .searchBar input{
+	float:                 left;
+	width:                 370px;
+	border:                1px solid #999;
+	padding:               10px;
+	font-size:             15pt;
+	margin:                0 0 5px 5px;
+	outline:               none;
+	-moz-border-radius:    6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius:  6px;
+	border-radius:         6px;
+}
+
+.header .search form .datePicker input{
+	float:                 left;
+	width:                 146px;
+	border:                1px solid #999;
+	padding:               6px;
+	font-size:             10pt;
+	margin:                0 40px 5px 5px;
+	outline:               none;
+	-moz-border-radius:    6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius:  6px;
+	border-radius:         6px;
+}
+
+.header .search .box { margin: 0px 0px; float:left; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
@@ -151,7 +207,7 @@
 	
 	.header .date{ font-family: Arial, Helvetica, sans-serif; font-size:18pt;  float: left; width: 350px; padding-top: 35px; }
 	
-	.header .search form .searchBar, .header .search form .datePicker{
+	.header .search form .searchBar input, .header .search form .datePicker input{
 		float:                 left;
 		width:                 92%;
 		border:                1px solid #999;

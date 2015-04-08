@@ -45,7 +45,7 @@ ul li {
 .user a > span { margin-left:10px; }
 
 .media img {
-  max-width:250px;
+  max-device-width:250px;
   max-height:250px;
 }
 
@@ -80,7 +80,7 @@ ul li {
  * 															-------------
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
-@media only screen and (min-width: 960px) and (max-width: 2560px){
+@media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
 
 }
 
@@ -152,5 +152,5 @@ ul li {
 
 	.user a > span { margin: 0px 0px 2px 0px; }
 
-	.media img { max-width:250px; max-height:250px; }
+	.media img { max-device-width:250px; max-height:250px; }
 }

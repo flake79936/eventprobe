@@ -4,7 +4,7 @@
 
 .form-wrap .content a { float: right; margin-top: 0px; }
 
-.label { padding-top: 20px; }
+.label { padding-top: 20px; border-top: 1px solid #fff; }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
  * Google Nexus 7 2											-> 960 x 600
@@ -25,8 +25,19 @@
  * 															-------------
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
-@media only screen and (min-width: 960px) and (max-width: 2560px){
+@media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
+	.form-wrap{ background: #FFF; }
+	.form-wrap .login{ text-align: center; padding: 25px 0px 25px 0px; }
+	.form-wrap .login .textbox .buttonInput{ width: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 
+	.form-wrap .login .btn-log{ text-align: center; width: 100%; padding: 0px; }
+	.form-wrap .login .btn-log .btn-primary, 
+	.form-wrap .login .btn-log .btn-reg,
+	.form-wrap .login .btn-log .btn-fb{ text-align: center; width: 100%; padding: 0 0 5px 0; }
+	
+	.form-wrap .content a { float: right; margin-top: 0px; }
+
+	.label { padding-top: 5px; border-top: 1px solid #fff; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):

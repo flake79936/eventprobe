@@ -149,7 +149,7 @@ body{
  * 															-------------
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
-@media only screen and (min-width: 960px) and (max-width: 2560px){
+@media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
 	.main .sidebar{ float: none; width: auto; padding: 50px; }
 	.main .content{ float: none; width: auto; background: #fff; padding: 50px; box-shadow: 0 2px 4px #555; }
 

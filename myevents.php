@@ -1,20 +1,4 @@
 <!--Module-->
-
-<!--
-This can be used for when the complete site is loaded.
-We can load the events automatically (just like we do now with php)
-but with AJAX we can call it again without having to reload the site.
-
-See: http://stackoverflow.com/questions/4144768/javascript-ajax-call-on-page-onload
-	
-To auto refreash the site see:
-http://stackoverflow.com/questions/17266173/ajax-auto-refresh-stats
-
- 
-$(document).ready(function() {
-   // put Ajax here.
-});
--->
 <?PHP
 	require_once("./include/membersite_config.php");
 	include 'dbconnect.php';
@@ -152,25 +136,20 @@ $(document).ready(function() {
 ?>
 
 <head>
-	<meta charset="utf-8"/>
-	<title>Eventprobe</title>
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link rel="stylesheet" media="all" href=""/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 	
 	<!--STYLE-->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/pagination.css" />
-
-	<!--FAVICON-->
-	<link rel="shortcut icon" href="favicon.ico"  />    
 	
-	<!-- Scripts	 -->
+	<!--Scripts-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	
+	<!--When edit btn is clicked, this function is triggered-->
 	<script>
 		function editEvent(str){
 			window.location = "./editEvent.php?eid="+str;
@@ -189,7 +168,7 @@ $(document).ready(function() {
 		/*Gets the user's uploaded image or by default puts one.*/
 		while($row = mysqli_fetch_array($result3)){
 			if($row['Upic'] === ""){
-				echo "<div class='profile'><img src='./images/defaultUpic.png' alt='default image' height='146px' width='136px'/></div> ";
+				echo "<div class='profile'><img src='./images/defaultUpic.png' alt='default image'/></div> ";
 			} else {
 				echo "<div class='profile'><img src='".$row['Upic']."' alt='Profile' height='146px' width='136px'/></div>";
 			}

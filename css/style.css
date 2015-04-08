@@ -17,14 +17,6 @@ h4{ font-size: 14px; font-weight: normal; }
 h5{ font-size: 12px; font-weight: normal; }
 h6{ font-size: 11px; font-weight: normal; }
 
-p{ line-height: normal; }
-
-/* Selection colours (easy to forget) */
-::selection                  { background: rgb(255,255,158); }
-::-moz-selection 	{ background: rgb(255,255,158); }
-img::selection 		{ background: transparent; }
-img::-moz-selection	{ background: transparent; }
-
 body{
 	background: #e9e4d5;
 	font-family: Arial, Helvetica, sans-serif;
@@ -62,8 +54,32 @@ body{
  * 															-------------
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
-@media only screen and (min-width: 960px) and (max-width: 2560px) {
-	
+@media only screen and (min-device-width: 960px) and (max-device-width: 2560px) {
+	/* TYPOGRAPHY */
+	h1{ font-size: 26px; font-weight: normal; }
+	h2{ font-size: 24px; font-weight: normal; }
+	h3{ font-size: 18px; font-weight: normal; }
+	h4{ font-size: 14px; font-weight: normal; }
+	h5{ font-size: 12px; font-weight: normal; }
+	h6{ font-size: 11px; font-weight: normal; }
+
+	body{
+		background: #e9e4d5;
+		font-family: Arial, Helvetica, sans-serif;
+		-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+		-webkit-tap-highlight-color: rgb(255,255,158);
+		margin: 0; padding: 0;
+	}
+
+	.content { background: #e9e4d5; float: right; width: 100%; margin: 0 0 0 40px; border-top: 1px solid #f3eddd; }
+	.content .con-wrap{ background: #e9e4d5; float: left; width: 56%; margin: 0 0 0 300px; border-top: 1px solid #f3eddd; }
+	.content .container{ background: #e9e4d5; float: left; width: 91%; margin: 0 0 0 100px; }
+	.content .container .para{ text-align:justify; float: left; width: 86%; margin: 10px 0 10px 0; }
+	.content .container .bullets{ text-align:justify; float: left; width: 86%; margin: 0 0 0 0px; }
+	.content p { text-align:justify; float: left; width: 450px; word-wrap: break-word; margin: 25px 0 20px 0; }
+	.content img { float: left; margin: 25px 0 20px 0 }
+
+	.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):

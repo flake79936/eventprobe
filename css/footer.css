@@ -30,8 +30,19 @@
  * 															-------------
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
-@media only screen and (min-width: 960px) and (max-width: 2560px){
+@media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
+	.footer{ background: #f4f1ea; padding: 0px 4% 40px 4%; }
+	.footer .social{ float: left; padding-top: 30px; }
+	.footer .social li{ list-style: none; display: inline-block; }
+	.footer .footer-logo{ float: right; }
 
+	.footer p.copyright {
+		float:        left;
+		padding:      0px;
+		width:        230px;
+		border-right: #e6e6e6 1px solid;
+		text-align:   center;
+	}
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
