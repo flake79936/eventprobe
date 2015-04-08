@@ -27,9 +27,11 @@
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
 @media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
+	.links{ float: left; background: #f4f1ea; padding: 0 0 0 0; width: 100%; }
+	
 	.links h3{ color: #282826; font-size:20px }
 	.links p{ color: #282826; width: 800px}
-	.links{ background: #f4f1ea; padding: 50px 0px 0px 0px; }
+	
 	.links ul{ float: left; width: 20%; padding-left: 5%; }
 	.links ul li{ list-style: none; line-height: 21px; }
 	.links ul li h3{ color: #282826; }

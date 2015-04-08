@@ -42,7 +42,7 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
         
         <!--STYLE-->
-        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <link rel="stylesheet" type="text/css" href="./css/eventCrt.css" />
         <link rel="stylesheet" type="text/css" href="./css/header.css" />
         <link rel="stylesheet" type="text/css" href="./css/links.css" />
         <link rel="stylesheet" type="text/css" href="./css/footer.css" />
@@ -67,13 +67,13 @@
 			<!--(Start) Script to show whether the event is 'Other'-->
 				<script type="text/javascript">
 					$(document).ready(function(){
-						$("#other").hide();
+						$(".typeOther").hide();
 						$("#Etype").change(function(){
 							$("#Etype option:selected").each(function(){
 								if($(this).attr("value") == "Other"){
-									$("#other").show();
+									$(".typeOther").show();
 								} else {
-									$("#other").hide();
+									$(".typeOther").hide();
 								}
 							});
 						}).change();
@@ -117,7 +117,7 @@
 		<!--(End) Scripts-->
 	</head>
 	
-	<body  lang="en">
+	<body lang="en">
 		<div class="header">
 			<?PHP include './header.php';?>
 		
@@ -142,22 +142,12 @@
 			</div>
 			<div class="clear"></div>-->
 		</div>
-
-		<div class="main">
+		
+		<div class="clear"></div>
+		
+		<div class="eventCrt">
 			<div class="sidebar">
-			<br>
-			<br>
-			<!-- <div class="btn-event"><a href=""><img src="images/btn_event.png" alt="Event" /></a></div> -->
 				<ul id="accordion" class="menu">
-					<!--<li>
-						<h2>Dashboard</h2>
-						<ul>
-							<li><img src="images/music.png" alt="Music" /><a href="#">DJ Maxwell, Aug 30</a></li>
-							<li><img src="images/speaker.png" alt="Speaker" /><a href="#">Speaker Event, Sep 30</a></li>
-							<li><img src="images/dollar.png" alt="Dollar" /><a href="#">Sales Events, Oct 30</a></li>
-						</ul>
-					</li>-->
-					
 					<li>
 						<h2>My Events</h2>
 						<ul id="accordion2">
@@ -273,80 +263,71 @@
 					<input type="hidden" name="submitted" id="submitted" value="1"/>
 					
 					<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
-				
-					<!--DASHBOARD-->
-					<div class="dashboard">
+					
+					<div class="form-wrap">
 						<div class="user-profile">
 							<div class="update-image">
-								<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" />
-								<br>
+								<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" /><br>
 								<span id="eventForm_Eflyer_errorloc" class="error"></span>
 							</div>
 							<img id="uploadPreview" style="width: 270px; height: 250px;" />
 							<!-- <img src="images/profile-img.jpg" alt="Profiles"> -->
 						</div>
 						
-						<div class="user-menu">
-							<div class="box">
-								<div class="name">
-									<!--<h1>DJ Maxwell</h1>-->
+						<div class="user-form-top">
+							<div class="box-top">
+								<div class="nameEvent">
 									<h5 for="Evename">Name of event</h5>
-									<div class="type" id="Evename">
-										<!--<div class="image"><img src="images/icon_location.png" /></div> -->
-										<input type="text" onkeyup="textCounter(this,'charsLeftName', 85)" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>">
-										<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftName" value="85"> 85 Characters Max</div>
-										<span id="eventForm_Evename_errorloc" class="error"></span>
-									</div>
-									
-									<!--<div class="info">
-										<div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
-										<div class="box"><h3>Music Event</h3></div>
-										<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
-										<div class="clear"></div>
-									</div>-->
-									
-									<div class="type">
-										<div class="container">
-											<h5 for="Etype">Type of Event</h5>
-											<select name="Etype" id="Etype">
-												<option value="" disabled selected>Please Select a Type</option>
-												<option value="Art">Art</option>
-												<option value="Concert">Concert</option>
-												<option value="Fair">Fair</option>
-												<option value="Social">Social</option>
-												<option value="Sport">Sport</option>
-												<option value="Public Speaker">Public Speaker</option>
-												<option value="Other">Other</option>
-											</select><br>
-											<span id="eventForm_Etype_errorloc" class="error"></span>
-										</div>
-										 
-										<div class="type">					
-											<div class="container" id="other">
-												<label for="Eother">Other: </label><br>
-												<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
-												<span id="event_Eother_errorloc" class="error"></span>
-											</div>
-										</div>
-										
-										<div class="container">
-											<h5 for="Erank">Ad Placement</h5>
-											<select name="Erank" id="Erank">
-												<option value="" disabled selected>Please Select a Rank</option>
-												<option value="Premium">Premium</option>
-												<option value="Paid">Paid</option>
-												<option value="Free">Free</option>
-											</select><br>
-											<span id="eventForm_Erank_errorloc" class="error"></span>
-										</div>
-									</div>
-									
-									<div class="reach">
-									<!--<h3>Increase your reach!</h3>
-										<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>-->
-									</div>
-									<div class="clear"></div>
+									<input type="text" onkeyup="textCounter(this,'charsLeftName', 85)" name="Evename" placeholder="Enter the Name Event" id="Evename" value="<?php echo $fgmembersite->SafeDisplay('Evename') ?>">
+									<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftName" value="85"> 85 Characters Max</div>
+									<span id="eventForm_Evename_errorloc" class="error"></span>
 								</div>
+								
+								<!--<div class="info">
+									<div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
+									<div class="box"><h3>Music Event</h3></div>
+									<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
+									<div class="clear"></div>
+								</div>-->
+								
+								<div class="typeEvent">
+									<h5 for="Etype">Type of Event</h5>
+									<select name="Etype" id="Etype">
+										<option value="" disabled selected>Please Select a Type</option>
+										<option value="Art">Art</option>
+										<option value="Concert">Concert</option>
+										<option value="Fair">Fair</option>
+										<option value="Social">Social</option>
+										<option value="Sport">Sport</option>
+										<option value="Public Speaker">Public Speaker</option>
+										<option value="Other">Other</option>
+									</select><br>
+									<span id="eventForm_Etype_errorloc" class="error"></span>
+								</div>
+								
+								<div class="typeOther">
+									<h5 for="Eother">Other</h5>
+									<input type="text" name="Eother" title="Enter Other Kind of Event" id="Eother" value="<?php echo $fgmembersite->SafeDisplay('Eother') ?>" maxlength="50"><br>
+									<span id="event_Eother_errorloc" class="error"></span>
+								</div>
+										
+								<div class="adPlacement">
+									<h5 for="Erank">Ad Placement</h5>
+									<select name="Erank" id="Erank">
+										<option value="" disabled selected>Please Select a Rank</option>
+										<option value="Premium">Premium</option>
+										<option value="Paid">Paid</option>
+										<option value="Free">Free</option>
+									</select><br>
+									<span id="eventForm_Erank_errorloc" class="error"></span>
+								</div>
+									
+								<div class="reach">
+								<!--<h3>Increase your reach!</h3>
+									<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>-->
+								</div>
+									
+								<div class="clear"></div>
 								
 								<div class="saved">
 								<!--<div class="box"><h3>Saved</h3></div>
@@ -355,222 +336,194 @@
 									<div class="clear"></div>
 								</div>
 							</div>
+							
 							<div class="clear"></div>
 						</div>
-					</div>
-					<!--Dashboard-->
-					
-					<div class="form-wrap">
-						<div class="box">
-							<h5 for="Edescription">Description</h5>
-							<textarea onkeyup="textCounter(this,'charsLeftText', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value=""></textarea>
-							<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftText" value="500"> 500 Characters Max</div>
-							<span id="eventForm_Edescription_errorloc" class="error"></span>
 						
-							<h5 for="Eaddress">Address</h5>
-							<div class="location" id="Eaddress">
-							   <!-- <div class="image"><img src="images/icon_location.png" /></div> -->
-								<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="" maxlength="50">
-								<br>
-								<span id="eventForm_Eaddress_errorloc" class="error"></span>
-							</div>
-						
-							<div class="wrap">
-								<div class="type" id="Ecity" >
+						<div class="user-form-bottom">
+							<div class="box-bottom">
+								<div class="descEvent">
+									<h5 for="Edescription">Description</h5>
+									<textarea onkeyup="textCounter(this,'charsLeftText', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value=""></textarea>
+									<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftText" value="500"> 500 Characters Max</div>
+									<span id="eventForm_Edescription_errorloc" class="error"></span>
+								</div>
+								
+								<div class="locEvent">
+									<h5 for="Eaddress">Address</h5>
+									<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="" maxlength="50"><br>
+									<span id="eventForm_Eaddress_errorloc" class="error"></span>
+								</div>
+								
+								<div class="cityEvent">
 									<h5 for="Ecity">City</h5>
-										<input type="text" name="Ecity" placeholder="City" title="Enter the City of the Event" id="Ecity" value="" maxlength="50"><br>
+									<input type="text" name="Ecity" placeholder="City" title="Enter the City of the Event" id="Ecity" value="" maxlength="50"><br>
 									<span id="eventForm_Ecity_errorloc" class="error"></span>
 								</div>
 								
-								<div class="type">
-									<div class="container" id="Estate">
-										<h5 for="Estate">State</h5>
-										<select name="Estate" size="1">
-											<option value="" disabled selected>Select The State</option>
-											<option value="AK">AK</option>
+								<div class="stEvent">
+									<h5 for="Estate">State</h5>
+									<select name="Estate" size="1">
+										<option value="" disabled selected>Select The State</option>
+										<option value="AK">AK</option>
 
-											<option value="AL">AL</option>
-											<option value="AR">AR</option>
-											<option value="AZ">AZ</option>
-											<option value="CA">CA</option>
+										<option value="AL">AL</option>
+										<option value="AR">AR</option>
+										<option value="AZ">AZ</option>
+										<option value="CA">CA</option>
 
-											<option value="CO">CO</option>
-											<option value="CT">CT</option>
-											<option value="DC">DC</option>
-											<option value="DE">DE</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DC">DC</option>
+										<option value="DE">DE</option>
 
-											<option value="FL">FL</option>
-											<option value="GA">GA</option>
-											<option value="HI">HI</option>
-											<option value="IA">IA</option>
+										<option value="FL">FL</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="IA">IA</option>
 
-											<option value="ID">ID</option>
-											<option value="IL">IL</option>
-											<option value="IN">IN</option>
-											<option value="KS">KS</option>
+										<option value="ID">ID</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="KS">KS</option>
 
-											<option value="KY">KY</option>
-											<option value="LA">LA</option>
-											<option value="MA">MA</option>
-											<option value="MD">MD</option>
+										<option value="KY">KY</option>
+										<option value="LA">LA</option>
+										<option value="MA">MA</option>
+										<option value="MD">MD</option>
 
-											<option value="ME">ME</option>
-											<option value="MI">MI</option>
-											<option value="MN">MN</option>
-											<option value="MO">MO</option>
+										<option value="ME">ME</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MO">MO</option>
 
-											<option value="MS">MS</option>
-											<option value="MT">MT</option>
-											<option value="NC">NC</option>
-											<option value="ND">ND</option>
+										<option value="MS">MS</option>
+										<option value="MT">MT</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
 
-											<option value="NE">NE</option>
-											<option value="NH">NH</option>
-											<option value="NJ">NJ</option>
-											<option value="NM">NM</option>
+										<option value="NE">NE</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
 
-											<option value="NV">NV</option>
-											<option value="NY">NY</option>
-											<option value="OH">OH</option>
-											<option value="OK">OK</option>
+										<option value="NV">NV</option>
+										<option value="NY">NY</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
 
-											<option value="OR">OR</option>
-											<option value="PA">PA</option>
-											<option value="RI">RI</option>
-											<option value="SC">SC</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
 
-											<option value="SD">SD</option>
-											<option value="TN">TN</option>
-											<option value="TX">TX</option>
-											<option value="UT">UT</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
 
-											<option value="VA">VA</option>
-											<option value="VT">VT</option>
-											<option value="WA">WA</option>
-											<option value="WI">WI</option>
+										<option value="VA">VA</option>
+										<option value="VT">VT</option>
+										<option value="WA">WA</option>
+										<option value="WI">WI</option>
 
-											<option value="WV">WV</option>
-											<option value="WY">WY</option>
-										</select>
-										<br>
-										<span id="eventForm_Estate_errorloc" class="error"></span>
-									</div>
+										<option value="WV">WV</option>
+										<option value="WY">WY</option>
+									</select>
+									<br>
+									<span id="eventForm_Estate_errorloc" class="error"></span>
 								</div>
-								
-								<div class="type" id="Ezip">
+									
+								<div class="zipEvent">
 									<h5 for="Ezip">ZIP</h5>
-										<input type="text" name="Ezip" placeholder="12345" title="Enter the Zip code of the Event" id="Ezip" value="" maxlength="50"><br>
+									<input type="text" name="Ezip" placeholder="12345" title="Enter the Zip code of the Event" id="Ezip" value="" maxlength="50"><br>
 									<span id="eventForm_Ezip_errorloc" class="error"></span>
-								</div>						
-							</div>
-						
-							<div class="wrap">
-								<div class="type" id="EphoneNumber" >
+								</div>
+							
+								<div class="phoneEvent">
 									<h5 for="EphoneNumber">Phone Number</h5>
-										<input type='tel' name="EphoneNumber" id="EphoneNumber" title='Phone Number (Format: (999) 999-9999)' maxlength="16" placeholder="(999) 999-9999" onkeydown="javascript:backspacerDOWN(this, event);" onkeyup="javascript:backspacerUP(this, event);"><br>
+									<input type='tel' name="EphoneNumber" id="EphoneNumber" title='Phone Number (Format: (999) 999-9999)' maxlength="16" placeholder="(999) 999-9999" onkeydown="javascript:backspacerDOWN(this, event);" onkeyup="javascript:backspacerUP(this, event);"><br>
 									<span id="eventForm_EphoneNumber_errorloc" class="error"></span>
 								</div>
-							</div>
-							
-							<div class="clear"></div>
-							
-							<div class="wrap">
+								
 								<!--Start Time-->
-								<div class="type">
-									<div class="container" id="EtimeStart">
-										<div class="container" id="">
-											<h5 for="EtimeStart">Start Time</h5>
-											<input type="time" name="EtimeStart" id="EtimeStart"><br>
-											<span id="eventForm_EtimeStart_errorloc" class="error"></span>
-										</div>
-									</div>
+								<div class="sTimeEvent">
+									<h5 for="EtimeStart">Start Time</h5>
+									<input type="time" name="EtimeStart" id="EtimeStart"><br>
+									<span id="eventForm_EtimeStart_errorloc" class="error"></span>
 								</div>
-							
+								
 								<!--End Time  -->
-								<div class="type">
-									<div class="container" id="EtimeEnd">
-										<h5 for="EtimeEnd">End Time</h5>
-										<input type="time" name="EtimeEnd" id="EtimeEnd"><br>
-										<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
-									</div>
+								<div class="eTimeEvent">
+									<h5 for="EtimeEnd">End Time</h5>
+									<input type="time" name="EtimeEnd" id="EtimeEnd"><br>
+									<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
 								</div>
-							</div>
-								
-							<div class="clear"></div>
-						
-							<div class="wrap">
-								<div class="type">	
-									<!--Start Date picker-->
-									<div class="container" id="">
-										<h5 for="EstartDate">Start Date</h5>
-										<input type="date" name="EstartDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date" id="EstartDate"><br>
-										<span id="eventForm_EstartDate_errorloc" class="error"></span>
-									</div>
-								</div>	
 
-
-								<div class="type">
-									<!--End Date picker-->
-									<div class="container" id="">
-										<h5 for="EendDate">End Date</h5>
-										<input onchange="checkDates();" type="date" name="EendDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date" id="EendDate"><br>
-										<span id="eventForm_EendDate_errorloc" class="error"></span>
-									</div>
-								</div>	
+								<!--Start Date picker-->
+								<div class="container" id="">
+									<h5 for="EstartDate">Start Date</h5>
+									<input type="date" name="EstartDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date" id="EstartDate"><br>
+									<span id="eventForm_EstartDate_errorloc" class="error"></span>
+								</div>
 								
-								<div class="clear"></div>
+								<!--End Date picker-->
+								<!--<div class="type">
+									<h5 for="EendDate">End Date</h5>
+									<input onchange="checkDates();" type="date" name="EendDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date" id="EendDate"><br>
+									<span id="eventForm_EendDate_errorloc" class="error"></span>
+								</div>-->
 								
-								<div class="type" id="Ewebsite" >
+								<div class="webEvent">
 									<h5 for="Ewebsite">Website</h5>
 									<input type="url" name="Ewebsite"  placeholder="http://www.website.com" title="correct format: http://www.website.com" id="Ewebsite" value="<?php echo $fgmembersite->SafeDisplay('Ewebsite') ?>" maxlength="50"><br>
 									<span id="event_Ewebsite_errorloc" class="error"></span>
 								</div>
-								
-								<div class="type" id="Efacebook" >
+									
+								<div class="fbEvent">
 									<h5 for="Efacebook">Facebook</h5>
 									<input type="text" name="Efacebook" placeholder="https://www.facebook.com/USERNAME" id="Efacebook" value="<?php echo $fgmembersite->SafeDisplay('Efacebook') ?>" maxlength="50"><br>
 									<span id="event_Efacebook_errorloc" class="error"></span>
 								</div>
-								
-								<div class="type" id="Egoogle" >
+									
+								<div class="gooEvent">
 									<h5 for="Egoogle">Google+</h5>
 									<input type="text" name="Egoogle" placeholder="https://plus.google.com/USERNAME" id="Egoogle" value="<?php echo $fgmembersite->SafeDisplay('Egoogle') ?>" maxlength="50"><br>
 									<span id="event_Egoogle_errorloc" class="error"></span>
 								</div>
-								
-								<div class="type" id="Etwitter" >
+									
+								<div class="twEvent">
 									<h5 for="Etwitter">Twitter</h5>
 									<input type="text" name="Etwitter" placeholder="https://twitter.com/username" id="Etwitter" value="<?php echo $fgmembersite->SafeDisplay('Etwitter') ?>" maxlength="50"><br>
 									<span id="event_Etwitter_errorloc" class="error"></span>
 								</div>
-								
-								<div class="type" id="Ehashtag">
+									
+								<div class="hashEvent">
 									<h5 for="Ehashtag">Hashtag</h5>
 									<input type="text" name="Ehashtag" placeholder="#hashtag" title="#hello" id="Ehashtag" value="<?php echo $fgmembersite->SafeDisplay('Ehashtag') ?>" maxlength="50"><br>
 									<span id="event_Ehashtag_errorloc" class="error"></span>
 								</div>
 							</div>
+							<div class="clear"></div>
+						</div>
+						<!--Submit Button-->
+						<div class="submitButton">
+							<input type="image" name="Submit" src="./images/btn_submit.png" value="" />
 						</div>
 						<div class="clear"></div>
 					</div><!--End of Form-wrap-->
-						
-					<!--Submit Button-->
-					<div class="submitButton">
-						<input type="image" name="Submit" src="./images/btn_submit.png" value="" />
-					</div>
 				</form>
-				
 			</div> <!-- End of content -->
-			
-			<div class="links">
-				<?PHP include './links.php'; ?>
-			</div>
-			
-			<div class="footer">
-				<?PHP include './footer.php'; ?>
-			</div>
-			
 		</div><!-- End of Main -->
+		
+		<div class="links">
+			<?PHP include './links.php'; ?>
+		</div>
+		
+		<div class="footer">
+			<?PHP include './footer.php'; ?>
+		</div>
+		
 		
 		<!--This script needs to wihtin the file. 
 		It is validating the form.-->
@@ -591,7 +544,7 @@
 			frmvalidator.addValidation("Ezip",         "req", "Please fill in Zip code");
 			frmvalidator.addValidation("EphoneNumber", "req", "Please fill in Phone Number");
 			frmvalidator.addValidation("EtimeStart",   "req", "Please fill in the Start Time");
-			frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
+			//frmvalidator.addValidation("EtimeEnd",     "req", "Please fill in the End Time");
 			frmvalidator.addValidation("EstartDate",   "req", "Please Select a Start Date");
 			frmvalidator.addValidation("EendDate",     "req", "Please Select an End Date");
 			// ]]>
