@@ -1,12 +1,14 @@
+@import url(meyer_reset.css);
+
 .schedule .map{ float: left; width: 29.8%; }
 .schedule .map img{ width: 100%; }
 .schedule .today{ float: right; width: 70%; }
-.schedule .today ul li{ list-style: none; display: inline-block; margin: 0; width: 24.6%; }
-.schedule .today ul li img{ width: 100%; }
-.schedule .today ul li .info{ position: absolute; z-index: 9; background: url(../images/bg_black.png) repeat; color: #fff; width: 17.2%; padding: 20px 0; }
-.schedule .today ul li .info .btn-cross{ width: 40px; float: right; }
-.schedule .today ul li .info .box{ padding: 0 20px; }
-.schedule .today .info .box p{ color: #FFFFFF; }
+.schedule .today ul li .schedule{ list-style: none; display: inline-block; margin: 0; width: 24.6%; }
+.schedule .today ul li .schedule img{ width: 100%; }
+.schedule .today ul li .schedule .info{ position: absolute; z-index: 9; background: url(../images/bg_black.png) repeat; color: #fff; width: 17.2%; padding: 20px 0; }
+.schedule .today ul li .schedule .info .btn-cross{ width: 40px; float: right; }
+.schedule .today ul li .schedule .info .box{ padding: 0 20px; }
+.schedule .today .schedule .info .box p{ color: #FFFFFF; }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
  * Google Nexus 7 2											-> 960 x 600
@@ -28,11 +30,13 @@
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
 @media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
-	.schedule .map{ float: none; width: auto; margin: 0 auto; }
-	.schedule .today{ float: none; width: auto; }
-	.schedule .today ul li{ width: 24.5%; }
-	.schedule .today ul li .info{ width: 24.5%; padding: 10px 0; }
-	.schedule .today ul li .info .box{ padding: 0 15px; }
+	.schedule .map{ float: left; width: 39%; margin: 0 auto; }
+	.schedule .today{ float: left; width: 61%; }
+	.schedule .today ul li .schedule{ float: left; width: 24%; padding: 0 3px 0 0; }
+	.schedule .today ul li .schedule img{ width: 100%; }
+	.schedule .today ul li .schedule .info{ position: absolute; z-index: 0; background: url(../images/bg_black.png) repeat; color: #fff; width: 15%; padding: 20px 0; }
+	.schedule .today ul li .schedule .info .btn-cross{ width: 30%; float: right; height: auto; }
+	.schedule .today ul li .schedule .info .box{ padding: 0 15px; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
@@ -80,10 +84,10 @@
 	.schedule .map{ float: left; width: 100%; height: auto; }
 	.schedule .map img{ width: 100%; height: auto; }
 	.schedule .today{ float: right; width: 70%; }
-	.schedule .today ul li{ list-style: none; display: inline-block; margin: 0; width: 24.6%; }
-	.schedule .today ul li img{ width: 100%; }
-	.schedule .today ul li .info{ position: absolute; z-index: 9; background: url(../images/bg_black.png) repeat; color: #fff; width: 17.2%; padding: 20px 0; }
-	.schedule .today ul li .info .btn-cross{ width: 40px; float: right; }
-	.schedule .today ul li .info .box{ padding: 0 20px; }
-	.schedule .today .info .box p{ color: #FFFFFF; }
+	.schedule .today ul li .schedule{ list-style: none; display: inline-block; margin: 0; width: 24.6%; }
+	.schedule .today ul li .schedule img{ width: 100%; }
+	.schedule .today ul li .schedule .info{ position: absolute; z-index: 9; background: url(../images/bg_black.png) repeat; color: #fff; width: 17.2%; padding: 20px 0; }
+	.schedule .today ul li .schedule .info .btn-cross{ width: 40px; float: right; }
+	.schedule .today ul li .schedule .info .box{ padding: 0 20px; }
+	.schedule .today .schedule .info .box p{ color: #FFFFFF; }
 }

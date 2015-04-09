@@ -1,3 +1,5 @@
+@import url(meyer_reset.css);
+
 /*	Less Framework 4
 	http://lessframework.com
 	by Joni Korpi
@@ -12,22 +14,6 @@ h5{ font-size: 13px; font-weight: normal; }
 h6{ font-size: 11px; font-weight: normal; }
 
 p{ line-height: normal; }
-
-/*		Default Layout: 992px. 
-		Gutters: 24px.
-		Outer margins: 48px.
-		Leftover space for scrollbars @1024px: 32px.
--------------------------------------------------------------------------------
-cols    1     2      3      4      5      6      7      8      9      10
-px      68    160    252    344    436    528    620    712    804    896    */
-body{
-	background: #e9e4d5;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
-	-webkit-tap-highlight-color: rgb(255,255,158);
-	margin: 0; padding: 0;
-}
 
 .editEvent{ background: #f4f1ea; }
 

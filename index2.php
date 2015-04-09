@@ -7,14 +7,14 @@
 <html>
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=.9, maximum-scale=.9, user-scalable=0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 		<title>Eventprobe - Home</title>
 		
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
-		<!-- Adding "maximum-scale=.9" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+		
         
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -149,70 +149,68 @@
 	</head>
 	
 	<body lang="en">
-		<div class="wrap">
-			<div class="header">
-				<?PHP include './header.php'; ?>
+		<div class="header">
+			<?PHP include './header.php'; ?>
+		</div>
+		
+		<div class="clear"></div>
+		
+		<!--My Events Section-->
+		<?PHP if($fgmembersite->CheckSession()){ ?>
+			<div class="my-events">
+				<?PHP include './myevents.php'; ?>
 			</div>
-			
+		<?PHP } ?>
+
+		<!--Banner  Section-->
+		<div class="banner">
+			<?PHP include './banner2.php'; ?>
+		</div>
+
+		<!--This-Week Section-->
+		<div class="this-week">
+			<?PHP include './this-week.php'; ?>
+		</div>
+
+		<!--Schedule Section-->
+		<div class="schedule">
+			<!--Map Section-->
+			<div class="map">
+				<iframe src="./map.php" height="390px" width="390px"></iframe>
+				<!-- <?PHP //include('./geo.php'); ?> -->
+				<!--<img src="images/map.jpg" alt="Map" />-->
+			</div>
+
+			<!--Today Section-->
+			<div class="today">
+				<?PHP include './events.php'; ?>
+			</div>
+
 			<div class="clear"></div>
-			
-			<!--My Events Section-->
-			<?PHP if($fgmembersite->CheckSession()){ ?>
-				<div class="my-events">
-					<?PHP include './myevents.php'; ?>
-				</div>
-			<?PHP } ?>
+		</div>
 
-			<!--Banner  Section-->
-			<div class="banner">
-				<?PHP include './banner2.php'; ?>
-			</div>
+		<!--Chart Section-->
+		<div class="chart">
+			<?PHP include './chart.php'; ?>
+		</div>
 
-			<!--This-Week Section-->
-			<div class="this-week">
-				<?PHP include './this-week.php'; ?>
-			</div>
+		<!--Section where events will show when user types on the search bar-->
+		<div class="events" id="txtHint"></div>
+		<div class="clear"></div>
 
-			<!--Schedule Section-->
-			<div class="schedule">
-				<!--Map Section-->
-				<div class="map">
-					<iframe src="./map.php" height="390px" width="390px"></iframe>
-					<!-- <?PHP //include('./geo.php'); ?> -->
-					<!--<img src="images/map.jpg" alt="Map" />-->
-				</div>
+		<!--App Section-->
+		<div class="app">
+			<?PHP include './app.php'; ?>
+		</div>
 
-				<!--Today Section-->
-				<div class="today">
-					<?PHP include './events.php'; ?>
-				</div>
+		<!--Links  Section-->
+		<div class="links">
+			<?PHP include './links.php'; ?>
+		</div>
 
-				<div class="clear"></div>
-			</div>
-
-			<!--Chart Section-->
-			<div class="chart">
-				<?PHP include './chart.php'; ?>
-			</div>
-
-			<!--Section where events will show when user types on the search bar-->
-			<div class="events" id="txtHint"></div>
-			<div class="clear"></div>
-
-			<!--App Section-->
-			<div class="app">
-				<?PHP include './app.php'; ?>
-			</div>
-
-			<!--Links  Section-->
-			<div class="links">
-				<?PHP include './links.php'; ?>
-			</div>
-
-			<!--Footer Section-->
-			<div class="footer">
-				<?PHP include './footer.php'; ?>
-			</div>
+		<!--Footer Section-->
+		<div class="footer">
+			<?PHP include './footer.php'; ?>
 		</div>
 	</body>
 </html>

@@ -40,8 +40,7 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
-		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
-        
+		
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="./css/editEvent.css" />
         <link rel="stylesheet" type="text/css" href="./css/header.css" />
@@ -78,13 +77,13 @@
 			<!--(Start) Script to show whether the event is 'Other'-->
 				<script type="text/javascript">
 					$(document).ready(function(){
-						$("#other").hide();
+						$(".typeOther").hide();
 						$("#Etype").change(function(){
 							$("#Etype option:selected").each(function(){
 								if($(this).attr("value") == "Other"){
-									$("#other").show();
+									$(".typeOther").show();
 								} else {
-									$("#other").hide();
+									$(".typeOther").hide();
 								}
 							});
 						}).change();

@@ -1,3 +1,5 @@
+@import url(meyer_reset.css);
+
 .chart .box{ float: left; width: 100%; }
 .chart .box .title{ padding: 15px 30px; }
 .chart .box .title h1{ float: left; color: #323438; }
@@ -48,7 +50,7 @@
 .chart .box{ float: left; width: 100%; }
 	.chart .box .row{ background: #f4f1ea; width: 100%; }
 	.chart .box .row .profile{ width: 12%; height: auto; float: left; padding: 0; }
-	.chart .box .row .profile img{ width: 100%; height: auto; }
+	.chart .box .row .profile img{ width: 100%; height: 95px; }
 	
 	.chart .box .title{ padding: 10px; }
 	.chart .box .title h1{ font-size: 24px; float: left; color: #323438; }

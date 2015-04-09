@@ -140,7 +140,7 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link rel="stylesheet" media="all" href=""/>
-	<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+	
 	
 	<!--STYLE-->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />

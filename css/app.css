@@ -1,3 +1,5 @@
+@import url(meyer_reset.css);
+
 .app{ background: #e4dfcd; padding: 0% 3%; }
 .app .left{ float: left; width: 50%; }
 .app .right{ float: right; width: 50%; padding-top: 25px; }

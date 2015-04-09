@@ -30,31 +30,32 @@
 			}
 	?>
 			<li>
-				<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
-					<div class="info">
-						<div class="box">
-							<h2><?= $day ?></h2><img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
-							
-							<p><?= substr($EstartDate, 0, 5); ?>, <?= $row['EtimeStart'] ?></p>
-							<h3><?= substr($row['Evename'], 0, 12) . " ..."; ?></h3>
+				<div class="schedule">
+					<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
+						<div class="info">
+							<div class="box">
+								<h2><?= $day ?></h2><img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
+								<p><?= substr($EstartDate, 0, 5); ?>, <?= $row['EtimeStart'] ?></p>
+								<h3><?= substr($row['Evename'], 0, 12) . " ..."; ?></h3>
+							</div>
 						</div>
-					</div>
-					<?PHP 
-						$type = $row['Etype'];
-						if($row['Eflyer'] === ""){
-							switch($type){
-								case "Art":            $row['Eflyer'] = "./images/art35.png"; break;
-								case "Concert":        $row['Eflyer'] = "./images/music.png"; break;
-								case "Fair":           $row['Eflyer'] = "./images/fair35.png"; break;
-								case "Social":         $row['Eflyer'] = "./images/icon_kettleball.png"; break;
-								case "Sport":          $row['Eflyer'] = "./images/icon_marathon.png"; break;
-								case "Public Speaker": $row['Eflyer'] = "./images/speaker.png"; break;
-								default:               $row['Eflyer'] = "./images/icon_fireworks.png"; break;
+						<?PHP 
+							$type = $row['Etype'];
+							if($row['Eflyer'] === ""){
+								switch($type){
+									case "Art":            $row['Eflyer'] = "./images/art35.png"; break;
+									case "Concert":        $row['Eflyer'] = "./images/music.png"; break;
+									case "Fair":           $row['Eflyer'] = "./images/fair35.png"; break;
+									case "Social":         $row['Eflyer'] = "./images/icon_kettleball.png"; break;
+									case "Sport":          $row['Eflyer'] = "./images/icon_marathon.png"; break;
+									case "Public Speaker": $row['Eflyer'] = "./images/speaker.png"; break;
+									default:               $row['Eflyer'] = "./images/icon_fireworks.png"; break;
+								}
 							}
-						}
-					?>
-					<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />
-				</a>
+						?>
+						<img width="200px" height="200px" src="<?= $row['Eflyer'] ?>" alt="Image" />
+					</a>
+				</div>
 			</li>
 	<?PHP   $i++; 
 		} ?>

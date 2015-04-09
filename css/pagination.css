@@ -1,3 +1,5 @@
+@import url(meyer_reset.css);
+
 /* For pagination function. */
 ul.pagination { text-align:center; color:#829994; }
 
