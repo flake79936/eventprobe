@@ -453,11 +453,13 @@
 									</div>	
 
 									<!--End Date picker-->
+<!-- 
 									<div class="eEndDate">
 										<h5 for="EendDate">End Date</h5>
 										<input type="date" name="EendDate" placeholder="12/31/2015" title="Pick Start Date" id="EendDate" value="<?PHP echo $row['EendDate']; ?>" maxlength="50"><br>
 										<span id="eventForm_EendDate_errorloc" class="error"></span>
 									</div>
+ -->
 									
 									<div class="webEvent">
 										<h5 for="Ewebsite">Website</h5>
