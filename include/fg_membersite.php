@@ -430,7 +430,7 @@ class FGMembersite{
 		$validator->addValidation("EstartDate",   "req", "Please Select a Start Date");
 		$validator->addValidation("EtimeStart",   "req", "Please fill in the Start Time");
 		$validator->addValidation("EtimeEnd",     "req", "Please fill in the End Time");
-		$validator->addValidation("EendDate",     "req", "Please Select an End Date");
+// 		$validator->addValidation("EendDate",     "req", "Please Select an End Date");
 		$validator->addValidation("Edescription", "req", "Please fill in Description");
 
 		if(!$validator->ValidateForm()){
@@ -815,7 +815,7 @@ class FGMembersite{
 		$validator->addValidation("EstartDate",   "req", "Please Select a Start Date");
 		$validator->addValidation("EtimeStart",   "req", "Please fill in the Start Time");
 		$validator->addValidation("EtimeEnd",     "req", "Please fill in the End Time");
-		$validator->addValidation("EendDate",     "req", "Please Select an End Date");
+// 		$validator->addValidation("EendDate",     "req", "Please Select an End Date");
 		$validator->addValidation("Edescription", "req", "Please fill in Description");
 
 		if(!$validator->ValidateForm()){
