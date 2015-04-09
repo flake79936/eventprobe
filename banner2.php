@@ -15,7 +15,10 @@
 	//$city = 'el paso';
 
 	$sql = "SELECT Eid, Eflyer, Evename, Edisplay, Etype FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' AND Edisplay='1';";
+	$sql2 = "SELECT COUNT(*) AS premiumEvents FROM Events WHERE Ecity= '".$city."' ";
+	
 	$result = mysqli_query($con, $sql);
+	$result2= mysqli_query($con, $sql2);
 ?>
 
 <!-- jQuery library (served from Google) -->
