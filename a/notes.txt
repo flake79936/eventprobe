@@ -72,4 +72,4 @@ DONE --only start date, date of event
 DONE--end date condition.   
 space between create event and logout
 search form, two date pickers, to and from. date range
-event display page, address on bottom of pic
+DONE—-event display page, address on bottom of pic

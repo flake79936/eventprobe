@@ -214,6 +214,17 @@
 								</div>
 								
 								<div class="lower">
+									<div class="eAdrsPhone">
+										<h4>
+											<img src='images/favicon.png'/>&nbsp;
+											<?= $row['Eaddress'] ?>, 
+											<?= $row['Ecity'] ?>, 
+											<?= $row['Estate'] ?>&nbsp; 
+											<?= $row['Ezip'] ?><br>
+											<?PHP echo "Phone: " . $formatPhone; ?>
+										</h4>
+									</div>
+									
 									<div class="eMap">
 										<!-- START OF MAP SCRIPT -->
 										<script type="text/javascript">
@@ -250,17 +261,7 @@
 										<!-- END OF MAP SCRIPT -->
 									</div>
 									
-									<div class="eAdrsPhone">
-										<h4>
-											<img src='images/favicon.png'/>&nbsp;
-											<?= $row['Eaddress'] ?>, 
-											<?= $row['Ecity'] ?>, 
-											<?= $row['Estate'] ?>&nbsp; 
-											<?= $row['Ezip'] ?><br>
-											<?PHP echo "Phone: " . $formatPhone; ?>
-										</h4>
-									</div>
-									
+	
 									<div class="button">
 										<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
 											<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/> |
