@@ -3,63 +3,41 @@
 * You can do whatever the hell you want on your site :-)
 */
 
-h2 { clear:both; }
+.app h2 { clear:both; }
 
-p, a {
-  font-size:9pt;
-  margin:10px 0 0 0;
-  color:#3d3d3d;
-}
+.app p, a { font-size:9pt; margin:10px 0 0 0; color:#3d3d3d }
 
-a, a:visited, a:hover { color:#427fed; cursor: pointer;}
+.app a, 
+.app a:visited, 
+.app a:hover { color:#427fed; cursor: pointer;}
 
-a:hover { color:#82afff; }
+.app a:hover { color:#82afff; }
 
-/* 
-ul li {
-  list-style:none;
-  overflow:hidden;
-  border:1px solid #dedede;
-  margin:5px;
-  padding:5px;
-}*/
+/*.app ul li { list-style:none; overflow:hidden; border:1px solid #dedede; margin:5px; padding:5px; }*/
 
-/*ul li:hover { background-color:#f0f3fb; } */
+/*.app ul li:hover{ background-color:#f0f3fb; } */
 
-.tweet { width:40%; }
-.timePosted { width:18%; }
+.app .tweet { width:40%; }
+.app .timePosted { width:18%; }
 
-.interact { float:left; width:10%; margin-top:-7px; }
+.app .interact { float:left; width:10%; margin-top:-7px; }
 
-.user { width:29%; clear:left; }
-.user a { width: 100px; }
-.user span span { width:100px; display:block; margin-top:10px; }
-.user img, .user a > span { float:left; }
-.user, .tweet, .timePosted { float:left; }
+.app .user { width:29%; clear:left; }
+.app .user a { width: 100px; }
+.app .user span span { width:100px; display:block; margin-top:10px; }
+.app .user img, .app .user a > span { float:left; }
 
-.interact a {
-  margin-left:5px;
-  float:left;
-}
+.app .user, 
+.app .tweet, 
+.app .timePosted { float:left; }
 
-.user a > span { margin-left:10px; }
+.app .interact a { margin-left:5px; float:left; }
 
-.media img {
-  max-device-width:250px;
-  max-height:250px;
-}
+.app .user a > span { margin-left:10px; }
 
-#linkage {
-  position:fixed;
-  top:0px;
-  right:0px;
-  background-color:#3d3d3d;
-  color:#ffffff;
-  text-decoration:none;
-  padding:5px;
-  width:10%;
-  font-family: Arial, Helvetica, sans-serif;
-}
+.app .media img { max-device-width:250px; max-height:250px; }
+
+.app #linkage { position:fixed; top:0px; right:0px; background-color:#3d3d3d; color:#ffffff; text-decoration:none; padding:5px; width:10%; font-family: Arial, Helvetica, sans-serif; }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
  * Google Nexus 7 2											-> 960 x 600
@@ -81,7 +59,21 @@ ul li {
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
 @media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
+	.app .media img { float: none; max-device-width:250px; max-height:250px; }
+	.app .user a > span { float: none; width: 100%; margin: 0 0 0 0px; }
+	
+	.app .user { float: left; width: 26%; clear:left; }
+	.app .tweet { float:left; width: 40%; }
+	.app .timePosted { float:left; width: 20%; }
+	
+	.app .interact { float:left; width:10%; margin-top:-7px; }
+	.app .interact a { margin-left:5px; float:left; }
 
+	.app p, a { font-size:9pt; margin:10px 0 0 0; color:#3d3d3d; }
+
+	.app a, .app a:visited{ color:#427fed; cursor: pointer;}
+
+	.app a:hover { color:#82afff; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
@@ -126,31 +118,33 @@ ul li {
  * Motorola Droid Razr HD										-> 720 x 1280
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
-	h2 { clear:both; }
-
-	p, a { font-size:9pt; margin:10px 0 0 0; color:#3d3d3d; }
-
-	a, a:visited, a:hover { color:#427fed; cursor: pointer;}
-
-	a:hover { color:#82afff; }
-
-	/*ul li { list-style:none; overflow:hidden; border:1px solid #dedede; margin:5px; padding:5px;}*/
-	/*ul li:hover { background-color:#f0f3fb; } */
-
-	.tweet { width: 36%; }
-	.timePosted { width:18%; }
-
-	.interact { float:left; width:10%; margin-top:-7px; }
-
-	.user { width:29%; clear:left; }
-	.user a { width: 100%; }
-	.user span span { width:100px; display:block; margin-top:10px; }
-	.user img, .user a > span { float:left; }
-	.user, .tweet, .timePosted { float:left; }
-
-	.interact a { margin-left:5px; float:left; }
-
-	.user a > span { margin: 0px 0px 2px 0px; }
-
-	.media img { max-device-width:250px; max-height:250px; }
+	.app h2 { clear:both; }
+	
+	.app p, a { font-size:9pt; margin:10px 0 0 0; color:#3d3d3d; }
+	
+	.app a, 
+	.app a:visited, 
+	.app a:hover { color:#427fed; cursor: pointer;}
+	
+	.app a:hover { color:#82afff; }
+	
+	/*.app ul li { list-style:none; overflow:hidden; border:1px solid #dedede; margin:5px; padding:5px;}*/
+	/*.app ul li:hover { background-color:#f0f3fb; } */
+	
+	.app .tweet { width: 36%; }
+	.app .timePosted { width:18%; }
+	
+	.app .interact { float:left; width:10%; margin-top:-7px; }
+	
+	.app .user { width:29%; clear:left; }
+	.app .user a { width: 100%; }
+	.app .user span span { width:100px; display:block; margin-top:10px; }
+	.app .user img, .app .user a > span { float:left; }
+	.app .user, .app .tweet, .app .timePosted { float:left; }
+	
+	.app .interact a { margin-left:5px; float:left; }
+	
+	.app .user a > span { margin: 0px 0px 2px 0px; }
+	
+	.app .media img { max-device-width:250px; max-height:250px; }
 }

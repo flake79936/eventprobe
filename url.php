@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Grabs and returns the URL of current page.

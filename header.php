@@ -26,7 +26,7 @@
  
 	$mystring = (string)$test;
 	
-	$findme   = 'loginB.php';
+	$findme   = 'login.php';
 	$pos = strpos($test, $findme);
 	
 	$findme2 = 'eventCreation.php';
@@ -117,7 +117,7 @@
 	<!--<div class="user"></div>-->
  	<?PHP if(!$pos2 !== false){ ?>
 		<div class="crtEvent">
-			<a href="./EventCreation.php">
+			<a href="./eventCreation.php">
 				<img src="./images/btn_crtevent.png">
 			</a>
 		</div>
@@ -125,7 +125,7 @@
 	 
 	<?PHP if(!$bool && !$pos !== false){ ?>
 		<div class="inbtn">
-			<a href="./loginB.php">
+			<a href="./login.php">
 				<img src="./images/btn_login.png">
 			</a>
 		</div>

@@ -1,3 +1,5 @@
+@import url(meyer_reset.css);
+
 .form-wrap{ background: #FFF; }
 .form-wrap .login{ text-align: center; padding: 25px 0px 25px 0px; }
 .form-wrap .login .textbox .buttonInput{ width: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
@@ -26,9 +28,10 @@
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
 @media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
-	.form-wrap{ background: #FFF; }
-	.form-wrap .login{ text-align: center; padding: 25px 0px 25px 0px; }
-	.form-wrap .login .textbox .buttonInput{ width: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+	.form-wrap{ background: #FFF; float: left; width: 100%; }
+	.form-wrap .login{ text-align: center; padding: 25px 0px 25px 0px; width: 100%; }
+	.form-wrap .login .top-login{ text-align: center; width: 100%; }
+	.form-wrap .login .top-login input{ width: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 
 	.form-wrap .login .btn-log{ text-align: center; width: 100%; padding: 0px; }
 	.form-wrap .login .btn-log .btn-primary, 

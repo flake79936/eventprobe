@@ -256,50 +256,37 @@ body{
  * Motorola Droid Razr HD										-> 720 x 1280
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
-	.editEvent .sidebar{ float: float; width: 89%; padding: 15px 15px 40px 15px; }
+	.editEvent .sidebar{ float: none; width: auto; padding: 15px 15px 40px 15px; }
 	.editEvent .sidebar .btn-event img{ width: 100%; padding: 0; }
-	
-	.editEvent .content{ float: left; width: 89%; background: #fff; padding: 0 20px 10px; box-shadow: 0 2px 4px #555; }	
-	
+	.editEvent .menu li ul li h3{ padding: 20px; }
+	.editEvent .menu li ul li a{ padding: 20px; }
+	.editEvent .content{ float: none; width: auto; background: #fff; padding: 0 20px; box-shadow: 0 2px 4px #555; }
 	.editEvent .content .form-wrap .user-profile{ float: none; margin-top: 0; width: 240px; margin: 0 auto; }
-	.editEvent .content .form-wrap .user-profile{ float: left; margin: -40px 23px 0 0; width: 33%; }
-	.editEvent .content .form-wrap .user-profile img{ width: 100%; height: auto; border: 10px solid #f5f5f5; }
-	.editEvent .content .form-wrap .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 10px; position: relative; z-index: 9; top: 229px; color: #fff; }
-	.editEvent .content .form-wrap .user-profile .update-image h5{ float: left; text-transform: uppercase; padding: 7px 0 0 0; }
-	.editEvent .content .form-wrap .user-profile .update-image img{ float: right; border: none; }
-	
-	.editEvent .content .form-wrap select{ width: 100%; }
-	
-	.editEvent .content .form-wrap .user-form-top{ float: left; width: 100%; padding: 0 0 0 0; }
-	.editEvent .content .form-wrap .user-form-top .box-top input{ width: 100%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
-	.editEvent .content .form-wrap .user-form-top .box-top .nameEvent{ float: left; width: 100%; }
-	
-	
-	.editEvent .content .form-wrap .user-form-bottom .box-bottom input{ width: 100%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
-	.editEvent .content .form-wrap .user-form-bottom .box-bottom textarea{ width: 100%; height: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; resize: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
-	
-	.editEvent .content .form-wrap .submitButton{ float: left; }
-	.editEvent .content .form-wrap .submitButton input{ width: 100%; border: none; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; -khtml-border-radius: 0px; border-radius: 0px; }
-	
-	
-	
-	/*not sure if in use*/
-	.editEvent .content .form-wrap .user-form-top .reach{ float: none; text-align: center; margin: 20px 0; }
+	.editEvent .content .form-wrap .user-menu{ float: none; padding: 30px 0 0 0; }
+	.editEvent .content .form-wrap .user-menu .box .nameEvent{ float: none; width: auto; margin-bottom: 0px; /*text-align: center;*/ }
+	.editEvent .content .form-wrap .user-menu .box .nameEvent h1{ margin-bottom: 20px; }
+	.editEvent .content .form-wrap .user-menu .box .nameEvent .info .box{ padding-left: 15px; }
+	.editEvent .content .form-wrap .user-menu .box .nameEvent .info .box h3{ padding: 7px 15px 0 15px; }
+	.editEvent .content .form-wrap .user-menu .reach{ float: none; text-align: center; margin: 20px 0; }
 	.editEvent .content .form-wrap .saved{ float: none; width: auto; padding-top: 0; }
 	.editEvent .content .form-wrap .saved .box{ float: none; margin: 20px 0; text-align: center; }
 	.editEvent .content .form-wrap{ padding: 0px 0; }
 	.editEvent .content .form-wrap .box{ float: none; width: auto; }
+	.editEvent .content .form-wrap .box input{ width: 92%; }
+	.editEvent .content .form-wrap .submitButton{ float: left; }
+	.editEvent .content .form-wrap .submitButton input{ width: 100%; border: none; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; -khtml-border-radius: 0px; border-radius: 0px; }	
 	.editEvent .content .form-wrap .box .location input{ width: 96%; }
+	.editEvent .content .form-wrap .box textarea{ width: 96%; }
 	.editEvent .content .form-wrap .box .wrap .type{ width: auto; float: none; margin-right: 0; }
 	.editEvent .content .form-wrap .box .wrap .type input{ width: 96%; }
-	
+	.editEvent .content .form-wrap select{ width: 96%; }
 	.editEvent .content .form-wrap .social{ border-top: 1px solid #555; border-left: 1px solid #555; border-right: 1px solid #555; }
 	.editEvent .content .form-wrap .social li{ float: none; height: 60px; border-right: none; border-top: none; }
 	.editEvent .content .form-wrap .gmap{ float: none; width: 93%; margin: 20px 0; }
-	/*-----------------*/
-	
-	.editEvent .menu li ul li h3{ padding: 20px; }
-	.editEvent .menu li ul li a{ padding: 20px; }
 	.editEvent .menu li ul li img{ float: left; width: 19%; padding: 0 0 0 0px; }
 	.editEvent .menu li ul li a{ padding: 20px; font-size: 16px; color: #000; width: 100%; display: block; }
+	.editEvent .content .form-wrap .user-profile{ float: none; margin-top: 0; width: 289px; margin: 0 auto; }
+	.editEvent .content{ float: none; width: auto; background: #fff; padding: 0 20px 10px; box-shadow: 0 2px 4px #555; }
+	.editEvent .content .form-wrap .user-menu .name .info .box{ padding-left: 60px; }
+	.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 }

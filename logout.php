@@ -7,17 +7,14 @@
 <html>
 	<head>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-		<meta http-equiv="refresh" content="1; index2.php">
+		<!--<meta http-equiv="refresh" content="1; index2.php">-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		<link href="favicon.ico" rel="shortcut icon"  />
 		<title>Logout</title>
 		
 		<!--(Start) Style Sheets-->
-			<link rel="STYLESHEET" type="text/css" href="css/fg_membersite.css">
-<!-- 			<link href="css/accordion.css" rel="stylesheet" type="text/css" /> -->
-			
 			<!--(Start) Provided by JetDevLLC-->
-				<link rel="stylesheet" type="text/css" href="css/style.css" />
+				<link rel="stylesheet" type="text/css" href="css/logout.css" />
 				<link rel="stylesheet" type="text/css" href="css/header.css" />
 				<link rel="stylesheet" type="text/css" href="css/links.css" />
 				<link rel="stylesheet" type="text/css" href="css/footer.css" />
@@ -34,10 +31,8 @@
 			<?PHP include './header.php';?>
 		</div>
 		
-		<div id='fg_membersite' align="center">
-			<div class="wrap">
-				<h1>You have logged out!</h1>
-			</div>
+		<div class="logout" align="center">
+			<h1>You have logged out!</h1>
 		</div>
 		
 		<div class="links">

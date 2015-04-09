@@ -8,7 +8,7 @@
 
 	/*This part ckecks whether there is a session or not.*/
 		if(!$fgmembersite->CheckSession()){
-			$fgmembersite->RedirectToURL("loginB.php");
+			$fgmembersite->RedirectToURL("login.php");
 			exit;
 	}
 	
@@ -31,7 +31,7 @@
 
 <html lang="en">
 	<head>
-		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		
 		<title>Eventprobe</title>

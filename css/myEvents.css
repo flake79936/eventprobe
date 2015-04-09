@@ -114,7 +114,7 @@
 	.my-events .box .profile{ float: none; margin: 0 0 0 0px; text-align: center; }
 	
 	.my-events .event{ width: auto !important; padding: 0 !important; }
-	.my-events .event{ width: 40% !important; padding: 40px 0 0 0 !important; }
+	.my-events .event{ width: 90% !important; padding: 10px 0 0 0 !important; }
 	
 	.my-events .arrow{ float: none !important; width: auto !important; padding: 10px 0 0 0 !important; text-align: center; }
 	.my-events .arrow{ float: right !important; width: 5% !important; padding: 65px 0 0 0 !important; }

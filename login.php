@@ -1,7 +1,7 @@
 <?PHP
 	require_once("./include/membersite_config.php");
 
-	if(isset($_POST['authenticity_token'])){
+	if(isset($_POST['submitted'])){
 		if($fgmembersite->Login()){
 			$fgmembersite->RedirectToURL("./index2.php");
 		}
@@ -27,11 +27,10 @@
 		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
 
 		<!--STYLE-->
-		<link rel="stylesheet" type="text/css" href="css/style.css"  />
-		<link rel="stylesheet" type="text/css" href="css/header.css" />
-		<link rel="stylesheet" type="text/css" href="css/login.css"  />
-		<link rel="stylesheet" type="text/css" href="css/links.css"  />
 		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/links.css"  />
+		<link rel="stylesheet" type="text/css" href="css/login.css"  />
+		<link rel="stylesheet" type="text/css" href="css/header.css" />
 		
 		<!--SCRIPTS-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -80,39 +79,36 @@
 			<?PHP include './header.php'; ?>
 		</div>
 		
-		<?PHP if (!$fgmembersite->CheckSession()){ ?>
-			<div class="label" ><center><h3>Please Login</h3></center></div>
-		<?PHP } ?>
-		
 		<div class="form-wrap">
+		<?PHP if (!$fgmembersite->CheckSession()){ ?>
+			<div class="label"><center><h3>Please Login</h3></center></div>
+		<?PHP } ?>
 			<form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+				<input type="hidden" name="submitted" id="submitted" value="1" />
 				<div class="login">
-					<div style="margin:0;padding:0;display:inline">
-						<input name="utf8" type="hidden" value="&#x2713;" />
-						<input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" />
-					</div>
-					<fieldset class='textbox'>
-						<input class="buttonInput" name="UuserName" type="text" placeholder="Username" id="UuserName"  />
-						<br>
-						<input class="buttonInput" type="password" name='UPswd' placeholder="Password" id='UPswd' />
-						<br>
-						<br>
-						<div class="btn-log">
-							<div class="btn-primary">
-								<input input id="submitButton" type="image" src="./images/btn_login.png" name="Submit" value="" />
-							</div>
-							<div class="btn-reg">
-								<a href="./reg.php">
-									<img src="./images/btn_register.png">
-								</a>
-							</div>
-							<div class="btn-fb">
-								<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
-									<img src="./images/login-button.png" alt="Sign in with Facebook">
-								</a>
-							</div>
+					<div class="top-login">
+						<div class="user-input">
+							<input class="buttonInput" name="UuserName" type="text" placeholder="Username" id="UuserName" />
 						</div>
-					</fieldset>
+						<div class="user-pass">
+							<input class="buttonInput" type="password" name='UPswd' placeholder="Password" id='UPswd' />
+						</div>
+					</div>
+					<div class="btn-log">
+						<div class="btn-primary">
+							<input input id="submitButton" type="image" src="./images/btn_login.png" name="Submit" value="" />
+						</div>
+						<div class="btn-reg">
+							<a href="./reg.php">
+								<img src="./images/btn_register.png">
+							</a>
+						</div>
+						<div class="btn-fb">
+							<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
+								<img src="./images/login-button.png" alt="Sign in with Facebook">
+							</a>
+						</div>
+					</div>
 				</div>
 			</form>
 		</div>

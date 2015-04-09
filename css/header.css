@@ -1,3 +1,5 @@
+@import url(meyer_reset.css);
+
 .header{ /*border-bottom: 1px solid #595249;*/ }
 .header .profile{ background: #e9e4d5; /*border-bottom: 5px solid #aca58d;*/ }
 .header .profile .user{ float: left; width: 360px; /*height: 102px;*/ padding: 0px 0px 0px 10px; }
@@ -98,11 +100,15 @@
 .header .profile .search input{ background: #d2c9ab; padding: 10px; border: none; float: left; color: #ff0000; font-size: 16px; outline: none; }
 .header .profile .search .btn-search{ padding: 0; }
 .header .search .image{ margin-top: 10px; }
-.header .search{ float:left; padding-top: 35px; width: 38%; }
+.header .search{ float:left; padding-top: 35px; width: 32%; }
+
+.header .search form .searchBar { float: left; width: 100%; }
+.header .search form .datePicker{ float: left; width: 54%; }
+.header .search form .search-icons{ width: 100%; }
 
 .header .search form .searchBar input{
 	float:                 left;
-	width:                 370px;
+	width:                 100%;
 	border:                1px solid #999;
 	padding:               10px;
 	font-size:             15pt;
