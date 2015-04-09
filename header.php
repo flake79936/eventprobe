@@ -117,7 +117,7 @@
 	<!--<div class="user"></div>-->
  	<?PHP if(!$pos2 !== false){ ?>
 		<div class="crtEvent">
-			<a href="./eventCreation.php">
+			<a href="./EventCreation.php">
 				<img src="./images/btn_crtevent.png">
 			</a>
 		</div>
