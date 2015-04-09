@@ -166,13 +166,13 @@
 	<!-- <div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div> -->
 	<?PHP
 		/*Gets the user's uploaded image or by default puts one.*/
-		while($row = mysqli_fetch_array($result3)){
-			if($row['Upic'] === ""){
-				echo "<div class='profile'><img src='./images/defaultUpic.png' alt='default image'/></div> ";
-			} else {
-				echo "<div class='profile'><img src='".$row['Upic']."' alt='Profile' height='146px' width='136px'/></div>";
-			}
-		}
+// 		while($row = mysqli_fetch_array($result3)){
+// 			if($row['Upic'] === ""){
+// 				echo "<div class='profile'><img src='./images/defaultUpic.png' alt='default image'/></div> ";
+// 			} else {
+// 				echo "<div class='profile'><img src='".$row['Upic']."' alt='Profile' height='146px' width='136px'/></div>";
+// 			}
+// 		}
 	?>
 	
 	<?PHP
