@@ -65,3 +65,11 @@ DONE-Height, auto
 
 *Search Results
 DONE-add date
+
+4-8-14
+DONE--hide the profile pic, hide upload profile pic
+DONE --only start date, date of event 
+DONE--end date condition.   
+space between create event and logout
+search form, two date pickers, to and from. date range
+event display page, address on bottom of pic
