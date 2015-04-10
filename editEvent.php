@@ -301,13 +301,20 @@
 										<h5 for="Erank">Ad Placement</h5>
 										<select name="Erank" id="Erank">
 											<option value="" disabled selected>Please Select a Rank</option>
-											<option value="Free"    <?php echo strcasecmp($row['Erank'], "Premium") == 0    ? "Selected" : ""; ?>>Premium</option>
+											<option value="Premium"    <?php echo strcasecmp($row['Erank'], "Premium") == 0    ? "Selected" : ""; ?>>Premium</option>
 											<option value="Paid"    <?php echo strcasecmp($row['Erank'], "Paid") == 0    ? "Selected" : ""; ?>>Paid</option>
-											<option value="Premium" <?php echo strcasecmp($row['Erank'], "Free") == 0 ? "Selected" : ""; ?>>Free</option>
+											<option value="Free" <?php echo strcasecmp($row['Erank'], "Free") == 0 ? "Selected" : ""; ?>>Free</option>
 										</select><br>
 										<span id="eventForm_Erank_errorloc" class="error"></span>
 									</div>
-										
+									
+									<div class="descEvent">
+										<h5 for="Edescription">Description</h5>
+										<textarea onkeyup="textCounter(this,'charsLeftText', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription"><?PHP echo $row['Edescription']; ?></textarea>
+										<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftText" value="500"> 500 Characters Max</div>
+										<span id="eventForm_Edescription_errorloc" class="error"></span>
+									</div>
+									
 									<div class="reach">
 									<!--<h3>Increase your reach!</h3>
 										<a href="#"><img src="images/btn_upgrade.png" alt="Upgrade" /></a>-->
@@ -327,13 +334,6 @@
 							
 							<div class="user-form-bottom">
 								<div class="box-bottom">
-									<div class="descEvent">
-										<h5 for="Edescription">Description</h5>
-										<textarea onkeyup="textCounter(this,'charsLeftText', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription"><?PHP echo $row['Edescription']; ?></textarea>
-										<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftText" value="500"> 500 Characters Max</div>
-										<span id="eventForm_Edescription_errorloc" class="error"></span>
-									</div>
-								
 									<div class="locEvent">
 										<h5 for="Eaddress">Address</h5>
 										<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="<?PHP echo $row['Eaddress']; ?>" maxlength="50"><br>

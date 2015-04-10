@@ -1,9 +1,11 @@
 @import url(meyer_reset.css);
 
+.links{ float: left; background: #f4f1ea; padding: 30px 0px 30px 0px; width: 100%; }
+
 .links h3{ color: #282826; font-size:20px }
 .links p{ color: #282826; width: 800px}
-.links{ background: #f4f1ea; padding: 50px 0px 0px 0px; }
-.links ul{ float: left; width: 20%; padding-left: 5%; }
+
+.links ul{ float: left; width: 20%; padding-left: 5%; font-weight: normal; text-align: center; }
 .links ul li{ list-style: none; line-height: 21px; }
 .links ul li h3{ color: #282826; }
 .links ul li a{ font-size: 14px; color: #282826; text-decoration: none; }

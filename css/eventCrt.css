@@ -16,9 +16,9 @@ h6{ font-size: 11px; font-weight: normal; }
 
 p{ line-height: normal; }
 
-.eventCrt{ background: #f4f1ea; }
+.eventCrt{ background: #f4f1ea; float: left; width: 100%; }
 
-.eventCrt .sidebar{ float: left; width: 390px; padding: 20px; }
+.eventCrt .sidebar{ float: left; width: 30%; padding: 20px; }
 .eventCrt .sidebar .btn-event{ text-align: center; padding: 20px 0; }
 
 .eventCrt .menu li{ list-style: none; }
@@ -28,47 +28,52 @@ p{ line-height: normal; }
 .eventCrt .menu li ul li a{ font-size: 16px; color: #000; padding: 20px 50px; display: block; text-decoration: none; cursor: pointer;}
 .eventCrt .menu li ul li a:hover{ background: #f2efe6; }
 
-.eventCrt .content{ float: none; width: auto; /*background: url(../images/bg_shadow.png)*/ repeat-y left #fff; padding: 10px;  }
-.eventCrt .policy{ float: none; width: auto; /*background: url(../images/bg_shadow.png)*/ repeat-y left #fff; padding: 133px 0px 10px 30px;  }
-.eventCrt .content{ background: #fff; border-bottom: 1px solid #999; padding-bottom: 20px; }
+.eventCrt .content{ float: none; width: auto;  padding: 10px 0 0 0; background: #fff; border-bottom: 1px solid #999; }
+.eventCrt .policy{ float: none; width: auto; padding: 133px 0px 10px 30px; }
 
-.eventCrt .content .form-wrap .user-profile{ float: left; margin-right: 20px; margin-top: -25px; }
-.eventCrt .content .form-wrap .user-profile img{ border: 10px solid #f5f5f5; }
-.eventCrt .content .form-wrap .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 10px; position: relative; z-index: 9; top: 229px; color: #fff; }
+.eventCrt .content .form-wrap .user-profile{ float: left; margin: -25px 0 0 0; }
+.eventCrt .content .form-wrap .user-profile img{ border: 10px solid #f5f5f5; width: 100%; height: 250px;}
+.eventCrt .content .form-wrap .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 0 0 0; position: relative; z-index: 9; top: 229px; color: #fff; width: 86%; }
 .eventCrt .content .form-wrap .user-profile .update-image h5{ float: left; text-transform: uppercase; padding: 7px 0 0 0; }
 .eventCrt .content .form-wrap .user-profile .update-image img{ float: right; border: none; }
 
-.eventCrt .content .form-wrap .user-form-top{ float: left; padding: 35px 0px 0px 0px; }
-.eventCrt .content .form-wrap .user-form-top .name{ float: left; width: 200px; }
-.eventCrt .content .form-wrap .user-form-top .name h1{ margin-bottom: 10px; }
-.eventCrt .content .form-wrap .user-form-top .name .info .box{ float: left; }
-.eventCrt .content .form-wrap .user-form-top .name .info .box h3{ color: #524a48; padding: 7px 20px 0 20px; text-transform: uppercase; }
-
+.eventCrt .content .form-wrap .user-form-top{ float: left; padding: 35px 0px 0px 45px; width: 29%; }
+.eventCrt .content .form-wrap .user-form-top .nameEvent{ float: left; width: 100%; }
+.eventCrt .content .form-wrap .user-form-top .nameEvent h1{ margin-bottom: 10px; }
+.eventCrt .content .form-wrap .user-form-top .nameEvent .info .box{ float: left; }
+.eventCrt .content .form-wrap .user-form-top .nameEvent .info .box h3{ color: #524a48; padding: 7px 20px 0 20px; text-transform: uppercase; }
+.eventCrt .content .form-wrap .user-form-top textarea{ width: 97%; height: 100px; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; resize: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 .eventCrt .content .form-wrap .user-form-top select{ width: 96%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;}
 .eventCrt .content .form-wrap .user-form-top input{ width: 96%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 
 .eventCrt .content .form-wrap .user-form-top .reach{ float: left; width: auto; text-align: right; }
 .eventCrt .content .form-wrap .user-form-top .reach h3{ margin-bottom: 10px; }
 
-.eventCrt .content .form-wrap .saved{ float: right; width: auto; padding-top: 50px; }
-.eventCrt .content .form-wrap .saved .box{ float: left; margin-left: 20px; }
-.eventCrt .content .form-wrap .saved .box h3{ color: #524a48; padding: 15px 10px 0 10px; }
-.eventCrt .content .none{ border: none; }
+.eventCrt .content .form-wrap .user-form-bottom{ float: none; padding: 0px 0px 0px 445px; width: 54%; }
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .locEvent, 
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .cityEvent, 
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .stEvent, 
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .zipEvent, 
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .phoneEvent,
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .sTimeEvent,
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .eTimeEvent,
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .eStartDate,
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .webEvent,
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .fbEvent,
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .gooEvent,
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .twEvent{ float: left; width: 50%; }
 
-.eventCrt .content .form-wrap{ /*border-bottom: 1px solid #999;*/ padding: 0px 0; }
-.eventCrt .content .form-wrap .box{ float: left; width: 500px; }
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .hashEvent{ width: 50%; }
+
+.eventCrt .content .form-wrap .user-form-bottom input,
+.eventCrt .content .form-wrap .user-form-bottom select{ width: 96%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+
+
+.eventCrt .content .form-wrap .saved{ float: right; width: auto; padding-top: 50px; display: none; }
+
+.eventCrt .content .form-wrap{ padding: 0 0 50px 0; }
 .eventCrt .content .form-wrap h5, 
 .eventCrt .content .user-form-top h5{ font-weight: bold; text-transform: uppercase; margin-bottom: 0px; }
-
-.eventCrt .content .form-wrap .box input{ width: 95%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
-.eventCrt .content .form-wrap .box .location{ margin-bottom: 10px; }
-.eventCrt .content .form-wrap .box .location .image{ float: left; margin-right: 10px; }
-.eventCrt .content .form-wrap .box .location input{ float: left; width: 97%; }
-
-.eventCrt .content .form-wrap .box textarea{ width: 97%; height: 100px; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; resize: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
-
-.eventCrt .content .form-wrap .box .wrap .type{ width: 155px; float: left; margin-right: 10px;}
-.eventCrt .content .form-wrap .box .wrap .type input{ width: 99%; }
 
 .eventCrt .content .form-wrap select{ width: 99%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;}
 
@@ -80,8 +85,8 @@ p{ line-height: normal; }
 
 .eventCrt .content .form-wrap .gmap{ float: right; border: 10px solid #f5f5f5; width: 320px; height: 320px; }
 
-.eventCrt .content .form-wrap .user-form-top .error, .eventCrt .content .form-wrap .form-wrap .box .error,
-.eventCrt .content .form-wrap .user-profile .error, .eventCrt .content .form-wrap .box .error{
+.eventCrt .content .form-wrap .user-form-top .error, 
+.eventCrt .content .form-wrap .user-form-bottom .error{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.9em;
 	color: #900;
@@ -90,7 +95,7 @@ p{ line-height: normal; }
 
 #content #register_password_errorloc{ clear:both; }
 
-.eventCrt .content .form-wrap .submitButton{ float: right; }
+.eventCrt .content .form-wrap .submitButton{ float: right; width: 27%; }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
  * Google Nexus 7 2											-> 960 x 600
@@ -120,25 +125,28 @@ p{ line-height: normal; }
 	
 	.eventCrt .content{ float: left; width: 89%; background: #fff; padding: 50px 50px 25px 50px; box-shadow: 0 2px 4px #555; }
 	
-	.eventCrt .policy{ float: none; width: auto; /*background: url(../images/bg_shadow.png)*/ repeat-y left #fff; padding: 133px 0px 10px 30px;  }/**/
+	.eventCrt .policy{ float: none; width: auto; padding: 133px 0px 10px 30px; }
 	
-	.eventCrt .content .form-wrap{ /*border-bottom: 1px solid #999;*/ padding: 0px 0; }
+	.eventCrt .content .form-wrap{ padding: 0px 0; }
 	.eventCrt .content .form-wrap select{ width: 100%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;}
 	.eventCrt .content .form-wrap h5, .eventCrt .content .user-form-top h5{ font-weight: bold; text-transform: uppercase; margin-bottom: 0px; }
 	
 	.eventCrt .content .form-wrap .user-profile{ float: left; margin: -40px 23px 0 0; width: 33%; }
-	.eventCrt .content .form-wrap .user-profile img{ width: 100%; height: auto; border: 10px solid #f5f5f5; }
+	.eventCrt .content .form-wrap .user-profile img{ width: 100%; height: 250px; border: 10px solid #f5f5f5; }
 	.eventCrt .content .form-wrap .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 10px; position: relative; z-index: 9; top: 229px; color: #fff; }
 	.eventCrt .content .form-wrap .user-profile .update-image h5{ float: left; text-transform: uppercase; padding: 7px 0 0 0; }
 	.eventCrt .content .form-wrap .user-profile .update-image img{ float: right; border: none; }
 	
+	
+	
 	.eventCrt .content .form-wrap .user-form-top{ float: left; padding: 0 0 0 0; width: 50% }
 	.eventCrt .content .form-wrap .user-form-top .box-top select{ width: 96%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;}
 	.eventCrt .content .form-wrap .user-form-top .box-top input{ width: 96%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
-	.eventCrt .content .form-wrap .user-form-top .box-top .nameEvent{ float: left; width: 100%; }
-	.eventCrt .content .form-wrap .user-form-top .box-top .nameEvent h1{ margin-bottom: 10px; }
-	.eventCrt .content .form-wrap .user-form-top .box-top .nameEvent .info .box{ float: left; }
-	.eventCrt .content .form-wrap .user-form-top .box-top .nameEvent .info .box h3{ color: #524a48; padding: 7px 20px 0 20px; text-transform: uppercase; }
+	.eventCrt .content .form-wrap .user-form-top textarea{ width: 97%; height: 100px; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; resize: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+	.eventCrt .content .form-wrap .user-form-top .box-top .nameEven{ float: left; width: 100%; }
+	.eventCrt .content .form-wrap .user-form-top .box-top .nameEven h1{ margin-bottom: 10px; }
+	.eventCrt .content .form-wrap .user-form-top .box-top .nameEven .info .box{ float: left; }
+	.eventCrt .content .form-wrap .user-form-top .box-top .nameEven .info .box h3{ color: #524a48; padding: 7px 20px 0 20px; text-transform: uppercase; }
 	
 	.eventCrt .content .form-wrap .user-form-top .box-top .typeEvent{}
 	
@@ -149,8 +157,9 @@ p{ line-height: normal; }
 	.eventCrt .content .form-wrap .user-form-top .box-top .reach{ float: left; width: auto; text-align: right; }
 	.eventCrt .content .form-wrap .user-form-top .box-top .reach h3{ margin-bottom: 10px; }
 	
+	.eventCrt .content .form-wrap .user-form-bottom{ float: left; padding: 0px 0px 0px 0px; width: 100%; }
+	
 	.eventCrt .content .form-wrap .user-form-bottom .box-bottom { float: left; width: 100%; }
-	.eventCrt .content .form-wrap .user-form-bottom .box-bottom textarea{ width: 100%; height: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; resize: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 	.eventCrt .content .form-wrap .user-form-bottom .box-bottom input{ width: 100%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 	
 	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .wrap .type{ width: 210px; }
@@ -170,7 +179,7 @@ p{ line-height: normal; }
 
 	.eventCrt .content .form-wrap .gmap{ float: left; width: 95%; margin: 30px 0; }
 	
-	.eventCrt .content .form-wrap .submitButton{ float: left; margin-top: 22px; }
+	.eventCrt .content .form-wrap .submitButton{ float: right; margin-top: 22px; }
 	.eventCrt .content .form-wrap .submitButton input{ width: 100%; border: none; padding: 0 0 0 0px; margin-bottom: 5px; outline: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; -khtml-border-radius: 0px; border-radius: 0px; }
 
 	.eventCrt .content .form-wrap .social{ border-left: 1px solid #555; }
@@ -243,23 +252,23 @@ p{ line-height: normal; }
  * Motorola Droid Razr HD										-> 720 x 1280
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
-	.eventCrt{ background: #f4f1ea; float: left; width: 80%; }
+	.eventCrt{ background: #f4f1ea; float: left; width: 100%; }
 	
-	.eventCrt .sidebar{ float: left; width: 95%; padding: 20px; }
+	.eventCrt .sidebar{ float: left; width: 90%; padding: 20px; }
 	
 	.eventCrt .sidebar .btn-event{ text-align: center; padding: 20px 0; }/**/
 	
-	.eventCrt .content{ float: left; width: 100%%; background: #fff; padding: 0 35px 0 35px; box-shadow: 0 2px 4px #555; }
+	.eventCrt .content{ float: left; width: 90%; background: #fff; padding: 0 18px; box-shadow: 0 2px 4px #555; }
 	
 	.eventCrt .policy{ float: none; width: auto; /*background: url(../images/bg_shadow.png)*/ repeat-y left #fff; padding: 133px 0px 10px 30px;  }/**/
 	
 	.eventCrt .content .form-wrap{ /*border-bottom: 1px solid #999;*/ padding: 0px 0; }
 	.eventCrt .content .form-wrap select{ width: 100%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px;}
-	.eventCrt .content .form-wrap h5, .eventCrt .content .user-form-top h5{ font-weight: bold; text-transform: uppercase; margin-bottom: 0px; }
+	.eventCrt .content .form-wrap h5, .eventCrt .content .user-form-top h5{ font-weight: bold; font-size: 12pt; text-transform: uppercase; margin: 5px 0 0 0px; }
 	
 	.eventCrt .content .form-wrap .user-profile{ float: left; margin: -50px 0 0 0; width: 100%; }
-	.eventCrt .content .form-wrap .user-profile img{ width: 100%; height: auto; border: 10px solid #f5f5f5; }
-	.eventCrt .content .form-wrap .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 10px; position: relative; z-index: 9; top: 229px; color: #fff; }
+	.eventCrt .content .form-wrap .user-profile img{ width: 90%; height: 250px; border: 10px solid #f5f5f5; }
+	.eventCrt .content .form-wrap .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 10px; position: relative; z-index: 9; top: 229px; color: #fff; width: 77%; }
 	.eventCrt .content .form-wrap .user-profile .update-image h5{ float: left; text-transform: uppercase; padding: 7px 0 0 0; }
 	.eventCrt .content .form-wrap .user-profile .update-image img{ float: right; border: none; }
 	
@@ -271,27 +280,35 @@ p{ line-height: normal; }
 	.eventCrt .content .form-wrap .user-form-top .box-top .nameEvent .info .box{ float: left; }
 	.eventCrt .content .form-wrap .user-form-top .box-top .nameEvent .info .box h3{ color: #524a48; padding: 7px 20px 0 20px; text-transform: uppercase; }
 	
-	.eventCrt .content .form-wrap .user-form-top .box-top .typeEvent{}
+	.eventCrt .content .form-wrap .user-form-top .box-top .typeEvent,
+	.eventCrt .content .form-wrap .user-form-top .box-top .typeOther,
+	.eventCrt .content .form-wrap .user-form-top .box-top .adPlacement,
+	.eventCrt .content .form-wrap .user-form-top .box-top .descevent{float: left; width: 100%;}
 	
-	.eventCrt .content .form-wrap .user-form-top .box-top .typeOther{}
-	
-	.eventCrt .content .form-wrap .user-form-top .box-top .adPlacement{}
-	
-	.eventCrt .content .form-wrap .user-form-top .box-top .reach{ float: left; width: auto; text-align: right; }
+	.eventCrt .content .form-wrap .user-form-top .box-top .reach{ float: left; width: auto; text-align: right; display: none; }
 	.eventCrt .content .form-wrap .user-form-top .box-top .reach h3{ margin-bottom: 10px; }
 	
 	.eventCrt .content .form-wrap .user-form-top .box-top, 
 	.eventCrt .content .form-wrap .user-form-bottom .box-bottom { float: left; width: 100%; }
-	.eventCrt .content .form-wrap .user-form-bottom .box-bottom textarea{ width: 100%; height: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; resize: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
-	.eventCrt .content .form-wrap .user-form-bottom .box-bottom input{ width: 100%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom textarea{ width: 96%; height: auto; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; resize: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 	
-	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .wrap .type{ width: 210px; }
-	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .wrap .type input{ width: 99%; }
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .locEvent, 
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .cityEvent, 
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .stEvent, 
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .zipEvent, 
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .phoneEvent,
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .sTimeEvent,
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .eTimeEvent,
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .eStartDate,
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .webEvent,
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .fbEvent,
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .gooEvent,
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .twEvent{ float: left; width: 100%; }
 	
-	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .location{ margin-bottom: 10px; }
-	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .location input{ float: left; width: 76%; }
-	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .location input{ float: left; width: 97%; }
-	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .location .image{ float: left; margin-right: 10px; }
+	.eventCrt .content .form-wrap .user-form-bottom .box-bottom .hashEvent{ width: 100%; }
+	
+	.eventCrt .content .form-wrap .user-form-bottom input,
+	.eventCrt .content .form-wrap .user-form-bottom select{ width: 96%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 	
 	.eventCrt .content .form-wrap .saved{ float: right; width: auto; padding-top: 50px; display: none; }
 	.eventCrt .content .form-wrap .saved .box{ float: left; margin-left: 20px; }
@@ -302,7 +319,7 @@ p{ line-height: normal; }
 
 	.eventCrt .content .form-wrap .gmap{ float: left; width: 95%; margin: 30px 0; }
 	
-	.eventCrt .content .form-wrap .submitButton{ float: left; width: 100%; margin-top: 5px; }
+	.eventCrt .content .form-wrap .submitButton{ float: left; width: 96%; margin-top: 5px; }
 	.eventCrt .content .form-wrap .submitButton input{ width: 100%; border: none; padding: 0 0 0 0px; margin-bottom: 5px; outline: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; -khtml-border-radius: 0px; border-radius: 0px; }
 
 	.eventCrt .content .form-wrap .social{ border-left: 1px solid #555; }

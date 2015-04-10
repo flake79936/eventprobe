@@ -1,11 +1,15 @@
+.footer {float: left; width: 100%; margin: 0 0 20px 0; }
+.footer .footer { width: 100%; background: #f4f1ea; padding: 0; }
 
+.footer .footer .social{ float: left; padding: 0 0 0 0; width: 50%; text-align: center; }
+.footer .footer .social li{ list-style: none; display: inline-block; }
+.footer .footer .social .FB a img, 
+.footer .footer .social .TW a img, 
+.footer .footer .social .Goo a img{ width: 100%; height: auto; }
 
-.footer .footer { background: #f4f1ea; padding: 0px 4% 40px 4%; }
-.footer .footer  .social{ float: left; padding-top: 30px; }
-.footer .footer  .social li{ list-style: none; display: inline-block; }
-.footer .footer  .footer-logo{ float: right; }
+.footer .footer .footer-logo{ float: none; }
 
-.footer .footer  p.copyright {
+.footer .footer p.copyright {
 	float:        left;
 	padding:      0px;
 	width:        230px;
@@ -95,7 +99,8 @@
  * Motorola Droid Razr HD										-> 720 x 1280
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
-	.footer .footer{ background: #f4f1ea; padding: 0px 4% 40px 4%; }
+	.footer {float: left; width: 100%; margin: 0 0 0 0; }
+	.footer .footer{ background: #f4f1ea; padding: 0 0 10px 0; }
 	
 	.footer .footer .social{ float: left; width: 100%; padding: 0 0 0 0px; text-align: center; }
 	.footer .footer .social li{ list-style: none; display: inline-block; }

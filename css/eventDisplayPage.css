@@ -58,13 +58,20 @@ h6{ font-size: 11px; font-weight: normal; }
 	.eventDisplayPage .content .dashboard .box .upper .eDescription{ text-align:justify; width: 30%; word-wrap: break-word; }
 
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 47%; height: auto; padding: 0 17px 0 0; }
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding-left: 100px;}
-
-	.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 45%; padding: 0 0 25px 0; }
+	
+	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding: 0 0 0 0; }
+	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eWebsite{ float: left; width: 100%; }
+	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eFacebook,
+	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eTwitter,
+	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eGoogle{ float: left; width: 21%; }
+	
+	.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 45%; padding: 160px 0 25px 0; }
 	.eventDisplayPage .content .dashboard .box .lower .eMap{ float: left; width: 100%; }
 	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ float: left; width: 100%; }
 
-	.eventDisplayPage .content .dashboard .box .lower .button{ float: left; width: 100%; padding-top: 25; }
+	.eventDisplayPage .content .dashboard .box .lower .button{ float: right; width: 30%; padding: 12px 0 0 0; }
+	.eventDisplayPage .content .dashboard .box .lower .button input,
+	.eventDisplayPage .content .dashboard .box .lower .button a img{ width: 20%; height: auto; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):

@@ -59,11 +59,11 @@
  */
 @media only screen and (min-device-width: 960px) and (max-device-width: 1024px){
 	.events .box{ float: left; width: 100%; }
-	.events .box .title{ padding: 15px 30px; }
+	.events .box .title{ float: left; width: 90%; padding: 15px 30px; }
 	.events .box .title h1{ font-size: 40px; float: left; color: #323438; }
 	.events .box .title a{ float: right; }
 
-	.events .box .row{ background: #f4f1ea; width: 100%; height: auto; }
+	.events .box .row{ background: #f4f1ea; width: 100%; height: auto; float: left; }
 	.events .box .row .cell{ width: 9%; float: left; text-align: center; padding: 12px 0 11px 0; }
 	.events .box .row .cell h4{ color: #315fa9; }
 	.events .box .row .cell img{ width: 100%; }
@@ -81,6 +81,7 @@
 	.events .box .row .info .etime{ float: left; width: auto; padding: 11px 11px 0 11px; color: #323438; }
 	.events .box .row .info .ecity{ float: left; width: auto; padding: 11px 11px 0 0; color: #323438; }
 	.events .box .row .info .ename{ float: left; width: auto; padding: 11px 11px 0 0; color: #323438; }
+	
 	.events .box .row .info .social-icons{ float: left; width: 100%; }
 	.events .box .row .info .social-icons .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
 	.events .box .row .info .social-icons .TW{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
@@ -147,7 +148,7 @@
 	.events .box .title h1{ float: left; color: #323438; }
 	.events .box .title a{ float: right; }
 
-	.events .box .row{ background: #f4f1ea; }
+	.events .box .row{ background: #f4f1ea; width: 100%; height: auto; float: left; }
 	.events .box .row .cell{ width: 9%; float: left; text-align: center; padding: 12px 0 11px 0; }
 	.events .box .row .cell h4{ color: #315fa9; }
 	.events .box .row .cell img{ width: 100%; }
@@ -165,12 +166,15 @@
 	.events .box .row .info.active .box{ color: #fff; }
 	.events .box .row .info .box{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
 	
-	.events .box .row .info .etime, .events .box .row .info .ecity{ float: left; width: 100%; padding: 0 0 0 0px; color: #323438; }
+	.events .box .row .info .etime, 
+	.events .box .row .info .ecity{ float: left; width: 100%; padding: 0 0 0 0px; color: #323438; }
 	.events .box .row .info .ename{ width: 60%; padding: 5px 0 0 0; color: #323438; }
-	.events .box .row .info .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-	.events .box .row .info .TW{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-	.events .box .row .info .Goo{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-	.events .box .row .info .Hashtag{ float: left; width: 46%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+	
+	.events .box .row .info .social-icons{ float: left; width: 100%; }
+	.events .box .row .info .social-icons .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+	.events .box .row .info .social-icons .TW{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+	.events .box .row .info .social-icons .Goo{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+	.events .box .row .info .social-icons .Hashtag{ float: left; width: 46%; padding: 5px 0 0 0; text-align: center; color: #323438; }
 	.events .box .row .info .more{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
 	
 	.events .box .row .info .box ul{ text-align: center; }

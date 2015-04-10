@@ -268,7 +268,7 @@
 								<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" /><br>
 								<span id="eventForm_Eflyer_errorloc" class="error"></span>
 							</div>
-							<img id="uploadPreview" style="width: 270px; height: 250px;" />
+							<img id="uploadPreview" />
 						</div>
 						
 						<div class="user-form-top">
@@ -279,13 +279,6 @@
 									<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftName" value="85"> 85 Characters Max</div>
 									<span id="eventForm_Evename_errorloc" class="error"></span>
 								</div>
-								
-								<!--<div class="info">
-									<div class="box"><img src="images/icon_music.png" alt="Icon" /></div>
-									<div class="box"><h3>Music Event</h3></div>
-									<div class="box"><a href="#"><img src="images/btn_arrow_down.png" alt="Icon" /></a></div>
-									<div class="clear"></div>
-								</div>-->
 								
 								<div class="typeEvent">
 									<h5 for="Etype">Type of Event</h5>
@@ -318,6 +311,13 @@
 									</select><br>
 									<span id="eventForm_Erank_errorloc" class="error"></span>
 								</div>
+								
+								<div class="descEvent">
+									<h5 for="Edescription">Description</h5>
+									<textarea onkeyup="textCounter(this,'charsLeftText', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value=""></textarea>
+									<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftText" value="500"> 500 Characters Max</div>
+									<span id="eventForm_Edescription_errorloc" class="error"></span>
+								</div>
 									
 								<div class="reach">
 								<!--<h3>Increase your reach!</h3>
@@ -337,13 +337,6 @@
 						
 						<div class="user-form-bottom">
 							<div class="box-bottom">
-								<div class="descEvent">
-									<h5 for="Edescription">Description</h5>
-									<textarea onkeyup="textCounter(this,'charsLeftText', 500)" title="Enter Your Description" rows="3" cols="30" name="Edescription" id="Edescription" value=""></textarea>
-									<div style="color: red; font-size: 12pt; font-style: italic;" id="charsLeftText" value="500"> 500 Characters Max</div>
-									<span id="eventForm_Edescription_errorloc" class="error"></span>
-								</div>
-								
 								<div class="locEvent">
 									<h5 for="Eaddress">Address</h5>
 									<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="" maxlength="50"><br>
@@ -498,6 +491,7 @@
 									<input type="text" name="Ehashtag" placeholder="#hashtag" title="#hello" id="Ehashtag" value="<?php echo $fgmembersite->SafeDisplay('Ehashtag') ?>" maxlength="50"><br>
 									<span id="event_Ehashtag_errorloc" class="error"></span>
 								</div>
+								<div class="clear"></div>
 							</div>
 						</div>
 						
