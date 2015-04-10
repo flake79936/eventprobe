@@ -333,8 +333,6 @@
 									<div class="clear"></div>
 								</div>
 							</div>
-							
-							<div class="clear"></div>
 						</div>
 						
 						<div class="user-form-bottom">
@@ -501,7 +499,6 @@
 									<span id="event_Ehashtag_errorloc" class="error"></span>
 								</div>
 							</div>
-							<div class="clear"></div>
 						</div>
 						
 						<!--Submit Button-->

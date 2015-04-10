@@ -257,7 +257,7 @@
 															});
 												});
 										</script>
-										<div id="map" style="height:300px; margin-top:10px; max-width:auto; min-width:250px;"></div>
+										<div id="map" style="width: 100%; height:300px; margin-top:10px; max-width:100%; min-width:250px;"></div>
 										<!-- END OF MAP SCRIPT -->
 									</div>
 									

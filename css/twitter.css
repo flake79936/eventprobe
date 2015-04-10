@@ -60,7 +60,7 @@
  * 															-------------
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
+@media only screen and (min-device-width: 960px) and (max-device-width: 1024px){
 	.app .media img { float: none; max-device-width:250px; max-height:250px; }
 	.app .user a > span { float: none; width: 100%; margin: 0 0 0 0px; }
 	

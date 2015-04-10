@@ -48,7 +48,7 @@ h6{ font-size: 11px; font-weight: normal; }
  * 															-------------
  * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 2560px){
+@media only screen and (min-device-width: 960px) and (max-device-width: 1024px){
 	.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
 	.eventDisplayPage .content .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 30px;}
@@ -122,7 +122,7 @@ h6{ font-size: 11px; font-weight: normal; }
 
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 84%; height: auto; }
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding-left: 0px; }
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eWebsite{ float: left; padding-right: 130px;}
+	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eWebsite{ width: 100%; float: left; padding: 0 0 0 0;}
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eFacebook{ float: left; /*padding-left: 100px;*/}
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eFacebook img{ width: 38px; height: auto; float: left; /*padding-left: 100px;*/}
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eTwitter{ float: left;  /*padding-left: 100px;*/}
@@ -131,7 +131,7 @@ h6{ font-size: 11px; font-weight: normal; }
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eGoogle img{ width: 38px; height: auto; float: left;   /*padding-left: 100px;*/}
 
 	.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 86%; padding: 25px 0px 25px 0px; }
-	.eventDisplayPage .content .dashboard .box .lower .eMap{ float: left; width: 45%;}
+	.eventDisplayPage .content .dashboard .box .lower .eMap{ float: left; width: 100%;}
 	.eventDisplayPage .content .dashboard .box .lower .eMap #map{ width: 86%; height: auto; margin-top: 10px; position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223); }
 	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ float: left; width: 100% }
 
