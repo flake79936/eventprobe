@@ -345,7 +345,7 @@ p{ line-height: normal; }
 	.eventCrt .menu li{ list-style: none; }
 	.eventCrt .menu li h2{ background: url(../images/btn_arrow_down_black.png) no-repeat right; padding: 20px; border-bottom: 1px solid #aaa; outline: none; cursor: pointer; text-transform: uppercase; }
 	.eventCrt .menu li ul li h3{ background: url(../images/btn_arrow_down.png) no-repeat right; color: #888; padding: 20px 40px; border-bottom: 1px solid #888; outline: none; cursor: pointer; text-transform: uppercase; }
-	.eventCrt .menu li ul li img{ float: left; padding: 10px 10px 0 30px; }
-	.eventCrt .menu li ul li a{ font-size: 16px; color: #000; padding: 20px 50px; display: block; text-decoration: none; cursor: pointer;}
+	.eventCrt .menu li ul li img{ float: left; padding: 10px; }
+	.eventCrt .menu li ul li a{ font-size: 16px; color: #000; padding: 13px 35px; display: block; text-decoration: none; cursor: pointer;}
 	.eventCrt .menu li ul li a:hover{ background: #f2efe6; }
 }

@@ -131,7 +131,7 @@ h6{ font-size: 11px; font-weight: normal; }
 	.content .container .para{ text-align:justify; float: left; width: 92%; padding: 10px; margin: 0px; font-size: large; }
 	.content .container .bullets{ text-align:justify; float: left; width: 87%; margin: 0 0 10px 27px; font-size: large; }
 	
-	.content p { text-align: justify; float: none; width: 100%; word-wrap: break-word; margin: 0 0 0 0; line-height: normal; }
+	.content p { text-align: justify; float: none; width: 90%; word-wrap: break-word; margin: 0 0 0 0; padding: 20px; line-height: normal; }
 	
 	.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 }

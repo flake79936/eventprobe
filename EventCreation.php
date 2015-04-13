@@ -46,7 +46,8 @@
         <link rel="stylesheet" type="text/css" href="./css/header.css" />
         <link rel="stylesheet" type="text/css" href="./css/links.css" />
         <link rel="stylesheet" type="text/css" href="./css/footer.css" />
-
+        <link rel="stylesheet" type="text/css" href="./css/jquery-ui.css" />
+		
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
         
@@ -57,7 +58,7 @@
 		<!--(Start) Scripts-->
 			<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 			
-			<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+			<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
 			
 			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 			<script type="text/javascript" src="js/jquery-ui.js"></script>

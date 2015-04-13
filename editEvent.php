@@ -46,6 +46,7 @@
         <link rel="stylesheet" type="text/css" href="./css/header.css" />
         <link rel="stylesheet" type="text/css" href="./css/links.css" />
         <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+        <link rel="stylesheet" type="text/css" href="./css/jquery-ui.css" />
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -53,7 +54,7 @@
 		<!--(Start) Scripts-->
 			<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 			
-			<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+			<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
 			
 			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 			<script type="text/javascript" src="js/jquery-ui.js"></script>
@@ -259,7 +260,7 @@
 									<input id="uploadImage" accept="image/*" value="<?php echo $row['Eflyer']; ?>" type="file" name="Eflyer" onchange="PreviewImage();" /><br>
 									<span id="eventForm_Eflyer_errorloc" class="error"></span>
 								</div>
-								<img id="uploadPreview" src="<?php echo $row['Eflyer']; ?>" style="width: 270px; height: 250px;"/>
+								<img id="uploadPreview" src="<?php echo $row['Eflyer']; ?>"/>
 								<!-- <img src="images/profile-img.jpg" alt="Profiles"> -->
 							</div>
 								

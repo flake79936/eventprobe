@@ -85,7 +85,7 @@
  * Motorola Droid Razr HD										-> 720 x 1280
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
-	.links{ background: #f4f1ea; width: 100%; text-align: center; padding: 50px 0px 0px 0px; }
+	.links{ float: left; background: #f4f1ea; width: 100%; text-align: center; padding: 25px 0px 0px 0px; }
 	.links h3{ color: #282826; font-size:20px }
 	.links p{ color: #282826; width: 800px}
 	.links ul{ float: left; width: 100%; padding: 0 0 0 0px; }
