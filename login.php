@@ -25,7 +25,6 @@
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
 		
-
 		<!--STYLE-->
 		<link rel="stylesheet" type="text/css" href="css/footer.css" />
 		<link rel="stylesheet" type="text/css" href="css/links.css"  />
@@ -80,9 +79,10 @@
 		</div>
 		
 		<div class="form-wrap">
-		<?PHP if (!$fgmembersite->CheckSession()){ ?>
-			<div class="label"><center><h3>Please Login</h3></center></div>
-		<?PHP } ?>
+			<?PHP if (!$fgmembersite->CheckSession()){ ?>
+				<div class="label"><center><h3>Please Login</h3></center></div>
+			<?PHP } ?>
+			
 			<form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 				<input type="hidden" name="submitted" id="submitted" value="1" />
 				<div class="login">
@@ -95,13 +95,15 @@
 						</div>
 					</div>
 					<div class="btn-log">
-						<div class="btn-primary">
-							<input input id="submitButton" type="image" src="./images/btn_login.png" name="Submit" value="" />
-						</div>
-						<div class="btn-reg">
-							<a href="./reg.php">
-								<img src="./images/btn_register.png">
-							</a>
+						<div class="btns">
+							<div class="btn-primary">
+								<input input id="submitButton" type="image" src="./images/btn_login.png" name="Submit" value="" />
+							</div>
+							<div class="btn-reg">
+								<a href="./reg.php">
+									<img src="./images/btn_register.png">
+								</a>
+							</div>
 						</div>
 						<div class="btn-fb">
 							<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">

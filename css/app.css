@@ -3,7 +3,7 @@
 .app{ background: #e4dfcd; padding: 0% 3%; }
 .app .left{ float: left; width: 50%; }
 .app .right{ float: right; width: 50%; padding-top: 25px; }
-.app .right .advertisement a img{ float: none; width: 100%; padding-top: 50px; }
+.app .right .advertisement a img{ float: none; width: 100%; padding: 0px 0 0 0; }
 .app .user{ margin: 10px 0px 20px 0px; }
 .app .user .box{ float: left; width: 30%; text-align: center; padding: 10px 0; }
 .app .user .box h3{ font-weight: normal; color: #4e473f; }

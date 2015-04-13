@@ -2,7 +2,7 @@
 
 .events .box{ float: left; width: 100%; }
 .events .box .title{ padding: 15px 30px; }
-.events .box .title h1{ float: left; color: #323438; }
+.events .box .title h1{ /*float: left;*/ color: #323438; width: 100%; }
 .events .box .title a{ float: right; }
 
 .events .box .row{ background: #f4f1ea; }
@@ -20,7 +20,7 @@
 .events .box .row .info{ background: #e9e4d6; width: 91%; height: 95px; float: left; cursor: pointer; }
 .events .box .row .info:hover{ color: #e9e4d6; cursor: pointer; }
 
-.events .box .row .info .etime{ float: left; width: 16.5%; padding: 30px 0 0 0; color: #323438; }
+.events .box .row .info .etime{ float: left; width: 16.5%; padding: 30px 0 0 10px; color: #323438; }
 .events .box .row .info .ecity{ width: 40%; padding: 20px 0 0 0; color: #323438; }
 .events .box .row .info .ename{ width: 60%; padding: 5px 0 0 0; color: #323438; }
 .events .box .row .info .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
