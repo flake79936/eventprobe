@@ -28,7 +28,6 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
-		
 
 		<!--STYLE-->
 		<link rel="stylesheet" type="text/css" href="./css/header.css" />
@@ -164,13 +163,13 @@
 											$type = $row['Etype'];
 											if($row['Eflyer'] === ""){
 												switch($type){
-													case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png"; break;
-													case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png"; break;
-													case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png"; break;
+													case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
+													case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
+													case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
 													case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
-													case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png"; break;
-													case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png"; break;
-													default:               $row['Eflyer'] = "./images/icon_fireworksHD.png"; break;
+													case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
+													case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
+													default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
 												}
 											}
 										?>

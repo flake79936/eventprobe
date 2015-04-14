@@ -109,17 +109,7 @@
 		<div class="editEvent">
 			<div class="sidebar">
 			<br><br>
-			<!-- <div class="btn-event"><a href=""><img src="images/btn_event.png" alt="Event" /></a></div> -->
-				<ul id="accordion" class="menu">
-				<!--<li>
-						<h2>Dashboard</h2>
-						<ul>
-							<li><img src="images/music.png" alt="Music" /><a href="#">DJ Maxwell, Aug 30</a></li>
-							<li><img src="images/speaker.png" alt="Speaker" /><a href="#">Speaker Event, Sep 30</a></li>
-							<li><img src="images/dollar.png" alt="Dollar" /><a href="#">Sales Events, Oct 30</a></li>
-						</ul>
-					</li>-->
-					
+				<ul id="accordion" class="menu">	
 					<li>
 						<h2>My Events</h2>
 						<ul id="accordion2">
@@ -161,7 +151,7 @@
 											}
 											?>
 											<li>
-												<img src="images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
+												<img src="./images/w65/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
 												<a onClick="editInfo(<?= $row['Eid'] ?>);">
 													<?PHP //echo $count; ?>
 													<?= substr($row['Evename'], 0, 12) . "..."; ?>,
@@ -212,7 +202,7 @@
 											}
 											?>
 											<li>
-												<img src="images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
+												<img src="./images/w65/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
 												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
 													<?PHP //echo $count; ?>
 													<?= substr($row['Evename'], 0, 12) . "..."; ?>,
@@ -487,7 +477,7 @@
 									
 									<div class="hashEvent">
 										<h5 for="Ehashtag">Hashtag</h5>
-										<input type="text" name="Ehashtag" placeholder="https://instagram.com/USERNAME" title="#hello" id="Ehashtag" value="<?php echo $row['Ehashtag']; ?>" maxlength="50"><br>
+										<input type="text" name="Ehashtag" placeholder="#hashtag" title="#hello" id="Ehashtag" value="<?php echo $row['Ehashtag']; ?>" maxlength="50"><br>
 										<span id="event_Ehashtag_errorloc" class="error"></span>
 									</div>
 								</div>

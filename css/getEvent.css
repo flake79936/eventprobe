@@ -142,10 +142,10 @@
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	.events .box .title{ padding: 10px; }
-	.events .box .row .info{ background: #e9e4d6; width: 69%; height: 96px; float: right; cursor: pointer; }
+	.events .box .row .info{ background: #e9e4d6; width: 70%; height: 96px; float: right; cursor: pointer; }
 	
 	.events .box{ float: left; width: 100%; }
-	.events .box .title h1{ float: left; color: #323438; }
+	.events .box .title h1{ font-size: 18pt; float: left; color: #323438; }
 	.events .box .title a{ float: right; }
 
 	.events .box .row{ background: #f4f1ea; width: 100%; height: auto; float: left; }
@@ -167,13 +167,15 @@
 	.events .box .row .info .box{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
 	
 	.events .box .row .info .etime, 
-	.events .box .row .info .ecity{ float: left; width: 100%; padding: 0 0 0 0px; color: #323438; }
-	.events .box .row .info .ename{ width: 60%; padding: 5px 0 0 0; color: #323438; }
+	.events .box .row .info .ecity,
+	.events .box .row .info .ename{ font-size: 12pt; float: left; width: 100%; padding: 0 0 0 4px; color: #323438; }
 	
 	.events .box .row .info .social-icons{ float: left; width: 100%; }
-	.events .box .row .info .social-icons .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-	.events .box .row .info .social-icons .TW{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-	.events .box .row .info .social-icons .Goo{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+	
+	.events .box .row .info .social-icons .FB,
+	.events .box .row .info .social-icons .TW,
+	.events .box .row .info .social-icons .Goo{ float: left; width: 16%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+	
 	.events .box .row .info .social-icons .Hashtag{ float: left; width: 46%; padding: 5px 0 0 0; text-align: center; color: #323438; }
 	.events .box .row .info .more{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
 	

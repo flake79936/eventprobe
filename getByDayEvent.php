@@ -104,11 +104,11 @@
 						}
 					}
 				}
-				 
-					if ($paging < $counter - 1) {
-						$pagination.= "<li><a href='{$url}paging={$next}'>{$nextlabel}</a></li>";
-						$pagination.= "<li><a href='{$url}paging=$lastpaging'>{$lastlabel}</a></li>";
-					}
+				
+				if ($paging < $counter - 1) {
+					$pagination.= "<li><a href='{$url}paging={$next}'>{$nextlabel}</a></li>";
+					$pagination.= "<li><a href='{$url}paging=$lastpaging'>{$lastlabel}</a></li>";
+				}
 				 
 				$pagination.= "</ul>";        
 			}
@@ -144,13 +144,13 @@
 				$type = $row['Etype'];
 				if($row['Eflyer'] === ""){
 					switch($type){
-						case "Art":            $row['Eflyer'] = "./images/art35.png"; break;
-						case "Concert":        $row['Eflyer'] = "./images/music.png"; break;
-						case "Fair":           $row['Eflyer'] = "./images/fair35.png"; break;
-						case "Social":         $row['Eflyer'] = "./images/icon_kettleball.png"; break;
-						case "Sport":          $row['Eflyer'] = "./images/icon_marathon.png"; break;
-						case "Public Speaker": $row['Eflyer'] = "./images/speaker.png"; break;
-						default:               $row['Eflyer'] = "./images/icon_fireworks.png"; break;
+						case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
+						case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
+						case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
+						case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
+						case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
+						case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
+						default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
 					}
 				}
 				
@@ -173,9 +173,9 @@
 				if ($row['Egoogle']){
 				echo "					<div class='Goo'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/icon_google.png'> </a></div>";
 				}
-				if ($row['Ehashtag']){
-				echo "					<div class='Hashtag'><a href=https://instagram.com/" . $row['Ehashtag'] . " target='_blank'  > <img src='images/icon_instagram2.png'> </a></div>";
-				}
+				//if ($row['Ehashtag']){
+				//echo "					<div class='Hashtag'><a href=https://instagram.com/" . $row['Ehashtag'] . " target='_blank'  > <img src='images/icon_instagram2.png'> </a></div>";
+				//}
 				//echo "				<div class='box'><a onClick='seeMoreInfo(".$row['Eid'].");'>More Info</div>";
 				echo "				</div>";
 				if($bool){

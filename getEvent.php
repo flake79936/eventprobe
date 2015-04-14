@@ -40,6 +40,20 @@
 			while($row = mysqli_fetch_array($result)) {
 				$formattedDate= str_replace("-","/",$row['EstartDate']);
 				$formattedDate= substr($formattedDate,5,10);
+				$type = $row['Etype'];
+				if($row['Eflyer'] === ""){
+					switch($type){
+						case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
+						case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
+						case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
+						case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
+						case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
+						case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
+						default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
+					}
+				}
+				
+				
 				//echo "Inside the Today " . $row['EstartDate'];
 				echo "<div class='row'>";
 				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";

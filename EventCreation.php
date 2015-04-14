@@ -188,7 +188,7 @@
 											}
 											?>
 											<li>
-												<img src="./images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
+												<img src="./images/w65/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
 													<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
 														<?PHP //echo $count; ?>
 														<?= substr($row['Evename'], 0, 12) . "..."; ?>, 
@@ -239,7 +239,7 @@
 											}
 											?>
 											<li>
-												<img src="images/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
+												<img src="./images/w65/<?php echo $Etype; ?>.png" alt="<?PHP echo $Etype; ?>" />
 												<a onClick="seeMoreInfo(<?= $row['Eid'] ?>);">
 													<?PHP //echo $count; ?>
 													<?= substr($row['Evename'], 0, 12) . "..."; ?>, 
