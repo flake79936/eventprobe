@@ -53,16 +53,17 @@
 					}
 				}
 				
-				
 				//echo "Inside the Today " . $row['EstartDate'];
 				echo "<div class='row'>";
 				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
-// 				echo "				<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
-				echo "				<div class='etime'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . " </div>";
-				echo "				<div class='ecity'>" . ucfirst($row['Ecity']) . ", " . strtoupper($row['Estate']) . " </div>";
-				echo "				<div class='ename'>" . substr($row['Evename'], 0, 12) . " ...</div>";
+				echo "				<div class='text-info'>";
+				//echo "					<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
+				echo "					<div class='ename'>" . substr($row['Evename'], 0, 12) . " ...</div>";
+				echo "					<div class='etime'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . " </div>";
+				echo "					<div class='ecity'>" . ucfirst($row['Ecity']) . ", " . strtoupper($row['Estate']) . " </div>";
+				echo "				</div>";
 				echo "				<div class='social-icons'>";
 				if ($row['Efacebook']){
 				echo "					<div class='FB'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'> </div>";

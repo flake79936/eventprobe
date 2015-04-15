@@ -43,13 +43,13 @@
 							$type = $row['Etype'];
 							if($row['Eflyer'] === ""){
 								switch($type){
-									case "Art":            $row['Eflyer'] = "./images/art35.png"; break;
-									case "Concert":        $row['Eflyer'] = "./images/music.png"; break;
-									case "Fair":           $row['Eflyer'] = "./images/fair35.png"; break;
-									case "Social":         $row['Eflyer'] = "./images/icon_kettleball.png"; break;
-									case "Sport":          $row['Eflyer'] = "./images/icon_marathon.png"; break;
-									case "Public Speaker": $row['Eflyer'] = "./images/speaker.png"; break;
-									default:               $row['Eflyer'] = "./images/icon_fireworks.png"; break;
+									case "Art":            $row['Eflyer'] = "./images/h200/icon_artEventHD.png";   break;
+									case "Concert":        $row['Eflyer'] = "./images/h200/icon_concertHD.png";    break;
+									case "Fair":           $row['Eflyer'] = "./images/h200/icon_festivalHD.png";   break;
+									case "Social":         $row['Eflyer'] = "./images/h200/icon_kettleballHD.png"; break;
+									case "Sport":          $row['Eflyer'] = "./images/h200/icon_marathonHD.png";   break;
+									case "Public Speaker": $row['Eflyer'] = "./images/h200/icon_speakerHD.png";    break;
+									default:               $row['Eflyer'] = "./images/h200/icon_fireworksHD.png";  break;
 								}
 							}
 						?>

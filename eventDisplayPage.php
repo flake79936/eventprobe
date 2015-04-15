@@ -215,7 +215,7 @@
 								<div class="lower">
 									<div class="eAdrsPhone">
 										<h4>
-											<img src='images/favicon.png'/>&nbsp;
+											<img src='./images/defaultUpic.png'/>
 											<?= $row['Eaddress'] ?>, 
 											<?= $row['Ecity'] ?>, 
 											<?= $row['Estate'] ?>&nbsp; 

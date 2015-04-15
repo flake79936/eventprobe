@@ -24,10 +24,7 @@
 //	$query = "SELECT COUNT(*) as `num` FROM {$query}";
 //			$row = mysqli_fetch_array(mysqli_query($con, $query));
 //			$total = $row['num'];
-//			$adjacents = "2"; 
-	
-	
-	
+//			$adjacents = "2";
 ?>
 
 <!-- jQuery library (served from Google) -->
@@ -43,13 +40,13 @@
 			$type = $row['Etype'];
 			if($row['Eflyer'] === ""){
 				switch($type){
-					case "Art":            $row['Eflyer'] = "./images/art35.png"; break;
-					case "Concert":        $row['Eflyer'] = "./images/music.png"; break;
-					case "Fair":           $row['Eflyer'] = "./images/fair35.png"; break;
-					case "Social":         $row['Eflyer'] = "./images/icon_kettleball.png"; break;
-					case "Sport":          $row['Eflyer'] = "./images/icon_marathon.png"; break;
-					case "Public Speaker": $row['Eflyer'] = "./images/speaker.png"; break;
-					default:               $row['Eflyer'] = "./images/icon_fireworks.png"; break;
+					case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
+					case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
+					case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
+					case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
+					case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
+					case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
+					default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
 				}
 			}
 			

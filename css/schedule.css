@@ -36,9 +36,10 @@
 	.schedule .today{ float: left; width: 61%; }
 	.schedule .today ul li .schedule{ float: left; width: 24%; padding: 0 3px 0 0; }
 	.schedule .today ul li .schedule img{ width: 100%; }
-	.schedule .today ul li .schedule .info{ position: absolute; z-index: 0; background: url(../images/bg_black.png) repeat; color: #fff; width: 15%; padding: 20px 0; }
+	.schedule .today ul li .schedule .info{ position: absolute; z-index: 0; background: url(../images/bg_black.png) repeat; color: #fff; width: 14.5%; padding: 20px 0; }
 	.schedule .today ul li .schedule .info .btn-cross{ width: 30%; float: right; height: auto; }
 	.schedule .today ul li .schedule .info .box{ padding: 0 15px; }
+	.schedule .today .schedule .info .box p{ width: 47%; color: #FFFFFF; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
