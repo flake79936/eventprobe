@@ -100,7 +100,8 @@ function errorFunction(){
             }
         }
         //city data
-        alert(city.long_name)
+        window.location.href = "./main.php?city=" + city.long_name;
+//         alert(city.long_name)
 
 
         } else {
