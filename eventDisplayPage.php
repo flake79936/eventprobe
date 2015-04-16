@@ -130,97 +130,98 @@
 						<div class="dashboard">
 							<div class="box">
 								<div class="upper">
-									<div class="eNameNHashtag">
-										<h1>
-										<?php echo $row['Evename']; 
-											if($row['Ehashtag'] !== ""){ 
-										?> 
-												- <?php echo $row['Ehashtag']; ?>
-											<?PHP } ?>
-										</h1>
-									</div>
-									
-									<div class="eDateTime">
-										<h2>
-											<div class="edate">
-												<?PHP echo $EstartDate; ?>
-											</div>
-											<div class="etime">
-											<?PHP echo date("g:i a", strtotime($row['EtimeStart'])); ?>
-											to
-											<?PHP echo date("g:i a", strtotime($row['EtimeEnd'])); ?>
-											</div>
-										</h2>
-									</div>
-									
-									<div class="eDescription">
-										<h4><?PHP echo $row['Edescription']; ?></h4>
-									</div>
-									
-									<div class="upperMid">
-										<div class="eFlyer">
-										<?PHP 
-											$type = $row['Etype'];
-											if($row['Eflyer'] === ""){
-												switch($type){
-													case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
-													case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
-													case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
-													case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
-													case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
-													case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
-													default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
-												}
-											}
-										?>
-											<img src="<?php echo $row['Eflyer']; ?>" alt="event image"/>
+									<div class="upper-top">
+										<div class="eNameNHashtag">
+											<h1>
+											<?php echo $row['Evename']; 
+												if($row['Ehashtag'] !== ""){ 
+											?> 
+													- <?php echo $row['Ehashtag']; ?>
+												<?PHP } ?>
+											</h1>
 										</div>
 										
-										<div class="socialLinks">
-											<div class="eWebsite">
-												<?PHP if($row['Ewebsite'] !== ""){?>
-													<a href="<?= $row['Ewebsite'] ?>" target="_blank">
-														<?PHP echo $row['Ewebsite']; ?>
-													</a>
-												<?PHP } ?>
-											</div>
-											
-											<div class="eFacebook">
-												<?PHP if($row['Efacebook'] !== ""){ ?>
-													<a href="<?= $row['Efacebook'] ?>" target="_blank">
-														<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
-													</a>
-												<?PHP } ?>
-											</div>
-											
-											<div class="eTwitter">
-												<?PHP if ($row['Etwitter'] !== ""){ ?>
-													<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
-														<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
-													</a>
-												<?PHP } ?>
-											</div>
-											
-											<div class="eGoogle">
-												<?PHP if ($row['Egoogle'] !== ""){ ?>
-													<a href="<?= $row['Egoogle'] ?>" target="_blank">
-														<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
-													</a>
-												<?PHP } ?>
-											</div>
+										<div class="eDateTime">
+											<h2>
+												<div class="edate">
+													<?PHP echo $EstartDate; ?>
+												</div>
+												<div class="etime">
+												<?PHP echo date("g:i a", strtotime($row['EtimeStart'])); ?>
+												to
+												<?PHP echo date("g:i a", strtotime($row['EtimeEnd'])); ?>
+												</div>
+											</h2>
 										</div>
+										
+										<div class="eDescription">
+											<h4><?PHP echo $row['Edescription']; ?></h4>
+										</div>
+									</div>
+									
+									<div class="socialLinks">
+										<div class="eWebsite">
+											<?PHP if($row['Ewebsite'] !== ""){?>
+												<a href="<?= $row['Ewebsite'] ?>" target="_blank">
+													<?PHP echo $row['Ewebsite']; ?>
+												</a>
+											<?PHP } ?>
+										</div>
+										
+										<div class="eFacebook">
+											<?PHP if($row['Efacebook'] !== ""){ ?>
+												<a href="<?= $row['Efacebook'] ?>" target="_blank">
+													<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
+												</a>
+											<?PHP } ?>
+										</div>
+										
+										<div class="eTwitter">
+											<?PHP if ($row['Etwitter'] !== ""){ ?>
+												<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
+													<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
+												</a>
+											<?PHP } ?>
+										</div>
+										
+										<div class="eGoogle">
+											<?PHP if ($row['Egoogle'] !== ""){ ?>
+												<a href="<?= $row['Egoogle'] ?>" target="_blank">
+													<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
+												</a>
+											<?PHP } ?>
+										</div>
+									</div>
+								
+									<div class="eFlyer">
+									<?PHP 
+										$type = $row['Etype'];
+										if($row['Eflyer'] === ""){
+											switch($type){
+												case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
+												case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
+												case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
+												case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
+												case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
+												case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
+												default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
+											}
+										}
+									?>
+										<img src="<?php echo $row['Eflyer']; ?>" alt="event image"/>
 									</div>
 								</div>
 								
 								<div class="lower">
+									<div class="defaultPic"><img src='./images/defaultUpic.png'/></div>
 									<div class="eAdrsPhone">
 										<h4>
-											<img src='./images/defaultUpic.png'/>
-											<?= $row['Eaddress'] ?>, 
-											<?= $row['Ecity'] ?>, 
-											<?= $row['Estate'] ?>&nbsp; 
-											<?= $row['Ezip'] ?><br>
-											<?PHP echo "Phone: " . $formatPhone; ?>
+											<div class="eAddress">
+												<?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>&nbsp;<?= $row['Ezip'] ?>
+											</div>
+											<div class="ePhone">
+												<?PHP echo "Phone: " . $formatPhone; ?>
+											</div>
 										</h4>
 									</div>
 									
@@ -260,7 +261,6 @@
 										<!-- END OF MAP SCRIPT -->
 									</div>
 									
-	
 									<div class="button">
 										<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
 											<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/> |

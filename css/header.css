@@ -15,7 +15,7 @@
 
 .header .profile .crtEvent, 
 .header .profile .inbtn, 
-.header .profile .outbtn{ float: none; width: 100%; padding: 0 0 0 0; }
+.header .profile .outbtn{ float: none; width: 100%; padding: 0 0 5px 0; }
 
 .header .profile h2{ float: left; color: #554e45; padding: 50px 0 0 30px; }
 .header .profile h3{ float: left; color: #554e45; padding: 10px 0 0 10px; }
@@ -26,7 +26,7 @@
 .header .profile .search input{ background: #d2c9ab; padding: 10px; border: none; float: left; color: #ff0000; font-size: 16px; outline: none; }
 .header .profile .search .btn-search{ padding: 0; }
 .header .search .image{ margin-top: 10px; }
-.header .search{ float:left; padding-top: 35px; width: 36%; }
+.header .search{ float:left; padding: 35px 0 10px 0; width: 36%; }
 
 .header .search form .searchBar { float: left; width: 100%; }
 .header .search form .datePicker{ float: left; width: 50%; }
@@ -205,6 +205,10 @@
 	.header .profile .search{ float: none; height: auto; border-left: none; padding: 30px; text-align:center; }
 	.header .profile .search form{ border: 1px solid #595249; padding: 2px; }
 	.header .profile .search input{ background: #d2c9ab; padding: 10px; border: none; float: left; color: #ff0000; font-size: 16px; outline: none; }
+	
+	.header .profile .crtEvent, 
+	.header .profile .inbtn, 
+	.header .profile .outbtn{ float: none; width: 100%; padding: 5px 0 0 0; }
 
 	.header .logo{ width: 90%; padding: 10px 20px 0; text-align: center; }
 	

@@ -65,18 +65,18 @@
 				echo "					<div class='ecity'>" . ucfirst($row['Ecity']) . ", " . strtoupper($row['Estate']) . " </div>";
 				echo "				</div>";
 				echo "				<div class='social-icons'>";
-				if ($row['Efacebook']){
+									if ($row['Efacebook']){
 				echo "					<div class='FB'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'> </div>";
-				}
-				if ($row['Etwitter']){
+									}
+									if ($row['Etwitter']){
 				echo "					<div class='TW'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'> <img src='images/icon_twitter.png'> </a></div>";
-				}
-				if ($row['Egoogle']){
+									}
+									if ($row['Egoogle']){
 				echo "					<div class='Goo'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/icon_google.png'> </a></div>";
-				}
-				if ($row['Ehashtag']){
+									}
+									if ($row['Ehashtag']){
 				echo "					<div class='Hashtag'>" . $row['Ehashtag'] . "</div>";
-				}
+									}
 				echo "				</div>";
 				//echo "				<div class='more'>More Info</div>";
 

@@ -2,8 +2,8 @@
 
 .this-week{ padding: 10px 0; }
 .this-week .box{ float: left; width: 10%; text-align: center; }
-.this-week .title{ width: 75% !important; }
-.this-week .title h2{ text-transform: capitalize; color: #2e3135; padding-top: 10px; font-size: 21px; }
+.this-week .box-title{ padding: 15px 30px; }
+.this-week .box-title h2{ text-transform: capitalize; color: #2e3135; padding-top: 10px; font-size: 21px; }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
  * Google Nexus 7 2											-> 960 x 600
@@ -74,6 +74,6 @@
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	.this-week{ padding: 0px 0; }
-	.this-week .box-title{ width: 100%; float: left; text-align: center; }
+	.this-week .box-title{ width: 84%; float: left; text-align: center; }
 	.this-week .box-title  h2{ font-size: 24px; text-transform: capitalize; color: #2e3135; padding: 0 0 0 0; }
 }

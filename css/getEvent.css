@@ -20,13 +20,21 @@
 .events .box .row .info{ background: #e9e4d6; width: 91%; height: 95px; float: left; cursor: pointer; }
 .events .box .row .info:hover{ color: #e9e4d6; cursor: pointer; }
 
-.events .box .row .info .etime{ float: left; width: 16.5%; padding: 30px 0 0 10px; color: #323438; }
-.events .box .row .info .ecity{ width: 40%; padding: 20px 0 0 0; color: #323438; }
-.events .box .row .info .ename{ width: 60%; padding: 5px 0 0 0; color: #323438; }
-.events .box .row .info .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-.events .box .row .info .TW{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-.events .box .row .info .Goo{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-.events .box .row .info .Hashtag{ float: left; width: 46%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+.events .box .row .info .text-info .ename,
+.events .box .row .info .text-info .ecity{ text-transform: capitalize; }
+
+.events .box .row .info .text-info .ename,
+.events .box .row .info .text-info .etime,
+.events .box .row .info .text-info .ecity{ float: left; width: auto; padding: 5px 0 0 10px; color: #323438; }
+
+.events .box .row .info .social-icons{ font-size: 12pt; float: left; width: 100%; }
+
+.events .box .row .info .social-icons .FB,
+.events .box .row .info .social-icons .TW,
+.events .box .row .info .social-icons .Goo{ float: left; width: 16%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+
+.events .box .row .info .social-icons .Hashtag{ float: left; width: 46%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+
 .events .box .row .info .more{ float: left; width: 16.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
 
 .events .box .row .info.active{ background: #f05a28; }
@@ -79,9 +87,9 @@
 	.events .box .row .info{ background: #e9e4d6; width: 88%; height: 95px; float: right; cursor: pointer; }
 	.events .box .row .info:hover{ color: #e9e4d6; cursor: pointer; }
 
-	.events .box .row .info .ename,
-	.events .box .row .info .etime,
-	.events .box .row .info .ecity{ float: left; width: auto; padding: 10px 10px 0 10px; color: #323438; }
+	.events .box .row .info .text-info .ename,
+	.events .box .row .info .text-info .etime,
+	.events .box .row .info .text-info .ecity{ float: left; width: auto; padding: 10px 10px 0 10px; color: #323438; }
 	
 	.events .box .row .info .social-icons{ float: left; width: 100%; }
 	.events .box .row .info .social-icons .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }

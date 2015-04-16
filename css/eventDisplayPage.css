@@ -10,19 +10,36 @@ h5{ font-size: 12px; font-weight: normal; }
 h6{ font-size: 11px; font-weight: normal; }
 
 .eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
-.eventDisplayPage .content .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
-.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 30px;}
+.eventDisplayPage .content .dashboard{ float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
+.eventDisplayPage .content .dashboard .box{ float: left; width: 100%; padding: 5px 0 5px 5px; }
 
-.eventDisplayPage .content .dashboard .box .upper .eNameNHashtag{ width: 30%; }
-.eventDisplayPage .content .dashboard .box .upper .eDateTime{ width: 30%; }
-.eventDisplayPage .content .dashboard .box .upper .eDescription{ text-align: justify; width: 30%; word-wrap: break-word; }
+.eventDisplayPage .content .dashboard .box .upper .upper-top{ width: 49%; float: left; padding: 0 10px 0 0; }
 
-.eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 50%; height: auto; }
-.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding-left: 100px;}
+.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag,
+.eventDisplayPage .content .dashboard .box .upper .upper-top .eDateTime,
+.eventDisplayPage .content .dashboard .box .upper .upper-top .eDescription{ text-align: justify; width: 100%; word-wrap: break-word; text-transform: capitalize; padding: 0 0 10px 0; }
 
-.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 100%; padding: 25px 0px 25px 0px; }
-.eventDisplayPage .content .dashboard .box .lower .eMap{ float: left; width: 50%;}
-.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ width: 100% }
+.eventDisplayPage .content .dashboard .box .upper .upper-top .eDateTime{ text-transform: none; }
+
+.eventDisplayPage .content .dashboard .box .upper .socialLinks{ float: left; width: 50%; }
+.eventDisplayPage .content .dashboard .box .upper .socialLinks .eFacebook,
+.eventDisplayPage .content .dashboard .box .upper .socialLinks .eTwitter,
+.eventDisplayPage .content .dashboard .box .upper .socialLinks .eGoogle{ float: left; width: 21%; }
+
+.eventDisplayPage .content .dashboard .box .upper .eFlyer{ float: none; width: 49%; }
+.eventDisplayPage .content .dashboard .box .upper .eFlyer img{ float: left; width: 100%; height: auto; padding: 0 10px 0 0; }
+
+.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 49%; padding: 0 0 0 0; }
+
+.eventDisplayPage .content .dashboard .box .lower .defaultPic{ width: 6%; float: left; }
+.eventDisplayPage .content .dashboard .box .lower .defaultPic img{ width: 100%; }
+
+.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ width: 92%; text-transform: capitalize; vertical-align: text-bottom; height: 50px; }
+
+.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone .eAddress,
+.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone .ePhone{ width: 100%; }
+
+.eventDisplayPage .content .dashboard .box .lower .eMap{ float: left; width: 100%;}
 
 .eventDisplayPage .content .dashboard .box .lower .button{ float: left; width: 100%; padding-top: 25; }
 
@@ -121,14 +138,18 @@ h6{ font-size: 11px; font-weight: normal; }
 	.eventDisplayPage .content .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 3px;}
 
-	.eventDisplayPage .content .dashboard .box .upper .eNameNHashtag{ width: 100%; }
-	.eventDisplayPage .content .dashboard .box .upper .eDateTime { width: 100%; }
-	.eventDisplayPage .content .dashboard .box .upper .eDateTime .edate{ width: 100%; }
-	.eventDisplayPage .content .dashboard .box .upper .eDateTime .etime{ width: 100%; }
+	.eventDisplayPage .content .dashboard .box .upper .upper-top{ width: 100%; float: left; padding: 0 0 0 0; }
 	
-	.eventDisplayPage .content .dashboard .box .upper .eDescription{ text-align:justify; width: 98%; word-wrap: break-word; text-transform: capitalize; }
+	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag,
+	.eventDisplayPage .content .dashboard .box .upper .upper-top .eDateTime,
+	.eventDisplayPage .content .dashboard .box .upper .upper-top .eDescription{ text-align: justify; width: 98%; word-wrap: break-word;   text-transform: capitalize; }
+	
+	.eventDisplayPage .content .dashboard .box .upper .eDateTime .edate,
+	.eventDisplayPage .content .dashboard .box .upper .eDateTime .etime{ width: 100%; }
 
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 98%; height: auto; }
+	.eventDisplayPage .content .dashboard .box .upper .eFlyer{ float: none; width: 100%; }
+	.eventDisplayPage .content .dashboard .box .upper .eFlyer img{ float: left; width: 98%; height: auto; padding: 0 0 0 0; }
+	
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding-left: 0px; }
 	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eWebsite{ width: 100%; float: left; padding: 0 0 0 0;}
 	
