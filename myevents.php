@@ -7,109 +7,6 @@
 	
 	$today = Date("Y-m-d"); //should format to 2000-12-31
 	
-	// Pagination Function
-	function pagination($query, $per_page, $page, $url){
-		global $con;
-		
-		$query = "SELECT COUNT(*) as `num` FROM {$query}";
-		$row = mysqli_fetch_array(mysqli_query($con, $query));
-		$total = $row['num'];
-		$adjacents = "2"; 
-		 
-		$prevlabel = "&lsaquo; Prev";
-		$nextlabel = "Next &rsaquo;";
-		$lastlabel = "Last &rsaquo;&rsaquo;";
-		 
-		$page = ($page == 0 ? 1 : $page);  
-		$start = ($page - 1) * $per_page;                               
-		 
-		$prev = $page - 1;                          
-		$next = $page + 1;
-		 
-		$lastpage = ceil($total/$per_page);
-		 
-		$lpm1 = $lastpage - 1; // //last page minus 1
-		 
-		$pagination = "";
-		if($lastpage > 1){   
-			$pagination .= "<ul class='pagination'>";
-			$pagination .= "<li class='page_info'>Page {$page} of {$lastpage}</li>";
-				 
-				if ($page > 1) $pagination.= "<li><a href='{$url}page={$prev}'>{$prevlabel}</a></li>";
-				 
-			if ($lastpage < 7 + ($adjacents * 2)){   
-				for ($counter = 1; $counter <= $lastpage; $counter++){
-					if ($counter == $page)
-						$pagination.= "<li><a class='current'>{$counter}</a></li>";
-					else
-						$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
-				}
-			 
-			} elseif($lastpage > 5 + ($adjacents * 2)){
-				 
-				if($page < 1 + ($adjacents * 2)) {
-					 
-					for ($counter = 1; $counter < 4 + ($adjacents * 2); $counter++){
-						if ($counter == $page)
-							$pagination.= "<li><a class='current'>{$counter}</a></li>";
-						else
-							$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
-					}
-					$pagination.= "<li>...</li>";
-					$pagination.= "<li><a href='{$url}page={$lpm1}'>{$lpm1}</a></li>";
-					$pagination.= "<li><a href='{$url}page={$lastpage}'>{$lastpage}</a></li>";  
-						 
-				} elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)) {
-					 
-					$pagination.= "<li><a href='{$url}page=1'>1</a></li>";
-					$pagination.= "<li><a href='{$url}page=2'>2</a></li>";
-					$pagination.= "<li>...</li>";
-					for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++) {
-						if ($counter == $page)
-							$pagination.= "<li><a class='current'>{$counter}</a></li>";
-						else
-							$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
-					}
-					$pagination.= "<li>..</li>";
-					$pagination.= "<li><a href='{$url}page={$lpm1}'>{$lpm1}</a></li>";
-					$pagination.= "<li><a href='{$url}page={$lastpage}'>{$lastpage}</a></li>";      
-					 
-				} else {
-					 
-					$pagination.= "<li><a href='{$url}page=1'>1</a></li>";
-					$pagination.= "<li><a href='{$url}page=2'>2</a></li>";
-					$pagination.= "<li>..</li>";
-					for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++) {
-						if ($counter == $page)
-							$pagination.= "<li><a class='current'>{$counter}</a></li>";
-						else
-							$pagination.= "<li><a href='{$url}page={$counter}'>{$counter}</a></li>";                    
-					}
-				}
-			}
-			 
-				if ($page < $counter - 1) {
-					$pagination.= "<li><a href='{$url}page={$next}'>{$nextlabel}</a></li>";
-					$pagination.= "<li><a href='{$url}page=$lastpage'>{$lastlabel}</a></li>";
-				}
-			 
-			$pagination.= "</ul>";        
-		}
-		 
-		return $pagination;
-	}
-	
-	/*Start of pagination code (section)*/
-	$page = (int)(!isset($_GET["page"]) ? 1 : $_GET["page"]);
-	if ($page <= 0) $page = 1; //DEFAULT PAGE # 1
-
-	$per_page = 3; // Set how many records do you want to display per page.
-
-	$startpoint = ($page * $per_page) - $per_page;
-	
-	$statement = "Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC";
-	/*End of pagination code (section)*/
-	
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 
@@ -124,15 +21,24 @@
 		}
 	}
 	
-	//
-	$sql = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_page};";
+	$page_per_no = 3;
+	
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC;";
 	$result = mysqli_query($con, $sql);
+	$count = mysqli_num_rows($result);
+	
+	echo $count;
 	
 	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate;";
 	$result2 = mysqli_query($con, $sql2);
 	
 	$sql3 = "SELECT Upic FROM Registration WHERE UuserName = '" . $usrname . "';";
 	$result3 = mysqli_query($con, $sql3);
+
+	if($count > 0){
+		$paginationCount = $fgmembersite->getPagination($count, $page_per_no);
+	}
+	echo "<br/>" . $paginationCount . "<br/>";
 ?>
 
 <head>
@@ -141,13 +47,13 @@
 	<![endif]-->
 	<link rel="stylesheet" media="all" href=""/>
 	
-	
 	<!--STYLE-->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/pagination.css" />
+	<link rel="stylesheet" type="text/css" href="css/pag.css" />
 	
 	<!--Scripts-->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="./js/jquery-1.8.0.min.js"></script>
 	
 	<!--When edit btn is clicked, this function is triggered-->
 	<script>
@@ -155,6 +61,46 @@
 			window.location = "./editEvent.php?eid="+str;
 		}
 	</script>
+	
+	<script>
+		(function($){
+			$(document).ready(function(){
+				$.ajaxSetup({
+					cache: false,
+					beforeSend: function(){
+						$('#pageData').hide();
+						$('.flash').show();
+						$(".flash").fadeIn(400).html('Loading <img src="./image/load.gif" />');
+					},
+					complete: function(){
+						$('.flash').hide();
+						$('#pageData').show();
+					},
+					success: function(){
+						$('.flash').hide();
+						$('#pageData').show();
+					}
+				});
+				var $container = $("#pageData");
+				$container.load("loadEvents.php?pageId=" + pageId);			
+				var refreshId = setInterval(function(){
+					$container.load("loadEvents.php?pageId=" + pageId);
+				}, 60000); //30k = 30 seconds
+			});
+		})(jQuery);
+		
+		function changePagination(pageId, liId){
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("pageData").innerHTML = xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("GET", "loadEvents.php?pageId=" + pageId, true);
+			xmlhttp.send();
+		}
+	</script>
+	
 	<!-- End of Scripts	-->
 </head>
 
@@ -199,7 +145,7 @@
 	<div class="clear"></div>
 </div>
 
-<div class="box event">
+<!--<div class="box event">
 	<?PHP
 		//echo "Works!";
 		while($row = mysqli_fetch_array($result)){
@@ -243,10 +189,31 @@
 			 
 			<li><?PHP echo "<a class='myEventForm' onClick='editEvent(".$row['Eid'].")'> " ?> <img src="images/btn_editevent.png"></a></li>
 		</ul>
-	<?PHP } 
-		// displaying paginaiton.
-		echo pagination($statement, $per_page, $page, 'http://eventprobe.com/index2.php?');
-	?>
+	<?PHP } ?>
+</div>-->
+
+<div class="box event">
+	<div id="pageData"></div>
+
+	<?PHP if($count > 0){ ?>
+		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
+			<li class="first link" id="first">
+				<a href="javascript:void(0)" onclick="changePagination(0, first)">First</a>
+			</li>
+
+		<?PHP for($i = 0; $i < $paginationCount; $i++){ ?>
+			<li id="<?PHP $i ?>_no" class="link">
+				<a href="javascript:void(0)" onclick="changePagination(<?PHP $i ?>, <?PHP $i ?>_no)"><?PHP ($i+1) ?></a>
+			</li>
+		<?PHP } ?>
+		
+			<li class="last link" id="last">
+				<a href="javascript:void(0)" onclick="changePagination(<?PHP ($paginationCount-1) ?>, last)">Last</a>
+			</li>
+			<li class="flash"></li>
+		</ul>
+	<?PHP } ?>
 </div>
+
 <!--<div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>-->
 <div class="clear"></div>

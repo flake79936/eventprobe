@@ -86,7 +86,7 @@
 						$qry = "SELECT Eid, COUNT(Eid) FROM ".$usrname."MyEvents WHERE Eid IN (SELECT Eid FROM Events WHERE EstartDate = '" . $today . "' AND Edisplay='1')";
 						$result = mysqli_query($con, $qry);
 						if(mysqli_num_rows($result) > 0){
-							while($row = mysqli_fetch_assoc($result)){ 
+							while($row = mysqli_fetch_assoc($result)){
 				?>
 								<div class="circle" ><!--Count of how many events the user has in their list.-->
 									<?= $row['COUNT(Eid)']; ?>
@@ -103,6 +103,6 @@
 		<?PHP } ?>
 	</div>
 	<img src="./images/loading.gif" id="loading" alt="loading" style="display:none;" />
-	<div class="chart" id="events"></div>
+	<div class="chart" id="events">Sorry There Are No Events For Today.</div>
 </div>
 <div class="clear"></div>

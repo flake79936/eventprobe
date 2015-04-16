@@ -1733,5 +1733,15 @@ class FGMembersite{
         return $str;
     }
 	/*----(End) Other Management----*/
+	
+	//used for the pagination
+	function getPagination($count, $page_per_no){
+		$paginationCount = floor($count / $page_per_no);
+		$paginationModCount = $count % $page_per_no;
+		if(!empty($paginationModCount)){
+			$paginationCount++;
+		}
+		return $paginationCount;
+	}
 }
 ?>
