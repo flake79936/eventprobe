@@ -98,7 +98,7 @@
 
 	.header .profile .crtEvent, 
 	.header .profile .inbtn, 
-	.header .profile .outbtn{ float: none; width: 100%; padding: 0 0 0 0; }
+	.header .profile .outbtn{ float: none; width: 100%; padding: 0 0 5px 0; }
 
 	.header .profile h2{ float: left; color: #554e45; padding: 50px 0 0 30px; }
 	.header .profile h3{ float: left; color: #554e45; padding: 10px 0 0 10px; }

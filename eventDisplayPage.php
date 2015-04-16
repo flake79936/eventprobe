@@ -133,10 +133,9 @@
 									<div class="upper-top">
 										<div class="eNameNHashtag">
 											<h1>
-											<?php echo $row['Evename']; 
-												if($row['Ehashtag'] !== ""){ 
-											?> 
-													- <?php echo $row['Ehashtag']; ?>
+											<div class="eName"><?php echo $row['Evename']; ?>&nbsp;</div>
+											<?PHP if($row['Ehashtag'] !== ""){ ?> 
+													<div class="dash">&nbsp;-&nbsp;</div> <div class="eHash">&nbsp;<?php echo $row['Ehashtag']; ?></div>
 												<?PHP } ?>
 											</h1>
 										</div>
@@ -159,6 +158,26 @@
 										</div>
 									</div>
 									
+									<div class="eFlyer">
+									<?PHP 
+										$type = $row['Etype'];
+										if($row['Eflyer'] === ""){
+											switch($type){
+												case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
+												case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
+												case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
+												case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
+												case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
+												case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
+												default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
+											}
+										}
+									?>
+										<img src="<?php echo $row['Eflyer']; ?>" alt="event image"/>
+									</div>
+								</div>
+								
+								<div class="lower">
 									<div class="socialLinks">
 										<div class="eWebsite">
 											<?PHP if($row['Ewebsite'] !== ""){?>
@@ -192,28 +211,11 @@
 											<?PHP } ?>
 										</div>
 									</div>
-								
-									<div class="eFlyer">
-									<?PHP 
-										$type = $row['Etype'];
-										if($row['Eflyer'] === ""){
-											switch($type){
-												case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
-												case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
-												case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
-												case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
-												case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
-												case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
-												default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
-											}
-										}
-									?>
-										<img src="<?php echo $row['Eflyer']; ?>" alt="event image"/>
+									
+									<div class="defaultPic">
+										<img src='./images/defaultUpic.png'/>
 									</div>
-								</div>
-								
-								<div class="lower">
-									<div class="defaultPic"><img src='./images/defaultUpic.png'/></div>
+									
 									<div class="eAdrsPhone">
 										<h4>
 											<div class="eAddress">

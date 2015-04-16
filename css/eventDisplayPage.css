@@ -13,28 +13,32 @@ h6{ font-size: 11px; font-weight: normal; }
 .eventDisplayPage .content .dashboard{ float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
 .eventDisplayPage .content .dashboard .box{ float: left; width: 100%; padding: 5px 0 5px 5px; }
 
-.eventDisplayPage .content .dashboard .box .upper .upper-top{ width: 49%; float: left; padding: 0 10px 0 0; }
+.eventDisplayPage .content .dashboard .box .upper{ float: left; width: 49%; padding: 0 10px 0 0; }
+.eventDisplayPage .content .dashboard .box .upper .upper-top{ width: 100%; float: left; padding: 0 10px 0 0; }
 
 .eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag,
 .eventDisplayPage .content .dashboard .box .upper .upper-top .eDateTime,
 .eventDisplayPage .content .dashboard .box .upper .upper-top .eDescription{ text-align: justify; width: 100%; word-wrap: break-word; text-transform: capitalize; padding: 0 0 10px 0; }
 
+.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .eName{ width: auto; float: left; }
+.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .dash{ width: auto; float: left; }
+.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .eHash{ color: #dc582a; }
+
 .eventDisplayPage .content .dashboard .box .upper .upper-top .eDateTime{ text-transform: none; }
 
-.eventDisplayPage .content .dashboard .box .upper .socialLinks{ float: left; width: 50%; }
-.eventDisplayPage .content .dashboard .box .upper .socialLinks .eFacebook,
-.eventDisplayPage .content .dashboard .box .upper .socialLinks .eTwitter,
-.eventDisplayPage .content .dashboard .box .upper .socialLinks .eGoogle{ float: left; width: 21%; }
-
-.eventDisplayPage .content .dashboard .box .upper .eFlyer{ float: none; width: 49%; }
 .eventDisplayPage .content .dashboard .box .upper .eFlyer img{ float: left; width: 100%; height: auto; padding: 0 10px 0 0; }
 
 .eventDisplayPage .content .dashboard .box .lower{ float: left; width: 49%; padding: 0 0 0 0; }
 
+.eventDisplayPage .content .dashboard .box .lower .socialLinks{ float: left; width: 100%; padding: 0 0 10px 0; }
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook,
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter,
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: 21%; }
+
 .eventDisplayPage .content .dashboard .box .lower .defaultPic{ width: 6%; float: left; }
 .eventDisplayPage .content .dashboard .box .lower .defaultPic img{ width: 100%; }
 
-.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ width: 92%; text-transform: capitalize; vertical-align: text-bottom; height: 50px; }
+.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ float: left; width: 92%; text-transform: capitalize; height: 50px; }
 
 .eventDisplayPage .content .dashboard .box .lower .eAdrsPhone .eAddress,
 .eventDisplayPage .content .dashboard .box .lower .eAdrsPhone .ePhone{ width: 100%; }
@@ -69,24 +73,37 @@ h6{ font-size: 11px; font-weight: normal; }
 	.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
 	.eventDisplayPage .content .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 30px;}
+	
+	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag,
+	.eventDisplayPage .content .dashboard .box .upper .upper-top .eDateTime,
+	.eventDisplayPage .content .dashboard .box .upper .upper-top .eDescription{ text-align: justify; width: 100%; word-wrap: break-word; text-transform: capitalize; padding: 0 0 10px 0; }	
 
-	.eventDisplayPage .content .dashboard .box .upper .eNameNHashtag{ width: 80%; padding: 0 0 5px 0; }
-	.eventDisplayPage .content .dashboard .box .upper .eDateTime{ width: 30%; padding: 0 0 5px 0; }
-	.eventDisplayPage .content .dashboard .box .upper .eDescription{ text-align:justify; width: 47%; word-wrap: break-word; padding: 0 0 5px 0; }
+	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .eName{ width: auto; float: left; }
+	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .dash{ width: auto; float: left; }
+	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .eHash{ color: #dc582a; }
 	
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .eFlyer img{ float: left; width: 47%; height: auto; padding: 0 17px 0 0; }
+	.eventDisplayPage .content .dashboard .box .upper .eFlyer img{ float: left; width: 100%; height: auto; padding: 0 17px 0 0; }
 	
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding: 0 0 0 0; }
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eWebsite{ float: left; width: 100%; }
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eFacebook,
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eTwitter,
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eGoogle{ float: left; width: 21%; }
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks{ float: left; padding: 0 0 10px 0; }
+	
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eWebsite{ float: left; width: 100%; }
+	
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook,
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter,
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: 21%; }
 	
 	.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 45%; padding: 5px 0 25px 0; }
+	
+	.eventDisplayPage .content .dashboard .box .lower .defaultPic{ width: 12%; float: left; }
+	.eventDisplayPage .content .dashboard .box .lower .defaultPic img{ width: 100%; }
+	
+	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ float: left; width: 88%; }
+	
+	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone .eAddress,
+	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone .ePhone{ width: 100%; padding: 5px 0; }
+	
 	.eventDisplayPage .content .dashboard .box .lower .eMap{ float: left; width: 100%; }
-	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ float: left; width: 100%; }
-	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone img{ width: 10%; }
-
+	
 	.eventDisplayPage .content .dashboard .box .lower .button{ float: right; width: 30%; padding: 12px 0 0 0; }
 	.eventDisplayPage .content .dashboard .box .lower .button input,
 	.eventDisplayPage .content .dashboard .box .lower .button a img{ width: 20%; height: auto; }
@@ -138,6 +155,8 @@ h6{ font-size: 11px; font-weight: normal; }
 	.eventDisplayPage .content .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 3px;}
 
+	.eventDisplayPage .content .dashboard .box .upper{ float: left; width: 100%; padding: 0 10px 0 0; }
+	
 	.eventDisplayPage .content .dashboard .box .upper .upper-top{ width: 100%; float: left; padding: 0 0 0 0; }
 	
 	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag,
@@ -150,22 +169,27 @@ h6{ font-size: 11px; font-weight: normal; }
 	.eventDisplayPage .content .dashboard .box .upper .eFlyer{ float: none; width: 100%; }
 	.eventDisplayPage .content .dashboard .box .upper .eFlyer img{ float: left; width: 98%; height: auto; padding: 0 0 0 0; }
 	
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks{ float: left; padding-left: 0px; }
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eWebsite{ width: 100%; float: left; padding: 0 0 0 0;}
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks{ float: left; padding-left: 0px; }
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eWebsite{ width: 100%; float: left; padding: 0 0 0 0;}
 	
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eFacebook,
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eTwitter,
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eGoogle{ float: left; width: 13%; padding: 0 0 0 0; }
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook,
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter,
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: 13%; padding: 0 0 0 0; }
 	
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eFacebook img,
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eTwitter img,
-	.eventDisplayPage .content .dashboard .box .upper .upperMid .socialLinks .eGoogle img{ width: 38px; height: auto; float: left; padding: 0 0 0 0;}
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook img,
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter img,
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle img{ width: 38px; height: auto; float: left; padding: 0 0 0 0;}
 
-	.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 98%; padding: 25px 0px 25px 0px; }
+	.eventDisplayPage .content .dashboard .box .lower .defaultPic{ width: 12%; height: auto; float: left; }
+	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ float: left; width: 88% }
+	
+	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone .eAddress,
+	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone .ePhone{ width: 100%; padding: 5px 0; }
+	
+	.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 98%; padding: 10px 0px;}
 	.eventDisplayPage .content .dashboard .box .lower .eMap{ float: left; width: 100%;}
 	.eventDisplayPage .content .dashboard .box .lower .eMap #map{ width: 86%; height: auto; margin-top: 10px; position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223); }
-	.eventDisplayPage .content .dashboard .box .lower .eAdrsPhone{ float: left; width: 100% }
-
+	
 	.eventDisplayPage .content .dashboard .box .lower .button{ float: left; width: 100%; padding-top: 25; }
 	/*.eventDisplayPage .content .dashboard .box .lower .button .dltButton{ background-image: url("./images/btn_delete.png"); }*/
 }
