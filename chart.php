@@ -11,15 +11,30 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
-	$today = Date("m/d/Y"); //e.g., 02/03/2015, 
+	$today = Date("m/d/Y"); //e.g., 02/03/2015
+	$newformat = date('Y-m-d');
 	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
 	
 	$bool = $fgmembersite->CheckSession();
 	
-	$paging = (isset($_GET["paging"]) ? $_GET["paging"] : 1);
+	$pageId = (isset($_GET["pageId"]) ? $_GET["pageId"] : 0);
+	//echo "Page: " . $pageId . "<br>";
+	
+	$sql = "SELECT * FROM Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ORDER BY EstartDate ASC;";
+	$result = mysqli_query($con, $sql);
+	$count = mysqli_num_rows($result);
+	//echo "<br>Query: " . $sql . "<br>";
+	//echo "count: " . $count;
+
+	if($count > 0){
+		$paginationCount = $fgmembersite->getPagination($count, 2);
+	}
+	
+	//echo "<br/>Pagination Count: " . $paginationCount . "<br/>";
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/chart.css" />
+<link rel="stylesheet" type="text/css" href="css/pag.css" />
 
 <script>
 	(function($){
@@ -40,21 +55,21 @@
 				}
 			});
 			var $container = $("#events");
-			$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&paging=" + <?= $paging ?>);			
+			$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);			
 			var refreshId = setInterval(function(){
-				$container.load("getByDayEvent.php?date=" + <?= $toDate ?> + "&paging=" + <?= $paging ?>);
+				$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
 			}, 100000000); //30k = 30 seconds
 		});
 	})(jQuery);
 	
-	function getByDayEvent(str, paging) {
+	function getByDayEvent(str, pageId) {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				document.getElementById("events").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("GET", "getByDayEvent.php?date=" + str + "&paging=" + paging, true);
+		xmlhttp.open("GET", "./getByDayEvent.php?date=" + str + "&pageId=" + pageId, true);
 		xmlhttp.send();
 	}
 </script>
@@ -66,6 +81,25 @@
 		<!--<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>-->
 		<div class="clear"></div>
 	</div>
+	
+	<?PHP if($count > 0){ ?>
+		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
+			<li class="first link" id="first">
+				<a onClick="getByDayEvent(<?= $toDate ?>, 0)">First</a>
+			</li>
+			
+			<!--Displays the page numbers-->
+			<?PHP for($i = 0; $i < $paginationCount; $i++){ ?>
+				<li id="<?= $i."_no" ?>" class="link">
+					<a onClick="getByDayEvent(<?= $toDate ?>, <?PHP echo ($i+1); ?>)"><?PHP echo ($i+1); ?></a>
+				</li>
+			<?PHP } ?>
+		
+			<li class="last link" id="last">
+				<a onClick="getByDayEvent(<?= $toDate ?>, <?PHP echo ($paginationCount-1); ?>)">Last</a>
+			</li>
+		</ul>
+	<?PHP } ?>
 	
 	<div class="row">
 		<?PHP
@@ -95,14 +129,15 @@
 						} 
 					} ?>
 				<form>
-					<a onClick="getByDayEvent(<?= $toDate ?>, <?= $paging ?>);">
+					<a onClick="getByDayEvent(<?= $toDate ?>);">
 						<h4><?= $trimDate ?><br/><?= $day ?></h4>
 					</a>
 				</form>
 			</div>
 		<?PHP } ?>
 	</div>
+	
 	<img src="./images/loading.gif" id="loading" alt="loading" style="display:none;" />
-	<div class="chart" id="events">Sorry There Are No Events For Today.</div>
+	<div class="chart" id="events"></div>
 </div>
 <div class="clear"></div>

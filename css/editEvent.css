@@ -31,7 +31,7 @@ p{ line-height: normal; }
 .editEvent .policy{ float: none; width: auto; padding: 133px 0px 10px 30px; }
 
 .editEvent .content .form-wrap .user-profile{ float: left; margin: -25px 0 0 0; }
-.editEvent .content .form-wrap .user-profile img{ border: 10px solid #f5f5f5; }
+.editEvent .content .form-wrap .user-profile img{ width: 250px; height: 290px; border: 10px solid #f5f5f5; }
 .editEvent .content .form-wrap .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 0 0 0; position: relative; z-index: 9; top: 229px; color: #fff; width: 86%; }
 .editEvent .content .form-wrap .user-profile .update-image h5{ float: left; text-transform: uppercase; padding: 7px 0 0 0; }
 .editEvent .content .form-wrap .user-profile .update-image img{ float: right; border: none; }

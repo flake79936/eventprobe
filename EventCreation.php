@@ -465,31 +465,31 @@
 								
 								<div class="webEvent">
 									<h5 for="Ewebsite">Website</h5>
-									<input type="url" name="Ewebsite"  placeholder="http://www.website.com" title="correct format: http://www.website.com" id="Ewebsite" value="<?php echo $fgmembersite->SafeDisplay('Ewebsite') ?>" maxlength="50"><br>
+									<input type="url" name="Ewebsite" pattern="https?://.+" title="URLs only" placeholder="http://www.website.com" title="correct format: http://www.website.com" id="Ewebsite" value="<?php echo $fgmembersite->SafeDisplay('Ewebsite') ?>" maxlength="50"><br>
 									<span id="event_Ewebsite_errorloc" class="error"></span>
 								</div>
 									
 								<div class="fbEvent">
 									<h5 for="Efacebook">Facebook</h5>
-									<input type="text" name="Efacebook" placeholder="https://www.facebook.com/USERNAME" id="Efacebook" value="<?php echo $fgmembersite->SafeDisplay('Efacebook') ?>" maxlength="50"><br>
+									<input type="url" name="Efacebook" pattern="https?://www.facebook.com/.+" title="Facebook URLs only" placeholder="https://www.facebook.com/USERNAME" id="Efacebook" value="<?php echo $fgmembersite->SafeDisplay('Efacebook') ?>" maxlength="50"><br>
 									<span id="event_Efacebook_errorloc" class="error"></span>
 								</div>
 									
 								<div class="gooEvent">
 									<h5 for="Egoogle">Google+</h5>
-									<input type="text" name="Egoogle" placeholder="https://plus.google.com/USERNAME" id="Egoogle" value="<?php echo $fgmembersite->SafeDisplay('Egoogle') ?>" maxlength="50"><br>
+									<input type="url" name="Egoogle" pattern="https?://plus.google.com/.+" title="Google+ URLs only" placeholder="https://plus.google.com/USERNAME" id="Egoogle" value="<?php echo $fgmembersite->SafeDisplay('Egoogle') ?>" maxlength="50"><br>
 									<span id="event_Egoogle_errorloc" class="error"></span>
 								</div>
 									
 								<div class="twEvent">
 									<h5 for="Etwitter">Twitter</h5>
-									<input type="text" name="Etwitter" placeholder="https://twitter.com/username" id="Etwitter" value="<?php echo $fgmembersite->SafeDisplay('Etwitter') ?>" maxlength="50"><br>
+									<input type="text" name="Etwitter" pattern="https?://twitter.com/.+" title="Twitter URLs only" placeholder="https://twitter.com/username" id="Etwitter" value="<?php echo $fgmembersite->SafeDisplay('Etwitter') ?>" maxlength="50"><br>
 									<span id="event_Etwitter_errorloc" class="error"></span>
 								</div>
 									
 								<div class="hashEvent">
 									<h5 for="Ehashtag">Hashtag</h5>
-									<input type="text" name="Ehashtag" placeholder="#hashtag" title="#hello" id="Ehashtag" value="<?php echo $fgmembersite->SafeDisplay('Ehashtag') ?>" maxlength="50"><br>
+									<input type="text" name="Ehashtag" pattern="#.{1,}" title="#hello" placeholder="#hashtag" id="Ehashtag" value="<?php echo $fgmembersite->SafeDisplay('Ehashtag') ?>" maxlength="50"><br>
 									<span id="event_Ehashtag_errorloc" class="error"></span>
 								</div>
 								<div class="clear"></div>

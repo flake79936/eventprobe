@@ -60,7 +60,7 @@
 				echo "			<div class='info'>";
 				echo "				<div class='text-info'>";
 				//echo "					<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
-				echo "					<div class='ename'>" . substr($row['Evename'], 0, 12) . " ...</div>";
+				echo "					<div class='ename'>" . $row['Evename'] . "</div>";
 				echo "					<div class='etime'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . " </div>";
 				echo "					<div class='ecity'>" . ucfirst($row['Ecity']) . ", " . strtoupper($row['Estate']) . " </div>";
 				echo "				</div>";

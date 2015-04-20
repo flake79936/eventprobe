@@ -15,6 +15,8 @@
 	$editSQL = "SELECT * FROM Events WHERE Eid = '" . $_GET['eid'] . "'"; //works fine
 	$edit = mysqli_query($con, $editSQL);
 	
+	$minDate = date("Y-m-d");
+	
 	$today = Date("m/d/Y");
 	$upcomingSQL = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
 	$upcoming = mysqli_query($con, $upcomingSQL);
@@ -438,7 +440,7 @@
 									
 									<div class="eStartDate">
 										<h5 for="EstartDate">Start Date</h5>
-										<input type="date" name="EstartDate" placeholder="12/22/2015" title="Pick Start Date" id="EstartDate" value="<?PHP echo $row['EstartDate']; ?>" maxlength="50"><br>
+										<input type="date" name="EstartDate" min="<?PHP echo $minDate; ?>" placeholder="12/22/2015" title="Pick Start Date" id="EstartDate" value="<?PHP echo $row['EstartDate']; ?>" maxlength="50"><br>
 										<span id="eventForm_EstartDate_errorloc" class="error"></span>
 									</div>	
 

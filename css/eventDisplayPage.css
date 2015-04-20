@@ -31,9 +31,16 @@ h6{ font-size: 11px; font-weight: normal; }
 .eventDisplayPage .content .dashboard .box .lower{ float: left; width: 49%; padding: 0 0 0 0; }
 
 .eventDisplayPage .content .dashboard .box .lower .socialLinks{ float: left; width: 100%; padding: 0 0 10px 0; }
+
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eWebsite{ padding: 0 0 10px 0; }
+
 .eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook,
 .eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter,
-.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: 21%; }
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: 15%; }
+
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook img,
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter img,
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle img { width: 40%; }
 
 .eventDisplayPage .content .dashboard .box .lower .defaultPic{ width: 6%; float: left; }
 .eventDisplayPage .content .dashboard .box .lower .defaultPic img{ width: 100%; }

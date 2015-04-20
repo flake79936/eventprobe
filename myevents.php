@@ -3,42 +3,47 @@
 	require_once("./include/membersite_config.php");
 	include 'dbconnect.php';
 	
-	$usrname = $fgmembersite->UsrName();
-	
-	$today = Date("Y-m-d"); //should format to 2000-12-31
-	
-	$timezone = $fgmembersite->getLocalTimeZone();
-	date_default_timezone_set($timezone);
-
-	if(!$fgmembersite->CheckSession()){
-		$fgmembersite->RedirectToURL("./index2.php");
-		exit;
-	}
-	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->deleteEvent()){
 			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
 	
-	$page_per_no = 3;
+	$usrname = $fgmembersite->UsrName();
 	
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC;";
+	$timezone = $fgmembersite->getLocalTimeZone();
+	date_default_timezone_set($timezone);
+	
+	$today = Date("m/d/Y"); //e.g., 02/03/2015
+	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
+	
+	$newformat = date('Y-m-d');
+	echo "<br>DATE: ". $newformat . "<br>";
+	
+	$timezone = $fgmembersite->getLocalTimeZone();
+	date_default_timezone_set($timezone);
+	
+	$pageId = (isset($_GET["pageId"]) ? $_GET["pageId"] : 0);
+	echo "Page: " . $pageId . "<br>";
+	
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC;";
 	$result = mysqli_query($con, $sql);
+	echo "<br>Query: " . $sql . "<br>";
+	
 	$count = mysqli_num_rows($result);
+	echo "count: " . $count;
 	
-	echo $count;
+	if($count > 0){
+		$paginationCount = $fgmembersite->getPagination($count, 2);
+	}
+	echo "<br/>Pagination Count: " . $paginationCount . "<br/>";
 	
-	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '".$today."'  AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate;";
+	
+	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate;";
 	$result2 = mysqli_query($con, $sql2);
 	
 	$sql3 = "SELECT Upic FROM Registration WHERE UuserName = '" . $usrname . "';";
 	$result3 = mysqli_query($con, $sql3);
-
-	if($count > 0){
-		$paginationCount = $fgmembersite->getPagination($count, $page_per_no);
-	}
-	echo "<br/>" . $paginationCount . "<br/>";
 ?>
 
 <head>
@@ -53,7 +58,6 @@
 	
 	<!--Scripts-->
 	<script type="text/javascript" src="./js/jquery-2.1.3.min.js"></script>
-	<script type="text/javascript" src="./js/jquery-1.8.0.min.js"></script>
 	
 	<!--When edit btn is clicked, this function is triggered-->
 	<script>
@@ -68,35 +72,35 @@
 				$.ajaxSetup({
 					cache: false,
 					beforeSend: function(){
-						$('#pageData').hide();
+						$('.pageData').hide();
 						$('.flash').show();
-						$(".flash").fadeIn(400).html('Loading <img src="./image/load.gif" />');
+						$(".flash").fadeIn(400).html('Loading <img src="./images/load.gif" />');
 					},
 					complete: function(){
 						$('.flash').hide();
-						$('#pageData').show();
+						$('.pageData').show();
 					},
 					success: function(){
 						$('.flash').hide();
-						$('#pageData').show();
+						$('.pageData').show();
 					}
 				});
-				var $container = $("#pageData");
-				$container.load("loadEvents.php?pageId=" + pageId);			
+				var $container = $(".pageData");
+				$container.load("./loadEvents.php?pageId=" + <?= $pageId ?> + "&date=" + <?= $toDate ?>);			
 				var refreshId = setInterval(function(){
-					$container.load("loadEvents.php?pageId=" + pageId);
+					$container.load("./loadEvents.php?pageId=" + <?= $pageId ?> + "&date=" + <?= $toDate ?>);
 				}, 60000); //30k = 30 seconds
 			});
 		})(jQuery);
 		
-		function changePagination(pageId, liId){
+		function changePagination(pageId, date){
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					document.getElementById("pageData").innerHTML = xmlhttp.responseText;
+					document.getElementsById("#pageData").innerHTML = xmlhttp.responseText;
 				}
 			}
-			xmlhttp.open("GET", "loadEvents.php?pageId=" + pageId, true);
+			xmlhttp.open("GET", "./loadEvents.php?pageId=" + pageId + "&date=" + date, true);
 			xmlhttp.send();
 		}
 	</script>
@@ -193,22 +197,23 @@
 </div>-->
 
 <div class="box event">
-	<div id="pageData"></div>
+	<div id="pageData" class="pageData"></div>
 
 	<?PHP if($count > 0){ ?>
 		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
 			<li class="first link" id="first">
-				<a href="javascript:void(0)" onclick="changePagination(0, first)">First</a>
+				<a onClick="changePagination(0, <?= $toDate ?>)">First</a>
 			</li>
-
-		<?PHP for($i = 0; $i < $paginationCount; $i++){ ?>
-			<li id="<?PHP $i ?>_no" class="link">
-				<a href="javascript:void(0)" onclick="changePagination(<?PHP $i ?>, <?PHP $i ?>_no)"><?PHP ($i+1) ?></a>
-			</li>
-		<?PHP } ?>
+			
+			<!--Displays the page numbers-->
+			<?PHP for($i = 0; $i < $paginationCount; $i++){ ?>
+				<li id="<?= $i."_no" ?>" class="link">
+					<a onClick="changePagination(<?PHP echo ($i+1); ?>, <?= $toDate ?>)"><?PHP echo ($i+1); ?></a>
+				</li>
+			<?PHP } ?>
 		
 			<li class="last link" id="last">
-				<a href="javascript:void(0)" onclick="changePagination(<?PHP ($paginationCount-1) ?>, last)">Last</a>
+				<a onClick="changePagination(<?PHP echo ($paginationCount-1); ?>, <?= $toDate ?>)">Last</a>
 			</li>
 			<li class="flash"></li>
 		</ul>

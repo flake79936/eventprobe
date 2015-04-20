@@ -15,17 +15,30 @@
 .chart .box .row .active .circle{ background: #fff; color: #f05a28; }
 .chart .box .row .blank{ width: 25px; height: 25px; margin: 0 auto; margin-bottom: 5px; }
 
-.chart.box .row .info .social-icons{ float: left; width: 100%; }
-.chart .box .row .info .social-icons .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-.chart .box .row .info .social-icons .TW{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
+.chart .box .row .info{ color: #323438; background: #e9e4d6; width: 91%; height: 95px; float: left; }
+
+.chart .box .row .info .text-info{ height: 16px; width: 100%; font-size: 12pt; }
+.chart .box .row .info .text-info .ename { float: left; width: 10%; padding: 5px 0 0 10px; color: #323438; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+
+.chart .box .row .info .text-info .ename,
+.chart .box .row .info .text-info .ecity { text-transform: capitalize; }
+
+.chart .box .row .info .text-info .etime,
+.chart .box .row .info .text-info .ecity{ float: left; width: auto; padding: 5px 0 0 10px; color: #323438; }
+
+.chart .box .row .info .social-icons{ float: left; width: 100%; }
+
+.chart .box .row .info .social-icons .FB,
+.chart .box .row .info .social-icons .TW,
 .chart .box .row .info .social-icons .Goo{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
-.chart .box .row .info .social-icons .Hashtag{ float: left; width: auto; padding: 5px 0 0 0; text-align: center; color: #323438; }
+
+.chart .box .row .info .social-icons .Hashtag{ float: left; width: auto; padding: 5px 0 0 0; text-align: center; color: #dc582a; }
 
 .chart .box .row .info .addButton{ text-align: center; color: #323438; width: 30%; float: right; }
 
 .chart .box .row .profile{ width: 9%; height: 95px; float: left; padding: 0; }
 .chart .box .row .profile img{ width: 100%; height: 95px; }
-.chart .box .row .info{ color: #323438; background: #e9e4d6; width: 91%; height: 95px; float: left; }
+
 .chart .box .row .info.active{ background: #f05a28; }
 .chart .box .row .info.active .box{ color: #fff; }
 .chart .box .row .info .box{ float: left; width: 20.5%; padding: 30px 0 0 0; text-align: center; color: #323438; }
