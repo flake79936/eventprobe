@@ -31,6 +31,8 @@
 	
 	$findme2 = 'eventCreation.php';
 	$pos2 = strpos($test, $findme2);
+	
+	
 		
 	// if(!$pos !== true){
 	// echo "test";
@@ -43,7 +45,9 @@
 <div class="logo">
 	<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a>
 </div>
+ 	<?PHP if(!$pos2 !== false){ ?>
 
+	
 <div class="search">
 	<form>
 		<div class="searchBar">
@@ -61,7 +65,7 @@
 		</div>
 	</form>
 </div>
-
+<?PHP }?> 
 <!-- <div class="date">
 	<div class="box">
 		<h1>
