@@ -19,10 +19,10 @@
 	//$newformat = date('Y-m-d');
 	//echo "NewFormat: " . $newformat . "<br>";
 	
-	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
+	$toDate = (isset($_GET["freeDate"]) ? $_GET["freeDate"] : strtotime($today));
 	//echo "toDate: " . $toDate . "<br>";
 	
-	$pageId = (isset($_GET["pageId"]) ? $_GET["pageId"] : 0);
+	$pageId = (isset($_GET["freePageId"]) ? $_GET["freePageId"] : 0);
 	//echo "Page: " . $pageId . "<br>";
 	
 	//$sql = "SELECT * FROM Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ORDER BY EstartDate ASC;";
@@ -74,7 +74,7 @@
 				document.getElementById("events").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("GET", "./getByDayEvent.php?date=" + str + "&pageId=" + pageId, true);
+		xmlhttp.open("GET", "./getByDayEvent.php?freeDate=" + str + "&freePageId=" + pageId, true);
 		xmlhttp.send();
 	}
 </script>

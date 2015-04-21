@@ -2,7 +2,7 @@
 	require_once("./include/membersite_config.php"); 
 	$minDate = date("Y-m-d");
 	
-	$today = Date("m/d/Y"); //e.g., 02/03/2015
+	$today = date("m/d/Y"); //e.g., 02/03/2015
 	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
 	//echo "toDate: " . $toDate . "<br>";
 	
@@ -162,12 +162,16 @@
 							$('.pageData').hide();
 							$('.flash').show();
 							
+							$('.middleEvents').hide();
+							
 							$('#events').hide();
 							$('#loading').show();
 						},
 						complete: function(){
 							$('.flash').hide();
 							$('.pageData').show();
+							
+							$('.middleEvents').show();
 							
 							$('#loading').hide();
 							$('#events').show();
@@ -176,25 +180,31 @@
 							$('.flash').hide();
 							$('.pageData').show();
 							
+							$('.middleEvents').show();
+							
 							$('#loading').hide();
 							$('#events').show();
 						}
 					});
-					var $container = $("#events");
-					$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+					var $myEventsContainer = $(".pageData");
+					$myEventsContainer.load("./loadEvents.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
 					
-					var $container1 = $(".pageData");
-					$container1.load("./loadEvents.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+					var $eventsContainer = $(".middleEvents");
+					$eventsContainer.load("./events.php?eventPageId=" + <?= $pageId ?>);
+					
+					var $freeEventsContainer = $("#events");
+					$freeEventsContainer.load("./getByDayEvent.php?freeDate=" + <?= $toDate ?> + "&freePageId=" + <?= $pageId ?>);
 					
 					var refreshId = setInterval(function(){
-						$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+						$myEventsContainer.load("./loadEvents.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
 						
-						$container1.load("./loadEvents.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+						$eventsContainer.load("./events.php?eventPageId=" + <?= $pageId ?>);
+						
+						$freeEventsContainer.load("./getByDayEvent.php?freeDate=" + <?= $toDate ?> + "&freePageId=" + <?= $pageId ?>);
 					}, 60000); //30k = 30 seconds
 				});
 			})(jQuery);
 		</script>
-		
 	</head>
 	
 	<body lang="en">
@@ -223,17 +233,7 @@
 
 		<!--Schedule Section-->
 		<div class="schedule">
-			<!--Map Section-->
-			<div class="map">
-				<iframe src="./map.php"></iframe>
-			</div>
-
-			<!--Today Section-->
-			<div class="today">
-				<?PHP include './events.php'; ?>
-			</div>
-
-			<div class="clear"></div>
+			<?PHP include './schedule.php'; ?>
 		</div>
 
 		<!--Chart Section-->

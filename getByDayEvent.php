@@ -19,6 +19,8 @@
 		require_once("./include/membersite_config.php");
 		include 'dbconnect.php';
 		
+		$bool = $fgmembersite->CheckSession();
+		
 		$timezone = $fgmembersite->getLocalTimeZone();
 		date_default_timezone_set($timezone);
 		
@@ -26,10 +28,10 @@
 		//$city = "El Paso";
 		$usrname = $fgmembersite->UsrName();
 		
-		$newformat = date('Y-m-d', $_GET['date']);
+		$newformat = date('Y-m-d', $_GET['freeDate']);
 		//echo "newformat: " . $newformat . "<br>";
 		
-		$pageId = (int)(!isset($_GET["pageId"]) ? 1 : $_GET["pageId"]);
+		$pageId = (int)(!isset($_GET["freePageId"]) ? 1 : $_GET["freePageId"]);
 		if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
 		//echo "page var: " . $pageId . "<br>";
 
@@ -42,8 +44,6 @@
 		$qry = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_paging};";
 		$result = mysqli_query($con, $qry);
 		//echo "<br>Query: " . $qry . "<br>";
-		
-		$bool = $fgmembersite->CheckSession();
 	?>
 	
 	<div class="box" >

@@ -2,19 +2,35 @@
 <ul>
 	<?PHP
 		require_once("./include/membersite_config.php");
+		include 'dbconnect.php';
+		
+		$timezone = $fgmembersite->getLocalTimeZone();
+		date_default_timezone_set($timezone);
+		
 		$city = $fgmembersite->getCity();
 		//$city = "El Paso";
 		
 		if(isset($_POST["submitted"])){
 			$result = $fgmembersite->searchEvent();
 		}
+		
+		$newformat = date('Y-m-d');
+		
+		$pageId = (int)(!isset($_GET["eventPageId"]) ? 1 : $_GET["eventPageId"]);
+		if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
+		//echo "page var: " . $pageId . "<br>";
 
-		include 'dbconnect.php';
+		$per_paging = 8; // Set how many records do you want to display per pageId.
 
-		$today = Date("Y-m-d");
-		$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '".$city."' AND Edisplay ='1' AND (Erank='Paid' OR Erank='Premium') ORDER BY EstartDate LIMIT 8";
+		$startpoint = ($per_paging * $pageId) - $per_paging;
+		
+		//please do not add a semicolon at the end of this line, inside of the double quotes.
+		$statement = "Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ";
+		
+		$sql = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_paging};";
 		$result = mysqli_query($con, $sql);
-
+		
+		
 		$i = 0;
 		while($row = mysqli_fetch_array($result)){
 			$date = date_create($row['EstartDate']);

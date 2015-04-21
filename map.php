@@ -15,7 +15,7 @@
 	
 	$today = Date("Y-m-d");
 	//$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Elat = '" . . "' Ecity = '". $city ."' AND Edisplay='1'  ORDER BY EstartDate LIMIT 8;";
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Ecity = '". $city ."' AND Edisplay='1'  ORDER BY EstartDate;";
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $today . "' AND Ecity = '" . $city . "' AND Edisplay='1' ORDER BY EstartDate;";
 
 	$result = mysqli_query($con, $sql);
 	
@@ -31,11 +31,12 @@
 	}
 ?>
 
-<head> 
+<head>
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/map.css" />
-</head> 
+</head>
+
 <body  lang="en">
 	<div id="map" class="map"></div>
 	<script type="text/javascript" language="php">
