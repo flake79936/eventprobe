@@ -7,7 +7,7 @@
 	
 	$pageId = (int)(!isset($_GET["pageId"]) ? 1 : $_GET["pageId"]);
 	if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
-	echo "page var: " . $pageId . "<br>";
+	//echo "page var: " . $pageId . "<br>";
 	
 	$page_per_no = 2;
 	
@@ -15,11 +15,11 @@
 	
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC LIMIT $pageLimit, $page_per_no;";
 	$result = mysqli_query($con, $sql);
-	echo "<br>Query: " . $sql . "<br>";
-	echo "Query: " . $result . "<br>";
+	//echo "<br>Query: " . $sql . "<br>";
+	//echo "Query: " . $result . "<br>";
 	
 	$count = mysqli_num_rows($result);
-	echo "Count: " . $count . "<br>";
+	//echo "Count: " . $count . "<br>";
 	
 	while($row = mysqli_fetch_array($result)){
 		//day name of the date

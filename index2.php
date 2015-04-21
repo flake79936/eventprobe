@@ -1,6 +1,13 @@
 <?PHP
 	require_once("./include/membersite_config.php"); 
 	$minDate = date("Y-m-d");
+	
+	$today = Date("m/d/Y"); //e.g., 02/03/2015
+	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
+	//echo "toDate: " . $toDate . "<br>";
+	
+	$pageId = (isset($_GET["pageId"]) ? $_GET["pageId"] : 0);
+	//echo "Page: " . $pageId . "<br>";
 ?>
 
 <!doctype html>
@@ -14,7 +21,6 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
-		
         
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -89,7 +95,7 @@
 							document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
 						}
 					}
-					xmlhttp.open("GET", "getEvent.php?q=" + str, true);
+					xmlhttp.open("GET", "./getEvent.php?q=" + str, true);
 					xmlhttp.send();
 				}
 			}
@@ -107,7 +113,7 @@
 						$(".chart .box .row .info").css({ "background": "#f05a28" });
 					}
 				}
-				xmlhttp.open("GET", "insert.php?eid=" + str, true);
+				xmlhttp.open("GET", "./insert.php?eid=" + str, true);
 				xmlhttp.send();
 			}
 		</script>
@@ -146,6 +152,49 @@
 				window.location = "./eventDisplayPage.php?eid="+str;
 			}
 		</script>
+		
+		<script>
+			(function($){
+				$(document).ready(function(){
+					$.ajaxSetup({
+						cache: false,
+						beforeSend: function(){
+							$('.pageData').hide();
+							$('.flash').show();
+							
+							$('#events').hide();
+							$('#loading').show();
+						},
+						complete: function(){
+							$('.flash').hide();
+							$('.pageData').show();
+							
+							$('#loading').hide();
+							$('#events').show();
+						},
+						success: function(){
+							$('.flash').hide();
+							$('.pageData').show();
+							
+							$('#loading').hide();
+							$('#events').show();
+						}
+					});
+					var $container = $("#events");
+					$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+					
+					var $container1 = $(".pageData");
+					$container1.load("./loadEvents.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+					
+					var refreshId = setInterval(function(){
+						$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+						
+						$container1.load("./loadEvents.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+					}, 60000); //30k = 30 seconds
+				});
+			})(jQuery);
+		</script>
+		
 	</head>
 	
 	<body lang="en">

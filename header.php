@@ -22,7 +22,8 @@
 		}
 		return $url;
 	}
-	$test=grabCurrentURL();
+	
+	$test = grabCurrentURL();
  
 	$mystring = (string)$test;
 	
@@ -32,8 +33,6 @@
 	$findme2 = 'eventCreation.php';
 	$pos2 = strpos($test, $findme2);
 	
-	
-		
 	// if(!$pos !== true){
 	// echo "test";
 	// }

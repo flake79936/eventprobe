@@ -18,25 +18,25 @@
 	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
 	
 	$newformat = date('Y-m-d');
-	echo "<br>DATE: ". $newformat . "<br>";
+	//echo "<br>DATE: ". $newformat . "<br>";
 	
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
 	$pageId = (isset($_GET["pageId"]) ? $_GET["pageId"] : 0);
-	echo "Page: " . $pageId . "<br>";
+	//echo "Page: " . $pageId . "<br>";
 	
 	$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC;";
 	$result = mysqli_query($con, $sql);
-	echo "<br>Query: " . $sql . "<br>";
+	//echo "<br>Query: " . $sql . "<br>";
 	
 	$count = mysqli_num_rows($result);
-	echo "count: " . $count;
+	//echo "count: " . $count;
 	
 	if($count > 0){
 		$paginationCount = $fgmembersite->getPagination($count, 2);
 	}
-	echo "<br/>Pagination Count: " . $paginationCount . "<br/>";
+	//echo "<br/>Pagination Count: " . $paginationCount . "<br/>";
 	
 	
 	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate;";
@@ -67,7 +67,7 @@
 	</script>
 	
 	<script>
-		(function($){
+		/*(function($){
 			$(document).ready(function(){
 				$.ajaxSetup({
 					cache: false,
@@ -91,7 +91,7 @@
 					$container.load("./loadEvents.php?pageId=" + <?= $pageId ?> + "&date=" + <?= $toDate ?>);
 				}, 60000); //30k = 30 seconds
 			});
-		})(jQuery);
+		})(jQuery);*/
 		
 		function changePagination(pageId, date){
 			var xmlhttp = new XMLHttpRequest();

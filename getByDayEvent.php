@@ -25,7 +25,9 @@
 		$city = $fgmembersite->getCity();
 		//$city = "El Paso";
 		$usrname = $fgmembersite->UsrName();
+		
 		$newformat = date('Y-m-d', $_GET['date']);
+		//echo "newformat: " . $newformat . "<br>";
 		
 		$pageId = (int)(!isset($_GET["pageId"]) ? 1 : $_GET["pageId"]);
 		if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
@@ -35,7 +37,7 @@
 
 		$startpoint = ($per_paging * $pageId) - $per_paging;
 		
-		$statement = "Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid');";
+		$statement = "Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') "; //please do not add a semicolon at the end of this line, inside of the double quotes.
 		
 		$qry = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_paging};";
 		$result = mysqli_query($con, $qry);
@@ -46,9 +48,7 @@
 	
 	<div class="box" >
 		<?PHP
-			while($row = mysqli_fetch_array($result)) {		
-				$formattedDate= str_replace("-","/",$row['EstartDate']);
-				$formattedDate= substr($formattedDate,5,10);
+			while($row = mysqli_fetch_array($result)){
 				$type = $row['Etype'];
 				if($row['Eflyer'] === ""){
 					switch($type){

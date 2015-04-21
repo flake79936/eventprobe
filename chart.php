@@ -3,32 +3,37 @@
 <?PHP
 	require_once("./include/membersite_config.php");
 	include 'dbconnect.php';
+	
 	$city = $fgmembersite->getCity();
 	//$city= "el paso";
 	
 	$usrname = $fgmembersite->UsrName();
+	$bool = $fgmembersite->CheckSession();
 	
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
 	$today = Date("m/d/Y"); //e.g., 02/03/2015
-	$newformat = date('Y-m-d');
-	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
+	//echo "Today: " . $today . "<br>";
 	
-	$bool = $fgmembersite->CheckSession();
+	//$newformat = date('Y-m-d');
+	//echo "NewFormat: " . $newformat . "<br>";
+	
+	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
+	//echo "toDate: " . $toDate . "<br>";
 	
 	$pageId = (isset($_GET["pageId"]) ? $_GET["pageId"] : 0);
 	//echo "Page: " . $pageId . "<br>";
 	
-	$sql = "SELECT * FROM Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ORDER BY EstartDate ASC;";
-	$result = mysqli_query($con, $sql);
-	$count = mysqli_num_rows($result);
+	//$sql = "SELECT * FROM Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ORDER BY EstartDate ASC;";
+	//$result = mysqli_query($con, $sql);
+	//$count = mysqli_num_rows($result);
 	//echo "<br>Query: " . $sql . "<br>";
 	//echo "count: " . $count;
 
-	if($count > 0){
-		$paginationCount = $fgmembersite->getPagination($count, 2);
-	}
+	//if($count > 0){
+	//	$paginationCount = $fgmembersite->getPagination($count, 2);
+	//}
 	
 	//echo "<br/>Pagination Count: " . $paginationCount . "<br/>";
 ?>
@@ -37,7 +42,7 @@
 <link rel="stylesheet" type="text/css" href="css/pag.css" />
 
 <script>
-	(function($){
+	/*(function($){
 		$(document).ready(function(){
 			$.ajaxSetup({
 				cache: false,
@@ -58,9 +63,9 @@
 			$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);			
 			var refreshId = setInterval(function(){
 				$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
-			}, 100000000); //30k = 30 seconds
+			}, 60000); //30k = 30 seconds
 		});
-	})(jQuery);
+	})(jQuery);*/
 	
 	function getByDayEvent(str, pageId) {
 		var xmlhttp = new XMLHttpRequest();
@@ -82,25 +87,6 @@
 		<div class="clear"></div>
 	</div>
 	
-	<?PHP if($count > 0){ ?>
-		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
-			<li class="first link" id="first">
-				<a onClick="getByDayEvent(<?= $toDate ?>, 0)">First</a>
-			</li>
-			
-			<!--Displays the page numbers-->
-			<?PHP for($i = 0; $i < $paginationCount; $i++){ ?>
-				<li id="<?= $i."_no" ?>" class="link">
-					<a onClick="getByDayEvent(<?= $toDate ?>, <?PHP echo ($i+1); ?>)"><?PHP echo ($i+1); ?></a>
-				</li>
-			<?PHP } ?>
-		
-			<li class="last link" id="last">
-				<a onClick="getByDayEvent(<?= $toDate ?>, <?PHP echo ($paginationCount-1); ?>)">Last</a>
-			</li>
-		</ul>
-	<?PHP } ?>
-	
 	<div class="row">
 		<?PHP
 			for($ai = 0; $ai <= 6; $ai++){
@@ -112,6 +98,17 @@
 				
 				$trimDate = substr($today, 0, 5); //e.g., From 02/03/2015 to 02/03
 				$toDate = strtotime($today);
+				
+				//for pagination, each day will have its own pagination.
+				$newformat = date('Y-m-d', $toDate);
+				
+				$sql = "SELECT * FROM Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ORDER BY EstartDate ASC;";
+				$result = mysqli_query($con, $sql);
+				$count = mysqli_num_rows($result);
+				
+				if($count > 0){
+					$paginationCount = $fgmembersite->getPagination($count, 2);
+				}
 		?>
 			<div class="cell">
 				<?PHP
@@ -129,15 +126,33 @@
 						} 
 					} ?>
 				<form>
-					<a onClick="getByDayEvent(<?= $toDate ?>);">
+					<a onClick="getByDayEvent(<?= $toDate ?>, <?= $pageId ?>);">
 						<h4><?= $trimDate ?><br/><?= $day ?></h4>
 					</a>
+					<?PHP if($count > 0){ ?>
+						<ul class="<?= $ai."_no" ?> tsc_pagination tsc_paginationC tsc_paginationC01">
+							<li class="first link" id="first">
+								<a onClick="getByDayEvent(<?= $toDate ?>, 0)">First</a>
+							</li>
+							
+							<!--Displays the page numbers-->
+							<?PHP for($i = 0; $i < $paginationCount; $i++){ ?>
+								<li id="<?= $i."_no" ?>" class="link">
+									<a onClick="getByDayEvent(<?= $toDate ?>, <?PHP echo ($i+1); ?>)"><?PHP echo ($i+1); ?></a>
+								</li>
+							<?PHP } ?>
+						
+							<li class="last link" id="last">
+								<a onClick="getByDayEvent(<?= $toDate ?>, <?PHP echo $paginationCount; ?>)">Last</a>
+							</li>
+						</ul>
+					<?PHP } ?>
 				</form>
 			</div>
 		<?PHP } ?>
 	</div>
 	
 	<img src="./images/loading.gif" id="loading" alt="loading" style="display:none;" />
-	<div class="chart" id="events"></div>
+	<div class="chart" id="events">Sorry no events</div>
 </div>
 <div class="clear"></div>
