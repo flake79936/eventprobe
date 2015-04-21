@@ -1,21 +1,31 @@
 <!--Module-->
 <?PHP
 	require_once("./include/membersite_config.php");
-	$city = $fgmembersite->getCity();
-	//$city = "El Paso";
-
-	if(isset($_POST["submitted"])){
-		$result = $fgmembersite->searchEvent();
-	}
-	
 	include 'dbconnect.php';
 	
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
-	$today = Date("Y-m-d");
-	//$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND Elat = '" . . "' Ecity = '". $city ."' AND Edisplay='1'  ORDER BY EstartDate LIMIT 8;";
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $today . "' AND Ecity = '" . $city . "' AND Edisplay='1' ORDER BY EstartDate;";
+	$city = $fgmembersite->getCity();
+	//$city = "El Paso";
+	
+	if(isset($_POST["submitted"])){
+		$result = $fgmembersite->searchEvent();
+	}
+	
+	$newformat = date('Y-m-d');
+	
+	$pageId = (int)(!isset($_GET["eventPageId"]) ? 1 : $_GET["eventPageId"]);
+	if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
+	
+	$per_paging = 8; // Set how many records do you want to display per pageId.
+	
+	$startpoint = ($per_paging * $pageId) - $per_paging;
+	
+	//please do not add a semicolon at the end of this line, inside of the double quotes.
+	$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' ORDER BY EstartDate ";
+	
+	$sql = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_paging};";
 
 	$result = mysqli_query($con, $sql);
 	
@@ -32,12 +42,12 @@
 ?>
 
 <head>
-	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/map.css" />
 </head>
 
-<body  lang="en">
+<body lang="en">
 	<div id="map" class="map"></div>
 	<script type="text/javascript" language="php">
 		// Define your locations: HTML content for the info window, latitude, longitude

@@ -1,0 +1,87 @@
+This portion belongs in the 'myEvents.php' file.
+<div class="box">
+	<!-- <div class="profile"><img src="images/profile_sample.jpg" alt="Profile" /></div> -->
+	<?PHP
+		/*Gets the user's uploaded image or by default puts one.*/
+// 		while($row = mysqli_fetch_array($result3)){
+// 			if($row['Upic'] === ""){
+// 				echo "<div class='profile'><img src='./images/defaultUpic.png' alt='default image'/></div> ";
+// 			} else {
+// 				echo "<div class='profile'><img src='".$row['Upic']."' alt='Profile' height='146px' width='136px'/></div>";
+// 			}
+// 		}
+	?>
+	
+	<?PHP
+		//echo "Not Working!";
+		while($row = mysqli_fetch_array($result2)){
+			echo "Date: " . $row['EstartDate'] . "<br>";
+			$date = date_create($row['EstartDate']);
+			$EstartDate = date_format($date, 'm/d/Y');
+			
+			echo "Start Date: " . $EstartDate . "<br>";
+			
+			//day name of the date	
+			$dt  = strtotime($EstartDate);
+			$day = date("D", $dt);
+
+			if ($today === $EstartDate){
+				$day = "Today"; 
+	?>
+				<h3><strong><?= $day ?></strong></h3>
+				<h3><?= $row['Evename'] ?></h3>
+				<h3><strong><?= $row['EtimeStart'] ?></strong></h3>
+	  <?PHP } ?>
+	<?PHP } ?>
+	<div class="clear"></div>
+</div>
+
+This portion below is part of the 'myEvents.php' file.
+To be exact, it is the portion that is being displayed with AJAX an pagination now.
+<!--<div class="box event">
+	<?PHP
+		//echo "Works!";
+	//	while($row = mysqli_fetch_array($result)){
+			//day name of the date
+	//		$date = date_create($row['EstartDate']);
+	//		$EstartDate = date_format($date, 'm/d/Y');
+	//		
+	//		$today = date("m/d/Y");
+	//		$dt    = strtotime($EstartDate);
+	//		$day   = date("D", $dt);
+	//		
+	//		if ($today === $EstartDate){
+	//			$day = "Today";
+	//		}
+	?>
+		<ul>
+			<li><?= //$day ?>&nbsp;<?= //substr($EstartDate, 0, 5);  ?></li>
+			<li><?= //substr($row['Evename'], 0, 12) . " ...";     ?></li> 
+			<li><?= //$row['EtimeStart'] ?> - <?= //$row['EtimeEnd'] ?></li>
+			
+			<li>
+			
+			<?PHP				
+				//if($row['Eid'] !== ""){
+				//	$inDBUser = $fgmembersite->getUserFromDB($row['Eid']);
+				//}
+			?>
+			
+			<form class="myEventForm" id="eventForm" action="<?php //echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
+				<input type="hidden" name="submitted" id="submitted" value="1" />
+				<input type="hidden" name="Eid" id="Eid" value="<?PHP //echo $row['Eid']; ?>" />
+				
+				<input type="hidden" name="dbUserName" id="dbUserName" value="<?PHP //echo $inDBUser; ?>" />
+				<input type="hidden" name="usrName" id="usrName" value="<?PHP //echo $usrname; ?>" />
+				
+				<?PHP //if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+					<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/>
+				<?PHP //} ?>
+			</form>
+			 </li>
+			 
+			<li><?PHP //echo "<a class='myEventForm' onClick='editEvent(".$row['Eid'].")'> " ?> <img src="images/btn_editevent.png"></a></li>
+		</ul>
+	<?PHP //} ?>
+</div>-->
+

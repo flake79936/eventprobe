@@ -38,18 +38,65 @@
 ?>
 
 <script>
-	function getMidEvents(pageId) {
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				document.getElementById("middleEvents").innerHTML = xmlhttp.responseText;
+	(function($){
+		$(document).ready(function(){
+			$.ajaxSetup({
+				cache: false,
+				beforeSend: function(){
+					$('#scheLoading').show();
+					$('#eventMap').hide();
+					$('#middleEvents').hide();
+				},
+				complete: function(){
+					$('#scheLoading').hide();
+					$('#eventMap').show();
+					$('#middleEvents').show();
+				},
+				success: function(){
+					$('#scheLoading').hide();
+					$('#eventMap').show();
+					$('#middleEvents').show();
+				}
+			});
+			var $mapContainer = $("#eventMap");
+			$mapContainer.load("map.php?eventPageId=0");
+			
+			var $eventsContainer = $("#middleEvents");
+			$eventsContainer.load("events.php?eventPageId=0");
+			
+			var refreshId1 = setInterval(function(){
+				$mapContainer.load("map.php?eventPageId=0");
+				
+				$eventsContainer.load("events.php?eventPageId=0");
+			}, 60000); //30k = 30 seconds
+		});
+	})(jQuery);
+	
+	function getMidEvents(pageId){
+		var xmlhttp1 = new XMLHttpRequest();
+		var xmlhttp2 = new XMLHttpRequest();
+		
+		xmlhttp1.onreadystatechange = function() {
+			if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
+				document.getElementById("middleEvents").innerHTML = xmlhttp1.responseText;
 			}
 		}
-		xmlhttp.open("GET", "./events.php?eventPageId=" + pageId, true);
-		xmlhttp.send();
+		
+		xmlhttp2.onreadystatechange = function() {
+			if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
+				document.getElementById("eventMap").innerHTML = xmlhttp2.responseText;
+			}
+		}
+		
+		xmlhttp1.open("GET", "./events.php?eventPageId=" + pageId, true);
+		xmlhttp2.open("GET", "./map.php?eventPageId=" + pageId, true);
+		
+		xmlhttp1.send();
+		xmlhttp2.send();
 	}
 </script>
 
+<img src="./images/loading.gif" id="scheLoading" alt="loading" style="display:none;" />
 
 <!--Map-->
 <div class="map">
@@ -59,7 +106,7 @@
 <!--Today Section-->
 <div class="today">
 	<?PHP //include './events.php'; ?>
-	<div class="middleEvents" id="middleEvents"></div>
+	<div id="middleEvents"></div>
 	
 	<!--Displays the previous, #'s, and next buttons-->
 	<?PHP if($count > 0){ ?>

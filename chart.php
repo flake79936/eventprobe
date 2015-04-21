@@ -13,36 +13,14 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
-	$today = Date("m/d/Y"); //e.g., 02/03/2015
-	//echo "Today: " . $today . "<br>";
-	
-	//$newformat = date('Y-m-d');
-	//echo "NewFormat: " . $newformat . "<br>";
-	
-	$toDate = (isset($_GET["freeDate"]) ? $_GET["freeDate"] : strtotime($today));
-	//echo "toDate: " . $toDate . "<br>";
-	
 	$pageId = (isset($_GET["freePageId"]) ? $_GET["freePageId"] : 0);
-	//echo "Page: " . $pageId . "<br>";
-	
-	//$sql = "SELECT * FROM Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ORDER BY EstartDate ASC;";
-	//$result = mysqli_query($con, $sql);
-	//$count = mysqli_num_rows($result);
-	//echo "<br>Query: " . $sql . "<br>";
-	//echo "count: " . $count;
-
-	//if($count > 0){
-	//	$paginationCount = $fgmembersite->getPagination($count, 2);
-	//}
-	
-	//echo "<br/>Pagination Count: " . $paginationCount . "<br/>";
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/chart.css" />
 <link rel="stylesheet" type="text/css" href="css/pag.css" />
 
 <script>
-	/*(function($){
+	(function($){
 		$(document).ready(function(){
 			$.ajaxSetup({
 				cache: false,
@@ -59,22 +37,23 @@
 					$('#events').show();
 				}
 			});
-			var $container = $("#events");
-			$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);			
-			var refreshId = setInterval(function(){
-				$container.load("./getByDayEvent.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+			var $freeEventsContainer = $("#events");
+			$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?> + "&freePageId=1");
+			
+			var refreshId2 = setInterval(function(){
+				$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?> + "&freePageId=1");
 			}, 60000); //30k = 30 seconds
 		});
-	})(jQuery);*/
+	})(jQuery);
 	
-	function getByDayEvent(str, pageId) {
+	function getByDayEvent(freeDate, freePageId) {
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				document.getElementById("events").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("GET", "./getByDayEvent.php?freeDate=" + str + "&freePageId=" + pageId, true);
+		xmlhttp.open("GET", "getByDayEvent.php?freeDate=" + freeDate + "&freePageId=" + freePageId, true);
 		xmlhttp.send();
 	}
 </script>
@@ -94,7 +73,7 @@
 				
 				$day = date("D", $date); //Tue, Wed, etc.
 				
-				$today = Date("m/d/Y", $date); //e.g., 02/03/2015, 
+				$today = date("m/d/Y", $date); //e.g., 02/03/2015, 
 				
 				$trimDate = substr($today, 0, 5); //e.g., From 02/03/2015 to 02/03
 				$toDate = strtotime($today);
@@ -107,7 +86,7 @@
 				$count = mysqli_num_rows($result);
 				
 				if($count > 0){
-					$paginationCount = $fgmembersite->getPagination($count, 2);
+					$paginationCount = $fgmembersite->getPagination($count, 4);
 				}
 		?>
 			<div class="cell">

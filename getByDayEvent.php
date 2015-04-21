@@ -35,7 +35,7 @@
 		if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
 		//echo "page var: " . $pageId . "<br>";
 
-		$per_paging = 2; // Set how many records do you want to display per pageId.
+		$per_paging = 4; // Set how many records do you want to display per pageId.
 
 		$startpoint = ($per_paging * $pageId) - $per_paging;
 		

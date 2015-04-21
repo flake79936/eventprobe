@@ -2,8 +2,7 @@
 	require_once("./include/membersite_config.php"); 
 	$minDate = date("Y-m-d");
 	
-	$today = date("m/d/Y"); //e.g., 02/03/2015
-	$toDate = (isset($_GET["date"]) ? $_GET["date"] : strtotime($today));
+	$toDate = strtotime(date("m/d/Y"));
 	//echo "toDate: " . $toDate . "<br>";
 	
 	$pageId = (isset($_GET["pageId"]) ? $_GET["pageId"] : 0);
@@ -69,7 +68,7 @@
 						alert("lat=" + position.coords.latitude + "&long=" + position.coords.longitude);
 					}
 				}
-				xmlhttp.open("GET", "./setGeolocation.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, true);
+				xmlhttp.open("GET", "setGeolocation.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, true);
 				xmlhttp.send();
 			}
 		</script>
@@ -159,48 +158,42 @@
 					$.ajaxSetup({
 						cache: false,
 						beforeSend: function(){
-							$('.pageData').hide();
-							$('.flash').show();
-							
-							$('.middleEvents').hide();
-							
-							$('#events').hide();
 							$('#loading').show();
+							
+							$('#eventMap').hide();
+							$('#pageData').hide();
+							$('#middleEvents').hide();
 						},
 						complete: function(){
-							$('.flash').hide();
-							$('.pageData').show();
-							
-							$('.middleEvents').show();
-							
 							$('#loading').hide();
-							$('#events').show();
+							
+							$('#eventMap').show();
+							$('#pageData').show();
+							$('#middleEvents').show();
 						},
 						success: function(){
-							$('.flash').hide();
-							$('.pageData').show();
-							
-							$('.middleEvents').show();
-							
 							$('#loading').hide();
-							$('#events').show();
+							
+							$('#eventMap').show();
+							$('#pageData').show();
+							$('#middleEvents').show();
 						}
 					});
-					var $myEventsContainer = $(".pageData");
-					$myEventsContainer.load("./loadEvents.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+					var $myEventsContainer = $("#pageData");
+					$myEventsContainer.load("loadEvents.php?myEventPageId=0");
 					
-					var $eventsContainer = $(".middleEvents");
-					$eventsContainer.load("./events.php?eventPageId=" + <?= $pageId ?>);
+					var $mapContainer = $("#eventMap");
+					$mapContainer.load("map.php?eventPageId=0");
 					
-					var $freeEventsContainer = $("#events");
-					$freeEventsContainer.load("./getByDayEvent.php?freeDate=" + <?= $toDate ?> + "&freePageId=" + <?= $pageId ?>);
+					var $eventsContainer = $("#middleEvents");
+					$eventsContainer.load("events.php?eventPageId=0");
 					
-					var refreshId = setInterval(function(){
-						$myEventsContainer.load("./loadEvents.php?date=" + <?= $toDate ?> + "&pageId=" + <?= $pageId ?>);
+					var refreshId1 = setInterval(function(){
+						$myEventsContainer.load("loadEvents.php?myEventPageId=0");
 						
-						$eventsContainer.load("./events.php?eventPageId=" + <?= $pageId ?>);
+						$mapContainer.load("map.php?eventPageId=0");
 						
-						$freeEventsContainer.load("./getByDayEvent.php?freeDate=" + <?= $toDate ?> + "&freePageId=" + <?= $pageId ?>);
+						$eventsContainer.load("events.php?eventPageId=0");
 					}, 60000); //30k = 30 seconds
 				});
 			})(jQuery);
