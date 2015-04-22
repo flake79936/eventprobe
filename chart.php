@@ -1,5 +1,4 @@
 <!--Module-->
-
 <?PHP
 	require_once("./include/membersite_config.php");
 	include 'dbconnect.php';
@@ -12,8 +11,6 @@
 	
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
-	
-	$pageId = (isset($_GET["freePageId"]) ? $_GET["freePageId"] : 0);
 ?>
 
 <link rel="stylesheet" type="text/css" href="css/chart.css" />
@@ -38,10 +35,10 @@
 				}
 			});
 			var $freeEventsContainer = $("#events");
-			$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?> + "&freePageId=1");
+			$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?>);
 			
 			var refreshId2 = setInterval(function(){
-				$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?> + "&freePageId=1");
+				$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?>);
 			}, 60000); //30k = 30 seconds
 		});
 	})(jQuery);
@@ -53,9 +50,47 @@
 				document.getElementById("events").innerHTML = xmlhttp.responseText;
 			}
 		}
-		xmlhttp.open("GET", "getByDayEvent.php?freeDate=" + freeDate + "&freePageId=" + freePageId, true);
+		xmlhttp.open("GET", "getByDayEvent.php?freeDate=" + freeDate, true);
 		xmlhttp.send();
 	}
+	
+	//displays the 
+	(function($){
+		$(document).ready(function(){
+			var $weekContainer = $("#weeklyDays");
+			$weekContainer.load("days.php");
+		});
+	})(jQuery);
+	
+	/*
+	 * Essentially 'shiftDays' should shift the days BACK or FORWARD in intervals of 7.
+	 * We will make an AJAX call to the 'days.php' file to move to the desired dates.
+	 * 
+	 * 
+	 * 
+	 */
+	function prevWeek(minusOne){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById("weeklyDays").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET", "days.php?mo=" + minusOne, true);
+		xmlhttp.send();
+	}
+	
+	function nextWeek(plusOne){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById("weeklyDays").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET", "days.php?po=" + plusOne, true);
+		xmlhttp.send();
+	}
+	
 </script>
 
 <div class="box">
@@ -67,68 +102,22 @@
 	</div>
 	
 	<div class="row">
-		<?PHP
-			for($ai = 0; $ai <= 6; $ai++){
-				$date = strtotime("+$ai day", strtotime(date("m/d/Y"))); //increments by 1
+		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
+			<li class="first link" id="first">
+				<a onClick="prevWeek(0);" >Prev</a>
+			</li>
+		</ul>
+		
+		<!--This will dipslay the days-->
+		<div id="weeklyDays"></div>
+		<?PHP //include './days.php'; ?>
+		
+		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
+			<li class="last link" id="last">
+				<a onClick="nextWeek(1);" >Next</a>
 				
-				$day = date("D", $date); //Tue, Wed, etc.
-				
-				$today = date("m/d/Y", $date); //e.g., 02/03/2015, 
-				
-				$trimDate = substr($today, 0, 5); //e.g., From 02/03/2015 to 02/03
-				$toDate = strtotime($today);
-				
-				//for pagination, each day will have its own pagination.
-				$newformat = date('Y-m-d', $toDate);
-				
-				$sql = "SELECT * FROM Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ORDER BY EstartDate ASC;";
-				$result = mysqli_query($con, $sql);
-				$count = mysqli_num_rows($result);
-				
-				if($count > 0){
-					$paginationCount = $fgmembersite->getPagination($count, 4);
-				}
-		?>
-			<div class="cell">
-				<?PHP
-					if($bool){
-						//Sub-query to show events that the user has related to the master table of the events.
-						$qry = "SELECT Eid, COUNT(Eid) FROM ".$usrname."MyEvents WHERE Eid IN (SELECT Eid FROM Events WHERE EstartDate = '" . $today . "' AND Edisplay='1')";
-						$result = mysqli_query($con, $qry);
-						if(mysqli_num_rows($result) > 0){
-							while($row = mysqli_fetch_assoc($result)){
-				?>
-								<div class="circle" ><!--Count of how many events the user has in their list.-->
-									<?= $row['COUNT(Eid)']; ?>
-								</div>
-					  <?PHP }
-						} 
-					} ?>
-				<form>
-					<a onClick="getByDayEvent(<?= $toDate ?>, <?= $pageId ?>);">
-						<h4><?= $trimDate ?><br/><?= $day ?></h4>
-					</a>
-					<?PHP if($count > 0){ ?>
-						<ul class="<?= $ai."_no" ?> tsc_pagination tsc_paginationC tsc_paginationC01">
-							<li class="first link" id="first">
-								<a onClick="getByDayEvent(<?= $toDate ?>, 0)">First</a>
-							</li>
-							
-							<!--Displays the page numbers-->
-							<?PHP for($i = 0; $i < $paginationCount; $i++){ ?>
-								<li id="<?= $i."_no" ?>" class="link">
-									<a onClick="getByDayEvent(<?= $toDate ?>, <?PHP echo ($i+1); ?>)"><?PHP echo ($i+1); ?></a>
-								</li>
-							<?PHP } ?>
-						
-							<li class="last link" id="last">
-								<a onClick="getByDayEvent(<?= $toDate ?>, <?PHP echo $paginationCount; ?>)">Last</a>
-							</li>
-						</ul>
-					<?PHP } ?>
-				</form>
-			</div>
-		<?PHP } ?>
+			</li>
+		</ul>
 	</div>
 	
 	<img src="./images/loading.gif" id="loading" alt="loading" style="display:none;" />

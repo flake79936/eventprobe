@@ -15,7 +15,7 @@
 	
 	$newformat = date('Y-m-d');
 	
-	$pageId = (int)(!isset($_GET["eventPageId"]) ? 1 : $_GET["eventPageId"]);
+	$pageId = (!isset($_GET["eventPageId"]) ? 1 : $_GET["eventPageId"]);
 	if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
 	
 	$per_paging = 8; // Set how many records do you want to display per pageId.

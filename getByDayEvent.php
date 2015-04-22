@@ -1,5 +1,4 @@
 <!--AJAX Module-->
-
 <head>
 	<!--SYTLE SHEETS-->
 	<link rel="stylesheet" type="text/css" href="css/chart.css" />
@@ -31,17 +30,10 @@
 		$newformat = date('Y-m-d', $_GET['freeDate']);
 		//echo "newformat: " . $newformat . "<br>";
 		
-		$pageId = (int)(!isset($_GET["freePageId"]) ? 1 : $_GET["freePageId"]);
-		if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
-		//echo "page var: " . $pageId . "<br>";
-
-		$per_paging = 4; // Set how many records do you want to display per pageId.
-
-		$startpoint = ($per_paging * $pageId) - $per_paging;
+		//please do not add a semicolon at the end of this line, inside of the double quotes.
+		$statement = "Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') "; 
 		
-		$statement = "Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') "; //please do not add a semicolon at the end of this line, inside of the double quotes.
-		
-		$qry = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_paging};";
+		$qry = "SELECT * FROM {$statement};";
 		$result = mysqli_query($con, $qry);
 		//echo "<br>Query: " . $qry . "<br>";
 	?>

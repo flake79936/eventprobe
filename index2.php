@@ -151,53 +151,6 @@
 				window.location = "./eventDisplayPage.php?eid="+str;
 			}
 		</script>
-		
-		<script>
-			(function($){
-				$(document).ready(function(){
-					$.ajaxSetup({
-						cache: false,
-						beforeSend: function(){
-							$('#loading').show();
-							
-							$('#eventMap').hide();
-							$('#pageData').hide();
-							$('#middleEvents').hide();
-						},
-						complete: function(){
-							$('#loading').hide();
-							
-							$('#eventMap').show();
-							$('#pageData').show();
-							$('#middleEvents').show();
-						},
-						success: function(){
-							$('#loading').hide();
-							
-							$('#eventMap').show();
-							$('#pageData').show();
-							$('#middleEvents').show();
-						}
-					});
-					var $myEventsContainer = $("#pageData");
-					$myEventsContainer.load("loadEvents.php?myEventPageId=0");
-					
-					var $mapContainer = $("#eventMap");
-					$mapContainer.load("map.php?eventPageId=0");
-					
-					var $eventsContainer = $("#middleEvents");
-					$eventsContainer.load("events.php?eventPageId=0");
-					
-					var refreshId1 = setInterval(function(){
-						$myEventsContainer.load("loadEvents.php?myEventPageId=0");
-						
-						$mapContainer.load("map.php?eventPageId=0");
-						
-						$eventsContainer.load("events.php?eventPageId=0");
-					}, 60000); //30k = 30 seconds
-				});
-			})(jQuery);
-		</script>
 	</head>
 	
 	<body lang="en">
