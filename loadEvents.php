@@ -9,7 +9,7 @@
 	
 	$newformat = date('Y-m-d');
 	
-	$pageId = (!isset($_GET["myEventPageId"]) ? 1 : $_GET["myEventPageId"]);
+	$pageId = (int)(!isset($_GET["myEventPageId"]) ? 1 : $_GET["myEventPageId"]);
 	if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
 	//echo "page var: " . $pageId . "<br>";
 	

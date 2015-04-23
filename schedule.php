@@ -38,6 +38,13 @@
 ?>
 
 <script>
+	/*
+	 * This was the best way to make this function without losing reference to what the count was for the start and end values.
+	 * runs on the client-side that allows the site to keep track of the values.
+	*/
+	var st = 0;
+	var en = 8;
+	
 	(function($){
 		$(document).ready(function(){
 			$.ajaxSetup({
@@ -62,38 +69,58 @@
 			$mapContainer.load("map.php?eventPageId=0");
 			
 			var $eventsContainer = $("#middleEvents");
-			$eventsContainer.load("events.php?eventPageId=0");
+			$eventsContainer.load("events.php?st=" + st);
 			
 			var refreshId1 = setInterval(function(){
 				$mapContainer.load("map.php?eventPageId=0");
 				
-				$eventsContainer.load("events.php?eventPageId=0");
-			}, 60000); //30k = 30 seconds
+				$eventsContainer.load("events.php?st=" + st);
+			}, 30000); //30k = 30 seconds
 		});
 	})(jQuery);
 	
-	function getMidEvents(pageId){
-		var xmlhttp1 = new XMLHttpRequest();
-		var xmlhttp2 = new XMLHttpRequest();
-		
-		xmlhttp1.onreadystatechange = function() {
-			if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
-				document.getElementById("middleEvents").innerHTML = xmlhttp1.responseText;
+	/*This function is intended to subtract one when the left arrow  next to the days is clicked on.
+	 * It's main functionality is to subtract one week to the days being displayed on top of the events in the section that read "Today and this Week Near You".
+	 * The algorithm is simple, just make the start subtract 6 and subtract 6 to the end (because there is 6 days in a week).
+	 * These values are then passed to the AJAX call to make the 'start' and 'end' run in a for loop.
+	 * 
+	 */
+	function prevEvents(){
+		if(st > 0){
+			st -= 8;
+			en -= 8;
+			
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("middleEvents").innerHTML = xmlhttp.responseText;
+				}
 			}
+			xmlhttp.open("GET", "events.php?st=" + st, true);
+			xmlhttp.send();
 		}
-		
-		xmlhttp2.onreadystatechange = function() {
-			if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
-				document.getElementById("eventMap").innerHTML = xmlhttp2.responseText;
-			}
-		}
-		
-		xmlhttp1.open("GET", "./events.php?eventPageId=" + pageId, true);
-		xmlhttp2.open("GET", "./map.php?eventPageId=" + pageId, true);
-		
-		xmlhttp1.send();
-		xmlhttp2.send();
 	}
+	
+	/*This function is intended to add one when the right arrow next to the days is clicked on.
+	 * It's main functionality is to add one week to the days being displayed on top of the events in the section that read "Today and this Week Near You".
+	 * The algorithm is simple, just make the start date the end and make the end add 6 (because there is 6 days in a week).
+	 * These values are then passed to the AJAX call to make the 'start' and 'end' run in a for loop.
+	 * 
+	 */
+	function nextEvents(){
+		st = en;
+		en += 8;
+		
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById("middleEvents").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET", "events.php?st=" + st, true);
+		xmlhttp.send();
+	}
+	
 </script>
 
 <img src="./images/loading.gif" id="scheLoading" alt="loading" style="display:none;" />
@@ -107,26 +134,6 @@
 <div class="today">
 	<?PHP //include './events.php'; ?>
 	<div id="middleEvents"></div>
-	
-	<!--Displays the previous, #'s, and next buttons-->
-	<?PHP if($count > 0){ ?>
-		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
-			<li class="first link" id="first">
-				<a onClick="getMidEvents(0)">First</a>
-			</li>
-			
-			<!--Displays the page numbers-->
-			<?PHP for($i = 0; $i < $paginationCount; $i++){ ?>
-				<li id="<?= $i."_no" ?>" class="link">
-					<a onClick="getMidEvents(<?PHP echo ($i+1); ?>)"><?PHP echo ($i+1); ?></a>
-				</li>
-			<?PHP } ?>
-		
-			<li class="last link" id="last">
-				<a onClick="getMidEvents(<?PHP echo $paginationCount; ?>)">Last</a>
-			</li>
-		</ul>
-	<?PHP } ?>
 </div>
 
 <div class="clear"></div>

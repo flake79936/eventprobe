@@ -1,18 +1,18 @@
 <!--Module-->
 
-<div class="box">
-	<a href="#">
-		<!--<img src="images/btn_arrow_left.png" alt="Arrow" /> -->
+<div class="box-left">
+	<a onClick='prevEvents();'>
+		<img src='./images/icon_ctrl_left.png' alt='Icon'/>
 	</a>
 </div>
 
 <div class="box-title">
-	<h2>This week near you</h2>
+	<h1>This week near you</h1>
 </div>
 
-<div class="box">
-	<a href="#">
-		<!--<img src="images/btn_arrow_right.png" alt="Arrow" /> -->
+<div class="box-right">
+	<a onClick='nextEvents();'>
+		<img src='./images/icon_ctrl_right.png' alt='Icon' />
 	</a>
 </div>
 
