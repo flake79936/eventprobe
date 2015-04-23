@@ -11,26 +11,22 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
-	$plusOne = (int)(isset($_GET["po"]) ? $_GET["po"] : ""); //gets and sets to add one
-	
-	$minusOne = (isset($_GET["mo"]) ? $_GET["mo"] : ""); //gets and set to subtract one
+	$start = (int)(isset($_GET["st"]) ? $_GET["st"] : 0); //gets and sets to add one
+	$end = (int)(isset($_GET["en"]) ? $_GET["en"] : 6); //gets and set to subtract one
 	
 	//echo "PlusOne: " . $plusOne . "<br>";
 	//echo "MinusOne: " . $MinusOne . "<br>";
 	
-	$init  = 0;
-	$end   = 6;
-	
-	if($plusOne === 1){
-		$init = $end;    // 6
-		$end  = $init*2; // 12 
-	}
+	//if($plusOne === 1){
+	//	$init = $end;    // 6
+	//	$end  = $init*2; // 12 
+	//}
 	
 	//echo "Init: " . $init . "<br>";
 	//echo "End: " . $end . "<br>";
 	
 	//for loop will only loop 6 arbitrary days.
-	for($ai = $init; $ai <= $end; $ai++){
+	for($ai = $start; $ai <= $end; $ai++){
 		//increments by 1
 		$date = strtotime("+$ai day", strtotime(date("m/d/Y")));
 		
@@ -63,10 +59,8 @@
 			  <?PHP }
 				} 
 			} ?>
-		<form>
-			<a onClick="getByDayEvent(<?= $toDate ?>);">
-				<h4><?= $trimDate ?><br/><?= $day ?></h4>
-			</a>
-		</form>
+		<a onClick="getByDayEvent(<?= $toDate ?>);">
+			<h4><?= $trimDate ?><br/><?= $day ?></h4>
+		</a>
 	</div>
 <?PHP } ?>

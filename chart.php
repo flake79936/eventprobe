@@ -17,6 +17,64 @@
 <link rel="stylesheet" type="text/css" href="css/pag.css" />
 
 <script>
+	//displays the 
+	(function($){
+		$(document).ready(function(){
+			var $weekContainer = $("#weeklyDays");
+			$weekContainer.load("days.php");
+		});
+	})(jQuery);
+	
+	/*
+	 * This was the best way to make this function without losing reference to what the count was for the start and end values.
+	 * runs on the client-side that allows the site to keep track of the values.
+	*/
+	var start = 0;
+	var end = 6;
+	
+	/*This function is intended to subtract one when the left arrow  next to the days is clicked on.
+	 * It's main functionality is to subtract one week to the days being displayed on top of the events in the section that read "Today and this Week Near You".
+	 * The algorithm is simple, just make the start subtract 6 and subtract 6 to the end (because there is 6 days in a week).
+	 * These values are then passed to the AJAX call to make the 'start' and 'end' run in a for loop.
+	 * 
+	 */
+	function prevWeek(){
+		if(start > 0){
+			start -= 6;
+			end -= 6;
+			
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("weeklyDays").innerHTML = xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("GET", "days.php?st=" + start + "&en=" + end, true);
+			xmlhttp.send();
+		}
+	}
+	
+	/*This function is intended to add one when the right arrow next to the days is clicked on.
+	 * It's main functionality is to add one week to the days being displayed on top of the events in the section that read "Today and this Week Near You".
+	 * The algorithm is simple, just make the start date the end and make the end add 6 (because there is 6 days in a week).
+	 * These values are then passed to the AJAX call to make the 'start' and 'end' run in a for loop.
+	 * 
+	 */
+	function nextWeek(){
+		start = end;
+		end += 6;
+		
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById("weeklyDays").innerHTML = xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET", "days.php?st=" + start + "&en=" + end, true);
+		xmlhttp.send();
+	}
+	
+	/* The jQuery AJAX functionality below is for the events that display in the 'chart' area. */
 	(function($){
 		$(document).ready(function(){
 			$.ajaxSetup({
@@ -39,7 +97,7 @@
 			
 			var refreshId2 = setInterval(function(){
 				$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?>);
-			}, 60000); //30k = 30 seconds
+			}, 120000); //30k = 30 seconds
 		});
 	})(jQuery);
 	
@@ -53,44 +111,6 @@
 		xmlhttp.open("GET", "getByDayEvent.php?freeDate=" + freeDate, true);
 		xmlhttp.send();
 	}
-	
-	//displays the 
-	(function($){
-		$(document).ready(function(){
-			var $weekContainer = $("#weeklyDays");
-			$weekContainer.load("days.php");
-		});
-	})(jQuery);
-	
-	/*
-	 * Essentially 'shiftDays' should shift the days BACK or FORWARD in intervals of 7.
-	 * We will make an AJAX call to the 'days.php' file to move to the desired dates.
-	 * 
-	 * 
-	 * 
-	 */
-	function prevWeek(minusOne){
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				document.getElementById("weeklyDays").innerHTML = xmlhttp.responseText;
-			}
-		}
-		xmlhttp.open("GET", "days.php?mo=" + minusOne, true);
-		xmlhttp.send();
-	}
-	
-	function nextWeek(plusOne){
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				document.getElementById("weeklyDays").innerHTML = xmlhttp.responseText;
-			}
-		}
-		xmlhttp.open("GET", "days.php?po=" + plusOne, true);
-		xmlhttp.send();
-	}
-	
 </script>
 
 <div class="box">
@@ -102,22 +122,15 @@
 	</div>
 	
 	<div class="row">
-		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
-			<li class="first link" id="first">
-				<a onClick="prevWeek(0);" >Prev</a>
-			</li>
-		</ul>
+		<!--<a onClick="prevWeek(0);" >Prev</a>-->
+		<a onClick='prevWeek();'><img src='./images/icon_ctrl_left.png' alt='Icon'/></a>
 		
 		<!--This will dipslay the days-->
 		<div id="weeklyDays"></div>
 		<?PHP //include './days.php'; ?>
 		
-		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
-			<li class="last link" id="last">
-				<a onClick="nextWeek(1);" >Next</a>
-				
-			</li>
-		</ul>
+		<!--<a onClick="nextWeek(1);" >Next</a>-->
+		<a onClick='nextWeek();'><img src='./images/icon_ctrl_right.png' alt='Icon' /></a>
 	</div>
 	
 	<img src="./images/loading.gif" id="loading" alt="loading" style="display:none;" />

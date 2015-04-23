@@ -6,7 +6,8 @@
 .chart .box .title a{ float: right; }
 
 .chart .box .row{ background: #f4f1ea; }
-.chart .box .row .cell{ width: 12%; float: left; text-align: center; padding: 12px 0 11px 0; }
+.chart .box .row a img{ float: left; padding: 0 0 0 0px; }
+.chart .box .row .cell{ width: 13%; float: left; text-align: center; padding: 12px 0 11px 0; }
 .chart .box .row .cell h4{ color: #315fa9; }
 .chart .box .row .cell img{ width: 100%; }
 .chart .box .row .circle{ background: #f05a28; color: #fff; width: 25px; padding: 5px 2px; margin: 0 auto; margin-bottom: 5px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -khtml-border-radius: 20px; border-radius: 20px; }
