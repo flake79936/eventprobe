@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 	<head>
-		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		
 		<title>Eventprobe - About</title>
@@ -12,7 +12,6 @@
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
 		
-        
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/header.css" />
@@ -20,7 +19,7 @@
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
         <!--FAVICON-->
-        <link rel="shortcut icon" href="favicon.ico"  />
+        <link rel="shortcut icon" href="favicon.ico" />
 	</head>
 	
 	<body lang="en">

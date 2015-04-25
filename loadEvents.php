@@ -2,31 +2,22 @@
 	require_once("./include/membersite_config.php");
 	include 'dbconnect.php';
 	
-	$usrname = $fgmembersite->UsrName();
-	
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
+	$usrname = $fgmembersite->UsrName();
+	
 	$newformat = date('Y-m-d');
 	
-	$pageId = (int)(!isset($_GET["myEventPageId"]) ? 1 : $_GET["myEventPageId"]);
-	if ($pageId <= 0) { $pageId = 1; } //DEFAULT pageId # 1
-	//echo "page var: " . $pageId . "<br>";
-	
-	$per_paging = 5; // Set how many records do you want to display per pageId.
-
-	$startpoint = ($per_paging * $pageId) - $per_paging;
+	//Gets the 's' variable which denotes to be the starting point value.
+	$s = (int)(isset($_GET["s"]) ? $_GET["s"] : 0);
+	$e = 10;
 	
 	//please do not add a semicolon at the end of this line, inside of the double quotes.
 	$statement = "Events WHERE EstartDate >= '" . $newformat . "'  AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC ";
 	
-	$sql = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_paging};";
+	$sql = "SELECT * FROM {$statement} LIMIT {$s}, {$e};";
 	$result = mysqli_query($con, $sql);
-	//echo "<br>Query: " . $sql . "<br>";
-	//echo "Query: " . $result . "<br>";
-	
-	$count = mysqli_num_rows($result);
-	//echo "Count: " . $count . "<br>";
 	
 	while($row = mysqli_fetch_array($result)){
 		//day name of the date
@@ -54,8 +45,8 @@
 		echo '			<input type="hidden" name="submitted" id="submitted" value="1" />';
 		echo '			<input type="hidden" name="Eid" id="Eid" value="'. echo $row['Eid']; . '/>';
 				
-		echo '			<input type="hidden" name="dbUserName" id="dbUserName" value="<?PHP echo $inDBUser; ?>" />';
-		echo '			<input type="hidden" name="usrName" id="usrName" value="<?PHP echo $usrname; ?>" />';
+		echo '			<input type="hidden" name="dbUserName" id="dbUserName" value="' . echo $inDBUser; . '" />';
+		echo '			<input type="hidden" name="usrName" id="usrName" value="' . echo $usrname; . '" />';
 				
 						if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){
 		echo '				<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/>';
@@ -63,9 +54,8 @@
 		echo '		</form>';
 		echo '	</li>';
 				
-		echo '	<li><?PHP echo "<a class="myEventForm" onClick="editEvent("'. $row['Eid']. '")"><img src="images/btn_editevent.png"></a></li>';
+		echo '	<li><a class="myEventForm" onClick="editEvent("'. $row['Eid']. '")"><img src="images/btn_editevent.png"></a></li>';
 		echo '</ul>';
 	}
 	mysqli_close($con);
 ?>
-<div class="clear"></div>

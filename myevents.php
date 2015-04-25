@@ -17,26 +17,26 @@
 	$newformat = date('Y-m-d');
 	//echo "<br>DATE: ". $newformat . "<br>";
 	
-	$pageId = (isset($_GET["myEventPageId"]) ? $_GET["myEventPageId"] : 0);
+	//$pageId = (isset($_GET["myEventPageId"]) ? $_GET["myEventPageId"] : 0);
 	//echo "Page: " . $pageId . "<br>";
 	
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC;";
-	$result = mysqli_query($con, $sql);
+	//$sql = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC;";
+	//$result = mysqli_query($con, $sql);
 	//echo "<br>Query: " . $sql . "<br>";
 	
-	$count = mysqli_num_rows($result);
+	//$count = mysqli_num_rows($result);
 	//echo "count: " . $count;
 	
-	if($count > 0){
-		$paginationCount = $fgmembersite->getPagination($count, 5);
-	}
+	//if($count > 0){
+	//	$paginationCount = $fgmembersite->getPagination($count, 5);
+	//}
 	//echo "<br/>Pagination Count: " . $paginationCount . "<br/>";
 	
-	$sql2 = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate;";
-	$result2 = mysqli_query($con, $sql2);
+	//$sql2 = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' LIMIT 1 ORDER BY EstartDate;";
+	//$result2 = mysqli_query($con, $sql2);
 	
-	$sql3 = "SELECT Upic FROM Registration WHERE UuserName = '" . $usrname . "';";
-	$result3 = mysqli_query($con, $sql3);
+	//$sql3 = "SELECT Upic FROM Registration WHERE UuserName = '" . $usrname . "';";
+	//$result3 = mysqli_query($con, $sql3);
 ?>
 
 <head>
@@ -50,16 +50,17 @@
 	<link rel="stylesheet" type="text/css" href="css/pag.css" />
 	
 	<!--Scripts-->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	
 	<!--When edit btn is clicked, this function is triggered-->
 	<script>
-		function editEvent(str){
-			window.location = "./editEvent.php?eid="+str;
-		}
-	</script>
-	
-	<script>
+		//I ran out of meaningful names for 'start' and 'end'
+		//s -> start
+		var s = 0;
+		
+		//e -> end
+		var e = 10;
+		
 		(function($){
 			$(document).ready(function(){
 				$.ajaxSetup({
@@ -78,17 +79,32 @@
 					}
 				});
 				var $myEventsContainer = $("#myEventsData");
-				$myEventsContainer.load("loadEvents.php?myEventPageId=0");
+				$myEventsContainer.load("loadEvents.php");
 				
-				var refreshId = setInterval(function(){
-					$myEventsContainer.load("loadEvents.php?myEventPageId=0");
-				}, 60000); //30k = 30 seconds
+				//var refreshId = setInterval(function(){
+				//	$myEventsContainer.load("loadEvents.php");
+				//}, 60000); //30k = 30 seconds
 			});
 		})(jQuery);
 		
-		function changePagination(myEventPageId){
-			//var counter = 5;
-			//myEventPageId += 5;
+		function prevTen(){
+			if(s > 0){
+				s -= 10;
+				e -= 10;
+				
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						document.getElementsById("myEventsData").innerHTML = xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET", "loadEvents.php?s=" + s, true);
+			}
+		}
+		
+		function nextTen(){
+			s = e;
+			e += 10;
 			
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
@@ -96,8 +112,14 @@
 					document.getElementsById("myEventsData").innerHTML = xmlhttp.responseText;
 				}
 			}
-			xmlhttp.open("GET", "loadEvents.php?myEventPageId=" + myEventPageId, true);
+			xmlhttp.open("GET", "loadEvents.php?s=" + s, true);
 			xmlhttp.send();
+		}
+	</script>
+	
+	<script>
+		function editEvent(str){
+			window.location = "./editEvent.php?eid="+str;
 		}
 	</script>
 	<!-- End of Scripts	-->
@@ -109,28 +131,22 @@
 
 <div class="box"></div>
 
-<div class="box event">
+<div class="box">
 	<img src="./images/loading.gif" id="myEventsDataLoading" alt="loading" style="display:none;" />
-	<div id="myEventsData" class="myEventsData"></div>
+	<div class="box-left">
+		<a onClick='prevTen();'>
+			<img src='./images/icon_ctrl_left.png' alt='Icon'/>
+		</a>
+	</div>
 
-	<?PHP if($count > 0){ ?>
-		<ul class="tsc_pagination tsc_paginationC tsc_paginationC01">
-			<li class="first link" id="first">
-				<a onClick="changePagination(0)">First</a>
-			</li>
-			
-			<!--Displays the page numbers-->
-			<?PHP for($i = 0; $i < $paginationCount; $i++){ ?>
-				<li id="<?= ($i+1)."_no" ?>" class="link">
-					<a onClick="changePagination(<?PHP echo ($i+1); ?>)"><?PHP echo ($i+1); ?></a>
-				</li>
-			<?PHP } ?>
-		
-			<li class="last link" id="last">
-				<a onClick="changePagination(<?PHP echo $paginationCount; ?>)">Last</a>
-			</li>
-		</ul>
-	<?PHP } ?>
+	<div id="myEventsData" class="myEventsData"></div>
+	<div class="clear"></div>
+	
+	<div class="box-right">
+		<a onClick='nextTen();'>
+			<img src='./images/icon_ctrl_right.png' alt='Icon' />
+		</a>
+	</div>
 </div>
 
 <!--<div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>-->

@@ -50,20 +50,16 @@
 		
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
-        
-        <!--GOOGLE MAPS
-        <script type="text/javascript" src="js/googleapis.js"></script>
-        <script type="text/javascript" src="js/map.js"></script>-->
 
 		<!--(Start) Scripts-->
 			<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 			
 			<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
 			
-			<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-			<script type="text/javascript" src="js/jquery-ui.js"></script>
-			<script type="text/javascript" src="js/scripts.js"></script>
-			<script type="text/javascript" src="js/formatPhone.js"></script>
+			<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+			<script type="text/javascript" src="./js/jquery-ui.js"></script>
+			<script type="text/javascript" src="./js/scripts.js"></script>
+			<script type="text/javascript" src="./js/formatPhone.js"></script>
 			
 			<!--(Start) Script to show whether the event is 'Other'-->
 				<script type="text/javascript">

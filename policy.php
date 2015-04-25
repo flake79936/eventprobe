@@ -11,7 +11,6 @@
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
 		
-        
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/header.css"/>
@@ -19,12 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
         <!--FAVICON-->
-        <link rel="shortcut icon" href="favicon.ico"  />
-        
-        <!--JQUERY-->
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
+        <link rel="shortcut icon" href="favicon.ico" />
 	</head>
 	
 	<body lang="en">

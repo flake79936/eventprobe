@@ -1905,5 +1905,4 @@ class PHPMailer {
   }
 
 }
-
 ?>

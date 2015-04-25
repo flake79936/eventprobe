@@ -1,49 +1,71 @@
 <!--Module-->
-
-<?PHP require_once("./include/membersite_config.php"); ?>
-
-<link type="text/css" href="./css/jquery.bbslider.css" rel="stylesheet" media="screen" />
-
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="./js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="./js/jquery.bbslider.min.js"></script>
-<script type="text/javascript" src="./js/jquery-2.1.3.min.js"></script>
-
-<?PHP 
-	$height = "300px";
-	$width = "873px";
-
-	include 'dbconnect.php';
+<?PHP
 	require_once("./include/membersite_config.php");
+	include 'dbconnect.php';
+	
+	$height = "300px";
+	$width = "100%";
+
 	$timezone = $fgmembersite->getLocalTimeZone();
-
 	date_default_timezone_set($timezone);
-	$today = Date("m/d/Y");
+	
+	$today = Date("Y-m-d");
 
- 	$city = $fgmembersite->getCity();
+	$city = $fgmembersite->getCity();
 	//$city = 'el paso';
 
-	$sql = "SELECT Eid, Eflyer, Evename FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='premium' AND Edisplay='1' ";
+	$sql = "SELECT Eid, Eflyer, Evename, Edisplay, Etype FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' AND Edisplay='1';";
+	$sql2 = "SELECT COUNT(*) AS' premiumEvents'num' FROM Events WHERE Ecity= '".$city."' ";
+	
 	$result = mysqli_query($con, $sql);
+	$result2= mysqli_query($con, $sql2);
+	
+	
+//	$query = "SELECT COUNT(*) as `num` FROM {$query}";
+//			$row = mysqli_fetch_array(mysqli_query($con, $query));
+//			$total = $row['num'];
+//			$adjacents = "2";
 ?>
 
-<div class="bbslider-wrapper" id="auto" height="300px" width="873px" >
+<!-- jQuery library (served from Google) -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- bxSlider Javascript file -->
+<script src="/js/jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<link href="/css/jquery.bxslider.css" rel="stylesheet" />
+
+<ul class="bxslider" style="width: 515%; position: relative; -webkit-transition-duration: 0.5s; transition-duration: 0.5s; -webkit-transform: translate3d(-1460px, 0px, 0px);" >
 	<?PHP
-		$i = 0;
-		while($row = mysqli_fetch_array($result)) {
-			echo "<div><a onClick='seeMoreInfo(".$row['Eid'].");'><img src='".$row['Eflyer']."' alt='".$row['Evename']."' height='".$height."' width='".$width."'/></a></div>";
-			$i++;
+		while($row = mysqli_fetch_array($result)){
+			$type = $row['Etype'];
+			if($row['Eflyer'] === ""){
+				switch($type){
+					case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
+					case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
+					case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
+					case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
+					case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
+					case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
+					default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
+				}
+			}
+			
+			echo "<li style='float: left; list-style: none; position: relative;' class='bx-clone'>
+				<a onClick='seeMoreInfo(".$row['Eid'].");'>
+					<img src='".$row['Eflyer']."' title='".$row['Evename']."' height='".$height."' width='".$width."'/>
+				</a>
+			</li>";
 		}
 	?>
-</div>
+</ul>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('#auto').bbslider({
-		controls:   true,
-			auto: true,
-			timer:4000,
-			loop:true
+	$(document).ready(function(){
+		$('.bxslider').bxSlider({
+			//mode: 'fade',
+			captions: true,
+			auto: true/*,
+			autoControls: true*/
 		});
 	});
 </script>

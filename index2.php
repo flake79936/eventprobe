@@ -34,14 +34,6 @@
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
-        
-		<!--<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>-->
-		
-		<!--<script language="Javascript"> var city = geoplugin_city(); </script>-->
-			
-		<?PHP $city = "<script>document.write(city)</script>";
-		// echo $city;
-		?>
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		
@@ -169,7 +161,7 @@
 
 		<!--Banner  Section-->
 		<div class="banner">
-			<?PHP include './banner2.php'; ?>
+			<?PHP include './banner.php'; ?>
 		</div>
 
 		<!--This-Week Section-->

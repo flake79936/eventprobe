@@ -1,13 +1,12 @@
 <?PHP
 	require_once("./include/membersite_config.php");
-
+	include 'dbconnect.php';
+	
 	if(isset($_POST['submitted'])){
 		if($fgmembersite->Login()){
 			$fgmembersite->RedirectToURL("./index2.php");
 		}
 	}
-
-	include 'dbconnect.php';
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -70,7 +69,6 @@
 				});
 			});
 		</script>
-		
 	</head>
 
 	<body lang="en">

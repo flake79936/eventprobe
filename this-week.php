@@ -1,5 +1,4 @@
 <!--Module-->
-
 <div class="box-left">
 	<a onClick='prevEvents();'>
 		<img src='./images/icon_ctrl_left.png' alt='Icon'/>

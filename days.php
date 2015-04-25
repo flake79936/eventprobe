@@ -11,19 +11,8 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
-	$start = (int)(isset($_GET["st"]) ? $_GET["st"] : 0); //gets and sets to add one
-	$end = (int)(isset($_GET["en"]) ? $_GET["en"] : 6); //gets and set to subtract one
-	
-	//echo "PlusOne: " . $plusOne . "<br>";
-	//echo "MinusOne: " . $MinusOne . "<br>";
-	
-	//if($plusOne === 1){
-	//	$init = $end;    // 6
-	//	$end  = $init*2; // 12 
-	//}
-	
-	//echo "Init: " . $init . "<br>";
-	//echo "End: " . $end . "<br>";
+	$start = (int)(isset($_GET["st"]) ? $_GET["st"] : 0);
+	$end   = (int)(isset($_GET["en"]) ? $_GET["en"] : 6);
 	
 	//for loop will only loop 6 arbitrary days.
 	for($ai = $start; $ai <= $end; $ai++){

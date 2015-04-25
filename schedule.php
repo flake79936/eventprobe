@@ -3,38 +3,22 @@
 	require_once("./include/membersite_config.php");
 	include 'dbconnect.php';
 	
+	$timezone = $fgmembersite->getLocalTimeZone();
+	date_default_timezone_set($timezone);
+	
 	$city = $fgmembersite->getCity();
 	//$city= "el paso";
 	
 	$usrname = $fgmembersite->UsrName();
 	$bool = $fgmembersite->CheckSession();
 	
-	$timezone = $fgmembersite->getLocalTimeZone();
-	date_default_timezone_set($timezone);
-	
-	$today = Date("m/d/Y"); //e.g., 02/03/2015
-	//echo "Today: " . $today . "<br>";
-	
-	$toDate = (isset($_GET["eventDate"]) ? $_GET["eventDate"] : strtotime($today));
-	//echo "toDate: " . $toDate . "<br>";
-	
 	$newformat = date('Y-m-d');
 	//echo "NewFormat: " . $newformat . "<br>";
 	
-	$pageId = (isset($_GET["eventPageId"]) ? $_GET["eventPageId"] : 0);
-	//echo "Page: " . $pageId . "<br>";
+	$statement = "Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ORDER BY EstartDate ASC ";
 	
-	$sql = "SELECT * FROM Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ORDER BY EstartDate ASC;";
+	$sql = "SELECT * FROM {$statement};";
 	$result = mysqli_query($con, $sql);
-	$count = mysqli_num_rows($result);
-	//echo "<br>Query: " . $sql . "<br>";
-	//echo "count: " . $count;
-
-	if($count > 0){
-		$paginationCount = $fgmembersite->getPagination($count, 8);
-	}
-	
-	//echo "<br/>Pagination Count: " . $paginationCount . "<br/>";
 ?>
 
 <script>
