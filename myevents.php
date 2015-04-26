@@ -47,7 +47,6 @@
 	
 	<!--STYLE-->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/pag.css" />
 	
 	<!--Scripts-->
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -59,7 +58,9 @@
 		var s = 0;
 		
 		//e -> end
-		var e = 10;
+		var e = 5;
+		
+		var interval = 5;
 		
 		(function($){
 			$(document).ready(function(){
@@ -89,8 +90,8 @@
 		
 		function prevTen(){
 			if(s > 0){
-				s -= 10;
-				e -= 10;
+				s -= interval;
+				e -= interval;
 				
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
@@ -104,7 +105,7 @@
 		
 		function nextTen(){
 			s = e;
-			e += 10;
+			e += interval;
 			
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
@@ -129,9 +130,9 @@
 	<h1>My Events</h1>
 </div>
 
-<div class="box"></div>
+<!--<div class="box"></div>-->
 
-<div class="box">
+<div class="box-events">
 	<img src="./images/loading.gif" id="myEventsDataLoading" alt="loading" style="display:none;" />
 	<div class="box-left">
 		<a onClick='prevTen();'>

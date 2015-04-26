@@ -6,10 +6,17 @@
 .my-events .box h3{ margin: 10px 0; }
 .my-events .box .profile{ float: left; margin-right: 0px; }
 
-.my-events .myEventsData .box ul{ padding: 10px 0; }
-.my-events .myEventsData .box ul li{ display: inline-block; list-style: none; margin-right: 30px; font-weight: bold; }
+.my-events .box-events{ float: left; width: 50%; padding: 30px 0; color: #2e3135; }
+.my-events .box-events ul{ padding: 10px 0; }
+.my-events .box-events ul li{ display: inline-block; list-style: none; margin-right: 30px; font-weight: bold; }
 
-.my-events .myEventsData .box ul li .myEventForm{ display: inline-block; list-style: none; margin-right: 0px; font-weight: bold; }
+.my-events .box-events ul li .nameEvent,
+.my-events .box-events ul li .timeEvent{ float: left; }
+
+.my-events .box-events ul li .nameEvent{ width: 84px; color: #323438; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+.my-events .box-events ul li .timeEvent{ width: 150px; }
+
+.my-events .box-events ul li .myEventForm{ display: inline-block; list-style: none; margin-right: 0px; font-weight: bold; }
 
 .my-events .event{ width: 40% !important; padding: 40px 0 0 0 !important; }
 .my-events .arrow{ float: right !important; width: 5% !important; padding: 65px 0 0 0 !important; }
