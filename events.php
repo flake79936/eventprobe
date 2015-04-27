@@ -24,7 +24,7 @@
 		//please do not add a semicolon at the end of this line, inside of the double quotes.
 		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ";
 		
-		$sql = "SELECT * FROM {$statement} LIMIT {$start}, {$end};";
+		$sql = "SELECT * FROM {$statement} ORDER BY EstartDate LIMIT {$start}, {$end};";
 		$result = mysqli_query($con, $sql);
 		
 		$i = 0;
