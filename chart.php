@@ -3,7 +3,8 @@
 	require_once("./include/membersite_config.php");
 	include 'dbconnect.php';
 	
-	$city = $fgmembersite->getCity();
+// 	$city = $fgmembersite->getCity();
+	$city= $_SESSION["city"];
 	//$city= "el paso";
 	
 	$usrname = $fgmembersite->UsrName();

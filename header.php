@@ -42,7 +42,7 @@
 ?>
 
 <div class="logo">
-	<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a>
+	<a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a>
 </div>
  	<?PHP if(!$pos2 !== false){ ?>
 

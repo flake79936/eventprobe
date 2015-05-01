@@ -11,7 +11,8 @@
 	
 	$today = Date("Y-m-d");
 
-	$city = $fgmembersite->getCity();
+// 	$city = $fgmembersite->getCity();
+$city= $_SESSION["city"];
 	//$city = 'el paso';
 
 	$sql = "SELECT Eid, Eflyer, Evename, Edisplay, Etype FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' AND Edisplay='1';";

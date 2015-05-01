@@ -51,7 +51,7 @@ function successFunction(position) {
 <head> 
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-<title>Reverse Geocoding</title> 
+<title>EventProbe</title> 
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
 <script type="text/javascript"> 
@@ -100,7 +100,7 @@ function errorFunction(){
             }
         }
         //city data
-        window.location.href = "./main.php?city=" + city.long_name;
+        window.location.href = "./index2.php?city=" + city.long_name;
 //         alert(city.long_name)
 
 
