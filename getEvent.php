@@ -21,11 +21,14 @@
 		$today = Date("m/d/Y");
 
 		$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
+		$envar = isset($_GET['eq']) && $_GET['eq'] != "" ? "'.*" . $_GET['eq'] .".*'" : null; //the second parameter that will denote the end date.
+		
 		$qry = "SELECT * FROM Events ";
 		$qry .= $var != null ? 
 				" WHERE (EstartDate REGEXP $var OR Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) AND EstartDate >='".$today."' AND Edisplay ='1' " 
 				: "";
-				
+		$qry .= $envar != null ? " between {$var} and {$envar} " : "";
+		
 		$result = mysqli_query($con, $qry);
 	?>
 	<div class="box">

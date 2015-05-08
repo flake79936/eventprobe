@@ -55,10 +55,16 @@
 		<div class="datePicker">
 			<input type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
 		</div>
+		<div class="endPicker">
+			<input type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Second Date To Filter By">
+		</div>
 		<div class="search-icons">
-			<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/w40/icon_marathonHD.png"/></a> | 
-			<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/w40/icon_concertHD.png"/></a> | 
-			<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/w40/icon_festivalHD.png"/></a> | 
+			<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/w40/icon_marathonHD.png"/></a>
+			<img alt="fair" src="./images/spacer.png"/>
+			<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/w40/icon_concertHD.png"/></a>
+			<img alt="fair" src="./images/spacer.png"/>
+			<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/w40/icon_festivalHD.png"/></a>
+			<img alt="fair" src="./images/spacer.png"/>
 			<a id="art" onClick="showHint('art');"><img alt="art" src="./images/w40/icon_artEventHD.png"/></a>
 			<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
 		</div>

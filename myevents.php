@@ -96,7 +96,8 @@
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
 					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-						document.getElementsById("myEventsData").innerHTML = xmlhttp.responseText;
+						//document.getElementById("myEventsData").innerHTML = xmlhttp.responseText;
+						document.getElementById("myEventsData").innerHTML = "reverse";
 					}
 				}
 				xmlhttp.open("GET", "loadEvents.php?s=" + s, true);
@@ -110,7 +111,7 @@
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					document.getElementsById("myEventsData").innerHTML = xmlhttp.responseText;
+					document.getElementById("myEventsData").innerHTML = xmlhttp.responseText;
 				}
 			}
 			xmlhttp.open("GET", "loadEvents.php?s=" + s, true);
@@ -139,15 +140,15 @@
 			<img src='./images/icon_ctrl_left.png' alt='Icon'/>
 		</a>
 	</div>
-
-	<div id="myEventsData" class="myEventsData"></div>
-	<div class="clear"></div>
 	
 	<div class="box-right">
 		<a onClick='nextTen();'>
 			<img src='./images/icon_ctrl_right.png' alt='Icon' />
 		</a>
 	</div>
+
+	<div id="myEventsData" class="myEventsData"></div>
+	<div class="clear"></div>
 </div>
 
 <!--<div class="box arrow"><a href="#"><img src="images/btn_arrow_right.png"></a></div>-->
