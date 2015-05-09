@@ -35,7 +35,7 @@
 			$EstartDate = date_format($date, 'm/d/Y');
 			
 			//day name of the date	
-			$today = date("m/d/Y");
+			$today = date("Y-m-d");
 			$dt = strtotime($EstartDate);
 			$day = date("l", $dt);
 			
