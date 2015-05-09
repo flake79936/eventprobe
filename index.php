@@ -68,7 +68,14 @@ function successFunction(position) {
 }
 
 function errorFunction(){
-    alert("Geocoder failed");
+var mycity = prompt("It appears that your GPS is off, Please enter your city", "");
+
+
+if (mycity != null) {
+
+window.location.href = "./index2.php?city=" + mycity;
+    }
+   
 }
 
   function initialize() {

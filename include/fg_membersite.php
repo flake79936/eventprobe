@@ -1033,8 +1033,8 @@ class FGMembersite{
 	
 	/*----(Start) Login information/Methods----*/
 	function Login(){
-        if(empty($_POST['UuserName'])){
-            $this->HandleError("UserName is empty!");
+        if(empty($_POST['Uemail'])){
+            $this->HandleError("Email is empty!");
             return false;
         }
         
@@ -1043,16 +1043,16 @@ class FGMembersite{
             return false;
         }
         
-        $username = trim($_POST['UuserName']);
+        $Uemail = trim($_POST['Uemail']);
         $password = trim($_POST['UPswd']);
         
         if(!isset($_SESSION)){ session_start(); }
 		
-        if(!$this->CheckSessionInDB($username, $password)){
+        if(!$this->CheckSessionInDB($Uemail, $password)){
             return false;
         }
         
-        $_SESSION[$this->GetLoginSessionVar()] = $username;
+        $_SESSION[$this->GetLoginSessionVar()] = $Uemail;
         
         return true;
     }
@@ -1153,28 +1153,28 @@ class FGMembersite{
 		return true;
 	}
 
-	function CheckSessionInDB($username, $password){
+	function CheckSessionInDB($Uemail, $password){
 		if(!$this->DBLogin()){
 			$this->HandleError("Database login failed!");
 			return false;
 		}
 		
-		$username = $this->SanitizeForSQL($username);
+		$Uemail = $this->SanitizeForSQL($Uemail);
 		$pwdmd5 = md5($password);
 		//$qry = "Select name, email from $this->tablename where username='$username' and password='$pwdmd5' and confirmcode='y'";
-		$qry = "SELECT UFname, UuserName, Uemail FROM $this->tablename1 WHERE UuserName = '$username' AND UPswd = '$pwdmd5'";
+		$qry = "SELECT UFname,  Uemail FROM $this->tablename1 WHERE Uemail = '$Uemail' AND UPswd = '$pwdmd5'";
 
 		$result = mysql_query($qry, $this->connection);
 
 		if(!$result || mysql_num_rows($result) <= 0){
-			$this->HandleError("Error logging in. The username or password does not match");
+			$this->HandleError("Error logging in. The email or password does not match");
 			return false;
 		}
 
 		$row = mysql_fetch_assoc($result);
 
 		$_SESSION['name_of_user']  = $row['UFname'];
-		$_SESSION['user_name']     = $row['UuserName'];
+		$_SESSION['user_name']     = $row['user_name'];
 		$_SESSION['email_of_user'] = $row['Uemail'];
 
 		return true;
