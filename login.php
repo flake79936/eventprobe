@@ -86,7 +86,7 @@
 				<div class="login">
 					<div class="top-login">
 						<div class="user-input">
-							<input class="buttonInput" name="Uemail" type="text" placeholder="Email" id="Uemail" />
+							<input class="buttonInput" name="UuserName" type="text" placeholder="Username" id="UuserName" />
 						</div>
 						<div class="user-pass">
 							<input class="buttonInput" type="password" name='UPswd' placeholder="Password" id='UPswd' />

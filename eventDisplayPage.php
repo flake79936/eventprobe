@@ -264,7 +264,6 @@
 										<!-- END OF MAP SCRIPT -->
 									</div>
 									
-<!-- 
 									<div class="button">
 										<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
 											<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/> |
@@ -273,7 +272,6 @@
 											<a href="./editEvent.php?eid=<?PHP echo $newEventID; ?>"><img src="./images/btn_editevent.png"></a>
 										<?PHP } ?>
 									</div>
- -->
 								</div>
 							</div>
 						</div><!--End of box-->
