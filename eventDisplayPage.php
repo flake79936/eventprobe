@@ -147,9 +147,19 @@
 													<?PHP echo $EstartDate; ?>
 												</div>
 												<div class="etime">
-												<?PHP echo date("g:i a", strtotime($row['EtimeStart'])); ?>
+												<?PHP echo strtoupper($row['EtimeStart']); ?>
 												to
-												<?PHP echo date("g:i a", strtotime($row['EtimeEnd'])); ?>
+												<?PHP  echo strtoupper($row['EtimeEnd']);?>
+												
+												
+												<!-- 
+												<?PHP //echo date("g:i a", strtotime($row['EtimeStart'])); ?>
+												to
+												<?PHP //echo date("g:i a", strtotime($row['EtimeEnd'])); ?>
+												 -->
+												
+												
+												
 												</div>
 											</h2>
 										</div>
