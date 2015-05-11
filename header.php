@@ -1,4 +1,5 @@
 <!--Module-->
+
 <?PHP
 	require_once("./include/membersite_config.php");
 
@@ -46,18 +47,16 @@
 </div>
  	<?PHP if(!$pos2 !== false){ ?>
 
-	
 <div class="search">
 	<form>
 		<div class="searchBar">
 			<input type="text" onKeyUp="showHint(this.value);" placeholder="Search for Event, City, State, Zip Code">
 		</div>
+		
 		<div class="datePicker">
 			<input type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
 		</div>
-		<div class="endPicker">
-			<input type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Second Date To Filter By">
-		</div>
+		
 		<div class="search-icons">
 			<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/w40/icon_marathonHD.png"/></a>
 			<img alt="fair" src="./images/spacer.png"/>

@@ -31,25 +31,27 @@
 		//converts the string date into time (e.g., 04/22/2015 -> 1429660800)
 		$toDate = strtotime($today);
 ?>
-	<div class="cell">
-		<?PHP
-			//checks if the session is set and if so, display the orage circles on top of the dates.
-			if($bool){
-				//Sub-query to show events that the user has related to the master table of the events.
-				$qry = "SELECT Eid, COUNT(Eid) FROM " . $usrname . "MyEvents WHERE Eid IN (SELECT Eid FROM Events WHERE EstartDate = '" . $today . "' AND Edisplay='1')";
-				$result = mysqli_query($con, $qry);
-				
-				if(mysqli_num_rows($result) > 0){
-					while($row = mysqli_fetch_assoc($result)){
-		?>
-						<div class="circle" ><!--Count of how many events the user has in their list.-->
-							<?= $row['COUNT(Eid)']; ?>
-						</div>
-			  <?PHP }
-				} 
-			} ?>
-		<a onClick="getByDayEvent(<?= $toDate ?>);">
-			<h4><?= $trimDate ?><br/><?= $day ?></h4>
-		</a>
+	<div class="cell cell1 cell2">
+		<div class="link" id="<?= $toDate ?>">
+			<a onClick="getByDayEvent(<?= $toDate ?>);">
+				<?PHP
+					//checks if the session is set and if so, display the orage circles on top of the dates.
+					if($bool){
+						//Sub-query to show events that the user has related to the master table of the events.
+						$qry = "SELECT Eid, COUNT(Eid) FROM " . $usrname . "MyEvents WHERE Eid IN (SELECT Eid FROM Events WHERE EstartDate = '" . $today . "' AND Edisplay='1')";
+						$result = mysqli_query($con, $qry);
+						
+						if(mysqli_num_rows($result) > 0){
+							while($row = mysqli_fetch_assoc($result)){
+				?>
+								<div class="circle" ><!--Count of how many events the user has in their list.-->
+									<?= $row['COUNT(Eid)']; ?>
+								</div>
+					  <?PHP }
+						} 
+					} ?>
+				<h4><?= $trimDate ?><br/><?= $day ?></h4>
+			</a>
+		</div>
 	</div>
 <?PHP } ?>

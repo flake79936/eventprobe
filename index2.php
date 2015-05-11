@@ -146,6 +146,7 @@ $_SESSION["city"] = $city;
 				window.location = "./eventDisplayPage.php?eid="+str;
 			}
 		</script>
+		
 	</head>
 	
 	<body lang="en">

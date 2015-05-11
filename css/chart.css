@@ -7,9 +7,21 @@
 
 .chart .box .row{ background: #f4f1ea; }
 .chart .box .row a img{ float: left; padding: 0 0 0 0px; }
-.chart .box .row .cell{ width: 13%; float: left; text-align: center; padding: 12px 0 11px 0; }
+
+.chart .box .row .cell{ width: 8%; float: left; text-align: center; padding: 0px 0 0px 75px; }
+
+.chart .box .row .cell1 a { float: left; color:#707070; background:#FFFFFF; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; border:solid 1px #DCDCDC; padding:6px 9px 6px 9px; }
+.chart .box .row .cell1 { padding-bottom:1px; }
+.chart .box .row .cell1 a:hover,
+.chart .box .row .cell1 a.current { color:#FFFFFF; box-shadow:0px 1px #EDEDED; -moz-box-shadow:0px 1px #EDEDED; -webkit-box-shadow:0px 1px #EDEDED; }
+.chart .box .row .cell1 a.In-active { pointer-events: none; cursor: default; }
+
+.chart .box .row .cell2 a:hover,
+.chart .box .row .cell2 a.current { float: left; color:#893A00; text-shadow:0px 1px #FFEF42; border-color:#FFA200; background:#FFC800; background:-moz-linear-gradient(top, #FFFFFF 1px, #FFEA01 1px, #FFC800); background:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0.02, #FFFFFF), color-stop(0.02, #FFEA01), color-stop(1, #FFC800)); }
+
 .chart .box .row .cell h4{ color: #315fa9; }
 .chart .box .row .cell img{ width: 100%; }
+
 .chart .box .row .circle{ background: #f05a28; color: #fff; width: 25px; padding: 5px 2px; margin: 0 auto; margin-bottom: 5px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -khtml-border-radius: 20px; border-radius: 20px; }
 .chart .box .row .active{ background: #f05a28; }
 .chart .box .row .active h4{ color: #fff; }

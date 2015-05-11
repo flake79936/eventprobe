@@ -96,13 +96,16 @@
 			var $freeEventsContainer = $("#events");
 			$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?>);
 			
-			var refreshId2 = setInterval(function(){
-				$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?>);
-			}, 120000); //30k = 30 seconds
+			//var refreshId2 = setInterval(function(){
+			//	$freeEventsContainer.load("getByDayEvent.php?freeDate=" + <?= $toDate ?>);
+			//}, 120000); //30k = 30 seconds
 		});
 	})(jQuery);
 	
-	function getByDayEvent(freeDate, freePageId) {
+	function getByDayEvent(freeDate) {
+		$(".link a").removeClass("In-active current");
+		$("#"+freeDate+" a").addClass("In-active current");
+		
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
