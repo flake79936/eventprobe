@@ -32,6 +32,8 @@
 		
 		<!--SCRIPTS-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
 
 		<script>
 			function showHint(str) {
@@ -83,13 +85,16 @@
 			
 			<form id="login" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 				<input type="hidden" name="submitted" id="submitted" value="1" />
+				<div><span class="error"><center><?php echo $fgmembersite->GetErrorMessage(); ?></center></span></div>
 				<div class="login">
 					<div class="top-login">
 						<div class="user-input">
-							<input class="buttonInput" name="UuserName" type="text" placeholder="Username" id="UuserName" />
+							<input class="buttonInput" name="UuserName" type="text" placeholder="Username" id="UuserName" /><br/>
+							<span id="login_UuserName_errorloc" class="error"></span>
 						</div>
 						<div class="user-pass">
-							<input class="buttonInput" type="password" name='UPswd' placeholder="Password" id='UPswd' />
+							<input class="buttonInput" type="password" name='UPswd' placeholder="Password" id='UPswd' /><br/>
+							<span id="login_UPswd_errorloc" class="error"></span>
 						</div>
 					</div>
 					<div class="btn-log">
@@ -124,4 +129,16 @@
 			<?PHP include './footer.php'; ?>
 		</div>
 	</body>
+	
+	<!--This script needs to wihtin the file. It is validating the form.-->
+	<script type="text/javascript">
+		// <![CDATA[
+		var frmvalidator = new Validator("login");
+		frmvalidator.EnableOnPageErrorDisplay();
+		frmvalidator.EnableMsgsTogether();
+		
+		frmvalidator.addValidation("UuserName", "req", "Please Input Your Username");
+		frmvalidator.addValidation("UPswd",     "req", "Please Input Your Password");
+		// ]]>
+	</script>
 </html>

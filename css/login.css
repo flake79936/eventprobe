@@ -9,6 +9,19 @@
 
 .label { padding-top: 20px; border-top: 1px solid #fff; }
 
+.btn-log{
+	padding: 5px 0 0 0;
+}
+
+.form-wrap #login .error,
+.form-wrap .login .top-login .user-input .error,
+.form-wrap .login .top-login .user-pass .error{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	color: #900;
+	background-color: #ffff00;
+}
+
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
  * Google Nexus 7 2											-> 960 x 600
  * 															-------------

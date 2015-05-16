@@ -49,7 +49,7 @@
 						<div class="info">
 							<div class="box">
 								<h2><?= $day ?></h2><img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
-								<p><?= substr($EstartDate, 0, 5); ?>, <?= $row['EtimeStart'] ?></p>
+								<p><?= substr($EstartDate, 0, 5); ?><br> <?= $row['EtimeStart'] ?></p>
 								<h3><?= substr($row['Evename'], 0, 12) . " ..."; ?></h3>
 							</div>
 						</div>
