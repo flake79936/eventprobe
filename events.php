@@ -24,13 +24,16 @@
 		//$startpoint = ($end * $start) - $end;
 		
 		//please do not add a semicolon at the end of this line, inside of the double quotes.
-		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ORDER BY EstartDate ASC";
+		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
 		
 		$sql = "SELECT * FROM {$statement}  LIMIT {$start}, {$end};";
 		$result = mysqli_query($con, $sql);
 		
 		$i = 0;
 		while($row = mysqli_fetch_array($result)){
+		
+		$newStartTime =date("g:i a", strtotime($row['EtimeStart']));
+		
 			$date = date_create($row['EstartDate']);
 			$EstartDate = date_format($date, 'm/d/Y');
 			
@@ -49,7 +52,7 @@
 						<div class="info">
 							<div class="box">
 								<h2><?= $day ?></h2><img class="btn-cross" src="images/btn_cross.png" alt="Cross" />
-								<p><?= substr($EstartDate, 0, 5); ?><br> <?= $row['EtimeStart'] ?></p>
+								<p><?= substr($EstartDate, 0, 5); ?><br> <?= $newStartTime ?></p>
 								<h3><?= substr($row['Evename'], 0, 12) . " ..."; ?></h3>
 							</div>
 						</div>

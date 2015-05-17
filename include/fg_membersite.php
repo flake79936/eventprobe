@@ -520,6 +520,8 @@ class FGMembersite{
 		
 		if ($formvars['Eother'] === null)  $formvars['Eother'] = "";
 		
+		$newStartTime= date("H:i", strtotime($formvars['EtimeStart']));
+		
 		$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank,Edisplay)
 			VALUES(
 				"' . $this->SanitizeForSQL($uName) . '",
@@ -540,7 +542,7 @@ class FGMembersite{
 				"' . $this->SanitizeForSQL($formvars['Egoogle']) . '",
 				"' . $this->SanitizeForSQL($formvars['Eflyer']) . '",
 				"' . $this->SanitizeForSQL($formvars['Eother']) . '",
-				"' . $this->SanitizeForSQL($formvars['EtimeStart']) . '",
+				"' . $this->SanitizeForSQL($newStartTime) . '",
 				"' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '",
 				"' . $this->SanitizeForSQL($lat)                . '",
 				"' . $this->SanitizeForSQL($long)               . '",
@@ -904,6 +906,8 @@ class FGMembersite{
 		
 		$formvars['EtimeStart'] = date("g:i a", strtotime($formvars['EtimeStart']));
 		$formvars['EtimeEnd']   = date("g:i a", strtotime($formvars['EtimeEnd']));
+		
+		$newStartTime= date("H:i", strtotime($formvars['EtimeStart']));
 		/* If the option from the drop down in the form is 'Other'
 		 * Then we use this option that allows to insert the other typed by the user.
 		 */
@@ -918,7 +922,7 @@ class FGMembersite{
 		. 'Egoogle = "' . $this->SanitizeForSQL($formvars['Egoogle']) . '", '
 		. (($formvars['Eflyer'] !== null) ? ('Eflyer = "' . $this->SanitizeForSQL($formvars['Eflyer'])) . '", ' : "") 
 		. (($formvars['Etype'] === 'Other') ? ('Eother = "' . $this->SanitizeForSQL($formvars['Eother'])) . '", ' : "")
-		. 'EtimeStart = "' . $this->SanitizeForSQL($formvars['EtimeStart']) . '", ' 
+		. 'EtimeStart = "' . $this->SanitizeForSQL($newStartTime) . '", ' 
 		. 'EtimeEnd = "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '", Elat = "' . $this->SanitizeForSQL($lat) . '", ' 
 		. 'Elong = "' . $this->SanitizeForSQL($long) . '", Erank = "' . $this->SanitizeForSQL($formvars['Erank']) . '"' 
 		. 'WHERE Eid = "' . $this->SanitizeForSQL($formvars['Eid']).'"';

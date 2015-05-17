@@ -97,6 +97,9 @@
 					$result = mysqli_query($con, $qry);
 					
 					while($row = mysqli_fetch_array($result)){  
+					
+					$newStartTime =date("g:i a", strtotime($row['EtimeStart']));
+					
 						$i     = 0;
 						$event = $row['Evename'];
 						$Elat  = $row['Elat'];
@@ -147,7 +150,7 @@
 													<?PHP echo $EstartDate; ?>
 												</div>
 												<div class="etime">
-												<?PHP echo strtoupper($row['EtimeStart']); ?>
+												<?PHP echo strtoupper($newStartTime); ?>
 												to
 												<?PHP  echo strtoupper($row['EtimeEnd']);?>
 												
