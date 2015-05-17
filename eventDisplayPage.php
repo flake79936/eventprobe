@@ -10,7 +10,7 @@
 	
 	if(isset($_POST["submitted"])){
 		if($fgmembersite->deleteEvent()){
-			$fgmembersite->RedirectToURL("./index2.php");
+			$fgmembersite->RedirectToURL("./index.php");
 		}
 	}
 	

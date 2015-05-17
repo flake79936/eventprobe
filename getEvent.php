@@ -18,14 +18,15 @@
 		if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
 		mysqli_select_db($con, "EventAdvisors");
 		
-		$today = Date("m/d/Y");
+		$newformat = date('Y-m-d');
 
 		$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
 		$envar = isset($_GET['eq']) && $_GET['eq'] != "" ? "'.*" . $_GET['eq'] .".*'" : null; //the second parameter that will denote the end date.
 		
 		$qry = "SELECT * FROM Events ";
 		$qry .= $var != null ? 
-				" WHERE (EstartDate REGEXP $var OR Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) AND EstartDate >='".$today."' AND Edisplay ='1' " 
+				" WHERE (EstartDate REGEXP $var OR Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) 
+				AND EstartDate >='".$newformat."' AND Edisplay ='1' ORDER BY EstartDate, EtimeStart" 
 				: "";
 		$qry .= $envar != null ? " between {$var} and {$envar} " : "";
 		
@@ -41,6 +42,7 @@
 		
 		<?PHP
 			while($row = mysqli_fetch_array($result)) {
+			$newStartTime =date("g:i a", strtotime($row['EtimeStart']));
 				$formattedDate= str_replace("-","/",$row['EstartDate']);
 				$formattedDate= substr($formattedDate,5,10);
 				$type = $row['Etype'];
@@ -64,7 +66,7 @@
 				echo "				<div class='text-info'>";
 				//echo "					<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
 				echo "					<div class='ename'>" . $row['Evename'] . "</div>";
-				echo "					<div class='etime'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . " </div>";
+				echo "					<div class='etime'>" . $newStartTime ." - ". $row['EtimeEnd'] . " </div>";
 				echo "					<div class='ecity'>" . ucfirst($row['Ecity']) . ", " . strtoupper($row['Estate']) . " </div>";
 				echo "				</div>";
 				echo "				<div class='social-icons'>";
