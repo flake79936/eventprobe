@@ -159,7 +159,7 @@ $_SESSION["city"] = $city;
 		<!--My Events Section-->
 		<?PHP if($fgmembersite->CheckSession()){ ?>
 			<div class="my-events">
-				<?PHP include './myevents.php'; ?>
+				<?PHP include './myEvents.php'; ?>
 			</div>
 		<?PHP } ?>
 

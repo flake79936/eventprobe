@@ -1368,7 +1368,7 @@ class FGMembersite{
 
 		$mailer->From = $this->getFromAddress();
 
-		$link = $this->getAbsoluteURLFolder() . 'resetpwd.php?ue=' . urlencode($email) . '&code=' . urlencode($this->getResetPasswordCode($email));
+		$link = $this->getAbsoluteURLFolder() . 'rstPwd.php?ue=' . urlencode($email) . '&code=' . urlencode($this->getResetPasswordCode($email));
 
 		$mailer->Body ="Hello " . $user_rec['name'] . "\r\n\r\n".
 		"There was a request to reset your password at " . $this->sitename . "\r\n".

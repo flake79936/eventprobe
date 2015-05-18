@@ -108,7 +108,7 @@
 								</a>
 							</div>
 							<div class="btn-fgtPass">
-								<a href="./reset-pwd-req.php">
+								<a href="./rstPwdReq.php">
 									<img src="./images/btn_fgtPass.png">
 								</a>
 							</div>

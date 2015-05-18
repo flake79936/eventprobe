@@ -5,7 +5,14 @@
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
 		<meta http-equiv="refresh" content="5; login.php">
 		<title>Thank you!</title>
-		<link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css">
+		
+		<!--Style-->
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/links.css"  />
+		<link rel="stylesheet" type="text/css" href="css/login.css"  />
+		<link rel="stylesheet" type="text/css" href="css/header.css" />
+		<link rel="STYLESHEET" type="text/css" href="css/fgtPass.css"/>
+		
 	</head>
 	
 	<body lang="en">
