@@ -42,7 +42,10 @@ $city= $_SESSION["city"];
 	<div class="box" >
 		<?PHP
 			while($row = mysqli_fetch_array($result)){
-			$newStartTime =date("g:i a", strtotime($row['EtimeStart']));
+				$date = date_create($row['EstartDate']);
+				$EstartDate = date_format($date, 'm/d/Y');
+		
+				$newStartTime = date("g:i a", strtotime($row['EtimeStart']));
 				$type = $row['Etype'];
 				if($row['Eflyer'] === ""){
 					switch($type){
@@ -62,6 +65,7 @@ $city= $_SESSION["city"];
 				echo "			<div class='info'>";
 				echo "				<div class='text-info'>";
 				echo "					<div class='ename'>" . $row['Evename'] . "</div>";
+				echo "					<div class='edate'>" . $EstartDate . " </div>";
 				echo "					<div class='etime'>" . $newStartTime ." - ". $row['EtimeEnd'] . " </div>";
 				echo "					<div class='ecity'>" . ucfirst($row['Ecity']).", ".strtoupper($row['Estate'])." </div>";
 				echo "				</div>";

@@ -4,7 +4,7 @@
 	
 // 	$city = $fgmembersite->getCity();
 	//$city= "el paso";
-	$city= $_SESSION["city"];
+	$city = $_SESSION["city"];
 	
 	$usrname = $fgmembersite->UsrName();
 	$bool = $fgmembersite->CheckSession();

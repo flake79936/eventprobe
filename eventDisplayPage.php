@@ -98,7 +98,7 @@
 					
 					while($row = mysqli_fetch_array($result)){  
 					
-					$newStartTime =date("g:i a", strtotime($row['EtimeStart']));
+					$newStartTime = date("g:i a", strtotime($row['EtimeStart']));
 					
 						$i     = 0;
 						$event = $row['Evename'];

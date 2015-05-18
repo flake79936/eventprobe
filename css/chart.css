@@ -37,6 +37,7 @@
 .chart .box .row .info .text-info .ecity { text-transform: capitalize; }
 
 .chart .box .row .info .text-info .etime,
+.chart .box .row .info .text-info .edate,
 .chart .box .row .info .text-info .ecity{ float: left; width: auto; padding: 5px 0 0 10px; color: #323438; }
 
 .chart .box .row .info .social-icons{ float: left; width: 100%; }

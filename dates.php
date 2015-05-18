@@ -89,5 +89,5 @@
 <?PHP
 	$sql = 'UPDATE Events SET Etype = "Premium", EstartDate = "' . $newformat . '" WHERE Ecity = "Fort Worth"';
 	$dltUpdtQuery = "UPDATE Events SET Edisplay = 1;";
-	mysqli_query($con, $dltUpdtQuery);
+	mysqli_query($con, $sql);
 ?>

@@ -170,7 +170,7 @@ $_SESSION["city"] = $city;
 
 		<!--This-Week Section-->
 		<div class="this-week">
-			<?PHP include './this-week.php'; ?>
+			<?PHP include './thisWeek.php'; ?>
 		</div>
 
 		<!--Schedule Section-->
