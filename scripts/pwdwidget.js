@@ -13,44 +13,45 @@ function PasswordWidget(divid, pwdname){
 	this.maindivobj = document.getElementById(divid);
 	this.pwdobjname = pwdname;
 
-	this.MakePWDWidget = _MakePWDWidget;
+	this.MakePWDWidget=_MakePWDWidget;
 
-	this.showing_pwd = 1;
-	this.txtShow     = 'Show';
-	this.txtMask     = 'Mask';
+	this.showing_pwd=1;
+	this.txtShow = 'Show';
+	this.txtMask = 'Mask';
 	this.txtGenerate = 'Generate';
-	this.txtWeak     = 'weak';
-	this.txtMedium   = 'medium';
-	this.txtGood     = 'good';
+	this.txtWeak='weak';
+	this.txtMedium='medium';
+	this.txtGood='good';
 
-	this.enableShowMask        = true;
-	this.enableGenerate        = true;
-	this.enableShowStrength    = true;
-	this.enableShowStrengthStr = true;
+	this.enableShowMask=true;
+	this.enableGenerate=true;
+	this.enableShowStrength=true;
+	this.enableShowStrengthStr=true;
 
 }
 
-function _MakePWDWidget(){
-	var code = "";
+function _MakePWDWidget()
+{
+	var code="";
     var pwdname = this.pwdobjname;
 
-	this.pwdfieldid = pwdname + "_id";
+	this.pwdfieldid = pwdname+"_id";
 
 	code += "<input type='password' class='pwdfield' name='"+pwdname+"' id='"+this.pwdfieldid+"'>";
 
-	this.pwdtxtfield = pwdname+"_text";
+	this.pwdtxtfield=pwdname+"_text";
 
 	this.pwdtxtfieldid = this.pwdtxtfield+"_id";
 
 	code += "<input type='text' class='pwdfield' name='"+this.pwdtxtfield+"' id='"+this.pwdtxtfieldid+"' style='display: none;'>";
 
-	this.pwdshowdiv = pwdname + "_showdiv";
+	this.pwdshowdiv = pwdname+"_showdiv";
 
 	this.pwdshow_anch = pwdname + "_show_anch";
 
 	code += "<div class='pwdopsdiv' id='"+this.pwdshowdiv+"'><a href='#' id='"+this.pwdshow_anch+"'>"+this.txtShow+"</a></div>";
 
-	this.pwdgendiv = pwdname + "_gendiv";
+	this.pwdgendiv = pwdname+"_gendiv";
 
 	this.pwdgenerate_anch = pwdname + "_gen_anch";
 
@@ -58,15 +59,15 @@ function _MakePWDWidget(){
 
 	this.pwdstrengthdiv = pwdname + "_strength_div";
 
-	code += "<div class='pwdstrength' id='" + this.pwdstrengthdiv+"'>";
+	code += "<div class='pwdstrength' id='"+this.pwdstrengthdiv+"'>";
 
 	this.pwdstrengthbar = pwdname + "_strength_bar";
 
-	code += "<div class='pwdstrengthbar' id='" + this.pwdstrengthbar+"'></div>";
+	code += "<div class='pwdstrengthbar' id='"+this.pwdstrengthbar+"'></div>";
 
 	this.pwdstrengthstr = pwdname + "_strength_str";
 
-	code += "<div class='pwdstrengthstr' id='" + this.pwdstrengthstr+"'></div>";
+	code += "<div class='pwdstrengthstr' id='"+this.pwdstrengthstr+"'></div>";
 
 	code += "</div>";
 
@@ -109,7 +110,7 @@ function _MakePWDWidget(){
 
 	this._updatePwdFieldValues = updatePwdFieldValues;
 
-	this._onKeyUpPwdFields = onKeyUpPwdFields;
+	this._onKeyUpPwdFields=onKeyUpPwdFields;
 
 	if(!this.enableShowMask)
 	{ document.getElementById(this.pwdshowdiv).style.display='none';}
@@ -124,26 +125,32 @@ function _MakePWDWidget(){
 	{ document.getElementById(this.pwdstrengthstr).style.display='none';}
 }
 
-function onKeyUpPwdFields(){
+function onKeyUpPwdFields()
+{
 	this._updatePwdFieldValues(); 
 	this._showPasswordStrength();
 }
 
-function updatePwdFieldValues(){
-	if(1 == this.showing_pwd){
+function updatePwdFieldValues()
+{
+	if(1 == this.showing_pwd)
+	{
 		this.pwdtxtfield_obj.value = this.pwdfieldobj.value;	
-	} else {
+	}
+	else
+	{
 		this.pwdfieldobj.value = this.pwdtxtfield_obj.value;
 	}
 }
 
-function showpwdchars(){
-	var innerText = '';
-	var pwdfield  = this.pwdfieldobj;
-	var pwdtxt    = this.pwdtxtfield_obj;
+function showpwdchars()
+{
+	var innerText='';
+	var pwdfield = this.pwdfieldobj;
+	var pwdtxt = this.pwdtxtfield_obj;
 	var field;
-	
-	if(1 == this.showing_pwd){
+	if(1 == this.showing_pwd)
+	{
 		this.showing_pwd=0;
 		innerText = this.txtMask;
 
@@ -151,7 +158,9 @@ function showpwdchars(){
 		pwdfield.style.display='none';
 		pwdtxt.style.display='';
 		pwdtxt.focus();
-	} else {
+	}
+	else
+	{
 		this.showing_pwd=1;
 		innerText = this.txtShow;	
 		pwdfield.value = pwdtxt.value;
@@ -161,9 +170,11 @@ function showpwdchars(){
 			
 	}
 	this.show_anch_obj.innerHTML = innerText;
+
 }
 
-function passwordStrength(){
+function passwordStrength()
+{
 	var colors = new Array();
 	colors[0] = "#cccccc";
 	colors[1] = "#ff0000";
@@ -175,12 +186,12 @@ function passwordStrength(){
 	var pwdfield = this.pwdfieldobj;
 	var password = pwdfield.value
 
-	var score = 0;
+	var score   = 0;
 
 	if (password.length > 6) {score++;}
 
-	if ( ( password.match(/[a-z]/) ) && ( password.match(/[A-Z]/) ) )
-	{score++;}
+	if ( ( password.match(/[a-z]/) ) && 
+	     ( password.match(/[A-Z]/) ) ) {score++;}
 
 	if (password.match(/\d+/)){ score++;}
 
@@ -193,30 +204,36 @@ function passwordStrength(){
 	
 	strengthdiv.style.background=colors[score];
 	
-	if (password.length <= 0){
+	if (password.length <= 0)
+	{ 
 		strengthdiv.style.width=0; 
-	} else {
+	}
+	else
+	{
 		strengthdiv.style.width=(score+1)*10+'px';
 	}
 
-	var desc = '';
-	if(password.length < 1){desc = '';}
-	else if(score < 3){ desc = this.txtWeak; }
-	else if(score < 4){ desc = this.txtMedium; }
-	else if(score >= 4){ desc = this.txtGood; }
+	var desc='';
+	if(password.length < 1){desc='';}
+	else if(score<3){ desc = this.txtWeak; }
+	else if(score<4){ desc = this.txtMedium; }
+	else if(score>=4){ desc= this.txtGood; }
 
 	var strengthstrdiv = this.pwdstrengthstr_obj;
 	strengthstrdiv.innerHTML = desc;
 }
 
-function getRand(max){
+function getRand(max) 
+{
 	return (Math.floor(Math.random() * max));
 }
 
-function shuffleString(mystr){
+function shuffleString(mystr)
+{
 	var arrPwd=mystr.split('');
 
-	for(i=0;i< mystr.length;i++){
+	for(i=0;i< mystr.length;i++)
+	{
 		var r1= i;
 		var r2=getRand(mystr.length);
 
@@ -228,31 +245,34 @@ function shuffleString(mystr){
 	return arrPwd.join("");
 }
 
-function showGeneatedPwd(){
+function showGeneatedPwd()
+{
 	var pwd = generatePWD();
-	this.pwdfieldobj.value     = pwd;
-	this.pwdtxtfield_obj.value = pwd;
+	this.pwdfieldobj.value= pwd;
+	this.pwdtxtfield_obj.value =pwd;
 
 	this._showPasswordStrength();
 }
 
-function generatePWD(){
-    var maxAlpha   = 26;
-	var strSymbols = "~!@#$%^&*(){}?><`=-|][";
-	var password   = '';
-	for(i = 0; i < 3; i++){
+function generatePWD()
+{
+    var maxAlpha = 26;
+	var strSymbols="~!@#$%^&*(){}?><`=-|][";
+	var password='';
+	for(i=0;i<3;i++)
+	{
 		password += String.fromCharCode("a".charCodeAt(0) + getRand(maxAlpha));
 	}
-	
-	for(i = 0; i < 3; i++){
+	for(i=0;i<3;i++)
+	{
 		password += String.fromCharCode("A".charCodeAt(0) + getRand(maxAlpha));
 	}
-	
-	for(i = 0; i < 3; i++){
+	for(i=0;i<3;i++)
+	{
 		password += String.fromCharCode("0".charCodeAt(0) + getRand(10));
 	}
-	
-	for(i = 0; i < 4; i++){
+	for(i=0;i<4;i++)
+	{
 		password += strSymbols.charAt(getRand(strSymbols.length));
 	}
 

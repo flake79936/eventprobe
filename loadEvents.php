@@ -5,6 +5,13 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
+	isset($_GET['success']) ? $_GET['success'] : false;
+	isset($_GET['eid']) ? $_GET['eid'] : null;
+	
+	if($_GET['success']){
+		$fgmembersite->deleteEvent($_GET['eid']);
+	}
+	
 	$usrname = $fgmembersite->UsrName();
 	
 	$newformat = date('Y-m-d');
@@ -42,17 +49,18 @@
 			if($row['Eid'] !== ""){
 				$inDBUser = $fgmembersite->getUserFromDB($row['Eid']);
 			}
-		echo '		<form class="myEventForm" id="eventForm" action="' . $fgmembersite->GetSelfScript() . '" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" >';
-		echo '			<input type="hidden" name="submitted" id="submitted" value="1" />';
-		echo '			<input type="hidden" name="Eid" id="Eid" value="'. $row['Eid'] . '" />';
-		echo '			<input type="hidden" name="dbUserName" id="dbUserName" value="' . $inDBUser . '" />';
-		echo '			<input type="hidden" name="usrName" id="usrName" value="' . $usrname . '" />';
+		//echo '		<form class="myEventForm" id="eventForm" action="' . $fgmembersite->GetSelfScript() . '" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" >';
+		//echo '			<input type="hidden" name="submitted" id="submitted" value="1" />';
+		//echo '			<input type="hidden" name="Eid" id="Eid" value="'. $row['Eid'] . '" />';
+		//echo '			<input type="hidden" name="dbUserName" id="dbUserName" value="' . $inDBUser . '" />';
+		//echo '			<input type="hidden" name="usrName" id="usrName" value="' . $usrname . '" />';
 				if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){
-		echo '				<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/>';
+		//echo '				<input class="dltButton" type="image" src="./images/btn_delete.png" name="submit" value=""/>';
+		echo '				<a class="myEventForm" onClick="deleteEvent(' . $row['Eid'] . ')"><img src="./images/btn_delete.png"></a>';
 				}
-		echo '		</form>';
+		//echo '		</form>';
 		echo '	</li>';
-		echo '	<li><a class="myEventForm" onClick="editEvent('. $row['Eid']. ')"><img src="./images/btn_editevent.png"></a></li>';
+		echo '	<li><a class="myEventForm" onClick="editEvent(' . $row['Eid'] . ')"><img src="./images/btn_editevent.png"></a></li>';
 		echo '</ul>';
 	}
 	mysqli_close($con);

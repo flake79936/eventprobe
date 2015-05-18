@@ -4,7 +4,7 @@
 	$fgmembersite = new FGMembersite();
 
 	//Provide your site name here
-	$fgmembersite->SetWebsiteName('jetdevllc.com');
+	$fgmembersite->SetWebsiteName('Eventprobe.com');
 
 	//Provide the email address where you want to get notifications
 	$fgmembersite->SetAdminEmail('no.reply@ujetdevllc.com');

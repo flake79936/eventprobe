@@ -40,7 +40,7 @@ class FGMembersite{
     /*----(Start) Initialization----*/
     function FGMembersite(){
         $this->sitename = 'jetdevllc.com';
-        $this->rand_key = '0iQx5oBk66oVZep';
+        $this->rand_key = 'CBEBE8BFD6611';
     }
     
     function InitDB($host, $uname, $pwd, $database, $tablename1, $tablename2, $tablename3){
@@ -287,11 +287,11 @@ class FGMembersite{
         
         $mailer->Subject = "Your registration with ".$this->sitename;
 
-        $mailer->From = $this->GetFromAddress();        
+        $mailer->From = $this->getFromAddress();        
         
         $confirmcode = $formvars['confirmcode'];
         
-        $confirm_url = $this->GetAbsoluteURLFolder().'/confirmreg.php?code='.$confirmcode;
+        $confirm_url = $this->getAbsoluteURLFolder().'/confirmreg.php?code='.$confirmcode;
         
         $mailer->Body ="Hello ".$formvars['name']."\r\n\r\n".
         "Thanks for your registration with ".$this->sitename."\r\n".
@@ -363,7 +363,7 @@ class FGMembersite{
         
         $mailer->Subject = "New registration: ".$formvars['name'];
 
-        $mailer->From = $this->GetFromAddress();         
+        $mailer->From = $this->getFromAddress();         
         
         $mailer->Body ="A new user registered at ".$this->sitename."\r\n".
         "Name: ".$formvars['name']."\r\n".
@@ -731,7 +731,7 @@ class FGMembersite{
         
         $mailer->Subject = "Welcome to ".$this->sitename;
 
-        $mailer->From = $this->GetFromAddress();        
+        $mailer->From = $this->getFromAddress();        
         
         $mailer->Body ="Hello ".$user_rec['name']."\r\n\r\n".
         "Welcome! Your registration  with ".$this->sitename." is completed.\r\n".
@@ -747,21 +747,23 @@ class FGMembersite{
         return true;
     }
 	
-	function GetUserFromEmail($email,&$user_rec){
+	function getUserFromEmail($email, &$user_rec){
         if(!$this->DBLogin()){
             $this->HandleError("Database login failed!");
             return false;
-        }   
+        }
+		
         $email = $this->SanitizeForSQL($email);
         
-        $result = mysql_query("SELECT * FROM $this->tablename1 WHERE Uemail='$email'",$this->connection);  
+		//$this->tablename1 = Registration table
+        $result = mysql_query("SELECT * FROM $this->tablename1 WHERE Uemail='$email'", $this->connection);  
 
         if(!$result || mysql_num_rows($result) <= 0){
             $this->HandleError("There is no user with email: $email");
             return false;
         }
+		
         $user_rec = mysql_fetch_assoc($result);
-
         
         return true;
     }
@@ -942,27 +944,12 @@ class FGMembersite{
 	* belongs to the user that is requesting to delete the event.
 	* This will guaranty the integrity of the function. safety feature.  
 	*/
-	function deleteEvent(){
-		if(!isset($_POST['submitted'])){
-			return false;
+	function deleteEvent($eid){
+		if(!$this->dltUpdtEvent($eid)){
+			$this->HandleDBError("<script>alert('Sorry couldn't delete your event!'); </script>");
+			return 0;
 		}
-		
-		$formvars = array();
-		
-		$this->getValues($formvars);
-		
-		if(!$this->dltUpdtEvent($formvars)){
-			$this->HandleDBError("<script> alert('Sorry couldn't delete your event!'); </script>");
-			return false;
-		}
-		return true; //false then show alert messsage.
-	}
-	
-	/* Gets the values from the hidden fields from the eventDisplayPage*/
-	function getValues(&$formvars){
-		$formvars['Eid']        = $this->Sanitize($_POST['Eid']);
-		$formvars['dbUserName'] = $this->Sanitize($_POST['dbUserName']);
-		$formvars['usrName']    = $this->Sanitize($_POST['usrName']);
+		return 1; //false then show alert messsage.
 	}
 	
 	/*This function will not literally delete the event,
@@ -972,36 +959,24 @@ class FGMembersite{
 	 *After a couple of years or so, this data probably will be obsolete, 
 	 * depending on the trends going on in the event scene.
 	 */
-	function dltUpdtEvent(&$formvars){
+	function dltUpdtEvent($eid){
 		if(!$this->DBLogin()){
 			$this->HandleError("Database login failed!");
 			return false;
 		}
 		
-		$eid       = $formvars['Eid'];
-		$uUserName = $formvars['dbUserName'];
-		$uname     = $formvars['usrName'];
+		$uUserName = $this->UsrName();
 		
-		//echo "1: dltUpdtEvent eid: "       . $eid       . "<br>";
-		//echo "2: dltUpdtEvent uUserName: " . $uUserName . "<br>";
-		//echo "3: dltUpdtEvent uname: "     . $uname     . "<br>";
+		$dltUpdtQuery = "UPDATE " . $this->tablename2 . 
+		" SET Edisplay = 0 " . 
+		" WHERE Eid = " . $eid . 
+		" AND UuserName = '" . $uUserName . "';";
 		
-		if($uname !== $uUserName){
-			$this->HandleDBError("Sorry you are not the user of this event! ");
-            return false;
-		} else {
-			$dltUpdtQuery = "UPDATE " . $this->tablename2 . 
-			" SET Edisplay = 0 " . 
-			" WHERE Eid = " . $eid . 
-			" AND UuserName = '" . $uUserName . "';";
-			
-			if(!mysql_query($dltUpdtQuery, $this->connection)){
-				$this->HandleDBError("Error inserting data to the table\nquery: $dltUpdtQuery");
-				return false;
-			}
-			
-			//echo "4: getUserInDB Query: " . $dltUpdtQuery . "<br>";
+		if(!mysql_query($dltUpdtQuery, $this->connection)){
+			$this->HandleDBError("Error updating data.");
+			return false;
 		}
+		
 		return true;
 	}
 	
@@ -1264,35 +1239,36 @@ class FGMembersite{
 	/*----(End) Search Event----*/
 	
 	/*----(Start) Password Management----*/
-	function EmailResetPasswordLink(){
-		if(empty($_POST['email'])){
+	function emailResetPasswordLink(){
+		if(empty($_POST['Uemail'])){
 			$this->HandleError("Email is empty!");
 			return false;
 		}
 		
 		$user_rec = array();
 		
-		if(false === $this->GetUserFromEmail($_POST['email'], $user_rec)){
+		if(false === $this->getUserFromEmail($_POST['Uemail'], $user_rec)){
 			return false;
 		}
 		
-		if(false === $this->SendResetPasswordLink($user_rec)){
+		if(false === $this->sendResetPasswordLink($user_rec)){
 			return false;
 		}
+		
 		return true;
 	}
 
-	function ResetUserPasswordInDB($user_rec){
+	function resetUserPasswordInDB($user_rec){
 		$new_password = substr(md5(uniqid()), 0, 10);
 
-		if(false == $this->ChangePasswordInDB($user_rec, $new_password)){
+		if(false == $this->changePasswordInDB($user_rec, $new_password)){
 			return false;
 		}
 		return $new_password;
 	}
 
-	function ResetPassword(){
-		if(empty($_GET['email'])){
+	function resetPassword(){
+		if(empty($_GET['ue'])){
 			$this->HandleError("Email is empty!");
 			return false;
 		}
@@ -1302,27 +1278,28 @@ class FGMembersite{
 			return false;
 		}
 		
-		$email = trim($_GET['email']);
+		$email = trim($_GET['ue']);
 		$code  = trim($_GET['code']);
 
-		if($this->GetResetPasswordCode($email) != $code){
+		if($this->getResetPasswordCode($email) != $code){
 			$this->HandleError("Bad reset code!");
 			return false;
 		}
 
 		$user_rec = array();
-		if(!$this->GetUserFromEmail($email,$user_rec)){
+		
+		if(!$this->getUserFromEmail($email, $user_rec)){
 			return false;
 		}
 
-		$new_password = $this->ResetUserPasswordInDB($user_rec);
+		$new_password = $this->resetUserPasswordInDB($user_rec);
 		
 		if(false === $new_password || empty($new_password)){
 			$this->HandleError("Error updating new password");
 			return false;
 		}
 
-		if(false == $this->SendNewPassword($user_rec,$new_password)){
+		if(false == $this->sendNewPassword($user_rec, $new_password)){
 			$this->HandleError("Error sending new password");
 			return false;
 		}
@@ -1347,7 +1324,7 @@ class FGMembersite{
 
 		$user_rec = array();
 
-		if(!$this->GetUserFromEmail($this->UserEmail(),$user_rec)){
+		if(!$this->getUserFromEmail($this->UserEmail(),$user_rec)){
 			return false;
 		}
 
@@ -1360,49 +1337,44 @@ class FGMembersite{
 		
 		$newpwd = trim($_POST['newpwd']);
 
-		if(!$this->ChangePasswordInDB($user_rec, $newpwd)){
+		if(!$this->changePasswordInDB($user_rec, $newpwd)){
 			return false;
 		}
 		return true;
 	}
 
-	function ChangePasswordInDB($user_rec, $newpwd){
+	function changePasswordInDB($user_rec, $newpwd){
 		$newpwd = $this->SanitizeForSQL($newpwd);
+		
+		$qry = "UPDATE $this->tablename1 SET UPswd='" . md5($newpwd) . "' WHERE UuserName='" . $user_rec['UuserName'] . "'";
 
-		$qry = "UPDATE $this->tablename1 SET UPswd='".md5($newpwd)."' WHERE  UuserName='".$user_rec['UuserName']."'";
-
-		if(!mysql_query( $qry ,$this->connection)){
+		if(!mysql_query($qry, $this->connection)){
 			$this->HandleDBError("Error updating the password \nquery:$qry");
-			
 			return false;
-
 		}    
 		return true;
 	}
 
-	function SendResetPasswordLink($user_rec){
-		$email = $user_rec['email'];
+	function sendResetPasswordLink($user_rec){
+		$email = $user_rec['Uemail'];
 
 		$mailer = new PHPMailer();
 
 		$mailer->CharSet = 'utf-8';
 
-		$mailer->AddAddress($email,$user_rec['name']);
+		$mailer->AddAddress($email, $user_rec['name']);
 
-		$mailer->Subject = "Your reset password request at ".$this->sitename;
+		$mailer->Subject = "Your reset password request at " . $this->sitename;
 
-		$mailer->From = $this->GetFromAddress();
+		$mailer->From = $this->getFromAddress();
 
-		$link = $this->GetAbsoluteURLFolder().
-		'/resetpwd.php?email='.
-		urlencode($email).'&code='.
-		urlencode($this->GetResetPasswordCode($email));
+		$link = $this->getAbsoluteURLFolder() . 'resetpwd.php?ue=' . urlencode($email) . '&code=' . urlencode($this->getResetPasswordCode($email));
 
-		$mailer->Body ="Hello ".$user_rec['name']."\r\n\r\n".
-		"There was a request to reset your password at ".$this->sitename."\r\n".
-		"Please click the link below to complete the request: \r\n".$link."\r\n".
+		$mailer->Body ="Hello " . $user_rec['name'] . "\r\n\r\n".
+		"There was a request to reset your password at " . $this->sitename . "\r\n".
+		"Please click the link below to complete the request: \r\n" . $link . "\r\n".
 		"Regards,\r\n".
-		"Webmaster\r\n".
+		"Webmaster at\r\n".
 		$this->sitename;
 
 		if(!$mailer->Send()){
@@ -1411,29 +1383,31 @@ class FGMembersite{
 		return true;
 	}
 
-	function SendNewPassword($user_rec, $new_password){
-		$email = $user_rec['email'];
+	function sendNewPassword($user_rec, $new_password){
+		$email = $user_rec['Uemail'];
 
 		$mailer = new PHPMailer();
 
 		$mailer->CharSet = 'utf-8';
 
-		$mailer->AddAddress($email,$user_rec['name']);
+		$Uname = $user_rec['UFname'] . " " . $user_rec['ULname'];
+		
+		$mailer->AddAddress($email, $Uname);
 
-		$mailer->Subject = "Your new password for ".$this->sitename;
+		$mailer->Subject = "Your new password for " . $this->sitename;
 
-		$mailer->From = $this->GetFromAddress();
+		$mailer->From = $this->getFromAddress();
 
-		$mailer->Body ="Hello ".$user_rec['name']."\r\n\r\n".
+		$mailer->Body ="Hello " . $Uname . "\r\n\r\n".
 		"Your password is reset successfully. ".
 		"Here is your updated login:\r\n".
-		"username:".$user_rec['username']."\r\n".
-		"password:$new_password\r\n".
+		"username: " . $user_rec['UuserName'] . "\r\n".
+		"password: $new_password\r\n".
 		"\r\n".
-		"Login here: ".$this->GetAbsoluteURLFolder()."/login.php\r\n".
+		"Login here: " . $this->getAbsoluteURLFolder() . "login.php\r\n".
 		"\r\n".
 		"Regards,\r\n".
-		"Webmaster\r\n".
+		"Webmaster at \r\n".
 		$this->sitename;
 
 		if(!$mailer->Send()){
@@ -1442,8 +1416,8 @@ class FGMembersite{
 		return true;
 	}
 
-	function GetResetPasswordCode($email){
-		return substr(md5($email.$this->sitename.$this->rand_key),0,10);
+	function getResetPasswordCode($email){
+		return substr(md5($email . $this->sitename . $this->rand_key), 0, 10);
 	}
 	/*----(End) Password Management----*/
 	
@@ -1523,14 +1497,14 @@ class FGMembersite{
 		$this->HandleError($err . "\r\n mysqlerror: " . mysql_error());
 	}
 
-	function GetFromAddress(){
+	function getFromAddress(){
 		if(!empty($this->from_address)){
 			return $this->from_address;
 		}
 
 		$host = $_SERVER['SERVER_NAME'];
 
-		$from ="nobody@$host";
+		$from ="support@eventprobe.com";
 		return $from;
 	} 
 
@@ -1574,7 +1548,7 @@ class FGMembersite{
 
 		$mailer->Subject = "Registration Completed: ".$user_rec['name'];
 
-		$mailer->From = $this->GetFromAddress();         
+		$mailer->From = $this->getFromAddress();         
 
 		$mailer->Body ="A new user registered at ".$this->sitename."\r\n".
 		"Name: ".$user_rec['name']."\r\n".
@@ -1586,7 +1560,7 @@ class FGMembersite{
 		return true;
 	}
 
-	function GetAbsoluteURLFolder(){
+	function getAbsoluteURLFolder(){
 		$scriptFolder = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on')) ? 'https://' : 'http://';
 		$scriptFolder .= $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']);
 		return $scriptFolder;

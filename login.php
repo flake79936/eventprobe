@@ -107,6 +107,11 @@
 									<img src="./images/btn_register.png">
 								</a>
 							</div>
+							<div class="btn-fgtPass">
+								<a href="./reset-pwd-req.php">
+									<img src="./images/btn_fgtPass.png">
+								</a>
+							</div>
 						</div>
 						<div class="btn-fb">
 							<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">

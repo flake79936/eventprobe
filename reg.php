@@ -120,7 +120,7 @@
 							</div>
 							<div class="regEmail">
 								<h5>Email</h5>
-								<input type="text"  placeholder="email@email.com" name="Uemail" title="Enter your Email"id="Uemail" value="<?php echo $fgmembersite->SafeDisplay('Uemail') ?>" maxlength="50" /><br/>
+								<input type="text"  placeholder="email@domain.com" name="Uemail" title="Enter your Email"id="Uemail" value="<?php echo $fgmembersite->SafeDisplay('Uemail') ?>" maxlength="50" /><br/>
 								<span id="register_Uemail_errorloc" class="error"></span>
 							</div>
 							<div class="regTel">

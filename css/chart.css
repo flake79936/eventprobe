@@ -22,7 +22,6 @@
 .chart .box .row .cell h4{ color: #315fa9; }
 .chart .box .row .cell img{ width: 100%; }
 
-.chart .box .row a .circle{ background: #FFFFFF; color: #fff; width: 25px; padding: 5px 2px; margin: 0 auto; margin-bottom: 5px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -khtml-border-radius: 20px; border-radius: 20px; }
 .chart .box .row .circle{ background: #f05a28; color: #fff; width: 25px; padding: 5px 2px; margin: 0 auto; margin-bottom: 5px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -khtml-border-radius: 20px; border-radius: 20px; }
 .chart .box .row .active{ background: #f05a28; }
 .chart .box .row .active h4{ color: #fff; }

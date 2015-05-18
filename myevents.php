@@ -8,12 +8,6 @@
 	
 	$usrname = $fgmembersite->UsrName();
 	
-	if(isset($_POST["submitted"])){
-		if($fgmembersite->deleteEvent()){
-			$fgmembersite->RedirectToURL("./index.php");
-		}
-	}
-	
 	$newformat = date('Y-m-d');
 	//echo "<br>DATE: ". $newformat . "<br>";
 	
@@ -124,6 +118,29 @@
 			window.location = "./editEvent.php?eid="+str;
 		}
 	</script>
+	
+	<script>
+	function deleteEvent(eid){
+		var success = true;
+		$.ajaxSetup({
+			cache: false,
+			beforeSend: function(){
+				$('#myEventsDataLoading').show();
+				$('#myEventsData').hide();
+			},
+			complete: function(){
+				$('#myEventsDataLoading').hide();
+				$('#myEventsData').show();
+			},
+			success: function(){
+				$('#myEventsDataLoading').hide();
+				$('#myEventsData').show();
+			}
+		});
+		var $myEventsContainer = $("#myEventsData");
+		$myEventsContainer.load("loadEvents.php?success=" + success + "&eid=" + eid);
+	}
+</script>
 	<!-- End of Scripts	-->
 </head>
 
