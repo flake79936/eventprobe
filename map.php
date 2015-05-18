@@ -6,8 +6,8 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 	
-// 	$city = $fgmembersite->getCity();
-$city= $_SESSION["city"];
+	// 	$city = $fgmembersite->getCity();
+	$city = $_SESSION["city"];
 	//$city = "El Paso";
 	
 	if(isset($_POST["submitted"])){

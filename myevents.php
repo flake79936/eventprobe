@@ -121,24 +121,28 @@
 	
 	<script>
 	function deleteEvent(eid){
-		var success = true;
-		$.ajaxSetup({
-			cache: false,
-			beforeSend: function(){
-				$('#myEventsDataLoading').show();
-				$('#myEventsData').hide();
-			},
-			complete: function(){
-				$('#myEventsDataLoading').hide();
-				$('#myEventsData').show();
-			},
-			success: function(){
-				$('#myEventsDataLoading').hide();
-				$('#myEventsData').show();
-			}
-		});
-		var $myEventsContainer = $("#myEventsData");
-		$myEventsContainer.load("loadEvents.php?success=" + success + "&eid=" + eid);
+		var success = confirm("You Sure You Want To Delete The Event?");
+		
+		if (success == true) {
+			$.ajaxSetup({
+				cache: false,
+				beforeSend: function(){
+					$('#myEventsDataLoading').show();
+					$('#myEventsData').hide();
+				},
+				complete: function(){
+					$('#myEventsDataLoading').hide();
+					$('#myEventsData').show();
+				},
+				success: function(){
+					$('#myEventsDataLoading').hide();
+					$('#myEventsData').show();
+					alert("Your Event Has Been Deleted.");
+				}
+			});
+			var $myEventsContainer = $("#myEventsData");
+			$myEventsContainer.load("loadEvents.php?success=" + success + "&eid=" + eid);
+		}
 	}
 </script>
 	<!-- End of Scripts	-->
