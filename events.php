@@ -18,6 +18,16 @@
 		
 		$newformat = date('Y-m-d');
 		
+		
+				
+		$qry = "SELECT COUNT(*) FROM Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ;";
+		$result2 = mysqli_query($con, $qry);
+						
+				if(mysqli_num_rows($result2) < 1){
+					// There is no event, do something							
+				}
+		
+		
 		$start = (int)(isset($_GET["st"]) ? $_GET["st"] : 0);
 		$end   = 8;
 
@@ -30,16 +40,7 @@
 		$result = mysqli_query($con, $sql);
 		
 		
-		
-		$qry = "SELECT COUNT(*) FROM Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ;";
-		$result2 = mysqli_query($con, $qry);
-						
-						if(mysqli_num_rows($result2) < 1){
-						// There is no event, do something							
-							}
-				
-		
-		
+
 		
 		
 		
