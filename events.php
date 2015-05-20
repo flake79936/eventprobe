@@ -10,7 +10,7 @@
 // 		$city = $fgmembersite->getCity();
 		$city  = $_SESSION["city"];
  		$state = $_SESSION["state"];
- 		echo $state;
+ 	
 		//$city = "El Paso";
 		
 		if(isset($_POST["submitted"])){
@@ -26,8 +26,7 @@
 
 
 		$num_rows= mysqli_num_rows($result2);
-		echo $num_rows;
- 
+		
  
  		if ($num_rows < 1 ){
  		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Estate = '" . $state . "' 
@@ -37,7 +36,7 @@
  		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' 
  		AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
  		}
- echo $statement;
+//  echo $statement;
  
 		$start = (int)(isset($_GET["st"]) ? $_GET["st"] : 0);
 		$end   = 8;

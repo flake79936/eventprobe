@@ -8,6 +8,7 @@
 	
 	// 	$city = $fgmembersite->getCity();
 	$city = $_SESSION["city"];
+	$state = $_SESSION["state"];
 	//$city = "El Paso";
 	
 	if(isset($_POST["submitted"])){
@@ -23,8 +24,29 @@
 	
 	$startpoint = ($per_paging * $pageId) - $per_paging;
 	
+	
+	
+	
+		$qry = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ;";
+		$result2 = mysqli_query($con, $qry);
+
+
+		$num_rows= mysqli_num_rows($result2);
+		
+ 
+ 		if ($num_rows < 1 ){
+			$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Estate = '" . $state . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ORDER BY EstartDate ";	
+		}
+		else {
+		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ORDER BY EstartDate ";
+		}
+	
+	
+	
+	
+	
 	//please do not add a semicolon at the end of this line, inside of the double quotes.
-	$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ORDER BY EstartDate ";
+// 	$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ORDER BY EstartDate ";
 	
 	$sql = "SELECT * FROM {$statement} LIMIT {$startpoint}, {$per_paging};";
 
