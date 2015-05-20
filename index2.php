@@ -1,7 +1,11 @@
 <?PHP
 $city=$_GET['city'];
+$state=$_GET['state'];
+
 session_start();
 $_SESSION["city"] = $city;
+$_SESSION["state"] = $state;
+
 	require_once("./include/membersite_config.php"); 
 	$minDate = date("Y-m-d");
 	

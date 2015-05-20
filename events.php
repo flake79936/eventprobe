@@ -8,8 +8,9 @@
 		date_default_timezone_set($timezone);
 		
 // 		$city = $fgmembersite->getCity();
-		$city= $_SESSION["city"];
-// 		echo $_SESSION["city"];
+		$city  = $_SESSION["city"];
+ 		$state = $_SESSION["state"];
+ 		echo $state;
 		//$city = "El Paso";
 		
 		if(isset($_POST["submitted"])){
@@ -20,21 +21,31 @@
 		
 		
 				
-		$qry = "SELECT COUNT(*) FROM Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ;";
+		$qry = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ;";
 		$result2 = mysqli_query($con, $qry);
-						
-				if(mysqli_num_rows($result2) < 1){
-					// There is no event, do something							
-				}
-		
-		
+
+
+		$num_rows= mysqli_num_rows($result2);
+		echo $num_rows;
+ 
+ 
+ 		if ($num_rows < 1 ){
+ 		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Estate = '" . $state . "' 
+ 		AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
+ 		}
+ 		else{
+ 		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' 
+ 		AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
+ 		}
+ echo $statement;
+ 
 		$start = (int)(isset($_GET["st"]) ? $_GET["st"] : 0);
 		$end   = 8;
 
 		//$startpoint = ($end * $start) - $end;
 		
 		//please do not add a semicolon at the end of this line, inside of the double quotes.
-		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
+		// $statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
 		
 		$sql = "SELECT * FROM {$statement}  LIMIT {$start}, {$end};";
 		$result = mysqli_query($con, $sql);

@@ -69,11 +69,11 @@ function successFunction(position) {
 
 function errorFunction(){
 var mycity = prompt("It appears that your GPS is off, Please enter your city", "");
-
+var mystate = prompt("It appears that your GPS is off, Please enter your state", "TX");
 
 if (mycity != null) {
 
-window.location.href = "./index2.php?city=" + mycity;
+window.location.href = "./index2.php?city=" + mycity + "&state=" + mystate;
     }
    
 }
