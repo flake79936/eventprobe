@@ -102,12 +102,21 @@ window.location.href = "./index2.php?city=" + mycity + "&state=" + mystate;
                 if (results[0].address_components[i].types[b] == "locality") {
                     //this is the object you are looking for
                     city= results[0].address_components[i];
-                    break;
+//                     break;
                 }
+                
+                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                    //this is the object you are looking for
+                    mystate= results[0].address_components[i];
+//                     break;
+                }
+                
+                
+                
             }
         }
         //city data
-        window.location.href = "./index2.php?city=" + city.long_name;
+        window.location.href = "./index2.php?city=" + city.long_name +"&state=" + mystate.short_name;
 //         alert(city.long_name)
 
 
