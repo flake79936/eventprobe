@@ -455,7 +455,7 @@
 								<!--Start Date picker-->
 								<div class="eStartDate">
 									<h5 for="EstartDate">Start Date</h5>
-									<input type="text" id="datepicker" name="EstartDate" title="Pick Start Date">
+									<input type="text" id="datepicker" name="EstartDate" title="Pick Start Date" readonly="readonly">
 									<br>
 									<span id="eventForm_EstartDate_errorloc" class="error"></span>
 								</div>
