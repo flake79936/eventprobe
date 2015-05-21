@@ -115,7 +115,7 @@
 			
 			<script>
 				$(function(){
-					$( "#datepicker" ).datepicker();
+					$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
 				});
 			</script>
 		<!--(End) Scripts-->
@@ -455,7 +455,7 @@
 								<!--Start Date picker-->
 								<div class="eStartDate">
 									<h5 for="EstartDate">Start Date</h5>
-									<input type="text" id="datepicker" name="EstartDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date">
+									<input type="text" id="datepicker" name="EstartDate" title="Pick Start Date">
 									<br>
 									<span id="eventForm_EstartDate_errorloc" class="error"></span>
 								</div>
