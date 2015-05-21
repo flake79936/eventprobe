@@ -431,13 +431,22 @@
 									<input type="text" name="Ezip" placeholder="12345" title="Enter the Zip code of the Event" id="Ezip" value="" maxlength="50"><br>
 									<span id="eventForm_Ezip_errorloc" class="error"></span>
 								</div>
-							
+								
+								<!--Start Date picker-->
+								<div class="eStartDate">
+									<h5 for="EstartDate">Start Date</h5>
+									<input type="text" id="datepicker" name="EstartDate" title="Pick Start Date" readonly="readonly">
+									<br>
+									<span id="eventForm_EstartDate_errorloc" class="error"></span>
+								</div>
+								
 								<div class="phoneEvent">
 									<h5 for="EphoneNumber">Phone Number</h5>
 									<input type='tel' name="EphoneNumber" id="EphoneNumber" title='Phone Number (Format: (999) 999-9999)' maxlength="16" placeholder="(999) 999-9999" onkeydown="javascript:backspacerDOWN(this, event);" onkeyup="javascript:backspacerUP(this, event);"><br>
 									<span id="eventForm_EphoneNumber_errorloc" class="error"></span>
 								</div>
-								
+	
+							
 								<!--Start Time-->
 								<div class="sTimeEvent">
 									<h5 for="EtimeStart">Start Time</h5>
@@ -452,14 +461,7 @@
 									<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
 								</div>
 
-								<!--Start Date picker-->
-								<div class="eStartDate">
-									<h5 for="EstartDate">Start Date</h5>
-									<input type="text" id="datepicker" name="EstartDate" title="Pick Start Date" readonly="readonly">
-									<br>
-									<span id="eventForm_EstartDate_errorloc" class="error"></span>
-								</div>
-								
+
 								<!--End Date picker-->
 								<!--<div class="eEndDate">
 									<h5 for="EendDate">End Date</h5>
