@@ -103,16 +103,47 @@ $_SESSION["state"] = $state;
 			  to them. The events are the ones the user likes and would like to 
 			  attend in the future.
 			*/
-			function addToUserTable(str) {
-				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function() {
-					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-						//document.getElementById("highlight").innerHTML = xmlhttp.responseText;
-						$(".chart .box .row .info").css({ "background": "#f05a28" });
+			function addToUserTable(str){
+				$.ajaxSetup({
+					cache: false,
+					beforeSend: function(){
+						//myEvents Section
+						$('#myEventsDataLoading').show();
+						$('#myEventsData').hide();
+						
+						//$('#events').hide();
+						//$('#loading').show();
+					},
+					complete: function(){
+						//myEvents Section
+						$('#myEventsDataLoading').hide();
+						$('#myEventsData').show();
+						
+						//$('#loading').hide();
+						//$('#events').show();
+					},
+					success: function(){
+						//myEvents Section
+						$('#myEventsDataLoading').hide();
+						$('#myEventsData').show();
+						
+						$(".chart .box .row .info ." + str).css({ "background": "#f05a28" });
+						//$('#loading').hide();
+						//$('#events').show();
 					}
-				}
-				xmlhttp.open("GET", "./insert.php?eid=" + str, true);
-				xmlhttp.send();
+				});
+				var $freeEventsContainer = $("#events");
+				$freeEventsContainer.load("./insert.php?eid=" + str);
+				
+				//var xmlhttp = new XMLHttpRequest();
+				//xmlhttp.onreadystatechange = function() {
+				//	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				//		//document.getElementById("highlight").innerHTML = xmlhttp.responseText;
+				//		$(".chart .box .row .info").css({ "background": "#f05a28" });
+				//	}
+				//}
+				//xmlhttp.open("GET", "./insert.php?eid=" + str, true);
+				//xmlhttp.send();
 			}
 		</script>
 		
@@ -150,7 +181,6 @@ $_SESSION["state"] = $state;
 				window.location = "./eventDisplayPage.php?eid="+str;
 			}
 		</script>
-		
 	</head>
 	
 	<body lang="en">

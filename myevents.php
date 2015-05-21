@@ -137,7 +137,7 @@
 				success: function(){
 					$('#myEventsDataLoading').hide();
 					$('#myEventsData').show();
-					alert("Your Event Has Been Deleted.");
+					//alert("Your Event Has Been Deleted.");
 				}
 			});
 			var $myEventsContainer = $("#myEventsData");

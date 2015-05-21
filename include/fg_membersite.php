@@ -518,7 +518,7 @@ class FGMembersite{
 		$formvars['EtimeStart'] = date("g:i a", strtotime($formvars['EtimeStart']));
 		$formvars['EtimeEnd']   = date("g:i a", strtotime($formvars['EtimeEnd']));
 		
-		if ($formvars['Eother'] === null)  $formvars['Eother'] = "";
+		if ($formvars['Eother'] === null) $formvars['Eother'] = "";
 		
 		$newStartTime= date("H:i", strtotime($formvars['EtimeStart']));
 		

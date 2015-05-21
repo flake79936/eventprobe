@@ -60,7 +60,7 @@ $city= $_SESSION["city"];
 				}
 				
 				echo "<div class='row' >";
-				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
+				echo "	<div class=".$row['Eid']."><a onClick='seeMoreInfo(".$row['Eid'].");'>";
 				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
 				echo "			<div class='info'>";
 				echo "				<div class='text-info'>";

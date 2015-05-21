@@ -40,13 +40,14 @@
 		<![endif]-->
 		<link rel="stylesheet" media="all" href=""/>
 		
-        
         <!--STYLE-->
         <link rel="stylesheet" type="text/css" href="./css/eventCrt.css" />
         <link rel="stylesheet" type="text/css" href="./css/header.css" />
         <link rel="stylesheet" type="text/css" href="./css/links.css" />
         <link rel="stylesheet" type="text/css" href="./css/footer.css" />
         <link rel="stylesheet" type="text/css" href="./css/jquery-ui.css" />
+		
+		<link rel="stylesheet" href="/resources/demos/style.css">
 		
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"  />
@@ -110,6 +111,12 @@
 						alert("Your dates dont make any senses.\nCheck them again.");
 					}
 				}
+			</script>
+			
+			<script>
+				$(function(){
+					$( "#datepicker" ).datepicker();
+				});
 			</script>
 		<!--(End) Scripts-->
 	</head>
@@ -448,7 +455,8 @@
 								<!--Start Date picker-->
 								<div class="eStartDate">
 									<h5 for="EstartDate">Start Date</h5>
-									<input type="date" name="EstartDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date" id="EstartDate"><br>
+									<input type="text" id="datepicker" name="EstartDate" min="<?PHP echo $minDate; ?>" title="Pick Start Date">
+									<br>
 									<span id="eventForm_EstartDate_errorloc" class="error"></span>
 								</div>
 								
