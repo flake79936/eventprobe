@@ -20,11 +20,11 @@
 	
 	$minDate = date("Y-m-d");
 	
-	$today = Date("m/d/Y");
-	$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$today = Date("Y-m-d");
+	$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate DESC";
 	
 	$past = mysqli_query($con, $sql);
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate DESC";
 	
 	$upcoming = mysqli_query($con, $sql);
 ?>
@@ -266,7 +266,7 @@
 			</div><!--End of Sidebar-->
 			
 			<div class="content">
-				<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
+				<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you Submit?');">
 					<input type="hidden" name="submitted" id="submitted" value="1"/>
 					
 					<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
