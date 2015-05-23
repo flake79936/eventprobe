@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/twitter.css" />
 
-<script type="text/javascript" src="js/twitter.js"></script>
+<script type="text/javascript" src="./js/twitter.js"></script>
 
 <div class="left">
 	<!-- <div class="user"> -->

@@ -29,9 +29,9 @@ $city= $_SESSION["city"];
 ?>
 
 <!-- jQuery library (served from Google) -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- bxSlider Javascript file -->
-<script src="/js/jquery.bxslider.min.js"></script>
+<script src="./js/jquery.bxslider.min.js"></script>
 <!-- bxSlider CSS file -->
 <link href="/css/jquery.bxslider.css" rel="stylesheet" />
 

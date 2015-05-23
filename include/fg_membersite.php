@@ -1422,6 +1422,42 @@ class FGMembersite{
 	/*----(End) Password Management----*/
 	
     /*----(Start) Other Management----*/
+	function isPastEvent($newEventID){
+		if(!$this->DBLogin()){
+            $this->HandleError("Database login failed!");
+            return false;
+        }
+		
+		//check that the event is not a past event.
+		//the user should not be able to edit the event when it is past.
+		
+		
+		
+        if(!$this->EnsureRegTable()){
+            return false;
+        }
+		
+		if(!$this->EnsureMyEventsTable($formvars['UuserName'])){
+            return false;
+        }
+		
+        if(!$this->IsFieldUnique($formvars, 'email')){
+            $this->HandleError("This email is already registered");
+            return false;
+        }
+        
+        if(!$this->IsFieldUnique($formvars, 'username')){
+            $this->HandleError("This UserName is already used. Please try another username");
+            return false;
+        }
+        
+        if(!$this->InsertIntoEventAdvisorDB($formvars)){
+            $this->HandleError("Inserting to Database failed!");
+            return false;
+        }
+        return true;
+	}
+	
 	function GetSelfScript(){
 		return htmlentities($_SERVER['PHP_SELF']);
 	}    

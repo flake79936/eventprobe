@@ -1,5 +1,14 @@
 <!--Module-->
 
+<link rel="stylesheet" type="text/css" href="./css/jquery-ui.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="./js/jquery-ui.js"></script>
+	<script>
+		$(function(){
+			$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
+		});
+	</script>
+
 <?PHP
 	require_once("./include/membersite_config.php");
 
@@ -54,7 +63,7 @@
 		</div>
 		
 		<div class="datePicker">
-			<input type="date" id="searchDate" onchange="showHint(this.value);" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
+			<input type="text" id="datepicker" onClick="showHint(this.value);" value="" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
 		</div>
 		
 		<div class="search-icons">

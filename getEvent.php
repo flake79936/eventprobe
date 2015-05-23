@@ -42,9 +42,11 @@
 		
 		<?PHP
 			while($row = mysqli_fetch_array($result)) {
-			$newStartTime =date("g:i a", strtotime($row['EtimeStart']));
-				$formattedDate= str_replace("-","/",$row['EstartDate']);
-				$formattedDate= substr($formattedDate,5,10);
+				$newStartTime = date("g:i a", strtotime($row['EtimeStart']));
+				
+				$date = date_create($row['EstartDate']);
+				$EstartDate = date_format($date, 'm/d/Y');
+				
 				$type = $row['Etype'];
 				if($row['Eflyer'] === ""){
 					switch($type){
@@ -66,6 +68,7 @@
 				echo "				<div class='text-info'>";
 				//echo "					<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
 				echo "					<div class='ename'>" . $row['Evename'] . "</div>";
+				echo "					<div class='etime'>" . $EstartDate . " </div>";
 				echo "					<div class='etime'>" . $newStartTime ." - ". $row['EtimeEnd'] . " </div>";
 				echo "					<div class='ecity'>" . ucfirst($row['Ecity']) . ", " . strtoupper($row['Estate']) . " </div>";
 				echo "				</div>";

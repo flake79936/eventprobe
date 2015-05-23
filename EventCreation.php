@@ -35,9 +35,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 		
 		<title>Eventprobe</title>
-		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+		
 		<link rel="stylesheet" media="all" href=""/>
 		
         <!--STYLE-->
@@ -53,72 +51,71 @@
         <link rel="shortcut icon" href="favicon.ico"  />
 
 		<!--(Start) Scripts-->
-			<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
-			
-			<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
-			
-			<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-			<script type="text/javascript" src="./js/jquery-ui.js"></script>
-			<script type="text/javascript" src="./js/scripts.js"></script>
-			<script type="text/javascript" src="./js/formatPhone.js"></script>
-			
-			<!--(Start) Script to show whether the event is 'Other'-->
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$(".typeOther").hide();
-						$("#Etype").change(function(){
-							$("#Etype option:selected").each(function(){
-								if($(this).attr("value") == "Other"){
-									$(".typeOther").show();
-								} else {
-									$(".typeOther").hide();
-								}
-							});
-						}).change();
-					});
-				</script>
-			<!--(End) Script to show whether the event is 'Other'-->
-			
-			<!--(Start) Counts the number of characters-->
-				<script type="text/javascript">
-					//counts for the text area tag
-					function textCounter(field, cnt, maxlimit) {         
-						var cntfield = document.getElementById(cnt)
-						if (field.value.length > maxlimit) // if too long...trim it!
-							field.value = field.value.substring(0, maxlimit);
-						 // otherwise, update 'characters left' counter
-						else
-							//cntfield.value = maxlimit - field.value.length;
-							document.getElementById(cnt).innerHTML = maxlimit - field.value.length;
-					}
-				</script>
-			<!--(End) Counts the number of characters-->
-			
-			<!--onclick it will redirect the user to the event display page, displaying the event the user clicked on.-->
-			<script>
-				function seeMoreInfo(str){
-					window.location = "./eventDisplayPage.php?eid="+str;
-				}
-			</script>
-			
+		<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+		
+		<script type="text/javascript" src="./js/gen_validatorv31.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="./js/jquery-ui.js"></script>
+		<script type="text/javascript" src="./js/scripts.js"></script>
+		<script type="text/javascript" src="./js/formatPhone.js"></script>
+		
+		<!--(Start) Script to show whether the event is 'Other'-->
 			<script type="text/javascript">
-				function checkDates(){
-					//var minDate = document.getElementById("EstartDate").getAttribute("src");
-					var minDate = document.getElementById("EstartDate").value;
-					var maxDate = document.getElementById("EendDate").value;
-					
-					if(minDate > maxDate){
-						alert("Your dates dont make any senses.\nCheck them again.");
-					}
-				}
-			</script>
-			
-			<script>
-				$(function(){
-					$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
+				$(document).ready(function(){
+					$(".typeOther").hide();
+					$("#Etype").change(function(){
+						$("#Etype option:selected").each(function(){
+							if($(this).attr("value") == "Other"){
+								$(".typeOther").show();
+							} else {
+								$(".typeOther").hide();
+							}
+						});
+					}).change();
 				});
 			</script>
-		<!--(End) Scripts-->
+		<!--(End) Script to show whether the event is 'Other'-->
+		
+		<!--(Start) Counts the number of characters-->
+			<script type="text/javascript">
+				//counts for the text area tag
+				function textCounter(field, cnt, maxlimit) {         
+					var cntfield = document.getElementById(cnt)
+					if (field.value.length > maxlimit) // if too long...trim it!
+						field.value = field.value.substring(0, maxlimit);
+					 // otherwise, update 'characters left' counter
+					else
+						//cntfield.value = maxlimit - field.value.length;
+						document.getElementById(cnt).innerHTML = maxlimit - field.value.length;
+				}
+			</script>
+		<!--(End) Counts the number of characters-->
+		
+		<!--onclick it will redirect the user to the event display page, displaying the event the user clicked on.-->
+		<script>
+			function seeMoreInfo(str){
+				window.location = "./eventDisplayPage.php?eid="+str;
+			}
+		</script>
+		
+		<script type="text/javascript">
+			function checkDates(){
+				//var minDate = document.getElementById("EstartDate").getAttribute("src");
+				var minDate = document.getElementById("EstartDate").value;
+				var maxDate = document.getElementById("EendDate").value;
+				
+				if(minDate > maxDate){
+					alert("Your dates dont make any senses.\nCheck them again.");
+				}
+			}
+		</script>
+		
+		<script>
+			$(function(){
+				$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
+			});
+		</script>
+	<!--(End) Scripts-->
 	</head>
 	
 	<body lang="en">
