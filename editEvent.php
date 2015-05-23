@@ -17,11 +17,11 @@
 	
 	$minDate = date("Y-m-d");
 	
-	$today = Date("m/d/Y");
-	$upcomingSQL = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$today = Date("Y-m-d");
+	$upcomingSQL = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate DESC";
 	$upcoming = mysqli_query($con, $upcomingSQL);
 	
-	$pastSQL = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$pastSQL = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate DESC";
 	$past = mysqli_query($con, $pastSQL);
 	
 	if(isset($_POST["submitted"])){
@@ -438,11 +438,13 @@
 										<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
 									</div>
 									
+<!-- 
 									<div class="eStartDate">
 										<h5 for="EstartDate">Start Date</h5>
 										<input type="date" name="EstartDate" min="<?PHP echo $minDate; ?>" placeholder="12/22/2015" title="Pick Start Date" id="EstartDate" value="<?PHP echo $row['EstartDate']; ?>" maxlength="50"><br>
 										<span id="eventForm_EstartDate_errorloc" class="error"></span>
 									</div>	
+ -->
 
 									<!--End Date picker-->
 <!-- 
