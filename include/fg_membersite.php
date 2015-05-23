@@ -522,11 +522,20 @@ class FGMembersite{
 		
 		$newStartTime= date("H:i", strtotime($formvars['EtimeStart']));
 		
+		$EstartDate= $formvars['EstartDate'] ;
+		
+		$EstartDate= strtotime($EstartDate);
+		$EstartDate= date("Y-m-d",$EstartDate);
+		
+		
+		
+		
+		
 		$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank,Edisplay)
 			VALUES(
 				"' . $this->SanitizeForSQL($uName) . '",
 				"' . $this->SanitizeForSQL($formvars['Evename']) . '",
-				"' . $this->SanitizeForSQL($formvars['EstartDate']) . '",
+				"' . $this->SanitizeForSQL($EstartDate) . '",
 				"' . $this->SanitizeForSQL($formvars['EendDate']) . '",
 				"' . $this->SanitizeForSQL($formvars['Eaddress']) . '",
 				"' . $this->SanitizeForSQL($formvars['Ecity']) . '",
@@ -910,11 +919,19 @@ class FGMembersite{
 		$formvars['EtimeEnd']   = date("g:i a", strtotime($formvars['EtimeEnd']));
 		
 		$newStartTime= date("H:i", strtotime($formvars['EtimeStart']));
+		
+		
+		$EstartDate= $formvars['EstartDate'] ;
+		
+		$EstartDate= strtotime($EstartDate);
+		$EstartDate= date("Y-m-d",$EstartDate);
+		
+		
 		/* If the option from the drop down in the form is 'Other'
 		 * Then we use this option that allows to insert the other typed by the user.
 		 */
 		$insert_query = 'UPDATE ' . $this->tablename2 . ' SET UuserName = "' . $this->SanitizeForSQL($uName) . '", ' 
-		. 'Evename = "' . $this->SanitizeForSQL($formvars['Evename']) . '", EstartDate = "' . $this->SanitizeForSQL($formvars['EstartDate']) . '", ' 
+		. 'Evename = "' . $this->SanitizeForSQL($formvars['Evename']) . '", EstartDate = "' . $this->SanitizeForSQL($EstartDate) . '", ' 
 		. 'EendDate =  "' . $this->SanitizeForSQL($formvars['EendDate']) . '", Eaddress = "' . $this->SanitizeForSQL($formvars['Eaddress']) . '", ' 
 		. 'Ecity = "' . $this->SanitizeForSQL($formvars['Ecity']) . '", Estate = "' . $this->SanitizeForSQL($formvars['Estate']) . '", ' 
 		. 'Ezip = "' . $this->SanitizeForSQL($formvars['Ezip']) . '", EphoneNumber = "' . $this->SanitizeForSQL($formvars['EphoneNumber']) . '", ' 

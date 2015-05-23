@@ -115,7 +115,12 @@
 			
 			<script>
 				$(function(){
-					$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
+					$( "#datepicker" ).datepicker({ 
+					    buttonImage: "images/calendar.png",
+	      				buttonImageOnly: true,
+	      				minDate: 0,
+	      				maxDate: "+1M +10D" 
+	      				});
 				});
 			</script>
 		<!--(End) Scripts-->
