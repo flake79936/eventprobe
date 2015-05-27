@@ -52,6 +52,61 @@
 
         <!--FAVICON-->
         <link rel="shortcut icon" href="favicon.ico"/>
+		
+		<!--(Start) Scripts-->
+		<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
+		
+		<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+		
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="./js/jquery-ui.js"></script>
+		<script type="text/javascript" src="./js/scripts.js"></script>
+		<script type="text/javascript" src="./js/formatPhone.js"></script>
+		
+		<!--(Start) Counts the number of characters-->
+			<script type="text/javascript">
+				function textCounter(field, cnt, maxlimit){
+					var cntfield = document.getElementById(cnt)
+					if (field.value.length > maxlimit) // if too long...trim it!
+						field.value = field.value.substring(0, maxlimit);
+					// otherwise, update 'characters left' counter
+					else
+						//cntfield.value = maxlimit - field.value.length;
+						document.getElementById(cnt).innerHTML = maxlimit - field.value.length;
+				}
+			</script>
+		<!--(End) Counts the number of characters-->
+		
+		<!--(Start) Script to show whether the event is 'Other'-->
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$(".typeOther").hide();
+					$("#Etype").change(function(){
+						$("#Etype option:selected").each(function(){
+							if($(this).attr("value") == "Other"){
+								$(".typeOther").show();
+							} else {
+								$(".typeOther").hide();
+							}
+						});
+					}).change();
+				});
+			</script>
+		<!--(End) Script to show whether the event is 'Other'-->
+
+		<!--Redirects the user to the edit page.-->
+		<script>
+			function editInfo(str){
+				window.location = "./editEvent.php?eid="+str;
+			}
+		</script>
+		
+		<script>
+			$(function(){
+				$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
+			});
+		</script>
+	<!--(End) Scripts-->
 	</head>
 	
 	<body lang="en">
@@ -492,59 +547,4 @@
    			 };
 		</script>
 	</body>
-	
-	<!--(Start) Scripts-->
-		<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
-		
-		<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
-		
-		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="./js/jquery-ui.js"></script>
-		<script type="text/javascript" src="./js/scripts.js"></script>
-		<script type="text/javascript" src="./js/formatPhone.js"></script>
-		
-		<!--(Start) Counts the number of characters-->
-			<script type="text/javascript">
-				function textCounter(field, cnt, maxlimit){
-					var cntfield = document.getElementById(cnt)
-					if (field.value.length > maxlimit) // if too long...trim it!
-						field.value = field.value.substring(0, maxlimit);
-					// otherwise, update 'characters left' counter
-					else
-						//cntfield.value = maxlimit - field.value.length;
-						document.getElementById(cnt).innerHTML = maxlimit - field.value.length;
-				}
-			</script>
-		<!--(End) Counts the number of characters-->
-		
-		<!--(Start) Script to show whether the event is 'Other'-->
-			<script type="text/javascript">
-				$(document).ready(function(){
-					$(".typeOther").hide();
-					$("#Etype").change(function(){
-						$("#Etype option:selected").each(function(){
-							if($(this).attr("value") == "Other"){
-								$(".typeOther").show();
-							} else {
-								$(".typeOther").hide();
-							}
-						});
-					}).change();
-				});
-			</script>
-		<!--(End) Script to show whether the event is 'Other'-->
-
-		<!--Redirects the user to the edit page.-->
-		<script>
-			function editInfo(str){
-				window.location = "./editEvent.php?eid="+str;
-			}
-		</script>
-		
-		<script>
-			$(function(){
-				$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
-			});
-		</script>
-	<!--(End) Scripts-->
 </html>
