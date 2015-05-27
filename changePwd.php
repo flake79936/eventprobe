@@ -61,8 +61,8 @@
 				// <![CDATA[
 				var pwdwidget = new PasswordWidget('oldpwddiv', 'oldpwd');
 				pwdwidget.enableGenerate = false;
-				pwdwidget.enableShowStrength=false;
-				pwdwidget.enableShowStrengthStr =false;
+				pwdwidget.enableShowStrength = false;
+				pwdwidget.enableShowStrengthStr = false;
 				pwdwidget.MakePWDWidget();
 
 				var pwdwidget = new PasswordWidget('newpwddiv','newpwd');
