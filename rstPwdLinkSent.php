@@ -22,7 +22,7 @@
 		
 		<div class="form-wrap">
 			<h2>Reset password link sent</h2>
-			An email is sent to your email address that contains the link to reset the password.
+			An email was sent to your email address that contains the link to reset the password.
 		</div>
 
 		<div class="links">
@@ -33,5 +33,4 @@
 			<?PHP include './footer.php'; ?>
 		</div>
 	</body>
-	
 </html>

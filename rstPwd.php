@@ -1,9 +1,9 @@
 <?PHP
 	require_once("./include/membersite_config.php");
-		$success = false;
-		if($fgmembersite->resetPassword()){
-			$success = true;
-		}
+	$success = false;
+	if($fgmembersite->resetPassword()){
+		$success = true;
+	}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

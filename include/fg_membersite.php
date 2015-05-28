@@ -709,7 +709,7 @@ class FGMembersite{
     }
     
     function UserEmail(){
-        return isset($_SESSION['email_of_user'])?$_SESSION['email_of_user']:'';
+        return isset($_SESSION['email_of_user']) ? $_SESSION['email_of_user'] : '';
     }
 	
 	function getLatitude(){
@@ -1308,7 +1308,7 @@ class FGMembersite{
 		if(!$this->getUserFromEmail($email, $user_rec)){
 			return false;
 		}
-
+        
 		$new_password = $this->resetUserPasswordInDB($user_rec);
 		
 		if(false === $new_password || empty($new_password)){
@@ -1322,51 +1322,93 @@ class FGMembersite{
 		}
 		return true;
 	}
-
-	function ChangePassword(){
-		if(!$this->CheckSession()){
-			$this->HandleError("Not logged in!");
-			return false;
-		}
-
-		if(empty($_POST['oldpwd'])){
-			$this->HandleError("Old password is empty!");
+	
+	function isSetCode(){
+		if(empty($_GET['ue'])){
+			$this->HandleError("Email is empty!");
 			return false;
 		}
 		
-		if(empty($_POST['newpwd'])){
-			$this->HandleError("New password is empty!");
-			return false;
-		}
-
-		$user_rec = array();
-
-		if(!$this->getUserFromEmail($this->UserEmail(),$user_rec)){
-			return false;
-		}
-
-		$pwd = trim($_POST['oldpwd']);
-
-		if($user_rec['UPswd'] != md5($pwd)){
-			$this->HandleError("The old password does not match!");
+		if(empty($_GET['co'])){
+			$this->HandleError("Reset code is empty!");
 			return false;
 		}
 		
-		$newpwd = trim($_POST['newpwd']);
+		$email = trim($_GET['ue']);
+		$code  = trim($_GET['co']);
 
-		if(!$this->changePasswordInDB($user_rec, $newpwd)){
+		if($this->getResetPasswordCode($email) != $code){
+			$this->HandleError("Bad reset code!");
 			return false;
 		}
 		return true;
 	}
 
-	function changePasswordInDB($user_rec, $newpwd){
-		$newpwd = $this->SanitizeForSQL($newpwd);
+	function changePassword(){
+		//if(!$this->CheckSession()){
+		//	$this->HandleError("Not logged in!");
+		//	return false;
+		//}
 		
-		$qry = "UPDATE $this->tablename1 SET UPswd='" . md5($newpwd) . "' WHERE UuserName='" . $user_rec['UuserName'] . "'";
+		if(empty($_POST['newPwd'])){
+			$this->HandleError("New Password Is Empty!");
+			return false;
+		}
+		
+		if(empty($_POST['conNewPwd'])){
+			$this->HandleError("New Password Confirmation Is Empty!");
+			return false;
+		}
+		
+		$newPwd    = trim($_POST['newPwd']);
+		$conNewPwd = trim($_POST['conNewPwd']);
+		$ue        = trim($_POST['ue']);
+		$co        = trim($_POST['co']);
+		
+		if($newPwd !== $conNewPwd){
+			$this->HandleError("Passwords Do Not Match!");
+			return false;
+		} else {
+			if($this->getResetPasswordCode($ue) != $co){
+				$this->HandleError("Bad Reset Code!");
+				return false;
+			} else {
+				if(!$this->changePasswordInDB($ue, $newPwd)){
+					$this->HandleError("Did Not Update Password!");
+					return false;
+				}
+			}
+		}
+		
+		//$user_rec = array();
+
+		//if(!$this->getUserFromEmail($this->UserEmail(), $user_rec)){
+		//	return false;
+		//}
+
+		//$pwd = trim($_POST['oldpwd']);
+
+		//if($user_rec['UPswd'] != md5($pwd)){
+		//	$this->HandleError("The old password does not match!");
+		//	return false;
+		//}
+		
+		//$newpwd = trim($_POST['newpwd']);
+		return true;
+	}
+
+	function changePasswordInDB($ue, $newPwd){
+		if(!$this->DBLogin()){
+			$this->HandleError("Database login failed!");
+			return false;
+		}
+		
+		$newPwd = $this->SanitizeForSQL($newPwd);
+		
+		$qry = "UPDATE $this->tablename1 SET UPswd='" . md5($newPwd) . "' WHERE Uemail='" . $ue . "'";
 
 		if(!mysql_query($qry, $this->connection)){
-			$this->HandleDBError("Error updating the password \nquery:$qry");
+			$this->HandleDBError("Error: No Such Email Found In Our Records!");
 			return false;
 		}    
 		return true;
@@ -1385,7 +1427,7 @@ class FGMembersite{
 
 		$mailer->From = $this->getFromAddress();
 
-		$link = $this->getAbsoluteURLFolder() . 'rstPwd.php?ue=' . urlencode($email) . '&code=' . urlencode($this->getResetPasswordCode($email));
+		$link = $this->getAbsoluteURLFolder() . 'changePwd.php?ue=' . urlencode($email) . '&co=' . urlencode($this->getResetPasswordCode($email));
 
 		$mailer->Body ="Hello " . $user_rec['name'] . "\r\n\r\n".
 		"There was a request to reset your password at " . $this->sitename . "\r\n".
@@ -1486,7 +1528,7 @@ class FGMembersite{
 		return htmlentities($_POST[$value_name]);
 	}
 
-	function RedirectToURL($url){
+	function redirectToURL($url){
 		header("Location: $url");
 		exit;
 	}
