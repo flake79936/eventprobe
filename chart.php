@@ -119,7 +119,7 @@
 
 <div class="box">
 	<div class="title">
-		<h1>Today and this Week Near You</h1>
+		<!--<h1>Today and this Week Near You</h1>-->
 		<!--To refresh, we can create a method in fg_membersite-->
 		<!--<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>-->
 		<div class="clear"></div>
