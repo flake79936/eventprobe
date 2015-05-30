@@ -77,26 +77,26 @@ $_SESSION["state"] = $state;
 			 * background to search the DB and get the result based on what the 
 			 * user typed
 			 */
-			function showHint(str) {
-				if (str.length == 0){
-					document.getElementById("txtHint").innerHTML = "";
-					$(".my-events").show();
-					$(".this-week").show();
-					$(".schedule").show();
-					$(".chart").show();
-					$(".app").show();
-					return;
-				} else {
-					var xmlhttp = new XMLHttpRequest();
-					xmlhttp.onreadystatechange = function() {
-						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-							document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-						}
-					}
-					xmlhttp.open("GET", "./getEvent.php?q=" + str, true);
-					xmlhttp.send();
-				}
-			}
+			//function showHint(str) {
+			//	if (str.length == 0){
+			//		document.getElementById("txtHint").innerHTML = "";
+			//		$(".my-events").show();
+			//		$(".this-week").show();
+			//		$(".schedule").show();
+			//		$(".chart").show();
+			//		$(".app").show();
+			//		return;
+			//	} else {
+			//		var xmlhttp = new XMLHttpRequest();
+			//		xmlhttp.onreadystatechange = function() {
+			//			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			//				document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+			//			}
+			//		}
+			//		xmlhttp.open("GET", "./getEvent.php?q=" + str, true);
+			//		xmlhttp.send();
+			//	}
+			//}
 			
 			/*When the '+' plus button on the chart section is clicked,
 			  it will be added to a list for the user on which they are related
@@ -149,29 +149,29 @@ $_SESSION["state"] = $state;
 		
 		<script>
 			$(document).ready(function(){
-				$("input").keydown(function(){
-					$(".my-events").hide();
-					$(".this-week").hide();
-					$(".schedule").hide();
-					$(".chart").hide();
-					$(".app").hide();
-				});
+				//$("input").keydown(function(){
+				//	$(".my-events").hide();
+				//	$(".this-week").hide();
+				//	$(".schedule").hide();
+				//	$(".chart").hide();
+				//	$(".app").hide();
+				//});
 				
-				$("#concert, #fair, #sport, #art").click(function(){
-					$(".my-events").hide();
-					$(".this-week").hide();
-					$(".schedule").hide();
-					$(".chart").hide();
-					$(".app").hide();
-				});
+				//$("#concert, #fair, #sport, #art").click(function(){
+				//	$(".my-events").hide();
+				//	$(".this-week").hide();
+				//	$(".schedule").hide();
+				//	$(".chart").hide();
+				//	$(".app").hide();
+				//});
 				
-				$("#searchDate").change(function(){
-					$(".my-events").hide();
-					$(".this-week").hide();
-					$(".schedule").hide();
-					$(".chart").hide();
-					$(".app").hide();
-				});
+				//$("#searchDate").change(function(){
+				//	$(".my-events").hide();
+				//	$(".this-week").hide();
+				//	$(".schedule").hide();
+				//	$(".chart").hide();
+				//	$(".app").hide();
+				//});
 			});
 		</script>
 		
@@ -218,7 +218,7 @@ $_SESSION["state"] = $state;
 		</div>
 
 		<!--Section where events will show when user types on the search bar-->
-		<div class="events" id="txtHint"></div>
+		<!--<div class="events" id="txtHint"></div>-->
 		<div class="clear"></div>
 
 		<!--App Section-->

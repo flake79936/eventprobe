@@ -1,13 +1,13 @@
 <!--Module-->
 
 <link rel="stylesheet" type="text/css" href="./css/jquery-ui.css" />
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="./js/jquery-ui.js"></script>
-	<script>
-		$(function(){
-			$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
-		});
-	</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="./js/jquery-ui.js"></script>
+<script>
+	$(function(){
+		$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
+	});
+</script>
 
 <?PHP
 	require_once("./include/membersite_config.php");
@@ -57,11 +57,14 @@
  	<?PHP if(!$pos2 !== false){ ?>
 
 <div class="search">
-	<form>
+	<form action="./getEvent.php" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 		<div class="searchBar">
-			<input type="text" onKeyUp="showHint(this.value);" placeholder="Search for Event, City, State, Zip Code">
+			<input type="text" name="qry" id="qry" placeholder="Search for Event, City, State, Zip Code">
+			<input type="submit" id="submitButton" name="submitButton" value="Submit">
 		</div>
-		
+	</form>
+	
+	<form>
 		<div class="datePicker">
 			<input type="text" id="datepicker" onClick="showHint(this.value);" value="" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
 		</div>

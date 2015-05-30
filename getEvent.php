@@ -5,95 +5,144 @@
 	$timezone = $fgmembersite->getLocalTimeZone();
 	date_default_timezone_set($timezone);
 ?>
-
-<head>
-	<link rel="stylesheet" type="text/css" href="css/getEvent.css" />
-</head>
-
-<body lang="en">
-	<?php
-		//$q = intval($_GET['q']);
-
-		$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
-		if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
-		mysqli_select_db($con, "EventAdvisors");
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/getEvent.css" />
+		<link rel="stylesheet" type="text/css" href="css/header.css" />
+		<link rel="stylesheet" type="text/css" href="css/links.css" />
+		<link rel="stylesheet" type="text/css" href="css/footer.css" />
 		
-		$newformat = date('Y-m-d');
+		<script>
+			/* User types in search bar, this will send an HTTP request on the 
+			 * background to search the DB and get the result based on what the 
+			 * user typed
+			 */
+			function showHint(str) {
+				if (str.length == 0){
+					document.getElementById("txtHint").innerHTML = "";
+					$(".my-events").show();
+					$(".this-week").show();
+					$(".schedule").show();
+					$(".chart").show();
+					$(".app").show();
+					return;
+				} else {
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+							document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+						}
+					}
+					xmlhttp.open("GET", "./getEvent.php?q=" + str, true);
+					xmlhttp.send();
+				}
+			}
+			
+			function seeMoreInfo(str){
+				window.location = "./eventDisplayPage.php?eid="+str;
+			}
+		</script>
+	</head>
 
-		$var = isset($_GET['q']) && $_GET['q'] != "" ? "'.*" . $_GET['q'] .".*'" : null;
-		$envar = isset($_GET['eq']) && $_GET['eq'] != "" ? "'.*" . $_GET['eq'] .".*'" : null; //the second parameter that will denote the end date.
-		
-		$qry = "SELECT * FROM Events ";
-		$qry .= $var != null ? 
-				" WHERE (EstartDate REGEXP $var OR Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) 
-				AND EstartDate >='".$newformat."' AND Edisplay ='1' ORDER BY EstartDate, EtimeStart" 
-				: "";
-		$qry .= $envar != null ? " between {$var} and {$envar} " : "";
-		
-		$result = mysqli_query($con, $qry);
-	?>
-	<div class="box">
-		<div class="title">
-			<h1>Today and this Week Near You</h1>
-			<!--To refresh, we can create a method in fg_membersite-->
-			<!--<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>-->
-			<div class="clear"></div>
+	<body lang="en">
+		<div class="header">
+			<?PHP include './header.php';?>
 		</div>
 		
-		<?PHP
-			while($row = mysqli_fetch_array($result)) {
-				$newStartTime = date("g:i a", strtotime($row['EtimeStart']));
-				
-				$date = date_create($row['EstartDate']);
-				$EstartDate = date_format($date, 'm/d/Y');
-				
-				$type = $row['Etype'];
-				if($row['Eflyer'] === ""){
-					switch($type){
-						case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
-						case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
-						case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
-						case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
-						case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
-						case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
-						default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
-					}
-				}
-				
-				//echo "Inside the Today " . $row['EstartDate'];
-				echo "<div class='row'>";
-				echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
-				echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
-				echo "			<div class='info'>";
-				echo "				<div class='text-info'>";
-				//echo "					<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
-				echo "					<div class='ename'>" . $row['Evename'] . "</div>";
-				echo "					<div class='etime'>" . $EstartDate . " </div>";
-				echo "					<div class='etime'>" . $newStartTime ." - ". $row['EtimeEnd'] . " </div>";
-				echo "					<div class='ecity'>" . ucfirst($row['Ecity']) . ", " . strtoupper($row['Estate']) . " </div>";
-				echo "				</div>";
-				echo "				<div class='social-icons'>";
-									if ($row['Efacebook']){
-				echo "					<div class='FB'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'> </div>";
-									}
-									if ($row['Etwitter']){
-				echo "					<div class='TW'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'> <img src='images/icon_twitter.png'> </a></div>";
-									}
-									if ($row['Egoogle']){
-				echo "					<div class='Goo'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/icon_google.png'> </a></div>";
-									}
-									if ($row['Ehashtag']){
-				echo "					<div class='Hashtag'>" . $row['Ehashtag'] . "</div>";
-									}
-				echo "				</div>";
-				//echo "				<div class='more'>More Info</div>";
-
-				echo "			</div>";
-				echo "		<div class='clear'></div>";
-				echo "	</a></div>";
-				echo "</div>";
-			}
-			mysqli_close($con);
+		<div class="events">
+		<?php
+			$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
+			if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
+			mysqli_select_db($con, "EventAdvisors");
+			
+			$newformat = date('m/d/Y');
+			
+			//echo $_POST['qry'] . " post variable <br>";
+			
+			$var = isset($_POST['qry']) && $_POST['qry'] != "" ? "'.*" . $_POST['qry'] .".*'" : null;
+			
+			//echo $var . " variable <br>";
+			
+			$qry = "SELECT * FROM Events ";
+			$qry .= $var != null ? 
+					" WHERE (EstartDate REGEXP $var OR Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) 
+					AND EstartDate >='".$newformat."' AND Edisplay ='1' ORDER BY EstartDate, EtimeStart" 
+					: "";
+					
+			//echo $qry . " query <br>";
+			
+			$result = mysqli_query($con, $qry);
 		?>
-	</div>
-</body>
+		<div class="box">
+			<div class="title">
+				<h1>Today and this Week Near You</h1>
+				<!--To refresh, we can create a method in fg_membersite-->
+				<!--<a href="#"><img src="images/btn_refresh.png" alt="Refresh" /></a>-->
+				<div class="clear"></div>
+			</div>
+			
+			<?PHP
+				while($row = mysqli_fetch_array($result)) {
+					$newStartTime = date("g:i a", strtotime($row['EtimeStart']));
+					
+					$date = date_create($row['EstartDate']);
+					$EstartDate = date_format($date, 'm/d/Y');
+					
+					$type = $row['Etype'];
+					if($row['Eflyer'] === ""){
+						switch($type){
+							case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
+							case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
+							case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
+							case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
+							case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
+							case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
+							default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
+						}
+					}
+					
+					//echo "Inside the Today " . $row['EstartDate'];
+					echo "<div class='row'>";
+					echo "	<div><a onClick='seeMoreInfo(".$row['Eid'].");'>";
+					echo "		<div class='profile'><img src='".$row['Eflyer']."' alt='Image' /></div>";
+					echo "			<div class='info'>";
+					echo "				<div class='text-info'>";
+					//echo "					<div class='box'>" . $row['EtimeStart'] ." - ". $row['EtimeEnd'] . "</div>";
+					echo "					<div class='ename'>" . $row['Evename'] . "</div>";
+					echo "					<div class='etime'>" . $EstartDate . " </div>";
+					echo "					<div class='etime'>" . $newStartTime ." - ". $row['EtimeEnd'] . " </div>";
+					echo "					<div class='ecity'>" . ucfirst($row['Ecity']) . ", " . strtoupper($row['Estate']) . " </div>";
+					echo "				</div>";
+					echo "				<div class='social-icons'>";
+										if ($row['Efacebook']){
+					echo "					<div class='FB'> <a href=". $row['Efacebook']." target='_blank'  > <img src='images/icon_fb.png'> </div>";
+										}
+										if ($row['Etwitter']){
+					echo "					<div class='TW'> <a href=https://twitter.com/". $row['Etwitter']." target='_blank'> <img src='images/icon_twitter.png'> </a></div>";
+										}
+										if ($row['Egoogle']){
+					echo "					<div class='Goo'> <a href=". $row['Egoogle']." target='_blank'  > <img src='images/icon_google.png'> </a></div>";
+										}
+										if ($row['Ehashtag']){
+					echo "					<div class='Hashtag'>" . $row['Ehashtag'] . "</div>";
+										}
+					echo "				</div>";
+					//echo "				<div class='more'>More Info</div>";
+
+					echo "			</div>";
+					echo "		<div class='clear'></div>";
+					echo "	</a></div>";
+					echo "</div>";
+				}
+			?>
+		</div>
+		
+		<div class="links">
+			<?PHP include './links.php'; ?>
+		</div>
+		
+		<div class="footer">
+			<?PHP include './footer.php'; ?>
+		</div>
+	</body>
+</html>
