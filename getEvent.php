@@ -55,7 +55,7 @@
 			if (!$con) { die('Could not connect: ' . mysqli_error($con)); }
 			mysqli_select_db($con, "EventAdvisors");
 			
-			$newformat = date('m/d/Y');
+			$newformat = date('Y-m-d');
 			
 			//echo $_POST['qry'] . " post variable <br>";
 			
