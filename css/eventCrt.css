@@ -31,9 +31,10 @@ p{ line-height: normal; }
 .eventCrt .content{ float: none; width: auto;  padding: 10px 0 0 0; background: #fff; border-bottom: 1px solid #999; }
 .eventCrt .policy{ float: none; width: auto; padding: 133px 0px 10px 30px; }
 
-.eventCrt .content .form-wrap .user-profile{ float: left; margin: -25px 0 0 0; }
+.eventCrt .content .form-wrap .user-profile{ float: left; margin: -35px 0 0 0; width: 250px; }
 .eventCrt .content .form-wrap .user-profile img{ border: 10px solid #f5f5f5; width: 100%; height: 250px;}
-.eventCrt .content .form-wrap .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 0 0 0; position: relative; z-index: 9; top: 229px; color: #fff; width: 86%; }
+.eventCrt .content .form-wrap .user-profile p { font-size: 10pt; width: 220px; margin: 0 0 0 0;}
+.eventCrt .content .form-wrap .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 0 0 0; position: relative; z-index: 9; top: 229px; color: #fff; width: 91%; }
 .eventCrt .content .form-wrap .user-profile .update-image h5{ float: left; text-transform: uppercase; padding: 7px 0 0 0; }
 .eventCrt .content .form-wrap .user-profile .update-image img{ float: right; border: none; }
 
@@ -62,6 +63,14 @@ p{ line-height: normal; }
 .eventCrt .content .form-wrap .user-form-bottom .box-bottom .fbEvent,
 .eventCrt .content .form-wrap .user-form-bottom .box-bottom .gooEvent,
 .eventCrt .content .form-wrap .user-form-bottom .box-bottom .twEvent{ float: left; width: 50%; }
+
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .user-banner{ float: left; margin: -70px 0 10px 0; }
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .user-banner img{ border: 10px solid #f5f5f5; width: 690px; height: 125px;}
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .user-banner input{ width: 96%; border: none; padding: 5px; margin: 0 0 0 0; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .user-banner p { font-size: 10pt; width: 220px; margin: 0 0 0 5px;}
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .user-banner .bannerImage{ background: url(../images/bg_black.png) repeat; padding: 5px; margin: 0 0 0 0; position: relative; z-index: 9; top: 130px; color: #fff; width: 98%; }
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .user-banner .bannerImage h5{ float: left; text-transform: uppercase; padding: 7px 0 0 0; }
+.eventCrt .content .form-wrap .user-form-bottom .box-bottom .user-banner .bannerImage img{ float: right; border: none; }
 
 .eventCrt .content .form-wrap .user-form-bottom .box-bottom .hashEvent{ width: 50%; }
 

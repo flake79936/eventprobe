@@ -21,12 +21,11 @@
 	$minDate = date("Y-m-d");
 	
 	$today = Date("m/d/Y");
-	$sql = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$sqlUpcoming = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$upcoming = mysqli_query($con, $sqlUpcoming);
 	
-	$past = mysqli_query($con, $sql);
-	$sql = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
-	
-	$upcoming = mysqli_query($con, $sql);
+	$sqlPast = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$past = mysqli_query($con, $sqlPast);
 ?>
 
 <html lang="en">
@@ -48,7 +47,7 @@
 		<link rel="stylesheet" href="/resources/demos/style.css">
 		
         <!--FAVICON-->
-        <link rel="shortcut icon" href="favicon.ico"  />
+        <link rel="shortcut icon" href="favicon.ico" />
 
 		<!--(Start) Scripts-->
 		<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
@@ -58,10 +57,12 @@
 		<script type="text/javascript" src="./js/jquery-ui.js"></script>
 		<script type="text/javascript" src="./js/scripts.js"></script>
 		<script type="text/javascript" src="./js/formatPhone.js"></script>
+		<script type="text/javascript" src="./js/formatDate.js"></script>
 		
 		<!--(Start) Script to show whether the event is 'Other'-->
 			<script type="text/javascript">
 				$(document).ready(function(){
+					// shows/hides the other type of event input box.
 					$(".typeOther").hide();
 					$("#Etype").change(function(){
 						$("#Etype option:selected").each(function(){
@@ -69,6 +70,18 @@
 								$(".typeOther").show();
 							} else {
 								$(".typeOther").hide();
+							}
+						});
+					}).change();
+					
+					// shows/hides the "upload image" input box
+					$(".user-banner").hide();
+					$("#Erank").change(function(){
+						$("#Erank option:selected").each(function(){
+							if($(this).attr("value") == "Premium"){
+								$(".user-banner").show();
+							} else {
+								$(".user-banner").hide();
 							}
 						});
 					}).change();
@@ -112,7 +125,7 @@
 		
 		<script>
 			$(function(){
-				$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
+				$("#datepicker").datepicker({ minDate: 0, maxDate: "+1M +10D" });
 			});
 		</script>
 	<!--(End) Scripts-->
@@ -266,12 +279,14 @@
 					<div class="form-wrap">
 						<div class="user-profile">
 							<div class="update-image">
-								<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" /><br>
+								<h5 for="Evename">Event Flyer</h5>
+								<input id="uploadImage" type="file" name="Eflyer" onchange="PreviewImage();" />
+								<p>(recommended size 250px X 250px)</p><br>
 								<span id="eventForm_Eflyer_errorloc" class="error"></span>
 							</div>
 							<img id="uploadPreview" />
 						</div>
-						
+							
 						<div class="user-form-top">
 							<div class="box-top">
 								<div class="nameEvent">
@@ -338,6 +353,16 @@
 						
 						<div class="user-form-bottom">
 							<div class="box-bottom">
+								<div class="user-banner">
+									<div class="bannerImage">
+										<h5 for="Evename">Banner</h5>
+										<input id="bannerImage" type="file" name="Ebanner" onchange="banImage();" />
+										<p>(recommended size 1349px x 300px)</p><br>
+										<span id="eventForm_Ebanner_errorloc" class="error"></span>
+									</div>
+									<img id="uploadBanner" />
+								</div>
+							
 								<div class="locEvent">
 									<h5 for="Eaddress">Address</h5>
 									<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="" maxlength="50"><br>
@@ -432,8 +457,7 @@
 								<!--Start Date picker-->
 								<div class="eStartDate">
 									<h5 for="EstartDate">Start Date</h5>
-									<input type="text" id="datepicker" name="EstartDate" title="Pick Start Date" readonly="readonly">
-									<br>
+									<input type="text" id="datepicker" name="EstartDate" title="Pick Start Date" readonly="readonly"><br>
 									<span id="eventForm_EstartDate_errorloc" class="error"></span>
 								</div>
 								
@@ -442,12 +466,11 @@
 									<input type='tel' name="EphoneNumber" id="EphoneNumber" title='Phone Number (Format: (999) 999-9999)' maxlength="16" placeholder="(999) 999-9999" onkeydown="javascript:backspacerDOWN(this, event);" onkeyup="javascript:backspacerUP(this, event);"><br>
 									<span id="eventForm_EphoneNumber_errorloc" class="error"></span>
 								</div>
-	
-							
+								
 								<!--Start Time-->
 								<div class="sTimeEvent">
 									<h5 for="EtimeStart">Start Time</h5>
-									<input type="time" name="EtimeStart" id="EtimeStart"><br>
+									<input type="text" id="timepicker" name="EtimeStart"><br>
 									<span id="eventForm_EtimeStart_errorloc" class="error"></span>
 								</div>
 								
@@ -457,7 +480,6 @@
 									<input type="time" name="EtimeEnd" id="EtimeEnd"><br>
 									<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
 								</div>
-
 
 								<!--End Date picker-->
 								<!--<div class="eEndDate">
@@ -543,14 +565,38 @@
 		</script>
 		
 		<script type="text/javascript">
-    		function PreviewImage() {
-       		var oFReader = new FileReader();
-        	oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+    		function PreviewImage(){
+				var oFReader = new FileReader();
+				oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
 
-       		oFReader.onload = function (oFREvent) {
-            document.getElementById("uploadPreview").src = oFREvent.target.result;
-        		};
-   			 };
+				oFReader.onload = function (oFREvent) {
+					document.getElementById("uploadPreview").src = oFREvent.target.result;
+				};
+   			}
+		</script>
+		
+		<script type="text/javascript">
+			function banImage(){
+				var oFReaderz = new FileReader();
+				oFReaderz.readAsDataURL(document.getElementById("bannerImage").files[0]);
+
+				oFReaderz.onload = function (oFREventz){
+					document.getElementById("uploadBanner").src = oFREventz.target.result;
+				};
+				
+				/*This portion is not functional yet
+				var img = new Image();
+
+				img.onload = function(){
+				  var height = img.height;
+				  var width = img.width;
+
+				  if(){
+					  //todo
+				  }
+				};
+				This portion is not functional yet*/
+   			}
 		</script>
 	</body>
 </html>

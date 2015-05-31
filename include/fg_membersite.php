@@ -396,6 +396,11 @@ class FGMembersite{
 			$formvars['Eflyer'] = $this->upLoadPic();
 		}
 		
+		$picBanner = $this->upLoadBanner();
+		if($picBanner != false){
+			$formvars['Ebanner'] = $this->upLoadPic();
+		}
+		
 		$this->CollectEventSubmission($formvars);
 		
 		if(!$this->SaveEventToDatabase($formvars)){
@@ -525,13 +530,9 @@ class FGMembersite{
 		$EstartDate= $formvars['EstartDate'] ;
 		
 		$EstartDate= strtotime($EstartDate);
-		$EstartDate= date("Y-m-d",$EstartDate);
+		$EstartDate= date("Y-m-d", $EstartDate);
 		
-		
-		
-		
-		
-		$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank,Edisplay)
+		$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Ebanner, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank,Edisplay)
 			VALUES(
 				"' . $this->SanitizeForSQL($uName) . '",
 				"' . $this->SanitizeForSQL($formvars['Evename']) . '",
@@ -550,6 +551,7 @@ class FGMembersite{
 				"' . $this->SanitizeForSQL($formvars['Etwitter']) . '",
 				"' . $this->SanitizeForSQL($formvars['Egoogle']) . '",
 				"' . $this->SanitizeForSQL($formvars['Eflyer']) . '",
+				"' . $this->SanitizeForSQL($formvars['Ebanner']) . '",
 				"' . $this->SanitizeForSQL($formvars['Eother']) . '",
 				"' . $this->SanitizeForSQL($newStartTime) . '",
 				"' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '",
@@ -560,11 +562,51 @@ class FGMembersite{
 			);';
 		
         if(!mysql_query($insert_query, $this->connection)){
-            $this->HandleDBError("Error inserting data to the table\nquery: $insert_query");
+            //$this->HandleDBError("Error inserting data to the table\nquery: $insert_query");
+            $this->HandleDBError("Sorry your event cannot be saved at the moment, contact Eventprobe's admin to address this issue.");
             return false;
         }
 		return true;
     }
+	
+	//needs to be updated to the newest table
+	function CreateTableEvent(){
+		$qry = "CREATE TABLE IF NOT EXISTS $this->tablename2 (". 
+				"Eid INT AUTO_INCREMENT,".
+				"UuserName CHAR(255) NOT NULL,".
+				"Evename VARCHAR(255) NOT NULL,".
+				"EstartDate VARCHAR(20) NOT NULL,".
+				"EendDate VARCHAR(20) NOT NULL,".
+				"Eaddress VARCHAR(255) NOT NULL,".
+				"Ecity VARCHAR(50) NOT NULL,".
+				"Estate CHAR(10) NOT NULL,".
+				"Ezip INT(5) NOT NULL,".
+				"EphoneNumber VARCHAR(50),".
+				"Edescription VARCHAR(26) NOT NULL,".
+				"Etype VARCHAR(26) NOT NULL,".
+				"Ewebsite VARCHAR(26) NOT NULL,".
+				"Ehashtag CHAR(255),".
+				"Efacebook CHAR(255),".
+				"Etwitter CHAR(255),".
+				"Egoogle CHAR(255),".
+				"Eflyer CHAR(255),".
+				"Ebanner CHAR(255),".
+				"Eother CHAR(255),".
+				"EtimeStart CHAR(255),".
+				"EtimeEnd CHAR(255),".
+				"Elat DECIMAL(10,6),".
+				"Elong DECIMAL(10,6),".
+				"Erank CHAR(255),".
+				"Edisplay INT(1),".
+				"PRIMARY KEY(Eid, UuserName)".
+			");";
+
+		if(!mysql_query($qry, $this->connection)){
+			$this->HandleDBError("Error creating the table \nquery was\n $qry");
+			return false;
+		}
+		return true;
+	}
 	
 	//new
 	function upLoadPic(){
@@ -615,6 +657,52 @@ class FGMembersite{
         echo "INVALID FILE";
     }
 
+		return false;
+	}
+	
+	function upLoadBanner(){
+		/**
+			$_FILES["Ebanner"]["name"] - the name of the uploaded file
+			$_FILES["Ebanner"]["type"] - the type of the uploaded file
+			$_FILES["Ebanner"]["size"] - the size in kilobytes of the uploaded file
+			$_FILES["Ebanner"]["tmp_name"] - the name of the temporary copy of the file stored on the server
+			$_FILES["Ebanner"]["error"] - the error code resulting from the file upload
+		*/
+		$timestamp      = date('YmdHi'); //timestamp
+		$uploaddir      = "./eventFlyers/"; //location to store image
+		$filename       = $timestamp . $_FILES['Ebanner']['name'];
+		$filename       = strtolower($filename); //create image name with lower case
+		$filename		= str_replace(' ', '_', $filename);
+		$filename		= str_replace('-', '_', $filename);
+		$filename		= str_replace('.', '_', $filename);
+		$final_location = ((strpos($filename, $uploaddir) === false) ? $uploaddir : "" ) . $filename;
+			
+		if ((
+			   ($_FILES["Ebanner"]["type"] == "image/gif") //set image you want to upload
+			|| ($_FILES["Ebanner"]["type"] == "image/jpeg") 
+			|| ($_FILES["Ebanner"]["type"] == "image/png") 
+			|| ($_FILES["Ebanner"]["type"] == "image/jpg")
+			|| ($_FILES["Ebanner"]["type"] == "image/GIF")
+			|| ($_FILES["Ebanner"]["type"] == "image/JPEG") 
+			|| ($_FILES["Ebanner"]["type"] == "image/PNG") 
+			|| ($_FILES["Ebanner"]["type"] == "image/JPG")
+			) && ($_FILES["Ebanner"]["size"] < 5000000)) //set image size
+			{
+				if ($_FILES["Ebanner"]["error"] > 0) {
+					//echo "Return Code: " . $_FILES["Ebanner"]["error"] . "<br />";
+				} else {
+					//echo "Upload: " . $filename . "<br />";
+					//echo "Type: " . $_FILES["Ebanner"]["type"] . "<br />";
+					//echo "Size: " . ($_FILES["Ebanner"]["size"] / 1024) . " Kb<br />";
+					//echo "Temp file: " . $_FILES["Ebanner"]["tmp_name"] . "<br />";
+					
+					move_uploaded_file($_FILES["Ebanner"]["tmp_name"], $final_location);
+					$final_location = $this->Sanitize("./eventFlyers/" . $filename);
+					return $final_location;
+				}
+			} else {
+				echo "INVALID FILE";
+			}
 		return false;
 	}
 	
@@ -1104,44 +1192,6 @@ class FGMembersite{
 				"PRIMARY KEY(id)".
 				");";
 				
-		if(!mysql_query($qry, $this->connection)){
-			$this->HandleDBError("Error creating the table \nquery was\n $qry");
-			return false;
-		}
-		return true;
-	}
-	
-	//needs to be updated to the newest table
-	function CreateTableEvent(){
-		$qry = "Create Table $this->tablename2 (". 
-				"Eid INT AUTO_INCREMENT,".
-				"UuserName CHAR(255) NOT NULL,".
-				"Evename VARCHAR(255) NOT NULL,".
-				"EstartDate VARCHAR(20) NOT NULL,".
-				"EendDate VARCHAR(20) NOT NULL,".
-				"Eaddress VARCHAR(255) NOT NULL,".
-				"Ecity VARCHAR(50) NOT NULL,".
-				"Estate CHAR(10) NOT NULL,".
-				"Ezip INT(5) NOT NULL,".
-				"EphoneNumber VARCHAR(50),".
-				"Edescription VARCHAR(26) NOT NULL,".
-				"Etype VARCHAR(26) NOT NULL,".
-				"Ewebsite VARCHAR(26) NOT NULL,".
-				"Ehashtag CHAR(255),".
-				"Efacebook CHAR(255),".
-				"Etwitter CHAR(255),".
-				"Egoogle CHAR(255),".
-				"Eflyer CHAR(255),".
-				"Eother CHAR(255),".
-				"EtimeStart CHAR(255),".
-				"EtimeEnd CHAR(255),".
-				"Elat DECIMAL(10,6),".
-				"Elong DECIMAL(10,6),".
-				"Erank CHAR(255),".
-				"Edisplay INT(1),".
-				"PRIMARY KEY(Eid, UuserName)".
-			");";
-
 		if(!mysql_query($qry, $this->connection)){
 			$this->HandleDBError("Error creating the table \nquery was\n $qry");
 			return false;

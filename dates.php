@@ -87,8 +87,15 @@
 </body>
 
 <?PHP
-	$sql = 'UPDATE Events SET Etype = "Premium", EstartDate = "' . $newformat . '" WHERE Ecity = "Fort Worth"';
-	$dltUpdtQuery = "UPDATE Events SET Edisplay = 1;";
+	//$sql = 'UPDATE Events SET Etype = "Premium", EstartDate = "' . $newformat . '" WHERE Ecity = "Fort Worth"';
+	//$dltUpdtQuery = "UPDATE Events SET Edisplay = 1;";
+	//$altTable = "ALTER TABLE Events ALTER COLUMN Ebanner CHAR(255);";
+	$showTable = "SHOW COLUMNS FROM Events;";
+	
 	mysqli_query($con, $sql);
 	mysqli_query($con, $dltUpdtQuery);
+	mysqli_query($con, $altTable);
+	$sT = mysqli_query($con, $showTable);
+	
+	echo mysqli_num_rows($sT);
 ?>
