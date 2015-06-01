@@ -26,6 +26,6 @@
 	</div>
 
 	<p class="copyright">
-		<?PHP echo '&copy'; echo "2014-";echo date("Y"); ?>
+		<?PHP echo '&copy'; echo "2014 - ";echo date("Y"); ?>
 	</p>
 </div>

@@ -3,7 +3,14 @@
 .schedule .map{ float: left; width: 39%; margin: 0 auto; }
 .schedule .map iframe{ float: left; width: 100%; height: 390px; }
 .schedule .map img{ width: 100%; }
+
+.schedule .box-title{ float: left; width: 80%; padding: 15px 30px; }
+
 .schedule .today{ float: left; width: 61%; }
+
+.schedule .box-left, 
+.schedule .box-right{ float: left; padding: 15px 30px; }
+
 .schedule .today ul li .schedule{ float: left; width: 24%; padding: 0 3px 0 0; }
 .schedule .today ul li .schedule img{ width: 100%; }
 .schedule .today ul li .schedule .info{ position: absolute; z-index: 0; background: url(../images/bg_black.png) repeat; color: #fff; width: 15%; padding: 20px 0; }
@@ -34,6 +41,10 @@
 	.schedule .map{ float: left; width: 39%; margin: 0 auto; }
 	.schedule .map iframe{ float: left; width: 100%; height: 390px; }
 	.schedule .today{ float: left; width: 61%; }
+	
+	.schedule .box-left, 
+	.schedule .box-right{ float: left; padding: 15px 30px; }
+
 	.schedule .today ul li .schedule{ float: left; width: 24%; padding: 0 3px 0 0; }
 	.schedule .today ul li .schedule img{ width: 100%; }
 	.schedule .today ul li .schedule .info{ position: absolute; z-index: 0; background: url(../images/bg_black.png) repeat; color: #fff; width: 14.5%; padding: 20px 0; }
@@ -87,7 +98,17 @@
 	.schedule .map{ float: left; width: 100%; height: auto; }
 	.schedule .map iframe{ float: left; width: 100%; height: 390px; }
 	.schedule .map img{ width: 100%; height: auto; }
+	
+	.schedule .box-title{ float: left; width: 95%; padding: 5px 5px; text-align: center; }
+	
 	.schedule .today{ float: left; width: 100%; }
+	
+	.schedule .box-left,
+	.schedule .box-right{ float: left; padding: 0 0 0 0; }
+	
+	.schedule .box-left{ width: 86%; margin: 0 0 0 6px; }
+	.schedule .box-right{ width: 10%; }
+
 	.schedule .today ul li{ float: left; width: 50%; }
 	.schedule .today ul li .schedule{ list-style: none; display: inline-block; margin: 0 0 0 0; width: 100%; }
 	.schedule .today ul li .schedule img{ width: 100%; }

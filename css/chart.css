@@ -181,6 +181,13 @@
 	.chart .box .title a{ float: right; }
 	
 	.chart .box .row{ background: #f4f1ea; }
+	
+	.chart .box .a-row .row-left,
+	.chart .box .a-row .row-right{ float: left; padding: 0 0 0 0; }
+	
+	.chart .box .a-row .row-left{ width: 86%; margin: 0 0 0 6px; }
+	.chart .box .a-row .row-right{ width: 10%; }
+	
 	.chart .box .row .profile{ width: 30%; height: auto; float: left; padding: 0; }
 	.chart .box .row .profile img{ width: 100%; height: 95px; }
 	

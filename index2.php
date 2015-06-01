@@ -1,10 +1,10 @@
 <?PHP
-$city=$_GET['city'];
-$state=$_GET['state'];
+	$city=$_GET['city'];
+	$state=$_GET['state'];
 
-session_start();
-$_SESSION["city"] = $city;
-$_SESSION["state"] = $state;
+	session_start();
+	$_SESSION["city"] = $city;
+	$_SESSION["state"] = $state;
 
 	require_once("./include/membersite_config.php"); 
 	$minDate = date("Y-m-d");
@@ -204,7 +204,7 @@ $_SESSION["state"] = $state;
 
 		<!--This-Week Section-->
 		<div class="this-week">
-			<?PHP include './thisWeek.php'; ?>
+			<?PHP //include './thisWeek.php'; ?>
 		</div>
 
 		<!--Schedule Section-->

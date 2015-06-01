@@ -155,7 +155,6 @@
 <!--<div class="box"></div>-->
 
 <div class="box-events">
-	<img src="./images/loading.gif" id="myEventsDataLoading" alt="loading" style="display:none;" />
 	<div class="box-left">
 		<a onClick='prevTen();'>
 			<img src='./images/icon_ctrl_left.png' alt='Icon'/>
@@ -167,7 +166,9 @@
 			<img src='./images/icon_ctrl_right.png' alt='Icon' />
 		</a>
 	</div>
-
+	
+	<img src="./images/loading.gif" id="myEventsDataLoading" alt="loading" style="display:none;" />
+	
 	<div id="myEventsData" class="myEventsData"></div>
 	<div class="clear"></div>
 </div>

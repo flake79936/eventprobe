@@ -125,16 +125,24 @@
 		<div class="clear"></div>
 	</div>
 	
-	<div class="row">
-		<!--<a onClick="prevWeek(0);" >Prev</a>-->
-		<a onClick='prevWeek();'><img src='./images/icon_ctrl_left.png' alt='Icon'/></a>
+	<div class="a-row">
+		<div class="row-left">
+			<a onClick='prevWeek();'>
+				<img src='./images/icon_ctrl_left.png' alt='Icon'/>
+			</a>
+		</div>
 		
+		<div class="row-right">
+			<a onClick='nextWeek();'>
+				<img src='./images/icon_ctrl_right.png' alt='Icon' />
+			</a>
+		</div>
+	</div>
+	
+	<div class="row">
 		<!--This will dipslay the days-->
 		<div id="weeklyDays"></div>
 		<?PHP //include './days.php'; ?>
-		
-		<!--<a onClick="nextWeek(1);" >Next</a>-->
-		<a onClick='nextWeek();'><img src='./images/icon_ctrl_right.png' alt='Icon' /></a>
 	</div>
 	
 	<img src="./images/loading.gif" id="loading" alt="loading" style="display:none;" />

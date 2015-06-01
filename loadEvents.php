@@ -42,7 +42,7 @@
 		$eventName = substr($row['Evename'], 0, 12);
 		
 		echo '<ul>';
-		echo '	<li>' . $day . ' ' . $EstartDate . '</li>';
+		echo '	<li><div class="dayDate">' . $day . ' ' . $EstartDate . '</div></li>';
 		echo '	<li><div class="nameEvent">' . $eventName . '</div></li>';
 		echo '	<li><div class="timeEvent">' . $row['EtimeStart'] . ' - ' . $row['EtimeEnd'] . '</div></li>';
 		echo '	<li>';

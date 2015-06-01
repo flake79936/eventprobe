@@ -57,7 +57,7 @@
 		<script type="text/javascript" src="./js/jquery-ui.js"></script>
 		<script type="text/javascript" src="./js/scripts.js"></script>
 		<script type="text/javascript" src="./js/formatPhone.js"></script>
-		<script type="text/javascript" src="./js/formatDate.js"></script>
+		<script type="text/javascript" src="./js/formatTime.js"></script>
 		
 		<!--(Start) Script to show whether the event is 'Other'-->
 			<script type="text/javascript">
@@ -127,6 +127,20 @@
 			$(function(){
 				$("#datepicker").datepicker({ minDate: 0, maxDate: "+1M +10D" });
 			});
+		</script>
+		
+		<script>
+			//This was going to be used to hide the content 
+			//when the sidebar would be clicked on while on cellphone mobile device view.
+			//$(document).ready(function(){
+			//	$("#content").keydown(function(){
+			//		$(".my-events").hide();
+			//		$(".this-week").hide();
+			//		$(".schedule").hide();
+			//		$(".chart").hide();
+			//		$(".app").hide();
+			//	});
+			//});
 		</script>
 	<!--(End) Scripts-->
 	</head>
@@ -470,7 +484,7 @@
 								<!--Start Time-->
 								<div class="sTimeEvent">
 									<h5 for="EtimeStart">Start Time</h5>
-									<input type="text" id="timepicker" name="EtimeStart"><br>
+									<input type="time" id="EtimeStart" name="EtimeStart" placeholder="hh:mm am/pm" maxlength="8" onkeydown="javascript:spaceBackDown(this, event);" onkeyup="javascript:spaceBackUP(this, event);"><br>
 									<span id="eventForm_EtimeStart_errorloc" class="error"></span>
 								</div>
 								
