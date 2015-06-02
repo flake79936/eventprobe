@@ -15,7 +15,7 @@
 $city= $_SESSION["city"];
 	//$city = 'el paso';
 
-	$sql = "SELECT Eid, Eflyer, Evename, Edisplay, Etype FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' AND Edisplay='1';";
+	$sql = "SELECT Eid, Ebanner, Evename, Edisplay, Etype FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' AND Edisplay='1';";
 	$sql2 = "SELECT COUNT(*) AS' premiumEvents'num' FROM Events WHERE Ecity= '".$city."' ";
 	
 	$result = mysqli_query($con, $sql);
@@ -39,21 +39,21 @@ $city= $_SESSION["city"];
 	<?PHP
 		while($row = mysqli_fetch_array($result)){
 			$type = $row['Etype'];
-			if($row['Eflyer'] === ""){
+			if($row['Ebanner'] === ""){
 				switch($type){
-					case "Art":            $row['Eflyer'] = "./images/icon_artEventHD.png";   break;
-					case "Concert":        $row['Eflyer'] = "./images/icon_concertHD.png";    break;
-					case "Fair":           $row['Eflyer'] = "./images/icon_festivalHD.png";   break;
-					case "Social":         $row['Eflyer'] = "./images/icon_kettleballHD.png"; break;
-					case "Sport":          $row['Eflyer'] = "./images/icon_marathonHD.png";   break;
-					case "Public Speaker": $row['Eflyer'] = "./images/icon_speakerHD.png";    break;
-					default:               $row['Eflyer'] = "./images/icon_fireworksHD.png";  break;
+					case "Art":            $row['Ebanner'] = "./images/icon_artEventHD.png";   break;
+					case "Concert":        $row['Ebanner'] = "./images/icon_concertHD.png";    break;
+					case "Fair":           $row['Ebanner'] = "./images/icon_festivalHD.png";   break;
+					case "Social":         $row['Ebanner'] = "./images/icon_kettleballHD.png"; break;
+					case "Sport":          $row['Ebanner'] = "./images/icon_marathonHD.png";   break;
+					case "Public Speaker": $row['Ebanner'] = "./images/icon_speakerHD.png";    break;
+					default:               $row['Ebanner'] = "./images/icon_fireworksHD.png";  break;
 				}
 			}
 			
 			echo "<li style='float: left; list-style: none; position: relative;' class='bx-clone'>
 				<a onClick='seeMoreInfo(".$row['Eid'].");'>
-					<img src='".$row['Eflyer']."' title='".$row['Evename']."' height='".$height."' width='".$width."'/>
+					<img src='".$row['Ebanner']."' title='".$row['Evename']."' height='".$height."' width='".$width."'/>
 				</a>
 			</li>";
 		}
