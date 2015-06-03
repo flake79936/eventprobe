@@ -60,7 +60,7 @@
 	<form action="./getEvent.php" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 		<div class="searchBar">
 			<input type="text" name="qry" id="qry" placeholder="Search for Event, City, State, Zip Code">
-			<input type="submit" id="submitButton" name="submitButton" value="Submit">
+			<input type="image" src="./images/btn_search.png" id="submitButton" name="submitButton">
 		</div>
 	</form>
 	
@@ -68,18 +68,37 @@
 		<div class="datePicker">
 			<input type="text" id="datepicker" onClick="showHint(this.value);" value="" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
 		</div>
-		
-		<div class="search-icons">
-			<a id="sport" onClick="showHint('sport');"><img alt="sport" src="./images/w40/icon_marathonHD.png"/></a>
-			<img alt="fair" src="./images/spacer.png"/>
-			<a id="concert" onClick="showHint('concert');"><img alt="concert" src="./images/w40/icon_concertHD.png"/></a>
-			<img alt="fair" src="./images/spacer.png"/>
-			<a id="fair" onClick="showHint('fair');"><img alt="fair" src="./images/w40/icon_festivalHD.png"/></a>
-			<img alt="fair" src="./images/spacer.png"/>
-			<a id="art" onClick="showHint('art');"><img alt="art" src="./images/w40/icon_artEventHD.png"/></a>
-			<a id="" onClick="showHint('');"><img alt="art" src="./images/clear.png"/></a>
-		</div>
 	</form>
+	
+	<div class="search-icons">
+		<a onclick="queryShows('sport');" >
+			<input class="sport" type="image" src="./images/w40/icon_marathonHD.png" id="subSport" name="subSport"/>
+		</a>
+		
+		<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+		
+		<a onclick="queryShows('concert');" >
+			<input class="concert" type="image" src="./images/w40/icon_concertHD.png" id="subConcert" name="subConcert"/>
+		</a>
+		
+		<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+		
+		<a onclick="queryShows('fair');" >
+			<input class="fair" type="image" src="./images/w40/icon_festivalHD.png" id="subFair" name="subFair"/>
+		</a>
+		
+		<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+		
+		<a onclick="queryShows('art');" >
+			<input class="art" type="image" src="./images/w40/icon_artEventHD.png" id="subArt" name="subArt"/>
+		</a>
+		
+		<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+		
+		<a onclick="queryShows('');" >
+			<input class="clearX" type="image" src="./images/clear.png" id="subClear" name="subClear"/>
+		</a>
+	</div>
 </div>
 <?PHP }?> 
 <!-- <div class="date">

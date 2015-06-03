@@ -42,6 +42,19 @@
 				window.location = "./eventDisplayPage.php?eid="+str;
 			}
 		</script>
+		
+		<script>
+		//this method is used with the four icons that are placed on the header.
+			function queryShows(str){
+				switch(str){
+					case "sport":   window.location = "./getEvent.php?sp="  + str; break;
+					case "concert": window.location = "./getEvent.php?con=" + str; break;
+					case "fair":    window.location = "./getEvent.php?fr="  + str; break;
+					case "art":     window.location = "./getEvent.php?art=" + str; break;
+					default:        window.location = "./getEvent.php?clrX="+ str; break;
+				}
+			}
+		</script>
 	</head>
 
 	<body lang="en">
@@ -57,9 +70,19 @@
 			
 			$newformat = date('Y-m-d');
 			
-			//echo $_POST['qry'] . " post variable <br>";
+			echo $_POST['qry'] . " query post <br>";
+			echo $_GET['sp'] . " sport post<br>";
+			echo $_GET['con'] . " concert post<br>";
+			echo $_GET['fr'] . " fair post<br>";
+			echo $_GET['art'] . " art post<br>";
+			echo $_GET['clrX'] . " clearX post<br>";
 			
-			$var = isset($_POST['qry']) && $_POST['qry'] != "" ? "'.*" . $_POST['qry'] .".*'" : null;
+			$var = isset($_POST['qry']) && $_POST['qry'] != "" ? "'.*" . $_POST['qry'] .".*'" : 
+				     isset($_GET['sp']) && $_GET['sp'] != "" ? "'.*" . $_GET['sp'] .".*'" : 
+				       isset($_GET['con']) && $_GET['con'] != "" ? "'.*" . $_GET['con'] .".*'" :
+				         isset($_GET['fr']) && $_GET['fr'] != "" ? "'.*" . $_GET['fr'] .".*'" :
+				           isset($_GET['art']) && $_GET['art'] != "" ? "'.*" . $_GET['art'] .".*'" :
+				             isset($_GET['clrX']) && $_GET['clrX'] != "" ? "'.*" . $_GET['clrX'] .".*'" : null;
 			
 			//echo $var . " variable <br>";
 			

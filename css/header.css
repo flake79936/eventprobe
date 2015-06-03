@@ -29,17 +29,42 @@
 .header .search{ float:left; padding: 35px 0 10px 0; width: 36%; }
 
 .header .search form .searchBar { float: left; width: 100%; }
-.header .search form .datePicker{ float: left; width: 50%; }
-.header .search form .search-icons{ float: left; width: 50%; }
-.header .search form .search-icons a img { width: 14%; height: auto; }
+.header .search form .datePicker{ float: left; width: 38%; }
+.header .search .search-icons{ float: left; width: 50%; }
+.header .search .search-icons a img { width: 14%; height: auto; }
+.header .search .search-icons .sport,
+.header .search .search-icons .concert,
+.header .search .search-icons .fair,
+.header .search .search-icons .art,
+.header .search .search-icons img.spacer,
+.header .search .search-icons .clearX{ float: left; }
+
+.header .search .search-icons form.sport{ width: 17%; }
+.header .search .search-icons form.concert{  }
+.header .search .search-icons form.fair{  }
+.header .search .search-icons form.art{  }
+
+.header .search form .searchBar input#submitButton{
+	float:                 left;
+	width:                 11%;
+	height:                auto;
+	border:                none;
+	padding:               0 0 0 0;
+	margin:                0 0 0 0;
+	outline:               none;
+	-moz-border-radius:    6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius:  6px;
+	border-radius:         6px;
+}
 
 .header .search form .searchBar input{
 	float:                 left;
-	width:                 100%;
+	width:                 83%;
 	border:                1px solid #999;
 	padding:               10px;
 	font-size:             15pt;
-	margin:                0 0 5px 5px;
+	margin:                0 5px 5px 0;
 	outline:               none;
 	-moz-border-radius:    6px;
 	-webkit-border-radius: 6px;
