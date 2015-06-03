@@ -212,9 +212,11 @@
 	.chart .box .row .info .box ul{ text-align: center; }
 	.chart .box .row .info .box ul li{ display: inline-block; list-style: none; }
 	
-	.chart .box .row .info .etime{ /*float: left; width: 50%; padding: 5px 0 0 0; color: #323438;*/ }
-	.chart .box .row .info .ecity{ /*float: left; width: 40%; padding: 20px 0 0 0; color: #323438;*/ }
-	.chart .box .row .info .ename{ float: left; width: 100%; /*padding: 5px 0 0 0;*/ color: #323438; }
+	.chart .box .row .info .text-info .etime{ /*float: left; width: 50%; padding: 5px 0 0 0; color: #323438;*/ }
+	.chart .box .row .info .text-info .ecity{ /*float: left; width: 40%; padding: 20px 0 0 0; color: #323438;*/ }
+	
+	.chart .box .row .info .text-info .ename{ float: left; width: 100%; /*padding: 5px 0 0 0;*/ color: #323438; }
+	
 	.chart .box .row .info .social-icons .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
 	.chart .box .row .info .social-icons .TW{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
 	.chart .box .row .info .social-icons .Goo{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
