@@ -21,7 +21,7 @@
 	$e = 5;
 	
 	//please do not add a semicolon at the end of this line, inside of the double quotes.
-	$statement = " Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC ";
+	$statement = " Events WHERE EstartDate >= '" . $newformat . "' AND UuserName = '" . $usrname . "' AND Edisplay='1' ORDER BY EstartDate ASC, EtimeStart ";
 	
 	$sql = "SELECT * FROM {$statement} LIMIT {$s}, {$e};";
 	//echo "Query: " . $sql . "<br>";
@@ -32,6 +32,7 @@
 		//day name of the date
 		$date = date_create($row['EstartDate']);
 		$EstartDate = substr(date_format($date, 'm/d/Y'), 0, 5);
+		$newStartTime =date("g:i a", strtotime($row['EtimeStart']));
 		
 		$today = date("m/d/Y");
 		
@@ -44,7 +45,7 @@
 		echo '<ul>';
 		echo '	<li><div class="dayDate">' . $day . ' ' . $EstartDate . '</div></li>';
 		echo '	<li><div class="nameEvent">' . $eventName . '</div></li>';
-		echo '	<li><div class="timeEvent">' . $row['EtimeStart'] . ' - ' . $row['EtimeEnd'] . '</div></li>';
+		echo '	<li><div class="timeEvent">' . $newStartTime . ' - ' . $row['EtimeEnd'] . '</div></li>';
 		echo '	<li>';
 			if($row['Eid'] !== ""){
 				$inDBUser = $fgmembersite->getUserFromDB($row['Eid']);
