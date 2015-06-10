@@ -155,21 +155,23 @@
 <!--<div class="box"></div>-->
 
 <div class="box-events">
-	<div class="box-left">
-		<a onClick='prevTen();'>
-			<img src='./images/icon_ctrl_left.png' alt='Icon'/>
-		</a>
+	<div class="a-row">
+		<div class="box-left">
+			<a onClick='prevTen();'>
+				<img src='./images/icon_ctrl_left.png' alt='Icon'/>
+			</a>
+		</div>
+		
+		<div class="box-right">
+			<a onClick='nextTen();'>
+				<img src='./images/icon_ctrl_right.png' alt='Icon' />
+			</a>
+		</div>
 	</div>
-	
-	<div class="box-right">
-		<a onClick='nextTen();'>
-			<img src='./images/icon_ctrl_right.png' alt='Icon' />
-		</a>
-	</div>
-	
-	<img src="./images/loading.gif" id="myEventsDataLoading" alt="loading" style="display:none;" />
 	
 	<div id="myEventsData" class="myEventsData"></div>
+	<img src="./images/loading.gif" id="myEventsDataLoading" alt="loading" style="display:none;" />
+	
 	<div class="clear"></div>
 </div>
 

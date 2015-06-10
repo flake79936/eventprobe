@@ -5,6 +5,11 @@
 .chart .box .title h1{ float: left; color: #323438; }
 .chart .box .title a{ float: right; }
 
+.chart .box .a-row{ float: left; width: 100%; }
+.chart .box .a-row .row-left{ width: 88%; }
+.chart .box .a-row .row-left,
+.chart .box .a-row .row-right{ float: left; padding: 15px 30px; }
+
 .chart .box .row{ background: #f4f1ea; }
 .chart .box .row a img{ float: left; padding: 0 0 0 0px; }
 
@@ -196,6 +201,8 @@
 	.chart .box .row .cell img{ width: 100%; }
 	.chart .box .row .circle{ background: #f05a28; color: #fff; width: 25px; padding: 5px 2px; margin: 0 auto; margin-bottom: 5px; -moz-border-radius: 20px; -webkit-border-radius: 20px; -khtml-border-radius: 20px; border-radius: 20px; }
 	
+	.chart .box .row .cell2 a.current h4{ float: left; color: #FFFFFF; background: #f05a28; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+	
 	.chart .box .row .active{ background: #f05a28; }
 	.chart .box .row .active .circle{ background: #fff; color: #f05a28; }
 	.chart .box .row .active h4{ color: #fff; }
@@ -216,6 +223,8 @@
 	.chart .box .row .info .text-info .ecity{ /*float: left; width: 40%; padding: 20px 0 0 0; color: #323438;*/ }
 	
 	.chart .box .row .info .text-info .ename{ float: left; width: 100%; /*padding: 5px 0 0 0;*/ color: #323438; }
+	
+	.chart .box .row .info .social-icons{ float: left; width: 100%; padding: 0 0 0 10px; }
 	
 	.chart .box .row .info .social-icons .FB{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }
 	.chart .box .row .info .social-icons .TW{ float: left; width: 16.5%; padding: 5px 0 0 0; text-align: center; color: #323438; }

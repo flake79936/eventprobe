@@ -107,28 +107,33 @@
 	
 </script>
 
-<div class="box-title">
-	<h1>This week near you</h1>
-</div>
+<div class="leftSide">
+	<div class="box-title">
+		<h1>This week near you</h1>
+	</div>
 
-<!--Map-->
-<div class="map">
-	<iframe src="./map.php"></iframe>
+	<!--Map-->
+	<div class="map">
+		<iframe src="./map.php"></iframe>
+	</div>
 </div>
 
 <!--Today Section-->
 <div class="today">
-	<div class="box-left">
-		<a onClick='prevEvents();'>
-			<img src='./images/icon_ctrl_left.png' alt='Icon'/>
-		</a>
+	<div class="row">
+		<div class="box-left">
+			<a onClick='prevEvents();'>
+				<img src='./images/icon_ctrl_left.png' alt='Icon'/>
+			</a>
+		</div>
+		
+		<div class="box-right">
+			<a onClick='nextEvents();'>
+				<img src='./images/icon_ctrl_right.png' alt='Icon' />
+			</a>
+		</div>
 	</div>
 	
-	<div class="box-right">
-		<a onClick='nextEvents();'>
-			<img src='./images/icon_ctrl_right.png' alt='Icon' />
-		</a>
-	</div>
 	<?PHP //include './events.php'; ?>
 	<div id="middleEvents"></div>
 	<img src="./images/loading.gif" id="scheLoading" alt="loading" style="display:none;" />

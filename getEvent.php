@@ -70,12 +70,12 @@
 			
 			$newformat = date('Y-m-d');
 			
-			echo $_POST['qry'] . " query post <br>";
-			echo $_GET['sp'] . " sport post<br>";
-			echo $_GET['con'] . " concert post<br>";
-			echo $_GET['fr'] . " fair post<br>";
-			echo $_GET['art'] . " art post<br>";
-			echo $_GET['clrX'] . " clearX post<br>";
+			//echo $_POST['qry'] . " query post <br>";
+			//echo $_GET['sp'] . " sport post<br>";
+			//echo $_GET['con'] . " concert post<br>";
+			//echo $_GET['fr'] . " fair post<br>";
+			//echo $_GET['art'] . " art post<br>";
+			//echo $_GET['clrX'] . " clearX post<br>";
 			
 			$var = isset($_POST['qry']) && $_POST['qry'] != "" ? "'.*" . $_POST['qry'] .".*'" : 
 				     isset($_GET['sp']) && $_GET['sp'] != "" ? "'.*" . $_GET['sp'] .".*'" : 
