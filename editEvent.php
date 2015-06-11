@@ -461,19 +461,19 @@
 									
 									<div class="webEvent">
 										<h5 for="Ewebsite">Website</h5>
-										<input type="text" name="Ewebsite" placeholder="http://www.website.com" title="correct format: http://www.website.com" id="Ewebsite" value="<?PHP echo $row['Ewebsite']; ?>" maxlength="50"><br>
+										<input type="text" name="Ewebsite" placeholder="http://www.website.com" title="correct format: http://www.website.com" id="Ewebsite" value="<?PHP echo $row['Ewebsite']; ?>" maxlength="500"><br>
 										<span id="event_Ewebsite_errorloc" class="error"></span>
 									</div>
 									
 									<div class="fbEvent">
 										<h5 for="Efacebook">Facebook</h5>
-										<input type="text" name="Efacebook" placeholder="https://www.facebook.com/USERNAME" title="?" id="Efacebook" value="<?PHP echo $row['Efacebook']; ?>" maxlength="50"><br>
+										<input type="text" name="Efacebook" placeholder="https://www.facebook.com/USERNAME" title="?" id="Efacebook" value="<?PHP echo $row['Efacebook']; ?>" maxlength="500"><br>
 										<span id="event_Efacebook_errorloc" class="error"></span>
 									</div>
 									
 									<div class="gooEvent">
 										<h5 for="Egoogle">Google+</h5>
-										<input type="text" name="Egoogle" placeholder="https://plus.google.com/USERNAME" title="?" id="Egoogle" value="<?php echo $row['Egoogle'] ?>" maxlength="50"><br>
+										<input type="text" name="Egoogle" placeholder="https://plus.google.com/USERNAME" title="?" id="Egoogle" value="<?php echo $row['Egoogle'] ?>" maxlength="500"><br>
 										<span id="event_Egoogle_errorloc" class="error"></span>
 									</div>
 									
