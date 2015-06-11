@@ -537,7 +537,7 @@
 						
 						<!--Submit Button-->
 						<div class="submitButton">
-							<input type="image" name="Submit" src="./images/btn_submit.png" value="" />
+							<center><input type="image" name="Submit" src="./images/btn_submit.png" value="" /></center>
 						</div>
 						<div class="clear"></div>
 					</div><!--End of Form-wrap-->

@@ -111,11 +111,11 @@
 	
 	.schedule .today .row{ float: left; width: 100%; }
 	
-	.schedule .today .row .box-left,
-	.schedule .today .row .box-right{ float: left; padding: 0 0 0 0; }
+	.schedule .today .row .box-left{ width: 56%; }
+	.schedule .today .row .box-right{ width: 10%; }
 	
-	.schedule .box-left{ width: 86%; margin: 0 0 0 6px; }
-	.schedule .box-right{ width: 10%; }
+	.schedule .today .row .box-left,
+	.schedule .today .row .box-right{ float: left; padding: 15px 30px; }
 
 	.schedule .today ul li{ float: left; width: 50%; }
 	.schedule .today ul li .schedule{ list-style: none; display: inline-block; margin: 0 0 0 0; width: 100%; }
