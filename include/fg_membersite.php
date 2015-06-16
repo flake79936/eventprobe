@@ -668,7 +668,7 @@ class FGMembersite{
 			$_FILES["Ebanner"]["tmp_name"] - the name of the temporary copy of the file stored on the server
 			$_FILES["Ebanner"]["error"] - the error code resulting from the file upload
 		*/
-		$timestamp      = date('YmdHi'); //timestamp
+		$timestamp      = date('YmdH'); //timestamp
 		$uploaddir      = "./eventFlyers/"; //location to store image
 		$filename       = $timestamp . $_FILES['Ebanner']['name'];
 		$filename       = strtolower($filename); //create image name with lower case
