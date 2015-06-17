@@ -20,11 +20,11 @@
 	
 	$minDate = date("Y-m-d");
 	
-	$today = Date("m/d/Y");
-	$sqlUpcoming = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$today = Date("Y-m-d");
+	$sqlUpcoming = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
 	$upcoming = mysqli_query($con, $sqlUpcoming);
 	
-	$sqlPast = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$sqlPast = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate DESC";
 	$past = mysqli_query($con, $sqlPast);
 ?>
 
@@ -369,7 +369,7 @@
 							<div class="box-bottom">
 								<div class="user-banner">
 									<div class="bannerImage">
-										<h5 for="Evename">Banner</h5>
+										<h5 for="Ebanner">Banner</h5>
 										<input id="bannerImage" type="file" name="Ebanner" onchange="banImage();" />
 										<p>(recommended size 1349px x 300px)</p><br>
 										<span id="eventForm_Ebanner_errorloc" class="error"></span>

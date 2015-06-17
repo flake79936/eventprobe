@@ -398,7 +398,7 @@ class FGMembersite{
 		
 		$picBanner = $this->upLoadBanner();
 		if($picBanner != false){
-			$formvars['Ebanner'] = $this->upLoadPic();
+			$formvars['Ebanner'] = $this->upLoadBanner();
 		}
 		
 		$this->CollectEventSubmission($formvars);
@@ -669,7 +669,7 @@ class FGMembersite{
 			$_FILES["Ebanner"]["error"] - the error code resulting from the file upload
 		*/
 		$timestamp      = date('YmdHi'); //timestamp
-		$uploaddir      = "./eventFlyers/"; //location to store image
+		$uploaddir      = "./banners/"; //location to store image
 		$filename       = $timestamp . $_FILES['Ebanner']['name'];
 		$filename       = strtolower($filename); //create image name with lower case
 		$filename		= str_replace(' ', '_', $filename);
@@ -697,7 +697,7 @@ class FGMembersite{
 					//echo "Temp file: " . $_FILES["Ebanner"]["tmp_name"] . "<br />";
 					
 					move_uploaded_file($_FILES["Ebanner"]["tmp_name"], $final_location);
-					$final_location = $this->Sanitize("./eventFlyers/" . $filename);
+					$final_location = $this->Sanitize("./banners/" . $filename);
 					return $final_location;
 				}
 			} else {
