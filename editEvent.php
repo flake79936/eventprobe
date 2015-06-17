@@ -479,13 +479,13 @@
 									
 									<div class="twEvent">
 										<h5 for="Etwitter">Twitter</h5>
-										<input type="text" name="Etwitter" placeholder="@USERNAME" title="?" id="Etwitter" value="<?php echo $row['Etwitter']; ?>" maxlength="50"><br>
+										<input type="text" name="Etwitter" placeholder="@USERNAME" title="?" id="Etwitter" value="<?php echo $row['Etwitter']; ?>" maxlength="500"><br>
 										<span id="event_Etwitter_errorloc" class="error"></span>
 									</div>
 									
 									<div class="hashEvent">
 										<h5 for="Ehashtag">Hashtag</h5>
-										<input type="text" name="Ehashtag" placeholder="#hashtag" title="#hello" id="Ehashtag" value="<?php echo $row['Ehashtag']; ?>" maxlength="50"><br>
+										<input type="text" name="Ehashtag" placeholder="#hashtag" title="#hello" id="Ehashtag" value="<?php echo $row['Ehashtag']; ?>" maxlength="500"><br>
 										<span id="event_Ehashtag_errorloc" class="error"></span>
 									</div>
 								</div>
