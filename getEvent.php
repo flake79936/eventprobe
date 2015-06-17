@@ -93,7 +93,7 @@
 				$qry .= $var != null ? 
 						" WHERE (EstartDate REGEXP $var OR Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) 
 						AND EstartDate >='".$newformat."' AND Edisplay ='1' ORDER BY EstartDate, EtimeStart" 
-						: "";
+						: "EstartDate >='".$newformat."' AND Edisplay ='1' ORDER BY EstartDate, EtimeStart";
 						
 				//echo $qry . " query <br>";
 				
