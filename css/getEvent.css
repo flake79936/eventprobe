@@ -151,8 +151,7 @@
  * Motorola Droid Razr HD										-> 720 x 1280
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
-	.events .box .title{ padding: 10px; }
-	.events .box .row .info{ background: #e9e4d6; width: 70%; height: 96px; float: right; cursor: pointer; }
+	.events .box .title{ padding: 10px; float: left; width: 92%; text-align: center; }
 	
 	.events .box{ float: left; width: 100%; }
 	.events .box .title h1{ font-size: 18pt; float: left; color: #323438; }
@@ -167,9 +166,13 @@
 	.events .box .row .active h4{ color: #fff; }
 	.events .box .row .active .circle{ background: #fff; color: #f05a28; }
 	.events .box .row .blank{ width: 25px; height: 25px; margin: 0 auto; margin-bottom: 5px; }
-
+	
 	.events .box .row .profile{ width: 30%; height: auto; float: left; padding: 0; }
 	.events .box .row .profile img{ width: 100%; height: 95px; }
+	
+	.events .box .row .info{ background: #e9e4d6; width: 70%; height: 96px; float: right; cursor: pointer; }
+	.events .box .row .info .text-info .ename{ float: left; width: 25%; padding: 5px 0 0 10px; color: #323438; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	
 	.events .box .row .info:hover{ color: #e9e4d6; cursor: pointer; }
 
 	.events .box .row .info.active{ background: #f05a28; }

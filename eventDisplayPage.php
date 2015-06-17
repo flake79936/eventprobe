@@ -233,10 +233,15 @@
 									<div class="eAdrsPhone">
 										<h4>
 											<div class="eAddress">
-												<?= $row['Eaddress'] ?>, <?= $row['Ecity'] ?>, <?= $row['Estate'] ?>&nbsp;<?= $row['Ezip'] ?>
-											</div>
-											<div class="ePhone">
-												<?PHP echo "Phone: " . $formatPhone; ?>
+												<div class="eAdd">
+													<?= $row['Eaddress'] ?>
+												</div>
+												<div class="eCity">
+													<?= $row['Ecity'] ?>, <?= $row['Estate'] ?>&nbsp;<?= $row['Ezip'] ?>
+												</div>
+												<div class="ePhone">
+													<?PHP echo "Phone: " . $formatPhone; ?>
+												</div>
 											</div>
 										</h4>
 									</div>
