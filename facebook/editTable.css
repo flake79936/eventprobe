@@ -1,0 +1,58 @@
+/*********================================*****************
+* Live Informatin Editting System 
+* Written by Vasplus Programming Blog
+* Website: www.vasplus.info
+* All Copy Rights Reserved by Vasplus Programming Blog
+*********=================================*****************/
+
+
+.vpb_main_wrapper
+{
+	width:95%; 
+	font-family:Verdana, Geneva, sans-serif; 
+	font-size:12px;
+	border: solid 1px #cbcbcb;
+	 background-color: #FFF;
+	 box-shadow: 0 2px 20px #cbcbcb;
+	-moz-box-shadow: 0 2px 20px #cbcbcb;
+	-webkit-box-shadow: 0 2px 20px #cbcbcb;
+}
+.vasplus_live_edit_area {
+ overflow: hidden;
+width:100%;
+}
+.vasplus_live_edit_area:hover { 
+overflow: hidden
+background: #F6F6F6;
+cursor:pointer; 
+width:100%;}
+ 
+.vasplus_hidden_boxes {
+
+padding:6px;outline: 0;
+transition: all 0.25s ease-in-out;
+-webkit-transition: all 0.25s ease-in-out;
+-moz-transition: all 0.25s ease-in-out;
+border-radius:3px;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border:1px solid rgba(0,0,0, 0.2);
+border: 1px solid #C9C9C9;
+} 
+
+.vasplus_hidden_boxes:focus { 
+
+box-shadow: 0 0 12px #66F;
+-webkit-box-shadow: 0 0 12px #F65735; 
+-moz-box-shadow: 0 0 12px #66F;
+border:1px solid rgba(0,0,233, 0.0);
+ }
+
+.vpb_header_lebels {
+	width:247px;
+	padding-top:12px;
+	padding-bottom:12px;
+	float:left; 
+	background:#F1F1F1;
+	border-bottom:1px solid #CCC;
+}

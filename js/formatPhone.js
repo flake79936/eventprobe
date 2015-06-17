@@ -20,18 +20,18 @@ function ParseForNumber2(object){
 	phonevalue2 = ParseChar(object.value, zChar);
 }
 
-function backspacerUP(object, e){
+function backspacerUP(object,e){
 	if(e){
 		e = e
 	} else {
 		e = window.event 
 	}
 
-	if(e.which){
+	if(e.which){ 
 		var keycode = e.which 
 	} else {
 		var keycode = e.keyCode 
-	}
+}
 
 	ParseForNumber1(object)
 
@@ -52,7 +52,6 @@ function backspacerDOWN(object,e) {
 	} else {
 		var keycode = e.keyCode 
 	}
-	
 	ParseForNumber2(object)
 } 
 
@@ -96,7 +95,7 @@ function ValidatePhone(object){
 	} else if(p.length>3 && p.length < 7){
 		p ="(" + p; 
 		l30=p.length;
-		p30=p.substring(0, 4);
+		p30=p.substring(0,4);
 		p30=p30+") " 
 
 		p31=p.substring(4,l30);

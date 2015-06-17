@@ -14,10 +14,6 @@
 		}
 	}
 	
-	if($fgmembersite->isPastEvent($newEventID)){
-		$fgmembersite->RedirectToURL("./index.php");
-	}
-	
 	if($newEventID !== ""){
 		$inDBUser = $fgmembersite->getUserFromDB($newEventID);
 	}

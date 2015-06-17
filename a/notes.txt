@@ -67,38 +67,9 @@ DONE-Height, auto
 DONE-add date
 
 4-8-14
-DONE --hide the profile pic, hide upload profile pic
+DONE--hide the profile pic, hide upload profile pic
 DONE --only start date, date of event 
-DONE --end date condition.   
+DONE--end date condition.   
 space between create event and logout
 search form, two date pickers, to and from. date range
 DONE—-event display page, address on bottom of pic
-
-May 20, 2015
-- Put dimensions uder the "upload image".
-- Should be able to see past events but not edit them.
-- Check that url is not able to do the same as point above.
-- When we select "premium", there should be another "upload image" box to upload a banner picture. 
-
-1.  Payment Work Flow - Eddie
-2.  Styling:
-	a. Title of fields
-	b. Field Width
-	c. #FFFFF Font in the orange square (located underneath "Today and this Week Near You")
-3.  Content - Jim (About us, etc)
-
-Home Page:
-1.  Delete an Event from "My Events" - needs a confirmation (are you sure)  -- DONE
-2.  Date Range Filter  --
-3.  Forgot Password ? -- DONE
-4.  Geolocation Radius  --
-
-Create Event Page:
-1.  Note: Need dimensions of the image.  --
-2.  Put the "Start Date" field before the time  --
-3.  "My Events" how will the "Past" events work?  --
-4.  "Upcoming" past events are present  --
-
-Search Results:
-1.  Still show expired events  --
-2.  (+) Date before the time (i.e. 05/22/2015  9:00am - 5:00pm)  --

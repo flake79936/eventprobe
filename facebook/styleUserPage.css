@@ -1,0 +1,265 @@
+/*	Less Framework 4
+	http://lessframework.com
+	by Joni Korpi
+	License: http://opensource.org/licenses/mit-license.php	*/
+
+
+/*	Resets
+	------	*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, 
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr, 
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup, 
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}
+
+a img {border: 0;}
+
+
+
+/* FONTS */
+
+
+/* TYPOGRAPHY */
+h1{ font-size: 41px; font-weight: normal; }
+h2{ font-size: 21px; font-weight: normal; }
+h3{ font-size: 17px; font-weight: normal; }
+h4{ font-size: 14px; font-weight: normal; }
+h5{ font-size: 13px; font-weight: normal; }
+h6{ font-size: 11px; font-weight: normal; }
+
+p{ line-height: normal; }
+
+
+/* Selection colours (easy to forget) */
+
+::selection 	 	{background: rgb(255,255,158);}
+::-moz-selection 	{background: rgb(255,255,158);}
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+body {-webkit-tap-highlight-color: rgb(255,255,158);}
+
+
+
+/*		Default Layout: 992px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8      9      10
+px      68    160    252    344    436    528    620    712    804    896    */
+
+/*body{
+	background: #d2c9ab;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes
+}*/
+
+.top{ border-bottom: 1px solid #595249; }
+.top .logo{ background: #e9e4d5; width: 450px; float: left; text-align: center; border-right: 1px solid #595249; }
+.top .profile{ background: #d2c9ab; border-bottom: 5px solid #aca58d; }
+.top .profile .user{ float: left; width: 400px; height: 102px; padding: 18px 30px 0 30px; }
+.top .profile .user img{ float: left; }
+.top .profile .user h2{ float: left; color: #595249; padding: 25px 30px; }
+.top .profile .user a{ float: right; }
+.top .profile .search{ float: left; height: 85px; border-left: solid 1px #595249; padding: 35px 50px 0 50px; }
+.top .profile .search form{ border: 1px solid #595249; padding: 2px; }
+.top .profile .search input{ background: #d2c9ab; padding: 10px; border: none; float: left; color: #fff; font-size: 16px; outline: none; }
+.top .profile .search .btn-search{ padding: 0; }
+
+.main{ background: #fafaf7; }
+
+.main .sidebar{ float: left; width: 390px; padding: 20px; }
+.main .sidebar .btn-event{ text-align: center; padding: 20px 0; }
+
+.main .menu li{ list-style: none; }
+.main .menu li h2{ background: url(../images/btn_arrow_down_black.png) no-repeat right; padding: 20px; border-bottom: 1px solid #aaa; outline: none; cursor: pointer; text-transform: uppercase; }
+.main .menu li ul li h3{ background: url(../images/btn_arrow_down.png) no-repeat right; color: #888; padding: 20px 40px; border-bottom: 1px solid #888; outline: none; cursor: pointer; text-transform: uppercase; }
+.main .menu li ul li img{ float: left; padding: 10px 10px 0 30px; }
+.main .menu li ul li a{ font-size: 16px; color: #000; padding: 20px 50px; display: block; text-decoration: none; }
+.main .menu li ul li a:hover{ background: #f2efe6; }
+
+.main .content{ float: none; width: auto; background: url(../images/bg_shadow.png) repeat-y left #fff; padding: 50px;  }
+.main .content .dashboard{ background: #fff; border-bottom: 1px solid #999; padding-bottom: 50px; }
+
+.main .content .dashboard .user-profile{ float: left; margin-right: 20px; margin-top: -60px; }
+.main .content .dashboard .user-profile img{ border: 10px solid #f5f5f5; }
+.main .content .dashboard .user-profile .update-image{ background: url(../images/bg_black.png) repeat; padding: 20px; margin: 0 10px; position: relative; z-index: 9; top: 229px; color: #fff; }
+.main .content .dashboard .user-profile .update-image h5{ float: left; text-transform: uppercase; padding: 7px 0 0 0; }
+.main .content .dashboard .user-profile .update-image img{ float: right; border: none; }
+
+.main .content .dashboard .user-menu{ float: left; padding: 20px; }
+.main .content .dashboard .user-menu .name{ float: left; width: 500px; }
+.main .content .dashboard .user-menu .name h1{ margin-bottom: 10px; }
+.main .content .dashboard .user-menu .name .info .box{ float: left; }
+.main .content .dashboard .user-menu .name .info .box h3{ color: #524a48; padding: 7px 20px 0 20px; text-transform: uppercase; }
+
+.main .content .dashboard .user-menu .reach{ float: left; width: auto; text-align: right; }
+.main .content .dashboard .user-menu .reach h3{ margin-bottom: 10px; }
+
+.main .content .dashboard .saved{ float: right; width: auto; padding-top: 50px; }
+.main .content .dashboard .saved .box{ float: left; margin-left: 20px; }
+.main .content .dashboard .saved .box h3{ color: #524a48; padding: 15px 10px 0 10px; }
+.main .content .none{ border: none; }
+
+.main .content .form-wrap{ border-bottom: 1px solid #999; padding: 30px 0; }
+.main .content .form-wrap .box{ float: left; width: 500px; }
+.main .content .form-wrap h5{ font-weight: bold; text-transform: uppercase; margin-bottom: 10px; }
+.main .content .form-wrap .box input{ width: 95%; border: 1px solid #999; padding: 10px; margin-bottom: 20px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+.main .content .form-wrap .box .location{ margin-bottom: 10px; }
+.main .content .form-wrap .box .location .image{ float: left; margin-right: 10px; }
+.main .content .form-wrap .box .location input{ float: left; width: 85%; }
+
+.main .content .form-wrap .box textarea{ width: 95%; height: 100px; border: 1px solid #999; padding: 10px; margin-bottom: 20px; outline: none; resize: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+
+.main .content .form-wrap .box .wrap .type{ width: 155px; float: left; margin-right: 10px; }
+.main .content .form-wrap .box .wrap .type input{ width: 85%; }
+
+.main .content .form-wrap select{ width: 99%; border: 1px solid #999; padding: 5px; margin-bottom: 20px; outline: none; }
+
+.main .content .form-wrap .social{ border-left: 1px solid #555; }
+.main .content .form-wrap .social li{ float: left; list-style: none; padding: 10px 15px; border-right: 1px solid #555; border-top: 1px solid #555; border-bottom: 1px solid #555; }
+.main .content .form-wrap .social li input{ float: left; padding: 0; margin: 20px 0 0 0; }
+.main .content .form-wrap .social li label{ float: left; text-transform: uppercase; font-size: 13px; padding: 20px; }
+.main .content .form-wrap .social li img{ float: right; }
+
+.main .content .form-wrap .gmap{ float: right; border: 10px solid #f5f5f5; width: 320px; height: 320px; }
+
+
+.footer{ background: #d2c9ab; height: 100px; }
+
+
+
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+body{ margin: 0; padding: 0; }
+
+.top{ border-bottom: 1px solid #595249; }
+.top .logo{ width: auto; float: none; border: none; }
+.top .profile .user{ width: auto; }
+.top .profile .search{ border: none; padding: 35px 0 0 100px; }
+
+.main .sidebar{ float: none; width: auto; padding: 50px; }
+.main .content{ float: none; width: auto; background: #fff; padding: 50px; box-shadow: 0 2px 4px #555; }
+
+.main .content .dashboard .user-profile{ float: none; margin-right: 0; margin-top: -40px; width: 240px; }
+.main .content .dashboard .user-menu{ float: none; padding: 50px 0; }
+.main .content .dashboard .user-menu .reach{ float: left; width: auto; text-align: right; }
+
+.main .content .form-wrap .box .wrap .type{ width: 210px; }
+
+.main .content .form-wrap select{ width: 100%; }
+
+.main .content .form-wrap .social{ border-top: 1px solid #555; border-left: 1px solid #555; }
+.main .content .form-wrap .social li{ width: 302px; border-top: none; border-right: 1px solid #555; border-bottom: 1px solid #555; }
+
+.main .content .form-wrap .gmap{ float: none; width: 95%; margin: 30px 0; }
+.main .content .form-wrap .box{ float: none; width: auto; }
+
+
+}
+
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+	
+body{ margin: 0; padding: 0; }
+
+.top .logo{ width: auto; float: none; border: none; }
+.top .profile{ border-bottom: 5px solid #aca58d; }
+.top .profile .user{ float: none; width: auto; height: auto; padding: 15px 0 15px 15px; }
+.top .profile .user h2{ padding: 30px 20px; }
+.top .profile .search{ float: none; height: auto; border-left: none; padding: 30px; }
+.top .profile .search .btn-search{ float: right; padding: 0; }
+
+.main .sidebar{ float: none; width: auto; padding: 15px 15px 40px 15px; }
+.main .sidebar .btn-event img{ width: 100%; padding: 0; }
+
+.main .menu li ul li h3{ padding: 20px; }
+.main .menu li ul li a{ padding: 20px; }
+
+.main .content{ float: none; width: auto; background: #fff; padding: 0 20px; box-shadow: 0 2px 4px #555; }
+
+.main .content .dashboard .user-profile{ float: none; margin-top: 0; width: 240px; margin: 0 auto; }
+
+.main .content .dashboard .user-menu{ float: none; padding: 30px 0 0 0; }
+.main .content .dashboard .user-menu .name{ float: none; width: auto; margin-bottom: 20px; text-align: center; }
+.main .content .dashboard .user-menu .name h1{ margin-bottom: 20px; }
+.main .content .dashboard .user-menu .name .info .box{ padding-left: 15px; }
+.main .content .dashboard .user-menu .name .info .box h3{ padding: 7px 15px 0 15px; }
+
+.main .content .dashboard .user-menu .reach{ float: none; text-align: center; margin: 20px 0; }
+
+.main .content .dashboard .saved{ float: none; width: auto; padding-top: 0; }
+.main .content .dashboard .saved .box{ float: none; margin: 20px 0; text-align: center; }
+
+.main .content .form-wrap{ padding: 30px 0; }
+.main .content .form-wrap .box{ float: none; width: auto; }
+.main .content .form-wrap .box input{ width: 92%; }
+.main .content .form-wrap .box .location input{ width: 74%; }
+
+.main .content .form-wrap .box textarea{ width: 92%; }
+
+.main .content .form-wrap .box .wrap .type{ width: auto; float: none; margin-right: 0; }
+.main .content .form-wrap .box .wrap .type input{ width: 92%; }
+
+.main .content .form-wrap select{ width: 100%; }
+
+.main .content .form-wrap .social{ border-top: 1px solid #555; border-left: 1px solid #555; border-right: 1px solid #555; }
+.main .content .form-wrap .social li{ float: none; height: 60px; border-right: none; border-top: none; }
+
+.main .content .form-wrap .gmap{ float: none; width: 93%; margin: 20px 0; }
+
+
+}
+
+
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+body{ margin: 0; padding: 0; }
+
+.main .content .dashboard .user-menu .name .info .box{ padding-left: 60px; }
+	
+}
+
+
+/* http://sonspring.com/journal/clearing-floats */
+.clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }

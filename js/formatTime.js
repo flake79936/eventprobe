@@ -74,7 +74,7 @@ function getCursorPosition(){
 
 function validateTime(object){
 	var p = timeValue1
-	p = p.replace(/[^\d]*/gi,"")
+	p = p.replace(/[^\d][apm]*/gi,"")
 
 	if (p.length < 2) {
 		object.value = p;
