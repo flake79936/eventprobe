@@ -73,29 +73,50 @@
 				
 				$newformat = date('Y-m-d');
 				
-				//echo $_POST['qry'] . " query post <br>";
-				//echo $_GET['sp'] . " sport post<br>";
-				//echo $_GET['con'] . " concert post<br>";
-				//echo $_GET['fr'] . " fair post<br>";
-				//echo $_GET['art'] . " art post<br>";
-				//echo $_GET['clrX'] . " clearX post<br>";
+				echo " 1: " . $_POST['qry'] . " {query post  }<br>";
+				echo " 1: " . $_GET['sp']   . " {sport post  }<br>";
+				echo " 1: " . $_GET['con']  . " {concert post}<br>";
+				echo " 1: " . $_GET['fr']   . " {fair post   }<br>";
+				echo " 1: " . $_GET['art']  . " {art post    }<br>";
+				echo " 1: " . $_GET['clrX'] . " {clearX post }<br>";
 				
-				$var = isset($_POST['qry']) && $_POST['qry'] != "" ? "'.*" . $_POST['qry'] .".*'" : 
-						 isset($_GET['sp']) && $_GET['sp'] != "" ? "'.*" . $_GET['sp'] .".*'" : 
-						   isset($_GET['con']) && $_GET['con'] != "" ? "'.*" . $_GET['con'] .".*'" :
-							 isset($_GET['fr']) && $_GET['fr'] != "" ? "'.*" . $_GET['fr'] .".*'" :
-							   isset($_GET['art']) && $_GET['art'] != "" ? "'.*" . $_GET['art'] .".*'" :
-								 isset($_GET['clrX']) && $_GET['clrX'] != "" ? "'.*" . $_GET['clrX'] .".*'" : null;
+				$qury = $_POST['qry'];
+				$sp   = $_GET['sp']  ;
+				$con  = $_GET['con'] ;
+				$fr   = $_GET['fr']  ;
+				$art  = $_GET['art'] ;
+				$clrX = $_GET['clrX'];
 				
-				//echo $var . " variable <br>";
+				echo " 2: " . $qury . " {query post  }<br>";
+				echo " 2: " . $sp   . " {sport post  }<br>";
+				echo " 2: " . $con  . " {concert post}<br>";
+				echo " 2: " . $fr   . " {fair post   }<br>";
+				echo " 2: " . $art  . " {art post    }<br>";
+				echo " 2: " . $clrX . " {clearX post }<br>";
+				
+				$var = (isset($_POST['qry']) && $_POST['qry'] != "")           ? "'.*" . $qury .".*'" : 
+						 (isset($_GET['sp']) && $_GET['sp'] != "")             ? "'.*" . $sp  .".*'" : 
+						   (isset($_GET['con']) && $_GET['con'] != "")         ? "'.*" . $con  .".*'" :
+							 (isset($_GET['fr']) && $_GET['fr'] != "")         ? "'.*" . $fr  .".*'" :
+							   (isset($_GET['art']) && $_GET['art'] != "")     ? "'.*" . $art  .".*'" :
+								 (isset($_GET['clrX']) && $_GET['clrX'] != "") ? "'.*" . $clrX .".*'" : null;
+				
+				echo " : " . $var . " variable <br>";
 				
 				$qry = "SELECT * FROM Events ";
 				$qry .= $var != null ? 
 						" WHERE (EstartDate REGEXP $var OR Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) 
 						AND EstartDate >='".$newformat."' AND Edisplay ='1' ORDER BY EstartDate, EtimeStart" 
 						: "EstartDate >='".$newformat."' AND Edisplay ='1' ORDER BY EstartDate, EtimeStart";
-						
-				//echo $qry . " query <br>";
+				
+				echo " : " . $qry . " query <br>";
+				
+				echo " 3: " . $_POST['qry'] . " {query post  }<br>";
+				echo " 3: " . $_GET['sp']   . " {sport post  }<br>";
+				echo " 3: " . $_GET['con']  . " {concert post}<br>";
+				echo " 3: " . $_GET['fr']   . " {fair post   }<br>";
+				echo " 3: " . $_GET['art']  . " {art post    }<br>";
+				echo " 3: " . $_GET['clrX'] . " {clearX post }<br>";
 				
 				$result = mysqli_query($con, $qry);
 			?>
