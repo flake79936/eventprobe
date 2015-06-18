@@ -1,7 +1,7 @@
 @import url(meyer_reset.css);
 
 .events .box{ float: left; width: 100%; }
-.events .box .title{ padding: 15px 30px; }
+.events .box .title{ padding: 15px 30px; text-align: center; }
 .events .box .title h1{ /*float: left;*/ color: #323438; width: 100%; }
 .events .box .title a{ float: right; }
 
