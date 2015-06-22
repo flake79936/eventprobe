@@ -16,6 +16,8 @@ article, aside, details, figcaption, figure, footer, header,
 hgroup, menu, nav, section { display: block; }
 
 body{
+	width: 75%;
+	margin: 0 auto;
 	background: #e9e4d5;
 	font-family: Arial, Helvetica, sans-serif;
 	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */

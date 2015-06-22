@@ -29,8 +29,8 @@
 .header .search{ float:left; padding: 35px 0 10px 0; width: 36%; }
 
 .header .search form .searchBar { float: left; width: 100%; }
-.header .search form .datePicker{ float: left; width: 38%; }
-.header .search .search-icons{ float: left; width: 50%; }
+.header .search form .datePicker{ float: left; width: 30%; }
+.header .search .search-icons{ float: left; width: 64%; }
 .header .search .search-icons a img { width: 14%; height: auto; }
 .header .search .search-icons .sport,
 .header .search .search-icons .concert,
@@ -46,7 +46,7 @@
 
 .header .search form .searchBar input#submitButton{
 	float:                 left;
-	width:                 11%;
+	width:                 14%;
 	height:                auto;
 	border:                none;
 	padding:               0 0 0 0;
@@ -60,7 +60,7 @@
 
 .header .search form .searchBar input{
 	float:                 left;
-	width:                 83%;
+	width:                 78%;
 	border:                1px solid #999;
 	padding:               10px;
 	font-size:             15pt;
@@ -74,11 +74,11 @@
 
 .header .search form .datePicker input{
 	float:                 left;
-	width:                 146px;
+	width:                 80%;
 	border:                1px solid #999;
 	padding:               6px;
 	font-size:             10pt;
-	margin:                0 40px 5px 5px;
+	margin:                0 0 0 0;
 	outline:               none;
 	-moz-border-radius:    6px;
 	-webkit-border-radius: 6px;

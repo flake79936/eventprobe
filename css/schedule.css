@@ -12,13 +12,14 @@
 .schedule .today .row{ float: left; width: 100%; }
 
 .schedule .today .row .box-left,
-.schedule .today .row .box-right{ float: left; }
-.schedule .today .row .box-left{ width: 82%; padding: 15px 30px; }
-.schedule .today .row .box-right{ width: 9%; padding: 15px 0px; }
+.schedule .today .row .box-right{ float: left; padding: 15px 0; }
+
+.schedule .today .row .box-left{ width: 94%; }
+.schedule .today .row .box-right{ width: 6%; }
 
 .schedule .today ul li .schedule{ float: left; width: 24%; padding: 0 3px 0 0; }
-.schedule .today ul li .schedule img{ width: 100%; }
-.schedule .today ul li .schedule .info{ position: absolute; z-index: 0; background: url(../images/bg_black.png) repeat; color: #fff; width: 15%; padding: 20px 0; }
+.schedule .today ul li .schedule img{ width: 149px; height: 178px; }
+.schedule .today ul li .schedule .info{ position: absolute; z-index: 0; background: url(../images/bg_black.png) repeat; color: #fff; width: 11%; padding: 20px 0; }
 .schedule .today ul li .schedule .info .btn-cross{ width: 30%; float: right; height: auto; }
 .schedule .today ul li .schedule .info .box{ padding: 0 15px; }
 .schedule .today .schedule .info .box p{ color: #FFFFFF; }

@@ -6,14 +6,14 @@
 .chart .box .title a{ float: right; }
 
 .chart .box .a-row{ float: left; width: 100%; }
-.chart .box .a-row .row-left{ width: 88%; }
+.chart .box .a-row .row-left{ width: 96%; }
 .chart .box .a-row .row-left,
-.chart .box .a-row .row-right{ float: left; padding: 15px 30px; }
+.chart .box .a-row .row-right{ float: left; padding: 15px 0; }
 
 .chart .box .row{ background: #f4f1ea; }
 .chart .box .row a img{ float: left; padding: 0 0 0 0px; }
 
-.chart .box .row .cell{ width: 8%; float: left; text-align: center; padding: 0px 0 0px 75px; }
+.chart .box .row .cell{ width: 8%; float: left; text-align: center; padding: 0px 31px; }
 
 .chart .box .row .cell1 a { float: left; padding: 10px; }
 .chart .box .row .cell1 { padding-bottom:1px; }
