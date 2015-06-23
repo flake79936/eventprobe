@@ -6,11 +6,15 @@
 .my-events .box h3{ margin: 10px 0; }
 .my-events .box .profile{ float: left; margin-right: 0px; }
 
-.my-events .box-events{ float: left; width: 50%; padding: 30px 0; color: #2e3135; }
+.my-events .box-events{ float: left; width: 53%; padding: 5px 0; color: #2e3135; }
 
 .my-events .box-events .a-row{ float: left; width: 100%; }
-.my-events .box-events .a-row .box-left{ float: left; width: 69%; }
-.my-events .box-events .a-row .box-right{ float: left; width: 20%; }
+
+.my-events .box-events .a-row .box-left,
+.my-events .box-events .a-row .box-right{ float: left; padding: 15px 0; }
+
+.my-events .box-events .a-row .box-left{ width: 88%; }
+.my-events .box-events .a-row .box-right{  width: 6%; }
 
 .my-events .box-events ul{ padding: 10px 0; }
 .my-events .box-events ul li{ display: inline-block; list-style: none; margin-right: 30px; font-weight: bold; }

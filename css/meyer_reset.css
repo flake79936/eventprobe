@@ -29,3 +29,71 @@ ol, ul { list-style: none; }
 blockquote, q { quotes: none; }
 blockquote:before, blockquote:after,q:before, q:after { content: ''; content: none; }
 table { border-collapse: collapse; border-spacing: 0; }
+
+@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
+	/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, 
+	abbr, acronym, address, big, cite, code,del, 
+	dfn, em, img, ins, kbd, q, s, samp,small, 
+	strike, strong, sub, sup, tt, var,b, u, i, 
+	center,dl, dt, dd, ol, ul, li,fieldset, form, 
+	label, legend,table, caption, tbody, tfoot, 
+	thead, tr, th, td,article, aside, canvas, 
+	details, embed, figure, figcaption, footer, 
+	header, hgroup, menu, nav, output, ruby, 
+	section, summary,time, mark, audio, video { font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; border: 0; }
+
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, footer, header,
+	hgroup, menu, nav, section { display: block; }
+
+	body{
+		width: 75%;
+		margin: 0 auto;
+		background: #e9e4d5;
+		font-family: Arial, Helvetica, sans-serif;
+		-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+		-webkit-tap-highlight-color: rgb(255,255,158);
+		line-height: 1;
+	}
+
+	ol, ul { list-style: none; }
+	blockquote, q { quotes: none; }
+	blockquote:before, blockquote:after,q:before, q:after { content: ''; content: none; }
+	table { border-collapse: collapse; border-spacing: 0; }
+}
+
+@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+	/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, 
+	abbr, acronym, address, big, cite, code,del, 
+	dfn, em, img, ins, kbd, q, s, samp,small, 
+	strike, strong, sub, sup, tt, var,b, u, i, 
+	center,dl, dt, dd, ol, ul, li,fieldset, form, 
+	label, legend,table, caption, tbody, tfoot, 
+	thead, tr, th, td,article, aside, canvas, 
+	details, embed, figure, figcaption, footer, 
+	header, hgroup, menu, nav, output, ruby, 
+	section, summary,time, mark, audio, video { font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; border: 0; }
+
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, footer, header,
+	hgroup, menu, nav, section { display: block; }
+
+	body{
+		width: 100%;
+		margin: 0 0;
+		background: #e9e4d5;
+		font-family: Arial, Helvetica, sans-serif;
+		-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+		-webkit-tap-highlight-color: rgb(255,255,158);
+		line-height: 1;
+	}
+
+	ol, ul { list-style: none; }
+	blockquote, q { quotes: none; }
+	blockquote:before, blockquote:after,q:before, q:after { content: ''; content: none; }
+	table { border-collapse: collapse; border-spacing: 0; }
+}

@@ -26,7 +26,7 @@ h6{ font-size: 11px; font-weight: normal; }
 .eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .dash{ width: auto; float: left; }
 .eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .eHash{ color: #dc582a; }
 
-.eventDisplayPage .content .dashboard .box .upper .eFlyer img{ float: left; width: 620px; height: 413px; padding: 0 10px 0 0; }
+.eventDisplayPage .content .dashboard .box .upper .eFlyer img{ float: left; width: 100%; height: 413px; padding: 0 10px 0 0; }
 
 .eventDisplayPage .content .dashboard .box .lower{ float: left; width: 49%; padding: 0 0 0 0; }
 
