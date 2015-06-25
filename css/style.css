@@ -1,14 +1,10 @@
 @import url(meyer_reset.css);
 
-/*
- * Less Framework 4
- * http://lessframework.com
- * by Joni Korpi
- * License: http://opensource.org/licenses/mit-license.php
- * Modifier: Eduardo Corral
- * Date: April 5, 2015
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PC (list provided by Google Element Inspector):
+ * Amazon Kindle Fire HDX 		-> 2560 x 1600
+ * 
+ * Laptop with HiDPI screen 	-> 1440 x 900
  */
- 
 /* TYPOGRAPHY */
 h1{ font-size: 26px; font-weight: normal; }
 h2{ font-size: 24px; font-weight: normal; }

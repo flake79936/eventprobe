@@ -1,5 +1,10 @@
 @import url(meyer_reset.css);
 
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PC (list provided by Google Element Inspector):
+ * Amazon Kindle Fire HDX 		-> 2560 x 1600
+ * 
+ * Laptop with HiDPI screen 	-> 1440 x 900
+ */
 .this-week{ padding: 10px 0; }
 .this-week .box{ float: left; width: 10%; text-align: center; }
 .this-week .box-title{ float: left; width: 80%; padding: 15px 30px; }

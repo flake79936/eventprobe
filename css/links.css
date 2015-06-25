@@ -1,5 +1,10 @@
 @import url(meyer_reset.css);
 
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PC (list provided by Google Element Inspector):
+ * Amazon Kindle Fire HDX 		-> 2560 x 1600
+ * 
+ * Laptop with HiDPI screen 	-> 1440 x 900
+ */
 .links{ float: left; background: #f4f1ea; padding: 30px 0px 30px 0px; width: 100%; }
 
 .links h3{ color: #282826; font-size:20px }

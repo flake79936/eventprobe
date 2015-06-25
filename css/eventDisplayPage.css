@@ -1,5 +1,10 @@
 @import url(meyer_reset.css);
 
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PC (list provided by Google Element Inspector):
+ * Amazon Kindle Fire HDX 		-> 2560 x 1600
+ * 
+ * Laptop with HiDPI screen 	-> 1440 x 900
+ */
 a img { border: 0; cursor: pointer; }
 
 h1{ font-size: 32px; font-weight: normal; }

@@ -1,3 +1,8 @@
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PC (list provided by Google Element Inspector):
+ * Amazon Kindle Fire HDX 		-> 2560 x 1600
+ * 
+ * Laptop with HiDPI screen 	-> 1440 x 900
+ */
 ul.tsc_pagination { margin:4px 0; padding:0px; height:100%; overflow:hidden; font:12px Tahoma; list-style-type:none; }
 
 ul.tsc_pagination li { float:left; margin:0px; padding:0px; margin-left:5px; }

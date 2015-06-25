@@ -1,5 +1,10 @@
 @import url(meyer_reset.css);
 
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PC (list provided by Google Element Inspector):
+ * Amazon Kindle Fire HDX 		-> 2560 x 1600
+ * 
+ * Laptop with HiDPI screen 	-> 1440 x 900
+ */
 .form-wrap{ background: #FFF;  float: left; width: 100%; }
 .form-wrap .login{ text-align: center; padding: 25px 0px 25px 0px; width: 100%; }
 .form-wrap .login .top-login{ text-align: center; width: 100%; }

@@ -1,10 +1,10 @@
 @import url(meyer_reset.css);
 
-/* 
-* Example style!
-* You can do whatever the hell you want on your site :-)
-*/
-
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PC (list provided by Google Element Inspector):
+ * Amazon Kindle Fire HDX 		-> 2560 x 1600
+ * 
+ * Laptop with HiDPI screen 	-> 1440 x 900
+ */
 .app h2 { clear:both; }
 
 .app p, a { font-size:9pt; margin:10px 0 0 0; color:#3d3d3d; cursor: pointer; }

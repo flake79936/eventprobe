@@ -1,5 +1,10 @@
 @import url(meyer_reset.css);
 
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PC (list provided by Google Element Inspector):
+ * Amazon Kindle Fire HDX 		-> 2560 x 1600
+ * 
+ * Laptop with HiDPI screen 	-> 1440 x 900
+ */
 .chart .box{ float: left; width: 100%; }
 .chart .box .title{ padding: 15px 30px; }
 .chart .box .title h1{ float: left; color: #323438; }

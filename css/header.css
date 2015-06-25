@@ -1,5 +1,10 @@
 @import url(meyer_reset.css);
 
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PC (list provided by Google Element Inspector):
+ * Amazon Kindle Fire HDX 		-> 2560 x 1600
+ * 
+ * Laptop with HiDPI screen 	-> 1440 x 900
+ */
 .header{ /*border-bottom: 1px solid #595249;*/ }
 .header .profile{ background: #e9e4d5; float: right; width: 20%; padding: 35px 35px 0 0; }
 
