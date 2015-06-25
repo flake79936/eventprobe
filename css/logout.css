@@ -4,3 +4,18 @@
  * Laptop with HiDPI screen 	-> 1440 x 900
  */
 .logout{ float: left; width: 100%; padding: 30px 0 30px 0; }
+
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
+ * Laptop with HDPI screen		-> 1280 x 800
+ * Laptop with touch 			-> 1280 x 950
+ * Google Nexus 10 				-> 1280 x 800
+ * 
+ * Apple iPad 					-> 1024 x 768
+ * Apple iPad Mini 				-> 1024 x 768
+ * BlackBerry PlayBook 			-> 1024 x 600
+ * 
+ * Google Nexus 7 				-> 960 x 600
+ */
+@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
+
+}

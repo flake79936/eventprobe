@@ -63,23 +63,15 @@ h6{ font-size: 11px; font-weight: normal; }
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
- * Google Nexus 7 2											-> 960 x 600
- * 															-------------
- * Google Nexus 7											-> 966 x 604
- * 															-------------
- * Amazon Kindle Fire (First Generation)					-> 1024 x 600
- * BlackBerry PlayBook										-> 1024 x 600
- * Samsung Galaxy Tab										-> 1024 x 600
- * Apple iPad 1/ 2/ iPad Mini								-> 1024 x 768
- * Apple iPad 3/ 4											-> 1024 x 768
- * 															-------------
- * Google Nexus 10											-> 1280 x 800
- * Motorola Xoom, Xyboard									-> 1280 x 800
- * Samsung Galaxy Tab 7.7, 8.9, 10.1						-> 1280 x 800
- * 															-------------
- * Amazon Kindle Fire HDX 7"								-> 1920 x 1200
- * 															-------------
- * Amazon Kindle Fire HDX 8.9"								-> 2560 x 1600
+ * Laptop with HDPI screen		-> 1280 x 800
+ * Laptop with touch 			-> 1280 x 950
+ * Google Nexus 10 				-> 1280 x 800
+ * 
+ * Apple iPad 					-> 1024 x 768
+ * Apple iPad Mini 				-> 1024 x 768
+ * BlackBerry PlayBook 			-> 1024 x 600
+ * 
+ * Google Nexus 7 				-> 960 x 600
  */
 @media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
 	.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
