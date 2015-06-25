@@ -41,45 +41,24 @@
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
- * Apple iPhone 3GS												-> 320 x 480
- * Apple iPhone 4												-> 320 x 480
- * Google Nexus S												-> 320 x 533
- * HTC Evo, Touch HD, Desire HD, Desire							-> 320 x 533
- * LG Optimus 2X, Optimus 3D, Optimus Black						-> 320 X 533
- * Nokia Lumia 7X0, Lumia 8XX, Lumia 900, N800, N810, N900		-> 320 x 533
- * Samsung Galaxy S, S II, W									-> 320 x 533
- * Apple iPhone 5												-> 320 x 568
- * Motorola Defy, Droid, Droid X, Milestone						-> 320 x 569
- *	 															------------
- * BlackBerry Z30												-> 360 x 640
- * Google Nexus 5												-> 360 x 640
- * HTC One X, EVO LTE											-> 360 x 640
- * HTC Sensation, Evo 3D										-> 360 x 640
- * Nokia C5, C6, C7, N97, N8, X7								-> 360 x 640
- * Samsung Galaxy Note	3										-> 360 x 640
- * Samsung Galaxy Note	II										-> 360 x 640
- * Samsung Galaxy S II, Galaxy Nexus							-> 360 x 640
- * Samsung Galaxy S4											-> 360 x 640
- * Sony Xperia S, Ion											-> 360 x 640
- * Sony Xperia Z, Z1											-> 360 x 640
- * 																------------ 
- * Apple iPhone 6												-> 375 x 667 
- * 																------------ 
- * BlackBerry Z10												-> 384 x 640 
- * Google Nexus 4												-> 384 x 640 
- * LG Optimus Generation										-> 384 x 640 
- * 																------------
- * Samsung Galaxy Note											-> 400 x 640
- * 																------------ 
- * Apple iPhone 6 Plus											-> 414 x 736 
- * 																------------ 
- * LG Optimus LTE, Optimus 4X HD								-> 424 x 753 
- * 																------------ 
- * Sony Xperia Sola, U											-> 480 x 854
- * 																------------
- * Motorola Droid 3, Droid 4, Droid Razr, Atrix 4G, Atrix 2		-> 540 x 960
- * 																------------
- * Motorola Droid Razr HD										-> 720 x 1280
+ * Apple iPhone 6 Plus 			-> 414 x 736
+ * 
+ * Google Nexus 4 				-> 384 x 640
+ * LG Optimus L70 				-> 384 x 640
+ * 
+ * Apple iPhone 6 				-> 375 x 667
+ * 
+ * BlackBerry Z30 				-> 360 x 640
+ * Google Nexus 5 				-> 360 x 640
+ * Nokia N9 					-> 360 x 640
+ * Samsung Galaxy Note 3 		-> 360 x 640
+ * Samsung Galaxy Note II 		-> 360 x 640
+ * Samsung Galaxy S III 		-> 360 x 640
+ * Samsung Galaxy S 4 			-> 360 x 640
+ * 
+ * Apple iPhone 4 				-> 320 x 480
+ * Apple iPhone 5 				-> 320 x 568
+ * Nokia Lumia 520 				-> 320 x 533
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	.links{ float: left; background: #f4f1ea; width: 100%; text-align: center; padding: 25px 0px 0px 0px; }

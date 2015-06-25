@@ -59,3 +59,27 @@
 @media only screen and (min-width: 960px) and (max-width: 2560px){
 
 }
+
+/* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
+ * Apple iPhone 6 Plus 			-> 414 x 736
+ * 
+ * Google Nexus 4 				-> 384 x 640
+ * LG Optimus L70 				-> 384 x 640
+ * 
+ * Apple iPhone 6 				-> 375 x 667
+ * 
+ * BlackBerry Z30 				-> 360 x 640
+ * Google Nexus 5 				-> 360 x 640
+ * Nokia N9 					-> 360 x 640
+ * Samsung Galaxy Note 3 		-> 360 x 640
+ * Samsung Galaxy Note II 		-> 360 x 640
+ * Samsung Galaxy S III 		-> 360 x 640
+ * Samsung Galaxy S 4 			-> 360 x 640
+ * 
+ * Apple iPhone 4 				-> 320 x 480
+ * Apple iPhone 5 				-> 320 x 568
+ * Nokia Lumia 520 				-> 320 x 533
+ */
+@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+
+}
