@@ -7,9 +7,9 @@ $db_name = "EventAdvisors"; //database name
 
 // PayPal settings
 $paypal_email = 'Noemaildavis@gmail.com';
-$return_url = 'http://example.com/payment-successful.htm';
-$cancel_url = 'http://example.com/payment-cancelled.htm';
-$notify_url = 'http://example.com/paypal/payments.php';
+$return_url = 'www.eventprobe.com/index.php';
+$cancel_url = 'www.Eventprobe.com/index.php';
+$notify_url = './paypal/payments.php';
 
 $item_name = 'Test Item';
 $item_amount = 5.00;
