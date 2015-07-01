@@ -1,13 +1,12 @@
 <?php
 // functions.php
-include 'dbconnnect.php'
 function check_txnid($tnxid){
-	global $con;
+	global $link;
 	return true;
 	$valid_txnid = true;
     //get result set
-    $sql = mysqli_query("SELECT * FROM `payments` WHERE txnid = '$tnxid'", $con;		
-	if($row = mysqli_fetch_array($sql)) {
+    $sql = mysql_query("SELECT * FROM `payments` WHERE txnid = '$tnxid'", $link);		
+	if($row = mysql_fetch_array($sql)) {
         $valid_txnid = false;
 	}
     return $valid_txnid;
@@ -33,16 +32,16 @@ function check_price($price, $id){
 }
 
 function updatePayments($data){	
-    global $con;
+    global $link;
 	if(is_array($data)){				
-        $sql = mysqli_query("INSERT INTO `payments` (txnid, payment_amount, payment_status, itemid, createdtime) VALUES (
+        $sql = mysql_query("INSERT INTO `payments` (txnid, payment_amount, payment_status, itemid, createdtime) VALUES (
                 '".$data['txn_id']."' ,
                 '".$data['payment_amount']."' ,
                 '".$data['payment_status']."' ,
                 '".$data['item_number']."' ,
                 '".date("Y-m-d H:i:s")."' 
-                )", $con);
-    return mysqli_insert_id($con);
+                )", $link);
+    return mysql_insert_id($link);
     }
 }
 ?>
