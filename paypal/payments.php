@@ -1,9 +1,10 @@
 <?php
 // Database variables
-$host = "localhost"; //database location
-$user = "user"; //database username
-$pass = "Xzr?f270"; //database password
-$db_name = "EventAdvisors"; //database name
+
+// $host = "localhost"; //database location
+// $user = "user"; //database username
+// $pass = "Xzr?f270"; //database password
+// $db_name = "EventAdvisors"; //database name
 
 // PayPal settings
 $paypal_email = 'Noemaildavis@gmail.com';
@@ -18,8 +19,16 @@ $item_amount = 5.00;
 include("functions.php");
 
 //Database Connection
-$link = mysql_connect($host, $user, $pass);
-mysql_select_db($db_name);
+// $link = mysqli_connect($host, $user, $pass);
+// mysqli_select_db($db_name);
+
+	$con = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
+
+	if (!$con) {
+		die('Could not connect: ' . mysqli_error($con));
+	}
+
+	mysqli_select_db($con, "EventAdvisors");
 
 // Check if paypal request or response
 if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
