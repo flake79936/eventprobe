@@ -2,11 +2,15 @@
 // functions.php
 function check_txnid($tnxid){
 	global $link;
+	$dbName= 'EventAdvisors';
+	$link = mysqli_connect($host, $user, $pass,$dbName);
+// mysql_select_db($db_name);
+	
 	return true;
 	$valid_txnid = true;
     //get result set
-    $sql = mysql_query("SELECT * FROM `payments` WHERE txnid = '$tnxid'", $link);		
-	if($row = mysql_fetch_array($sql)) {
+    $sql = mysqli_query( $link, "SELECT * FROM `payments` WHERE txnid = '$tnxid'");		
+	if($row = mysqli_fetch_array($sql)) {
         $valid_txnid = false;
 	}
     return $valid_txnid;
@@ -34,14 +38,14 @@ function check_price($price, $id){
 function updatePayments($data){	
     global $link;
 	if(is_array($data)){				
-        $sql = mysql_query("INSERT INTO `payments` (txnid, payment_amount, payment_status, itemid, createdtime) VALUES (
+        $sql = mysqli_query($link, "INSERT INTO `payments` (txnid, payment_amount, payment_status, itemid, createdtime) VALUES (
                 '".$data['txn_id']."' ,
                 '".$data['payment_amount']."' ,
                 '".$data['payment_status']."' ,
                 '".$data['item_number']."' ,
                 '".date("Y-m-d H:i:s")."' 
-                )", $link);
-    return mysql_insert_id($link);
+                )");
+    return mysqli_insert_id($link);
     }
 }
 ?>

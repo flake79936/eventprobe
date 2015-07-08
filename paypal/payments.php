@@ -6,10 +6,11 @@ $pass = "Xzr?f270"; //database password
 $db_name = "EventAdvisors"; //database name
 
 // PayPal settings
-$paypal_email = 'Noemaildavis@gmail.com';
-$return_url = 'www.eventprobe.com/index.php';
-$cancel_url = 'www.Eventprobe.com/index.php';
-$notify_url = './paypal/payments.php';
+$paypal_email = 'Noemaildavis-facilitator@gmail.com';
+
+$return_url = 'http://eventprobe.com/paypal/payment-successful.htm';
+$cancel_url = 'http://eventprobe.com/payment-cancelled.htm';
+$notify_url = 'http://eventprobe.com/paypal/payments.php';
 
 $item_name = 'Test Item';
 $item_amount = 5.00;
@@ -18,7 +19,7 @@ $item_amount = 5.00;
 include("functions.php");
 
 //Database Connection
-$link = mysql_connect($host, $user, $pass);
+$link = mysqli_connect($host, $user, $pass,$db_name);
 mysql_select_db($db_name);
 
 // Check if paypal request or response
