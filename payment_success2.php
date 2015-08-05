@@ -10,6 +10,7 @@ include 'dbconnect.php'?>
 
 //Getting payment details from paypal
 
+$Eid = $_GET[‘item_number’];
 $amount = $_GET[‘amt’];
 $currency = $_GET[‘mc_currency’];
 $trx_id = $_GET[‘txn_id’];
@@ -17,6 +18,7 @@ $status = $_GET[‘payment_status’];
 $email = $_GET[‘receiver_email’];
 $payment_fee = $_GET[‘payment_fee’];
 $payment_gross = $_GET[‘payment_gross’];
+
 
 
 
