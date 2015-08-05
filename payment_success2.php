@@ -11,8 +11,14 @@ include 'dbconnect.php'?>
 //Getting payment details from paypal
 
 $amount = $_GET[‘amt’];
-$currency = $_GET[‘cc’];
-$trx_id = $_GET[‘tx’];
+$currency = $_GET[‘mc_currency’];
+$trx_id = $_GET[‘txn_id’];
+$status = $_GET[‘payment_status’];
+$email = $_GET[‘receiver_email’];
+$payment_fee = $_GET[‘payment_fee’];
+$payment_gross = $_GET[‘payment_gross’];
+
+
 
 $invoice = mt_rand();
 
