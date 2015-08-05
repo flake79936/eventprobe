@@ -1,4 +1,4 @@
-<–Paypal Form starts–>
+<-–Paypal Form starts-–>
 <form action=”https://www.sandbox.paypal.com/cgi-bin/webscr” method=”post” >
 
 <!– Identify your business so that you can collect the payments. –>
@@ -9,14 +9,14 @@
 
 <!– Specify details about the item that buyers will purchase. –>
 
-<!-<input type=”hidden” name=”item_name” value=”<?php echo $product_name;?>”> ->
+<--<input type=”hidden” name=”item_name” value=”<?php echo $product_name;?>”> -->
 <input type=”hidden” name=”item_name” value=”Event_name>”>
 
 -<input type=”hidden” name=”item_number” value=”<?php echo $Eid”>
 
 
 <input type=”hidden” name=”amount” value=”10”>
-<!-<input type=”hidden” name=”amount” value=”<?php echo $product_price;?>”>->
+<--<input type=”hidden” name=”amount” value=”<?php echo $product_price;?>”>-->
 
 <input type=”hidden” name=”quantity” value=”1”>
 <input type=”hidden” name=”currency_code” value=”USD”>
