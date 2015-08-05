@@ -12,7 +12,7 @@
 <!-<input type=”hidden” name=”item_name” value=”<?php echo $product_name;?>”> ->
 <input type=”hidden” name=”item_name” value=”Event_name>”>
 
-<!-<input type=”hidden” name=”item_number” value=”<?php echo $product_id”>->
+-<input type=”hidden” name=”item_number” value=”<?php echo $Eid”>
 
 
 <input type=”hidden” name=”amount” value=”10”>
