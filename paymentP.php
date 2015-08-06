@@ -16,6 +16,7 @@
 
 <!-- <input type=”hidden” name=”item_name” value=”<?php echo $product_name;?>”>  -->
 <input type="hidden" name="item_name" value="event name"/>
+<input type="hidden" name="custom" value="custom111"/>
 
 <!-- <input type=”hidden” name=”item_number” value=”<?php echo $Eid; ?>"> -->
 
@@ -33,9 +34,13 @@
 <input type="hidden" name="cancel_return" value="http://www.eventprobe.com/paypal/payment_cancel2.php"/>
 
 <!-- Display the payment button. -->
-<input type="image" name="submit" border="0" src="paypal_button.png" alt="PayPal – The safer, easier way to pay online">
+//<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+//<input type="hidden" name="cmd" value="_s-xclick">
+//<input type="hidden" name="hosted_button_id" value="E7MAQRDBEPSPE">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
 
-<img width="200px" height="200px" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="Paypal" />
 
 </form>
 </html>
