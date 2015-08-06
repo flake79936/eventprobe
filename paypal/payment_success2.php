@@ -44,7 +44,7 @@ echo $status ;
 echo $email;
 echo $payment_fee;
 echo $payment_gross;
-echo $custome;
+echo $custom;
 echo "end";
 
 
