@@ -10,7 +10,7 @@ include './dbconnect.php';
 <?php
 
 //Getting payment details from paypal
-
+$custom = $_GET['custom'];
 $Eid = $_GET['item_number'];
 $amount = $_GET['amt'];
 $currency = $_GET['mc_currency'];
@@ -44,6 +44,7 @@ echo $status ;
 echo $email;
 echo $payment_fee;
 echo $payment_gross;
+echo $custome;
 echo "end";
 
 
