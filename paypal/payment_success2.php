@@ -29,10 +29,22 @@ $payment_gross = $_POST['payment_gross'];
 $total=$payment_fee+$payment_gross;
 // //inserting the payment to table
 
-$sql = "insert into payment values ('".$Eid."','".$total."','".$currency."' ,'".$trx_id."' )";
-echo $sql;
-$result = mysqli_query($con, $sql);
-echo$result;
+$sql = "INSERT INTO payment ( Eid , Pamount , Pcurrency , PtrxN_id ) VALUES ( '".$Eid."' , '".$total."' , '".$currency."' , '".$trx_id."' ) ";
+
+ECHO"TOTAL".$total;
+// $result = mysqli_query($con, $sql)
+// echo $sql;
+// 
+
+if (mysqli_query($con, $sql)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($con);
+}
+
+mysqli_close($con);
+
+
 // if($currency=="USD" && $amount==10){
 ?>
 
