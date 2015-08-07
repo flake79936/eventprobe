@@ -10,23 +10,26 @@ include './dbconnect.php';
 <?php
 
 //Getting payment details from paypal
-$custom = $_GET['custom'];
-$Eid = $_GET['item_number'];
-$amount = $_GET['amt'];
-$currency = $_GET['mc_currency'];
-$trx_id = $_GET['tx'];
-$status = $_GET['payment_status'];
-$email = $_GET['receiver_email'];
-$payment_fee = $_GET['payment_fee'];
-$payment_gross = $_GET['payment_gross'];
+$custom = $_POST['custom'];
+$Eid = $_POST['item_number'];
+$name = $_POST['item_name'];
+
+$currency = $_POST['mc_currency'];
+$trx_id = $_POST['txn_id'];
+$status = $_POST['payment_status'];
+$email = $_POST['receiver_email'];
+$payment_fee = $_POST['payment_fee'];
+$payment_gross = $_POST['payment_gross'];
+
+
 
 
 
 
 $total=$payment_fee+$payment_gross;
-//inserting the payment to table
+// //inserting the payment to table
 
-$sql = "insert into payment values ('".$Eid."','".$total."','".$currency."' ,'".$trx_id."' ";
+$sql = "insert into payment values ('".$Eid."','".$total."','".$currency."' ,'".$trx_id."' )";
 echo $sql;
 $result = mysqli_query($con, $sql);
 echo$result;
@@ -35,17 +38,37 @@ echo$result;
 
  <h2>Welcome,Your Payment was successful!</h2>
 <?PHP
-echo "start";
-echo $Eid;
-echo $amount;
-echo $currency;
-echo $trx_id;
-echo $status ;
-echo $email;
-echo $payment_fee;
-echo $payment_gross;
+echo "sent--------------------------------------";
+?>
+<br>
+<?PHP
 echo $custom;
-echo "end";
+// echo $Eid;
+// echo $amount;
+?>
+<br>
+<?PHP
+echo" received----------------------------------";
+?>
+<br>
+<?PHP
+echo"currency=";
+echo $currency;
+echo"-------";
+echo"name=";
+echo $name;
+echo"------";
+echo"trxn_id=";
+echo $trx_id;
+echo"------";
+echo"status=";
+echo $status ;
+echo"------";
+echo"email=";
+echo $email;
+// echo $payment_fee;
+// echo $payment_gross;
+
 
 
  

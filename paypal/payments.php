@@ -8,7 +8,7 @@ $db_name = "EventAdvisors"; //database name
 // PayPal settings
 $paypal_email = 'Noemaildavis-facilitator@gmail.com';
 
-$return_url = 'http://eventprobe.com/paypal/payment-successful.htm';
+$return_url = 'http://eventprobe.com/paypal/payment_success2.php';
 $cancel_url = 'http://eventprobe.com/payment-cancelled.htm';
 $notify_url = 'http://eventprobe.com/paypal/payments.php';
 
@@ -33,6 +33,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 	//The item name and amount can be brought in dynamically by querying the $_POST['item_number'] variable.
 	$querystring .= "item_name=".urlencode($item_name)."&";
 	$querystring .= "amount=".urlencode($item_amount)."&";
+	$querystring .= "custom=".urlencode($querystring)."&";
 	
 	//loop for posted values and append to querystring
 	foreach($_POST as $key => $value){
