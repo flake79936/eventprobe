@@ -102,7 +102,8 @@ p{ line-height: normal; }
 
 #content #register_password_errorloc{ clear:both; }
 
-.eventCrt .content .form-wrap .submitButton{ float: right; width: 27%; }
+.eventCrt .content .form-wrap .submitButton,
+.eventCrt .content .form-wrap .payPalBtn{ float: right; width: 27%; }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
  * Laptop with HDPI screen		-> 1280 x 800

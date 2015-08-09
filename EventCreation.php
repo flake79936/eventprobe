@@ -76,12 +76,21 @@
 					
 					// shows/hides the "upload image" input box
 					$(".user-banner").hide();
+					$(".payPalBtn").hide();
 					$("#Erank").change(function(){
 						$("#Erank option:selected").each(function(){
 							if($(this).attr("value") == "Premium"){
+								//should show only 
+								// the banner image input box
+								// the paypal buttons
 								$(".user-banner").show();
+								$(".payPalBtn").show();
+								$(".submitButton").hide();
+								
 							} else {
 								$(".user-banner").hide();
+								$(".payPalBtn").hide();
+								$(".submitButton").show();
 							}
 						});
 					}).change();
@@ -376,7 +385,7 @@
 									</div>
 									<img id="uploadBanner" />
 								</div>
-							
+								
 								<div class="locEvent">
 									<h5 for="Eaddress">Address</h5>
 									<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="" maxlength="50"><br>
@@ -537,8 +546,13 @@
 						
 						<!--Submit Button-->
 						<div class="submitButton">
-							<center><input type="image" name="Submit" src="./images/btn_submit.png" value="" /></center>
+							<input type="image" name="Submit" src="./images/btn_submit.png" value="" />
 						</div>
+
+						<div class="payPalBtn">
+							<input type="image" name="submit" src="./images/checkout-logo-medium.png" alt="Check out with PayPal" />
+						</div>
+						
 						<div class="clear"></div>
 					</div><!--End of Form-wrap-->
 				</form>
