@@ -1116,6 +1116,21 @@ class FGMembersite{
 		$username = $row['UuserName'];
 		return $username;
 	}
+	
+	function getDisplayVal($eventID){
+		if(!$this->DBLogin()){
+			$this->HandleError("Database login failed!");
+			return false;
+		}
+			
+		$sql = "SELECT Edisplay FROM Events WHERE Eid = '". $eventID ."';";
+		$eid = mysql_query($sql, $this->connection);
+		
+		$row = mysql_fetch_array($eid);
+		
+		$eDisplay = $row['Edisplay'];
+		return $eDisplay;
+	}
 	/*DELETE AN EVENT FUNCTIONALITY (END)*/
 	/*----(End) User Management---------------------------------------------------------------------------------------------------------------------------*/
 	

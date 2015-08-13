@@ -17,6 +17,12 @@
 	if($newEventID !== ""){
 		$inDBUser = $fgmembersite->getUserFromDB($newEventID);
 	}
+	
+	//method using the Eid to get the value of a 0 or 1.
+	// denotes whether the post is able to be seen.
+	if($eDisplay !== ""){
+		$eDisplay = $fgmembersite->getDisplayVal($newEventID);
+	}
 ?>
 
 <html lang="en">
@@ -93,7 +99,12 @@
 		<div class="eventDisplayPage">
 			<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
 				<?PHP
-					$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID . " AND Edisplay = 1;";
+					if($eDisplay === "0"){
+						$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID . " AND Edisplay = 0;";
+					} else {
+						$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID . " AND Edisplay = 1;";
+					}
+					
 					$result = mysqli_query($con, $qry);
 					
 					while($row = mysqli_fetch_array($result)){  
@@ -130,9 +141,7 @@
 						
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 						
-						<?PHP 
-							echo "Edisplay: " . $row['Edisplay'];
-						if($row['Edisplay'] === "1"){?>
+						<?PHP if($row['Edisplay'] === "0"){?>
 							<div><span class="error">Remember to pay for your premium event.</span></div>
 						<?PHP }?>
 						
@@ -294,6 +303,9 @@
 										<?PHP } ?>
 										<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
 											<a href="./editEvent.php?eid=<?PHP echo $newEventID; ?>"><img src="./images/btn_editevent.png"></a>
+										<?PHP } ?>
+										<?PHP if($eDisplay === "0"){ ?>
+											<a href="#"><img src="./images/checkout-logo-medium.png"></a>
 										<?PHP } ?>
 									</div>
 								</div>
