@@ -86,11 +86,12 @@
 								$(".user-banner").show();
 								$(".payPalBtn").show();
 								$(".submitButton").hide();
-								
+								$("#paypal").val(1);
 							} else {
 								$(".user-banner").hide();
 								$(".payPalBtn").hide();
 								$(".submitButton").show();
+								$("#paypal").val(0);
 							}
 						});
 					}).change();
@@ -294,8 +295,9 @@
 			</div><!--End of Sidebar-->
 			
 			<div class="content">
-				<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onsubmit="return confirm('Do you wish to delete?');">
-					<input type="hidden" name="submitted" id="submitted" value="1"/>
+				<form id="eventForm" action="<?php echo $fgmembersite->GetSelfScript(); ?>" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" onSubmit="return confirm('Do you wish to delete?');">
+					<input type="hidden" name="submitted" id="submitted" value="1"  />
+					<input type="hidden" name="paypal"    id="paypal"     value="0" />
 					
 					<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 					
@@ -550,7 +552,7 @@
 						</div>
 
 						<div class="payPalBtn">
-							<input type="image" name="submit" src="./images/checkout-logo-medium.png" alt="Check out with PayPal" />
+							<input type="image" name="paypal" src="./images/checkout-logo-medium.png" alt="Check out with PayPal" />
 						</div>
 						
 						<div class="clear"></div>

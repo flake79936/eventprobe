@@ -129,7 +129,13 @@
 						<input type="hidden" name="usrName" id="usrName" value="<?PHP echo $usrname; ?>" />
 						
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
-					
+						
+						<?PHP 
+							echo "Edisplay: " . $row['Edisplay'];
+						if($row['Edisplay'] === "1"){?>
+							<div><span class="error">Remember to pay for your premium event.</span></div>
+						<?PHP }?>
+						
 						<!--DASHBOARD-->
 						<div class="dashboard">
 							<div class="box">

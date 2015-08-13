@@ -67,6 +67,13 @@ p{ line-height: normal; }
 .editEvent .content .form-wrap .user-form-bottom input,
 .editEvent .content .form-wrap .user-form-bottom select{ width: 96%; border: 1px solid #999; padding: 10px; margin-bottom: 5px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 
+.editEvent .content .form-wrap .user-form-bottom .box-bottom .user-banner{ float: left; margin: -70px 0 10px 0; }
+.editEvent .content .form-wrap .user-form-bottom .box-bottom .user-banner img{ border: 10px solid #f5f5f5; width: 690px; height: 125px;}
+.editEvent .content .form-wrap .user-form-bottom .box-bottom .user-banner input{ width: 96%; border: none; padding: 5px; margin: 0 0 0 0; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+.editEvent .content .form-wrap .user-form-bottom .box-bottom .user-banner p { font-size: 10pt; width: 220px; margin: 0 0 0 5px;}
+.editEvent .content .form-wrap .user-form-bottom .box-bottom .user-banner .bannerImage{ background: url(../images/bg_black.png) repeat; padding: 5px; margin: 0 0 0 0; position: relative; z-index: 9; top: 130px; color: #fff; width: 98%; }
+.editEvent .content .form-wrap .user-form-bottom .box-bottom .user-banner .bannerImage h5{ float: left; text-transform: uppercase; padding: 7px 0 0 0; }
+.editEvent .content .form-wrap .user-form-bottom .box-bottom .user-banner .bannerImage img{ float: right; border: none; }
 
 .editEvent .content .form-wrap .saved{ float: right; width: auto; padding-top: 50px; display: none; }
 
@@ -94,7 +101,8 @@ p{ line-height: normal; }
 
 #content #register_password_errorloc{ clear:both; }
 
-.editEvent .content .form-wrap .submitButton{ float: right; width: 27%; }
+.editEvent .content .form-wrap .submitButton,
+.editEvent .content .form-wrap .payPalBtn{ float: right; width: 27%; }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
  * Laptop with HDPI screen		-> 1280 x 800

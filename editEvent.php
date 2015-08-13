@@ -90,6 +90,26 @@
 							}
 						});
 					}).change();
+					
+					// shows/hides the "upload image" input box
+					$(".user-banner").hide();
+					$(".payPalBtn").hide();
+					$("#Erank").change(function(){
+						$("#Erank option:selected").each(function(){
+							if($(this).attr("value") == "Premium"){
+								//should show only 
+								// the banner image input box
+								// the paypal buttons
+								$(".user-banner").show();
+								$(".payPalBtn").show();
+								$(".submitButton").hide();
+							} else {
+								$(".user-banner").hide();
+								$(".payPalBtn").hide();
+								$(".submitButton").show();
+							}
+						});
+					}).change();
 				});
 			</script>
 		<!--(End) Script to show whether the event is 'Other'-->
@@ -333,6 +353,31 @@
 							
 							<div class="user-form-bottom">
 								<div class="box-bottom">
+								
+									<div class="user-banner">
+										<div class="bannerImage">
+											<?PHP 
+												$type = $row['Etype'];
+												if($row['Ebanner'] === ""){
+													switch($type){
+														case "Art":            $row['Ebanner'] = "./images/icon_artEventHD.png"; break;
+														case "Concert":        $row['Ebanner'] = "./images/icon_concertHD.png"; break;
+														case "Fair":           $row['Ebanner'] = "./images/icon_festivalHD.png"; break;
+														case "Social":         $row['Ebanner'] = "./images/icon_kettleballHD.png"; break;
+														case "Sport":          $row['Ebanner'] = "./images/icon_marathonHD.png"; break;
+														case "Public Speaker": $row['Ebanner'] = "./images/icon_speakerHD.png"; break;
+														default:               $row['Ebanner'] = "./images/icon_fireworksHD.png"; break;
+													}
+												}
+											?>
+											<h5 for="Ebanner">Banner</h5>
+											<input id="bannerImage" accept="image/*" value="<?php echo $row['Ebanner']; ?>" type="file" name="Ebanner" onchange="banImage();" />
+											<p>(recommended size 1349px x 300px)</p><br>
+											<span id="eventForm_Ebanner_errorloc" class="error"></span>
+										</div>
+										<img id="uploadBanner" src="<?php echo $row['Ebanner']; ?>"/>
+									</div>
+									
 									<div class="locEvent">
 										<h5 for="Eaddress">Address</h5>
 										<input type="text" name="Eaddress" placeholder="123 Main road" title="Enter the Address of the Event" id="Eaddress" value="<?PHP echo $row['Eaddress']; ?>" maxlength="50"><br>
@@ -496,6 +541,10 @@
 							<div class="submitButton">
 								<input type="image" name="Submit" src="./images/btn_update.png" value="" />
 							</div>
+							
+							<div class="payPalBtn">
+								<input type="image" name="submit" src="./images/checkout-logo-medium.png" alt="Check out with PayPal" />
+							</div>
 						<div class="clear"></div>
 						</div> <!-- End of content -->
 					<?php } ?>
@@ -537,14 +586,38 @@
 		</script>
 		
 		<script type="text/javascript">
-    		function PreviewImage() {
-       		var oFReader = new FileReader();
-        	oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+			function PreviewImage() {
+				var oFReader = new FileReader();
+				oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
 
-       		oFReader.onload = function (oFREvent) {
-            document.getElementById("uploadPreview").src = oFREvent.target.result;
-        		};
-   			 };
+				oFReader.onload = function (oFREvent) {
+					document.getElementById("uploadPreview").src = oFREvent.target.result;
+				};
+			}
+		</script>
+		
+		<script type="text/javascript">
+			function banImage(){
+				var oFReaderz = new FileReader();
+				oFReaderz.readAsDataURL(document.getElementById("bannerImage").files[0]);
+
+				oFReaderz.onload = function (oFREventz){
+					document.getElementById("uploadBanner").src = oFREventz.target.result;
+				};
+				
+				/*This portion is not functional yet
+				var img = new Image();
+
+				img.onload = function(){
+				  var height = img.height;
+				  var width = img.width;
+
+				  if(){
+					  //todo
+				  }
+				};
+				This portion is not functional yet*/
+   			}
 		</script>
 	</body>
 </html>

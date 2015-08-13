@@ -471,7 +471,8 @@ class FGMembersite{
 		$formvars['EtimeStart']   = $this->Sanitize($_POST['EtimeStart']);
 		$formvars['EtimeEnd']     = $this->Sanitize($_POST['EtimeEnd']);
 		$formvars['Eother']       = $this->Sanitize($_POST['Eother']);
-		$formvars['Erank']       = $this->Sanitize($_POST['Erank']);
+		$formvars['Erank']        = $this->Sanitize($_POST['Erank']);
+		$formvars['paypal']       = $this->Sanitize($_POST['paypal']);
 	}
 	
 	function SaveEventToDatabase(&$formvars){
@@ -519,7 +520,6 @@ class FGMembersite{
 		$lat  = $output->results[0]->geometry->location->lat;
 		$long = $output->results[0]->geometry->location->lng;
 		
-		//
 		$formvars['EtimeStart'] = date("g:i a", strtotime($formvars['EtimeStart']));
 		$formvars['EtimeEnd']   = date("g:i a", strtotime($formvars['EtimeEnd']));
 		
@@ -532,7 +532,11 @@ class FGMembersite{
 		$EstartDate= strtotime($EstartDate);
 		$EstartDate= date("Y-m-d", $EstartDate);
 		
-		$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Ebanner, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank,Edisplay)
+		$eDisplay = ($formvars['paypal'] === "1") ? 0 : 1;
+		
+		$this->HandleDBError("display is set to: " . $eDisplay);
+		
+		$insert_query = 'INSERT INTO ' . $this->tablename2 . '(UuserName, Evename, EstartDate, EendDate, Eaddress, Ecity, Estate, Ezip, EphoneNumber, Etype, Edescription, Ewebsite, Ehashtag, Efacebook, Etwitter, Egoogle, Eflyer, Ebanner, Eother, EtimeStart, EtimeEnd, Elat, Elong, Erank, Edisplay)
 			VALUES(
 				"' . $this->SanitizeForSQL($uName) . '",
 				"' . $this->SanitizeForSQL($formvars['Evename']) . '",
@@ -558,7 +562,7 @@ class FGMembersite{
 				"' . $this->SanitizeForSQL($lat)                . '",
 				"' . $this->SanitizeForSQL($long)               . '",
 				"' . $this->SanitizeForSQL($formvars['Erank']) . '",
-				"1"
+				"' . $eDisplay . '"
 			);';
 		
         if(!mysql_query($insert_query, $this->connection)){
@@ -1597,6 +1601,9 @@ class FGMembersite{
 			return false;
 		}
 		
+		/*ERROR IS SOMEWHERE HERE....*/
+		
+		
 		$formvars = array();
 		
 		$this->getEid($formvars);
@@ -1615,7 +1622,7 @@ class FGMembersite{
 			
 			header("Location: http://eventprobe.com/eventDisplayPage.php?eid=".$row['MAX(Eid)']);
 			exit;
-		} else {		
+		} else {
 			header("Location: http://eventprobe.com/eventDisplayPage.php?eid=".$formvars['Eid']);
 			exit;
 		}
