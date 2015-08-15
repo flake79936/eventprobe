@@ -23,6 +23,10 @@
 	if($eDisplay !== ""){
 		$eDisplay = $fgmembersite->getDisplayVal($newEventID);
 	}
+	
+	if($eDisplay === "0" && $usrname !== $inDBUser){
+		$fgmembersite->RedirectToURL("./index.php");
+	}
 ?>
 
 <html lang="en">
