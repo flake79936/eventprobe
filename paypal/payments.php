@@ -1,31 +1,11 @@
 <?php
+include './dbconnect.php';
 // $newEventID = $_GET['eid'];
 $newEventID = "286";
 // Database variables
+$item_name = $con->query("SELECT Evename FROM Events WHERE Eid = ".$newEventID."")->fetch_row()[0];
+$Erank= $con->query("SELECT Erank FROM Events WHERE Eid = ".$newEventID."")->fetch_row()[0];
 
-		function Evename(){
-					$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID ." ";
-					$result = mysqli_query($con, $qry);
-					while($row = mysqli_fetch_array($result)){  
-					
-					 $name= $row['Evename'];
-					return $name;
-					}//end of Evename
-					}
-					
-	$item_name=	Evename();
-	
-		function Eprice(){
-					$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID ." ";
-					$result = mysqli_query($con, $qry);
-					while($row = mysqli_fetch_array($result)){  
-					
-					 $Erank= $row['Erank'];
-					return $Erank;
-					}//end of Evename
-					}
-					
-	$Erank = Eprice();
 				
 
  if ($Erank=="Premium"){
