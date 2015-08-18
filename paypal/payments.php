@@ -1,19 +1,51 @@
 <?php
+// $newEventID = $_GET['eid'];
+$newEventID = "286";
 // Database variables
-$host = "localhost"; //database location
-$user = "user"; //database username
-$pass = "Xzr?f270"; //database password
-$db_name = "EventAdvisors"; //database name
 
+		function Evename(){
+					$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID ." ";
+					$result = mysqli_query($con, $qry);
+					while($row = mysqli_fetch_array($result)){  
+					
+					 $name= $row['Evename'];
+					return $name;
+					}//end of Evename
+					}
+					
+	$item_name=	Evename();
+	
+		function Eprice(){
+					$qry = "SELECT * FROM Events WHERE Eid = " . $newEventID ." ";
+					$result = mysqli_query($con, $qry);
+					while($row = mysqli_fetch_array($result)){  
+					
+					 $Erank= $row['Erank'];
+					return $Erank;
+					}//end of Evename
+					}
+					
+	$Erank = Eprice();
+				
+
+ if ($Erank=="Premium"){
+$item_amount = 15.00;
+ }else{
+ $item_amount = 10.00;
+ }
 // PayPal settings
+
+
+
+
 $paypal_email = 'Noemaildavis-facilitator@gmail.com';
 
 $return_url = 'http://eventprobe.com/paypal/payment_success2.php';
 $cancel_url = 'http://eventprobe.com/payment-cancelled.htm';
 $notify_url = 'http://eventprobe.com/paypal/payments.php';
 
-$item_name = 'Test Item';
-$item_amount = 5.00;
+// $item_name = $newEventID;
+// $item_amount = 5.00;
 
 // Include Functions
 include("functions.php");
@@ -33,7 +65,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 	//The item name and amount can be brought in dynamically by querying the $_POST['item_number'] variable.
 	$querystring .= "item_name=".urlencode($item_name)."&";
 	$querystring .= "amount=".urlencode($item_amount)."&";
-	$querystring .= "custom=".urlencode($querystring)."&";
+	$querystring .= "custom=".urlencode($newEventID)."&";
 	
 	//loop for posted values and append to querystring
 	foreach($_POST as $key => $value){
@@ -51,7 +83,11 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 	
 	// Redirect to paypal IPN
 	header('location:https://www.sandbox.paypal.com/cgi-bin/webscr'.$querystring);
-	exit();
+ 	exit();
+	
+	
+	
+
 
 }else{
 	
