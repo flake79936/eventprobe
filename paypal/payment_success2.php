@@ -3,7 +3,26 @@ include './dbconnect.php';
 ?>
 <!DOCTYPE html><html>
 <head>
-<title>Payment Successful!</title>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<title>Eventprobe - Home</title>
+		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" media="all" href=""/>
+        
+        <!--STYLE-->
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/header.css" />
+        <link rel="stylesheet" type="text/css" href="css/links.css" />
+        <link rel="stylesheet" type="text/css" href="css/footer.css" />
+
+        <!--FAVICON-->
+        <link rel="shortcut icon" href="favicon.ico"  />
+
+	</head>
 </head>
 <body>
 
@@ -46,6 +65,17 @@ $item_name = $con->query("SELECT Evename FROM Events WHERE Eid = ".$EidP."")->fe
 $Erank= $con->query("SELECT Erank FROM Events WHERE Eid = ".$EidP."")->fetch_row()[0];
 
 
+?>
+
+
+	<body lang="en">
+		<div class="header">
+			<?PHP include './header.php'; ?>
+		</div>
+		
+		<div class="clear"></div>
+		
+<?PHP		
 //logic to confirm dvalues from paypal
 if($Erank==$ErankP	&& $custom==$paypal_email	&& 	$name==$item_name	&&	$currency==$original_currency && $status==$completed){
   	
@@ -91,17 +121,24 @@ mysqli_close($con);
 
  }
 
-// if($currency=="USD" && $amount==10){
 ?>
 
 
+		<!--Section where events will show when user types on the search bar-->
+		<!--<div class="events" id="txtHint"></div>-->
+		<div class="clear"></div>
 
 
 
-<a href="http://www.eventprobe.com">Go Back to eventprobe</a>
-<?PHP
-// }
+		<!--Links  Section-->
+		<div class="links">
+			<?PHP include './links.php'; ?>
+		</div>
 
-?>
-</body>
+		<!--Footer Section-->
+		<div class="footer">
+			<?PHP include './footer.php'; ?>
+		</div>
+	</body>
+
 </html>
