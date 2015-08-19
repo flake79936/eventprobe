@@ -1,21 +1,20 @@
 <?php
 include './dbconnect.php';
-// $newEventID = $_GET['eid'];
-$newEventID = "286";
+$newEventID = $_POST['item_number'];
+
 // Database variables
 $item_name = $con->query("SELECT Evename FROM Events WHERE Eid = ".$newEventID."")->fetch_row()[0];
 $Erank= $con->query("SELECT Erank FROM Events WHERE Eid = ".$newEventID."")->fetch_row()[0];
-
-				
+	
 
  if ($Erank=="Premium"){
-$item_amount = 15.00;
+$item_amount = 0.50;
  }else{
- $item_amount = 10.00;
+ $item_amount = 0.10;
  }
+ 
+ 
 // PayPal settings
-
-
 
 
 $paypal_email = 'Noemaildavis-facilitator@gmail.com';
@@ -24,8 +23,6 @@ $return_url = 'http://eventprobe.com/paypal/payment_success2.php';
 $cancel_url = 'http://eventprobe.com/payment-cancelled.htm';
 $notify_url = 'http://eventprobe.com/paypal/payments.php';
 
-// $item_name = $newEventID;
-// $item_amount = 5.00;
 
 // Include Functions
 include("functions.php");
@@ -45,7 +42,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 	//The item name and amount can be brought in dynamically by querying the $_POST['item_number'] variable.
 	$querystring .= "item_name=".urlencode($item_name)."&";
 	$querystring .= "amount=".urlencode($item_amount)."&";
-	$querystring .= "custom=".urlencode($newEventID)."&";
+	$querystring .= "custom=".urlencode($paypal_email)."&";
 	
 	//loop for posted values and append to querystring
 	foreach($_POST as $key => $value){
