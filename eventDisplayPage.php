@@ -319,7 +319,7 @@
 				<?php } ?>
 			</form>
 			<?PHP if($eDisplay === "0"){ ?>
-		<form class="paypal" action="./paypal/payments.php" method="post" id="paypal_form" target="_blank">    
+		<form class="paypal" action="./payments.php" method="post" id="paypal_form" target="_blank">    
 			<input type="hidden" name="cmd" value="_xclick" /> 
 			<input type="hidden" name="no_note" value="1" />
 		    <input type="hidden" name="lc" value="USD" />
