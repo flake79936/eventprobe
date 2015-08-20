@@ -87,7 +87,11 @@
 								$(".payPalBtn").show();
 								$(".submitButton").hide();
 								$("#paypal").val(1);
-							} else {
+							} else if($(this).attr("value") == "Paid"){
+								$(".payPalBtn").show();
+								$(".submitButton").hide();
+								$("#paypal").val(1);
+							}else {
 								$(".user-banner").hide();
 								$(".payPalBtn").hide();
 								$(".submitButton").show();
