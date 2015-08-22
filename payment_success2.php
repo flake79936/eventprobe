@@ -109,8 +109,7 @@ if (mysqli_query($con, $sql)) {
 mysqli_close($con);
 
  }
- header('location:http://www.eventprobe.com');
- 			exit();
+
 
 ?>
 		<!--Section where events will show when user types on the search bar-->
