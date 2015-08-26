@@ -309,7 +309,7 @@
 											<a href="./editEvent.php?eid=<?PHP echo $newEventID; ?>"><img src="./images/btn_editevent.png"></a>
 										<?PHP } ?>
 										<?PHP if($eDisplay === "0"){ ?>
-											<a href="#"><img src="./images/checkout-logo-medium.png"></a>
+											<!-- <a href="#"><img src="./images/checkout-logo-medium.png"></a> -->
 										<?PHP } ?>
 									</div>
 								</div>
@@ -319,17 +319,18 @@
 				<?php } ?>
 			</form>
 			<?PHP if($eDisplay === "0"){ ?>
-		<form class="paypal" action="./payments.php" method="post" id="paypal_form" target="_blank">    
-			<input type="hidden" name="cmd" value="_xclick" /> 
+		<form class="paypal" action="./payments.php" method="post" id="paypal_form" target="_SELF">    
+			<input type="hidden" name="cmd" value="_xclick" />
+			<input type='hidden' name='rm' value='2'> 
 			<input type="hidden" name="no_note" value="1" />
 		    <input type="hidden" name="lc" value="USD" />
     		<input type="hidden" name="currency_code" value="USD" />
 			<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
-			<input type="hidden" name="first_name" value="Customer's First Name"  />
-			<input type="hidden" name="last_name" value="Customer's Last Name"  />
-			<input type="hidden" name="payer_email" value="customer@example.com"  />
+			<input type="hidden" name="first_name" value=""  />
+			<input type="hidden" name="last_name" value=""  />
+			<input type="hidden" name="payer_email" value=""  />
 			<input type="hidden" name="item_number" value="<?php echo $newEventID; ?>" / >
-			<input type="submit"  value="Submit Payment"/>
+			  <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 		</form>
 		<?PHP }?>
 		</div>
