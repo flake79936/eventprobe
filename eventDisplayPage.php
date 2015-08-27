@@ -146,7 +146,7 @@
 						<div><span class="error"><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 						
 						<?PHP if($row['Edisplay'] === "0"){?>
-							<div><span class="error">Remember to pay for your premium event.</span></div>
+							<div><span class="error">Remember to pay for your event.</span></div>
 						<?PHP }?>
 						
 						<!--DASHBOARD-->

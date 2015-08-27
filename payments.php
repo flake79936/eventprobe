@@ -19,10 +19,9 @@ $item_amount = 0.50;
 
 $paypal_email = 'Noemaildavis-facilitator@gmail.com';
 
-$return_url = 'http://eventprobe.com/payment_success2.php';
+$return_url = "http://eventprobe.com/eventDisplayPage.php?eid=".$newEventID."";
 $cancel_url = 'http://eventprobe.com/payment-cancelled.htm';
-$notify_url = 'http://eventprobe.com/payments.php';
-
+$notify_url = 'http://eventprobe.com/IPNS.php';
 
 // Include Functions
 include("functions.php");
@@ -98,7 +97,44 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 	
 	if (!$fp) {
 		// HTTP ERROR
-	} else {	
+	} else {
+	
+	
+	
+	$link = mysqli_connect('localhost', 'user', 'Xzr?f270', 'EventAdvisors');
+// 	$link = mysqli_connect($host, $user, $pass,$db_name);
+    // mysql_select_db($db_name);
+	
+		function check_txnid($tnxid){
+				global $link;
+// 				$dbName= 'EventAdvisors';
+// 				$link = mysqli_connect($host, $user, $pass,$dbName);
+			// mysql_select_db($db_name);
+
+				return true;
+				$valid_txnid = true;
+				//get result set
+				$sql = mysqli_query( $con, "SELECT * FROM payments WHERE txnid = '".$tnxid."' ");		
+				if($row = mysqli_fetch_array($sql)) {
+					$valid_txnid = false;
+				}
+				return $valid_txnid;
+			}
+	
+	function updatePayments($data){	
+     global $link;
+	if(is_array($data)){
+// 	$sql = "INSERT INTO payment ( Eid , Pamount , Pcurrency , Ptrxn_id ) VALUES ( '".$EidP."' , '".$total."' , '".$currency."' , '".$trx_id."' ) ";				
+        $sql = mysqli_query($link, "INSERT INTO payment (EidP , Pamount, Pcurrency, Ptrxn_id) VALUES (
+                '".$data['item_number']."' ,
+                '".$data['payment_amount']."' ,
+                '".$data['payment_currency']."' ,
+                '".$data['txn_id']."' 
+                )");
+    return mysqli_insert_id($link);
+    }
+	}
+		
 
 		fputs ($fp, $header . $req);
 		while (!feof($fp)) {
@@ -110,13 +146,18 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 						
 				// Validate payment (Check unique txnid & correct price)
 				$valid_txnid = check_txnid($data['txn_id']);
-				$valid_price = check_price($data['payment_amount'], $data['item_number']);
+// 				$valid_price = check_price($data['payment_amount'], $data['item_number']);
 				// PAYMENT VALIDATED & VERIFIED!
-				if($valid_txnid && $valid_price){				
+				if($valid_txnid ){				
 					$orderid = updatePayments($data);		
-					if($orderid){					
-						// Payment has been made & successfully inserted into the Database								
-					}else{								
+					if($orderid){	
+					
+					echo "Successful payment";
+					// Payment has been made & successfully inserted into the Database								
+					
+					}else{	
+					
+					echo "ERROR INSERING TO DB"; 							
 						// Error inserting into DB
 						// E-mail admin or alert user
 					}
@@ -126,7 +167,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])){
 				}						
 			
 			}else if (strcmp ($res, "INVALID") == 0) {
-			
+			echo "INVALID";
 				// PAYMENT INVALID & INVESTIGATE MANUALY! 
 				// E-mail admin or alert user
 				
