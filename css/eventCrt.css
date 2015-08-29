@@ -306,7 +306,8 @@ p{ line-height: normal; }
 
 	.eventCrt .content .form-wrap .gmap{ float: left; width: 95%; margin: 30px 0; }
 	
-	.eventCrt .content .form-wrap .submitButton{ float: left; width: 96%; margin-top: 5px; }
+	.eventCrt .content .form-wrap .submitButton,
+	.eventCrt .content .form-wrap .payPalBtn{ float: left; width: 96%; margin-top: 5px; }
 	.eventCrt .content .form-wrap .submitButton input{ width: 50%; border: none; padding: 0 0 0 0px; margin-bottom: 5px; outline: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; -khtml-border-radius: 0px; border-radius: 0px; }
 
 	.eventCrt .content .form-wrap .social{ border-left: 1px solid #555; }

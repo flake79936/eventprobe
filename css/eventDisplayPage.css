@@ -135,7 +135,8 @@ h6{ font-size: 11px; font-weight: normal; }
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
-	.eventDisplayPage .content .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
+	.eventDisplayPage .content .dashboard, 
+	.eventDisplayPage .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 0px solid #999;}
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 3px;}
 
 	.eventDisplayPage .content .dashboard .box .upper{ float: left; width: 100%; padding: 0 10px 0 0; }
@@ -177,5 +178,8 @@ h6{ font-size: 11px; font-weight: normal; }
 	.eventDisplayPage .content .dashboard .box .lower .eMap #map{ width: 86%; height: auto; margin-top: 10px; position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223); }
 	
 	.eventDisplayPage .content .dashboard .box .lower .button{ float: left; width: 100%; padding-top: 25; }
+	
 	/*.eventDisplayPage .content .dashboard .box .lower .button .dltButton{ background-image: url("./images/btn_delete.png"); }*/
+	
+	.eventDisplayPage .paypalBtns .paypal 
 }
