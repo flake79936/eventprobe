@@ -141,10 +141,10 @@
 
 	.header .search form .searchBar input{
 		float:                 left;
-		width:                 100%;
+		width:                 84%;
 		border:                1px solid #999;
 		padding:               10px;
-		font-size:             15pt;
+		font-size:             11pt;
 		margin:                0 0 5px 5px;
 		outline:               none;
 		-moz-border-radius:    6px;

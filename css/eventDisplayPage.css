@@ -15,7 +15,8 @@ h5{ font-size: 12px; font-weight: normal; }
 h6{ font-size: 11px; font-weight: normal; }
 
 .eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
-.eventDisplayPage .content .dashboard{ float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
+.eventDisplayPage .content .dashboard, 
+.eventDisplayPage .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
 .eventDisplayPage .content .dashboard .box{ float: left; width: 100%; padding: 5px 0 5px 5px; }
 
 .eventDisplayPage .content .dashboard .box .upper{ float: left; width: 49%; padding: 0 10px 0 0; }
@@ -62,6 +63,8 @@ h6{ font-size: 11px; font-weight: normal; }
 /* http://sonspring.com/journal/clearing-floats */
 .clear{ clear: both;  display: block;  overflow: hidden;  visibility: hidden;  width: 0;  height: 0; }
 
+.eventDisplayPage .paypal { float: left; width: 100%; text-align: right; }
+
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING TABLETS (list provided by Google Element Inspector):
  * Laptop with HDPI screen		-> 1280 x 800
  * Laptop with touch 			-> 1280 x 950
@@ -75,7 +78,8 @@ h6{ font-size: 11px; font-weight: normal; }
  */
 @media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
 	.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
-	.eventDisplayPage .content .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 1px solid #999;}
+	.eventDisplayPage .content .dashboard, 
+	.eventDisplayPage .dashboard{ float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 30px;}
 	
 	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag,
@@ -111,6 +115,8 @@ h6{ font-size: 11px; font-weight: normal; }
 	.eventDisplayPage .content .dashboard .box .lower .button{ float: right; width: 30%; padding: 12px 0 0 0; }
 	.eventDisplayPage .content .dashboard .box .lower .button input,
 	.eventDisplayPage .content .dashboard .box .lower .button a img{ width: 20%; height: auto; }
+	
+	.eventDisplayPage .paypal { float: left; width: 100%; text-align: center; }
 }
 
 /* THIS PORTION WILL TAKE CARE OF THE FOLLOWING PHONES (list provided by Google Element Inspector):
@@ -136,7 +142,7 @@ h6{ font-size: 11px; font-weight: normal; }
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
 	.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
 	.eventDisplayPage .content .dashboard, 
-	.eventDisplayPage .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; border-bottom: 0px solid #999;}
+	.eventDisplayPage .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 3px;}
 
 	.eventDisplayPage .content .dashboard .box .upper{ float: left; width: 100%; padding: 0 10px 0 0; }
@@ -181,5 +187,5 @@ h6{ font-size: 11px; font-weight: normal; }
 	
 	/*.eventDisplayPage .content .dashboard .box .lower .button .dltButton{ background-image: url("./images/btn_delete.png"); }*/
 	
-	.eventDisplayPage .paypalBtns .paypal 
+	.eventDisplayPage .paypal { float: left; width: 100%; text-align: center; }
 }
