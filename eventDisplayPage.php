@@ -50,6 +50,8 @@
 		<!--GOOGLE MAP-->
 		<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js"></script>
+		
+		<script id="twitter-wjs" src="//platform.twitter.com/widgets.js"></script>
 
 		<script>
 			function showHint(str){
@@ -90,7 +92,44 @@
 				});
 			});
 		</script>
-
+		
+		<!-- Facebook share API -->
+		<script>
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=861882643830735";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		
+		<!-- Google Plus share API -->
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		
+		<!-- Twitter share API -->
+		<script>
+			!function(d,s,id){
+				var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+				if(!d.getElementById(id)){
+					js = d.createElement(s);
+					js.id = id;
+					js.src = p + '://platform.twitter.com/widgets.js';
+					fjs.parentNode.insertBefore(js,fjs);
+				}
+			}(document, 'script', 'twitter-wjs');
+		</script>
+		
+		<script>
+			$( "li" ).hover(
+				function() {
+					$( this ).append( $( "<span> ***</span>" ) );
+				}, function() {
+					$( this ).find( "span:last" ).remove();
+				}
+			);
+		</script>
+		
 		<!--FAVICON-->
 		<link rel="shortcut icon" href="favicon.ico"  />
 	</head>
@@ -222,25 +261,37 @@
 										
 										<div class="eFacebook">
 											<?PHP if($row['Efacebook'] !== ""){ ?>
-												<a href="<?= $row['Efacebook'] ?>" target="_blank">
-													<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
-												</a>
+												<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+													<a href="<?= $row['Efacebook'] ?>" target="_blank">
+														<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
+													</a>
+												<?PHP } else { ?>
+													<div class="fb-share-button" data-href="http://eventprobe.com/eventDisplayPage.php?eid=<?= $newEventID ?>" data-layout="button_count"></div>
+												<?PHP } ?>
 											<?PHP } ?>
 										</div>
 										
 										<div class="eTwitter">
 											<?PHP if ($row['Etwitter'] !== ""){ ?>
-												<a href="https://twitter.com/<?= $row['Etwitter'] ?>" target="_blank">
-													<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
-												</a>
+												<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+													<a href="<?= $row['Etwitter'] ?>" target="_blank">
+														<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
+													</a>
+												<?PHP } else { ?>
+													<a class="twitter-share-button" data-href="https://twitter.com/intent/tweet?url=http://eventprobe.com/eventDisplayPage.php?eid=<?= $newEventID ?>" data-via="<?= $row['Ehashtag'] ?>">Tweet</a>
+												<?PHP } ?>
 											<?PHP } ?>
 										</div>
 										
 										<div class="eGoogle">
 											<?PHP if ($row['Egoogle'] !== ""){ ?>
-												<a href="<?= $row['Egoogle'] ?>" target="_blank">
-													<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
-												</a>
+												<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+													<a href="<?= $row['Egoogle'] ?>" target="_blank">
+														<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
+													</a>
+												<?PHP } else { ?>
+													<div class="g-plus" data-action="share" data-href="https://plus.google.com/share?url=http://eventprobe.com/eventDisplayPage.php?eid=<?= $newEventID ?>" data-annotation="bubble"></div>
+												<?PHP } ?>											
 											<?PHP } ?>
 										</div>
 									</div>

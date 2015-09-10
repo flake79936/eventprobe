@@ -164,7 +164,7 @@ h6{ font-size: 11px; font-weight: normal; }
 	
 	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook,
 	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter,
-	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: 13%; padding: 5px 0 0 0; }
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: auto; padding: 5px 0 0 2px; }
 	
 	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook img,
 	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter img,
