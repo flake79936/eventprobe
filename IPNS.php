@@ -1,5 +1,8 @@
 <?php
 include './dbconnect.php';
+	require_once("./include/membersite_config.php");
+	$timezone = $fgmembersite->getLocalTimeZone();
+	date_default_timezone_set($timezone);
 // STEP 1: Read POST data
 
 // reading posted data from directly from $_POST causes serialization 
@@ -30,7 +33,7 @@ foreach ($myPost as $key => $value) {
 
 // STEP 2: Post IPN data back to paypal to validate
 
-$ch = curl_init('https://www.sandbox.paypal.com/cgi-bin/webscr'); // change to [...]sandbox.paypal[...] when using sandbox to test
+$ch = curl_init('https://www.paypal.com/cgi-bin/webscr'); // change to [...]sandbox.paypal[...] when using sandbox to test
 curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
@@ -87,7 +90,8 @@ if (mysqli_query($con, $sql2)) {
 
 }
 	
-	$sql = "INSERT INTO payment ( Eid , Pamount , Pcurrency , Ptrxn_id ) VALUES ( '".$item_number."' , '".$payment_amount."' , '".$payment_currency."' , '".$txn_id."' ) ";
+
+	$sql = "INSERT INTO payment ( Eid , Pamount , Pcurrency , Ptrxn_id ,Pdate) VALUES ( '".$item_number."' , '".$payment_amount."' , '".$payment_currency."' , '".$txn_id."' , '".	date("Y-m-d H:i:s")."' ) ";
 
 if (mysqli_query($con, $sql)) {
 
