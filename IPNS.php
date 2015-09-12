@@ -91,7 +91,7 @@ if (mysqli_query($con, $sql2)) {
 }
 	
 
-	$sql = "INSERT INTO payment ( Eid , Pamount , Pcurrency , Ptrxn_id ,Pdate) VALUES ( '".$item_number."' , '".$payment_amount."' , '".$payment_currency."' , '".$txn_id."' , '".	date("Y-m-d H:i:s")."' ) ";
+	$sql = "INSERT INTO payment ( Eid , Pamount , Pcurrency , Ptrxn_id ,Pdate, Pstatus) VALUES ( '".$item_number."' , '".$payment_amount."' , '".$payment_currency."' , '".$txn_id."' , '".	date("Y-m-d H:i:s")."' , '".$payment_status."' ) ";
 
 if (mysqli_query($con, $sql)) {
 
