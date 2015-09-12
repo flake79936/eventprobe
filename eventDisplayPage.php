@@ -82,15 +82,28 @@
 		</script>	
 
 		<script>
-			$(document).ready(function(){
-				$("input").keydown(function(){
-					$(".eventDisplayPage").hide();
-				});
-				
-				$("#concert, #fair, #sport, #art").click(function(){
-					$(".eventDisplayPage").hide();
-				});
-			});
+			//$(document).ready(function(){
+			//	$("input").keydown(function(){
+			//		$(".eventDisplayPage").hide();
+			//	});
+			//	
+			//	$("#concert, #fair, #sport, #art").click(function(){
+			//		$(".eventDisplayPage").hide();
+			//	});
+			//});
+		</script>
+		
+		<script>
+		//this method is used with the four icons that are placed on the header.
+			function queryShows(str){
+				switch(str){
+					case "sport":   window.location = "./getEvent.php?sp="  + str; break;
+					case "concert": window.location = "./getEvent.php?con=" + str; break;
+					case "fair":    window.location = "./getEvent.php?fr="  + str; break;
+					case "art":     window.location = "./getEvent.php?art=" + str; break;
+					default:        window.location = "./getEvent.php?clrX="+ str; break;
+				}
+			}
 		</script>
 		
 		<!-- Facebook share API -->
@@ -118,16 +131,6 @@
 					fjs.parentNode.insertBefore(js,fjs);
 				}
 			}(document, 'script', 'twitter-wjs');
-		</script>
-		
-		<script>
-			$( "li" ).hover(
-				function() {
-					$( this ).append( $( "<span> ***</span>" ) );
-				}, function() {
-					$( this ).find( "span:last" ).remove();
-				}
-			);
 		</script>
 		
 		<!--FAVICON-->
