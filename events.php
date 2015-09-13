@@ -19,22 +19,15 @@
 		
 		$newformat = date('Y-m-d');
 		
-		
-				
 		$qry = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium') ;";
 		$result2 = mysqli_query($con, $qry);
 
-
-		$num_rows= mysqli_num_rows($result2);
+		$num_rows = mysqli_num_rows($result2);
 		
- 
  		if ($num_rows < 1 ){
- 		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Estate = '" . $state . "' 
- 		AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
- 		}
- 		else{
- 		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' 
- 		AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
+			$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Estate = '" . $state . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
+ 		} else {
+			$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Paid' OR Erank='Premium')  ORDER BY EstartDate ASC, EtimeStart ";
  		}
 //  echo $statement;
  
@@ -48,11 +41,6 @@
 		
 		$sql = "SELECT * FROM {$statement}  LIMIT {$start}, {$end};";
 		$result = mysqli_query($con, $sql);
-		
-		
-
-		
-		
 		
 		$i = 0;
 		while($row = mysqli_fetch_array($result)){

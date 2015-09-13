@@ -218,8 +218,6 @@
 	.header .profile .inbtn,
 	.header .profile .outbtn{ float: left; width: 48%; }
 	
-	
-	
 	.header .profile .crtEvent img, 
 	.header .profile .inbtn img, 
 	.header .profile .outbtn img{ float: left; width: 96%; padding: 5px 0 0 0; }

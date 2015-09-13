@@ -7,7 +7,7 @@
 	date_default_timezone_set($timezone);
 	
 	// 	$city = $fgmembersite->getCity();
-	$city = $_SESSION["city"];
+	$city  = $_SESSION["city"];
 	$state = $_SESSION["state"];
 	//$city = "El Paso";
 	
@@ -24,27 +24,17 @@
 	
 	$startpoint = ($per_paging * $pageId) - $per_paging;
 	
-	
-	
-	
-		$qry = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ;";
-		$result2 = mysqli_query($con, $qry);
+	$qry = "SELECT * FROM Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ;";
+	$result2 = mysqli_query($con, $qry);
 
-
-		$num_rows= mysqli_num_rows($result2);
-		
- 
- 		if ($num_rows < 1 ){
-			$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Estate = '" . $state . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ORDER BY EstartDate ";	
-		}
-		else {
+	$num_rows = mysqli_num_rows($result2);
+	
+	if ($num_rows < 1 ){
+		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Estate = '" . $state . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ORDER BY EstartDate ";	
+	} else {
 		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ORDER BY EstartDate ";
-		}
-	
-	
-	
-	
-	
+	}
+		
 	//please do not add a semicolon at the end of this line, inside of the double quotes.
 // 	$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='premium' OR Erank='paid') ORDER BY EstartDate ";
 	
@@ -80,7 +70,7 @@
 		// Setup the different icons and shadows
 		var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
 
-		var icons = ['images/favicon.png']
+		var icons = ['images/favicon.png'];
 		var icons_length = icons.length;
 
 		var shadow = {
@@ -123,7 +113,7 @@
 				return function() {
 					infowindow.setContent(locations[i][0]);
 					infowindow.open(map, marker);
-				}
+				};
 			})(marker, i));
 
 			iconCounter++;

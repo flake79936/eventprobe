@@ -79,7 +79,7 @@
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 					document.getElementById("middleEvents").innerHTML = xmlhttp.responseText;
 				}
-			}
+			};
 			xmlhttp.open("GET", "events.php?st=" + st, true);
 			xmlhttp.send();
 		}
@@ -100,11 +100,10 @@
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				document.getElementById("middleEvents").innerHTML = xmlhttp.responseText;
 			}
-		}
+		};
 		xmlhttp.open("GET", "events.php?st=" + st, true);
 		xmlhttp.send();
 	}
-	
 </script>
 
 <div class="leftSide">

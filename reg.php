@@ -52,7 +52,7 @@
 								//alert(responseText);
 							
 								//responseText returns a digit '0' (zero) for not in the table
-								if(responseText == 0){
+								if(responseText === 0){
 									//Result.html('<span class="error">Taken</span>');
 									Result.html('<span class="success">Available</span>');
 								
@@ -69,7 +69,7 @@
 						Result.html('Enter atleast 3 characters');
 					}
 					
-					if(UuserName.length == 0){
+					if(UuserName.length === 0){
 						Result.html('');
 					}
 				});

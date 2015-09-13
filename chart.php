@@ -4,7 +4,7 @@
 	include 'dbconnect.php';
 	
 // 	$city = $fgmembersite->getCity();
-	$city= $_SESSION["city"];
+	$city = $_SESSION["city"];
 	//$city= "el paso";
 	
 	$usrname = $fgmembersite->UsrName();

@@ -93,7 +93,7 @@
 						//document.getElementById("myEventsData").innerHTML = xmlhttp.responseText;
 						document.getElementById("myEventsData").innerHTML = "reverse";
 					}
-				}
+				};
 				xmlhttp.open("GET", "loadEvents.php?s=" + s, true);
 			}
 		}
@@ -107,7 +107,7 @@
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 					document.getElementById("myEventsData").innerHTML = xmlhttp.responseText;
 				}
-			}
+			};
 			xmlhttp.open("GET", "loadEvents.php?s=" + s, true);
 			xmlhttp.send();
 		}
@@ -120,31 +120,31 @@
 	</script>
 	
 	<script>
-	function deleteEvent(eid){
-		var success = confirm("You Sure You Want To Delete The Event?");
-		
-		if (success == true) {
-			$.ajaxSetup({
-				cache: false,
-				beforeSend: function(){
-					$('#myEventsDataLoading').show();
-					$('#myEventsData').hide();
-				},
-				complete: function(){
-					$('#myEventsDataLoading').hide();
-					$('#myEventsData').show();
-				},
-				success: function(){
-					$('#myEventsDataLoading').hide();
-					$('#myEventsData').show();
-					//alert("Your Event Has Been Deleted.");
-				}
-			});
-			var $myEventsContainer = $("#myEventsData");
-			$myEventsContainer.load("loadEvents.php?success=" + success + "&eid=" + eid);
+		function deleteEvent(eid){
+			var success = confirm("You Sure You Want To Delete The Event?");
+			
+			if (success === true) {
+				$.ajaxSetup({
+					cache: false,
+					beforeSend: function(){
+						$('#myEventsDataLoading').show();
+						$('#myEventsData').hide();
+					},
+					complete: function(){
+						$('#myEventsDataLoading').hide();
+						$('#myEventsData').show();
+					},
+					success: function(){
+						$('#myEventsDataLoading').hide();
+						$('#myEventsData').show();
+						//alert("Your Event Has Been Deleted.");
+					}
+				});
+				var $myEventsContainer = $("#myEventsData");
+				$myEventsContainer.load("loadEvents.php?success=" + success + "&eid=" + eid);
+			}
 		}
-	}
-</script>
+	</script>
 	<!-- End of Scripts	-->
 </head>
 

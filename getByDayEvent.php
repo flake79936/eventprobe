@@ -24,7 +24,7 @@
 		date_default_timezone_set($timezone);
 		
 // 		$city = $fgmembersite->getCity();
-$city= $_SESSION["city"];
+		$city = $_SESSION["city"];
 		//$city = "El Paso";
 		$usrname = $fgmembersite->UsrName();
 		

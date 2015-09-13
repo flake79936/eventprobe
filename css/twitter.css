@@ -100,12 +100,12 @@
 	/*.app ul li { list-style:none; overflow:hidden; border:1px solid #dedede; margin:5px; padding:5px;}*/
 	/*.app ul li:hover { background-color:#f0f3fb; } */
 	
-	.app .tweet { width: 36%; }
+	.app .tweet { width: 36%; word-wrap: break-word; padding: 0 5px 0 0; }
 	.app .timePosted { width:18%; }
 	
 	.app .interact { float:left; width:10%; margin-top:-7px; }
 	
-	.app .user { width:29%; clear:left; }
+	.app .user { width: 28%; clear: left; }
 	.app .user a { width: 100%; }
 	.app .user span span { width:100px; display:block; margin-top:10px; }
 	.app .user img, .app .user a > span { float:left; }

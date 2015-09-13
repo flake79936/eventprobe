@@ -22,7 +22,7 @@
 			 * user typed
 			 */
 			function showHint(str) {
-				if (str.length == 0){
+				if (str.length === 0){
 					document.getElementById("txtHint").innerHTML = "";
 					$(".my-events").show();
 					$(".this-week").show();
@@ -36,7 +36,7 @@
 						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 							document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
 						}
-					}
+					};
 					xmlhttp.open("GET", "./getEvent.php?q=" + str, true);
 					xmlhttp.send();
 				}
@@ -89,7 +89,7 @@
 				$var = "'.*" . $var . ".*'";
 				$qry = "SELECT * FROM Events ";
 				$qry .= $var != null ? 
-						" WHERE (EstartDate REGEXP $var OR Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) 
+						" WHERE (EstartDate REGEXP $var OR Etype REGEXP $var OR Ezip REGEXP $var OR Ecity REGEXP $var OR Estate REGEXP $var OR Evename REGEXP $var OR EtimeStart REGEXP $var OR EtimeEnd REGEXP $var OR Efacebook REGEXP $var OR Erank REGEXP $var) 
 						AND EstartDate >='".$newformat."' AND Edisplay ='1' ORDER BY EstartDate, EtimeStart;" 
 						: "WHERE EstartDate >='".$newformat."' AND Edisplay ='1' ORDER BY EstartDate, EtimeStart";
 						

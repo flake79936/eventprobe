@@ -5,12 +5,13 @@
 	<link rel="stylesheet" href="./css/style.css">
 	<script>
 		$(function() {
-		$( "#datepicker" ).datepicker({ 
-		showOn: "button",
-		buttonImage: "./images/calendar.png",
-		buttonImageOnly: true,
-		minDate: 0,
-		maxDate: "+1M +10D" });
+			$( "#datepicker" ).datepicker({ 
+				showOn: "button",
+				buttonImage: "./images/calendar.png",
+				buttonImageOnly: true,
+				minDate: 0,
+				maxDate: "+1M +10D"
+			});
 		});
 	</script>
 

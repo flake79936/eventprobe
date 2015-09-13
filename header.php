@@ -19,17 +19,12 @@
 	}
 	
 	function grabCurrentURL(){
-		if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
-			$url = "https://";
-		}else{
-			$url = "http://";
-		}
+		(isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") ? $url = "https://" : $url = "http://";
+		
 		$url .= $_SERVER['SERVER_NAME'];
-		if($_SERVER['SERVER_PORT'] != 80){
-			$url .= ":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-		}else{
-			$url .= $_SERVER["REQUEST_URI"];	
-		}
+		
+		($_SERVER['SERVER_PORT'] != 80) ? $url .= ":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"] : $url .= $_SERVER["REQUEST_URI"];
+		
 		return $url;
 	}
 	
@@ -37,7 +32,7 @@
  
 	$mystring = (string)$test;
 	
-	$findme   = 'login.php';
+	$findme = 'login.php';
 	$pos = strpos($test, $findme);
 	
 	$findme2 = 'eventCreation.php';
@@ -52,55 +47,55 @@
 ?>
 
 <div class="logo">
-	<a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a>
+	<a href="./index2.php"><img src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a>
 </div>
- 	<?PHP if(!$pos2 !== false){ ?>
-
-<div class="search">
-	<form action="./getEvent.php" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
-		<div class="searchBar">
-			<input type="text" name="qry" id="qry" placeholder="Search for Event, City, State, Zip Code">
-			<input type="image" src="./images/btn_search.png" id="submitButton" name="submitButton">
+<?PHP if(!$pos2 !== false){ ?>
+	<div class="search">
+		<form action="./getEvent.php" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+			<div class="searchBar">
+				<input type="text" name="qry" id="qry" placeholder="Search for Event, City, State, Zip Code">
+				<input type="image" src="./images/btn_search.png" id="submitButton" name="submitButton">
+			</div>
+		</form>
+		
+		<form>
+			<div class="datePicker">
+				<input type="text" id="datepicker" onClick="showHint(this.value);" value="" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
+			</div>
+		</form>
+		
+		<div class="search-icons">
+			<a onclick="queryShows('sport');" >
+				<input class="sport" type="image" src="./images/w40/icon_marathonHD.png" id="subSport" name="subSport"/>
+			</a>
+			
+			<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+			
+			<a onclick="queryShows('concert');" >
+				<input class="concert" type="image" src="./images/w40/icon_concertHD.png" id="subConcert" name="subConcert"/>
+			</a>
+			
+			<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+			
+			<a onclick="queryShows('fair');" >
+				<input class="fair" type="image" src="./images/w40/icon_festivalHD.png" id="subFair" name="subFair"/>
+			</a>
+			
+			<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+			
+			<a onclick="queryShows('art');" >
+				<input class="art" type="image" src="./images/w40/icon_artEventHD.png" id="subArt" name="subArt"/>
+			</a>
+			
+			<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+			
+			<a onclick="queryShows('');" >
+				<input class="clearX" type="image" src="./images/clear.png" id="subClear" name="subClear"/>
+			</a>
 		</div>
-	</form>
-	
-	<form>
-		<div class="datePicker">
-			<input type="text" id="datepicker" onClick="showHint(this.value);" value="" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
-		</div>
-	</form>
-	
-	<div class="search-icons">
-		<a onclick="queryShows('sport');" >
-			<input class="sport" type="image" src="./images/w40/icon_marathonHD.png" id="subSport" name="subSport"/>
-		</a>
-		
-		<img class="spacer" alt="spacer" src="./images/spacer.png"/>
-		
-		<a onclick="queryShows('concert');" >
-			<input class="concert" type="image" src="./images/w40/icon_concertHD.png" id="subConcert" name="subConcert"/>
-		</a>
-		
-		<img class="spacer" alt="spacer" src="./images/spacer.png"/>
-		
-		<a onclick="queryShows('fair');" >
-			<input class="fair" type="image" src="./images/w40/icon_festivalHD.png" id="subFair" name="subFair"/>
-		</a>
-		
-		<img class="spacer" alt="spacer" src="./images/spacer.png"/>
-		
-		<a onclick="queryShows('art');" >
-			<input class="art" type="image" src="./images/w40/icon_artEventHD.png" id="subArt" name="subArt"/>
-		</a>
-		
-		<img class="spacer" alt="spacer" src="./images/spacer.png"/>
-		
-		<a onclick="queryShows('');" >
-			<input class="clearX" type="image" src="./images/clear.png" id="subClear" name="subClear"/>
-		</a>
 	</div>
-</div>
-<?PHP }?> 
+<?PHP } ?>
+ 
 <!-- <div class="date">
 	<div class="box">
 		<h1>
@@ -160,7 +155,7 @@
 				<img src="./images/btn_crtevent.png">
 			</a>
 		</div>
-	<?PHP }?> 
+	<?PHP } ?> 
 	 
 	<?PHP if(!$bool && !$pos !== false){ ?>
 		<div class="inbtn">

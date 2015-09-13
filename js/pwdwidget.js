@@ -83,7 +83,7 @@ function _MakePWDWidget()
 
 	this._showPasswordStrength = passwordStrength;
 
-	this.pwdfieldobj.onkeyup=function(){ this.pwdwidget._onKeyUpPwdFields(); }
+	this.pwdfieldobj.onkeyup=function(){ this.pwdwidget._onKeyUpPwdFields(); };
 
 	this._showGeneatedPwd = showGeneatedPwd;
 
@@ -91,7 +91,7 @@ function _MakePWDWidget()
 	
 	this.generate_anch_obj.pwdwidget=this;
 
-	this.generate_anch_obj.onclick = function(){ this.pwdwidget._showGeneatedPwd(); }
+	this.generate_anch_obj.onclick = function(){ this.pwdwidget._showGeneatedPwd(); };
 
 	this._showpwdchars = showpwdchars;
 
@@ -99,13 +99,13 @@ function _MakePWDWidget()
 
 	this.show_anch_obj.pwdwidget = this;
 
-	this.show_anch_obj.onclick = function(){ this.pwdwidget._showpwdchars();}
+	this.show_anch_obj.onclick = function(){ this.pwdwidget._showpwdchars();};
 
 	this.pwdtxtfield_obj = document.getElementById(this.pwdtxtfieldid);
 
 	this.pwdtxtfield_obj.pwdwidget=this;
 
-	this.pwdtxtfield_obj.onkeyup=function(){ this.pwdwidget._onKeyUpPwdFields(); }
+	this.pwdtxtfield_obj.onkeyup=function(){ this.pwdwidget._onKeyUpPwdFields(); };
 	
 
 	this._updatePwdFieldValues = updatePwdFieldValues;
@@ -184,7 +184,7 @@ function passwordStrength()
 	colors[5] = "#399800";
 
 	var pwdfield = this.pwdfieldobj;
-	var password = pwdfield.value
+	var password = pwdfield.value;
 
 	var score   = 0;
 
@@ -195,7 +195,7 @@ function passwordStrength()
 
 	if (password.match(/\d+/)){ score++;}
 
-	if ( password.match(/[^a-z\d]+/) )	{score++};
+	if ( password.match(/[^a-z\d]+/) )	{score++;}
 
 	if (password.length > 12){ score++;}
 	
@@ -232,7 +232,7 @@ function shuffleString(mystr)
 {
 	var arrPwd=mystr.split('');
 
-	for(i=0;i< mystr.length;i++)
+	for(var i=0;i< mystr.length;i++)
 	{
 		var r1= i;
 		var r2=getRand(mystr.length);
@@ -259,7 +259,7 @@ function generatePWD()
     var maxAlpha = 26;
 	var strSymbols="~!@#$%^&*(){}?><`=-|][";
 	var password='';
-	for(i=0;i<3;i++)
+	for(var i=0;i<3;i++)
 	{
 		password += String.fromCharCode("a".charCodeAt(0) + getRand(maxAlpha));
 	}

@@ -11,16 +11,15 @@
 	
 	$today = Date("Y-m-d");
 
-// 	$city = $fgmembersite->getCity();
-$city= $_SESSION["city"];
+	//$city = $fgmembersite->getCity();
+	$city = $_SESSION["city"];
 	//$city = 'el paso';
 
-	$sql = "SELECT Eid, Ebanner, Evename, Edisplay, Etype FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' AND Edisplay='1';";
+	$sql  = "SELECT Eid, Ebanner, Evename, Edisplay, Etype FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' AND Edisplay='1';";
 	$sql2 = "SELECT COUNT(*) AS' premiumEvents'num' FROM Events WHERE Ecity= '".$city."' ";
 	
-	$result = mysqli_query($con, $sql);
-	$result2= mysqli_query($con, $sql2);
-	
+	$result  = mysqli_query($con, $sql);
+	$result2 = mysqli_query($con, $sql2);
 	
 //	$query = "SELECT COUNT(*) as `num` FROM {$query}";
 //			$row = mysqli_fetch_array(mysqli_query($con, $query));

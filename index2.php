@@ -1,6 +1,6 @@
 <?PHP
-	$city=$_GET['city'];
-	$state=$_GET['state'];
+	$city = $_GET['city'];
+	$state = $_GET['state'];
 
 	session_start();
 	$_SESSION["city"] = $city;
@@ -73,31 +73,6 @@
 		</script>
 		
 		<script>
-			/* User types in search bar, this will send an HTTP request on the 
-			 * background to search the DB and get the result based on what the 
-			 * user typed
-			 */
-			//function showHint(str) {
-			//	if (str.length == 0){
-			//		document.getElementById("txtHint").innerHTML = "";
-			//		$(".my-events").show();
-			//		$(".this-week").show();
-			//		$(".schedule").show();
-			//		$(".chart").show();
-			//		$(".app").show();
-			//		return;
-			//	} else {
-			//		var xmlhttp = new XMLHttpRequest();
-			//		xmlhttp.onreadystatechange = function() {
-			//			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			//				document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-			//			}
-			//		}
-			//		xmlhttp.open("GET", "./getEvent.php?q=" + str, true);
-			//		xmlhttp.send();
-			//	}
-			//}
-			
 			/*When the '+' plus button on the chart section is clicked,
 			  it will be added to a list for the user on which they are related
 			  to them. The events are the ones the user likes and would like to 
@@ -134,45 +109,7 @@
 				});
 				var $freeEventsContainer = $("#events");
 				$freeEventsContainer.load("./insert.php?eid=" + str);
-				
-				//var xmlhttp = new XMLHttpRequest();
-				//xmlhttp.onreadystatechange = function() {
-				//	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				//		//document.getElementById("highlight").innerHTML = xmlhttp.responseText;
-				//		$(".chart .box .row .info").css({ "background": "#f05a28" });
-				//	}
-				//}
-				//xmlhttp.open("GET", "./insert.php?eid=" + str, true);
-				//xmlhttp.send();
 			}
-		</script>
-		
-		<script>
-			$(document).ready(function(){
-				//$("input").keydown(function(){
-				//	$(".my-events").hide();
-				//	$(".this-week").hide();
-				//	$(".schedule").hide();
-				//	$(".chart").hide();
-				//	$(".app").hide();
-				//});
-				
-				//$("#concert, #fair, #sport, #art").click(function(){
-				//	$(".my-events").hide();
-				//	$(".this-week").hide();
-				//	$(".schedule").hide();
-				//	$(".chart").hide();
-				//	$(".app").hide();
-				//});
-				
-				//$("#searchDate").change(function(){
-				//	$(".my-events").hide();
-				//	$(".this-week").hide();
-				//	$(".schedule").hide();
-				//	$(".chart").hide();
-				//	$(".app").hide();
-				//});
-			});
 		</script>
 		
 		<!--Displays by Event ID in a new page-->
