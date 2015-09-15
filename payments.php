@@ -11,9 +11,9 @@
 	// PayPal settings
 	$paypal_email = 'noemaildavis-facilitator@gmail.com';
 
-	$return_url = "http://eventprobe.com/eventDisplayPage.php?eid=".$newEventID."";
-	$cancel_url = 'http://eventprobe.com';
-	$notify_url = 'http://eventprobe.com/IPNS.php';
+	$return_url = "http://www.eventprobe.com/eventDisplayPage.php?eid=".$newEventID."";
+	$cancel_url = 'http://www.eventprobe.com';
+	$notify_url = 'http://www.eventprobe.com/IPNS.php';
 
 	// Include Functions
 	include("functions.php");
