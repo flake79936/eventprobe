@@ -32,7 +32,7 @@
 		//echo "newformat: " . $newformat . "<br>";
 		
 		//please do not add a semicolon at the end of this line, inside of the double quotes.
-		$statement = "Events WHERE EstartDate >= '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ORDER BY EstartDate ASC, EtimeStart "; 
+		$statement = "Events WHERE EstartDate = '" . $newformat . "' AND Ecity = '" . $city . "' AND Edisplay='1' AND (Erank='Free' OR Erank='Premium' OR Erank='Paid') ORDER BY EstartDate ASC, EtimeStart "; 
 		
 		$qry = "SELECT * FROM {$statement};";
 		$result = mysqli_query($con, $qry);
