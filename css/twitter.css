@@ -48,11 +48,15 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
 	.app .media img { float: none; max-device-width:250px; max-height:250px; }
 	.app .user a > span { float: none; width: 100%; margin: 0 0 0 0px; }
 	
-	.app .user { float: left; width: 26%; clear:left; }
+	.app .user, .app .tweet, .app .timePosted { word-wrap: break-word; }
+	
+	.app .user { float: left; width: 15%; clear:left; }
+	.app .user span span { width:100%; display:block; margin-top:10px; }
+	
 	.app .tweet { float:left; width: 40%; }
 	.app .timePosted { float:left; width: 20%; }
 	

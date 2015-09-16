@@ -33,7 +33,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
 	.footer {float: left; width: 100%; margin: 0 0 20px 0; }
 	.footer .footer { width: 100%; background: #f4f1ea; padding: 0; }
 	

@@ -83,8 +83,8 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
-.chart .box{ float: left; width: 100%; }
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+	.chart .box{ float: left; width: 100%; }
 	.chart .box .row{ background: #f4f1ea; width: 100%; }
 	.chart .box .row .profile{ width: 12%; height: auto; float: left; padding: 0; }
 	.chart .box .row .profile img{ width: 100%; height: 95px; }
@@ -92,6 +92,11 @@
 	.chart .box .title{ padding: 10px; }
 	.chart .box .title h1{ font-size: 24px; float: left; color: #323438; }
 	.chart .box .title a{ float: right; }
+	
+	.chart .box .a-row{ float: left; width: 100%; }
+	.chart .box .a-row .row-left{ width: 94%; }
+	.chart .box .a-row .row-left,
+	.chart .box .a-row .row-right{ float: left; padding: 15px 0; }
 	
 	.chart .box .row .cell{ width: 14%; float: left; text-align: center; padding: 12px 0 11px 0; }
 	.chart .box .row .cell h4{ color: #315fa9; }
@@ -114,9 +119,9 @@
 	.chart .box .row .info .box ul{ text-align: center; }
 	.chart .box .row .info .box ul li{ display: inline-block; list-style: none; }
 	
-	.chart .box .row .info  .etime, 
-	.chart .box .row .info  .ecity,
-	.chart .box .row .info  .ename{ margin: 5px 0 0 5px; }
+	.chart .box .row .info .etime, 
+	.chart .box .row .info .ecity,
+	.chart .box .row .info .ename{ margin: 5px 0 0 5px; }
 	
 	.chart .box .row .info .FB, 
 	.chart .box .row .info .TW, 

@@ -63,7 +63,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
 	.events .box{ float: left; width: 100%; }
 	.events .box .title{ float: left; width: 90%; padding: 15px 30px; }
 	.events .box .title h1{ font-size: 40px; float: left; color: #323438; }

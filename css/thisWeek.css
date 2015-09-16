@@ -24,7 +24,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px) {
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px) {
 	.this-week{ padding: 10px 0; }
 	.this-week .box{ float: left; width: 10%; text-align: center; }
 	.this-week .title{ width: 75% !important; }

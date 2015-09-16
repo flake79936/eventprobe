@@ -76,7 +76,7 @@ h6{ font-size: 11px; font-weight: normal; }
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
 	.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
 	.eventDisplayPage .content .dashboard, 
 	.eventDisplayPage .dashboard{ float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
@@ -85,7 +85,7 @@ h6{ font-size: 11px; font-weight: normal; }
 	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag,
 	.eventDisplayPage .content .dashboard .box .upper .upper-top .eDateTime,
 	.eventDisplayPage .content .dashboard .box .upper .upper-top .eDescription{ text-align: justify; width: 100%; word-wrap: break-word; text-transform: capitalize; padding: 0 0 10px 0; }	
-
+	
 	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .eName{ width: auto; float: left; }
 	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .dash{ width: auto; float: left; }
 	.eventDisplayPage .content .dashboard .box .upper .upper-top .eNameNHashtag .eHash{ color: #dc582a; }
@@ -98,7 +98,7 @@ h6{ font-size: 11px; font-weight: normal; }
 	
 	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook,
 	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter,
-	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: 21%; }
+	.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: auto; }
 	
 	.eventDisplayPage .content .dashboard .box .lower{ float: left; width: 45%; padding: 5px 0 25px 0; }
 	

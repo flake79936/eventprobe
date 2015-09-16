@@ -37,6 +37,7 @@
 .header .search form .datePicker{ float: left; width: 30%; }
 .header .search .search-icons{ float: left; width: 64%; }
 .header .search .search-icons a img { width: 14%; height: auto; }
+
 .header .search .search-icons .sport,
 .header .search .search-icons .concert,
 .header .search .search-icons .fair,
@@ -104,7 +105,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
 	.header{ /*border-bottom: 1px solid #595249;*/ }
 	.header .profile{ background: #e9e4d5; float: right; width: 20%; padding: 35px 35px 0 0; }
 
@@ -113,6 +114,7 @@
 	.header .profile .user a{ float: right; margin-top: 20px;}
 
 	.header .logo{ background: #e9e4d5; width: 275px; float: left; text-align: left; padding: 20px 0 20px 20px; width: 30%; }
+	.header .logo a img { width: 100%; }
 
 	.header .date .box{ width: 275px; margin: 0 auto; }
 	.header .date h1{ float: left; color: #2e3135; padding: 10px 30px 0 0; }
@@ -135,13 +137,35 @@
 	
 	.header .search form{ float: left; width: 100%; }
 	.header .search form .searchBar { float: left; width: 100%; }
-	.header .search form .datePicker{ float: left; width: 50%; }
+	.header .search form .datePicker{ float: left; width: 100%; }
 	.header .search form .search-icons{ float: left; width: 50%; }
 	.header .search form .search-icons a img { width: 14%; height: auto; }
-
+	
+	
+	.header .search .search-icons{ float: left; width: 100%; }
+	.header .search .search-icons .sport,
+	.header .search .search-icons .concert,
+	.header .search .search-icons .fair,
+	.header .search .search-icons .art,
+	.header .search .search-icons img.spacer,
+	.header .search .search-icons .clearX{ float: left; }
+	
+	.header .search form .searchBar input#submitButton{
+		float:                 left;
+		width:                 22%;
+		height:                auto;
+		border:                none;
+		padding:               0 0 0 0;
+		margin:                0 0 0 0;
+		outline:               none;
+		-moz-border-radius:    6px;
+		-webkit-border-radius: 6px;
+		-khtml-border-radius:  6px;
+		border-radius:         6px;
+	}
 	.header .search form .searchBar input{
 		float:                 left;
-		width:                 84%;
+		width:                 64%;
 		border:                1px solid #999;
 		padding:               10px;
 		font-size:             11pt;
@@ -155,11 +179,11 @@
 
 	.header .search form .datePicker input{
 		float:                 left;
-		width:                 146px;
+		width:                 90%;
 		border:                1px solid #999;
 		padding:               6px;
 		font-size:             10pt;
-		margin:                0 40px 5px 5px;
+		margin:                0 0 5px 5px;
 		outline:               none;
 		-moz-border-radius:    6px;
 		-webkit-border-radius: 6px;

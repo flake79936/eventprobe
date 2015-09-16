@@ -34,7 +34,7 @@ h6{ font-size: 11px; font-weight: normal; }
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px) {
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px) {
 	/* TYPOGRAPHY */
 	h1{ font-size: 26px; font-weight: normal; }
 	h2{ font-size: 24px; font-weight: normal; }

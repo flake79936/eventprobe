@@ -115,7 +115,7 @@ p{ line-height: normal; }
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
 	.editEvent{ background: #f4f1ea; float: left; width: 100%; }
 	
 	.editEvent .sidebar{ float: left; width: 95%; padding: 20px; }

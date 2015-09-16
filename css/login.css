@@ -38,7 +38,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 960px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
 	.form-wrap{ background: #FFF; float: left; width: 100%; }
 	.form-wrap .login{ text-align: center; padding: 25px 0px 25px 0px; width: 100%; }
 	.form-wrap .login .top-login{ text-align: center; width: 100%; }

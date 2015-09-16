@@ -87,11 +87,11 @@
 				<input class="art" type="image" src="./images/w40/icon_artEventHD.png" id="subArt" name="subArt"/>
 			</a>
 			
-			<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+			<!--<img class="spacer" alt="spacer" src="./images/spacer.png"/>-->
 			
-			<a onclick="queryShows('');" >
+			<!--<a onclick="queryShows('');" >
 				<input class="clearX" type="image" src="./images/clear.png" id="subClear" name="subClear"/>
-			</a>
+			</a>-->
 		</div>
 	</div>
 <?PHP } ?>

@@ -263,38 +263,38 @@
 										</div>
 										
 										<div class="eFacebook">
-											<?PHP if($row['Efacebook'] !== ""){ ?>
-												<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+											<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+												<?PHP if($row['Efacebook'] !== ""){ ?>
 													<a href="<?= $row['Efacebook'] ?>" target="_blank">
 														<img src="images/btn_fb.png" onMouseOver="this.src='images/btn_fbColor.png'" onMouseOut="this.src='images/btn_fb.png'" alt="Facebook" />
 													</a>
-												<?PHP } else { ?>
-													<div class="fb-share-button" data-href="http://eventprobe.com/eventDisplayPage.php?eid=<?= $newEventID ?>" data-layout="button_count"></div>
 												<?PHP } ?>
+											<?PHP } else { ?>
+												<div class="fb-share-button" data-href="http://eventprobe.com/eventDisplayPage.php?eid=<?= $newEventID ?>" data-layout="button_count"></div>
 											<?PHP } ?>
 										</div>
 										
 										<div class="eTwitter">
-											<?PHP if ($row['Etwitter'] !== ""){ ?>
-												<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+											<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+												<?PHP if ($row['Etwitter'] !== ""){ ?>
 													<a href="<?= $row['Etwitter'] ?>" target="_blank">
 														<img src="images/btn_twitter.png" onMouseOver="this.src='images/btn_twitterColor.png'" onMouseOut="this.src='images/btn_twitter.png'" alt="Twitter" />
 													</a>
-												<?PHP } else { ?>
-													<a class="twitter-share-button" data-href="https://twitter.com/intent/tweet?url=http://eventprobe.com/eventDisplayPage.php?eid=<?= $newEventID ?>" data-via="<?= $row['Ehashtag'] ?>">Tweet</a>
 												<?PHP } ?>
+											<?PHP } else { ?>
+												<a class="twitter-share-button" data-href="https://twitter.com/intent/tweet?url=http://eventprobe.com/eventDisplayPage.php?eid=<?= $newEventID ?>" data-via="<?= $row['Ehashtag'] ?>">Tweet</a>
 											<?PHP } ?>
 										</div>
 										
 										<div class="eGoogle">
-											<?PHP if ($row['Egoogle'] !== ""){ ?>
-												<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+											<?PHP if($fgmembersite->CheckSession() && ($usrname === $inDBUser)){ ?>
+												<?PHP if ($row['Egoogle'] !== ""){ ?>
 													<a href="<?= $row['Egoogle'] ?>" target="_blank">
 														<img src="images/btn_google.png" onMouseOver="this.src='images/btn_googleColor.png'" onMouseOut="this.src='images/btn_google.png'" alt="Google" />
 													</a>
-												<?PHP } else { ?>
-													<div class="g-plus" data-action="share" data-href="https://plus.google.com/share?url=http://eventprobe.com/eventDisplayPage.php?eid=<?= $newEventID ?>" data-annotation="bubble"></div>
-												<?PHP } ?>											
+												<?PHP } ?>
+											<?PHP } else { ?>
+												<div class="g-plus" data-action="share" data-href="https://plus.google.com/share?url=http://eventprobe.com/eventDisplayPage.php?eid=<?= $newEventID ?>" data-annotation="bubble"></div>
 											<?PHP } ?>
 										</div>
 									</div>
