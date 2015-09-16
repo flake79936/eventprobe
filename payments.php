@@ -9,7 +9,7 @@
 	($Erank=="Premium") ? $item_amount = 0.15 : $item_amount = 0.05;
 
 	// PayPal settings
-	$paypal_email = 'noemaildavis-facilitator@gmail.com';
+	$paypal_email = 'support@eventprobe.com';
 
 	$return_url = "http://www.eventprobe.com/eventDisplayPage.php?eid=".$newEventID."";
 	$cancel_url = 'http://www.eventprobe.com';
@@ -49,7 +49,7 @@
 		//$querystring .= "&custom=".USERID;
 
 		// Redirect to paypal IPN
-		header('location:https://www.sandbox.paypal.com/cgi-bin/webscr'.$querystring);
+		header('location:https://www.paypal.com/cgi-bin/webscr'.$querystring);
 		exit();
 	} else {
 		// Response from Paypal
@@ -78,7 +78,7 @@
 		$header .= "Content-Type: application/x-www-form-urlencoded\r\n";
 		$header .= "Content-Length: " . strlen($req) . "\r\n\r\n";
 
-		$fp = fsockopen ('ssl://www.sandbox.paypal.com', 443, $errno, $errstr, 30);	
+		$fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);	
 
 		if (!$fp) {
 			// HTTP ERROR
