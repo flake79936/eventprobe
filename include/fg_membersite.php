@@ -1865,7 +1865,7 @@ class FGMembersite{
 
 		if($remove_nl){
 			$injections = array('/(\n+)/i', '/(\r+)/i', '/(\t+)/i', '/(%0A+)/i',
-								'/(%0D+)/i', '/(%08+)/i', '/(%09+)/i', '/(%+)/i');
+								'/(%0D+)/i', '/(%08+)/i', '/(%09+)/i', '/(%2D+)/i', '/(%+)/i');
 			$str = preg_replace($injections, '', $str);
 		}
 		return $str;
