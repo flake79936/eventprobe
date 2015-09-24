@@ -88,7 +88,7 @@
 	
 	.schedule .today .row{ float: left; width: 100%; }
 	
-	.schedule .today .row .box-left{ width: 56%; }
+	.schedule .today .row .box-left{ width: 52%; }
 	.schedule .today .row .box-right{ width: 10%; }
 	
 	.schedule .today .row .box-left,

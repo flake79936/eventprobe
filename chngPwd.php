@@ -17,6 +17,8 @@
 	</head>
 	
 	<body>
+		<?php include_once("analyticstracking.php") ?>
+		
 		<div class="header">
 			<?PHP include './header.php'; ?>
 		</div>

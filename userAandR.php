@@ -23,6 +23,8 @@
 	</head>
 	
 	<body lang="en">
+		<?php include_once("analyticstracking.php") ?>
+		
 		<div class="wrap">
 			<div class="header">
 				<?PHP include './header.php';?>

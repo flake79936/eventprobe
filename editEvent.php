@@ -101,12 +101,8 @@
 								// the banner image input box
 								// the paypal buttons
 								$(".user-banner").show();
-								$(".payPalBtn").show();
-								$(".submitButton").hide();
 							} else {
 								$(".user-banner").hide();
-								$(".payPalBtn").hide();
-								$(".submitButton").show();
 							}
 						});
 					}).change();
@@ -130,6 +126,8 @@
 	</head>
 	
 	<body lang="en">
+		<?php include_once("analyticstracking.php") ?>
+		
 		<div class="header">
 			<?PHP include './header.php';?>
 		</div>
@@ -540,10 +538,6 @@
 							<!--Submit Button-->
 							<div class="submitButton">
 								<input type="image" name="Submit" src="./images/btn_update.png" value="" />
-							</div>
-							
-							<div class="payPalBtn">
-								<input type="image" name="submit" src="./images/checkout-logo-medium.png" alt="Check out with PayPal" />
 							</div>
 						<div class="clear"></div>
 						</div> <!-- End of content -->

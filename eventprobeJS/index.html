@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    
+    <!-- -->
+    <script src="./node_modules/jquery-1.11.3.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+  </head>
+
+  <body ng-app="app" class="container-fluid">
+    <!-- header -->
+    <top-header></top-header>
+    
+    <!-- my events section -->
+    <my-events></my-events>
+    
+    <!-- banner -->
+    <banr></banr>
+    
+    <!-- this week -->
+    <!--<this-week></this-week>-->
+    
+    <!-- schedule -->
+    <schedule></schedule>
+    
+    <!-- chart -->
+    <chart></chart>
+    
+    <!-- app -->
+    <social></social>
+    
+    <!-- links -->
+    <links></links>
+    
+    <!-- footer -->
+    <footer></footer>
+
+
+    <!-- AngularJS Dependecies -->
+    <script src="./node_modules/angular/angular.min.js"></script>
+    
+    <script src="./app.js"></script>
+    
+    <!-- Controller Dependecies -->
+    <script src="./banner/banner.controller.js"></script>
+    <script src="./chart/chart.controller.js"></script>
+    <script src="./footer/footer.controller.js"></script>
+    <script src="./header/header.controller.js"></script>
+    <script src="./links/links.controller.js"></script>
+    <script src="./myEvents/myEvents.controller.js"></script>
+    <script src="./schedule/schedule.controller.js"></script>
+    <script src="./social/social.controller.js"></script>    
+  </body>
+</html>

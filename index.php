@@ -133,5 +133,7 @@
 		</script> 
 	</head>
 	
-	<!--<body onload="initialize()"></body>-->
+	<body>
+		<?php include_once("analyticstracking.php") ?>
+	</body>
 </html>

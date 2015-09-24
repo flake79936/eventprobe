@@ -14,7 +14,7 @@
 	
 	$newEventID = $_GET['eid'];
 	include 'dbconnect.php';
-	echo "newEventID -> " . $newEventID . "<br/>";
+	//echo "newEventID -> " . $newEventID . "<br/>";
 	
 	$sql = "INSERT INTO ".$usrname."MyEvents(Eid) VALUES(".$newEventID.")";
 	//echo "Query -> " . $sql . "<br/>";

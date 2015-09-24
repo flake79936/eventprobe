@@ -31,8 +31,9 @@
 	while($row = mysqli_fetch_array($result)){
 		//day name of the date
 		$date = date_create($row['EstartDate']);
-		$EstartDate = substr(date_format($date, 'm/d/Y'), 0, 5);
-		$newStartTime =date("g:i a", strtotime($row['EtimeStart']));
+		
+		$EstartDate   = substr(date_format($date, 'm/d/Y'), 0, 5);
+		$newStartTime = date("g:i a", strtotime($row['EtimeStart']));
 		
 		$today = date("m/d/Y");
 		
