@@ -21,10 +21,10 @@
 	$minDate = date("Y-m-d");
 	
 	$today = Date("Y-m-d");
-	$sqlUpcoming = "SELECT * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate";
+	$sqlUpcoming = "SELECT  * FROM Events WHERE EstartDate >= '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate LIMIT 15";
 	$upcoming = mysqli_query($con, $sqlUpcoming);
 	
-	$sqlPast = "SELECT * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate DESC";
+	$sqlPast = "SELECT  * FROM Events WHERE EstartDate < '".$today."' AND UuserName = '".$usrname."' AND Edisplay='1' ORDER BY EstartDate DESC LIMIT 15";
 	$past = mysqli_query($con, $sqlPast);
 ?>
 
@@ -89,9 +89,10 @@
 								$("#paypal").val(1);
 							} else if($(this).attr("value") == "Paid"){
 								$(".payPalBtn").show();
+								$(".user-banner").hide();
 								$(".submitButton").hide();
 								$("#paypal").val(1);
-							}else {
+							} else {
 								$(".user-banner").hide();
 								$(".payPalBtn").hide();
 								$(".submitButton").show();
@@ -139,7 +140,7 @@
 		
 		<script>
 			$(function(){
-				$("#datepicker").datepicker({ minDate: 0, maxDate: "+1M +10D" });
+				$("#datepicker").datepicker({ minDate: 0, maxDate: "+12M" });
 			});
 		</script>
 		
@@ -160,6 +161,8 @@
 	</head>
 	
 	<body lang="en">
+		<?php include_once("analyticstracking.php") ?>
+	
 		<div class="header">
 			<?PHP include './header.php';?>
 		
@@ -499,14 +502,14 @@
 								<!--Start Time-->
 								<div class="sTimeEvent">
 									<h5 for="EtimeStart">Start Time</h5>
-									<input type="time" id="EtimeStart" name="EtimeStart" placeholder="hh:mm am/pm" maxlength="8" onkeydown="javascript:spaceBackDown(this, event);" onkeyup="javascript:spaceBackUP(this, event);"><br>
+									<input type="time" id="EtimeStart" name="EtimeStart" placeholder="hh:mm am/pm" maxlength="8"><br>
 									<span id="eventForm_EtimeStart_errorloc" class="error"></span>
 								</div>
 								
 								<!--End Time  -->
 								<div class="eTimeEvent">
 									<h5 for="EtimeEnd">End Time</h5>
-									<input type="time" name="EtimeEnd" id="EtimeEnd"><br>
+									<input type="time" name="EtimeEnd" id="EtimeEnd" placeholder="hh:mm am/pm"><br>
 									<span id="eventForm_EtimeEnd_errorloc" class="error"></span>
 								</div>
 
