@@ -9,8 +9,9 @@
 	($Erank=="Premium") ? $item_amount = 0.15 : $item_amount = 0.05;
 
 	// PayPal settings
-	$paypal_email = 'support@eventprobe.com';
-
+	//$paypal_email = 'support@eventprobe.com';
+	$paypal_email = 'noemaildavis-facilitator@paypal.com';
+	
 	$return_url = "http://www.eventprobe.com/eventDisplayPage.php?eid=".$newEventID."";
 	$cancel_url = 'http://www.eventprobe.com';
 	$notify_url = 'http://www.eventprobe.com/IPNS.php';
@@ -49,7 +50,9 @@
 		//$querystring .= "&custom=".USERID;
 
 		// Redirect to paypal IPN
-		header('location:https://www.paypal.com/cgi-bin/webscr'.$querystring);
+// 		header('location:https://www.paypal.com/cgi-bin/webscr'.$querystring);
+		header('location:https://www.sandbox.paypal.com/cgi-bin/webscr'.$querystring);
+		
 		exit();
 	} else {
 		// Response from Paypal
