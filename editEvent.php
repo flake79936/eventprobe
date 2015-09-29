@@ -119,7 +119,7 @@
 		
 		<script>
 			$(function(){
-				$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
+				$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+12M" });
 			});
 		</script>
 	<!--(End) Scripts-->
@@ -522,7 +522,7 @@
 									
 									<div class="twEvent">
 										<h5 for="Etwitter">Twitter</h5>
-										<input type="text" name="Etwitter" placeholder="@USERNAME" title="?" id="Etwitter" value="<?php echo $row['Etwitter']; ?>" maxlength="500"><br>
+										<input type="text" name="Etwitter" pattern="https?://twitter.com/.+" title="Twitter URLs only" placeholder="https://twitter.com/username" id="Etwitter" value="<?php echo $fgmembersite->SafeDisplay('Etwitter') ?>" maxlength="500"><br>
 										<span id="event_Etwitter_errorloc" class="error"></span>
 									</div>
 									

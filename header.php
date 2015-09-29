@@ -1,13 +1,16 @@
 <!--Module-->
 
-<link rel="stylesheet" type="text/css" href="./css/jquery-ui.css" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="./js/jquery-ui.js"></script>
-<script>
-	$(function(){
-		$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+1M +10D" });
-	});
-</script>
+<head>
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/jquery-ui.css" />
+	<script type="text/javascript" src="./js/jquery-ui.js"></script>
+		
+	<script>
+		$(function(){
+			$( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+12M" });
+		});
+	</script>
+</head>
 
 <?PHP
 	require_once("./include/membersite_config.php");
@@ -58,40 +61,43 @@
 			</div>
 		</form>
 		
-		<form>
-			<div class="datePicker">
-				<input type="text" id="datepicker" onClick="showHint(this.value);" value="" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
+		<!--<form>
+			<div class="picker">
+				<input type="text" id="datepicker" onChange="showHint(this.value);" value="" min="<?PHP echo $minDate; ?>" title="Pick A Date To Filter By">
 			</div>
-		</form>
+		</form>-->
+		
 		
 		<div class="search-icons">
-			<a onclick="queryShows('sport');" >
-				<input class="sport" type="image" src="./images/w40/icon_marathonHD.png" id="subSport" name="subSport"/>
-			</a>
-			
-			<img class="spacer" alt="spacer" src="./images/spacer.png"/>
-			
-			<a onclick="queryShows('concert');" >
-				<input class="concert" type="image" src="./images/w40/icon_concertHD.png" id="subConcert" name="subConcert"/>
-			</a>
-			
-			<img class="spacer" alt="spacer" src="./images/spacer.png"/>
-			
-			<a onclick="queryShows('fair');" >
-				<input class="fair" type="image" src="./images/w40/icon_festivalHD.png" id="subFair" name="subFair"/>
-			</a>
-			
-			<img class="spacer" alt="spacer" src="./images/spacer.png"/>
-			
-			<a onclick="queryShows('art');" >
-				<input class="art" type="image" src="./images/w40/icon_artEventHD.png" id="subArt" name="subArt"/>
-			</a>
-			
-			<!--<img class="spacer" alt="spacer" src="./images/spacer.png"/>-->
-			
-			<!--<a onclick="queryShows('');" >
-				<input class="clearX" type="image" src="./images/clear.png" id="subClear" name="subClear"/>
-			</a>-->
+			<center>
+				<a onclick="queryShows('sport');" >
+					<input class="sport" type="image" src="./images/w40/icon_marathonHD.png" id="subSport" name="subSport"/>
+				</a>
+				
+				<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+				
+				<a onclick="queryShows('concert');" >
+					<input class="concert" type="image" src="./images/w40/icon_concertHD.png" id="subConcert" name="subConcert"/>
+				</a>
+				
+				<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+				
+				<a onclick="queryShows('fair');" >
+					<input class="fair" type="image" src="./images/w40/icon_festivalHD.png" id="subFair" name="subFair"/>
+				</a>
+				
+				<img class="spacer" alt="spacer" src="./images/spacer.png"/>
+				
+				<a onclick="queryShows('art');" >
+					<input class="art" type="image" src="./images/w40/icon_artEventHD.png" id="subArt" name="subArt"/>
+				</a>
+				
+				<!--<img class="spacer" alt="spacer" src="./images/spacer.png"/>-->
+				
+				<!--<a onclick="queryShows('');" >
+					<input class="clearX" type="image" src="./images/clear.png" id="subClear" name="subClear"/>
+				</a>-->
+			</center>
 		</div>
 	</div>
 <?PHP } ?>

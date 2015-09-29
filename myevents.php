@@ -90,11 +90,12 @@
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
 					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-						//document.getElementById("myEventsData").innerHTML = xmlhttp.responseText;
-						document.getElementById("myEventsData").innerHTML = "reverse";
+						document.getElementById("myEventsData").innerHTML = xmlhttp.responseText;
+						//document.getElementById("myEventsData").innerHTML = "reverse";
 					}
 				};
 				xmlhttp.open("GET", "loadEvents.php?s=" + s, true);
+				xmlhttp.send();
 			}
 		}
 		

@@ -14,7 +14,7 @@ h4{ font-size: 14px; font-weight: normal; }
 h5{ font-size: 12px; font-weight: normal; }
 h6{ font-size: 11px; font-weight: normal; }
 
-.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
+.eventDisplayPage{ background: #FFF; padding: 0% 3%; float: left; }
 .eventDisplayPage .content .dashboard, 
 .eventDisplayPage .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
 .eventDisplayPage .content .dashboard .box{ float: left; width: 100%; padding: 5px 0 5px 5px; }
@@ -42,11 +42,11 @@ h6{ font-size: 11px; font-weight: normal; }
 
 .eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook,
 .eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter,
-.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: 15%; }
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle{ float: left; width: auto; padding: 5px 0 0 2px; }
 
 .eventDisplayPage .content .dashboard .box .lower .socialLinks .eFacebook img,
 .eventDisplayPage .content .dashboard .box .lower .socialLinks .eTwitter img,
-.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle img { width: 40%; }
+.eventDisplayPage .content .dashboard .box .lower .socialLinks .eGoogle img { width: 40%; height: auto; float: left; padding: 0 0 0 0;}
 
 .eventDisplayPage .content .dashboard .box .lower .defaultPic{ width: 6%; float: left; }
 .eventDisplayPage .content .dashboard .box .lower .defaultPic img{ width: 100%; }
@@ -77,7 +77,7 @@ h6{ font-size: 11px; font-weight: normal; }
  * Google Nexus 7 				-> 960 x 600
  */
 @media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
-	.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
+	.eventDisplayPage{ background: #FFF; padding: 0% 3%; }
 	.eventDisplayPage .content .dashboard, 
 	.eventDisplayPage .dashboard{ float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 30px;}
@@ -140,7 +140,7 @@ h6{ font-size: 11px; font-weight: normal; }
  * Nokia Lumia 520 				-> 320 x 533
  */
 @media only screen and (min-device-width: 213px) and (max-device-width: 720px){
-	.eventDisplayPage{ background: #e4dfcd; padding: 0% 3%; }
+	.eventDisplayPage{ background: #FFF; padding: 0% 3%; }
 	.eventDisplayPage .content .dashboard, 
 	.eventDisplayPage .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
 	.eventDisplayPage .content .dashboard .box{float: none; width: 100%; padding-left: 3px;}

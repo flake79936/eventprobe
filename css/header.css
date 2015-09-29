@@ -34,8 +34,8 @@
 .header .search{ float:left; padding: 35px 0 10px 0; width: 36%; }
 
 .header .search form .searchBar { float: left; width: 100%; }
-.header .search form .datePicker{ float: left; width: 30%; }
-.header .search .search-icons{ float: left; width: 64%; }
+.header .search form .picker{ float: left; width: 30%; }
+.header .search .search-icons{ float: left; width: 100%; }
 .header .search .search-icons a img { width: 14%; height: auto; }
 
 .header .search .search-icons .sport,
@@ -52,7 +52,7 @@
 
 .header .search form .searchBar input#submitButton{
 	float:                 left;
-	width:                 14%;
+	width:                 11%;
 	height:                auto;
 	border:                none;
 	padding:               0 0 0 0;
@@ -78,7 +78,7 @@
 	border-radius:         6px;
 }
 
-.header .search form .datePicker input{
+.header .search form .picker input{
 	float:                 left;
 	width:                 80%;
 	border:                1px solid #999;
@@ -137,7 +137,7 @@
 	
 	.header .search form{ float: left; width: 100%; }
 	.header .search form .searchBar { float: left; width: 100%; }
-	.header .search form .datePicker{ float: left; width: 100%; }
+	.header .search form .picker{ float: left; width: 100%; }
 	.header .search form .search-icons{ float: left; width: 50%; }
 	.header .search form .search-icons a img { width: 14%; height: auto; }
 	
@@ -177,7 +177,7 @@
 		border-radius:         6px;
 	}
 
-	.header .search form .datePicker input{
+	.header .search form .picker input{
 		float:                 left;
 		width:                 90%;
 		border:                1px solid #999;
@@ -262,7 +262,7 @@
 	
 	.header .search{ float: left; padding-top: 5px; width: 100%; text-align: center; }
 	.header .search form .searchBar,
-	.header .search form .datePicker{ float: left; margin: 0 20px; width: 90%; }
+	.header .search form .picker{ float: left; margin: 0 20px; width: 90%; }
 	.header .search form .search-icons{ float: left; width: 90%; margin: 0 20px 0; }
 	.header .search form .search-icons a img { width: 12%; height: auto; }
 	.header .search .image{ margin-top: 10px; }
@@ -285,7 +285,7 @@
 	}
 	
 	.header .search form .searchBar input, 
-	.header .search form .datePicker input{
+	.header .search form .picker input{
 		float:                 left;
 		border:                1px solid #999;
 		padding:               10px;
@@ -300,5 +300,5 @@
 	
 	.header .search form .searchBar input{ width: 73%; }
 	
-	.header .search form .datePicker input{ width: 89%; }
+	.header .search form .picker input{ width: 89%; }
 }
