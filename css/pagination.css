@@ -31,7 +31,7 @@ ul.pagination a:hover, ul.pagination a.current { background:#0d7963; color:#fff;
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 
 }
 
@@ -55,7 +55,7 @@ ul.pagination a:hover, ul.pagination a.current { background:#0d7963; color:#fff;
  * Apple iPhone 5 				-> 320 x 568
  * Nokia Lumia 520 				-> 320 x 533
  */
-@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
 	ul.pagination { text-align:center; color:#829994; }
 
 	ul.pagination li { display:inline; padding:0 3px; }

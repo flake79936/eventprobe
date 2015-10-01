@@ -63,7 +63,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	.events .box{ float: left; width: 100%; }
 	.events .box .title{ float: left; width: 90%; padding: 15px 30px; }
 	.events .box .title h1{ font-size: 40px; float: left; color: #323438; }
@@ -126,7 +126,7 @@
  * Apple iPhone 5 				-> 320 x 568
  * Nokia Lumia 520 				-> 320 x 533
  */
-@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
 	.events .box .title{ padding: 10px; float: left; width: 92%; text-align: center; }
 	
 	.events .box{ float: left; width: 100%; }

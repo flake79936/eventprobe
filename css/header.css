@@ -50,9 +50,10 @@
 .header .search .search-icons form.fair{  }
 .header .search .search-icons form.art{  }
 
-.header .search form .searchBar input#submitButton{
+.header .search form .searchBar .submitButton{ width: 11%; float: left; }
+
+.header .search form .searchBar .submitButton input#submitButton {
 	float:                 left;
-	width:                 11%;
 	height:                auto;
 	border:                none;
 	padding:               0 0 0 0;
@@ -64,7 +65,7 @@
 	border-radius:         6px;
 }
 
-.header .search form .searchBar input{
+.header .search form .searchBar input#qry{
 	float:                 left;
 	width:                 78%;
 	border:                1px solid #999;
@@ -105,7 +106,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 	.header{ /*border-bottom: 1px solid #595249;*/ }
 	.header .profile{ background: #e9e4d5; float: right; width: 20%; padding: 35px 35px 0 0; }
 
@@ -150,9 +151,10 @@
 	.header .search .search-icons img.spacer,
 	.header .search .search-icons .clearX{ float: left; }
 	
-	.header .search form .searchBar input#submitButton{
+	.header .search form .searchBar .submitButton{ width: 18%; }
+
+	.header .search form .searchBar .submitButton input#submitButton {
 		float:                 left;
-		width:                 22%;
 		height:                auto;
 		border:                none;
 		padding:               0 0 0 0;
@@ -163,7 +165,8 @@
 		-khtml-border-radius:  6px;
 		border-radius:         6px;
 	}
-	.header .search form .searchBar input{
+	
+	.header .search form .searchBar input#qry{
 		float:                 left;
 		width:                 64%;
 		border:                1px solid #999;
@@ -214,7 +217,7 @@
  * Apple iPhone 5 				-> 320 x 568
  * Nokia Lumia 520 				-> 320 x 533
  */
-@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
 	.header .profile{ background: #e9e4d5; float: left; width: 100%; padding: 0 0 0 0px; text-align: center; }
 	
 	.header .profile .user{ float: none; width: auto; height: auto; padding: 15px 0 15px 15px; }
@@ -248,6 +251,8 @@
 	
 	.header .logo{ width: 90%; padding: 10px 20px 0; text-align: center; }
 	
+	.header .logo img#logo{ width: 100%; }
+	
 	.header .date{ float: none; width: auto; height: auto; padding-top: 0; text-align: center; }
 	
 	.header .date h1{ font-size: 24px; float: left; color: #2e3135; padding: 10px 30px 0 0; }
@@ -268,11 +273,10 @@
 	.header .search .image{ margin-top: 10px; }
 	.header .search .box { margin: 0px 500px; float:left; }
 	
-	.header .search form .searchBar #submitButton { float: left; width: 30%; }
-	
-	.header .search form .searchBar input#submitButton{
+	.header .search form .searchBar .submitButton{ width: 15%;}
+
+	.header .search form .searchBar .submitButton input#submitButton {
 		float:                 left;
-		width:                 15%;
 		height:                auto;
 		border:                none;
 		padding:               0 0 0 0;
@@ -284,7 +288,7 @@
 		border-radius:         6px;
 	}
 	
-	.header .search form .searchBar input, 
+	.header .search form .searchBar input#qry, 
 	.header .search form .picker input{
 		float:                 left;
 		border:                1px solid #999;
@@ -298,7 +302,7 @@
 		border-radius:         6px;
 	}
 	
-	.header .search form .searchBar input{ width: 73%; }
+	.header .search form .searchBar input#qry{ width: 73%; }
 	
 	.header .search form .picker input{ width: 89%; }
 }

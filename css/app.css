@@ -29,7 +29,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	.app{ background: #e4dfcd; padding: 0% 3%; }
 	.app .left{ float: left; width: 50%; }
 	.app .right{ float: right; width: 50%; padding-top: 25px; }

@@ -83,7 +83,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	.chart .box{ float: left; width: 100%; }
 	.chart .box .row{ background: #f4f1ea; width: 100%; }
 	.chart .box .row .profile{ width: 12%; height: auto; float: left; padding: 0; }
@@ -158,7 +158,7 @@
  * Apple iPhone 4 				-> 320 x 480
  * Apple iPhone 5 				-> 320 x 568
  * Nokia Lumia 520 				-> 320 x 533
- */@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+ */@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
 	.chart .box{ float: left; width: 100%; }
 	
 	.chart .box .title{ padding: 10px; }

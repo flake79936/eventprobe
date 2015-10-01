@@ -12,7 +12,7 @@
 	<div class="clear"></div>
 	<!-- 	</div> -->
 	<div class="user">
-		<div class="box"> </div>
+		<div class="box"></div>
 		<div class="clear"></div>
 	</div>
 </div>

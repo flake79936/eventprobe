@@ -50,14 +50,18 @@
 ?>
 
 <div class="logo">
-	<a href="./index.php"><img src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" /></a>
+	<a href="./index.php">
+		<img id="logo" src="images/logo.png" onmouseover="this.src='images/logo2.png'" onmouseout="this.src='images/logo.png'" alt="Logo" />
+	</a>
 </div>
 <?PHP if(!$pos2 !== false){ ?>
 	<div class="search">
 		<form action="./getEvent.php" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 			<div class="searchBar">
 				<input type="text" name="qry" id="qry" placeholder="Search for Event, City, State, Zip Code">
-				<input type="image" src="./images/btn_search.png" id="submitButton" name="submitButton">
+				<div class="submitButton">
+					<input type="image" src="./images/btn_search.png" id="submitButton" name="submitButton">
+				</div>
 			</div>
 		</form>
 		

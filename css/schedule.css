@@ -40,7 +40,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	.schedule .map{ float: left; width: 39%; margin: 0 auto; }
 	.schedule .map iframe{ float: left; width: 100%; height: 390px; }
 	.schedule .today{ float: left; width: 61%; }
@@ -76,7 +76,7 @@
  * Apple iPhone 5 				-> 320 x 568
  * Nokia Lumia 520 				-> 320 x 533
  */
-@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
 	.schedule .leftSide{ float: left; width: 98% }
 	.schedule .leftSide .map{ float: left; width: 100%; height: auto; }
 	.schedule .leftSide .map iframe{ float: left; width: 100%; height: 390px; }

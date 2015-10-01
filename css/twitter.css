@@ -48,7 +48,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	.app .media img { float: none; max-device-width:250px; max-height:250px; }
 	.app .user a > span { float: none; width: 100%; margin: 0 0 0 0px; }
 	
@@ -90,7 +90,7 @@
  * Apple iPhone 5 				-> 320 x 568
  * Nokia Lumia 520 				-> 320 x 533
  */
-@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
 	.app h2 { clear:both; }
 	
 	.app p, a { font-size:9pt; margin:10px 0 0 0; color:#3d3d3d; }

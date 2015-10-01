@@ -27,7 +27,7 @@
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	.links{ float: left; background: #f4f1ea; padding: 30px 0px 30px 0px; width: 100%; }
 	
 	.links h3{ color: #282826; font-size:20px }
@@ -60,7 +60,7 @@
  * Apple iPhone 5 				-> 320 x 568
  * Nokia Lumia 520 				-> 320 x 533
  */
-@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
 	.links{ float: left; background: #f4f1ea; width: 100%; text-align: center; padding: 25px 0px 0px 0px; }
 	.links h3{ color: #282826; font-size:20px }
 	.links p{ color: #282826; width: 800px}

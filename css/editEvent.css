@@ -115,7 +115,7 @@ p{ line-height: normal; }
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	.editEvent{ background: #f4f1ea; float: left; width: 100%; }
 	
 	.editEvent .sidebar{ float: left; width: 95%; padding: 20px; }
@@ -227,7 +227,7 @@ p{ line-height: normal; }
  * Apple iPhone 5 				-> 320 x 568
  * Nokia Lumia 520 				-> 320 x 533
  */
-@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
 	.editEvent .sidebar{ float: float; width: 89%; padding: 15px 15px 40px 15px; }
 	.editEvent .sidebar .btn-event img{ width: 100%; padding: 0; }
 	

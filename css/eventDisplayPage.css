@@ -76,7 +76,7 @@ h6{ font-size: 11px; font-weight: normal; }
  * 
  * Google Nexus 7 				-> 960 x 600
  */
-@media only screen and (min-device-width: 761px) and (max-device-width: 1280px){
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
 	.eventDisplayPage{ background: #FFF; padding: 0% 3%; }
 	.eventDisplayPage .content .dashboard, 
 	.eventDisplayPage .dashboard{ float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
@@ -139,7 +139,7 @@ h6{ font-size: 11px; font-weight: normal; }
  * Apple iPhone 5 				-> 320 x 568
  * Nokia Lumia 520 				-> 320 x 533
  */
-@media only screen and (min-device-width: 213px) and (max-device-width: 720px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px){
 	.eventDisplayPage{ background: #FFF; padding: 0% 3%; }
 	.eventDisplayPage .content .dashboard, 
 	.eventDisplayPage .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
