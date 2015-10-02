@@ -73,7 +73,7 @@
 		
 		
 		<div class="search-icons">
-			<center>
+			<div class="center">
 				<a onclick="queryShows('sport');" >
 					<input class="sport" type="image" src="./images/w40/icon_marathonHD.png" id="subSport" name="subSport"/>
 				</a>
@@ -101,7 +101,7 @@
 				<!--<a onclick="queryShows('');" >
 					<input class="clearX" type="image" src="./images/clear.png" id="subClear" name="subClear"/>
 				</a>-->
-			</center>
+			</div>
 		</div>
 	</div>
 <?PHP } ?>

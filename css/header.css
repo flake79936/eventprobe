@@ -230,8 +230,6 @@
 	
 	.header .profile .username{ float: left; color: #554e45; padding: 10px 0 0 100px; }
 	
-	.header .search .search-icons{ float: left; width: 74%; text-align: center; padding-left: 50px; }
-	
 	.header .profile .search{ float: none; height: auto; border-left: none; padding: 30px; text-align:center; }
 	.header .profile .search form{ border: 1px solid #595249; padding: 2px; }
 	.header .profile .search input{ background: #d2c9ab; padding: 10px; border: none; float: left; color: #ff0000; font-size: 16px; outline: none; }
@@ -265,10 +263,14 @@
 	
 	.header .date{ font-family: Arial, Helvetica, sans-serif; font-size:18pt;  float: left; width: 350px; padding-top: 35px; }
 	
-	.header .search{ float: left; padding-top: 5px; width: 100%; text-align: center; }
+	.header .search{ width: 100%; float: left; padding-top: 5px; }
+	
+	.header .search .search-icons{ float: left; width: 90%; margin: 0 20px; }
+	
+	.header .search .search-icons .center{ width: 61%; margin: 0 auto; }
+
 	.header .search form .searchBar,
 	.header .search form .picker{ float: left; margin: 0 20px; width: 90%; }
-	.header .search form .search-icons{ float: left; width: 90%; margin: 0 20px 0; }
 	.header .search form .search-icons a img { width: 12%; height: auto; }
 	.header .search .image{ margin-top: 10px; }
 	.header .search .box { margin: 0px 500px; float:left; }
