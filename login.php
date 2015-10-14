@@ -34,7 +34,8 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		
 		<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
-
+		<script type="text/javascript" src="js/fbLoginJS.js"></script>
+		
 		<script>
 			function showHint(str) {
 				if (str.length == 0) {
@@ -115,11 +116,16 @@
 								</a>
 							</div>
 						</div>
+
 						<div class="btn-fb">
-							<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
+							<!--<a href="https://www.facebook.com/dialog/oauth?client_id=861882643830735&amp;redirect_uri=http://www.eventprobe.com/?fbTrue=true">
 								<img src="./images/login-button.png" alt="Sign in with Facebook">
-							</a>
+							</a>-->
+							
+							<!--<fb:login-button scope="public_profile, email" onlogin="checkLoginState();"></fb:login-button>
+							<div id="status"></div>-->
 						</div>
+
 					</div>
 				</div>
 			</form>

@@ -14,7 +14,7 @@ h4{ font-size: 14px; font-weight: normal; }
 h5{ font-size: 12px; font-weight: normal; }
 h6{ font-size: 11px; font-weight: normal; }
 
-.eventDisplayPage{ background: #FFF; padding: 0% 3%; float: left; }
+.eventDisplayPage{ background: #FFF; padding: 0% 3%; float: left; width: 94%; }
 .eventDisplayPage .content .dashboard, 
 .eventDisplayPage .dashboard{float: left; width: 100%; margin: 0 0 0 0; background: #FFFFFF; }
 .eventDisplayPage .content .dashboard .box{ float: left; width: 100%; padding: 5px 0 5px 5px; }

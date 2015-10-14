@@ -144,7 +144,7 @@
 		<div class="clear"></div>
 		
 		<!--My Events Section-->
-		<?PHP if($fgmembersite->CheckSession()){ ?>
+		<?PHP if($fgmembersite->CheckSession() || $fgmembersite->){ ?>
 			<div class="my-events">
 				<?PHP include './myEvents.php'; ?>
 			</div>
