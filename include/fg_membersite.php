@@ -586,9 +586,9 @@ class FGMembersite{
 				"Estate CHAR(10) NOT NULL,".
 				"Ezip INT(5) NOT NULL,".
 				"EphoneNumber VARCHAR(50),".
-				"Edescription VARCHAR(26) NOT NULL,".
+				"Edescription VARCHAR(500) NOT NULL,".
 				"Etype VARCHAR(26) NOT NULL,".
-				"Ewebsite VARCHAR(26) NOT NULL,".
+				"Ewebsite VARCHAR(500) NOT NULL,".
 				"Ehashtag CHAR(255),".
 				"Efacebook CHAR(255),".
 				"Etwitter CHAR(255),".
