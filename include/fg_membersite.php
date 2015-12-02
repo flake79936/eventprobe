@@ -642,7 +642,7 @@ class FGMembersite{
         || ($_FILES["Eflyer"]["type"] == "image/JPG")
         
         ) 
-        && ($_FILES["Eflyer"]["size"] < 7000000)) //set image size
+        && ($_FILES["Eflyer"]["size"] < 8000000)) //set image size
         {
         	if ($_FILES["Eflyer"]["error"] > 0) {
 //          	   echo "Return Code: " . $_FILES["Eflyer"]["error"] . "<br />";
@@ -690,7 +690,7 @@ class FGMembersite{
 			|| ($_FILES["Ebanner"]["type"] == "image/JPEG") 
 			|| ($_FILES["Ebanner"]["type"] == "image/PNG") 
 			|| ($_FILES["Ebanner"]["type"] == "image/JPG")
-			) && ($_FILES["Ebanner"]["size"] < 5000000)) //set image size
+			) && ($_FILES["Ebanner"]["size"] < 8000000)) //set image size
 			{
 				if ($_FILES["Ebanner"]["error"] > 0) {
 					//echo "Return Code: " . $_FILES["Ebanner"]["error"] . "<br />";
