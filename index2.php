@@ -144,11 +144,11 @@
 		<div class="clear"></div>
 		
 		<!--My Events Section-->
-		<?PHP if($fgmembersite->CheckSession() || $fgmembersite->){ ?>
+		<?PHP //if($fgmembersite->CheckSession() || $fgmembersite->){ ?>
 			<div class="my-events">
 				<?PHP include './myEvents.php'; ?>
 			</div>
-		<?PHP } ?>
+		<?PHP //} ?>
 
 		<!--Banner  Section-->
 		<div class="banner">
