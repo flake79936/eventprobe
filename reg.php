@@ -35,6 +35,7 @@
 		
 		<!--Other Scripts-->
 		<script type="text/javascript" src="scripts/gen_validatorv31.js"></script>
+		<script type="text/javascript" src="./js/formatPhone.js"></script>
 		
 		<script type="text/javascript">
 			$(document).ready(function(){
@@ -61,7 +62,8 @@
 									//Result.html('<span class="success">Available</span>');
 									Result.html('<span class="error">Taken</span>');
 								} else {
-									alert('Problem with sql query... ' + responseText);
+									// alert('Problem with sql query... ' + responseText);
+									Result.html('<span class="error">Available</span>');
 								}
 							}
 						});
@@ -127,9 +129,10 @@
 							</div>
 							<div class="regTel">
 								<h5>Phone</h5>
-								<input type="tel" placeholder="999-999-9999" name="Uphone" title='Phone Number (Format: 999-999-9999)' id="Uphone" pattern='\d{3}[\-]\d{3}[\-]\d{4}' value="<?php echo $fgmembersite->SafeDisplay("Uphone") ?>" maxlength="12" /><br/>
+								<input type='tel' name="Uphone" id="Uphone" title='Phone Number (Format: (999) 999-9999)' maxlength="16" placeholder="(999) 999-9999" onkeydown="javascript:backspacerDOWN(this, event);" onkeyup="javascript:backspacerUP(this, event);"><br />
 								<span id="register_Uphone_errorloc" class="error"></span>
 							</div>
+							
 							<div class="regImage">
 								<h5>User Image</h5>
 								<img id="uploadPreview" style="width: 200px; height: 200px;" />

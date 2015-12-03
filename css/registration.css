@@ -15,23 +15,24 @@ h6{ font-size: 11px; font-weight: normal; }
 
 p{ line-height: normal; }
 
-.reg{ background: #FFFFFF; }
-.reg .content{ float: left; width: auto; /*background: url(../images/bg_shadow.png) repeat-y left #fff;*/ padding: 50px;  }
-.reg .content .form-wrap{ border-bottom: 1px solid #999; padding: 30px 0; }
+.reg{ background: #FFFFFF; border-bottom: 1px solid #999; }
+.reg .content{ margin-right: auto; margin-left: auto; padding-left: 15px; padding-right: 15px; }
+.reg .content .form-wrap{ padding: 30px 0; }
 
-.reg .content .form-wrap .box{ float: left; width: 300px; }
-.reg .content .form-wrap .box .regFirst{ float: none; width: auto; }
-.reg .content .form-wrap .box .regLast{ float: none; width: auto; }
-.reg .content .form-wrap .box .regUser{ float: none; width: auto; }
-.reg .content .form-wrap .box .regPass{ float: none; width: auto; }
-.reg .content .form-wrap .box .regConPass{ float: none; width: auto; }
-.reg .content .form-wrap .box .regEmail{ float: none; width: auto; }
-.reg .content .form-wrap .box .regTel{ float: none; width: auto; }
-.reg .content .form-wrap .box .regImage{ float: none; width: auto; }
-.reg .content .form-wrap .box .regSubmit{ float: none; width: auto; }
+.reg .content .form-wrap .box{ float: left; width: 100%; }
+
+.reg .content .form-wrap .box .regFirst,
+.reg .content .form-wrap .box .regLast,
+.reg .content .form-wrap .box .regUser,
+.reg .content .form-wrap .box .regPass,
+.reg .content .form-wrap .box .regConPass,
+.reg .content .form-wrap .box .regEmail,
+.reg .content .form-wrap .box .regTel,
+.reg .content .form-wrap .box .regImage,
+.reg .content .form-wrap .box .regSubmit { float: left; width: 50%; }
 
 .reg .content .form-wrap h5{ font-weight: bold; text-transform: uppercase; margin-bottom: 0px; }
-.reg .content .form-wrap .box input{ width: 95%; border: 1px solid #999; padding: 10px; margin-bottom: 10px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
+.reg .content .form-wrap .box input{ width: 90%; border: 1px solid #999; padding: 10px; margin-bottom: 10px; outline: none; -moz-border-radius: 6px; -webkit-border-radius: 6px; -khtml-border-radius: 6px; border-radius: 6px; }
 
 .reg .content .form-wrap .box .error{
 	font-family: Arial, Helvetica, sans-serif;
@@ -61,6 +62,16 @@ p{ line-height: normal; }
 	.reg .content{ float: none; width: auto; background: #fff; padding: 50px; box-shadow: 0 2px 4px #555; }
 
 	.reg .content .form-wrap .box .wrap .type{ width: 210px; }
+	
+	.reg .content .form-wrap .box .regFirst{ float: none; width: auto; }
+	.reg .content .form-wrap .box .regLast{ float: none; width: auto; }
+	.reg .content .form-wrap .box .regUser{ float: none; width: auto; }
+	.reg .content .form-wrap .box .regPass{ float: none; width: auto; }
+	.reg .content .form-wrap .box .regConPass{ float: none; width: auto; }
+	.reg .content .form-wrap .box .regEmail{ float: none; width: auto; }
+	.reg .content .form-wrap .box .regTel{ float: none; width: auto; }
+	.reg .content .form-wrap .box .regImage{ float: none; width: auto; }
+	.reg .content .form-wrap .box .regSubmit{ float: none; width: auto; }
 
 	.reg .content .form-wrap select{ width: 100%; }
 
