@@ -43,6 +43,16 @@ CREATE TABLE Events(
 	PRIMARY KEY(Eid, UuserName)
 );
 
+	CREATE TABLE payment(
+	EId int(10) NOT NULL PRIMARY KEY,
+	Pamount int(10) NOT NULL,
+	Pcurrency VARCHAR(5) NOT NULL,
+	Ptrxn_id VARCHAR(20) NOT NULL,
+	Pdate varchar(20) NOT NULL,
+	Pstatus VARCHAR(15) NOT NULL	
+);
+		
+
 
 
 USERNAME:admindev
