@@ -15,7 +15,7 @@
 	$city = $_SESSION["city"];
 	//$city = 'el paso';
 
-	$sql  = "SELECT Eid, Ebanner, Evename, Edisplay, Etype FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' AND Edisplay='1';";
+	$sql  = "SELECT Eid, Ebanner, Evename, Edisplay, Etype FROM Events WHERE Ecity= '".$city."' AND  EstartDate >= '".$today."' AND Erank='Premium' AND Edisplay='1' ORDER BY EstartDate;";
 	$sql2 = "SELECT COUNT(*) AS' premiumEvents'num' FROM Events WHERE Ecity= '".$city."' ";
 	
 	$result  = mysqli_query($con, $sql);
