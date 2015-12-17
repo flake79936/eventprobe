@@ -92,11 +92,12 @@
 			function state_abbr($name, $get = 'abbr') {
 			//make sure the state name has correct capitalization:
 				if($get != 'name') {
-				$name = strtolower($name);
-				$name = ucwords($name);
+					$name = strtolower($name);
+					$name = ucwords($name);
 				}else{
-				$name = strtoupper($name);
+					$name = strtoupper($name);
 				}
+				
 					$states = array(
 					'Alabama'=>'AL',
 					'Alaska'=>'AK',
@@ -149,14 +150,16 @@
 					'Wisconsin'=>'WI',
 					'Wyoming'=>'WY'
 					);
+					
 				if($get == 'name') {
-				// in this case $name is actually the abbreviation of the state name and you want the full name
-			$states = array_flip($states);
+					// in this case $name is actually the abbreviation of the state name and you want the full name
+					$states = array_flip($states);
 				}
-
-			return $states[$name];
+				
+				return empty($states[$name]) ? $name : $states[$name];
 			}
-				$state=$var;
+			
+				$state = $var;
 				$var = state_abbr($state);
 				
 				$var = "'.*" . $var . ".*'";
