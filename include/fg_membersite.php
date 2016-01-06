@@ -1031,7 +1031,10 @@ class FGMembersite{
 		. 'Ewebsite = "' . $this->SanitizeForSQL($formvars['Ewebsite']) . '", Ehashtag = "' . $this->SanitizeForSQL($formvars['Ehashtag']) . '", ' 
 		. 'Efacebook = "' . $this->SanitizeForSQL($formvars['Efacebook']) . '", Etwitter = "' . $this->SanitizeForSQL($formvars['Etwitter']) . '", ' 
 		. 'Egoogle = "' . $this->SanitizeForSQL($formvars['Egoogle']) . '", '
-		. (($formvars['Eflyer'] !== null) ? ('Eflyer = "' . $this->SanitizeForSQL($formvars['Eflyer'])) . '", ' : "") 
+		. (($formvars['Eflyer'] !== null) ? ('Eflyer = "' . $this->SanitizeForSQL($formvars['Eflyer'])) . '", ' : "")
+		
+		. (($formvars['Ebanner'] !== null) ? ('Ebanner = "' . $this->SanitizeForSQL($formvars['Ebanner'])) . '", ' : "")
+		 
 		. (($formvars['Etype'] === 'Other') ? ('Eother = "' . $this->SanitizeForSQL($formvars['Eother'])) . '", ' : "")
 		. 'EtimeStart = "' . $this->SanitizeForSQL($newStartTime) . '", ' 
 		. 'EtimeEnd = "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '", Elat = "' . $this->SanitizeForSQL($lat) . '", ' 
