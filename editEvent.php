@@ -369,11 +369,15 @@
 												}
 											?>
 											<h5 for="Ebanner">Banner</h5>
+											
+											
 											<input id="bannerImage" accept="image/*" value="<?php echo $row['Ebanner']; ?>" type="file" name="Ebanner" onchange="banImage();" />
 											<p>(recommended size 1349px x 300px)</p><br>
 											<span id="eventForm_Ebanner_errorloc" class="error"></span>
 										</div>
 										<img id="uploadBanner" src="<?php echo $row['Ebanner']; ?>"/>
+										
+										
 									</div>
 									
 									<div class="locEvent">
@@ -590,6 +594,8 @@
 			}
 		</script>
 		
+		
+		
 		<script type="text/javascript">
 			function banImage(){
 				var oFReaderz = new FileReader();
@@ -613,5 +619,6 @@
 				This portion is not functional yet*/
    			}
 		</script>
+
 	</body>
 </html>

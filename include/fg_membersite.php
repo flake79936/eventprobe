@@ -888,6 +888,11 @@ class FGMembersite{
 		if($itemPicture != false){
 			$formvars['Eflyer'] = $this->upLoadPic();
 		}
+				
+		$picBanner = $this->upLoadBanner();
+		if($picBanner != false){
+			$formvars['Ebanner'] = $this->upLoadBanner();
+		}
 		
 		$this->CollectUpdatedSubmission($formvars);
 		
@@ -1031,11 +1036,9 @@ class FGMembersite{
 		. 'Ewebsite = "' . $this->SanitizeForSQL($formvars['Ewebsite']) . '", Ehashtag = "' . $this->SanitizeForSQL($formvars['Ehashtag']) . '", ' 
 		. 'Efacebook = "' . $this->SanitizeForSQL($formvars['Efacebook']) . '", Etwitter = "' . $this->SanitizeForSQL($formvars['Etwitter']) . '", ' 
 		. 'Egoogle = "' . $this->SanitizeForSQL($formvars['Egoogle']) . '", '
-		. (($formvars['Eflyer'] !== null) ? ('Eflyer = "' . $this->SanitizeForSQL($formvars['Eflyer'])) . '", ' : "")
-		
-		. (($formvars['Ebanner'] !== null) ? ('Ebanner = "' . $this->SanitizeForSQL($formvars['Ebanner'])) . '", ' : "")
-		 
-		. (($formvars['Etype'] === 'Other') ? ('Eother = "' . $this->SanitizeForSQL($formvars['Eother'])) . '", ' : "")
+		. (($formvars['Eflyer']  !== null) ? ('Eflyer = "' .  $this->SanitizeForSQL($formvars['Eflyer'])) .  '", ' : "")
+		. (($formvars['Ebanner'] !== null) ? ('Ebanner = "' . $this->SanitizeForSQL($formvars['Ebanner'])). '",  ': "")
+		. (($formvars['Etype'] === 'Other') ? ('Eother = "' . $this->SanitizeForSQL($formvars['Eother'])) . '",  ': "")
 		. 'EtimeStart = "' . $this->SanitizeForSQL($newStartTime) . '", ' 
 		. 'EtimeEnd = "' . $this->SanitizeForSQL($formvars['EtimeEnd']) . '", Elat = "' . $this->SanitizeForSQL($lat) . '", ' 
 		. 'Elong = "' . $this->SanitizeForSQL($long) . '", Erank = "' . $this->SanitizeForSQL($formvars['Erank']) . '"' 
